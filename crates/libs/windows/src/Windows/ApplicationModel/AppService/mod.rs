@@ -1,3 +1,250 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceCatalogStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceCatalogStatics {
+    type Vtable = IAppServiceCatalogStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0d2507_d132_4c85_8395_3c31d5a1e941);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceCatalogStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindAppServiceProvidersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindAppServiceProvidersAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceClosedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceClosedEventArgs {
+    type Vtable = IAppServiceClosedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceClosedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppServiceClosedStatus) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceConnection(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceConnection {
+    type Vtable = IAppServiceConnection_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceConnection_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AppServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetAppServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub PackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    OpenAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SendMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SendMessageAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub RequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestReceived: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveRequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveRequestReceived: usize,
+    #[cfg(feature = "Foundation")]
+    pub ServiceClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ServiceClosed: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveServiceClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveServiceClosed: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceConnection2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceConnection2 {
+    type Vtable = IAppServiceConnection2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceConnection2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
+    pub OpenRemoteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotesystemconnectionrequest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "System_RemoteSystems")))]
+    OpenRemoteAsync: usize,
+    #[cfg(feature = "System")]
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    User: usize,
+    #[cfg(feature = "System")]
+    pub SetUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    SetUser: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceConnectionStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceConnectionStatics {
+    type Vtable = IAppServiceConnectionStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc56ce9_d408_5673_8637_827a4b274168);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceConnectionStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
+    pub SendStatelessMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connection: *mut ::core::ffi::c_void, connectionrequest: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "System_RemoteSystems")))]
+    SendStatelessMessageAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceDeferral(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceDeferral {
+    type Vtable = IAppServiceDeferral_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceDeferral_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceRequest {
+    type Vtable = IAppServiceRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Message: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SendResponseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SendResponseAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceRequestReceivedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceRequestReceivedEventArgs {
+    type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceResponse(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceResponse {
+    type Vtable = IAppServiceResponse_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceResponse_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Message: usize,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppServiceResponseStatus) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceTriggerDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails {
+    type Vtable = IAppServiceTriggerDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceTriggerDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AppServiceConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceTriggerDetails2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails2 {
+    type Vtable = IAppServiceTriggerDetails2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceTriggerDetails2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsRemoteSystemConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceTriggerDetails3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails3 {
+    type Vtable = IAppServiceTriggerDetails3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceTriggerDetails3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CheckCallerForCapabilityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CheckCallerForCapabilityAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppServiceTriggerDetails4(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails4 {
+    type Vtable = IAppServiceTriggerDetails4_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppServiceTriggerDetails4_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CallerRemoteConnectionToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IStatelessAppServiceResponse(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IStatelessAppServiceResponse {
+    type Vtable = IStatelessAppServiceResponse_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStatelessAppServiceResponse_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Message: usize,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StatelessAppServiceResponseStatus) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 pub struct AppServiceCatalog;
 impl AppServiceCatalog {
@@ -92,42 +339,6 @@ impl ::core::convert::From<&AppServiceClosedEventArgs> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AppServiceClosedStatus(pub i32);
-impl AppServiceClosedStatus {
-    pub const Completed: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const ResourceLimitsExceeded: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AppServiceClosedStatus {}
-impl ::core::clone::Clone for AppServiceClosedStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppServiceClosedStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AppServiceClosedStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
 pub struct AppServiceConnection(::windows::core::IUnknown);
@@ -357,50 +568,6 @@ impl<'a> ::core::convert::TryFrom<&AppServiceConnection> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for AppServiceConnection {}
 unsafe impl ::core::marker::Sync for AppServiceConnection {}
-#[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AppServiceConnectionStatus(pub i32);
-impl AppServiceConnectionStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AppNotInstalled: Self = Self(1i32);
-    pub const AppUnavailable: Self = Self(2i32);
-    pub const AppServiceUnavailable: Self = Self(3i32);
-    pub const Unknown: Self = Self(4i32);
-    pub const RemoteSystemUnavailable: Self = Self(5i32);
-    pub const RemoteSystemNotSupportedByApp: Self = Self(6i32);
-    pub const NotAuthorized: Self = Self(7i32);
-    pub const AuthenticationError: Self = Self(8i32);
-    pub const NetworkNotAvailable: Self = Self(9i32);
-    pub const DisabledByPolicy: Self = Self(10i32);
-    pub const WebServiceUnavailable: Self = Self(11i32);
-}
-impl ::core::marker::Copy for AppServiceConnectionStatus {}
-impl ::core::clone::Clone for AppServiceConnectionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppServiceConnectionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AppServiceConnectionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
 pub struct AppServiceDeferral(::windows::core::IUnknown);
@@ -726,49 +893,6 @@ unsafe impl ::core::marker::Send for AppServiceResponse {}
 unsafe impl ::core::marker::Sync for AppServiceResponse {}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AppServiceResponseStatus(pub i32);
-impl AppServiceResponseStatus {
-    pub const Success: Self = Self(0i32);
-    pub const Failure: Self = Self(1i32);
-    pub const ResourceLimitsExceeded: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
-    pub const RemoteSystemUnavailable: Self = Self(4i32);
-    pub const MessageSizeTooLarge: Self = Self(5i32);
-    pub const AppUnavailable: Self = Self(6i32);
-    pub const AuthenticationError: Self = Self(7i32);
-    pub const NetworkNotAvailable: Self = Self(8i32);
-    pub const DisabledByPolicy: Self = Self(9i32);
-    pub const WebServiceUnavailable: Self = Self(10i32);
-}
-impl ::core::marker::Copy for AppServiceResponseStatus {}
-impl ::core::clone::Clone for AppServiceResponseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppServiceResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AppServiceResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
-#[repr(transparent)]
 pub struct AppServiceTriggerDetails(::windows::core::IUnknown);
 impl AppServiceTriggerDetails {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -878,253 +1002,6 @@ impl ::core::convert::From<&AppServiceTriggerDetails> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for AppServiceTriggerDetails {}
 unsafe impl ::core::marker::Sync for AppServiceTriggerDetails {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceCatalogStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceCatalogStatics {
-    type Vtable = IAppServiceCatalogStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0d2507_d132_4c85_8395_3c31d5a1e941);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceCatalogStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindAppServiceProvidersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, appservicename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindAppServiceProvidersAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceClosedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceClosedEventArgs {
-    type Vtable = IAppServiceClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceClosedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppServiceClosedStatus) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceConnection {
-    type Vtable = IAppServiceConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceConnection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AppServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetAppServiceName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub PackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub OpenAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OpenAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SendMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SendMessageAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub RequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestReceived: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveRequestReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRequestReceived: usize,
-    #[cfg(feature = "Foundation")]
-    pub ServiceClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ServiceClosed: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveServiceClosed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveServiceClosed: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceConnection2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceConnection2 {
-    type Vtable = IAppServiceConnection2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceConnection2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
-    pub OpenRemoteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, remotesystemconnectionrequest: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System_RemoteSystems")))]
-    OpenRemoteAsync: usize,
-    #[cfg(feature = "System")]
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    User: usize,
-    #[cfg(feature = "System")]
-    pub SetUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    SetUser: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceConnectionStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceConnectionStatics {
-    type Vtable = IAppServiceConnectionStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc56ce9_d408_5673_8637_827a4b274168);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceConnectionStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Collections", feature = "System_RemoteSystems"))]
-    pub SendStatelessMessageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connection: *mut ::core::ffi::c_void, connectionrequest: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "System_RemoteSystems")))]
-    SendStatelessMessageAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceDeferral {
-    type Vtable = IAppServiceDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceRequest {
-    type Vtable = IAppServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Message: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SendResponseAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SendResponseAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceRequestReceivedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceRequestReceivedEventArgs {
-    type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceRequestReceivedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceResponse(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceResponse {
-    type Vtable = IAppServiceResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceResponse_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Message: usize,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AppServiceResponseStatus) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails {
-    type Vtable = IAppServiceTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub CallerPackageFamilyName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AppServiceConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceTriggerDetails2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails2 {
-    type Vtable = IAppServiceTriggerDetails2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceTriggerDetails2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsRemoteSystemConnection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceTriggerDetails3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails3 {
-    type Vtable = IAppServiceTriggerDetails3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd71e21_7939_4e68_9e3c_7780147aabb6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceTriggerDetails3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub CheckCallerForCapabilityAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capabilityname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CheckCallerForCapabilityAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppServiceTriggerDetails4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppServiceTriggerDetails4 {
-    type Vtable = IAppServiceTriggerDetails4_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppServiceTriggerDetails4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CallerRemoteConnectionToken: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IStatelessAppServiceResponse(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IStatelessAppServiceResponse {
-    type Vtable = IStatelessAppServiceResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStatelessAppServiceResponse_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Message: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Message: usize,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut StatelessAppServiceResponseStatus) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
 pub struct StatelessAppServiceResponse(::windows::core::IUnknown);
@@ -1208,6 +1085,129 @@ impl ::core::convert::From<&StatelessAppServiceResponse> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
+#[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AppServiceClosedStatus(pub i32);
+impl AppServiceClosedStatus {
+    pub const Completed: Self = Self(0i32);
+    pub const Canceled: Self = Self(1i32);
+    pub const ResourceLimitsExceeded: Self = Self(2i32);
+    pub const Unknown: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AppServiceClosedStatus {}
+impl ::core::clone::Clone for AppServiceClosedStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AppServiceClosedStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AppServiceClosedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppServiceClosedStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceClosedStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AppServiceConnectionStatus(pub i32);
+impl AppServiceConnectionStatus {
+    pub const Success: Self = Self(0i32);
+    pub const AppNotInstalled: Self = Self(1i32);
+    pub const AppUnavailable: Self = Self(2i32);
+    pub const AppServiceUnavailable: Self = Self(3i32);
+    pub const Unknown: Self = Self(4i32);
+    pub const RemoteSystemUnavailable: Self = Self(5i32);
+    pub const RemoteSystemNotSupportedByApp: Self = Self(6i32);
+    pub const NotAuthorized: Self = Self(7i32);
+    pub const AuthenticationError: Self = Self(8i32);
+    pub const NetworkNotAvailable: Self = Self(9i32);
+    pub const DisabledByPolicy: Self = Self(10i32);
+    pub const WebServiceUnavailable: Self = Self(11i32);
+}
+impl ::core::marker::Copy for AppServiceConnectionStatus {}
+impl ::core::clone::Clone for AppServiceConnectionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AppServiceConnectionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AppServiceConnectionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppServiceConnectionStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceConnectionStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AppServiceResponseStatus(pub i32);
+impl AppServiceResponseStatus {
+    pub const Success: Self = Self(0i32);
+    pub const Failure: Self = Self(1i32);
+    pub const ResourceLimitsExceeded: Self = Self(2i32);
+    pub const Unknown: Self = Self(3i32);
+    pub const RemoteSystemUnavailable: Self = Self(4i32);
+    pub const MessageSizeTooLarge: Self = Self(5i32);
+    pub const AppUnavailable: Self = Self(6i32);
+    pub const AuthenticationError: Self = Self(7i32);
+    pub const NetworkNotAvailable: Self = Self(8i32);
+    pub const DisabledByPolicy: Self = Self(9i32);
+    pub const WebServiceUnavailable: Self = Self(10i32);
+}
+impl ::core::marker::Copy for AppServiceResponseStatus {}
+impl ::core::clone::Clone for AppServiceResponseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AppServiceResponseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AppServiceResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppServiceResponseStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.AppService.AppServiceResponseStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -1,63 +1,11 @@
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CIMTYPE_ENUMERATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_ILLEGAL: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4095i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_EMPTY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_SINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_UINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_SINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_UINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(18i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_SINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_UINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(19i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_SINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_UINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_REAL32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_REAL64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_STRING: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_DATETIME: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(101i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_REFERENCE: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(102i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_CHAR16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(103i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_OBJECT: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(13i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const CIM_FLAG_ARRAY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8192i32);
-impl ::core::marker::Copy for CIMTYPE_ENUMERATION {}
-impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: ::core::option::Option<&u16>, extendederror: ::core::option::Option<&mut *mut MI_Instance>, application: &mut MI_Application) -> MI_Result {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
     }
-}
-impl ::core::default::Default for CIMTYPE_ENUMERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CIMTYPE_ENUMERATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CIMTYPE_ENUMERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CIMTYPE_ENUMERATION").field(&self.0).finish()
-    }
+    MI_Application_InitializeV1(flags, ::core::mem::transmute(applicationid), ::core::mem::transmute(extendederror), ::core::mem::transmute(application))
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 #[repr(transparent)]
@@ -8426,6 +8374,3292 @@ pub struct IWbemUnsecuredApartment_Vtbl {
     pub base__: IUnsecuredApartment_Vtbl,
     pub CreateSinkStub: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psink: *mut ::core::ffi::c_void, dwflags: u32, wszreserved: ::windows::core::PCWSTR, ppstub: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CALL_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CHAR_TYPE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_ANY: u32 = 127u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_ASSOCIATION: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_BORROW: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_CLASS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_DISABLEOVERRIDE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_ENABLEOVERRIDE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_EXPENSIVE: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_EXTENDED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_IN: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_INDICATION: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_KEY: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_METHOD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_NOT_MODIFIED: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_NULL: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_OUT: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_PARAMETER: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_PROPERTY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_READONLY: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_REFERENCE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_REQUIRED: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_RESTRICTED: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_STATIC: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_STREAM: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_TERMINAL: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_TOSUBCLASS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_TRANSLATABLE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_FLAG_VERSION: u32 = 469762048u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_DESCRIPTIONS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_FILTER_SUPPORT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_FULL_RTTI: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_NO_RTTI: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY: u32 = 384u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: &str = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: &str = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
+pub const MofCompiler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
+pub const SWbemDateTime: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
+pub const SWbemEventSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemLastError: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2feeeac_cfcd_11d1_8b05_00600806d9b6);
+pub const SWbemLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a64158_cb41_11d1_8b02_00600806d9b6);
+pub const SWbemMethod: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5b_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemMethodSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5a_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemNamedValue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d60_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemNamedValueSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9aed384e_ce8b_11d1_8b05_00600806d9b6);
+pub const SWbemObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d62_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemObjectEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6bdafb2_9435_491f_bb87_6aa0f0bc31a2);
+pub const SWbemObjectPath: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5791bc26_ce9c_11d1_97bf_0000f81e849c);
+pub const SWbemObjectSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d61_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemPrivilege: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67bc_5804_11d2_8b4a_00600806d9b6);
+pub const SWbemPrivilegeSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67be_5804_11d2_8b4a_00600806d9b6);
+pub const SWbemProperty: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5d_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemPropertySet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5c_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemQualifier: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemQualifierSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemRefreshableItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
+pub const SWbemRefresher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
+pub const SWbemSecurity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
+pub const SWbemServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
+pub const SWbemServicesEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e522dc_8cf3_40a8_8b2e_37d595651e40);
+pub const SWbemSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
+pub const UnsecuredApartment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMS_DISPID_COMPLETED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMS_DISPID_CONNECTION_READY: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMS_DISPID_DERIVATION: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMS_DISPID_OBJECT_PUT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMS_DISPID_OBJECT_READY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
+pub const WMIExtension: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
+pub const WbemAdministrativeLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
+pub const WbemAuthenticatedLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
+pub const WbemBackupRestore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
+pub const WbemClassObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
+pub const WbemContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
+pub const WbemDCOMTransport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
+pub const WbemDecoupledBasicEventProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
+pub const WbemDecoupledRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
+pub const WbemDefPath: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
+pub const WbemLevel1Login: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
+pub const WbemLocalAddrRes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
+pub const WbemLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
+pub const WbemObjectTextSrc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
+pub const WbemQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
+pub const WbemRefresher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
+pub const WbemStatusCodeText: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
+pub const WbemUnauthenticatedLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
+pub const WbemUninitializedClassObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CIMTYPE_ENUMERATION(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_ILLEGAL: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4095i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_EMPTY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_SINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_UINT8: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_SINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_UINT16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(18i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_SINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_UINT32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(19i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_SINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_UINT64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_REAL32: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_REAL64: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_BOOLEAN: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_STRING: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_DATETIME: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(101i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_REFERENCE: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(102i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_CHAR16: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(103i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_OBJECT: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(13i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const CIM_FLAG_ARRAY: CIMTYPE_ENUMERATION = CIMTYPE_ENUMERATION(8192i32);
+impl ::core::marker::Copy for CIMTYPE_ENUMERATION {}
+impl ::core::clone::Clone for CIMTYPE_ENUMERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CIMTYPE_ENUMERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CIMTYPE_ENUMERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CIMTYPE_ENUMERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CIMTYPE_ENUMERATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_CallbackMode(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
+impl ::core::marker::Copy for MI_CallbackMode {}
+impl ::core::clone::Clone for MI_CallbackMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_CallbackMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_CallbackMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_CallbackMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_CallbackMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_CancellationReason(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REASON_TIMEOUT: MI_CancellationReason = MI_CancellationReason(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REASON_SHUTDOWN: MI_CancellationReason = MI_CancellationReason(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REASON_SERVICESTOP: MI_CancellationReason = MI_CancellationReason(3i32);
+impl ::core::marker::Copy for MI_CancellationReason {}
+impl ::core::clone::Clone for MI_CancellationReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_CancellationReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_CancellationReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_CancellationReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_CancellationReason").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_DestinationOptions_ImpersonationType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DestinationOptions_ImpersonationType_Default: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DestinationOptions_ImpersonationType_None: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DestinationOptions_ImpersonationType_Identify: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DestinationOptions_ImpersonationType_Impersonate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DestinationOptions_ImpersonationType_Delegate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(4i32);
+impl ::core::marker::Copy for MI_DestinationOptions_ImpersonationType {}
+impl ::core::clone::Clone for MI_DestinationOptions_ImpersonationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_DestinationOptions_ImpersonationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_DestinationOptions_ImpersonationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_DestinationOptions_ImpersonationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_DestinationOptions_ImpersonationType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_ErrorCategory(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = MI_ErrorCategory(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_OPEN_ERROR: MI_ErrorCategory = MI_ErrorCategory(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_CLOS_EERROR: MI_ErrorCategory = MI_ErrorCategory(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_DEVICE_ERROR: MI_ErrorCategory = MI_ErrorCategory(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_DEADLOCK_DETECTED: MI_ErrorCategory = MI_ErrorCategory(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_INVALID_ARGUMENT: MI_ErrorCategory = MI_ErrorCategory(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_INVALID_DATA: MI_ErrorCategory = MI_ErrorCategory(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_INVALID_OPERATION: MI_ErrorCategory = MI_ErrorCategory(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_INVALID_RESULT: MI_ErrorCategory = MI_ErrorCategory(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_INVALID_TYPE: MI_ErrorCategory = MI_ErrorCategory(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_METADATA_ERROR: MI_ErrorCategory = MI_ErrorCategory(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_NOT_IMPLEMENTED: MI_ErrorCategory = MI_ErrorCategory(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_NOT_INSTALLED: MI_ErrorCategory = MI_ErrorCategory(12i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_OBJECT_NOT_FOUND: MI_ErrorCategory = MI_ErrorCategory(13i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_OPERATION_STOPPED: MI_ErrorCategory = MI_ErrorCategory(14i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_OPERATION_TIMEOUT: MI_ErrorCategory = MI_ErrorCategory(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_SYNTAX_ERROR: MI_ErrorCategory = MI_ErrorCategory(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_PARSER_ERROR: MI_ErrorCategory = MI_ErrorCategory(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_ACCESS_DENIED: MI_ErrorCategory = MI_ErrorCategory(18i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_RESOURCE_BUSY: MI_ErrorCategory = MI_ErrorCategory(19i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_RESOURCE_EXISTS: MI_ErrorCategory = MI_ErrorCategory(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_RESOURCE_UNAVAILABLE: MI_ErrorCategory = MI_ErrorCategory(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_READ_ERROR: MI_ErrorCategory = MI_ErrorCategory(22i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_WRITE_ERROR: MI_ErrorCategory = MI_ErrorCategory(23i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_FROM_STDERR: MI_ErrorCategory = MI_ErrorCategory(24i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_SECURITY_ERROR: MI_ErrorCategory = MI_ErrorCategory(25i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_PROTOCOL_ERROR: MI_ErrorCategory = MI_ErrorCategory(26i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_CONNECTION_ERROR: MI_ErrorCategory = MI_ErrorCategory(27i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MI_ErrorCategory = MI_ErrorCategory(28i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_LIMITS_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(29i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_QUOTA_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(30i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ERRORCATEGORY_NOT_ENABLED: MI_ErrorCategory = MI_ErrorCategory(31i32);
+impl ::core::marker::Copy for MI_ErrorCategory {}
+impl ::core::clone::Clone for MI_ErrorCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_ErrorCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_ErrorCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_ErrorCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_ErrorCategory").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_LocaleType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = MI_LocaleType(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_LOCALE_TYPE_REQUESTED_DATA: MI_LocaleType = MI_LocaleType(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
+impl ::core::marker::Copy for MI_LocaleType {}
+impl ::core::clone::Clone for MI_LocaleType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_LocaleType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_LocaleType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_LocaleType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_LocaleType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_OperationCallback_ResponseType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(3i32);
+impl ::core::marker::Copy for MI_OperationCallback_ResponseType {}
+impl ::core::clone::Clone for MI_OperationCallback_ResponseType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_OperationCallback_ResponseType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_OperationCallback_ResponseType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_OperationCallback_ResponseType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_OperationCallback_ResponseType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_PromptType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
+impl ::core::marker::Copy for MI_PromptType {}
+impl ::core::clone::Clone for MI_PromptType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_PromptType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_PromptType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_PromptType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_PromptType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_ProviderArchitecture(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(1i32);
+impl ::core::marker::Copy for MI_ProviderArchitecture {}
+impl ::core::clone::Clone for MI_ProviderArchitecture {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_ProviderArchitecture {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_ProviderArchitecture {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_ProviderArchitecture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_ProviderArchitecture").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_Result(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_OK: MI_Result = MI_Result(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_FAILED: MI_Result = MI_Result(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_ACCESS_DENIED: MI_Result = MI_Result(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_NAMESPACE: MI_Result = MI_Result(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_PARAMETER: MI_Result = MI_Result(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_CLASS: MI_Result = MI_Result(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_NOT_FOUND: MI_Result = MI_Result(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_NOT_SUPPORTED: MI_Result = MI_Result(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_CLASS_HAS_CHILDREN: MI_Result = MI_Result(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_CLASS_HAS_INSTANCES: MI_Result = MI_Result(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_SUPERCLASS: MI_Result = MI_Result(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_ALREADY_EXISTS: MI_Result = MI_Result(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_NO_SUCH_PROPERTY: MI_Result = MI_Result(12i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_TYPE_MISMATCH: MI_Result = MI_Result(13i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_QUERY_LANGUAGE_NOT_SUPPORTED: MI_Result = MI_Result(14i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_QUERY: MI_Result = MI_Result(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_METHOD_NOT_AVAILABLE: MI_Result = MI_Result(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_METHOD_NOT_FOUND: MI_Result = MI_Result(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_NAMESPACE_NOT_EMPTY: MI_Result = MI_Result(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_ENUMERATION_CONTEXT: MI_Result = MI_Result(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_INVALID_OPERATION_TIMEOUT: MI_Result = MI_Result(22i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_PULL_HAS_BEEN_ABANDONED: MI_Result = MI_Result(23i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_PULL_CANNOT_BE_ABANDONED: MI_Result = MI_Result(24i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MI_Result = MI_Result(25i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MI_Result = MI_Result(26i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_SERVER_LIMITS_EXCEEDED: MI_Result = MI_Result(27i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = MI_Result(28i32);
+impl ::core::marker::Copy for MI_Result {}
+impl ::core::clone::Clone for MI_Result {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_Result {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_Result {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_Result {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_Result").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_SubscriptionDeliveryType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(2i32);
+impl ::core::marker::Copy for MI_SubscriptionDeliveryType {}
+impl ::core::clone::Clone for MI_SubscriptionDeliveryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_SubscriptionDeliveryType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_SubscriptionDeliveryType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_SubscriptionDeliveryType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MI_Type(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT8: MI_Type = MI_Type(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT8: MI_Type = MI_Type(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT16: MI_Type = MI_Type(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT16: MI_Type = MI_Type(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT32: MI_Type = MI_Type(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT32: MI_Type = MI_Type(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT64: MI_Type = MI_Type(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT64: MI_Type = MI_Type(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REAL32: MI_Type = MI_Type(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REAL64: MI_Type = MI_Type(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CHAR16: MI_Type = MI_Type(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DATETIME: MI_Type = MI_Type(12i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_STRING: MI_Type = MI_Type(13i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REFERENCE: MI_Type = MI_Type(14i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_INSTANCE: MI_Type = MI_Type(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_BOOLEANA: MI_Type = MI_Type(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT8A: MI_Type = MI_Type(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT8A: MI_Type = MI_Type(18i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT16A: MI_Type = MI_Type(19i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT16A: MI_Type = MI_Type(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT32A: MI_Type = MI_Type(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT32A: MI_Type = MI_Type(22i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_UINT64A: MI_Type = MI_Type(23i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_SINT64A: MI_Type = MI_Type(24i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REAL32A: MI_Type = MI_Type(25i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REAL64A: MI_Type = MI_Type(26i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_CHAR16A: MI_Type = MI_Type(27i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_DATETIMEA: MI_Type = MI_Type(28i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_STRINGA: MI_Type = MI_Type(29i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_REFERENCEA: MI_Type = MI_Type(30i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const MI_ARRAY: MI_Type = MI_Type(16i32);
+impl ::core::marker::Copy for MI_Type {}
+impl ::core::clone::Clone for MI_Type {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MI_Type {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MI_Type {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MI_Type {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MI_Type").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEMSTATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_SAME: WBEMSTATUS = WBEMSTATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_FALSE: WBEMSTATUS = WBEMSTATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_ALREADY_EXISTS: WBEMSTATUS = WBEMSTATUS(262145i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_RESET_TO_DEFAULT: WBEMSTATUS = WBEMSTATUS(262146i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_DIFFERENT: WBEMSTATUS = WBEMSTATUS(262147i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_TIMEDOUT: WBEMSTATUS = WBEMSTATUS(262148i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_NO_MORE_DATA: WBEMSTATUS = WBEMSTATUS(262149i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_OPERATION_CANCELLED: WBEMSTATUS = WBEMSTATUS(262150i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_PENDING: WBEMSTATUS = WBEMSTATUS(262151i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_DUPLICATE_OBJECTS: WBEMSTATUS = WBEMSTATUS(262152i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_ACCESS_DENIED: WBEMSTATUS = WBEMSTATUS(262153i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_PARTIAL_RESULTS: WBEMSTATUS = WBEMSTATUS(262160i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_SOURCE_NOT_AVAILABLE: WBEMSTATUS = WBEMSTATUS(262167i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_FAILED: WBEMSTATUS = WBEMSTATUS(-2147217407i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NOT_FOUND: WBEMSTATUS = WBEMSTATUS(-2147217406i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_ACCESS_DENIED: WBEMSTATUS = WBEMSTATUS(-2147217405i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217404i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_TYPE_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217403i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_OUT_OF_MEMORY: WBEMSTATUS = WBEMSTATUS(-2147217402i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_CONTEXT: WBEMSTATUS = WBEMSTATUS(-2147217401i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_PARAMETER: WBEMSTATUS = WBEMSTATUS(-2147217400i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NOT_AVAILABLE: WBEMSTATUS = WBEMSTATUS(-2147217399i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CRITICAL_ERROR: WBEMSTATUS = WBEMSTATUS(-2147217398i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_STREAM: WBEMSTATUS = WBEMSTATUS(-2147217397i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NOT_SUPPORTED: WBEMSTATUS = WBEMSTATUS(-2147217396i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_SUPERCLASS: WBEMSTATUS = WBEMSTATUS(-2147217395i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_NAMESPACE: WBEMSTATUS = WBEMSTATUS(-2147217394i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217393i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_CLASS: WBEMSTATUS = WBEMSTATUS(-2147217392i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_NOT_FOUND: WBEMSTATUS = WBEMSTATUS(-2147217391i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_PROVIDER_REGISTRATION: WBEMSTATUS = WBEMSTATUS(-2147217390i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_LOAD_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217389i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INITIALIZATION_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217388i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_TRANSPORT_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217387i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_OPERATION: WBEMSTATUS = WBEMSTATUS(-2147217386i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_QUERY: WBEMSTATUS = WBEMSTATUS(-2147217385i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_QUERY_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217384i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_ALREADY_EXISTS: WBEMSTATUS = WBEMSTATUS(-2147217383i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_OVERRIDE_NOT_ALLOWED: WBEMSTATUS = WBEMSTATUS(-2147217382i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROPAGATED_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147217381i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROPAGATED_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147217380i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNEXPECTED: WBEMSTATUS = WBEMSTATUS(-2147217379i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_ILLEGAL_OPERATION: WBEMSTATUS = WBEMSTATUS(-2147217378i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CANNOT_BE_KEY: WBEMSTATUS = WBEMSTATUS(-2147217377i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INCOMPLETE_CLASS: WBEMSTATUS = WBEMSTATUS(-2147217376i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147217375i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NONDECORATED_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217374i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_READ_ONLY: WBEMSTATUS = WBEMSTATUS(-2147217373i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_NOT_CAPABLE: WBEMSTATUS = WBEMSTATUS(-2147217372i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CLASS_HAS_CHILDREN: WBEMSTATUS = WBEMSTATUS(-2147217371i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CLASS_HAS_INSTANCES: WBEMSTATUS = WBEMSTATUS(-2147217370i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_QUERY_NOT_IMPLEMENTED: WBEMSTATUS = WBEMSTATUS(-2147217369i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_ILLEGAL_NULL: WBEMSTATUS = WBEMSTATUS(-2147217368i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_QUALIFIER_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217367i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_PROPERTY_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217366i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_VALUE_OUT_OF_RANGE: WBEMSTATUS = WBEMSTATUS(-2147217365i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CANNOT_BE_SINGLETON: WBEMSTATUS = WBEMSTATUS(-2147217364i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_CIM_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217363i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_METHOD: WBEMSTATUS = WBEMSTATUS(-2147217362i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_METHOD_PARAMETERS: WBEMSTATUS = WBEMSTATUS(-2147217361i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_SYSTEM_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147217360i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147217359i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CALL_CANCELLED: WBEMSTATUS = WBEMSTATUS(-2147217358i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_SHUTTING_DOWN: WBEMSTATUS = WBEMSTATUS(-2147217357i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROPAGATED_METHOD: WBEMSTATUS = WBEMSTATUS(-2147217356i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNSUPPORTED_PARAMETER: WBEMSTATUS = WBEMSTATUS(-2147217355i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_MISSING_PARAMETER_ID: WBEMSTATUS = WBEMSTATUS(-2147217354i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_PARAMETER_ID: WBEMSTATUS = WBEMSTATUS(-2147217353i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NONCONSECUTIVE_PARAMETER_IDS: WBEMSTATUS = WBEMSTATUS(-2147217352i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PARAMETER_ID_ON_RETVAL: WBEMSTATUS = WBEMSTATUS(-2147217351i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_OBJECT_PATH: WBEMSTATUS = WBEMSTATUS(-2147217350i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_OUT_OF_DISK_SPACE: WBEMSTATUS = WBEMSTATUS(-2147217349i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_BUFFER_TOO_SMALL: WBEMSTATUS = WBEMSTATUS(-2147217348i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNSUPPORTED_PUT_EXTENSION: WBEMSTATUS = WBEMSTATUS(-2147217347i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNKNOWN_OBJECT_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217346i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNKNOWN_PACKET_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217345i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_MARSHAL_VERSION_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217344i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_MARSHAL_INVALID_SIGNATURE: WBEMSTATUS = WBEMSTATUS(-2147217343i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147217342i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_DUPLICATE_PARAMETER: WBEMSTATUS = WBEMSTATUS(-2147217341i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_TOO_MUCH_DATA: WBEMSTATUS = WBEMSTATUS(-2147217340i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_SERVER_TOO_BUSY: WBEMSTATUS = WBEMSTATUS(-2147217339i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_FLAVOR: WBEMSTATUS = WBEMSTATUS(-2147217338i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CIRCULAR_REFERENCE: WBEMSTATUS = WBEMSTATUS(-2147217337i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNSUPPORTED_CLASS_UPDATE: WBEMSTATUS = WBEMSTATUS(-2147217336i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE: WBEMSTATUS = WBEMSTATUS(-2147217335i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE: WBEMSTATUS = WBEMSTATUS(-2147217328i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_TOO_MANY_PROPERTIES: WBEMSTATUS = WBEMSTATUS(-2147217327i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UPDATE_TYPE_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217326i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED: WBEMSTATUS = WBEMSTATUS(-2147217325i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UPDATE_PROPAGATED_METHOD: WBEMSTATUS = WBEMSTATUS(-2147217324i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_METHOD_NOT_IMPLEMENTED: WBEMSTATUS = WBEMSTATUS(-2147217323i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_METHOD_DISABLED: WBEMSTATUS = WBEMSTATUS(-2147217322i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_REFRESHER_BUSY: WBEMSTATUS = WBEMSTATUS(-2147217321i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNPARSABLE_QUERY: WBEMSTATUS = WBEMSTATUS(-2147217320i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NOT_EVENT_CLASS: WBEMSTATUS = WBEMSTATUS(-2147217319i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_MISSING_GROUP_WITHIN: WBEMSTATUS = WBEMSTATUS(-2147217318i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_MISSING_AGGREGATION_LIST: WBEMSTATUS = WBEMSTATUS(-2147217317i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROPERTY_NOT_AN_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217316i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_AGGREGATING_BY_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217315i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY: WBEMSTATUS = WBEMSTATUS(-2147217313i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING: WBEMSTATUS = WBEMSTATUS(-2147217312i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_QUEUE_OVERFLOW: WBEMSTATUS = WBEMSTATUS(-2147217311i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PRIVILEGE_NOT_HELD: WBEMSTATUS = WBEMSTATUS(-2147217310i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_OPERATOR: WBEMSTATUS = WBEMSTATUS(-2147217309i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_LOCAL_CREDENTIALS: WBEMSTATUS = WBEMSTATUS(-2147217308i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CANNOT_BE_ABSTRACT: WBEMSTATUS = WBEMSTATUS(-2147217307i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_AMENDED_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217306i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CLIENT_TOO_SLOW: WBEMSTATUS = WBEMSTATUS(-2147217305i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NULL_SECURITY_DESCRIPTOR: WBEMSTATUS = WBEMSTATUS(-2147217304i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_TIMED_OUT: WBEMSTATUS = WBEMSTATUS(-2147217303i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_ASSOCIATION: WBEMSTATUS = WBEMSTATUS(-2147217302i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_AMBIGUOUS_OPERATION: WBEMSTATUS = WBEMSTATUS(-2147217301i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_QUOTA_VIOLATION: WBEMSTATUS = WBEMSTATUS(-2147217300i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_RESERVED_001: WBEMSTATUS = WBEMSTATUS(-2147217299i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_RESERVED_002: WBEMSTATUS = WBEMSTATUS(-2147217298i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_UNSUPPORTED_LOCALE: WBEMSTATUS = WBEMSTATUS(-2147217297i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_HANDLE_OUT_OF_DATE: WBEMSTATUS = WBEMSTATUS(-2147217296i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CONNECTION_FAILED: WBEMSTATUS = WBEMSTATUS(-2147217295i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_HANDLE_REQUEST: WBEMSTATUS = WBEMSTATUS(-2147217294i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROPERTY_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217293i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_CLASS_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217292i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_METHOD_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217291i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_QUALIFIER_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217290i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_RERUN_COMMAND: WBEMSTATUS = WBEMSTATUS(-2147217289i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_DATABASE_VER_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217288i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_VETO_DELETE: WBEMSTATUS = WBEMSTATUS(-2147217287i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_VETO_PUT: WBEMSTATUS = WBEMSTATUS(-2147217286i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_INVALID_LOCALE: WBEMSTATUS = WBEMSTATUS(-2147217280i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_SUSPENDED: WBEMSTATUS = WBEMSTATUS(-2147217279i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_SYNCHRONIZATION_REQUIRED: WBEMSTATUS = WBEMSTATUS(-2147217278i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NO_SCHEMA: WBEMSTATUS = WBEMSTATUS(-2147217277i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_ALREADY_REGISTERED: WBEMSTATUS = WBEMSTATUS(-2147217276i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_NOT_REGISTERED: WBEMSTATUS = WBEMSTATUS(-2147217275i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_FATAL_TRANSPORT_ERROR: WBEMSTATUS = WBEMSTATUS(-2147217274i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_ENCRYPTED_CONNECTION_REQUIRED: WBEMSTATUS = WBEMSTATUS(-2147217273i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_TIMED_OUT: WBEMSTATUS = WBEMSTATUS(-2147217272i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_NO_KEY: WBEMSTATUS = WBEMSTATUS(-2147217271i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_PROVIDER_DISABLED: WBEMSTATUS = WBEMSTATUS(-2147217270i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMESS_E_REGISTRATION_TOO_BROAD: WBEMSTATUS = WBEMSTATUS(-2147213311i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMESS_E_REGISTRATION_TOO_PRECISE: WBEMSTATUS = WBEMSTATUS(-2147213310i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMESS_E_AUTHZ_NOT_PRIVILEGED: WBEMSTATUS = WBEMSTATUS(-2147213309i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_QUALIFIER_NAME: WBEMSTATUS = WBEMSTATUS(-2147205119i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_SEMI: WBEMSTATUS = WBEMSTATUS(-2147205118i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_OPEN_BRACE: WBEMSTATUS = WBEMSTATUS(-2147205117i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_CLOSE_BRACE: WBEMSTATUS = WBEMSTATUS(-2147205116i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_CLOSE_BRACKET: WBEMSTATUS = WBEMSTATUS(-2147205115i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_CLOSE_PAREN: WBEMSTATUS = WBEMSTATUS(-2147205114i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_ILLEGAL_CONSTANT_VALUE: WBEMSTATUS = WBEMSTATUS(-2147205113i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER: WBEMSTATUS = WBEMSTATUS(-2147205112i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_OPEN_PAREN: WBEMSTATUS = WBEMSTATUS(-2147205111i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_UNRECOGNIZED_TOKEN: WBEMSTATUS = WBEMSTATUS(-2147205110i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_UNRECOGNIZED_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205109i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_PROPERTY_NAME: WBEMSTATUS = WBEMSTATUS(-2147205108i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_TYPEDEF_NOT_SUPPORTED: WBEMSTATUS = WBEMSTATUS(-2147205107i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_UNEXPECTED_ALIAS: WBEMSTATUS = WBEMSTATUS(-2147205106i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_UNEXPECTED_ARRAY_INIT: WBEMSTATUS = WBEMSTATUS(-2147205105i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_AMENDMENT_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205104i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT: WBEMSTATUS = WBEMSTATUS(-2147205103i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_PRAGMA: WBEMSTATUS = WBEMSTATUS(-2147205102i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_NAMESPACE_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205101i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_CLASS_NAME: WBEMSTATUS = WBEMSTATUS(-2147205100i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_TYPE_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147205099i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_ALIAS_NAME: WBEMSTATUS = WBEMSTATUS(-2147205098i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_CLASS_DECLARATION: WBEMSTATUS = WBEMSTATUS(-2147205097i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_INSTANCE_DECLARATION: WBEMSTATUS = WBEMSTATUS(-2147205096i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_DOLLAR: WBEMSTATUS = WBEMSTATUS(-2147205095i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_CIMTYPE_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147205094i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_DUPLICATE_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147205093i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION: WBEMSTATUS = WBEMSTATUS(-2147205092i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_OUT_OF_RANGE: WBEMSTATUS = WBEMSTATUS(-2147205091i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_FILE: WBEMSTATUS = WBEMSTATUS(-2147205090i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_ALIASES_IN_EMBEDDED: WBEMSTATUS = WBEMSTATUS(-2147205089i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_NULL_ARRAY_ELEM: WBEMSTATUS = WBEMSTATUS(-2147205088i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_DUPLICATE_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147205087i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_FLAVOR_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205086i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES: WBEMSTATUS = WBEMSTATUS(-2147205085i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_MULTIPLE_ALIASES: WBEMSTATUS = WBEMSTATUS(-2147205084i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2: WBEMSTATUS = WBEMSTATUS(-2147205083i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_NO_ARRAYS_RETURNED: WBEMSTATUS = WBEMSTATUS(-2147205082i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_MUST_BE_IN_OR_OUT: WBEMSTATUS = WBEMSTATUS(-2147205081i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_FLAGS_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205080i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205079i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE: WBEMSTATUS = WBEMSTATUS(-2147205078i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205077i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205076i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_QUALIFIER_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205075i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE: WBEMSTATUS = WBEMSTATUS(-2147205074i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_ERROR_CREATING_TEMP_FILE: WBEMSTATUS = WBEMSTATUS(-2147205073i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE: WBEMSTATUS = WBEMSTATUS(-2147205072i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMMOF_E_INVALID_DELETECLASS_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205071i32);
+impl ::core::marker::Copy for WBEMSTATUS {}
+impl ::core::clone::Clone for WBEMSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEMSTATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEMSTATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEMSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEMSTATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEMSTATUS_FORMAT(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMSTATUS_FORMAT_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMSTATUS_FORMAT_NO_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(1i32);
+impl ::core::marker::Copy for WBEMSTATUS_FORMAT {}
+impl ::core::clone::Clone for WBEMSTATUS_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEMSTATUS_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEMSTATUS_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEMSTATUS_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEMSTATUS_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_BACKUP_RESTORE_DEFAULT: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(1i32);
+impl ::core::marker::Copy for WBEM_BACKUP_RESTORE_FLAGS {}
+impl ::core::clone::Clone for WBEM_BACKUP_RESTORE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_BACKUP_RESTORE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_BACKUP_RESTORE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_BACKUP_RESTORE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_BACKUP_RESTORE_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_BATCH_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_BATCH_IF_NEEDED: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_MUST_BATCH: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_MUST_NOT_BATCH: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_BATCH_TYPE {}
+impl ::core::clone::Clone for WBEM_BATCH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_BATCH_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_BATCH_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_BATCH_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_BATCH_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CREATE_OR_UPDATE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UPDATE_ONLY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CREATE_ONLY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UPDATE_COMPATIBLE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UPDATE_SAFE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UPDATE_FORCE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MASK_UPDATE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(96i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ADVISORY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(65536i32);
+impl ::core::marker::Copy for WBEM_CHANGE_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_CHANGE_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_CHANGE_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_CHANGE_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_CHANGE_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_CHANGE_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_COMPARISON_FLAG(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_IGNORE_QUALIFIERS: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_IGNORE_OBJECT_SOURCE: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_IGNORE_DEFAULT_VALUES: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_IGNORE_CLASS: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_IGNORE_CASE: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_IGNORE_FLAVOR: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(32i32);
+impl ::core::marker::Copy for WBEM_COMPARISON_FLAG {}
+impl ::core::clone::Clone for WBEM_COMPARISON_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_COMPARISON_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_COMPARISON_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_COMPARISON_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_COMPARISON_FLAG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_COMPILER_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CHECK_ONLY: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_AUTORECOVER: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_WMI_CHECK: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CONSOLE_PRINT: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_DONT_ADD_TO_LIST: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_SPLIT_FILES: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_STORE_FILE: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(256i32);
+impl ::core::marker::Copy for WBEM_COMPILER_OPTIONS {}
+impl ::core::clone::Clone for WBEM_COMPILER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_COMPILER_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_COMPILER_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_COMPILER_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_COMPILER_OPTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ALWAYS: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ONLY_IF_TRUE: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ONLY_IF_FALSE: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ONLY_IF_IDENTICAL: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MASK_PRIMARY_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_KEYS_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_REFS_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_LOCAL_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_PROPAGATED_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_SYSTEM_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(48i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_NONSYSTEM_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MASK_CONDITION_ORIGIN: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(112i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CLASS_OVERRIDES_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MASK_CLASS_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(768i32);
+impl ::core::marker::Copy for WBEM_CONDITION_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_CONDITION_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_CONDITION_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_CONDITION_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_CONDITION_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_CONDITION_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_CONNECT_OPTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CONNECT_REPOSITORY_ONLY: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CONNECT_USE_MAX_WAIT: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_CONNECT_PROVIDERS: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(256i32);
+impl ::core::marker::Copy for WBEM_CONNECT_OPTIONS {}
+impl ::core::clone::Clone for WBEM_CONNECT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_CONNECT_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_CONNECT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_CONNECT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_CONNECT_OPTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_LIMITED_SERVICE: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274433i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_INDIRECTLY_UPDATED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274434i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274435i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_RETRY_LATER: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(-2147209215i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_E_RESOURCE_CONTENTION: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(-2147209214i32);
+impl ::core::marker::Copy for WBEM_EXTRA_RETURN_CODES {}
+impl ::core::clone::Clone for WBEM_EXTRA_RETURN_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_EXTRA_RETURN_CODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_EXTRA_RETURN_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_EXTRA_RETURN_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_EXTRA_RETURN_CODES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_FLAVOR_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_DONT_PROPAGATE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_MASK_PROPAGATION: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_OVERRIDABLE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_NOT_OVERRIDABLE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_MASK_PERMISSIONS: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_ORIGIN_LOCAL: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_ORIGIN_PROPAGATED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_ORIGIN_SYSTEM: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_MASK_ORIGIN: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(96i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_NOT_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAVOR_MASK_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(128i32);
+impl ::core::marker::Copy for WBEM_FLAVOR_TYPE {}
+impl ::core::clone::Clone for WBEM_FLAVOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_FLAVOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_FLAVOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_FLAVOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_FLAVOR_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_RETURN_WBEM_COMPLETE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_BIDIRECTIONAL: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_FORWARD_ONLY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_NO_ERROR_OBJECT: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_RETURN_ERROR_OBJECT: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_SEND_STATUS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_DONT_SEND_STATUS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ENSURE_LOCATABLE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_DIRECT_READ: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_SEND_ONLY_SELECTED: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_RETURN_WHEN_COMPLETE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MASK_RESERVED_FLAGS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(126976i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_USE_AMENDED_QUALIFIERS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(131072i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_STRONG_VALIDATION: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(1048576i32);
+impl ::core::marker::Copy for WBEM_GENERIC_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_GENERIC_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_GENERIC_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_GENERIC_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_GENERIC_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_GENERIC_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_GENUS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_GENUS_CLASS: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_GENUS_INSTANCE: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_GENUS_TYPE {}
+impl ::core::clone::Clone for WBEM_GENUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_GENUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_GENUS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_GENUS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_GENUS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_GET_KEY_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_TEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_QUOTEDTEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(2i32);
+impl ::core::marker::Copy for WBEM_GET_KEY_FLAGS {}
+impl ::core::clone::Clone for WBEM_GET_KEY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_GET_KEY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_GET_KEY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_GET_KEY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_GET_KEY_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_GET_TEXT_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_COMPRESSED: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_GET_RELATIVE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_GET_SERVER_TOO: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_GET_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_GET_ORIGINAL: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(32i32);
+impl ::core::marker::Copy for WBEM_GET_TEXT_FLAGS {}
+impl ::core::clone::Clone for WBEM_GET_TEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_GET_TEXT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_GET_TEXT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_GET_TEXT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_GET_TEXT_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_SHORT_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_LONG_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_INFORMATION_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_INFORMATION_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_INFORMATION_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_INFORMATION_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_INFORMATION_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_INFORMATION_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(32i32);
+impl ::core::marker::Copy for WBEM_LIMITATION_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_LIMITATION_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_LIMITATION_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_LIMITATION_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_LIMITATION_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_LIMITATION_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_LIMITS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MAX_IDENTIFIER: WBEM_LIMITS = WBEM_LIMITS(4096i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MAX_QUERY: WBEM_LIMITS = WBEM_LIMITS(16384i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MAX_PATH: WBEM_LIMITS = WBEM_LIMITS(8192i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MAX_OBJECT_NESTING: WBEM_LIMITS = WBEM_LIMITS(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_MAX_USER_PROPERTIES: WBEM_LIMITS = WBEM_LIMITS(1024i32);
+impl ::core::marker::Copy for WBEM_LIMITS {}
+impl ::core::clone::Clone for WBEM_LIMITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_LIMITS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_LIMITS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_LIMITS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_LIMITS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_LOCKING(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_ALLOW_READ: WBEM_LOCKING = WBEM_LOCKING(1i32);
+impl ::core::marker::Copy for WBEM_LOCKING {}
+impl ::core::clone::Clone for WBEM_LOCKING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_LOCKING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_LOCKING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_LOCKING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_LOCKING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_PATH_CREATE_FLAG(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_CREATE_ACCEPT_RELATIVE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_CREATE_ACCEPT_ABSOLUTE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_CREATE_ACCEPT_ALL: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_TREAT_SINGLE_IDENT_AS_NS: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(8i32);
+impl ::core::marker::Copy for WBEM_PATH_CREATE_FLAG {}
+impl ::core::clone::Clone for WBEM_PATH_CREATE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_PATH_CREATE_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_PATH_CREATE_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_PATH_CREATE_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_PATH_CREATE_FLAG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_PATH_STATUS_FLAG(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_ANON_LOCAL_MACHINE: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_HAS_MACHINE_NAME: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_IS_CLASS_REF: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_IS_INST_REF: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_HAS_SUBSCOPES: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_IS_COMPOUND: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_HAS_V2_REF_PATHS: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_HAS_IMPLIED_KEY: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_CONTAINS_SINGLETON: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_V1_COMPLIANT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_V2_COMPLIANT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(1024i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_CIM_COMPLIANT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(2048i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_IS_SINGLETON: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(4096i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_IS_PARENT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(8192i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_SERVER_NAMESPACE_ONLY: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(16384i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_NATIVE_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(32768i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_WMI_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(65536i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEMPATH_INFO_PATH_HAD_SERVER: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(131072i32);
+impl ::core::marker::Copy for WBEM_PATH_STATUS_FLAG {}
+impl ::core::clone::Clone for WBEM_PATH_STATUS_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_PATH_STATUS_FLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_PATH_STATUS_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_PATH_STATUS_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_PATH_STATUS_FLAG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_PROVIDER_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_OWNER_UPDATE: WBEM_PROVIDER_FLAGS = WBEM_PROVIDER_FLAGS(65536i32);
+impl ::core::marker::Copy for WBEM_PROVIDER_FLAGS {}
+impl ::core::clone::Clone for WBEM_PROVIDER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_PROVIDER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_PROVIDER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_PROVIDER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_PROVIDER_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_REQUIREMENTS_START_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_REQUIREMENTS_STOP_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_PROVIDER_REQUIREMENTS_TYPE {}
+impl ::core::clone::Clone for WBEM_PROVIDER_REQUIREMENTS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_PROVIDER_REQUIREMENTS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_PROVIDER_REQUIREMENTS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_PROVIDER_REQUIREMENTS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_PROVIDER_REQUIREMENTS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_DEEP: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_SHALLOW: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_PROTOTYPE: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_QUERY_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_QUERY_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_QUERY_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_QUERY_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_QUERY_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_QUERY_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_REFRESHER_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_REFRESH_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(1i32);
+impl ::core::marker::Copy for WBEM_REFRESHER_FLAGS {}
+impl ::core::clone::Clone for WBEM_REFRESHER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_REFRESHER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_REFRESHER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_REFRESHER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_REFRESHER_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_SECURITY_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_ENABLE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_METHOD_EXECUTE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FULL_WRITE_REP: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_PARTIAL_WRITE_REP: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_REMOTE_ACCESS: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_RIGHT_SUBSCRIBE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_RIGHT_PUBLISH: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(128i32);
+impl ::core::marker::Copy for WBEM_SECURITY_FLAGS {}
+impl ::core::clone::Clone for WBEM_SECURITY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_SECURITY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_SECURITY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_SECURITY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_SECURITY_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_SHUTDOWN_UNLOAD_COMPONENT: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_SHUTDOWN_WMI: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_SHUTDOWN_OS: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(3i32);
+impl ::core::marker::Copy for WBEM_SHUTDOWN_FLAGS {}
+impl ::core::clone::Clone for WBEM_SHUTDOWN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_SHUTDOWN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_SHUTDOWN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_SHUTDOWN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_SHUTDOWN_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_STATUS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_COMPLETE: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_REQUIREMENTS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_PROGRESS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_LOGGING_INFORMATION: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_LOGGING_INFORMATION_PROVIDER: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_LOGGING_INFORMATION_HOST: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(1024i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2048i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_STATUS_LOGGING_INFORMATION_ESS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(4096i32);
+impl ::core::marker::Copy for WBEM_STATUS_TYPE {}
+impl ::core::clone::Clone for WBEM_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_STATUS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_STATUS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_STATUS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_NO_FLAVORS: WBEM_TEXT_FLAG_TYPE = WBEM_TEXT_FLAG_TYPE(1i32);
+impl ::core::marker::Copy for WBEM_TEXT_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_TEXT_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_TEXT_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_TEXT_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_TEXT_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_TEXT_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_TIMEOUT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_NO_WAIT: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_INFINITE: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(-1i32);
+impl ::core::marker::Copy for WBEM_TIMEOUT_TYPE {}
+impl ::core::clone::Clone for WBEM_TIMEOUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_TIMEOUT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_TIMEOUT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_TIMEOUT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_TIMEOUT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UNSECAPP_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(2i32);
+impl ::core::marker::Copy for WBEM_UNSECAPP_FLAG_TYPE {}
+impl ::core::clone::Clone for WBEM_UNSECAPP_FLAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WBEM_UNSECAPP_FLAG_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WBEM_UNSECAPP_FLAG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WBEM_UNSECAPP_FLAG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WBEM_UNSECAPP_FLAG_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMIQ_ANALYSIS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ANALYSIS_RPN_SEQUENCE: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ANALYSIS_QUERY_TEXT: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ANALYSIS_RESERVED: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(134217728i32);
+impl ::core::marker::Copy for WMIQ_ANALYSIS_TYPE {}
+impl ::core::clone::Clone for WMIQ_ANALYSIS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMIQ_ANALYSIS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMIQ_ANALYSIS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMIQ_ANALYSIS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMIQ_ANALYSIS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_ASSOCIATORS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_REFERENCES: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_RESULTCLASS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_ASSOCCLASS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_ROLE: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_RESULTROLE: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_REQUIREDQUALIFIER: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_CLASSDEFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_KEYSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_SCHEMAONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1024i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_ASSOCQ_CLASSREFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2048i32);
+impl ::core::marker::Copy for WMIQ_ASSOCQ_FLAGS {}
+impl ::core::clone::Clone for WMIQ_ASSOCQ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMIQ_ASSOCQ_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMIQ_ASSOCQ_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMIQ_ASSOCQ_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMIQ_ASSOCQ_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF1_BASIC_SELECT: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF2_CLASS_NAME_IN_QUERY: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF3_STRING_CASE_FUNCTIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF4_PROP_TO_PROP_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF5_COUNT_STAR: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF6_ORDER_BY: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF7_DISTINCT: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF8_ISA: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF9_THIS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF10_COMPEX_SUBEXPRESSIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF11_ALIASING: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF12_GROUP_BY_HAVING: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(12i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF13_WMI_WITHIN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(13i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF14_SQL_WRITE_OPERATIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(14i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF15_GO: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF16_SINGLE_LEVEL_TRANSACTIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF17_QUALIFIED_NAMES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF18_ASSOCIATONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(18i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF19_SYSTEM_PROPERTIES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(19i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF20_EXTENDED_SYSTEM_PROPERTIES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF21_SQL89_JOINS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF22_SQL92_JOINS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(22i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF23_SUBSELECTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(23i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF24_UMI_EXTENSIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(24i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF25_DATEPART: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(25i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF26_LIKE: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(26i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF27_CIM_TEMPORAL_CONSTRUCTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(27i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF28_STANDARD_AGGREGATES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(28i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF29_MULTI_LEVEL_ORDER_BY: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(29i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF30_WMI_PRAGMAS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(30i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF31_QUALIFIER_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(31i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF32_SP_EXECUTE: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF33_ARRAY_ACCESS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(33i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF34_UNION: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(34i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF35_COMPLEX_SELECT_TARGET: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(35i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF36_REFERENCE_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(36i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF37_SELECT_INTO: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(37i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF38_BASIC_DATETIME_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(38i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF39_COUNT_COLUMN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(39i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF40_BETWEEN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_LF_LAST: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
+impl ::core::marker::Copy for WMIQ_LANGUAGE_FEATURES {}
+impl ::core::clone::Clone for WMIQ_LANGUAGE_FEATURES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMIQ_LANGUAGE_FEATURES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMIQ_LANGUAGE_FEATURES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMIQ_LANGUAGE_FEATURES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMIQ_LANGUAGE_FEATURES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMIQ_RPNQ_FEATURE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_QUERY_IS_CONJUNCTIVE: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_QUERY_IS_DISJUNCTIVE: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_PROJECTION: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_FEATURE_SELECT_STAR: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_EQUALITY_TESTS_ONLY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_COUNT_STAR: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_QUALIFIED_NAMES_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_SYSPROP_CLASS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_PROP_TO_PROP_TESTS: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_ORDER_BY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1024i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_ISA_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2048i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4096i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8192i32);
+impl ::core::marker::Copy for WMIQ_RPNQ_FEATURE {}
+impl ::core::clone::Clone for WMIQ_RPNQ_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMIQ_RPNQ_FEATURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMIQ_RPNQ_FEATURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMIQ_RPNQ_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMIQ_RPNQ_FEATURE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_TOKEN_EXPRESSION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_TOKEN_AND: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_TOKEN_OR: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_TOKEN_NOT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_UNDEFINED: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_EQ: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_NE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_GE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_LE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_LT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_GT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_LIKE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_ISA: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_ISNOTA: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_ISNULL: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_OP_ISNOTNULL: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_LEFT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_RIGHT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_CONST2: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_CONST: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_RELOP: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_LEFT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_GET_TOKEN_TYPE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_GET_EXPR_SHAPE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_GET_LEFT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_GET_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_GET_RELOP: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_NEXT_TOKEN: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_FROM_UNARY: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_FROM_PATH: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_FROM_CLASS_LIST: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMIQ_RPN_FROM_MULTIPLE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
+impl ::core::marker::Copy for WMIQ_RPN_TOKEN_FLAGS {}
+impl ::core::clone::Clone for WMIQ_RPN_TOKEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMIQ_RPN_TOKEN_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMIQ_RPN_TOKEN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMIQ_RPN_TOKEN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMIQ_RPN_TOKEN_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WMI_OBJ_TEXT(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_CIM_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT1: WMI_OBJ_TEXT = WMI_OBJ_TEXT(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT2: WMI_OBJ_TEXT = WMI_OBJ_TEXT(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT3: WMI_OBJ_TEXT = WMI_OBJ_TEXT(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT4: WMI_OBJ_TEXT = WMI_OBJ_TEXT(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT5: WMI_OBJ_TEXT = WMI_OBJ_TEXT(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT6: WMI_OBJ_TEXT = WMI_OBJ_TEXT(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT7: WMI_OBJ_TEXT = WMI_OBJ_TEXT(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = WMI_OBJ_TEXT(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = WMI_OBJ_TEXT(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_WMI_EXT10: WMI_OBJ_TEXT = WMI_OBJ_TEXT(12i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WMI_OBJ_TEXT_LAST: WMI_OBJ_TEXT = WMI_OBJ_TEXT(13i32);
+impl ::core::marker::Copy for WMI_OBJ_TEXT {}
+impl ::core::clone::Clone for WMI_OBJ_TEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WMI_OBJ_TEXT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WMI_OBJ_TEXT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMI_OBJ_TEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMI_OBJ_TEXT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemAuthenticationLevelEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelNone: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelConnect: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelPkt: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelPktIntegrity: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemAuthenticationLevelPktPrivacy: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(6i32);
+impl ::core::marker::Copy for WbemAuthenticationLevelEnum {}
+impl ::core::clone::Clone for WbemAuthenticationLevelEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemAuthenticationLevelEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemAuthenticationLevelEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemAuthenticationLevelEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemAuthenticationLevelEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemChangeFlagEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagCreateOrUpdate: WbemChangeFlagEnum = WbemChangeFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagUpdateOnly: WbemChangeFlagEnum = WbemChangeFlagEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagCreateOnly: WbemChangeFlagEnum = WbemChangeFlagEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagUpdateCompatible: WbemChangeFlagEnum = WbemChangeFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagUpdateSafeMode: WbemChangeFlagEnum = WbemChangeFlagEnum(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagUpdateForceMode: WbemChangeFlagEnum = WbemChangeFlagEnum(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagStrongValidation: WbemChangeFlagEnum = WbemChangeFlagEnum(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemChangeFlagAdvisory: WbemChangeFlagEnum = WbemChangeFlagEnum(65536i32);
+impl ::core::marker::Copy for WbemChangeFlagEnum {}
+impl ::core::clone::Clone for WbemChangeFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemChangeFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemChangeFlagEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemChangeFlagEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemChangeFlagEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemCimtypeEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeSint8: WbemCimtypeEnum = WbemCimtypeEnum(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeUint8: WbemCimtypeEnum = WbemCimtypeEnum(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeSint16: WbemCimtypeEnum = WbemCimtypeEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeUint16: WbemCimtypeEnum = WbemCimtypeEnum(18i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeSint32: WbemCimtypeEnum = WbemCimtypeEnum(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeUint32: WbemCimtypeEnum = WbemCimtypeEnum(19i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeSint64: WbemCimtypeEnum = WbemCimtypeEnum(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeUint64: WbemCimtypeEnum = WbemCimtypeEnum(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeReal32: WbemCimtypeEnum = WbemCimtypeEnum(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeReal64: WbemCimtypeEnum = WbemCimtypeEnum(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeBoolean: WbemCimtypeEnum = WbemCimtypeEnum(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeString: WbemCimtypeEnum = WbemCimtypeEnum(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeDatetime: WbemCimtypeEnum = WbemCimtypeEnum(101i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeReference: WbemCimtypeEnum = WbemCimtypeEnum(102i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeChar16: WbemCimtypeEnum = WbemCimtypeEnum(103i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemCimtypeObject: WbemCimtypeEnum = WbemCimtypeEnum(13i32);
+impl ::core::marker::Copy for WbemCimtypeEnum {}
+impl ::core::clone::Clone for WbemCimtypeEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemCimtypeEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemCimtypeEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemCimtypeEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemCimtypeEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemComparisonFlagEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIncludeAll: WbemComparisonFlagEnum = WbemComparisonFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIgnoreQualifiers: WbemComparisonFlagEnum = WbemComparisonFlagEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIgnoreObjectSource: WbemComparisonFlagEnum = WbemComparisonFlagEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIgnoreDefaultValues: WbemComparisonFlagEnum = WbemComparisonFlagEnum(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIgnoreClass: WbemComparisonFlagEnum = WbemComparisonFlagEnum(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIgnoreCase: WbemComparisonFlagEnum = WbemComparisonFlagEnum(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemComparisonFlagIgnoreFlavor: WbemComparisonFlagEnum = WbemComparisonFlagEnum(32i32);
+impl ::core::marker::Copy for WbemComparisonFlagEnum {}
+impl ::core::clone::Clone for WbemComparisonFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemComparisonFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemComparisonFlagEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemComparisonFlagEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemComparisonFlagEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemConnectOptionsEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemConnectFlagUseMaxWait: WbemConnectOptionsEnum = WbemConnectOptionsEnum(128i32);
+impl ::core::marker::Copy for WbemConnectOptionsEnum {}
+impl ::core::clone::Clone for WbemConnectOptionsEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemConnectOptionsEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemConnectOptionsEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemConnectOptionsEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemConnectOptionsEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemErrorEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemNoErr: WbemErrorEnum = WbemErrorEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrFailed: WbemErrorEnum = WbemErrorEnum(-2147217407i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNotFound: WbemErrorEnum = WbemErrorEnum(-2147217406i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrAccessDenied: WbemErrorEnum = WbemErrorEnum(-2147217405i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderFailure: WbemErrorEnum = WbemErrorEnum(-2147217404i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTypeMismatch: WbemErrorEnum = WbemErrorEnum(-2147217403i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrOutOfMemory: WbemErrorEnum = WbemErrorEnum(-2147217402i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidContext: WbemErrorEnum = WbemErrorEnum(-2147217401i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidParameter: WbemErrorEnum = WbemErrorEnum(-2147217400i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNotAvailable: WbemErrorEnum = WbemErrorEnum(-2147217399i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCriticalError: WbemErrorEnum = WbemErrorEnum(-2147217398i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidStream: WbemErrorEnum = WbemErrorEnum(-2147217397i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNotSupported: WbemErrorEnum = WbemErrorEnum(-2147217396i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidSuperclass: WbemErrorEnum = WbemErrorEnum(-2147217395i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidNamespace: WbemErrorEnum = WbemErrorEnum(-2147217394i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidObject: WbemErrorEnum = WbemErrorEnum(-2147217393i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidClass: WbemErrorEnum = WbemErrorEnum(-2147217392i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderNotFound: WbemErrorEnum = WbemErrorEnum(-2147217391i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidProviderRegistration: WbemErrorEnum = WbemErrorEnum(-2147217390i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderLoadFailure: WbemErrorEnum = WbemErrorEnum(-2147217389i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInitializationFailure: WbemErrorEnum = WbemErrorEnum(-2147217388i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTransportFailure: WbemErrorEnum = WbemErrorEnum(-2147217387i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidOperation: WbemErrorEnum = WbemErrorEnum(-2147217386i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidQuery: WbemErrorEnum = WbemErrorEnum(-2147217385i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidQueryType: WbemErrorEnum = WbemErrorEnum(-2147217384i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrAlreadyExists: WbemErrorEnum = WbemErrorEnum(-2147217383i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrOverrideNotAllowed: WbemErrorEnum = WbemErrorEnum(-2147217382i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrPropagatedQualifier: WbemErrorEnum = WbemErrorEnum(-2147217381i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrPropagatedProperty: WbemErrorEnum = WbemErrorEnum(-2147217380i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnexpected: WbemErrorEnum = WbemErrorEnum(-2147217379i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrIllegalOperation: WbemErrorEnum = WbemErrorEnum(-2147217378i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCannotBeKey: WbemErrorEnum = WbemErrorEnum(-2147217377i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrIncompleteClass: WbemErrorEnum = WbemErrorEnum(-2147217376i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidSyntax: WbemErrorEnum = WbemErrorEnum(-2147217375i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNondecoratedObject: WbemErrorEnum = WbemErrorEnum(-2147217374i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrReadOnly: WbemErrorEnum = WbemErrorEnum(-2147217373i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderNotCapable: WbemErrorEnum = WbemErrorEnum(-2147217372i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrClassHasChildren: WbemErrorEnum = WbemErrorEnum(-2147217371i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrClassHasInstances: WbemErrorEnum = WbemErrorEnum(-2147217370i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrQueryNotImplemented: WbemErrorEnum = WbemErrorEnum(-2147217369i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrIllegalNull: WbemErrorEnum = WbemErrorEnum(-2147217368i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidQualifierType: WbemErrorEnum = WbemErrorEnum(-2147217367i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidPropertyType: WbemErrorEnum = WbemErrorEnum(-2147217366i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrValueOutOfRange: WbemErrorEnum = WbemErrorEnum(-2147217365i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCannotBeSingleton: WbemErrorEnum = WbemErrorEnum(-2147217364i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidCimType: WbemErrorEnum = WbemErrorEnum(-2147217363i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidMethod: WbemErrorEnum = WbemErrorEnum(-2147217362i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidMethodParameters: WbemErrorEnum = WbemErrorEnum(-2147217361i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrSystemProperty: WbemErrorEnum = WbemErrorEnum(-2147217360i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidProperty: WbemErrorEnum = WbemErrorEnum(-2147217359i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCallCancelled: WbemErrorEnum = WbemErrorEnum(-2147217358i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrShuttingDown: WbemErrorEnum = WbemErrorEnum(-2147217357i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrPropagatedMethod: WbemErrorEnum = WbemErrorEnum(-2147217356i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnsupportedParameter: WbemErrorEnum = WbemErrorEnum(-2147217355i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMissingParameter: WbemErrorEnum = WbemErrorEnum(-2147217354i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidParameterId: WbemErrorEnum = WbemErrorEnum(-2147217353i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNonConsecutiveParameterIds: WbemErrorEnum = WbemErrorEnum(-2147217352i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrParameterIdOnRetval: WbemErrorEnum = WbemErrorEnum(-2147217351i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidObjectPath: WbemErrorEnum = WbemErrorEnum(-2147217350i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrOutOfDiskSpace: WbemErrorEnum = WbemErrorEnum(-2147217349i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrBufferTooSmall: WbemErrorEnum = WbemErrorEnum(-2147217348i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnsupportedPutExtension: WbemErrorEnum = WbemErrorEnum(-2147217347i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnknownObjectType: WbemErrorEnum = WbemErrorEnum(-2147217346i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnknownPacketType: WbemErrorEnum = WbemErrorEnum(-2147217345i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMarshalVersionMismatch: WbemErrorEnum = WbemErrorEnum(-2147217344i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMarshalInvalidSignature: WbemErrorEnum = WbemErrorEnum(-2147217343i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidQualifier: WbemErrorEnum = WbemErrorEnum(-2147217342i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidDuplicateParameter: WbemErrorEnum = WbemErrorEnum(-2147217341i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTooMuchData: WbemErrorEnum = WbemErrorEnum(-2147217340i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrServerTooBusy: WbemErrorEnum = WbemErrorEnum(-2147217339i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidFlavor: WbemErrorEnum = WbemErrorEnum(-2147217338i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCircularReference: WbemErrorEnum = WbemErrorEnum(-2147217337i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnsupportedClassUpdate: WbemErrorEnum = WbemErrorEnum(-2147217336i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCannotChangeKeyInheritance: WbemErrorEnum = WbemErrorEnum(-2147217335i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCannotChangeIndexInheritance: WbemErrorEnum = WbemErrorEnum(-2147217328i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTooManyProperties: WbemErrorEnum = WbemErrorEnum(-2147217327i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUpdateTypeMismatch: WbemErrorEnum = WbemErrorEnum(-2147217326i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUpdateOverrideNotAllowed: WbemErrorEnum = WbemErrorEnum(-2147217325i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUpdatePropagatedMethod: WbemErrorEnum = WbemErrorEnum(-2147217324i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMethodNotImplemented: WbemErrorEnum = WbemErrorEnum(-2147217323i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMethodDisabled: WbemErrorEnum = WbemErrorEnum(-2147217322i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrRefresherBusy: WbemErrorEnum = WbemErrorEnum(-2147217321i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnparsableQuery: WbemErrorEnum = WbemErrorEnum(-2147217320i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNotEventClass: WbemErrorEnum = WbemErrorEnum(-2147217319i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMissingGroupWithin: WbemErrorEnum = WbemErrorEnum(-2147217318i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMissingAggregationList: WbemErrorEnum = WbemErrorEnum(-2147217317i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrPropertyNotAnObject: WbemErrorEnum = WbemErrorEnum(-2147217316i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrAggregatingByObject: WbemErrorEnum = WbemErrorEnum(-2147217315i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUninterpretableProviderQuery: WbemErrorEnum = WbemErrorEnum(-2147217313i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrBackupRestoreWinmgmtRunning: WbemErrorEnum = WbemErrorEnum(-2147217312i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrQueueOverflow: WbemErrorEnum = WbemErrorEnum(-2147217311i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrPrivilegeNotHeld: WbemErrorEnum = WbemErrorEnum(-2147217310i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidOperator: WbemErrorEnum = WbemErrorEnum(-2147217309i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrLocalCredentials: WbemErrorEnum = WbemErrorEnum(-2147217308i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrCannotBeAbstract: WbemErrorEnum = WbemErrorEnum(-2147217307i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrAmendedObject: WbemErrorEnum = WbemErrorEnum(-2147217306i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrClientTooSlow: WbemErrorEnum = WbemErrorEnum(-2147217305i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNullSecurityDescriptor: WbemErrorEnum = WbemErrorEnum(-2147217304i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTimeout: WbemErrorEnum = WbemErrorEnum(-2147217303i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidAssociation: WbemErrorEnum = WbemErrorEnum(-2147217302i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrAmbiguousOperation: WbemErrorEnum = WbemErrorEnum(-2147217301i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrQuotaViolation: WbemErrorEnum = WbemErrorEnum(-2147217300i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTransactionConflict: WbemErrorEnum = WbemErrorEnum(-2147217299i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrForcedRollback: WbemErrorEnum = WbemErrorEnum(-2147217298i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrUnsupportedLocale: WbemErrorEnum = WbemErrorEnum(-2147217297i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrHandleOutOfDate: WbemErrorEnum = WbemErrorEnum(-2147217296i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrConnectionFailed: WbemErrorEnum = WbemErrorEnum(-2147217295i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidHandleRequest: WbemErrorEnum = WbemErrorEnum(-2147217294i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrPropertyNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217293i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrClassNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217292i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrMethodNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217291i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrQualifierNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217290i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrRerunCommand: WbemErrorEnum = WbemErrorEnum(-2147217289i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrDatabaseVerMismatch: WbemErrorEnum = WbemErrorEnum(-2147217288i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrVetoPut: WbemErrorEnum = WbemErrorEnum(-2147217287i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrVetoDelete: WbemErrorEnum = WbemErrorEnum(-2147217286i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrInvalidLocale: WbemErrorEnum = WbemErrorEnum(-2147217280i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderSuspended: WbemErrorEnum = WbemErrorEnum(-2147217279i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrSynchronizationRequired: WbemErrorEnum = WbemErrorEnum(-2147217278i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrNoSchema: WbemErrorEnum = WbemErrorEnum(-2147217277i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderAlreadyRegistered: WbemErrorEnum = WbemErrorEnum(-2147217276i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrProviderNotRegistered: WbemErrorEnum = WbemErrorEnum(-2147217275i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrFatalTransportError: WbemErrorEnum = WbemErrorEnum(-2147217274i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrEncryptedConnectionRequired: WbemErrorEnum = WbemErrorEnum(-2147217273i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrRegistrationTooBroad: WbemErrorEnum = WbemErrorEnum(-2147213311i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrRegistrationTooPrecise: WbemErrorEnum = WbemErrorEnum(-2147213310i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrTimedout: WbemErrorEnum = WbemErrorEnum(-2147209215i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemErrResetToDefault: WbemErrorEnum = WbemErrorEnum(-2147209214i32);
+impl ::core::marker::Copy for WbemErrorEnum {}
+impl ::core::clone::Clone for WbemErrorEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemErrorEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemErrorEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemErrorEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemErrorEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemFlagEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagReturnImmediately: WbemFlagEnum = WbemFlagEnum(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagReturnWhenComplete: WbemFlagEnum = WbemFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagBidirectional: WbemFlagEnum = WbemFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagForwardOnly: WbemFlagEnum = WbemFlagEnum(32i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagNoErrorObject: WbemFlagEnum = WbemFlagEnum(64i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagReturnErrorObject: WbemFlagEnum = WbemFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagSendStatus: WbemFlagEnum = WbemFlagEnum(128i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagDontSendStatus: WbemFlagEnum = WbemFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagEnsureLocatable: WbemFlagEnum = WbemFlagEnum(256i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagDirectRead: WbemFlagEnum = WbemFlagEnum(512i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagSendOnlySelected: WbemFlagEnum = WbemFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagUseAmendedQualifiers: WbemFlagEnum = WbemFlagEnum(131072i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagGetDefault: WbemFlagEnum = WbemFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagSpawnInstance: WbemFlagEnum = WbemFlagEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemFlagUseCurrentTime: WbemFlagEnum = WbemFlagEnum(1i32);
+impl ::core::marker::Copy for WbemFlagEnum {}
+impl ::core::clone::Clone for WbemFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemFlagEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemFlagEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemFlagEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemImpersonationLevelEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemImpersonationLevelAnonymous: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemImpersonationLevelIdentify: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemImpersonationLevelImpersonate: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemImpersonationLevelDelegate: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(4i32);
+impl ::core::marker::Copy for WbemImpersonationLevelEnum {}
+impl ::core::clone::Clone for WbemImpersonationLevelEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemImpersonationLevelEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemImpersonationLevelEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemImpersonationLevelEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemImpersonationLevelEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemObjectTextFormatEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemObjectTextFormatWMIDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(2i32);
+impl ::core::marker::Copy for WbemObjectTextFormatEnum {}
+impl ::core::clone::Clone for WbemObjectTextFormatEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemObjectTextFormatEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemObjectTextFormatEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemObjectTextFormatEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemObjectTextFormatEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemPrivilegeEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeCreateToken: WbemPrivilegeEnum = WbemPrivilegeEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegePrimaryToken: WbemPrivilegeEnum = WbemPrivilegeEnum(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeLockMemory: WbemPrivilegeEnum = WbemPrivilegeEnum(3i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeIncreaseQuota: WbemPrivilegeEnum = WbemPrivilegeEnum(4i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeMachineAccount: WbemPrivilegeEnum = WbemPrivilegeEnum(5i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeTcb: WbemPrivilegeEnum = WbemPrivilegeEnum(6i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeSecurity: WbemPrivilegeEnum = WbemPrivilegeEnum(7i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeTakeOwnership: WbemPrivilegeEnum = WbemPrivilegeEnum(8i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeLoadDriver: WbemPrivilegeEnum = WbemPrivilegeEnum(9i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeSystemProfile: WbemPrivilegeEnum = WbemPrivilegeEnum(10i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeSystemtime: WbemPrivilegeEnum = WbemPrivilegeEnum(11i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeProfileSingleProcess: WbemPrivilegeEnum = WbemPrivilegeEnum(12i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeIncreaseBasePriority: WbemPrivilegeEnum = WbemPrivilegeEnum(13i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeCreatePagefile: WbemPrivilegeEnum = WbemPrivilegeEnum(14i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeCreatePermanent: WbemPrivilegeEnum = WbemPrivilegeEnum(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeBackup: WbemPrivilegeEnum = WbemPrivilegeEnum(16i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeRestore: WbemPrivilegeEnum = WbemPrivilegeEnum(17i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeShutdown: WbemPrivilegeEnum = WbemPrivilegeEnum(18i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeDebug: WbemPrivilegeEnum = WbemPrivilegeEnum(19i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeAudit: WbemPrivilegeEnum = WbemPrivilegeEnum(20i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeSystemEnvironment: WbemPrivilegeEnum = WbemPrivilegeEnum(21i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeChangeNotify: WbemPrivilegeEnum = WbemPrivilegeEnum(22i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeRemoteShutdown: WbemPrivilegeEnum = WbemPrivilegeEnum(23i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeUndock: WbemPrivilegeEnum = WbemPrivilegeEnum(24i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeSyncAgent: WbemPrivilegeEnum = WbemPrivilegeEnum(25i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeEnableDelegation: WbemPrivilegeEnum = WbemPrivilegeEnum(26i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemPrivilegeManageVolume: WbemPrivilegeEnum = WbemPrivilegeEnum(27i32);
+impl ::core::marker::Copy for WbemPrivilegeEnum {}
+impl ::core::clone::Clone for WbemPrivilegeEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemPrivilegeEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemPrivilegeEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemPrivilegeEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemPrivilegeEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemQueryFlagEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemQueryFlagDeep: WbemQueryFlagEnum = WbemQueryFlagEnum(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemQueryFlagShallow: WbemQueryFlagEnum = WbemQueryFlagEnum(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemQueryFlagPrototype: WbemQueryFlagEnum = WbemQueryFlagEnum(2i32);
+impl ::core::marker::Copy for WbemQueryFlagEnum {}
+impl ::core::clone::Clone for WbemQueryFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemQueryFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemQueryFlagEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemQueryFlagEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemQueryFlagEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemTextFlagEnum(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
+impl ::core::marker::Copy for WbemTextFlagEnum {}
+impl ::core::clone::Clone for WbemTextFlagEnum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemTextFlagEnum {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemTextFlagEnum {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemTextFlagEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemTextFlagEnum").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WbemTimeout(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
+impl ::core::marker::Copy for WbemTimeout {}
+impl ::core::clone::Clone for WbemTimeout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WbemTimeout {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WbemTimeout {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WbemTimeout {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WbemTimeout").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct tag_WBEM_LOGIN_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_INPROC_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_LOCAL_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_REMOTE_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_AUTHENTICATION_METHOD_MASK: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
+pub const WBEM_FLAG_USE_MULTIPLE_CHALLENGES: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(16i32);
+impl ::core::marker::Copy for tag_WBEM_LOGIN_TYPE {}
+impl ::core::clone::Clone for tag_WBEM_LOGIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for tag_WBEM_LOGIN_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for tag_WBEM_LOGIN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for tag_WBEM_LOGIN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("tag_WBEM_LOGIN_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_Application {
@@ -8509,15 +11743,6 @@ impl ::core::default::Default for MI_ApplicationFT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[inline]
-pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: ::core::option::Option<&u16>, extendederror: ::core::option::Option<&mut *mut MI_Instance>, application: &mut MI_Application) -> MI_Result {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn MI_Application_InitializeV1(flags: u32, applicationid: *const u16, extendederror: *mut *mut MI_Instance, application: *mut MI_Application) -> MI_Result;
-    }
-    MI_Application_InitializeV1(flags, ::core::mem::transmute(applicationid), ::core::mem::transmute(extendederror), ::core::mem::transmute(application))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
@@ -8675,72 +11900,6 @@ impl ::core::cmp::Eq for MI_BooleanField {}
 impl ::core::default::Default for MI_BooleanField {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CALL_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CHAR_TYPE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_CallbackMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = MI_CallbackMode(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CALLBACKMODE_INQUIRE: MI_CallbackMode = MI_CallbackMode(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CALLBACKMODE_IGNORE: MI_CallbackMode = MI_CallbackMode(2i32);
-impl ::core::marker::Copy for MI_CallbackMode {}
-impl ::core::clone::Clone for MI_CallbackMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_CallbackMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_CallbackMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_CallbackMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_CallbackMode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_CancelCallback = ::core::option::Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_CancellationReason(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REASON_NONE: MI_CancellationReason = MI_CancellationReason(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REASON_TIMEOUT: MI_CancellationReason = MI_CancellationReason(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REASON_SHUTDOWN: MI_CancellationReason = MI_CancellationReason(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REASON_SERVICESTOP: MI_CancellationReason = MI_CancellationReason(3i32);
-impl ::core::marker::Copy for MI_CancellationReason {}
-impl ::core::clone::Clone for MI_CancellationReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_CancellationReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_CancellationReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_CancellationReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_CancellationReason").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -10884,8 +14043,6 @@ impl ::core::default::Default for MI_DeserializerFT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_Deserializer_ClassObjectNeeded = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_DestinationOptions {
@@ -10978,184 +14135,6 @@ impl ::core::default::Default for MI_DestinationOptionsFT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_DestinationOptions_ImpersonationType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DestinationOptions_ImpersonationType_Default: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DestinationOptions_ImpersonationType_None: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DestinationOptions_ImpersonationType_Identify: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DestinationOptions_ImpersonationType_Impersonate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DestinationOptions_ImpersonationType_Delegate: MI_DestinationOptions_ImpersonationType = MI_DestinationOptions_ImpersonationType(4i32);
-impl ::core::marker::Copy for MI_DestinationOptions_ImpersonationType {}
-impl ::core::clone::Clone for MI_DestinationOptions_ImpersonationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_DestinationOptions_ImpersonationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_DestinationOptions_ImpersonationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_DestinationOptions_ImpersonationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_DestinationOptions_ImpersonationType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_ErrorCategory(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_NOT_SPECIFIED: MI_ErrorCategory = MI_ErrorCategory(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_OPEN_ERROR: MI_ErrorCategory = MI_ErrorCategory(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_CLOS_EERROR: MI_ErrorCategory = MI_ErrorCategory(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_DEVICE_ERROR: MI_ErrorCategory = MI_ErrorCategory(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_DEADLOCK_DETECTED: MI_ErrorCategory = MI_ErrorCategory(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_INVALID_ARGUMENT: MI_ErrorCategory = MI_ErrorCategory(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_INVALID_DATA: MI_ErrorCategory = MI_ErrorCategory(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_INVALID_OPERATION: MI_ErrorCategory = MI_ErrorCategory(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_INVALID_RESULT: MI_ErrorCategory = MI_ErrorCategory(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_INVALID_TYPE: MI_ErrorCategory = MI_ErrorCategory(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_METADATA_ERROR: MI_ErrorCategory = MI_ErrorCategory(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_NOT_IMPLEMENTED: MI_ErrorCategory = MI_ErrorCategory(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_NOT_INSTALLED: MI_ErrorCategory = MI_ErrorCategory(12i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_OBJECT_NOT_FOUND: MI_ErrorCategory = MI_ErrorCategory(13i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_OPERATION_STOPPED: MI_ErrorCategory = MI_ErrorCategory(14i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_OPERATION_TIMEOUT: MI_ErrorCategory = MI_ErrorCategory(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_SYNTAX_ERROR: MI_ErrorCategory = MI_ErrorCategory(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_PARSER_ERROR: MI_ErrorCategory = MI_ErrorCategory(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_ACCESS_DENIED: MI_ErrorCategory = MI_ErrorCategory(18i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_RESOURCE_BUSY: MI_ErrorCategory = MI_ErrorCategory(19i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_RESOURCE_EXISTS: MI_ErrorCategory = MI_ErrorCategory(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_RESOURCE_UNAVAILABLE: MI_ErrorCategory = MI_ErrorCategory(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_READ_ERROR: MI_ErrorCategory = MI_ErrorCategory(22i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_WRITE_ERROR: MI_ErrorCategory = MI_ErrorCategory(23i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_FROM_STDERR: MI_ErrorCategory = MI_ErrorCategory(24i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_SECURITY_ERROR: MI_ErrorCategory = MI_ErrorCategory(25i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_PROTOCOL_ERROR: MI_ErrorCategory = MI_ErrorCategory(26i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_CONNECTION_ERROR: MI_ErrorCategory = MI_ErrorCategory(27i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_AUTHENTICATION_ERROR: MI_ErrorCategory = MI_ErrorCategory(28i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_LIMITS_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(29i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_QUOTA_EXCEEDED: MI_ErrorCategory = MI_ErrorCategory(30i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ERRORCATEGORY_NOT_ENABLED: MI_ErrorCategory = MI_ErrorCategory(31i32);
-impl ::core::marker::Copy for MI_ErrorCategory {}
-impl ::core::clone::Clone for MI_ErrorCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_ErrorCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_ErrorCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_ErrorCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_ErrorCategory").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_ABSTRACT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_ADOPT: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_ANY: u32 = 127u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_ASSOCIATION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_BORROW: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_CLASS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_DISABLEOVERRIDE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_ENABLEOVERRIDE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_EXPENSIVE: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_EXTENDED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_IN: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_INDICATION: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_KEY: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_METHOD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_NOT_MODIFIED: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_NULL: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_OUT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_PARAMETER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_PROPERTY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_READONLY: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_REFERENCE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_REQUIRED: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_RESTRICTED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_STATIC: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_STREAM: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_TERMINAL: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_TOSUBCLASS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_TRANSLATABLE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_FLAG_VERSION: u32 = 469762048u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_FeatureDecl {
@@ -11578,57 +14557,6 @@ impl ::core::default::Default for MI_Interval {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_LocaleType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_LOCALE_TYPE_REQUESTED_UI: MI_LocaleType = MI_LocaleType(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_LOCALE_TYPE_REQUESTED_DATA: MI_LocaleType = MI_LocaleType(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_LOCALE_TYPE_CLOSEST_UI: MI_LocaleType = MI_LocaleType(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_LOCALE_TYPE_CLOSEST_DATA: MI_LocaleType = MI_LocaleType(3i32);
-impl ::core::marker::Copy for MI_LocaleType {}
-impl ::core::clone::Clone for MI_LocaleType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_LocaleType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_LocaleType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_LocaleType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_LocaleType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MAX_LOCALE_SIZE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_BOOLEANS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_CPLUSPLUS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_DESCRIPTIONS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_FILTER_SUPPORT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_LOCALIZED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_MAPPING_STRINGS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_STANDARD_QUALIFIERS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_MODULE_FLAG_VALUES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_MainFunction = ::core::option::Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_MethodDecl {
@@ -11685,8 +14613,6 @@ impl ::core::default::Default for MI_MethodDecl {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_MethodDecl_Invoke = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_Module {
@@ -11724,34 +14650,8 @@ impl ::core::default::Default for MI_Module {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_Module_Load = ::core::option::Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
 #[repr(C)]
 pub struct MI_Module_Self(pub u8);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_Module_Unload = ::core::option::Option<unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_BASIC_RTTI: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_DEFAULT_RTTI: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_FULL_RTTI: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_NO_RTTI: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY: u32 = 384u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OPERATIONFLAGS_STANDARD_RTTI: u32 = 2048u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_ObjectDecl {
@@ -11821,53 +14721,6 @@ impl ::core::default::Default for MI_Operation {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_Class = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_Indication = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_Instance = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_PromptUser = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_OperationCallback_ResponseType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OperationCallback_ResponseType_No: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OperationCallback_ResponseType_Yes: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OperationCallback_ResponseType_NoToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_OperationCallback_ResponseType_YesToAll: MI_OperationCallback_ResponseType = MI_OperationCallback_ResponseType(3i32);
-impl ::core::marker::Copy for MI_OperationCallback_ResponseType {}
-impl ::core::clone::Clone for MI_OperationCallback_ResponseType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_OperationCallback_ResponseType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_OperationCallback_ResponseType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_OperationCallback_ResponseType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_OperationCallback_ResponseType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_StreamedParameter = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_WriteError = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_WriteMessage = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, channel: u32, message: *const u16)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_OperationCallback_WriteProgress = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32)>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_OperationCallbacks {
@@ -12142,33 +14995,6 @@ impl ::core::default::Default for MI_ParameterSetFT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_PromptType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_PROMPTTYPE_NORMAL: MI_PromptType = MI_PromptType(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_PROMPTTYPE_CRITICAL: MI_PromptType = MI_PromptType(1i32);
-impl ::core::marker::Copy for MI_PromptType {}
-impl ::core::clone::Clone for MI_PromptType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_PromptType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_PromptType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_PromptType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_PromptType").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_PropertyDecl {
@@ -12278,33 +15104,6 @@ impl ::core::default::Default for MI_PropertySetFT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_ProviderArchitecture(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_PROVIDER_ARCHITECTURE_32BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_PROVIDER_ARCHITECTURE_64BIT: MI_ProviderArchitecture = MI_ProviderArchitecture(1i32);
-impl ::core::marker::Copy for MI_ProviderArchitecture {}
-impl ::core::clone::Clone for MI_ProviderArchitecture {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_ProviderArchitecture {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_ProviderArchitecture {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_ProviderArchitecture {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_ProviderArchitecture").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_ProviderFT {
@@ -12363,34 +15162,6 @@ impl ::core::default::Default for MI_ProviderFT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_AssociatorInstances = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_CreateInstance = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_DeleteInstance = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_DisableIndications = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_EnableIndications = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_EnumerateInstances = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_GetInstance = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_Invoke = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_Load = ::core::option::Option<unsafe extern "system" fn(self_: *mut *mut ::core::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_ModifyInstance = ::core::option::Option<unsafe extern "system" fn(self_: *mut ::core::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_ReferenceInstances = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_Subscribe = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_Unload = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context)>;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub type MI_ProviderFT_Unsubscribe = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const ::core::ffi::c_void)>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_Qualifier {
@@ -12808,91 +15579,6 @@ impl ::core::default::Default for MI_ReferenceField {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_Result(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_OK: MI_Result = MI_Result(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_FAILED: MI_Result = MI_Result(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_ACCESS_DENIED: MI_Result = MI_Result(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_NAMESPACE: MI_Result = MI_Result(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_PARAMETER: MI_Result = MI_Result(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_CLASS: MI_Result = MI_Result(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_NOT_FOUND: MI_Result = MI_Result(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_NOT_SUPPORTED: MI_Result = MI_Result(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_CLASS_HAS_CHILDREN: MI_Result = MI_Result(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_CLASS_HAS_INSTANCES: MI_Result = MI_Result(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_SUPERCLASS: MI_Result = MI_Result(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_ALREADY_EXISTS: MI_Result = MI_Result(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_NO_SUCH_PROPERTY: MI_Result = MI_Result(12i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_TYPE_MISMATCH: MI_Result = MI_Result(13i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_QUERY_LANGUAGE_NOT_SUPPORTED: MI_Result = MI_Result(14i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_QUERY: MI_Result = MI_Result(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_METHOD_NOT_AVAILABLE: MI_Result = MI_Result(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_METHOD_NOT_FOUND: MI_Result = MI_Result(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_NAMESPACE_NOT_EMPTY: MI_Result = MI_Result(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_ENUMERATION_CONTEXT: MI_Result = MI_Result(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_INVALID_OPERATION_TIMEOUT: MI_Result = MI_Result(22i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_PULL_HAS_BEEN_ABANDONED: MI_Result = MI_Result(23i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_PULL_CANNOT_BE_ABANDONED: MI_Result = MI_Result(24i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_FILTERED_ENUMERATION_NOT_SUPPORTED: MI_Result = MI_Result(25i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_CONTINUATION_ON_ERROR_NOT_SUPPORTED: MI_Result = MI_Result(26i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_SERVER_LIMITS_EXCEEDED: MI_Result = MI_Result(27i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_RESULT_SERVER_IS_SHUTTING_DOWN: MI_Result = MI_Result(28i32);
-impl ::core::marker::Copy for MI_Result {}
-impl ::core::clone::Clone for MI_Result {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_Result {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_Result {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_Result {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_Result").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SERIALIZER_FLAGS_CLASS_DEEP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SUBSCRIBE_BOOKMARK_NEWEST: &str = "MI_SUBSCRIBE_BOOKMARK_NEWEST";
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SUBSCRIBE_BOOKMARK_OLDEST: &str = "MI_SUBSCRIBE_BOOKMARK_OLDEST";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_SchemaDecl {
@@ -13749,33 +16435,6 @@ impl ::core::default::Default for MI_SubscriptionDeliveryOptionsFT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_SubscriptionDeliveryType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SubscriptionDeliveryType_Pull: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SubscriptionDeliveryType_Push: MI_SubscriptionDeliveryType = MI_SubscriptionDeliveryType(2i32);
-impl ::core::marker::Copy for MI_SubscriptionDeliveryType {}
-impl ::core::clone::Clone for MI_SubscriptionDeliveryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_SubscriptionDeliveryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_SubscriptionDeliveryType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_SubscriptionDeliveryType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_SubscriptionDeliveryType").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct MI_Timestamp {
@@ -13811,95 +16470,6 @@ impl ::core::cmp::Eq for MI_Timestamp {}
 impl ::core::default::Default for MI_Timestamp {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MI_Type(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_BOOLEAN: MI_Type = MI_Type(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT8: MI_Type = MI_Type(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT8: MI_Type = MI_Type(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT16: MI_Type = MI_Type(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT16: MI_Type = MI_Type(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT32: MI_Type = MI_Type(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT32: MI_Type = MI_Type(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT64: MI_Type = MI_Type(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT64: MI_Type = MI_Type(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REAL32: MI_Type = MI_Type(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REAL64: MI_Type = MI_Type(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CHAR16: MI_Type = MI_Type(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DATETIME: MI_Type = MI_Type(12i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_STRING: MI_Type = MI_Type(13i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REFERENCE: MI_Type = MI_Type(14i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_INSTANCE: MI_Type = MI_Type(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_BOOLEANA: MI_Type = MI_Type(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT8A: MI_Type = MI_Type(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT8A: MI_Type = MI_Type(18i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT16A: MI_Type = MI_Type(19i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT16A: MI_Type = MI_Type(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT32A: MI_Type = MI_Type(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT32A: MI_Type = MI_Type(22i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_UINT64A: MI_Type = MI_Type(23i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_SINT64A: MI_Type = MI_Type(24i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REAL32A: MI_Type = MI_Type(25i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REAL64A: MI_Type = MI_Type(26i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_CHAR16A: MI_Type = MI_Type(27i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_DATETIMEA: MI_Type = MI_Type(28i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_STRINGA: MI_Type = MI_Type(29i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_REFERENCEA: MI_Type = MI_Type(30i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_INSTANCEA: MI_Type = MI_Type(31i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_ARRAY: MI_Type = MI_Type(16i32);
-impl ::core::marker::Copy for MI_Type {}
-impl ::core::clone::Clone for MI_Type {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MI_Type {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MI_Type {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MI_Type {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MI_Type").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -14454,13 +17024,6 @@ impl ::core::default::Default for MI_Value {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_WRITEMESSAGE_CHANNEL_DEBUG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_WRITEMESSAGE_CHANNEL_VERBOSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const MI_WRITEMESSAGE_CHANNEL_WARNING: u32 = 0u32;
-pub const MofCompiler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6daf9757_2e37_11d2_aec9_00c04fb68820);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14612,24 +17175,6 @@ impl ::core::default::Default for SWbemAssocQueryInf {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const SWbemDateTime: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47dfbe54_cf76_11d3_b38f_00105a1f473a);
-pub const SWbemEventSource: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d58_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemLastError: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2feeeac_cfcd_11d1_8b05_00600806d9b6);
-pub const SWbemLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a64158_cb41_11d1_8b02_00600806d9b6);
-pub const SWbemMethod: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5b_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemMethodSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5a_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemNamedValue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d60_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemNamedValueSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9aed384e_ce8b_11d1_8b05_00600806d9b6);
-pub const SWbemObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d62_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemObjectEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6bdafb2_9435_491f_bb87_6aa0f0bc31a2);
-pub const SWbemObjectPath: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5791bc26_ce9c_11d1_97bf_0000f81e849c);
-pub const SWbemObjectSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d61_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemPrivilege: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67bc_5804_11d2_8b4a_00600806d9b6);
-pub const SWbemPrivilegeSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67be_5804_11d2_8b4a_00600806d9b6);
-pub const SWbemProperty: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5d_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemPropertySet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5c_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemQualifier: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5f_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemQualifierSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d5e_21ae_11d2_8b33_00600806d9b6);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14674,8 +17219,6 @@ impl ::core::default::Default for SWbemQueryQualifiedName {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const SWbemRefreshableItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c6854bc_de4b_11d3_b390_00105a1f473a);
-pub const SWbemRefresher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd269bf5c_d9c1_11d3_b38f_00105a1f473a);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14863,628 +17406,6 @@ impl ::core::default::Default for SWbemRpnTokenList {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const SWbemSecurity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb54d66e9_2287_11d2_8b33_00600806d9b6);
-pub const SWbemServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b83d63_21ae_11d2_8b33_00600806d9b6);
-pub const SWbemServicesEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e522dc_8cf3_40a8_8b2e_37d595651e40);
-pub const SWbemSink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75718c9a_f029_11d1_a1ac_00c04fb6c223);
-pub const UnsecuredApartment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49bd2028_1523_11d1_ad79_00c04fd8fdff);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEMSTATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_NO_ERROR: WBEMSTATUS = WBEMSTATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_SAME: WBEMSTATUS = WBEMSTATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_FALSE: WBEMSTATUS = WBEMSTATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_ALREADY_EXISTS: WBEMSTATUS = WBEMSTATUS(262145i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_RESET_TO_DEFAULT: WBEMSTATUS = WBEMSTATUS(262146i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_DIFFERENT: WBEMSTATUS = WBEMSTATUS(262147i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_TIMEDOUT: WBEMSTATUS = WBEMSTATUS(262148i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_NO_MORE_DATA: WBEMSTATUS = WBEMSTATUS(262149i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_OPERATION_CANCELLED: WBEMSTATUS = WBEMSTATUS(262150i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_PENDING: WBEMSTATUS = WBEMSTATUS(262151i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_DUPLICATE_OBJECTS: WBEMSTATUS = WBEMSTATUS(262152i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_ACCESS_DENIED: WBEMSTATUS = WBEMSTATUS(262153i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_PARTIAL_RESULTS: WBEMSTATUS = WBEMSTATUS(262160i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_SOURCE_NOT_AVAILABLE: WBEMSTATUS = WBEMSTATUS(262167i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_FAILED: WBEMSTATUS = WBEMSTATUS(-2147217407i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NOT_FOUND: WBEMSTATUS = WBEMSTATUS(-2147217406i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_ACCESS_DENIED: WBEMSTATUS = WBEMSTATUS(-2147217405i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217404i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_TYPE_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217403i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_OUT_OF_MEMORY: WBEMSTATUS = WBEMSTATUS(-2147217402i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_CONTEXT: WBEMSTATUS = WBEMSTATUS(-2147217401i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_PARAMETER: WBEMSTATUS = WBEMSTATUS(-2147217400i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NOT_AVAILABLE: WBEMSTATUS = WBEMSTATUS(-2147217399i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CRITICAL_ERROR: WBEMSTATUS = WBEMSTATUS(-2147217398i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_STREAM: WBEMSTATUS = WBEMSTATUS(-2147217397i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NOT_SUPPORTED: WBEMSTATUS = WBEMSTATUS(-2147217396i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_SUPERCLASS: WBEMSTATUS = WBEMSTATUS(-2147217395i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_NAMESPACE: WBEMSTATUS = WBEMSTATUS(-2147217394i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217393i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_CLASS: WBEMSTATUS = WBEMSTATUS(-2147217392i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_NOT_FOUND: WBEMSTATUS = WBEMSTATUS(-2147217391i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_PROVIDER_REGISTRATION: WBEMSTATUS = WBEMSTATUS(-2147217390i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_LOAD_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217389i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INITIALIZATION_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217388i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_TRANSPORT_FAILURE: WBEMSTATUS = WBEMSTATUS(-2147217387i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_OPERATION: WBEMSTATUS = WBEMSTATUS(-2147217386i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_QUERY: WBEMSTATUS = WBEMSTATUS(-2147217385i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_QUERY_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217384i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_ALREADY_EXISTS: WBEMSTATUS = WBEMSTATUS(-2147217383i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_OVERRIDE_NOT_ALLOWED: WBEMSTATUS = WBEMSTATUS(-2147217382i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROPAGATED_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147217381i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROPAGATED_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147217380i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNEXPECTED: WBEMSTATUS = WBEMSTATUS(-2147217379i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_ILLEGAL_OPERATION: WBEMSTATUS = WBEMSTATUS(-2147217378i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CANNOT_BE_KEY: WBEMSTATUS = WBEMSTATUS(-2147217377i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INCOMPLETE_CLASS: WBEMSTATUS = WBEMSTATUS(-2147217376i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147217375i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NONDECORATED_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217374i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_READ_ONLY: WBEMSTATUS = WBEMSTATUS(-2147217373i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_NOT_CAPABLE: WBEMSTATUS = WBEMSTATUS(-2147217372i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CLASS_HAS_CHILDREN: WBEMSTATUS = WBEMSTATUS(-2147217371i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CLASS_HAS_INSTANCES: WBEMSTATUS = WBEMSTATUS(-2147217370i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_QUERY_NOT_IMPLEMENTED: WBEMSTATUS = WBEMSTATUS(-2147217369i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_ILLEGAL_NULL: WBEMSTATUS = WBEMSTATUS(-2147217368i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_QUALIFIER_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217367i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_PROPERTY_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217366i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_VALUE_OUT_OF_RANGE: WBEMSTATUS = WBEMSTATUS(-2147217365i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CANNOT_BE_SINGLETON: WBEMSTATUS = WBEMSTATUS(-2147217364i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_CIM_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217363i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_METHOD: WBEMSTATUS = WBEMSTATUS(-2147217362i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_METHOD_PARAMETERS: WBEMSTATUS = WBEMSTATUS(-2147217361i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_SYSTEM_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147217360i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147217359i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CALL_CANCELLED: WBEMSTATUS = WBEMSTATUS(-2147217358i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_SHUTTING_DOWN: WBEMSTATUS = WBEMSTATUS(-2147217357i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROPAGATED_METHOD: WBEMSTATUS = WBEMSTATUS(-2147217356i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNSUPPORTED_PARAMETER: WBEMSTATUS = WBEMSTATUS(-2147217355i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_MISSING_PARAMETER_ID: WBEMSTATUS = WBEMSTATUS(-2147217354i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_PARAMETER_ID: WBEMSTATUS = WBEMSTATUS(-2147217353i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NONCONSECUTIVE_PARAMETER_IDS: WBEMSTATUS = WBEMSTATUS(-2147217352i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PARAMETER_ID_ON_RETVAL: WBEMSTATUS = WBEMSTATUS(-2147217351i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_OBJECT_PATH: WBEMSTATUS = WBEMSTATUS(-2147217350i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_OUT_OF_DISK_SPACE: WBEMSTATUS = WBEMSTATUS(-2147217349i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_BUFFER_TOO_SMALL: WBEMSTATUS = WBEMSTATUS(-2147217348i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNSUPPORTED_PUT_EXTENSION: WBEMSTATUS = WBEMSTATUS(-2147217347i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNKNOWN_OBJECT_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217346i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNKNOWN_PACKET_TYPE: WBEMSTATUS = WBEMSTATUS(-2147217345i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_MARSHAL_VERSION_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217344i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_MARSHAL_INVALID_SIGNATURE: WBEMSTATUS = WBEMSTATUS(-2147217343i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147217342i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_DUPLICATE_PARAMETER: WBEMSTATUS = WBEMSTATUS(-2147217341i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_TOO_MUCH_DATA: WBEMSTATUS = WBEMSTATUS(-2147217340i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_SERVER_TOO_BUSY: WBEMSTATUS = WBEMSTATUS(-2147217339i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_FLAVOR: WBEMSTATUS = WBEMSTATUS(-2147217338i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CIRCULAR_REFERENCE: WBEMSTATUS = WBEMSTATUS(-2147217337i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNSUPPORTED_CLASS_UPDATE: WBEMSTATUS = WBEMSTATUS(-2147217336i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CANNOT_CHANGE_KEY_INHERITANCE: WBEMSTATUS = WBEMSTATUS(-2147217335i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CANNOT_CHANGE_INDEX_INHERITANCE: WBEMSTATUS = WBEMSTATUS(-2147217328i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_TOO_MANY_PROPERTIES: WBEMSTATUS = WBEMSTATUS(-2147217327i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UPDATE_TYPE_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217326i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UPDATE_OVERRIDE_NOT_ALLOWED: WBEMSTATUS = WBEMSTATUS(-2147217325i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UPDATE_PROPAGATED_METHOD: WBEMSTATUS = WBEMSTATUS(-2147217324i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_METHOD_NOT_IMPLEMENTED: WBEMSTATUS = WBEMSTATUS(-2147217323i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_METHOD_DISABLED: WBEMSTATUS = WBEMSTATUS(-2147217322i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_REFRESHER_BUSY: WBEMSTATUS = WBEMSTATUS(-2147217321i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNPARSABLE_QUERY: WBEMSTATUS = WBEMSTATUS(-2147217320i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NOT_EVENT_CLASS: WBEMSTATUS = WBEMSTATUS(-2147217319i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_MISSING_GROUP_WITHIN: WBEMSTATUS = WBEMSTATUS(-2147217318i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_MISSING_AGGREGATION_LIST: WBEMSTATUS = WBEMSTATUS(-2147217317i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROPERTY_NOT_AN_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217316i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_AGGREGATING_BY_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217315i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNINTERPRETABLE_PROVIDER_QUERY: WBEMSTATUS = WBEMSTATUS(-2147217313i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_BACKUP_RESTORE_WINMGMT_RUNNING: WBEMSTATUS = WBEMSTATUS(-2147217312i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_QUEUE_OVERFLOW: WBEMSTATUS = WBEMSTATUS(-2147217311i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PRIVILEGE_NOT_HELD: WBEMSTATUS = WBEMSTATUS(-2147217310i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_OPERATOR: WBEMSTATUS = WBEMSTATUS(-2147217309i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_LOCAL_CREDENTIALS: WBEMSTATUS = WBEMSTATUS(-2147217308i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CANNOT_BE_ABSTRACT: WBEMSTATUS = WBEMSTATUS(-2147217307i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_AMENDED_OBJECT: WBEMSTATUS = WBEMSTATUS(-2147217306i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CLIENT_TOO_SLOW: WBEMSTATUS = WBEMSTATUS(-2147217305i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NULL_SECURITY_DESCRIPTOR: WBEMSTATUS = WBEMSTATUS(-2147217304i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_TIMED_OUT: WBEMSTATUS = WBEMSTATUS(-2147217303i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_ASSOCIATION: WBEMSTATUS = WBEMSTATUS(-2147217302i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_AMBIGUOUS_OPERATION: WBEMSTATUS = WBEMSTATUS(-2147217301i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_QUOTA_VIOLATION: WBEMSTATUS = WBEMSTATUS(-2147217300i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_RESERVED_001: WBEMSTATUS = WBEMSTATUS(-2147217299i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_RESERVED_002: WBEMSTATUS = WBEMSTATUS(-2147217298i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_UNSUPPORTED_LOCALE: WBEMSTATUS = WBEMSTATUS(-2147217297i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_HANDLE_OUT_OF_DATE: WBEMSTATUS = WBEMSTATUS(-2147217296i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CONNECTION_FAILED: WBEMSTATUS = WBEMSTATUS(-2147217295i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_HANDLE_REQUEST: WBEMSTATUS = WBEMSTATUS(-2147217294i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROPERTY_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217293i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_CLASS_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217292i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_METHOD_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217291i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_QUALIFIER_NAME_TOO_WIDE: WBEMSTATUS = WBEMSTATUS(-2147217290i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_RERUN_COMMAND: WBEMSTATUS = WBEMSTATUS(-2147217289i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_DATABASE_VER_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147217288i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_VETO_DELETE: WBEMSTATUS = WBEMSTATUS(-2147217287i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_VETO_PUT: WBEMSTATUS = WBEMSTATUS(-2147217286i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_INVALID_LOCALE: WBEMSTATUS = WBEMSTATUS(-2147217280i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_SUSPENDED: WBEMSTATUS = WBEMSTATUS(-2147217279i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_SYNCHRONIZATION_REQUIRED: WBEMSTATUS = WBEMSTATUS(-2147217278i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NO_SCHEMA: WBEMSTATUS = WBEMSTATUS(-2147217277i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_ALREADY_REGISTERED: WBEMSTATUS = WBEMSTATUS(-2147217276i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_NOT_REGISTERED: WBEMSTATUS = WBEMSTATUS(-2147217275i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_FATAL_TRANSPORT_ERROR: WBEMSTATUS = WBEMSTATUS(-2147217274i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_ENCRYPTED_CONNECTION_REQUIRED: WBEMSTATUS = WBEMSTATUS(-2147217273i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_TIMED_OUT: WBEMSTATUS = WBEMSTATUS(-2147217272i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_NO_KEY: WBEMSTATUS = WBEMSTATUS(-2147217271i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_PROVIDER_DISABLED: WBEMSTATUS = WBEMSTATUS(-2147217270i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMESS_E_REGISTRATION_TOO_BROAD: WBEMSTATUS = WBEMSTATUS(-2147213311i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMESS_E_REGISTRATION_TOO_PRECISE: WBEMSTATUS = WBEMSTATUS(-2147213310i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMESS_E_AUTHZ_NOT_PRIVILEGED: WBEMSTATUS = WBEMSTATUS(-2147213309i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_QUALIFIER_NAME: WBEMSTATUS = WBEMSTATUS(-2147205119i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_SEMI: WBEMSTATUS = WBEMSTATUS(-2147205118i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_OPEN_BRACE: WBEMSTATUS = WBEMSTATUS(-2147205117i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_CLOSE_BRACE: WBEMSTATUS = WBEMSTATUS(-2147205116i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_CLOSE_BRACKET: WBEMSTATUS = WBEMSTATUS(-2147205115i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_CLOSE_PAREN: WBEMSTATUS = WBEMSTATUS(-2147205114i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_ILLEGAL_CONSTANT_VALUE: WBEMSTATUS = WBEMSTATUS(-2147205113i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_TYPE_IDENTIFIER: WBEMSTATUS = WBEMSTATUS(-2147205112i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_OPEN_PAREN: WBEMSTATUS = WBEMSTATUS(-2147205111i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_UNRECOGNIZED_TOKEN: WBEMSTATUS = WBEMSTATUS(-2147205110i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_UNRECOGNIZED_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205109i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_PROPERTY_NAME: WBEMSTATUS = WBEMSTATUS(-2147205108i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_TYPEDEF_NOT_SUPPORTED: WBEMSTATUS = WBEMSTATUS(-2147205107i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_UNEXPECTED_ALIAS: WBEMSTATUS = WBEMSTATUS(-2147205106i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_UNEXPECTED_ARRAY_INIT: WBEMSTATUS = WBEMSTATUS(-2147205105i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_AMENDMENT_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205104i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_DUPLICATE_AMENDMENT: WBEMSTATUS = WBEMSTATUS(-2147205103i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_PRAGMA: WBEMSTATUS = WBEMSTATUS(-2147205102i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_NAMESPACE_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205101i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_CLASS_NAME: WBEMSTATUS = WBEMSTATUS(-2147205100i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_TYPE_MISMATCH: WBEMSTATUS = WBEMSTATUS(-2147205099i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_ALIAS_NAME: WBEMSTATUS = WBEMSTATUS(-2147205098i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_CLASS_DECLARATION: WBEMSTATUS = WBEMSTATUS(-2147205097i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_INSTANCE_DECLARATION: WBEMSTATUS = WBEMSTATUS(-2147205096i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_DOLLAR: WBEMSTATUS = WBEMSTATUS(-2147205095i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_CIMTYPE_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147205094i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_DUPLICATE_PROPERTY: WBEMSTATUS = WBEMSTATUS(-2147205093i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_NAMESPACE_SPECIFICATION: WBEMSTATUS = WBEMSTATUS(-2147205092i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_OUT_OF_RANGE: WBEMSTATUS = WBEMSTATUS(-2147205091i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_FILE: WBEMSTATUS = WBEMSTATUS(-2147205090i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_ALIASES_IN_EMBEDDED: WBEMSTATUS = WBEMSTATUS(-2147205089i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_NULL_ARRAY_ELEM: WBEMSTATUS = WBEMSTATUS(-2147205088i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_DUPLICATE_QUALIFIER: WBEMSTATUS = WBEMSTATUS(-2147205087i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_FLAVOR_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205086i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES: WBEMSTATUS = WBEMSTATUS(-2147205085i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_MULTIPLE_ALIASES: WBEMSTATUS = WBEMSTATUS(-2147205084i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INCOMPATIBLE_FLAVOR_TYPES2: WBEMSTATUS = WBEMSTATUS(-2147205083i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_NO_ARRAYS_RETURNED: WBEMSTATUS = WBEMSTATUS(-2147205082i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_MUST_BE_IN_OR_OUT: WBEMSTATUS = WBEMSTATUS(-2147205081i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_FLAGS_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205080i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_EXPECTED_BRACE_OR_BAD_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205079i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_UNSUPPORTED_CIMV22_QUAL_VALUE: WBEMSTATUS = WBEMSTATUS(-2147205078i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_UNSUPPORTED_CIMV22_DATA_TYPE: WBEMSTATUS = WBEMSTATUS(-2147205077i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_DELETEINSTANCE_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205076i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_QUALIFIER_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205075i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_QUALIFIER_USED_OUTSIDE_SCOPE: WBEMSTATUS = WBEMSTATUS(-2147205074i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_ERROR_CREATING_TEMP_FILE: WBEMSTATUS = WBEMSTATUS(-2147205073i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_ERROR_INVALID_INCLUDE_FILE: WBEMSTATUS = WBEMSTATUS(-2147205072i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMMOF_E_INVALID_DELETECLASS_SYNTAX: WBEMSTATUS = WBEMSTATUS(-2147205071i32);
-impl ::core::marker::Copy for WBEMSTATUS {}
-impl ::core::clone::Clone for WBEMSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEMSTATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEMSTATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEMSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEMSTATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEMSTATUS_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMSTATUS_FORMAT_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMSTATUS_FORMAT_NO_NEWLINE: WBEMSTATUS_FORMAT = WBEMSTATUS_FORMAT(1i32);
-impl ::core::marker::Copy for WBEMSTATUS_FORMAT {}
-impl ::core::clone::Clone for WBEMSTATUS_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEMSTATUS_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEMSTATUS_FORMAT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEMSTATUS_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEMSTATUS_FORMAT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMS_DISPID_COMPLETED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMS_DISPID_CONNECTION_READY: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMS_DISPID_DERIVATION: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMS_DISPID_OBJECT_PUT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMS_DISPID_OBJECT_READY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMS_DISPID_PROGRESS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_BACKUP_RESTORE_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_BACKUP_RESTORE_DEFAULT: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_BACKUP_RESTORE_FORCE_SHUTDOWN: WBEM_BACKUP_RESTORE_FLAGS = WBEM_BACKUP_RESTORE_FLAGS(1i32);
-impl ::core::marker::Copy for WBEM_BACKUP_RESTORE_FLAGS {}
-impl ::core::clone::Clone for WBEM_BACKUP_RESTORE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_BACKUP_RESTORE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_BACKUP_RESTORE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_BACKUP_RESTORE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_BACKUP_RESTORE_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_BATCH_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_BATCH_IF_NEEDED: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_MUST_BATCH: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_MUST_NOT_BATCH: WBEM_BATCH_TYPE = WBEM_BATCH_TYPE(2i32);
-impl ::core::marker::Copy for WBEM_BATCH_TYPE {}
-impl ::core::clone::Clone for WBEM_BATCH_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_BATCH_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_BATCH_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_BATCH_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_BATCH_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_CHANGE_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CREATE_OR_UPDATE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UPDATE_ONLY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CREATE_ONLY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UPDATE_COMPATIBLE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UPDATE_SAFE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UPDATE_FORCE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MASK_UPDATE_MODE: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(96i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ADVISORY: WBEM_CHANGE_FLAG_TYPE = WBEM_CHANGE_FLAG_TYPE(65536i32);
-impl ::core::marker::Copy for WBEM_CHANGE_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_CHANGE_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_CHANGE_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_CHANGE_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_CHANGE_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_CHANGE_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_COMPARISON_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_COMPARISON_INCLUDE_ALL: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_IGNORE_QUALIFIERS: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_IGNORE_OBJECT_SOURCE: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_IGNORE_DEFAULT_VALUES: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_IGNORE_CLASS: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_IGNORE_CASE: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_IGNORE_FLAVOR: WBEM_COMPARISON_FLAG = WBEM_COMPARISON_FLAG(32i32);
-impl ::core::marker::Copy for WBEM_COMPARISON_FLAG {}
-impl ::core::clone::Clone for WBEM_COMPARISON_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_COMPARISON_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_COMPARISON_FLAG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_COMPARISON_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_COMPARISON_FLAG").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_COMPILER_OPTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CHECK_ONLY: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_AUTORECOVER: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_WMI_CHECK: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CONSOLE_PRINT: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_DONT_ADD_TO_LIST: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_SPLIT_FILES: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_STORE_FILE: WBEM_COMPILER_OPTIONS = WBEM_COMPILER_OPTIONS(256i32);
-impl ::core::marker::Copy for WBEM_COMPILER_OPTIONS {}
-impl ::core::clone::Clone for WBEM_COMPILER_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_COMPILER_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_COMPILER_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_COMPILER_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_COMPILER_OPTIONS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
 pub struct WBEM_COMPILE_STATUS_INFO {
@@ -15521,1981 +17442,60 @@ impl ::core::default::Default for WBEM_COMPILE_STATUS_INFO {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_CONDITION_FLAG_TYPE(pub i32);
+pub type MI_CancelCallback = ::core::option::Option<unsafe extern "system" fn(reason: MI_CancellationReason, callbackdata: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ALWAYS: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(0i32);
+pub type MI_Deserializer_ClassObjectNeeded = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, servername: *const u16, namespacename: *const u16, classname: *const u16, requestedclassobject: *mut *mut MI_Class) -> MI_Result>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ONLY_IF_TRUE: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(1i32);
+pub type MI_MainFunction = ::core::option::Option<unsafe extern "system" fn(server: *mut MI_Server) -> *mut MI_Module>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ONLY_IF_FALSE: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(2i32);
+pub type MI_MethodDecl_Invoke = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, parameters: *const MI_Instance)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ONLY_IF_IDENTICAL: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(3i32);
+pub type MI_Module_Load = ::core::option::Option<unsafe extern "system" fn(self_: *mut *mut MI_Module_Self, context: *const MI_Context)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MASK_PRIMARY_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(3i32);
+pub type MI_Module_Unload = ::core::option::Option<unsafe extern "system" fn(self_: *const MI_Module_Self, context: *const MI_Context)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_KEYS_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(4i32);
+pub type MI_OperationCallback_Class = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, classresult: *const MI_Class, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_REFS_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(8i32);
+pub type MI_OperationCallback_Indication = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, bookmark: *const u16, machineid: *const u16, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_LOCAL_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(16i32);
+pub type MI_OperationCallback_Instance = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, moreresults: u8, resultcode: MI_Result, errorstring: *const u16, errordetails: *const MI_Instance, resultacknowledgement: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_PROPAGATED_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(32i32);
+pub type MI_OperationCallback_PromptUser = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, message: *const u16, prompttype: MI_PromptType, promptuserresult: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_SYSTEM_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(48i32);
+pub type MI_OperationCallback_StreamedParameter = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, parametername: *const u16, resulttype: MI_Type, result: *const MI_Value, resultacknowledgement: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_NONSYSTEM_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(64i32);
+pub type MI_OperationCallback_WriteError = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, instance: *const MI_Instance, writeerrorresult: isize)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MASK_CONDITION_ORIGIN: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(112i32);
+pub type MI_OperationCallback_WriteMessage = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, channel: u32, message: *const u16)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CLASS_OVERRIDES_ONLY: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(256i32);
+pub type MI_OperationCallback_WriteProgress = ::core::option::Option<unsafe extern "system" fn(operation: *const MI_Operation, callbackcontext: *const ::core::ffi::c_void, activity: *const u16, currentoperation: *const u16, statusdescription: *const u16, percentagecomplete: u32, secondsremaining: u32)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CLASS_LOCAL_AND_OVERRIDES: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(512i32);
+pub type MI_ProviderFT_AssociatorInstances = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, resultclass: *const u16, role: *const u16, resultrole: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MASK_CLASS_CONDITION: WBEM_CONDITION_FLAG_TYPE = WBEM_CONDITION_FLAG_TYPE(768i32);
-impl ::core::marker::Copy for WBEM_CONDITION_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_CONDITION_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_CONDITION_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_CONDITION_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_CONDITION_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_CONDITION_FLAG_TYPE").field(&self.0).finish()
-    }
-}
+pub type MI_ProviderFT_CreateInstance = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, newinstance: *const MI_Instance)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_CONNECT_OPTIONS(pub i32);
+pub type MI_ProviderFT_DeleteInstance = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CONNECT_REPOSITORY_ONLY: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(64i32);
+pub type MI_ProviderFT_DisableIndications = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CONNECT_USE_MAX_WAIT: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(128i32);
+pub type MI_ProviderFT_EnableIndications = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, indicationscontext: *const MI_Context, namespace: *const u16, classname: *const u16)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_CONNECT_PROVIDERS: WBEM_CONNECT_OPTIONS = WBEM_CONNECT_OPTIONS(256i32);
-impl ::core::marker::Copy for WBEM_CONNECT_OPTIONS {}
-impl ::core::clone::Clone for WBEM_CONNECT_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_CONNECT_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_CONNECT_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_CONNECT_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_CONNECT_OPTIONS").field(&self.0).finish()
-    }
-}
+pub type MI_ProviderFT_EnumerateInstances = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_EXTRA_RETURN_CODES(pub i32);
+pub type MI_ProviderFT_GetInstance = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, propertyset: *const MI_PropertySet)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_INITIALIZED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(0i32);
+pub type MI_ProviderFT_Invoke = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, methodname: *const u16, instancename: *const MI_Instance, inputparameters: *const MI_Instance)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_LIMITED_SERVICE: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274433i32);
+pub type MI_ProviderFT_Load = ::core::option::Option<unsafe extern "system" fn(self_: *mut *mut ::core::ffi::c_void, selfmodule: *const MI_Module_Self, context: *const MI_Context)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_INDIRECTLY_UPDATED: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274434i32);
+pub type MI_ProviderFT_ModifyInstance = ::core::option::Option<unsafe extern "system" fn(self_: *mut ::core::ffi::c_void, context: *mut MI_Context, namespace: *const u16, classname: *const u16, modifiedinstance: *const MI_Instance, propertyset: *const MI_PropertySet)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_S_SUBJECT_TO_SDS: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(274435i32);
+pub type MI_ProviderFT_ReferenceInstances = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, instancename: *const MI_Instance, role: *const u16, propertyset: *const MI_PropertySet, keysonly: u8, filter: *const MI_Filter)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_RETRY_LATER: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(-2147209215i32);
+pub type MI_ProviderFT_Subscribe = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, filter: *const MI_Filter, bookmark: *const u16, subscriptionid: u64, subscriptionself: *mut *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_E_RESOURCE_CONTENTION: WBEM_EXTRA_RETURN_CODES = WBEM_EXTRA_RETURN_CODES(-2147209214i32);
-impl ::core::marker::Copy for WBEM_EXTRA_RETURN_CODES {}
-impl ::core::clone::Clone for WBEM_EXTRA_RETURN_CODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_EXTRA_RETURN_CODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_EXTRA_RETURN_CODES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_EXTRA_RETURN_CODES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_EXTRA_RETURN_CODES").field(&self.0).finish()
-    }
-}
+pub type MI_ProviderFT_Unload = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context)>;
 #[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_FLAVOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_DONT_PROPAGATE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_FLAG_PROPAGATE_TO_INSTANCE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_FLAG_PROPAGATE_TO_DERIVED_CLASS: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_MASK_PROPAGATION: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_OVERRIDABLE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_NOT_OVERRIDABLE: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_MASK_PERMISSIONS: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_ORIGIN_LOCAL: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_ORIGIN_PROPAGATED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_ORIGIN_SYSTEM: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_MASK_ORIGIN: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(96i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_NOT_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAVOR_MASK_AMENDED: WBEM_FLAVOR_TYPE = WBEM_FLAVOR_TYPE(128i32);
-impl ::core::marker::Copy for WBEM_FLAVOR_TYPE {}
-impl ::core::clone::Clone for WBEM_FLAVOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_FLAVOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_FLAVOR_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_FLAVOR_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_FLAVOR_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_GENERIC_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_RETURN_WBEM_COMPLETE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_BIDIRECTIONAL: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_FORWARD_ONLY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_NO_ERROR_OBJECT: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_RETURN_ERROR_OBJECT: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_SEND_STATUS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_DONT_SEND_STATUS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ENSURE_LOCATABLE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(256i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_DIRECT_READ: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(512i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_SEND_ONLY_SELECTED: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_RETURN_WHEN_COMPLETE: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_RETURN_IMMEDIATELY: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MASK_RESERVED_FLAGS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(126976i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_USE_AMENDED_QUALIFIERS: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(131072i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_STRONG_VALIDATION: WBEM_GENERIC_FLAG_TYPE = WBEM_GENERIC_FLAG_TYPE(1048576i32);
-impl ::core::marker::Copy for WBEM_GENERIC_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_GENERIC_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GENERIC_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_GENERIC_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_GENERIC_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_GENERIC_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_GENUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_GENUS_CLASS: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_GENUS_INSTANCE: WBEM_GENUS_TYPE = WBEM_GENUS_TYPE(2i32);
-impl ::core::marker::Copy for WBEM_GENUS_TYPE {}
-impl ::core::clone::Clone for WBEM_GENUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GENUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_GENUS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_GENUS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_GENUS_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_GET_KEY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_TEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_QUOTEDTEXT: WBEM_GET_KEY_FLAGS = WBEM_GET_KEY_FLAGS(2i32);
-impl ::core::marker::Copy for WBEM_GET_KEY_FLAGS {}
-impl ::core::clone::Clone for WBEM_GET_KEY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GET_KEY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_GET_KEY_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_GET_KEY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_GET_KEY_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_GET_TEXT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_COMPRESSED: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_GET_RELATIVE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_GET_SERVER_TOO: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_GET_SERVER_AND_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_GET_NAMESPACE_ONLY: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_GET_ORIGINAL: WBEM_GET_TEXT_FLAGS = WBEM_GET_TEXT_FLAGS(32i32);
-impl ::core::marker::Copy for WBEM_GET_TEXT_FLAGS {}
-impl ::core::clone::Clone for WBEM_GET_TEXT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_GET_TEXT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_GET_TEXT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_GET_TEXT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_GET_TEXT_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_INFORMATION_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_SHORT_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_LONG_NAME: WBEM_INFORMATION_FLAG_TYPE = WBEM_INFORMATION_FLAG_TYPE(2i32);
-impl ::core::marker::Copy for WBEM_INFORMATION_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_INFORMATION_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_INFORMATION_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_INFORMATION_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_INFORMATION_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_INFORMATION_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_LIMITATION_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_EXCLUDE_OBJECT_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_EXCLUDE_PROPERTY_QUALIFIERS: WBEM_LIMITATION_FLAG_TYPE = WBEM_LIMITATION_FLAG_TYPE(32i32);
-impl ::core::marker::Copy for WBEM_LIMITATION_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_LIMITATION_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LIMITATION_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_LIMITATION_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_LIMITATION_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_LIMITATION_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_LIMITS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MAX_IDENTIFIER: WBEM_LIMITS = WBEM_LIMITS(4096i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MAX_QUERY: WBEM_LIMITS = WBEM_LIMITS(16384i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MAX_PATH: WBEM_LIMITS = WBEM_LIMITS(8192i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MAX_OBJECT_NESTING: WBEM_LIMITS = WBEM_LIMITS(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_MAX_USER_PROPERTIES: WBEM_LIMITS = WBEM_LIMITS(1024i32);
-impl ::core::marker::Copy for WBEM_LIMITS {}
-impl ::core::clone::Clone for WBEM_LIMITS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LIMITS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_LIMITS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_LIMITS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_LIMITS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_LOCKING(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_ALLOW_READ: WBEM_LOCKING = WBEM_LOCKING(1i32);
-impl ::core::marker::Copy for WBEM_LOCKING {}
-impl ::core::clone::Clone for WBEM_LOCKING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_LOCKING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_LOCKING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_LOCKING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_LOCKING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_PATH_CREATE_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_CREATE_ACCEPT_RELATIVE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_CREATE_ACCEPT_ABSOLUTE: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_CREATE_ACCEPT_ALL: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_TREAT_SINGLE_IDENT_AS_NS: WBEM_PATH_CREATE_FLAG = WBEM_PATH_CREATE_FLAG(8i32);
-impl ::core::marker::Copy for WBEM_PATH_CREATE_FLAG {}
-impl ::core::clone::Clone for WBEM_PATH_CREATE_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PATH_CREATE_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_PATH_CREATE_FLAG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_PATH_CREATE_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_PATH_CREATE_FLAG").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_PATH_STATUS_FLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_ANON_LOCAL_MACHINE: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_HAS_MACHINE_NAME: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_IS_CLASS_REF: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_IS_INST_REF: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_HAS_SUBSCOPES: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_IS_COMPOUND: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_HAS_V2_REF_PATHS: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_HAS_IMPLIED_KEY: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_CONTAINS_SINGLETON: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(256i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_V1_COMPLIANT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(512i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_V2_COMPLIANT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(1024i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_CIM_COMPLIANT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(2048i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_IS_SINGLETON: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(4096i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_IS_PARENT: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(8192i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_SERVER_NAMESPACE_ONLY: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(16384i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_NATIVE_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(32768i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_WMI_PATH: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(65536i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEMPATH_INFO_PATH_HAD_SERVER: WBEM_PATH_STATUS_FLAG = WBEM_PATH_STATUS_FLAG(131072i32);
-impl ::core::marker::Copy for WBEM_PATH_STATUS_FLAG {}
-impl ::core::clone::Clone for WBEM_PATH_STATUS_FLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PATH_STATUS_FLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_PATH_STATUS_FLAG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_PATH_STATUS_FLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_PATH_STATUS_FLAG").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_PROVIDER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_OWNER_UPDATE: WBEM_PROVIDER_FLAGS = WBEM_PROVIDER_FLAGS(65536i32);
-impl ::core::marker::Copy for WBEM_PROVIDER_FLAGS {}
-impl ::core::clone::Clone for WBEM_PROVIDER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PROVIDER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_PROVIDER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_PROVIDER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_PROVIDER_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_PROVIDER_REQUIREMENTS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_REQUIREMENTS_START_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_REQUIREMENTS_STOP_POSTFILTER: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_REQUIREMENTS_RECHECK_SUBSCRIPTIONS: WBEM_PROVIDER_REQUIREMENTS_TYPE = WBEM_PROVIDER_REQUIREMENTS_TYPE(2i32);
-impl ::core::marker::Copy for WBEM_PROVIDER_REQUIREMENTS_TYPE {}
-impl ::core::clone::Clone for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_PROVIDER_REQUIREMENTS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_PROVIDER_REQUIREMENTS_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_QUERY_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_DEEP: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_SHALLOW: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_PROTOTYPE: WBEM_QUERY_FLAG_TYPE = WBEM_QUERY_FLAG_TYPE(2i32);
-impl ::core::marker::Copy for WBEM_QUERY_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_QUERY_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_QUERY_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_QUERY_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_QUERY_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_QUERY_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_REFRESHER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_REFRESH_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_REFRESH_NO_AUTO_RECONNECT: WBEM_REFRESHER_FLAGS = WBEM_REFRESHER_FLAGS(1i32);
-impl ::core::marker::Copy for WBEM_REFRESHER_FLAGS {}
-impl ::core::clone::Clone for WBEM_REFRESHER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_REFRESHER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_REFRESHER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_REFRESHER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_REFRESHER_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_SECURITY_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_ENABLE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_METHOD_EXECUTE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FULL_WRITE_REP: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_PARTIAL_WRITE_REP: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_WRITE_PROVIDER: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_REMOTE_ACCESS: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_RIGHT_SUBSCRIBE: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_RIGHT_PUBLISH: WBEM_SECURITY_FLAGS = WBEM_SECURITY_FLAGS(128i32);
-impl ::core::marker::Copy for WBEM_SECURITY_FLAGS {}
-impl ::core::clone::Clone for WBEM_SECURITY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_SECURITY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_SECURITY_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_SECURITY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_SECURITY_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_SHUTDOWN_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_SHUTDOWN_UNLOAD_COMPONENT: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_SHUTDOWN_WMI: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_SHUTDOWN_OS: WBEM_SHUTDOWN_FLAGS = WBEM_SHUTDOWN_FLAGS(3i32);
-impl ::core::marker::Copy for WBEM_SHUTDOWN_FLAGS {}
-impl ::core::clone::Clone for WBEM_SHUTDOWN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_SHUTDOWN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_SHUTDOWN_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_SHUTDOWN_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_SHUTDOWN_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_STATUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_COMPLETE: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_REQUIREMENTS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_PROGRESS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_LOGGING_INFORMATION: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(256i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_LOGGING_INFORMATION_PROVIDER: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(512i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_LOGGING_INFORMATION_HOST: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(1024i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_LOGGING_INFORMATION_REPOSITORY: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(2048i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_STATUS_LOGGING_INFORMATION_ESS: WBEM_STATUS_TYPE = WBEM_STATUS_TYPE(4096i32);
-impl ::core::marker::Copy for WBEM_STATUS_TYPE {}
-impl ::core::clone::Clone for WBEM_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_STATUS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_STATUS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_STATUS_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_TEXT_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_NO_FLAVORS: WBEM_TEXT_FLAG_TYPE = WBEM_TEXT_FLAG_TYPE(1i32);
-impl ::core::marker::Copy for WBEM_TEXT_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_TEXT_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_TEXT_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_TEXT_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_TEXT_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_TEXT_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_TIMEOUT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_NO_WAIT: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_INFINITE: WBEM_TIMEOUT_TYPE = WBEM_TIMEOUT_TYPE(-1i32);
-impl ::core::marker::Copy for WBEM_TIMEOUT_TYPE {}
-impl ::core::clone::Clone for WBEM_TIMEOUT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_TIMEOUT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_TIMEOUT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_TIMEOUT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_TIMEOUT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WBEM_UNSECAPP_FLAG_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UNSECAPP_DEFAULT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UNSECAPP_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_UNSECAPP_DONT_CHECK_ACCESS: WBEM_UNSECAPP_FLAG_TYPE = WBEM_UNSECAPP_FLAG_TYPE(2i32);
-impl ::core::marker::Copy for WBEM_UNSECAPP_FLAG_TYPE {}
-impl ::core::clone::Clone for WBEM_UNSECAPP_FLAG_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WBEM_UNSECAPP_FLAG_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WBEM_UNSECAPP_FLAG_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WBEM_UNSECAPP_FLAG_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WBEM_UNSECAPP_FLAG_TYPE").field(&self.0).finish()
-    }
-}
-pub const WMIExtension: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0975afe_5c7f_11d2_8b74_00104b2afb41);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMIQ_ANALYSIS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ANALYSIS_RPN_SEQUENCE: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ANALYSIS_ASSOC_QUERY: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ANALYSIS_PROP_ANALYSIS_MATRIX: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ANALYSIS_QUERY_TEXT: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ANALYSIS_RESERVED: WMIQ_ANALYSIS_TYPE = WMIQ_ANALYSIS_TYPE(134217728i32);
-impl ::core::marker::Copy for WMIQ_ANALYSIS_TYPE {}
-impl ::core::clone::Clone for WMIQ_ANALYSIS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_ANALYSIS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMIQ_ANALYSIS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMIQ_ANALYSIS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMIQ_ANALYSIS_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMIQ_ASSOCQ_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_ASSOCIATORS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_REFERENCES: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_RESULTCLASS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_ASSOCCLASS: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_ROLE: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_RESULTROLE: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_REQUIREDQUALIFIER: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_REQUIREDASSOCQUALIFIER: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_CLASSDEFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_KEYSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_SCHEMAONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(1024i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_ASSOCQ_CLASSREFSONLY: WMIQ_ASSOCQ_FLAGS = WMIQ_ASSOCQ_FLAGS(2048i32);
-impl ::core::marker::Copy for WMIQ_ASSOCQ_FLAGS {}
-impl ::core::clone::Clone for WMIQ_ASSOCQ_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_ASSOCQ_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMIQ_ASSOCQ_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMIQ_ASSOCQ_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMIQ_ASSOCQ_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMIQ_LANGUAGE_FEATURES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF1_BASIC_SELECT: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF2_CLASS_NAME_IN_QUERY: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF3_STRING_CASE_FUNCTIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF4_PROP_TO_PROP_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF5_COUNT_STAR: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF6_ORDER_BY: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF7_DISTINCT: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF8_ISA: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF9_THIS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF10_COMPEX_SUBEXPRESSIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF11_ALIASING: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF12_GROUP_BY_HAVING: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(12i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF13_WMI_WITHIN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(13i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF14_SQL_WRITE_OPERATIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(14i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF15_GO: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF16_SINGLE_LEVEL_TRANSACTIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF17_QUALIFIED_NAMES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF18_ASSOCIATONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(18i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF19_SYSTEM_PROPERTIES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(19i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF20_EXTENDED_SYSTEM_PROPERTIES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF21_SQL89_JOINS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF22_SQL92_JOINS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(22i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF23_SUBSELECTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(23i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF24_UMI_EXTENSIONS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(24i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF25_DATEPART: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(25i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF26_LIKE: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(26i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF27_CIM_TEMPORAL_CONSTRUCTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(27i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF28_STANDARD_AGGREGATES: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(28i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF29_MULTI_LEVEL_ORDER_BY: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(29i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF30_WMI_PRAGMAS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(30i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF31_QUALIFIER_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(31i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF32_SP_EXECUTE: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF33_ARRAY_ACCESS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(33i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF34_UNION: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(34i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF35_COMPLEX_SELECT_TARGET: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(35i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF36_REFERENCE_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(36i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF37_SELECT_INTO: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(37i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF38_BASIC_DATETIME_TESTS: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(38i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF39_COUNT_COLUMN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(39i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF40_BETWEEN: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_LF_LAST: WMIQ_LANGUAGE_FEATURES = WMIQ_LANGUAGE_FEATURES(40i32);
-impl ::core::marker::Copy for WMIQ_LANGUAGE_FEATURES {}
-impl ::core::clone::Clone for WMIQ_LANGUAGE_FEATURES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_LANGUAGE_FEATURES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMIQ_LANGUAGE_FEATURES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMIQ_LANGUAGE_FEATURES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMIQ_LANGUAGE_FEATURES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMIQ_RPNQ_FEATURE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_WHERE_CLAUSE_PRESENT: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_QUERY_IS_CONJUNCTIVE: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_QUERY_IS_DISJUNCTIVE: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_PROJECTION: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_FEATURE_SELECT_STAR: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_EQUALITY_TESTS_ONLY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_COUNT_STAR: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_QUALIFIED_NAMES_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_SYSPROP_CLASS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(256i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_PROP_TO_PROP_TESTS: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(512i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_ORDER_BY: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(1024i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_ISA_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(2048i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_GROUP_BY_HAVING: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(4096i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPNF_ARRAY_ACCESS_USED: WMIQ_RPNQ_FEATURE = WMIQ_RPNQ_FEATURE(8192i32);
-impl ::core::marker::Copy for WMIQ_RPNQ_FEATURE {}
-impl ::core::clone::Clone for WMIQ_RPNQ_FEATURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_RPNQ_FEATURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMIQ_RPNQ_FEATURE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMIQ_RPNQ_FEATURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMIQ_RPNQ_FEATURE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMIQ_RPN_TOKEN_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_TOKEN_EXPRESSION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_TOKEN_AND: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_TOKEN_OR: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_TOKEN_NOT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_UNDEFINED: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_EQ: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_NE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_GE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_LE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_LT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_GT: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_LIKE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_ISA: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_ISNOTA: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_ISNULL: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_OP_ISNOTNULL: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_LEFT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_RIGHT_PROPERTY_NAME: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_CONST2: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_CONST: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_RELOP: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_LEFT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_GET_TOKEN_TYPE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_GET_EXPR_SHAPE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_GET_LEFT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_GET_RIGHT_FUNCTION: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_GET_RELOP: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_NEXT_TOKEN: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_FROM_UNARY: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_FROM_PATH: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_FROM_CLASS_LIST: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMIQ_RPN_FROM_MULTIPLE: WMIQ_RPN_TOKEN_FLAGS = WMIQ_RPN_TOKEN_FLAGS(8i32);
-impl ::core::marker::Copy for WMIQ_RPN_TOKEN_FLAGS {}
-impl ::core::clone::Clone for WMIQ_RPN_TOKEN_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMIQ_RPN_TOKEN_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMIQ_RPN_TOKEN_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMIQ_RPN_TOKEN_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMIQ_RPN_TOKEN_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WMI_OBJ_TEXT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_CIM_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_DTD_2_0: WMI_OBJ_TEXT = WMI_OBJ_TEXT(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT1: WMI_OBJ_TEXT = WMI_OBJ_TEXT(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT2: WMI_OBJ_TEXT = WMI_OBJ_TEXT(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT3: WMI_OBJ_TEXT = WMI_OBJ_TEXT(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT4: WMI_OBJ_TEXT = WMI_OBJ_TEXT(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT5: WMI_OBJ_TEXT = WMI_OBJ_TEXT(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT6: WMI_OBJ_TEXT = WMI_OBJ_TEXT(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT7: WMI_OBJ_TEXT = WMI_OBJ_TEXT(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT8: WMI_OBJ_TEXT = WMI_OBJ_TEXT(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT9: WMI_OBJ_TEXT = WMI_OBJ_TEXT(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_WMI_EXT10: WMI_OBJ_TEXT = WMI_OBJ_TEXT(12i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WMI_OBJ_TEXT_LAST: WMI_OBJ_TEXT = WMI_OBJ_TEXT(13i32);
-impl ::core::marker::Copy for WMI_OBJ_TEXT {}
-impl ::core::clone::Clone for WMI_OBJ_TEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WMI_OBJ_TEXT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WMI_OBJ_TEXT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WMI_OBJ_TEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WMI_OBJ_TEXT").field(&self.0).finish()
-    }
-}
-pub const WbemAdministrativeLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb8555cc_9128_11d1_ad9b_00c04fd8fdff);
-pub const WbemAuthenticatedLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd184336_9128_11d1_ad9b_00c04fd8fdff);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemAuthenticationLevelEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelDefault: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelNone: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelConnect: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelCall: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelPkt: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelPktIntegrity: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemAuthenticationLevelPktPrivacy: WbemAuthenticationLevelEnum = WbemAuthenticationLevelEnum(6i32);
-impl ::core::marker::Copy for WbemAuthenticationLevelEnum {}
-impl ::core::clone::Clone for WbemAuthenticationLevelEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemAuthenticationLevelEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemAuthenticationLevelEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemAuthenticationLevelEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemAuthenticationLevelEnum").field(&self.0).finish()
-    }
-}
-pub const WbemBackupRestore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc49e32c6_bc8b_11d2_85d4_00105a1f8304);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemChangeFlagEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagCreateOrUpdate: WbemChangeFlagEnum = WbemChangeFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagUpdateOnly: WbemChangeFlagEnum = WbemChangeFlagEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagCreateOnly: WbemChangeFlagEnum = WbemChangeFlagEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagUpdateCompatible: WbemChangeFlagEnum = WbemChangeFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagUpdateSafeMode: WbemChangeFlagEnum = WbemChangeFlagEnum(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagUpdateForceMode: WbemChangeFlagEnum = WbemChangeFlagEnum(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagStrongValidation: WbemChangeFlagEnum = WbemChangeFlagEnum(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemChangeFlagAdvisory: WbemChangeFlagEnum = WbemChangeFlagEnum(65536i32);
-impl ::core::marker::Copy for WbemChangeFlagEnum {}
-impl ::core::clone::Clone for WbemChangeFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemChangeFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemChangeFlagEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemChangeFlagEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemChangeFlagEnum").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemCimtypeEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeSint8: WbemCimtypeEnum = WbemCimtypeEnum(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeUint8: WbemCimtypeEnum = WbemCimtypeEnum(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeSint16: WbemCimtypeEnum = WbemCimtypeEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeUint16: WbemCimtypeEnum = WbemCimtypeEnum(18i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeSint32: WbemCimtypeEnum = WbemCimtypeEnum(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeUint32: WbemCimtypeEnum = WbemCimtypeEnum(19i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeSint64: WbemCimtypeEnum = WbemCimtypeEnum(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeUint64: WbemCimtypeEnum = WbemCimtypeEnum(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeReal32: WbemCimtypeEnum = WbemCimtypeEnum(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeReal64: WbemCimtypeEnum = WbemCimtypeEnum(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeBoolean: WbemCimtypeEnum = WbemCimtypeEnum(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeString: WbemCimtypeEnum = WbemCimtypeEnum(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeDatetime: WbemCimtypeEnum = WbemCimtypeEnum(101i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeReference: WbemCimtypeEnum = WbemCimtypeEnum(102i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeChar16: WbemCimtypeEnum = WbemCimtypeEnum(103i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemCimtypeObject: WbemCimtypeEnum = WbemCimtypeEnum(13i32);
-impl ::core::marker::Copy for WbemCimtypeEnum {}
-impl ::core::clone::Clone for WbemCimtypeEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemCimtypeEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemCimtypeEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemCimtypeEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemCimtypeEnum").field(&self.0).finish()
-    }
-}
-pub const WbemClassObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a653086_174f_11d2_b5f9_00104b703efd);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemComparisonFlagEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIncludeAll: WbemComparisonFlagEnum = WbemComparisonFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIgnoreQualifiers: WbemComparisonFlagEnum = WbemComparisonFlagEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIgnoreObjectSource: WbemComparisonFlagEnum = WbemComparisonFlagEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIgnoreDefaultValues: WbemComparisonFlagEnum = WbemComparisonFlagEnum(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIgnoreClass: WbemComparisonFlagEnum = WbemComparisonFlagEnum(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIgnoreCase: WbemComparisonFlagEnum = WbemComparisonFlagEnum(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemComparisonFlagIgnoreFlavor: WbemComparisonFlagEnum = WbemComparisonFlagEnum(32i32);
-impl ::core::marker::Copy for WbemComparisonFlagEnum {}
-impl ::core::clone::Clone for WbemComparisonFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemComparisonFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemComparisonFlagEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemComparisonFlagEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemComparisonFlagEnum").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemConnectOptionsEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemConnectFlagUseMaxWait: WbemConnectOptionsEnum = WbemConnectOptionsEnum(128i32);
-impl ::core::marker::Copy for WbemConnectOptionsEnum {}
-impl ::core::clone::Clone for WbemConnectOptionsEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemConnectOptionsEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemConnectOptionsEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemConnectOptionsEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemConnectOptionsEnum").field(&self.0).finish()
-    }
-}
-pub const WbemContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674b6698_ee92_11d0_ad71_00c04fd8fdff);
-pub const WbemDCOMTransport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7ce2e13_8c90_11d1_9e7b_00c04fc324a8);
-pub const WbemDecoupledBasicEventProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f75737_2843_4f22_933d_c76a97cda62f);
-pub const WbemDecoupledRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cfc7932_0f9d_4bef_9c32_8ea2a6b56fcb);
-pub const WbemDefPath: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4cc405_e2c5_4ddd_b3ce_5e7582d8c9fa);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemErrorEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemNoErr: WbemErrorEnum = WbemErrorEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrFailed: WbemErrorEnum = WbemErrorEnum(-2147217407i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNotFound: WbemErrorEnum = WbemErrorEnum(-2147217406i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrAccessDenied: WbemErrorEnum = WbemErrorEnum(-2147217405i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderFailure: WbemErrorEnum = WbemErrorEnum(-2147217404i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTypeMismatch: WbemErrorEnum = WbemErrorEnum(-2147217403i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrOutOfMemory: WbemErrorEnum = WbemErrorEnum(-2147217402i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidContext: WbemErrorEnum = WbemErrorEnum(-2147217401i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidParameter: WbemErrorEnum = WbemErrorEnum(-2147217400i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNotAvailable: WbemErrorEnum = WbemErrorEnum(-2147217399i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCriticalError: WbemErrorEnum = WbemErrorEnum(-2147217398i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidStream: WbemErrorEnum = WbemErrorEnum(-2147217397i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNotSupported: WbemErrorEnum = WbemErrorEnum(-2147217396i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidSuperclass: WbemErrorEnum = WbemErrorEnum(-2147217395i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidNamespace: WbemErrorEnum = WbemErrorEnum(-2147217394i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidObject: WbemErrorEnum = WbemErrorEnum(-2147217393i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidClass: WbemErrorEnum = WbemErrorEnum(-2147217392i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderNotFound: WbemErrorEnum = WbemErrorEnum(-2147217391i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidProviderRegistration: WbemErrorEnum = WbemErrorEnum(-2147217390i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderLoadFailure: WbemErrorEnum = WbemErrorEnum(-2147217389i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInitializationFailure: WbemErrorEnum = WbemErrorEnum(-2147217388i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTransportFailure: WbemErrorEnum = WbemErrorEnum(-2147217387i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidOperation: WbemErrorEnum = WbemErrorEnum(-2147217386i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidQuery: WbemErrorEnum = WbemErrorEnum(-2147217385i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidQueryType: WbemErrorEnum = WbemErrorEnum(-2147217384i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrAlreadyExists: WbemErrorEnum = WbemErrorEnum(-2147217383i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrOverrideNotAllowed: WbemErrorEnum = WbemErrorEnum(-2147217382i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrPropagatedQualifier: WbemErrorEnum = WbemErrorEnum(-2147217381i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrPropagatedProperty: WbemErrorEnum = WbemErrorEnum(-2147217380i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnexpected: WbemErrorEnum = WbemErrorEnum(-2147217379i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrIllegalOperation: WbemErrorEnum = WbemErrorEnum(-2147217378i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCannotBeKey: WbemErrorEnum = WbemErrorEnum(-2147217377i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrIncompleteClass: WbemErrorEnum = WbemErrorEnum(-2147217376i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidSyntax: WbemErrorEnum = WbemErrorEnum(-2147217375i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNondecoratedObject: WbemErrorEnum = WbemErrorEnum(-2147217374i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrReadOnly: WbemErrorEnum = WbemErrorEnum(-2147217373i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderNotCapable: WbemErrorEnum = WbemErrorEnum(-2147217372i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrClassHasChildren: WbemErrorEnum = WbemErrorEnum(-2147217371i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrClassHasInstances: WbemErrorEnum = WbemErrorEnum(-2147217370i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrQueryNotImplemented: WbemErrorEnum = WbemErrorEnum(-2147217369i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrIllegalNull: WbemErrorEnum = WbemErrorEnum(-2147217368i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidQualifierType: WbemErrorEnum = WbemErrorEnum(-2147217367i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidPropertyType: WbemErrorEnum = WbemErrorEnum(-2147217366i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrValueOutOfRange: WbemErrorEnum = WbemErrorEnum(-2147217365i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCannotBeSingleton: WbemErrorEnum = WbemErrorEnum(-2147217364i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidCimType: WbemErrorEnum = WbemErrorEnum(-2147217363i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidMethod: WbemErrorEnum = WbemErrorEnum(-2147217362i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidMethodParameters: WbemErrorEnum = WbemErrorEnum(-2147217361i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrSystemProperty: WbemErrorEnum = WbemErrorEnum(-2147217360i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidProperty: WbemErrorEnum = WbemErrorEnum(-2147217359i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCallCancelled: WbemErrorEnum = WbemErrorEnum(-2147217358i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrShuttingDown: WbemErrorEnum = WbemErrorEnum(-2147217357i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrPropagatedMethod: WbemErrorEnum = WbemErrorEnum(-2147217356i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnsupportedParameter: WbemErrorEnum = WbemErrorEnum(-2147217355i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMissingParameter: WbemErrorEnum = WbemErrorEnum(-2147217354i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidParameterId: WbemErrorEnum = WbemErrorEnum(-2147217353i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNonConsecutiveParameterIds: WbemErrorEnum = WbemErrorEnum(-2147217352i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrParameterIdOnRetval: WbemErrorEnum = WbemErrorEnum(-2147217351i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidObjectPath: WbemErrorEnum = WbemErrorEnum(-2147217350i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrOutOfDiskSpace: WbemErrorEnum = WbemErrorEnum(-2147217349i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrBufferTooSmall: WbemErrorEnum = WbemErrorEnum(-2147217348i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnsupportedPutExtension: WbemErrorEnum = WbemErrorEnum(-2147217347i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnknownObjectType: WbemErrorEnum = WbemErrorEnum(-2147217346i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnknownPacketType: WbemErrorEnum = WbemErrorEnum(-2147217345i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMarshalVersionMismatch: WbemErrorEnum = WbemErrorEnum(-2147217344i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMarshalInvalidSignature: WbemErrorEnum = WbemErrorEnum(-2147217343i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidQualifier: WbemErrorEnum = WbemErrorEnum(-2147217342i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidDuplicateParameter: WbemErrorEnum = WbemErrorEnum(-2147217341i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTooMuchData: WbemErrorEnum = WbemErrorEnum(-2147217340i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrServerTooBusy: WbemErrorEnum = WbemErrorEnum(-2147217339i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidFlavor: WbemErrorEnum = WbemErrorEnum(-2147217338i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCircularReference: WbemErrorEnum = WbemErrorEnum(-2147217337i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnsupportedClassUpdate: WbemErrorEnum = WbemErrorEnum(-2147217336i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCannotChangeKeyInheritance: WbemErrorEnum = WbemErrorEnum(-2147217335i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCannotChangeIndexInheritance: WbemErrorEnum = WbemErrorEnum(-2147217328i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTooManyProperties: WbemErrorEnum = WbemErrorEnum(-2147217327i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUpdateTypeMismatch: WbemErrorEnum = WbemErrorEnum(-2147217326i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUpdateOverrideNotAllowed: WbemErrorEnum = WbemErrorEnum(-2147217325i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUpdatePropagatedMethod: WbemErrorEnum = WbemErrorEnum(-2147217324i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMethodNotImplemented: WbemErrorEnum = WbemErrorEnum(-2147217323i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMethodDisabled: WbemErrorEnum = WbemErrorEnum(-2147217322i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrRefresherBusy: WbemErrorEnum = WbemErrorEnum(-2147217321i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnparsableQuery: WbemErrorEnum = WbemErrorEnum(-2147217320i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNotEventClass: WbemErrorEnum = WbemErrorEnum(-2147217319i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMissingGroupWithin: WbemErrorEnum = WbemErrorEnum(-2147217318i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMissingAggregationList: WbemErrorEnum = WbemErrorEnum(-2147217317i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrPropertyNotAnObject: WbemErrorEnum = WbemErrorEnum(-2147217316i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrAggregatingByObject: WbemErrorEnum = WbemErrorEnum(-2147217315i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUninterpretableProviderQuery: WbemErrorEnum = WbemErrorEnum(-2147217313i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrBackupRestoreWinmgmtRunning: WbemErrorEnum = WbemErrorEnum(-2147217312i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrQueueOverflow: WbemErrorEnum = WbemErrorEnum(-2147217311i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrPrivilegeNotHeld: WbemErrorEnum = WbemErrorEnum(-2147217310i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidOperator: WbemErrorEnum = WbemErrorEnum(-2147217309i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrLocalCredentials: WbemErrorEnum = WbemErrorEnum(-2147217308i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrCannotBeAbstract: WbemErrorEnum = WbemErrorEnum(-2147217307i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrAmendedObject: WbemErrorEnum = WbemErrorEnum(-2147217306i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrClientTooSlow: WbemErrorEnum = WbemErrorEnum(-2147217305i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNullSecurityDescriptor: WbemErrorEnum = WbemErrorEnum(-2147217304i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTimeout: WbemErrorEnum = WbemErrorEnum(-2147217303i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidAssociation: WbemErrorEnum = WbemErrorEnum(-2147217302i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrAmbiguousOperation: WbemErrorEnum = WbemErrorEnum(-2147217301i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrQuotaViolation: WbemErrorEnum = WbemErrorEnum(-2147217300i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTransactionConflict: WbemErrorEnum = WbemErrorEnum(-2147217299i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrForcedRollback: WbemErrorEnum = WbemErrorEnum(-2147217298i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrUnsupportedLocale: WbemErrorEnum = WbemErrorEnum(-2147217297i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrHandleOutOfDate: WbemErrorEnum = WbemErrorEnum(-2147217296i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrConnectionFailed: WbemErrorEnum = WbemErrorEnum(-2147217295i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidHandleRequest: WbemErrorEnum = WbemErrorEnum(-2147217294i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrPropertyNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217293i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrClassNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217292i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrMethodNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217291i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrQualifierNameTooWide: WbemErrorEnum = WbemErrorEnum(-2147217290i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrRerunCommand: WbemErrorEnum = WbemErrorEnum(-2147217289i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrDatabaseVerMismatch: WbemErrorEnum = WbemErrorEnum(-2147217288i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrVetoPut: WbemErrorEnum = WbemErrorEnum(-2147217287i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrVetoDelete: WbemErrorEnum = WbemErrorEnum(-2147217286i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrInvalidLocale: WbemErrorEnum = WbemErrorEnum(-2147217280i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderSuspended: WbemErrorEnum = WbemErrorEnum(-2147217279i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrSynchronizationRequired: WbemErrorEnum = WbemErrorEnum(-2147217278i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrNoSchema: WbemErrorEnum = WbemErrorEnum(-2147217277i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderAlreadyRegistered: WbemErrorEnum = WbemErrorEnum(-2147217276i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrProviderNotRegistered: WbemErrorEnum = WbemErrorEnum(-2147217275i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrFatalTransportError: WbemErrorEnum = WbemErrorEnum(-2147217274i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrEncryptedConnectionRequired: WbemErrorEnum = WbemErrorEnum(-2147217273i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrRegistrationTooBroad: WbemErrorEnum = WbemErrorEnum(-2147213311i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrRegistrationTooPrecise: WbemErrorEnum = WbemErrorEnum(-2147213310i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrTimedout: WbemErrorEnum = WbemErrorEnum(-2147209215i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemErrResetToDefault: WbemErrorEnum = WbemErrorEnum(-2147209214i32);
-impl ::core::marker::Copy for WbemErrorEnum {}
-impl ::core::clone::Clone for WbemErrorEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemErrorEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemErrorEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemErrorEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemErrorEnum").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemFlagEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagReturnImmediately: WbemFlagEnum = WbemFlagEnum(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagReturnWhenComplete: WbemFlagEnum = WbemFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagBidirectional: WbemFlagEnum = WbemFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagForwardOnly: WbemFlagEnum = WbemFlagEnum(32i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagNoErrorObject: WbemFlagEnum = WbemFlagEnum(64i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagReturnErrorObject: WbemFlagEnum = WbemFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagSendStatus: WbemFlagEnum = WbemFlagEnum(128i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagDontSendStatus: WbemFlagEnum = WbemFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagEnsureLocatable: WbemFlagEnum = WbemFlagEnum(256i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagDirectRead: WbemFlagEnum = WbemFlagEnum(512i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagSendOnlySelected: WbemFlagEnum = WbemFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagUseAmendedQualifiers: WbemFlagEnum = WbemFlagEnum(131072i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagGetDefault: WbemFlagEnum = WbemFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagSpawnInstance: WbemFlagEnum = WbemFlagEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemFlagUseCurrentTime: WbemFlagEnum = WbemFlagEnum(1i32);
-impl ::core::marker::Copy for WbemFlagEnum {}
-impl ::core::clone::Clone for WbemFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemFlagEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemFlagEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemFlagEnum").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemImpersonationLevelEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemImpersonationLevelAnonymous: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemImpersonationLevelIdentify: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemImpersonationLevelImpersonate: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemImpersonationLevelDelegate: WbemImpersonationLevelEnum = WbemImpersonationLevelEnum(4i32);
-impl ::core::marker::Copy for WbemImpersonationLevelEnum {}
-impl ::core::clone::Clone for WbemImpersonationLevelEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemImpersonationLevelEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemImpersonationLevelEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemImpersonationLevelEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemImpersonationLevelEnum").field(&self.0).finish()
-    }
-}
-pub const WbemLevel1Login: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bc3f05e_d86b_11d0_a075_00c04fb68820);
-pub const WbemLocalAddrRes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1044801_8f7e_11d1_9e7c_00c04fc324a8);
-pub const WbemLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4590f811_1d3a_11d0_891f_00aa004b2e24);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemObjectTextFormatEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemObjectTextFormatCIMDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemObjectTextFormatWMIDTD20: WbemObjectTextFormatEnum = WbemObjectTextFormatEnum(2i32);
-impl ::core::marker::Copy for WbemObjectTextFormatEnum {}
-impl ::core::clone::Clone for WbemObjectTextFormatEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemObjectTextFormatEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemObjectTextFormatEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemObjectTextFormatEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemObjectTextFormatEnum").field(&self.0).finish()
-    }
-}
-pub const WbemObjectTextSrc: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d1c559d_84f0_4bb3_a7d5_56a7435a9ba6);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemPrivilegeEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeCreateToken: WbemPrivilegeEnum = WbemPrivilegeEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegePrimaryToken: WbemPrivilegeEnum = WbemPrivilegeEnum(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeLockMemory: WbemPrivilegeEnum = WbemPrivilegeEnum(3i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeIncreaseQuota: WbemPrivilegeEnum = WbemPrivilegeEnum(4i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeMachineAccount: WbemPrivilegeEnum = WbemPrivilegeEnum(5i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeTcb: WbemPrivilegeEnum = WbemPrivilegeEnum(6i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeSecurity: WbemPrivilegeEnum = WbemPrivilegeEnum(7i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeTakeOwnership: WbemPrivilegeEnum = WbemPrivilegeEnum(8i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeLoadDriver: WbemPrivilegeEnum = WbemPrivilegeEnum(9i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeSystemProfile: WbemPrivilegeEnum = WbemPrivilegeEnum(10i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeSystemtime: WbemPrivilegeEnum = WbemPrivilegeEnum(11i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeProfileSingleProcess: WbemPrivilegeEnum = WbemPrivilegeEnum(12i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeIncreaseBasePriority: WbemPrivilegeEnum = WbemPrivilegeEnum(13i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeCreatePagefile: WbemPrivilegeEnum = WbemPrivilegeEnum(14i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeCreatePermanent: WbemPrivilegeEnum = WbemPrivilegeEnum(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeBackup: WbemPrivilegeEnum = WbemPrivilegeEnum(16i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeRestore: WbemPrivilegeEnum = WbemPrivilegeEnum(17i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeShutdown: WbemPrivilegeEnum = WbemPrivilegeEnum(18i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeDebug: WbemPrivilegeEnum = WbemPrivilegeEnum(19i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeAudit: WbemPrivilegeEnum = WbemPrivilegeEnum(20i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeSystemEnvironment: WbemPrivilegeEnum = WbemPrivilegeEnum(21i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeChangeNotify: WbemPrivilegeEnum = WbemPrivilegeEnum(22i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeRemoteShutdown: WbemPrivilegeEnum = WbemPrivilegeEnum(23i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeUndock: WbemPrivilegeEnum = WbemPrivilegeEnum(24i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeSyncAgent: WbemPrivilegeEnum = WbemPrivilegeEnum(25i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeEnableDelegation: WbemPrivilegeEnum = WbemPrivilegeEnum(26i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemPrivilegeManageVolume: WbemPrivilegeEnum = WbemPrivilegeEnum(27i32);
-impl ::core::marker::Copy for WbemPrivilegeEnum {}
-impl ::core::clone::Clone for WbemPrivilegeEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemPrivilegeEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemPrivilegeEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemPrivilegeEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemPrivilegeEnum").field(&self.0).finish()
-    }
-}
-pub const WbemQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeac8a024_21e2_4523_ad73_a71a0aa2f56a);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemQueryFlagEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemQueryFlagDeep: WbemQueryFlagEnum = WbemQueryFlagEnum(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemQueryFlagShallow: WbemQueryFlagEnum = WbemQueryFlagEnum(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemQueryFlagPrototype: WbemQueryFlagEnum = WbemQueryFlagEnum(2i32);
-impl ::core::marker::Copy for WbemQueryFlagEnum {}
-impl ::core::clone::Clone for WbemQueryFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemQueryFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemQueryFlagEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemQueryFlagEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemQueryFlagEnum").field(&self.0).finish()
-    }
-}
-pub const WbemRefresher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71566f2_561e_11d1_ad87_00c04fd8fdff);
-pub const WbemStatusCodeText: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb87e1bd_3233_11d2_aec9_00c04fb68820);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemTextFlagEnum(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemTextFlagNoFlavors: WbemTextFlagEnum = WbemTextFlagEnum(1i32);
-impl ::core::marker::Copy for WbemTextFlagEnum {}
-impl ::core::clone::Clone for WbemTextFlagEnum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemTextFlagEnum {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemTextFlagEnum {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemTextFlagEnum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemTextFlagEnum").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WbemTimeout(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const wbemTimeoutInfinite: WbemTimeout = WbemTimeout(-1i32);
-impl ::core::marker::Copy for WbemTimeout {}
-impl ::core::clone::Clone for WbemTimeout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WbemTimeout {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WbemTimeout {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WbemTimeout {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WbemTimeout").field(&self.0).finish()
-    }
-}
-pub const WbemUnauthenticatedLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443e7b79_de31_11d2_b340_00104bcc4b4a);
-pub const WbemUninitializedClassObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a0227f6_7108_11d1_ad90_00c04fd8fdff);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct tag_WBEM_LOGIN_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_INPROC_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_LOCAL_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_REMOTE_LOGIN: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_AUTHENTICATION_METHOD_MASK: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_System_Wmi\"`*"]
-pub const WBEM_FLAG_USE_MULTIPLE_CHALLENGES: tag_WBEM_LOGIN_TYPE = tag_WBEM_LOGIN_TYPE(16i32);
-impl ::core::marker::Copy for tag_WBEM_LOGIN_TYPE {}
-impl ::core::clone::Clone for tag_WBEM_LOGIN_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for tag_WBEM_LOGIN_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for tag_WBEM_LOGIN_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for tag_WBEM_LOGIN_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("tag_WBEM_LOGIN_TYPE").field(&self.0).finish()
-    }
-}
+pub type MI_ProviderFT_Unsubscribe = ::core::option::Option<unsafe extern "system" fn(self_: *const ::core::ffi::c_void, context: *const MI_Context, namespace: *const u16, classname: *const u16, subscriptionid: u64, subscriptionself: *const ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

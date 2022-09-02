@@ -1,438 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-pub struct AutomationAnnotationTypeRegistration {
-    pub LocalId: i32,
-}
-impl ::core::marker::Copy for AutomationAnnotationTypeRegistration {}
-impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AutomationAnnotationTypeRegistration {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AutomationAnnotationTypeRegistration {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for AutomationAnnotationTypeRegistration {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for AutomationAnnotationTypeRegistration {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutomationAnnotationTypeRegistration>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AutomationAnnotationTypeRegistration {}
-impl ::core::default::Default for AutomationAnnotationTypeRegistration {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-pub struct AutomationRemoteOperationOperandId {
-    pub Value: i32,
-}
-impl ::core::marker::Copy for AutomationRemoteOperationOperandId {}
-impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AutomationRemoteOperationOperandId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AutomationRemoteOperationOperandId {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationOperandId {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for AutomationRemoteOperationOperandId {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutomationRemoteOperationOperandId>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AutomationRemoteOperationOperandId {}
-impl ::core::default::Default for AutomationRemoteOperationOperandId {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-#[repr(transparent)]
-pub struct AutomationRemoteOperationResult(::windows::core::IUnknown);
-impl AutomationRemoteOperationResult {
-    pub fn Status(&self) -> ::windows::core::Result<AutomationRemoteOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AutomationRemoteOperationStatus>(result__)
-        }
-    }
-    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
-        }
-    }
-    pub fn ErrorLocation(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn HasOperand(&self, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasOperand)(::windows::core::Interface::as_raw(this), operandid, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn GetOperand(&self, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetOperand)(::windows::core::Interface::as_raw(this), operandid, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AutomationRemoteOperationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AutomationRemoteOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationRemoteOperationResult {}
-impl ::core::fmt::Debug for AutomationRemoteOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationRemoteOperationResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult;{e0f80c42-4a67-5534-bf5a-09e8a99b36b1})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AutomationRemoteOperationResult {
-    type Vtable = IAutomationRemoteOperationResult_Vtbl;
-    const IID: ::windows::core::GUID = <IAutomationRemoteOperationResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AutomationRemoteOperationResult {
-    const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
-}
-impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::core::IUnknown {
-    fn from(value: AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::core::IInspectable {
-    fn from(value: AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AutomationRemoteOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &AutomationRemoteOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AutomationRemoteOperationResult {}
-unsafe impl ::core::marker::Sync for AutomationRemoteOperationResult {}
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutomationRemoteOperationStatus(pub i32);
-impl AutomationRemoteOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const MalformedBytecode: Self = Self(1i32);
-    pub const InstructionLimitExceeded: Self = Self(2i32);
-    pub const UnhandledException: Self = Self(3i32);
-    pub const ExecutionFailure: Self = Self(4i32);
-}
-impl ::core::marker::Copy for AutomationRemoteOperationStatus {}
-impl ::core::clone::Clone for AutomationRemoteOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomationRemoteOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AutomationRemoteOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AutomationRemoteOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationRemoteOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-pub struct CoreAutomationRegistrar;
-impl CoreAutomationRegistrar {
-    pub fn RegisterAnnotationType(guid: ::windows::core::GUID) -> ::windows::core::Result<AutomationAnnotationTypeRegistration> {
-        Self::ICoreAutomationRegistrarStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RegisterAnnotationType)(::windows::core::Interface::as_raw(this), guid, result__.as_mut_ptr()).from_abi::<AutomationAnnotationTypeRegistration>(result__)
-        })
-    }
-    pub fn UnregisterAnnotationType(registration: AutomationAnnotationTypeRegistration) -> ::windows::core::Result<()> {
-        Self::ICoreAutomationRegistrarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterAnnotationType)(::windows::core::Interface::as_raw(this), registration).ok() })
-    }
-    #[doc(hidden)]
-    pub fn ICoreAutomationRegistrarStatics<R, F: FnOnce(&ICoreAutomationRegistrarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreAutomationRegistrar, ICoreAutomationRegistrarStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for CoreAutomationRegistrar {
-    const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRegistrar";
-}
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-#[repr(transparent)]
-pub struct CoreAutomationRemoteOperation(::windows::core::IUnknown);
-impl CoreAutomationRemoteOperation {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CoreAutomationRemoteOperation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn IsOpcodeSupported(&self, opcode: u32) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsOpcodeSupported)(::windows::core::Interface::as_raw(this), opcode, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn ImportElement<'a, P0>(&self, operandid: AutomationRemoteOperationOperandId, element: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AutomationElement>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ImportElement)(::windows::core::Interface::as_raw(this), operandid, element.into().abi()).ok() }
-    }
-    pub fn ImportTextRange<'a, P0>(&self, operandid: AutomationRemoteOperationOperandId, textrange: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AutomationTextRange>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ImportTextRange)(::windows::core::Interface::as_raw(this), operandid, textrange.into().abi()).ok() }
-    }
-    pub fn AddToResults(&self, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddToResults)(::windows::core::Interface::as_raw(this), operandid).ok() }
-    }
-    pub fn Execute(&self, bytecodebuffer: &[u8]) -> ::windows::core::Result<AutomationRemoteOperationResult> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Execute)(::windows::core::Interface::as_raw(this), bytecodebuffer.len() as u32, bytecodebuffer.as_ptr(), result__.as_mut_ptr()).from_abi::<AutomationRemoteOperationResult>(result__)
-        }
-    }
-    pub fn ImportConnectionBoundObject<'a, P0>(&self, operandid: AutomationRemoteOperationOperandId, connectionboundobject: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AutomationConnectionBoundObject>>,
-    {
-        let this = &::windows::core::Interface::cast::<ICoreAutomationRemoteOperation2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ImportConnectionBoundObject)(::windows::core::Interface::as_raw(this), operandid, connectionboundobject.into().abi()).ok() }
-    }
-}
-impl ::core::clone::Clone for CoreAutomationRemoteOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreAutomationRemoteOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAutomationRemoteOperation {}
-impl ::core::fmt::Debug for CoreAutomationRemoteOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAutomationRemoteOperation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation;{3ac656f4-e2bc-5c6e-b8e7-b224fb74b060})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperation {
-    type Vtable = ICoreAutomationRemoteOperation_Vtbl;
-    const IID: ::windows::core::GUID = <ICoreAutomationRemoteOperation as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CoreAutomationRemoteOperation {
-    const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
-}
-impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::core::IUnknown {
-    fn from(value: CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for &::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::core::IInspectable {
-    fn from(value: CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperation> for &::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CoreAutomationRemoteOperation {}
-unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperation {}
-#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-#[repr(transparent)]
-pub struct CoreAutomationRemoteOperationContext(::windows::core::IUnknown);
-impl CoreAutomationRemoteOperationContext {
-    pub fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetOperand)(::windows::core::Interface::as_raw(this), id, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn SetOperand<'a, P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOperand)(::windows::core::Interface::as_raw(this), id, operand.into().abi()).ok() }
-    }
-    pub fn SetOperand2<'a, P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0, operandinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOperand2)(::windows::core::Interface::as_raw(this), id, operand.into().abi(), operandinterfaceid).ok() }
-    }
-}
-impl ::core::clone::Clone for CoreAutomationRemoteOperationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CoreAutomationRemoteOperationContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAutomationRemoteOperationContext {}
-impl ::core::fmt::Debug for CoreAutomationRemoteOperationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoreAutomationRemoteOperationContext").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperationContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext;{b9af9cbb-3d3e-5918-a16b-7861626a3aeb})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperationContext {
-    type Vtable = ICoreAutomationRemoteOperationContext_Vtbl;
-    const IID: ::windows::core::GUID = <ICoreAutomationRemoteOperationContext as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CoreAutomationRemoteOperationContext {
-    const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
-}
-impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::core::IUnknown {
-    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for &::windows::core::IUnknown {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::core::IInspectable {
-    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for &::windows::core::IInspectable {
-    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CoreAutomationRemoteOperationContext {}
-unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAutomationRemoteOperationResult(::windows::core::IUnknown);
@@ -773,6 +338,330 @@ pub struct IRemoteAutomationWindow_Vtbl {
     #[cfg(not(feature = "Foundation"))]
     UnregisterAsync: usize,
 }
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+#[repr(transparent)]
+pub struct AutomationRemoteOperationResult(::windows::core::IUnknown);
+impl AutomationRemoteOperationResult {
+    pub fn Status(&self) -> ::windows::core::Result<AutomationRemoteOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AutomationRemoteOperationStatus>(result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+        }
+    }
+    pub fn ErrorLocation(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorLocation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn HasOperand(&self, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HasOperand)(::windows::core::Interface::as_raw(this), operandid, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn GetOperand(&self, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetOperand)(::windows::core::Interface::as_raw(this), operandid, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AutomationRemoteOperationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AutomationRemoteOperationResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AutomationRemoteOperationResult {}
+impl ::core::fmt::Debug for AutomationRemoteOperationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationRemoteOperationResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult;{e0f80c42-4a67-5534-bf5a-09e8a99b36b1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AutomationRemoteOperationResult {
+    type Vtable = IAutomationRemoteOperationResult_Vtbl;
+    const IID: ::windows::core::GUID = <IAutomationRemoteOperationResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AutomationRemoteOperationResult {
+    const NAME: &'static str = "Windows.UI.UIAutomation.Core.AutomationRemoteOperationResult";
+}
+impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::core::IUnknown {
+    fn from(value: AutomationRemoteOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::core::IUnknown {
+    fn from(value: &AutomationRemoteOperationResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AutomationRemoteOperationResult> for &::windows::core::IUnknown {
+    fn from(value: &AutomationRemoteOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AutomationRemoteOperationResult> for ::windows::core::IInspectable {
+    fn from(value: AutomationRemoteOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AutomationRemoteOperationResult> for ::windows::core::IInspectable {
+    fn from(value: &AutomationRemoteOperationResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AutomationRemoteOperationResult> for &::windows::core::IInspectable {
+    fn from(value: &AutomationRemoteOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AutomationRemoteOperationResult {}
+unsafe impl ::core::marker::Sync for AutomationRemoteOperationResult {}
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+pub struct CoreAutomationRegistrar;
+impl CoreAutomationRegistrar {
+    pub fn RegisterAnnotationType(guid: ::windows::core::GUID) -> ::windows::core::Result<AutomationAnnotationTypeRegistration> {
+        Self::ICoreAutomationRegistrarStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RegisterAnnotationType)(::windows::core::Interface::as_raw(this), guid, result__.as_mut_ptr()).from_abi::<AutomationAnnotationTypeRegistration>(result__)
+        })
+    }
+    pub fn UnregisterAnnotationType(registration: AutomationAnnotationTypeRegistration) -> ::windows::core::Result<()> {
+        Self::ICoreAutomationRegistrarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).UnregisterAnnotationType)(::windows::core::Interface::as_raw(this), registration).ok() })
+    }
+    #[doc(hidden)]
+    pub fn ICoreAutomationRegistrarStatics<R, F: FnOnce(&ICoreAutomationRegistrarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<CoreAutomationRegistrar, ICoreAutomationRegistrarStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for CoreAutomationRegistrar {
+    const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRegistrar";
+}
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+#[repr(transparent)]
+pub struct CoreAutomationRemoteOperation(::windows::core::IUnknown);
+impl CoreAutomationRemoteOperation {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<CoreAutomationRemoteOperation, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn IsOpcodeSupported(&self, opcode: u32) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsOpcodeSupported)(::windows::core::Interface::as_raw(this), opcode, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn ImportElement<'a, P0>(&self, operandid: AutomationRemoteOperationOperandId, element: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AutomationElement>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).ImportElement)(::windows::core::Interface::as_raw(this), operandid, element.into().abi()).ok() }
+    }
+    pub fn ImportTextRange<'a, P0>(&self, operandid: AutomationRemoteOperationOperandId, textrange: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AutomationTextRange>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).ImportTextRange)(::windows::core::Interface::as_raw(this), operandid, textrange.into().abi()).ok() }
+    }
+    pub fn AddToResults(&self, operandid: AutomationRemoteOperationOperandId) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).AddToResults)(::windows::core::Interface::as_raw(this), operandid).ok() }
+    }
+    pub fn Execute(&self, bytecodebuffer: &[u8]) -> ::windows::core::Result<AutomationRemoteOperationResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Execute)(::windows::core::Interface::as_raw(this), bytecodebuffer.len() as u32, bytecodebuffer.as_ptr(), result__.as_mut_ptr()).from_abi::<AutomationRemoteOperationResult>(result__)
+        }
+    }
+    pub fn ImportConnectionBoundObject<'a, P0>(&self, operandid: AutomationRemoteOperationOperandId, connectionboundobject: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AutomationConnectionBoundObject>>,
+    {
+        let this = &::windows::core::Interface::cast::<ICoreAutomationRemoteOperation2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).ImportConnectionBoundObject)(::windows::core::Interface::as_raw(this), operandid, connectionboundobject.into().abi()).ok() }
+    }
+}
+impl ::core::clone::Clone for CoreAutomationRemoteOperation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CoreAutomationRemoteOperation {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CoreAutomationRemoteOperation {}
+impl ::core::fmt::Debug for CoreAutomationRemoteOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAutomationRemoteOperation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation;{3ac656f4-e2bc-5c6e-b8e7-b224fb74b060})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperation {
+    type Vtable = ICoreAutomationRemoteOperation_Vtbl;
+    const IID: ::windows::core::GUID = <ICoreAutomationRemoteOperation as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CoreAutomationRemoteOperation {
+    const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperation";
+}
+impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::core::IUnknown {
+    fn from(value: CoreAutomationRemoteOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::core::IUnknown {
+    fn from(value: &CoreAutomationRemoteOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperation> for &::windows::core::IUnknown {
+    fn from(value: &CoreAutomationRemoteOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CoreAutomationRemoteOperation> for ::windows::core::IInspectable {
+    fn from(value: CoreAutomationRemoteOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperation> for ::windows::core::IInspectable {
+    fn from(value: &CoreAutomationRemoteOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperation> for &::windows::core::IInspectable {
+    fn from(value: &CoreAutomationRemoteOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CoreAutomationRemoteOperation {}
+unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperation {}
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+#[repr(transparent)]
+pub struct CoreAutomationRemoteOperationContext(::windows::core::IUnknown);
+impl CoreAutomationRemoteOperationContext {
+    pub fn GetOperand(&self, id: AutomationRemoteOperationOperandId) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetOperand)(::windows::core::Interface::as_raw(this), id, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+        }
+    }
+    pub fn SetOperand<'a, P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetOperand)(::windows::core::Interface::as_raw(this), id, operand.into().abi()).ok() }
+    }
+    pub fn SetOperand2<'a, P0>(&self, id: AutomationRemoteOperationOperandId, operand: P0, operandinterfaceid: ::windows::core::GUID) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetOperand2)(::windows::core::Interface::as_raw(this), id, operand.into().abi(), operandinterfaceid).ok() }
+    }
+}
+impl ::core::clone::Clone for CoreAutomationRemoteOperationContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CoreAutomationRemoteOperationContext {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CoreAutomationRemoteOperationContext {}
+impl ::core::fmt::Debug for CoreAutomationRemoteOperationContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreAutomationRemoteOperationContext").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CoreAutomationRemoteOperationContext {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext;{b9af9cbb-3d3e-5918-a16b-7861626a3aeb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CoreAutomationRemoteOperationContext {
+    type Vtable = ICoreAutomationRemoteOperationContext_Vtbl;
+    const IID: ::windows::core::GUID = <ICoreAutomationRemoteOperationContext as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CoreAutomationRemoteOperationContext {
+    const NAME: &'static str = "Windows.UI.UIAutomation.Core.CoreAutomationRemoteOperationContext";
+}
+impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::core::IUnknown {
+    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::core::IUnknown {
+    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for &::windows::core::IUnknown {
+    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CoreAutomationRemoteOperationContext> for ::windows::core::IInspectable {
+    fn from(value: CoreAutomationRemoteOperationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for ::windows::core::IInspectable {
+    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CoreAutomationRemoteOperationContext> for &::windows::core::IInspectable {
+    fn from(value: &CoreAutomationRemoteOperationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CoreAutomationRemoteOperationContext {}
+unsafe impl ::core::marker::Sync for CoreAutomationRemoteOperationContext {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
 #[repr(transparent)]
 pub struct RemoteAutomationClientSession(::windows::core::IUnknown);
@@ -1173,5 +1062,116 @@ impl ::core::convert::From<&RemoteAutomationWindow> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for RemoteAutomationWindow {}
 unsafe impl ::core::marker::Sync for RemoteAutomationWindow {}
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutomationRemoteOperationStatus(pub i32);
+impl AutomationRemoteOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const MalformedBytecode: Self = Self(1i32);
+    pub const InstructionLimitExceeded: Self = Self(2i32);
+    pub const UnhandledException: Self = Self(3i32);
+    pub const ExecutionFailure: Self = Self(4i32);
+}
+impl ::core::marker::Copy for AutomationRemoteOperationStatus {}
+impl ::core::clone::Clone for AutomationRemoteOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AutomationRemoteOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AutomationRemoteOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomationRemoteOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationRemoteOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.UIAutomation.Core.AutomationRemoteOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+pub struct AutomationAnnotationTypeRegistration {
+    pub LocalId: i32,
+}
+impl ::core::marker::Copy for AutomationAnnotationTypeRegistration {}
+impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AutomationAnnotationTypeRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutomationAnnotationTypeRegistration").field("LocalId", &self.LocalId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AutomationAnnotationTypeRegistration {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for AutomationAnnotationTypeRegistration {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for AutomationAnnotationTypeRegistration {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutomationAnnotationTypeRegistration>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AutomationAnnotationTypeRegistration {}
+impl ::core::default::Default for AutomationAnnotationTypeRegistration {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
+pub struct AutomationRemoteOperationOperandId {
+    pub Value: i32,
+}
+impl ::core::marker::Copy for AutomationRemoteOperationOperandId {}
+impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AutomationRemoteOperationOperandId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AutomationRemoteOperationOperandId").field("Value", &self.Value).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AutomationRemoteOperationOperandId {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationOperandId {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.UIAutomation.Core.AutomationRemoteOperationOperandId;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for AutomationRemoteOperationOperandId {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AutomationRemoteOperationOperandId>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AutomationRemoteOperationOperandId {}
+impl ::core::default::Default for AutomationRemoteOperationOperandId {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

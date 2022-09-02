@@ -1,131 +1,3 @@
-#[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ContentAccessRestrictionLevel(pub i32);
-impl ContentAccessRestrictionLevel {
-    pub const Allow: Self = Self(0i32);
-    pub const Warn: Self = Self(1i32);
-    pub const Block: Self = Self(2i32);
-    pub const Hide: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ContentAccessRestrictionLevel {}
-impl ::core::clone::Clone for ContentAccessRestrictionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ContentAccessRestrictionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ContentAccessRestrictionLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
-#[repr(transparent)]
-pub struct ContentRestrictionsBrowsePolicy(::windows::core::IUnknown);
-impl ContentRestrictionsBrowsePolicy {
-    pub fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn MaxBrowsableAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBrowsableAgeRating)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PreferredAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreferredAgeRating)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContentRestrictionsBrowsePolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContentRestrictionsBrowsePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentRestrictionsBrowsePolicy {}
-impl ::core::fmt::Debug for ContentRestrictionsBrowsePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentRestrictionsBrowsePolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContentRestrictionsBrowsePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
-    type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
-    const IID: ::windows::core::GUID = <IContentRestrictionsBrowsePolicy as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContentRestrictionsBrowsePolicy {
-    const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
-}
-impl ::core::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::core::IUnknown {
-    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::core::IUnknown {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for &::windows::core::IUnknown {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::core::IInspectable {
-    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::core::IInspectable {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for &::windows::core::IInspectable {
-    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
-unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContentRestrictionsBrowsePolicy(::windows::core::IUnknown);
@@ -241,42 +113,96 @@ pub struct IRatedContentRestrictionsFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RatedContentCategory(pub i32);
-impl RatedContentCategory {
-    pub const General: Self = Self(0i32);
-    pub const Application: Self = Self(1i32);
-    pub const Game: Self = Self(2i32);
-    pub const Movie: Self = Self(3i32);
-    pub const Television: Self = Self(4i32);
-    pub const Music: Self = Self(5i32);
+pub struct ContentRestrictionsBrowsePolicy(::windows::core::IUnknown);
+impl ContentRestrictionsBrowsePolicy {
+    pub fn GeographicRegion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GeographicRegion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn MaxBrowsableAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxBrowsableAgeRating)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PreferredAgeRating(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreferredAgeRating)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+        }
+    }
 }
-impl ::core::marker::Copy for RatedContentCategory {}
-impl ::core::clone::Clone for RatedContentCategory {
+impl ::core::clone::Clone for ContentRestrictionsBrowsePolicy {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::default::Default for RatedContentCategory {
-    fn default() -> Self {
-        Self(0)
+impl ::core::cmp::PartialEq for ContentRestrictionsBrowsePolicy {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
     }
 }
-unsafe impl ::windows::core::Abi for RatedContentCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RatedContentCategory {
+impl ::core::cmp::Eq for ContentRestrictionsBrowsePolicy {}
+impl ::core::fmt::Debug for ContentRestrictionsBrowsePolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RatedContentCategory").field(&self.0).finish()
+        f.debug_tuple("ContentRestrictionsBrowsePolicy").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for RatedContentCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
-    type DefaultType = Self;
+unsafe impl ::windows::core::RuntimeType for ContentRestrictionsBrowsePolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy;{8c0133a4-442e-461a-8757-fad2f5bd37e4})");
+    type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
+unsafe impl ::windows::core::Interface for ContentRestrictionsBrowsePolicy {
+    type Vtable = IContentRestrictionsBrowsePolicy_Vtbl;
+    const IID: ::windows::core::GUID = <IContentRestrictionsBrowsePolicy as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContentRestrictionsBrowsePolicy {
+    const NAME: &'static str = "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy";
+}
+impl ::core::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::core::IUnknown {
+    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::core::IUnknown {
+    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for &::windows::core::IUnknown {
+    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContentRestrictionsBrowsePolicy> for ::windows::core::IInspectable {
+    fn from(value: ContentRestrictionsBrowsePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for ::windows::core::IInspectable {
+    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContentRestrictionsBrowsePolicy> for &::windows::core::IInspectable {
+    fn from(value: &ContentRestrictionsBrowsePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ContentRestrictionsBrowsePolicy {}
+unsafe impl ::core::marker::Sync for ContentRestrictionsBrowsePolicy {}
 #[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
 #[repr(transparent)]
 pub struct RatedContentDescription(::windows::core::IUnknown);
@@ -562,5 +488,79 @@ impl ::core::convert::From<&RatedContentRestrictions> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for RatedContentRestrictions {}
 unsafe impl ::core::marker::Sync for RatedContentRestrictions {}
+#[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ContentAccessRestrictionLevel(pub i32);
+impl ContentAccessRestrictionLevel {
+    pub const Allow: Self = Self(0i32);
+    pub const Warn: Self = Self(1i32);
+    pub const Block: Self = Self(2i32);
+    pub const Hide: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ContentAccessRestrictionLevel {}
+impl ::core::clone::Clone for ContentAccessRestrictionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ContentAccessRestrictionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ContentAccessRestrictionLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContentAccessRestrictionLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.ContentAccessRestrictionLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_ContentRestrictions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RatedContentCategory(pub i32);
+impl RatedContentCategory {
+    pub const General: Self = Self(0i32);
+    pub const Application: Self = Self(1i32);
+    pub const Game: Self = Self(2i32);
+    pub const Movie: Self = Self(3i32);
+    pub const Television: Self = Self(4i32);
+    pub const Music: Self = Self(5i32);
+}
+impl ::core::marker::Copy for RatedContentCategory {}
+impl ::core::clone::Clone for RatedContentCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RatedContentCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RatedContentCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RatedContentCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RatedContentCategory").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RatedContentCategory {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.ContentRestrictions.RatedContentCategory;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

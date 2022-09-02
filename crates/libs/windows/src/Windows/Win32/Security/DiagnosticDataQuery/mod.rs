@@ -1,3 +1,480 @@
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqCancelDiagnosticRecordOperation<'a, P0>(hsession: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqCancelDiagnosticRecordOperation(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
+    }
+    DdqCancelDiagnosticRecordOperation(hsession.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqCloseSession<'a, P0>(hsession: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqCloseSession(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
+    }
+    DdqCloseSession(hsession.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> ::windows::core::Result<super::HDIAGNOSTIC_DATA_QUERY_SESSION> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqCreateSession(accesslevel: DdqAccessLevel, hsession: *mut super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqCreateSession(accesslevel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqExtractDiagnosticReport<'a, P0, P1, P2>(hsession: P0, reportstoretype: u32, reportkey: P1, destinationpath: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqExtractDiagnosticReport(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportkey: ::windows::core::PCWSTR, destinationpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+    }
+    DdqExtractDiagnosticReport(hsession.into(), reportstoretype, reportkey.into(), destinationpath.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqFreeDiagnosticRecordLocaleTags<'a, P0>(htagdescription: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqFreeDiagnosticRecordLocaleTags(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    DdqFreeDiagnosticRecordLocaleTags(htagdescription.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqFreeDiagnosticRecordPage<'a, P0>(hrecord: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqFreeDiagnosticRecordPage(hrecord: super::HDIAGNOSTIC_RECORD) -> ::windows::core::HRESULT;
+    }
+    DdqFreeDiagnosticRecordPage(hrecord.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqFreeDiagnosticRecordProducerCategories<'a, P0>(hcategorydescription: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqFreeDiagnosticRecordProducerCategories(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    DdqFreeDiagnosticRecordProducerCategories(hcategorydescription.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqFreeDiagnosticRecordProducers<'a, P0>(hproducerdescription: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqFreeDiagnosticRecordProducers(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    DdqFreeDiagnosticRecordProducers(hproducerdescription.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqFreeDiagnosticReport<'a, P0>(hreport: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqFreeDiagnosticReport(hreport: super::HDIAGNOSTIC_REPORT) -> ::windows::core::HRESULT;
+    }
+    DdqFreeDiagnosticReport(hreport.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::core::Result<DdqAccessLevel> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: *mut DdqAccessLevel) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticDataAccessLevelAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DdqAccessLevel>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordAtIndex<'a, P0>(hrecord: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_RECORD>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordAtIndex(hrecord: super::HDIAGNOSTIC_RECORD, index: u32, record: *mut DIAGNOSTIC_DATA_RECORD) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordAtIndex(hrecord.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_RECORD>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR], topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: &mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordBinaryDistribution(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    DdqGetDiagnosticRecordBinaryDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, topnbinaries, ::core::mem::transmute(binarystats), ::core::mem::transmute(statcount)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex<'a, P0>(hcategorydescription: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index: u32, categorydescription: *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordCategoryCount<'a, P0>(hcategorydescription: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordCategoryCount(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordCategoryCount(hcategorydescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordCount<'a, P0>(hrecord: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordCount(hrecord: super::HDIAGNOSTIC_RECORD, recordcount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordCount(hrecord.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex<'a, P0>(htagdescription: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index: u32, tagdescription: *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount<'a, P0>(htagdescription: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordLocaleTagCount(htagdescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordLocaleTags<'a, P0, P1>(hsession: P0, locale: P1) -> ::windows::core::Result<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordLocaleTags(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, locale: ::windows::core::PCWSTR, htagdescription: *mut super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordLocaleTags(hsession.into(), locale.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordPage<'a, P0>(hsession: P0, searchcriteria: &DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64) -> ::windows::core::Result<super::HDIAGNOSTIC_RECORD>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordPage(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64, hrecord: *mut super::HDIAGNOSTIC_RECORD) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordPage(hsession.into(), ::core::mem::transmute(searchcriteria), offset, pagerecordcount, baserowid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_RECORD>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordPayload<'a, P0>(hsession: P0, rowid: i64) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordPayload(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, rowid: i64, payload: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordPayload(hsession.into(), rowid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<'a, P0>(hproducerdescription: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index: u32, producerdescription: *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordProducerCategories<'a, P0, P1>(hsession: P0, producername: P1) -> ::windows::core::Result<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordProducerCategories(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producername: ::windows::core::PCWSTR, hcategorydescription: *mut super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordProducerCategories(hsession.into(), producername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordProducerCount<'a, P0>(hproducerdescription: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordProducerCount(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordProducerCount(hproducerdescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordProducers<'a, P0>(hsession: P0) -> ::windows::core::Result<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordProducers(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription: *mut super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordProducers(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordStats<'a, P0>(hsession: P0, searchcriteria: &DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount: &mut u32, minrowid: &mut i64, maxrowid: &mut i64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordStats(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount: *mut u32, minrowid: *mut i64, maxrowid: *mut i64) -> ::windows::core::HRESULT;
+    }
+    DdqGetDiagnosticRecordStats(hsession.into(), ::core::mem::transmute(searchcriteria), ::core::mem::transmute(recordcount), ::core::mem::transmute(minrowid), ::core::mem::transmute(maxrowid)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordSummary<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR]) -> ::windows::core::Result<DIAGNOSTIC_DATA_GENERAL_STATS>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordSummary(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, generalstats: *mut DIAGNOSTIC_DATA_GENERAL_STATS) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticRecordSummary(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_GENERAL_STATS>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticRecordTagDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR], tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: &mut u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticRecordTagDistribution(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    DdqGetDiagnosticRecordTagDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(tagstats), ::core::mem::transmute(statcount)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticReport<'a, P0>(hsession: P0, reportstoretype: u32) -> ::windows::core::Result<super::HDIAGNOSTIC_REPORT>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticReport(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, hreport: *mut super::HDIAGNOSTIC_REPORT) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticReport(hsession.into(), reportstoretype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_REPORT>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DdqGetDiagnosticReportAtIndex<'a, P0>(hreport: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_REPORT_DATA>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticReportAtIndex(hreport: super::HDIAGNOSTIC_REPORT, index: u32, report: *mut DIAGNOSTIC_REPORT_DATA) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticReportAtIndex(hreport.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_REPORT_DATA>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticReportCount<'a, P0>(hreport: P0) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticReportCount(hreport: super::HDIAGNOSTIC_REPORT, reportcount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticReportCount(hreport.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetDiagnosticReportStoreReportCount<'a, P0>(hsession: P0, reportstoretype: u32) -> ::windows::core::Result<u32>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetDiagnosticReportStoreReportCount(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportcount: *mut u32) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetDiagnosticReportStoreReportCount(hsession.into(), reportstoretype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetSessionAccessLevel<'a, P0>(hsession: P0) -> ::windows::core::Result<DdqAccessLevel>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetSessionAccessLevel(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel: *mut DdqAccessLevel) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetSessionAccessLevel(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DdqAccessLevel>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqGetTranscriptConfiguration<'a, P0>(hsession: P0) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqGetTranscriptConfiguration(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig: *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqGetTranscriptConfiguration(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn DdqIsDiagnosticRecordSampledIn<'a, P0, P1, P2>(hsession: P0, providergroup: &::windows::core::GUID, providerid: ::core::option::Option<&::windows::core::GUID>, providername: P1, eventid: ::core::option::Option<&u32>, eventname: P2, eventversion: ::core::option::Option<&u32>, eventkeywords: ::core::option::Option<&u64>) -> ::windows::core::Result<super::super::Foundation::BOOL>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqIsDiagnosticRecordSampledIn(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const ::windows::core::GUID, providerid: *const ::windows::core::GUID, providername: ::windows::core::PCWSTR, eventid: *const u32, eventname: ::windows::core::PCWSTR, eventversion: *const u32, eventkeywords: *const u64, issampledin: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    DdqIsDiagnosticRecordSampledIn(hsession.into(), ::core::mem::transmute(providergroup), ::core::mem::transmute(providerid), providername.into(), ::core::mem::transmute(eventid), eventname.into(), ::core::mem::transmute(eventversion), ::core::mem::transmute(eventkeywords), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[inline]
+pub unsafe fn DdqSetTranscriptConfiguration<'a, P0>(hsession: P0, desiredconfig: &DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DdqSetTranscriptConfiguration(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig: *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::HRESULT;
+    }
+    DdqSetTranscriptConfiguration(hsession.into(), ::core::mem::transmute(desiredconfig)).ok()
+}
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DdqAccessLevel(pub i32);
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
+#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
+pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
+impl ::core::marker::Copy for DdqAccessLevel {}
+impl ::core::clone::Clone for DdqAccessLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DdqAccessLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DdqAccessLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DdqAccessLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DdqAccessLevel").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
 pub struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS {
@@ -465,483 +942,6 @@ impl ::core::default::Default for DIAGNOSTIC_REPORT_SIGNATURE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DdqAccessLevel(pub i32);
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const NoData: DdqAccessLevel = DdqAccessLevel(0i32);
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const CurrentUserData: DdqAccessLevel = DdqAccessLevel(1i32);
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-pub const AllUserData: DdqAccessLevel = DdqAccessLevel(2i32);
-impl ::core::marker::Copy for DdqAccessLevel {}
-impl ::core::clone::Clone for DdqAccessLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DdqAccessLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DdqAccessLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DdqAccessLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DdqAccessLevel").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqCancelDiagnosticRecordOperation<'a, P0>(hsession: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqCancelDiagnosticRecordOperation(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
-    }
-    DdqCancelDiagnosticRecordOperation(hsession.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqCloseSession<'a, P0>(hsession: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqCloseSession(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
-    }
-    DdqCloseSession(hsession.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> ::windows::core::Result<super::HDIAGNOSTIC_DATA_QUERY_SESSION> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqCreateSession(accesslevel: DdqAccessLevel, hsession: *mut super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqCreateSession(accesslevel, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqExtractDiagnosticReport<'a, P0, P1, P2>(hsession: P0, reportstoretype: u32, reportkey: P1, destinationpath: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqExtractDiagnosticReport(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportkey: ::windows::core::PCWSTR, destinationpath: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
-    DdqExtractDiagnosticReport(hsession.into(), reportstoretype, reportkey.into(), destinationpath.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqFreeDiagnosticRecordLocaleTags<'a, P0>(htagdescription: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqFreeDiagnosticRecordLocaleTags(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    DdqFreeDiagnosticRecordLocaleTags(htagdescription.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqFreeDiagnosticRecordPage<'a, P0>(hrecord: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqFreeDiagnosticRecordPage(hrecord: super::HDIAGNOSTIC_RECORD) -> ::windows::core::HRESULT;
-    }
-    DdqFreeDiagnosticRecordPage(hrecord.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqFreeDiagnosticRecordProducerCategories<'a, P0>(hcategorydescription: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqFreeDiagnosticRecordProducerCategories(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    DdqFreeDiagnosticRecordProducerCategories(hcategorydescription.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqFreeDiagnosticRecordProducers<'a, P0>(hproducerdescription: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqFreeDiagnosticRecordProducers(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    DdqFreeDiagnosticRecordProducers(hproducerdescription.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqFreeDiagnosticReport<'a, P0>(hreport: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqFreeDiagnosticReport(hreport: super::HDIAGNOSTIC_REPORT) -> ::windows::core::HRESULT;
-    }
-    DdqFreeDiagnosticReport(hreport.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::core::Result<DdqAccessLevel> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: *mut DdqAccessLevel) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticDataAccessLevelAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DdqAccessLevel>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordAtIndex<'a, P0>(hrecord: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_RECORD>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordAtIndex(hrecord: super::HDIAGNOSTIC_RECORD, index: u32, record: *mut DIAGNOSTIC_DATA_RECORD) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordAtIndex(hrecord.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_RECORD>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordBinaryDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR], topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: &mut u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordBinaryDistribution(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, topnbinaries: u32, binarystats: *mut *mut DIAGNOSTIC_DATA_EVENT_BINARY_STATS, statcount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    DdqGetDiagnosticRecordBinaryDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, topnbinaries, ::core::mem::transmute(binarystats), ::core::mem::transmute(statcount)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex<'a, P0>(hcategorydescription: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index: u32, categorydescription: *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordCategoryCount<'a, P0>(hcategorydescription: P0) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordCategoryCount(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordCategoryCount(hcategorydescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordCount<'a, P0>(hrecord: P0) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_RECORD>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordCount(hrecord: super::HDIAGNOSTIC_RECORD, recordcount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordCount(hrecord.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex<'a, P0>(htagdescription: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index: u32, tagdescription: *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount<'a, P0>(htagdescription: P0) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordLocaleTagCount(htagdescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordLocaleTags<'a, P0, P1>(hsession: P0, locale: P1) -> ::windows::core::Result<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordLocaleTags(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, locale: ::windows::core::PCWSTR, htagdescription: *mut super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordLocaleTags(hsession.into(), locale.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordPage<'a, P0>(hsession: P0, searchcriteria: &DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64) -> ::windows::core::Result<super::HDIAGNOSTIC_RECORD>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordPage(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64, hrecord: *mut super::HDIAGNOSTIC_RECORD) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordPage(hsession.into(), ::core::mem::transmute(searchcriteria), offset, pagerecordcount, baserowid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_RECORD>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordPayload<'a, P0>(hsession: P0, rowid: i64) -> ::windows::core::Result<::windows::core::PWSTR>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordPayload(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, rowid: i64, payload: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordPayload(hsession.into(), rowid, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<'a, P0>(hproducerdescription: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index: u32, producerdescription: *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordProducerCategories<'a, P0, P1>(hsession: P0, producername: P1) -> ::windows::core::Result<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordProducerCategories(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producername: ::windows::core::PCWSTR, hcategorydescription: *mut super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordProducerCategories(hsession.into(), producername.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordProducerCount<'a, P0>(hproducerdescription: P0) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordProducerCount(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordProducerCount(hproducerdescription.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordProducers<'a, P0>(hsession: P0) -> ::windows::core::Result<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordProducers(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription: *mut super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordProducers(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordStats<'a, P0>(hsession: P0, searchcriteria: &DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount: &mut u32, minrowid: &mut i64, maxrowid: &mut i64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordStats(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, recordcount: *mut u32, minrowid: *mut i64, maxrowid: *mut i64) -> ::windows::core::HRESULT;
-    }
-    DdqGetDiagnosticRecordStats(hsession.into(), ::core::mem::transmute(searchcriteria), ::core::mem::transmute(recordcount), ::core::mem::transmute(minrowid), ::core::mem::transmute(maxrowid)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordSummary<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR]) -> ::windows::core::Result<DIAGNOSTIC_DATA_GENERAL_STATS>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordSummary(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, generalstats: *mut DIAGNOSTIC_DATA_GENERAL_STATS) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticRecordSummary(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_GENERAL_STATS>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticRecordTagDistribution<'a, P0>(hsession: P0, producernames: &[::windows::core::PWSTR], tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: &mut u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticRecordTagDistribution(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, tagstats: *mut *mut DIAGNOSTIC_DATA_EVENT_TAG_STATS, statcount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    DdqGetDiagnosticRecordTagDistribution(hsession.into(), ::core::mem::transmute(producernames.as_ptr()), producernames.len() as _, ::core::mem::transmute(tagstats), ::core::mem::transmute(statcount)).ok()
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticReport<'a, P0>(hsession: P0, reportstoretype: u32) -> ::windows::core::Result<super::HDIAGNOSTIC_REPORT>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticReport(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, hreport: *mut super::HDIAGNOSTIC_REPORT) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticReport(hsession.into(), reportstoretype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_REPORT>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DdqGetDiagnosticReportAtIndex<'a, P0>(hreport: P0, index: u32) -> ::windows::core::Result<DIAGNOSTIC_REPORT_DATA>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticReportAtIndex(hreport: super::HDIAGNOSTIC_REPORT, index: u32, report: *mut DIAGNOSTIC_REPORT_DATA) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticReportAtIndex(hreport.into(), index, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_REPORT_DATA>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticReportCount<'a, P0>(hreport: P0) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_REPORT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticReportCount(hreport: super::HDIAGNOSTIC_REPORT, reportcount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticReportCount(hreport.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetDiagnosticReportStoreReportCount<'a, P0>(hsession: P0, reportstoretype: u32) -> ::windows::core::Result<u32>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetDiagnosticReportStoreReportCount(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportcount: *mut u32) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetDiagnosticReportStoreReportCount(hsession.into(), reportstoretype, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetSessionAccessLevel<'a, P0>(hsession: P0) -> ::windows::core::Result<DdqAccessLevel>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetSessionAccessLevel(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel: *mut DdqAccessLevel) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetSessionAccessLevel(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DdqAccessLevel>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqGetTranscriptConfiguration<'a, P0>(hsession: P0) -> ::windows::core::Result<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqGetTranscriptConfiguration(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig: *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqGetTranscriptConfiguration(hsession.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn DdqIsDiagnosticRecordSampledIn<'a, P0, P1, P2>(hsession: P0, providergroup: &::windows::core::GUID, providerid: ::core::option::Option<&::windows::core::GUID>, providername: P1, eventid: ::core::option::Option<&u32>, eventname: P2, eventversion: ::core::option::Option<&u32>, eventkeywords: ::core::option::Option<&u64>) -> ::windows::core::Result<super::super::Foundation::BOOL>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqIsDiagnosticRecordSampledIn(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const ::windows::core::GUID, providerid: *const ::windows::core::GUID, providername: ::windows::core::PCWSTR, eventid: *const u32, eventname: ::windows::core::PCWSTR, eventversion: *const u32, eventkeywords: *const u64, issampledin: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    DdqIsDiagnosticRecordSampledIn(hsession.into(), ::core::mem::transmute(providergroup), ::core::mem::transmute(providerid), providername.into(), ::core::mem::transmute(eventid), eventname.into(), ::core::mem::transmute(eventversion), ::core::mem::transmute(eventkeywords), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
-}
-#[doc = "*Required features: `\"Win32_Security_DiagnosticDataQuery\"`*"]
-#[inline]
-pub unsafe fn DdqSetTranscriptConfiguration<'a, P0>(hsession: P0, desiredconfig: &DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::HDIAGNOSTIC_DATA_QUERY_SESSION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DdqSetTranscriptConfiguration(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, desiredconfig: *const DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::HRESULT;
-    }
-    DdqSetTranscriptConfiguration(hsession.into(), ::core::mem::transmute(desiredconfig)).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

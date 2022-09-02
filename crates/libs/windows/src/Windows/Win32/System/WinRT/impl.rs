@@ -606,6 +606,52 @@ impl IInputPaneInterop_Vtbl {
         iid == &<IInputPaneInterop as ::windows::core::Interface>::IID
     }
 }
+pub trait IInspectable_Impl: Sized {
+    fn GetIids(&self, iidcount: *mut u32, iids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()>;
+    fn GetRuntimeClassName(&self) -> ::windows::core::Result<::windows::core::HSTRING>;
+    fn GetTrustLevel(&self) -> ::windows::core::Result<TrustLevel>;
+}
+impl ::windows::core::RuntimeName for IInspectable {}
+impl IInspectable_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInspectable_Impl, const OFFSET: isize>() -> IInspectable_Vtbl {
+        unsafe extern "system" fn GetIids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInspectable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iidcount: *mut u32, iids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.GetIids(::core::mem::transmute_copy(&iidcount), ::core::mem::transmute_copy(&iids)).into()
+        }
+        unsafe extern "system" fn GetRuntimeClassName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInspectable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classname: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetRuntimeClassName() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(classname, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetTrustLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IInspectable_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, trustlevel: *mut TrustLevel) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetTrustLevel() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(trustlevel, ::core::mem::transmute(ok__));
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
+            GetIids: GetIids::<Identity, Impl, OFFSET>,
+            GetRuntimeClassName: GetRuntimeClassName::<Identity, Impl, OFFSET>,
+            GetTrustLevel: GetTrustLevel::<Identity, Impl, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInspectable as ::windows::core::Interface>::IID
+    }
+}
 pub trait ILanguageExceptionErrorInfo_Impl: Sized {
     fn GetLanguageException(&self) -> ::windows::core::Result<::windows::core::IUnknown>;
 }

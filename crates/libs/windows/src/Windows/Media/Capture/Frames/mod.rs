@@ -1,372 +1,3 @@
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-pub struct AudioMediaFrame(::windows::core::IUnknown);
-impl AudioMediaFrame {
-    pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaFrameReference>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-    #[cfg(feature = "Media_MediaProperties")]
-    pub fn AudioEncodingProperties(&self) -> ::windows::core::Result<super::super::MediaProperties::AudioEncodingProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEncodingProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::MediaProperties::AudioEncodingProperties>(result__)
-        }
-    }
-    pub fn GetAudioFrame(&self) -> ::windows::core::Result<super::super::AudioFrame> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::AudioFrame>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioMediaFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioMediaFrame {}
-impl ::core::fmt::Debug for AudioMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioMediaFrame").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioMediaFrame {
-    type Vtable = IAudioMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioMediaFrame as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioMediaFrame {
-    const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
-}
-impl ::core::convert::From<AudioMediaFrame> for ::windows::core::IUnknown {
-    fn from(value: AudioMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioMediaFrame> for ::windows::core::IUnknown {
-    fn from(value: &AudioMediaFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioMediaFrame> for &::windows::core::IUnknown {
-    fn from(value: &AudioMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioMediaFrame> for ::windows::core::IInspectable {
-    fn from(value: AudioMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioMediaFrame> for ::windows::core::IInspectable {
-    fn from(value: &AudioMediaFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioMediaFrame> for &::windows::core::IInspectable {
-    fn from(value: &AudioMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AudioMediaFrame {}
-unsafe impl ::core::marker::Sync for AudioMediaFrame {}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-pub struct BufferMediaFrame(::windows::core::IUnknown);
-impl BufferMediaFrame {
-    pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaFrameReference>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn Buffer(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Buffer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BufferMediaFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BufferMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BufferMediaFrame {}
-impl ::core::fmt::Debug for BufferMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BufferMediaFrame").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BufferMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.BufferMediaFrame;{b5b153c7-9b84-4062-b79c-a365b2596854})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BufferMediaFrame {
-    type Vtable = IBufferMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = <IBufferMediaFrame as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BufferMediaFrame {
-    const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
-}
-impl ::core::convert::From<BufferMediaFrame> for ::windows::core::IUnknown {
-    fn from(value: BufferMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BufferMediaFrame> for ::windows::core::IUnknown {
-    fn from(value: &BufferMediaFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BufferMediaFrame> for &::windows::core::IUnknown {
-    fn from(value: &BufferMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BufferMediaFrame> for ::windows::core::IInspectable {
-    fn from(value: BufferMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BufferMediaFrame> for ::windows::core::IInspectable {
-    fn from(value: &BufferMediaFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BufferMediaFrame> for &::windows::core::IInspectable {
-    fn from(value: &BufferMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BufferMediaFrame {}
-unsafe impl ::core::marker::Sync for BufferMediaFrame {}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-pub struct DepthMediaFrame(::windows::core::IUnknown);
-impl DepthMediaFrame {
-    pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FrameReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaFrameReference>(result__)
-        }
-    }
-    pub fn VideoMediaFrame(&self) -> ::windows::core::Result<VideoMediaFrame> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VideoMediaFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VideoMediaFrame>(result__)
-        }
-    }
-    pub fn DepthFormat(&self) -> ::windows::core::Result<DepthMediaFrameFormat> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DepthFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DepthMediaFrameFormat>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Perception_Spatial\"`*"]
-    #[cfg(all(feature = "Media_Devices_Core", feature = "Perception_Spatial"))]
-    pub fn TryCreateCoordinateMapper<'a, P0, P1>(&self, cameraintrinsics: P0, coordinatesystem: P1) -> ::windows::core::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Core::CameraIntrinsics>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateCoordinateMapper)(::windows::core::Interface::as_raw(this), cameraintrinsics.into().abi(), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>(result__)
-        }
-    }
-    pub fn MaxReliableDepth(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IDepthMediaFrame2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxReliableDepth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MinReliableDepth(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IDepthMediaFrame2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinReliableDepth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DepthMediaFrame {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DepthMediaFrame {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DepthMediaFrame {}
-impl ::core::fmt::Debug for DepthMediaFrame {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DepthMediaFrame").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DepthMediaFrame {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DepthMediaFrame {
-    type Vtable = IDepthMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = <IDepthMediaFrame as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DepthMediaFrame {
-    const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
-}
-impl ::core::convert::From<DepthMediaFrame> for ::windows::core::IUnknown {
-    fn from(value: DepthMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DepthMediaFrame> for ::windows::core::IUnknown {
-    fn from(value: &DepthMediaFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DepthMediaFrame> for &::windows::core::IUnknown {
-    fn from(value: &DepthMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DepthMediaFrame> for ::windows::core::IInspectable {
-    fn from(value: DepthMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DepthMediaFrame> for ::windows::core::IInspectable {
-    fn from(value: &DepthMediaFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DepthMediaFrame> for &::windows::core::IInspectable {
-    fn from(value: &DepthMediaFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DepthMediaFrame {}
-unsafe impl ::core::marker::Sync for DepthMediaFrame {}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-pub struct DepthMediaFrameFormat(::windows::core::IUnknown);
-impl DepthMediaFrameFormat {
-    pub fn VideoFormat(&self) -> ::windows::core::Result<VideoMediaFrameFormat> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VideoFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VideoMediaFrameFormat>(result__)
-        }
-    }
-    pub fn DepthScaleInMeters(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DepthScaleInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DepthMediaFrameFormat {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DepthMediaFrameFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DepthMediaFrameFormat {}
-impl ::core::fmt::Debug for DepthMediaFrameFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DepthMediaFrameFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrameFormat;{c312cf40-d729-453e-8780-2e04f140d28e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DepthMediaFrameFormat {
-    type Vtable = IDepthMediaFrameFormat_Vtbl;
-    const IID: ::windows::core::GUID = <IDepthMediaFrameFormat as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DepthMediaFrameFormat {
-    const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
-}
-impl ::core::convert::From<DepthMediaFrameFormat> for ::windows::core::IUnknown {
-    fn from(value: DepthMediaFrameFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DepthMediaFrameFormat> for ::windows::core::IUnknown {
-    fn from(value: &DepthMediaFrameFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DepthMediaFrameFormat> for &::windows::core::IUnknown {
-    fn from(value: &DepthMediaFrameFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DepthMediaFrameFormat> for ::windows::core::IInspectable {
-    fn from(value: DepthMediaFrameFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DepthMediaFrameFormat> for ::windows::core::IInspectable {
-    fn from(value: &DepthMediaFrameFormat) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DepthMediaFrameFormat> for &::windows::core::IInspectable {
-    fn from(value: &DepthMediaFrameFormat) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DepthMediaFrameFormat {}
-unsafe impl ::core::marker::Sync for DepthMediaFrameFormat {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAudioMediaFrame(::windows::core::IUnknown);
@@ -927,6 +558,375 @@ pub struct IVideoMediaFrameFormat_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
+pub struct AudioMediaFrame(::windows::core::IUnknown);
+impl AudioMediaFrame {
+    pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FrameReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaFrameReference>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
+    #[cfg(feature = "Media_MediaProperties")]
+    pub fn AudioEncodingProperties(&self) -> ::windows::core::Result<super::super::MediaProperties::AudioEncodingProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AudioEncodingProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::MediaProperties::AudioEncodingProperties>(result__)
+        }
+    }
+    pub fn GetAudioFrame(&self) -> ::windows::core::Result<super::super::AudioFrame> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAudioFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::AudioFrame>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AudioMediaFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioMediaFrame {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioMediaFrame {}
+impl ::core::fmt::Debug for AudioMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioMediaFrame").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioMediaFrame {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.AudioMediaFrame;{a3a9feff-8021-441b-9a46-e7f0137b7981})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioMediaFrame {
+    type Vtable = IAudioMediaFrame_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioMediaFrame as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioMediaFrame {
+    const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
+}
+impl ::core::convert::From<AudioMediaFrame> for ::windows::core::IUnknown {
+    fn from(value: AudioMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioMediaFrame> for ::windows::core::IUnknown {
+    fn from(value: &AudioMediaFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioMediaFrame> for &::windows::core::IUnknown {
+    fn from(value: &AudioMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioMediaFrame> for ::windows::core::IInspectable {
+    fn from(value: AudioMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioMediaFrame> for ::windows::core::IInspectable {
+    fn from(value: &AudioMediaFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioMediaFrame> for &::windows::core::IInspectable {
+    fn from(value: &AudioMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AudioMediaFrame {}
+unsafe impl ::core::marker::Sync for AudioMediaFrame {}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+pub struct BufferMediaFrame(::windows::core::IUnknown);
+impl BufferMediaFrame {
+    pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FrameReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaFrameReference>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn Buffer(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Buffer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BufferMediaFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BufferMediaFrame {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BufferMediaFrame {}
+impl ::core::fmt::Debug for BufferMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BufferMediaFrame").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BufferMediaFrame {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.BufferMediaFrame;{b5b153c7-9b84-4062-b79c-a365b2596854})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BufferMediaFrame {
+    type Vtable = IBufferMediaFrame_Vtbl;
+    const IID: ::windows::core::GUID = <IBufferMediaFrame as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BufferMediaFrame {
+    const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
+}
+impl ::core::convert::From<BufferMediaFrame> for ::windows::core::IUnknown {
+    fn from(value: BufferMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BufferMediaFrame> for ::windows::core::IUnknown {
+    fn from(value: &BufferMediaFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BufferMediaFrame> for &::windows::core::IUnknown {
+    fn from(value: &BufferMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BufferMediaFrame> for ::windows::core::IInspectable {
+    fn from(value: BufferMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BufferMediaFrame> for ::windows::core::IInspectable {
+    fn from(value: &BufferMediaFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BufferMediaFrame> for &::windows::core::IInspectable {
+    fn from(value: &BufferMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BufferMediaFrame {}
+unsafe impl ::core::marker::Sync for BufferMediaFrame {}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+pub struct DepthMediaFrame(::windows::core::IUnknown);
+impl DepthMediaFrame {
+    pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FrameReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaFrameReference>(result__)
+        }
+    }
+    pub fn VideoMediaFrame(&self) -> ::windows::core::Result<VideoMediaFrame> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VideoMediaFrame)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VideoMediaFrame>(result__)
+        }
+    }
+    pub fn DepthFormat(&self) -> ::windows::core::Result<DepthMediaFrameFormat> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DepthFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DepthMediaFrameFormat>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Devices_Core\"`, `\"Perception_Spatial\"`*"]
+    #[cfg(all(feature = "Media_Devices_Core", feature = "Perception_Spatial"))]
+    pub fn TryCreateCoordinateMapper<'a, P0, P1>(&self, cameraintrinsics: P0, coordinatesystem: P1) -> ::windows::core::Result<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Core::CameraIntrinsics>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryCreateCoordinateMapper)(::windows::core::Interface::as_raw(this), cameraintrinsics.into().abi(), coordinatesystem.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Devices::Core::DepthCorrelatedCoordinateMapper>(result__)
+        }
+    }
+    pub fn MaxReliableDepth(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IDepthMediaFrame2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxReliableDepth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MinReliableDepth(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IDepthMediaFrame2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinReliableDepth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DepthMediaFrame {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DepthMediaFrame {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DepthMediaFrame {}
+impl ::core::fmt::Debug for DepthMediaFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DepthMediaFrame").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DepthMediaFrame {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrame;{47135e4f-8549-45c0-925b-80d35efdb10a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DepthMediaFrame {
+    type Vtable = IDepthMediaFrame_Vtbl;
+    const IID: ::windows::core::GUID = <IDepthMediaFrame as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DepthMediaFrame {
+    const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
+}
+impl ::core::convert::From<DepthMediaFrame> for ::windows::core::IUnknown {
+    fn from(value: DepthMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DepthMediaFrame> for ::windows::core::IUnknown {
+    fn from(value: &DepthMediaFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DepthMediaFrame> for &::windows::core::IUnknown {
+    fn from(value: &DepthMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DepthMediaFrame> for ::windows::core::IInspectable {
+    fn from(value: DepthMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DepthMediaFrame> for ::windows::core::IInspectable {
+    fn from(value: &DepthMediaFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DepthMediaFrame> for &::windows::core::IInspectable {
+    fn from(value: &DepthMediaFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DepthMediaFrame {}
+unsafe impl ::core::marker::Sync for DepthMediaFrame {}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+pub struct DepthMediaFrameFormat(::windows::core::IUnknown);
+impl DepthMediaFrameFormat {
+    pub fn VideoFormat(&self) -> ::windows::core::Result<VideoMediaFrameFormat> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VideoFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VideoMediaFrameFormat>(result__)
+        }
+    }
+    pub fn DepthScaleInMeters(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DepthScaleInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DepthMediaFrameFormat {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DepthMediaFrameFormat {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DepthMediaFrameFormat {}
+impl ::core::fmt::Debug for DepthMediaFrameFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DepthMediaFrameFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Capture.Frames.DepthMediaFrameFormat;{c312cf40-d729-453e-8780-2e04f140d28e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DepthMediaFrameFormat {
+    type Vtable = IDepthMediaFrameFormat_Vtbl;
+    const IID: ::windows::core::GUID = <IDepthMediaFrameFormat as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DepthMediaFrameFormat {
+    const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
+}
+impl ::core::convert::From<DepthMediaFrameFormat> for ::windows::core::IUnknown {
+    fn from(value: DepthMediaFrameFormat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DepthMediaFrameFormat> for ::windows::core::IUnknown {
+    fn from(value: &DepthMediaFrameFormat) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DepthMediaFrameFormat> for &::windows::core::IUnknown {
+    fn from(value: &DepthMediaFrameFormat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DepthMediaFrameFormat> for ::windows::core::IInspectable {
+    fn from(value: DepthMediaFrameFormat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DepthMediaFrameFormat> for ::windows::core::IInspectable {
+    fn from(value: &DepthMediaFrameFormat) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DepthMediaFrameFormat> for &::windows::core::IInspectable {
+    fn from(value: &DepthMediaFrameFormat) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DepthMediaFrameFormat {}
+unsafe impl ::core::marker::Sync for DepthMediaFrameFormat {}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
 pub struct InfraredMediaFrame(::windows::core::IUnknown);
 impl InfraredMediaFrame {
     pub fn FrameReference(&self) -> ::windows::core::Result<MediaFrameReference> {
@@ -1343,77 +1343,6 @@ impl<'a> ::core::convert::TryFrom<&MediaFrameReader> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for MediaFrameReader {}
 unsafe impl ::core::marker::Sync for MediaFrameReader {}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaFrameReaderAcquisitionMode(pub i32);
-impl MediaFrameReaderAcquisitionMode {
-    pub const Realtime: Self = Self(0i32);
-    pub const Buffered: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaFrameReaderAcquisitionMode {}
-impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameReaderAcquisitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaFrameReaderStartStatus(pub i32);
-impl MediaFrameReaderStartStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const DeviceNotAvailable: Self = Self(2i32);
-    pub const OutputFormatNotSupported: Self = Self(3i32);
-    pub const ExclusiveControlNotAvailable: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaFrameReaderStartStatus {}
-impl ::core::clone::Clone for MediaFrameReaderStartStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameReaderStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MediaFrameReference(::windows::core::IUnknown);
@@ -1930,44 +1859,6 @@ unsafe impl ::core::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGetPropertyResult {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaFrameSourceGetPropertyStatus(pub i32);
-impl MediaFrameSourceGetPropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const DeviceNotAvailable: Self = Self(3i32);
-    pub const MaxPropertyValueSizeTooSmall: Self = Self(4i32);
-    pub const MaxPropertyValueSizeRequired: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MediaFrameSourceGetPropertyStatus {}
-impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameSourceGetPropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
 pub struct MediaFrameSourceGroup(::windows::core::IUnknown);
 impl MediaFrameSourceGroup {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2235,83 +2126,6 @@ unsafe impl ::core::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceInfo {}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaFrameSourceKind(pub i32);
-impl MediaFrameSourceKind {
-    pub const Custom: Self = Self(0i32);
-    pub const Color: Self = Self(1i32);
-    pub const Infrared: Self = Self(2i32);
-    pub const Depth: Self = Self(3i32);
-    pub const Audio: Self = Self(4i32);
-    pub const Image: Self = Self(5i32);
-    pub const Metadata: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MediaFrameSourceKind {}
-impl ::core::clone::Clone for MediaFrameSourceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameSourceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameSourceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaFrameSourceSetPropertyStatus(pub i32);
-impl MediaFrameSourceSetPropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const InvalidValue: Self = Self(3i32);
-    pub const DeviceNotAvailable: Self = Self(4i32);
-    pub const NotInControl: Self = Self(5i32);
-}
-impl ::core::marker::Copy for MediaFrameSourceSetPropertyStatus {}
-impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaFrameSourceSetPropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
 pub struct MultiSourceMediaFrameArrivedEventArgs(::windows::core::IUnknown);
 impl MultiSourceMediaFrameArrivedEventArgs {}
 impl ::core::clone::Clone for MultiSourceMediaFrameArrivedEventArgs {
@@ -2525,43 +2339,6 @@ impl<'a> ::core::convert::TryFrom<&MultiSourceMediaFrameReader> for ::windows::c
 }
 unsafe impl ::core::marker::Send for MultiSourceMediaFrameReader {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReader {}
-#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
-impl MultiSourceMediaFrameReaderStartStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotSupported: Self = Self(1i32);
-    pub const InsufficientResources: Self = Self(2i32);
-    pub const DeviceNotAvailable: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MultiSourceMediaFrameReaderStartStatus {}
-impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MultiSourceMediaFrameReaderStartStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
 #[repr(transparent)]
 pub struct MultiSourceMediaFrameReference(::windows::core::IUnknown);
@@ -2888,5 +2665,228 @@ impl ::core::convert::From<&VideoMediaFrameFormat> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for VideoMediaFrameFormat {}
 unsafe impl ::core::marker::Sync for VideoMediaFrameFormat {}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaFrameReaderAcquisitionMode(pub i32);
+impl MediaFrameReaderAcquisitionMode {
+    pub const Realtime: Self = Self(0i32);
+    pub const Buffered: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaFrameReaderAcquisitionMode {}
+impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaFrameReaderAcquisitionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaFrameReaderAcquisitionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderAcquisitionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaFrameReaderStartStatus(pub i32);
+impl MediaFrameReaderStartStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const DeviceNotAvailable: Self = Self(2i32);
+    pub const OutputFormatNotSupported: Self = Self(3i32);
+    pub const ExclusiveControlNotAvailable: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaFrameReaderStartStatus {}
+impl ::core::clone::Clone for MediaFrameReaderStartStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaFrameReaderStartStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaFrameReaderStartStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameReaderStartStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaFrameSourceGetPropertyStatus(pub i32);
+impl MediaFrameSourceGetPropertyStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const NotSupported: Self = Self(2i32);
+    pub const DeviceNotAvailable: Self = Self(3i32);
+    pub const MaxPropertyValueSizeTooSmall: Self = Self(4i32);
+    pub const MaxPropertyValueSizeRequired: Self = Self(5i32);
+}
+impl ::core::marker::Copy for MediaFrameSourceGetPropertyStatus {}
+impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaFrameSourceGetPropertyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaFrameSourceKind(pub i32);
+impl MediaFrameSourceKind {
+    pub const Custom: Self = Self(0i32);
+    pub const Color: Self = Self(1i32);
+    pub const Infrared: Self = Self(2i32);
+    pub const Depth: Self = Self(3i32);
+    pub const Audio: Self = Self(4i32);
+    pub const Image: Self = Self(5i32);
+    pub const Metadata: Self = Self(6i32);
+}
+impl ::core::marker::Copy for MediaFrameSourceKind {}
+impl ::core::clone::Clone for MediaFrameSourceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaFrameSourceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaFrameSourceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaFrameSourceKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaFrameSourceSetPropertyStatus(pub i32);
+impl MediaFrameSourceSetPropertyStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const NotSupported: Self = Self(2i32);
+    pub const InvalidValue: Self = Self(3i32);
+    pub const DeviceNotAvailable: Self = Self(4i32);
+    pub const NotInControl: Self = Self(5i32);
+}
+impl ::core::marker::Copy for MediaFrameSourceSetPropertyStatus {}
+impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaFrameSourceSetPropertyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaFrameSourceSetPropertyStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MediaFrameSourceSetPropertyStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Capture_Frames\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
+impl MultiSourceMediaFrameReaderStartStatus {
+    pub const Success: Self = Self(0i32);
+    pub const NotSupported: Self = Self(1i32);
+    pub const InsufficientResources: Self = Self(2i32);
+    pub const DeviceNotAvailable: Self = Self(3i32);
+    pub const UnknownFailure: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MultiSourceMediaFrameReaderStartStatus {}
+impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MultiSourceMediaFrameReaderStartStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReaderStartStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Capture.Frames.MultiSourceMediaFrameReaderStartStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,3 +1,134 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEyesPose(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEyesPose {
+    type Vtable = IEyesPose_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEyesPose_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsCalibrationValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    pub Gaze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    Gaze: usize,
+    pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IEyesPoseStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IEyesPoseStatics {
+    type Vtable = IEyesPoseStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IEyesPoseStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "UI_Input"))]
+    pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "UI_Input")))]
+    RequestAccessAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHandMeshObserver(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHandMeshObserver {
+    type Vtable = IHandMeshObserver_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHandMeshObserver_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "UI_Input_Spatial")]
+    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "UI_Input_Spatial"))]
+    Source: usize,
+    pub TriangleIndexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub VertexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub GetTriangleIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indices_array_size: u32, indices: *mut u16) -> ::windows::core::HRESULT,
+    pub GetVertexStateForPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handpose: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NeutralPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NeutralPoseVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    pub ModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHandMeshVertexState(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHandMeshVertexState {
+    type Vtable = IHandMeshVertexState_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHandMeshVertexState_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Perception_Spatial")]
+    pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Perception_Spatial"))]
+    CoordinateSystem: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub GetVertices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertices_array_size: u32, vertices: *mut HandMeshVertex) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    GetVertices: usize,
+    pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHandPose(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHandPose {
+    type Vtable = IHandPose_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHandPose_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    pub TryGetJoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, joint: HandJointKind, jointpose: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    TryGetJoint: usize,
+    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
+    pub TryGetJoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
+    TryGetJoints: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub GetRelativeJoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, joint: HandJointKind, referencejoint: HandJointKind, result__: *mut JointPose) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    GetRelativeJoint: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub GetRelativeJoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, referenceJoints_array_size: u32, referencejoints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    GetRelativeJoints: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IHeadPose(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IHeadPose {
+    type Vtable = IHeadPose_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHeadPose_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    Position: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub ForwardDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    ForwardDirection: usize,
+    #[cfg(feature = "Foundation_Numerics")]
+    pub UpDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Numerics"))]
+    UpDirection: usize,
+}
 #[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct EyesPose(::windows::core::IUnknown);
@@ -107,64 +238,6 @@ impl ::core::convert::From<&EyesPose> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
-#[doc = "*Required features: `\"Perception_People\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HandJointKind(pub i32);
-impl HandJointKind {
-    pub const Palm: Self = Self(0i32);
-    pub const Wrist: Self = Self(1i32);
-    pub const ThumbMetacarpal: Self = Self(2i32);
-    pub const ThumbProximal: Self = Self(3i32);
-    pub const ThumbDistal: Self = Self(4i32);
-    pub const ThumbTip: Self = Self(5i32);
-    pub const IndexMetacarpal: Self = Self(6i32);
-    pub const IndexProximal: Self = Self(7i32);
-    pub const IndexIntermediate: Self = Self(8i32);
-    pub const IndexDistal: Self = Self(9i32);
-    pub const IndexTip: Self = Self(10i32);
-    pub const MiddleMetacarpal: Self = Self(11i32);
-    pub const MiddleProximal: Self = Self(12i32);
-    pub const MiddleIntermediate: Self = Self(13i32);
-    pub const MiddleDistal: Self = Self(14i32);
-    pub const MiddleTip: Self = Self(15i32);
-    pub const RingMetacarpal: Self = Self(16i32);
-    pub const RingProximal: Self = Self(17i32);
-    pub const RingIntermediate: Self = Self(18i32);
-    pub const RingDistal: Self = Self(19i32);
-    pub const RingTip: Self = Self(20i32);
-    pub const LittleMetacarpal: Self = Self(21i32);
-    pub const LittleProximal: Self = Self(22i32);
-    pub const LittleIntermediate: Self = Self(23i32);
-    pub const LittleDistal: Self = Self(24i32);
-    pub const LittleTip: Self = Self(25i32);
-}
-impl ::core::marker::Copy for HandJointKind {}
-impl ::core::clone::Clone for HandJointKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HandJointKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HandJointKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HandJointKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HandJointKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HandJointKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct HandMeshObserver(::windows::core::IUnknown);
@@ -290,53 +363,6 @@ impl ::core::convert::From<&HandMeshObserver> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for HandMeshObserver {}
 unsafe impl ::core::marker::Sync for HandMeshObserver {}
-#[repr(C)]
-#[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
-#[cfg(feature = "Foundation_Numerics")]
-pub struct HandMeshVertex {
-    pub Position: super::super::Foundation::Numerics::Vector3,
-    pub Normal: super::super::Foundation::Numerics::Vector3,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::marker::Copy for HandMeshVertex {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::clone::Clone for HandMeshVertex {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for HandMeshVertex {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::Abi for HandMeshVertex {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::RuntimeType for HandMeshVertex {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for HandMeshVertex {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HandMeshVertex>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for HandMeshVertex {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for HandMeshVertex {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
 pub struct HandMeshVertexState(::windows::core::IUnknown);
@@ -626,136 +652,144 @@ impl ::core::convert::From<&HeadPose> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for HeadPose {}
 unsafe impl ::core::marker::Sync for HeadPose {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Perception_People\"`*"]
 #[repr(transparent)]
-pub struct IEyesPose(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEyesPose {
-    type Vtable = IEyesPose_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x682a9b23_8a1e_5b86_a060_906ffacb62a4);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HandJointKind(pub i32);
+impl HandJointKind {
+    pub const Palm: Self = Self(0i32);
+    pub const Wrist: Self = Self(1i32);
+    pub const ThumbMetacarpal: Self = Self(2i32);
+    pub const ThumbProximal: Self = Self(3i32);
+    pub const ThumbDistal: Self = Self(4i32);
+    pub const ThumbTip: Self = Self(5i32);
+    pub const IndexMetacarpal: Self = Self(6i32);
+    pub const IndexProximal: Self = Self(7i32);
+    pub const IndexIntermediate: Self = Self(8i32);
+    pub const IndexDistal: Self = Self(9i32);
+    pub const IndexTip: Self = Self(10i32);
+    pub const MiddleMetacarpal: Self = Self(11i32);
+    pub const MiddleProximal: Self = Self(12i32);
+    pub const MiddleIntermediate: Self = Self(13i32);
+    pub const MiddleDistal: Self = Self(14i32);
+    pub const MiddleTip: Self = Self(15i32);
+    pub const RingMetacarpal: Self = Self(16i32);
+    pub const RingProximal: Self = Self(17i32);
+    pub const RingIntermediate: Self = Self(18i32);
+    pub const RingDistal: Self = Self(19i32);
+    pub const RingTip: Self = Self(20i32);
+    pub const LittleMetacarpal: Self = Self(21i32);
+    pub const LittleProximal: Self = Self(22i32);
+    pub const LittleIntermediate: Self = Self(23i32);
+    pub const LittleDistal: Self = Self(24i32);
+    pub const LittleTip: Self = Self(25i32);
+}
+impl ::core::marker::Copy for HandJointKind {}
+impl ::core::clone::Clone for HandJointKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HandJointKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HandJointKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HandJointKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HandJointKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HandJointKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.HandJointKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Perception_People\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JointPoseAccuracy(pub i32);
+impl JointPoseAccuracy {
+    pub const High: Self = Self(0i32);
+    pub const Approximate: Self = Self(1i32);
+}
+impl ::core::marker::Copy for JointPoseAccuracy {}
+impl ::core::clone::Clone for JointPoseAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JointPoseAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JointPoseAccuracy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JointPoseAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[repr(C)]
-#[doc(hidden)]
-pub struct IEyesPose_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsCalibrationValid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub Gaze: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
-    Gaze: usize,
-    pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+#[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct HandMeshVertex {
+    pub Position: super::super::Foundation::Numerics::Vector3,
+    pub Normal: super::super::Foundation::Numerics::Vector3,
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IEyesPoseStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IEyesPoseStatics {
-    type Vtable = IEyesPoseStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cff7413_b21f_54c0_80c1_e60d994ca58c);
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for HandMeshVertex {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for HandMeshVertex {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IEyesPoseStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "UI_Input"))]
-    pub RequestAccessAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Input")))]
-    RequestAccessAsync: usize,
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for HandMeshVertex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HandMeshVertex").field("Position", &self.Position).field("Normal", &self.Normal).finish()
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHandMeshObserver(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHandMeshObserver {
-    type Vtable = IHandMeshObserver_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69);
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::Abi for HandMeshVertex {
+    type Abi = Self;
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHandMeshObserver_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "UI_Input_Spatial")]
-    pub Source: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "UI_Input_Spatial"))]
-    Source: usize,
-    pub TriangleIndexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub VertexCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub GetTriangleIndices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, indices_array_size: u32, indices: *mut u16) -> ::windows::core::HRESULT,
-    pub GetVertexStateForPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handpose: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NeutralPose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NeutralPoseVersion: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    pub ModelId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::RuntimeType for HandMeshVertex {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.People.HandMeshVertex;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHandMeshVertexState(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHandMeshVertexState {
-    type Vtable = IHandMeshVertexState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f);
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for HandMeshVertex {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HandMeshVertex>()) == 0 }
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHandMeshVertexState_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Perception_Spatial")]
-    pub CoordinateSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Perception_Spatial"))]
-    CoordinateSystem: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub GetVertices: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertices_array_size: u32, vertices: *mut HandMeshVertex) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    GetVertices: usize,
-    pub UpdateTimestamp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHandPose(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHandPose {
-    type Vtable = IHandPose_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHandPose_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub TryGetJoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, joint: HandJointKind, jointpose: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
-    TryGetJoint: usize,
-    #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub TryGetJoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))]
-    TryGetJoints: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub GetRelativeJoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, joint: HandJointKind, referencejoint: HandJointKind, result__: *mut JointPose) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    GetRelativeJoint: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub GetRelativeJoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, joints_array_size: u32, joints: *const HandJointKind, referenceJoints_array_size: u32, referencejoints: *const HandJointKind, jointPoses_array_size: u32, jointposes: *mut JointPose) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    GetRelativeJoints: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IHeadPose(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IHeadPose {
-    type Vtable = IHeadPose_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IHeadPose_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub Position: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    Position: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub ForwardDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    ForwardDirection: usize,
-    #[cfg(feature = "Foundation_Numerics")]
-    pub UpDirection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Numerics"))]
-    UpDirection: usize,
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::Eq for HandMeshVertex {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::default::Default for HandMeshVertex {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Perception_People\"`, `\"Foundation_Numerics\"`*"]
@@ -804,40 +838,6 @@ impl ::core::cmp::Eq for JointPose {}
 impl ::core::default::Default for JointPose {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Perception_People\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JointPoseAccuracy(pub i32);
-impl JointPoseAccuracy {
-    pub const High: Self = Self(0i32);
-    pub const Approximate: Self = Self(1i32);
-}
-impl ::core::marker::Copy for JointPoseAccuracy {}
-impl ::core::clone::Clone for JointPoseAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JointPoseAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JointPoseAccuracy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JointPoseAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for JointPoseAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.People.JointPoseAccuracy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

@@ -1,129 +1,3 @@
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-#[repr(transparent)]
-pub struct FindAllAccountsResult(::windows::core::IUnknown);
-impl FindAllAccountsResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
-    pub fn Accounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Accounts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>(result__)
-        }
-    }
-    pub fn Status(&self) -> ::windows::core::Result<FindAllWebAccountsStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FindAllWebAccountsStatus>(result__)
-        }
-    }
-    pub fn ProviderError(&self) -> ::windows::core::Result<WebProviderError> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for FindAllAccountsResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FindAllAccountsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindAllAccountsResult {}
-impl ::core::fmt::Debug for FindAllAccountsResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindAllAccountsResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FindAllAccountsResult {
-    type Vtable = IFindAllAccountsResult_Vtbl;
-    const IID: ::windows::core::GUID = <IFindAllAccountsResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FindAllAccountsResult {
-    const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
-}
-impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IUnknown {
-    fn from(value: FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IUnknown {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IUnknown {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IInspectable {
-    fn from(value: FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IInspectable {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IInspectable {
-    fn from(value: &FindAllAccountsResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for FindAllAccountsResult {}
-unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FindAllWebAccountsStatus(pub i32);
-impl FindAllWebAccountsStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotAllowedByProvider: Self = Self(1i32);
-    pub const NotSupportedByProvider: Self = Self(2i32);
-    pub const ProviderError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for FindAllWebAccountsStatus {}
-impl ::core::clone::Clone for FindAllWebAccountsStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FindAllWebAccountsStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FindAllWebAccountsStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FindAllWebAccountsStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FindAllWebAccountsStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FindAllWebAccountsStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IFindAllAccountsResult(::windows::core::IUnknown);
@@ -495,6 +369,96 @@ pub struct IWebTokenResponseFactory_Vtbl {
     #[cfg(not(feature = "Security_Credentials"))]
     CreateWithTokenAccountAndError: usize,
 }
+#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
+#[repr(transparent)]
+pub struct FindAllAccountsResult(::windows::core::IUnknown);
+impl FindAllAccountsResult {
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]
+    pub fn Accounts(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Accounts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>>(result__)
+        }
+    }
+    pub fn Status(&self) -> ::windows::core::Result<FindAllWebAccountsStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FindAllWebAccountsStatus>(result__)
+        }
+    }
+    pub fn ProviderError(&self) -> ::windows::core::Result<WebProviderError> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WebProviderError>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for FindAllAccountsResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FindAllAccountsResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FindAllAccountsResult {}
+impl ::core::fmt::Debug for FindAllAccountsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAllAccountsResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FindAllAccountsResult {
+    type Vtable = IFindAllAccountsResult_Vtbl;
+    const IID: ::windows::core::GUID = <IFindAllAccountsResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FindAllAccountsResult {
+    const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
+}
+impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IUnknown {
+    fn from(value: FindAllAccountsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IUnknown {
+    fn from(value: &FindAllAccountsResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IUnknown {
+    fn from(value: &FindAllAccountsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FindAllAccountsResult> for ::windows::core::IInspectable {
+    fn from(value: FindAllAccountsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FindAllAccountsResult> for ::windows::core::IInspectable {
+    fn from(value: &FindAllAccountsResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FindAllAccountsResult> for &::windows::core::IInspectable {
+    fn from(value: &FindAllAccountsResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for FindAllAccountsResult {}
+unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebAccountEventArgs(::windows::core::IUnknown);
@@ -1160,40 +1124,6 @@ unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebTokenRequestPromptType(pub i32);
-impl WebTokenRequestPromptType {
-    pub const Default: Self = Self(0i32);
-    pub const ForceAuthentication: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebTokenRequestPromptType {}
-impl ::core::clone::Clone for WebTokenRequestPromptType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebTokenRequestPromptType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebTokenRequestPromptType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebTokenRequestPromptType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenRequestPromptType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-#[repr(transparent)]
 pub struct WebTokenRequestResult(::windows::core::IUnknown);
 impl WebTokenRequestResult {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -1291,44 +1221,6 @@ impl ::core::convert::From<&WebTokenRequestResult> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
-#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebTokenRequestStatus(pub i32);
-impl WebTokenRequestStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UserCancel: Self = Self(1i32);
-    pub const AccountSwitch: Self = Self(2i32);
-    pub const UserInteractionRequired: Self = Self(3i32);
-    pub const AccountProviderNotAvailable: Self = Self(4i32);
-    pub const ProviderError: Self = Self(5i32);
-}
-impl ::core::marker::Copy for WebTokenRequestStatus {}
-impl ::core::clone::Clone for WebTokenRequestStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebTokenRequestStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebTokenRequestStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebTokenRequestStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebTokenRequestStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
 #[repr(transparent)]
 pub struct WebTokenResponse(::windows::core::IUnknown);
@@ -1469,5 +1361,113 @@ impl ::core::convert::From<&WebTokenResponse> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for WebTokenResponse {}
 unsafe impl ::core::marker::Sync for WebTokenResponse {}
+#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FindAllWebAccountsStatus(pub i32);
+impl FindAllWebAccountsStatus {
+    pub const Success: Self = Self(0i32);
+    pub const NotAllowedByProvider: Self = Self(1i32);
+    pub const NotSupportedByProvider: Self = Self(2i32);
+    pub const ProviderError: Self = Self(3i32);
+}
+impl ::core::marker::Copy for FindAllWebAccountsStatus {}
+impl ::core::clone::Clone for FindAllWebAccountsStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FindAllWebAccountsStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FindAllWebAccountsStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FindAllWebAccountsStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAllWebAccountsStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FindAllWebAccountsStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.FindAllWebAccountsStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebTokenRequestPromptType(pub i32);
+impl WebTokenRequestPromptType {
+    pub const Default: Self = Self(0i32);
+    pub const ForceAuthentication: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WebTokenRequestPromptType {}
+impl ::core::clone::Clone for WebTokenRequestPromptType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebTokenRequestPromptType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebTokenRequestPromptType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebTokenRequestPromptType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenRequestPromptType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebTokenRequestPromptType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestPromptType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebTokenRequestStatus(pub i32);
+impl WebTokenRequestStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UserCancel: Self = Self(1i32);
+    pub const AccountSwitch: Self = Self(2i32);
+    pub const UserInteractionRequired: Self = Self(3i32);
+    pub const AccountProviderNotAvailable: Self = Self(4i32);
+    pub const ProviderError: Self = Self(5i32);
+}
+impl ::core::marker::Copy for WebTokenRequestStatus {}
+impl ::core::clone::Clone for WebTokenRequestStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebTokenRequestStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebTokenRequestStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebTokenRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenRequestStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebTokenRequestStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Core.WebTokenRequestStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

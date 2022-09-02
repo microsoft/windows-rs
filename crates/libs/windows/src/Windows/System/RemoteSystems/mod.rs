@@ -1450,42 +1450,6 @@ unsafe impl ::core::marker::Send for RemoteSystem {}
 unsafe impl ::core::marker::Sync for RemoteSystem {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemAccessStatus(pub i32);
-impl RemoteSystemAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteSystemAccessStatus {}
-impl ::core::clone::Clone for RemoteSystemAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemAccessStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAccessStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
 pub struct RemoteSystemAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemAddedEventArgs {
     pub fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem> {
@@ -1788,40 +1752,6 @@ impl ::core::convert::From<&RemoteSystemAppRegistration> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
 unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemAuthorizationKind(pub i32);
-impl RemoteSystemAuthorizationKind {
-    pub const SameUser: Self = Self(0i32);
-    pub const Anonymous: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RemoteSystemAuthorizationKind {}
-impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemAuthorizationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemAuthorizationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemAuthorizationKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKindFilter(::windows::core::IUnknown);
@@ -2152,42 +2082,6 @@ impl ::core::convert::From<&RemoteSystemConnectionRequest> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemDiscoveryType(pub i32);
-impl RemoteSystemDiscoveryType {
-    pub const Any: Self = Self(0i32);
-    pub const Proximal: Self = Self(1i32);
-    pub const Cloud: Self = Self(2i32);
-    pub const SpatiallyProximal: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteSystemDiscoveryType {}
-impl ::core::clone::Clone for RemoteSystemDiscoveryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemDiscoveryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemDiscoveryType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemDiscoveryType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryTypeFilter(::windows::core::IUnknown);
@@ -2534,43 +2428,6 @@ impl RemoteSystemKinds {
 }
 impl ::windows::core::RuntimeName for RemoteSystemKinds {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKinds";
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemPlatform(pub i32);
-impl RemoteSystemPlatform {
-    pub const Unknown: Self = Self(0i32);
-    pub const Windows: Self = Self(1i32);
-    pub const Android: Self = Self(2i32);
-    pub const Ios: Self = Self(3i32);
-    pub const Linux: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RemoteSystemPlatform {}
-impl ::core::clone::Clone for RemoteSystemPlatform {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemPlatform {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemPlatform {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemPlatform {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemPlatform").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemPlatform {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
@@ -3093,41 +2950,6 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemSessionCreationStatus(pub i32);
-impl RemoteSystemSessionCreationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SessionLimitsExceeded: Self = Self(1i32);
-    pub const OperationAborted: Self = Self(2i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionCreationStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionCreationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemSessionCreationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionCreationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionDisconnectedEventArgs {
     pub fn Reason(&self) -> ::windows::core::Result<RemoteSystemSessionDisconnectedReason> {
@@ -3200,41 +3022,6 @@ impl ::core::convert::From<&RemoteSystemSessionDisconnectedEventArgs> for &::win
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemSessionDisconnectedReason(pub i32);
-impl RemoteSystemSessionDisconnectedReason {
-    pub const SessionUnavailable: Self = Self(0i32);
-    pub const RemovedByController: Self = Self(1i32);
-    pub const SessionClosed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionDisconnectedReason {}
-impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionDisconnectedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemSessionDisconnectedReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionDisconnectedReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionInfo(::windows::core::IUnknown);
@@ -3816,43 +3603,6 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemSessionJoinStatus(pub i32);
-impl RemoteSystemSessionJoinStatus {
-    pub const Success: Self = Self(0i32);
-    pub const SessionLimitsExceeded: Self = Self(1i32);
-    pub const OperationAborted: Self = Self(2i32);
-    pub const SessionUnavailable: Self = Self(3i32);
-    pub const RejectedByController: Self = Self(4i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionJoinStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionJoinStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemSessionJoinStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionJoinStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannel(::windows::core::IUnknown);
 impl RemoteSystemSessionMessageChannel {
     pub fn Session(&self) -> ::windows::core::Result<RemoteSystemSession> {
@@ -4005,40 +3755,6 @@ impl ::core::convert::From<&RemoteSystemSessionMessageChannel> for &::windows::c
 }
 unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
-impl RemoteSystemSessionMessageChannelReliability {
-    pub const Reliable: Self = Self(0i32);
-    pub const Unreliable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionMessageChannelReliability {}
-impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionMessageChannelReliability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemSessionMessageChannelReliability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionMessageChannelReliability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelReliability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionOptions(::windows::core::IUnknown);
@@ -4493,44 +4209,6 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
-impl RemoteSystemSessionParticipantWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionParticipantWatcherStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionParticipantWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemSessionParticipantWatcherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionParticipantWatcherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
 pub struct RemoteSystemSessionRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionRemovedEventArgs {
     pub fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo> {
@@ -4898,114 +4576,6 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemSessionWatcherStatus(pub i32);
-impl RemoteSystemSessionWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for RemoteSystemSessionWatcherStatus {}
-impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemSessionWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemSessionWatcherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemSessionWatcherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemStatus(pub i32);
-impl RemoteSystemStatus {
-    pub const Unavailable: Self = Self(0i32);
-    pub const DiscoveringAvailability: Self = Self(1i32);
-    pub const Available: Self = Self(2i32);
-    pub const Unknown: Self = Self(3i32);
-}
-impl ::core::marker::Copy for RemoteSystemStatus {}
-impl ::core::clone::Clone for RemoteSystemStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemStatusType(pub i32);
-impl RemoteSystemStatusType {
-    pub const Any: Self = Self(0i32);
-    pub const Available: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RemoteSystemStatusType {}
-impl ::core::clone::Clone for RemoteSystemStatusType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemStatusType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemStatusType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemStatusType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemStatusType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
 pub struct RemoteSystemStatusTypeFilter(::windows::core::IUnknown);
 impl RemoteSystemStatusTypeFilter {
     pub fn RemoteSystemStatusType(&self) -> ::windows::core::Result<RemoteSystemStatusType> {
@@ -5356,41 +4926,6 @@ unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RemoteSystemWatcherError(pub i32);
-impl RemoteSystemWatcherError {
-    pub const Unknown: Self = Self(0i32);
-    pub const InternetNotAvailable: Self = Self(1i32);
-    pub const AuthenticationError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for RemoteSystemWatcherError {}
-impl ::core::clone::Clone for RemoteSystemWatcherError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RemoteSystemWatcherError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RemoteSystemWatcherError {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RemoteSystemWatcherError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RemoteSystemWatcherError").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-#[repr(transparent)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(::windows::core::IUnknown);
 impl RemoteSystemWatcherErrorOccurredEventArgs {
     pub fn Error(&self) -> ::windows::core::Result<RemoteSystemWatcherError> {
@@ -5574,5 +5109,470 @@ impl<'a> ::core::convert::TryFrom<&RemoteSystemWebAccountFilter> for ::windows::
 }
 unsafe impl ::core::marker::Send for RemoteSystemWebAccountFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemWebAccountFilter {}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemAccessStatus(pub i32);
+impl RemoteSystemAccessStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const DeniedBySystem: Self = Self(3i32);
+}
+impl ::core::marker::Copy for RemoteSystemAccessStatus {}
+impl ::core::clone::Clone for RemoteSystemAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemAccessStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAccessStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemAccessStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAccessStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemAuthorizationKind(pub i32);
+impl RemoteSystemAuthorizationKind {
+    pub const SameUser: Self = Self(0i32);
+    pub const Anonymous: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RemoteSystemAuthorizationKind {}
+impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemAuthorizationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemAuthorizationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemAuthorizationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemAuthorizationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemDiscoveryType(pub i32);
+impl RemoteSystemDiscoveryType {
+    pub const Any: Self = Self(0i32);
+    pub const Proximal: Self = Self(1i32);
+    pub const Cloud: Self = Self(2i32);
+    pub const SpatiallyProximal: Self = Self(3i32);
+}
+impl ::core::marker::Copy for RemoteSystemDiscoveryType {}
+impl ::core::clone::Clone for RemoteSystemDiscoveryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemDiscoveryType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemDiscoveryType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemDiscoveryType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemDiscoveryType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemPlatform(pub i32);
+impl RemoteSystemPlatform {
+    pub const Unknown: Self = Self(0i32);
+    pub const Windows: Self = Self(1i32);
+    pub const Android: Self = Self(2i32);
+    pub const Ios: Self = Self(3i32);
+    pub const Linux: Self = Self(4i32);
+}
+impl ::core::marker::Copy for RemoteSystemPlatform {}
+impl ::core::clone::Clone for RemoteSystemPlatform {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemPlatform {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemPlatform {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemPlatform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemPlatform").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemPlatform {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemPlatform;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemSessionCreationStatus(pub i32);
+impl RemoteSystemSessionCreationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const SessionLimitsExceeded: Self = Self(1i32);
+    pub const OperationAborted: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionCreationStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionCreationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemSessionCreationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionCreationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionCreationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemSessionDisconnectedReason(pub i32);
+impl RemoteSystemSessionDisconnectedReason {
+    pub const SessionUnavailable: Self = Self(0i32);
+    pub const RemovedByController: Self = Self(1i32);
+    pub const SessionClosed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionDisconnectedReason {}
+impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionDisconnectedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemSessionDisconnectedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionDisconnectedReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemSessionJoinStatus(pub i32);
+impl RemoteSystemSessionJoinStatus {
+    pub const Success: Self = Self(0i32);
+    pub const SessionLimitsExceeded: Self = Self(1i32);
+    pub const OperationAborted: Self = Self(2i32);
+    pub const SessionUnavailable: Self = Self(3i32);
+    pub const RejectedByController: Self = Self(4i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionJoinStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionJoinStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemSessionJoinStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionJoinStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionJoinStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
+impl RemoteSystemSessionMessageChannelReliability {
+    pub const Reliable: Self = Self(0i32);
+    pub const Unreliable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionMessageChannelReliability {}
+impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionMessageChannelReliability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemSessionMessageChannelReliability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionMessageChannelReliability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannelReliability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionMessageChannelReliability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
+impl RemoteSystemSessionParticipantWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+    pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionParticipantWatcherStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionParticipantWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemSessionParticipantWatcherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionParticipantWatcherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatcherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemSessionWatcherStatus(pub i32);
+impl RemoteSystemSessionWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+    pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for RemoteSystemSessionWatcherStatus {}
+impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemSessionWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemSessionWatcherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemSessionWatcherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemSessionWatcherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemStatus(pub i32);
+impl RemoteSystemStatus {
+    pub const Unavailable: Self = Self(0i32);
+    pub const DiscoveringAvailability: Self = Self(1i32);
+    pub const Available: Self = Self(2i32);
+    pub const Unknown: Self = Self(3i32);
+}
+impl ::core::marker::Copy for RemoteSystemStatus {}
+impl ::core::clone::Clone for RemoteSystemStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemStatusType(pub i32);
+impl RemoteSystemStatusType {
+    pub const Any: Self = Self(0i32);
+    pub const Available: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RemoteSystemStatusType {}
+impl ::core::clone::Clone for RemoteSystemStatusType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemStatusType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemStatusType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemStatusType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemStatusType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemStatusType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_RemoteSystems\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RemoteSystemWatcherError(pub i32);
+impl RemoteSystemWatcherError {
+    pub const Unknown: Self = Self(0i32);
+    pub const InternetNotAvailable: Self = Self(1i32);
+    pub const AuthenticationError: Self = Self(2i32);
+}
+impl ::core::marker::Copy for RemoteSystemWatcherError {}
+impl ::core::clone::Clone for RemoteSystemWatcherError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RemoteSystemWatcherError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RemoteSystemWatcherError {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RemoteSystemWatcherError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteSystemWatcherError").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherError {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.RemoteSystems.RemoteSystemWatcherError;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

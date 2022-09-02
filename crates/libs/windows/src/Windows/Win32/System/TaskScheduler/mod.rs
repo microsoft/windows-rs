@@ -1,35 +1,3 @@
-pub const CLSID_CTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503);
-pub const CLSID_CTaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub struct DAILY {
-    pub DaysInterval: u16,
-}
-impl ::core::marker::Copy for DAILY {}
-impl ::core::clone::Clone for DAILY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DAILY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DAILY").field("DaysInterval", &self.DaysInterval).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DAILY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DAILY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAILY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DAILY {}
-impl ::core::default::Default for DAILY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -7970,69 +7938,93 @@ pub struct IWeeklyTrigger_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRandomDelay: usize,
 }
-#[repr(C)]
+pub const CLSID_CTask: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd520_a2ab_11ce_b11f_00aa00530503);
+pub const CLSID_CTaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148bd52a_a2ab_11ce_b11f_00aa00530503);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub struct MONTHLYDATE {
-    pub rgfDays: u32,
-    pub rgfMonths: u16,
-}
-impl ::core::marker::Copy for MONTHLYDATE {}
-impl ::core::clone::Clone for MONTHLYDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MONTHLYDATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MONTHLYDATE").field("rgfDays", &self.rgfDays).field("rgfMonths", &self.rgfMonths).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MONTHLYDATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MONTHLYDATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONTHLYDATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MONTHLYDATE {}
-impl ::core::default::Default for MONTHLYDATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
+pub const TASK_APRIL: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub struct MONTHLYDOW {
-    pub wWhichWeek: u16,
-    pub rgfDaysOfTheWeek: u16,
-    pub rgfMonths: u16,
-}
-impl ::core::marker::Copy for MONTHLYDOW {}
-impl ::core::clone::Clone for MONTHLYDOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MONTHLYDOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MONTHLYDOW").field("wWhichWeek", &self.wWhichWeek).field("rgfDaysOfTheWeek", &self.rgfDaysOfTheWeek).field("rgfMonths", &self.rgfMonths).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MONTHLYDOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MONTHLYDOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONTHLYDOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MONTHLYDOW {}
-impl ::core::default::Default for MONTHLYDOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+pub const TASK_AUGUST: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_DECEMBER: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FEBRUARY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FIRST_WEEK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_DELETE_WHEN_DONE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_DISABLED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_DONT_START_IF_ON_BATTERIES: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_HIDDEN: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_INTERACTIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_KILL_IF_GOING_ON_BATTERIES: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_KILL_ON_IDLE_END: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_RESTART_ON_IDLE_RESUME: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_RUN_IF_CONNECTED_TO_INTERNET: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_RUN_ONLY_IF_DOCKED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_RUN_ONLY_IF_LOGGED_ON: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_START_ONLY_IF_IDLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FLAG_SYSTEM_REQUIRED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FOURTH_WEEK: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_FRIDAY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_JANUARY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_JULY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_JUNE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_LAST_WEEK: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_MARCH: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_MAX_RUN_TIMES: u32 = 1440u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_MAY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_MONDAY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_NOVEMBER: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_OCTOBER: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_SATURDAY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_SECOND_WEEK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_SEPTEMBER: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_SUNDAY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_THIRD_WEEK: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_THURSDAY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_TUESDAY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub const TASK_WEDNESDAY: u32 = 8u32;
+pub const TaskHandlerPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2a69db7_da2c_4352_9066_86fee6dacac9);
+pub const TaskHandlerStatusPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
+pub const TaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8093,10 +8085,6 @@ impl ::core::fmt::Debug for TASK_ACTION_TYPE {
         f.debug_tuple("TASK_ACTION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_APRIL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_AUGUST: u32 = 128u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8172,8 +8160,6 @@ impl ::core::fmt::Debug for TASK_CREATION {
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_DECEMBER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_ENUM_FLAGS(pub i32);
@@ -8198,40 +8184,6 @@ impl ::core::fmt::Debug for TASK_ENUM_FLAGS {
         f.debug_tuple("TASK_ENUM_FLAGS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FEBRUARY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FIRST_WEEK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_DELETE_WHEN_DONE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_DONT_START_IF_ON_BATTERIES: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_HIDDEN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_INTERACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_KILL_IF_GOING_ON_BATTERIES: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_KILL_ON_IDLE_END: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_RESTART_ON_IDLE_RESUME: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_RUN_IF_CONNECTED_TO_INTERNET: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_RUN_ONLY_IF_DOCKED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_RUN_ONLY_IF_LOGGED_ON: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_START_ONLY_IF_IDLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FLAG_SYSTEM_REQUIRED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FOURTH_WEEK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_FRIDAY: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8263,14 +8215,6 @@ impl ::core::fmt::Debug for TASK_INSTANCES_POLICY {
         f.debug_tuple("TASK_INSTANCES_POLICY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_JANUARY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_JULY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_JUNE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_LAST_WEEK: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8308,18 +8252,6 @@ impl ::core::fmt::Debug for TASK_LOGON_TYPE {
         f.debug_tuple("TASK_LOGON_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_MARCH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_MAX_RUN_TIMES: u32 = 1440u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_MAY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_MONDAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_NOVEMBER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_OCTOBER: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8410,12 +8342,6 @@ impl ::core::fmt::Debug for TASK_RUN_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_SATURDAY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_SECOND_WEEK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_SEPTEMBER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
@@ -8483,59 +8409,6 @@ impl ::core::fmt::Debug for TASK_STATE {
         f.debug_tuple("TASK_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_SUNDAY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_THIRD_WEEK: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_THURSDAY: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub struct TASK_TRIGGER {
-    pub cbTriggerSize: u16,
-    pub Reserved1: u16,
-    pub wBeginYear: u16,
-    pub wBeginMonth: u16,
-    pub wBeginDay: u16,
-    pub wEndYear: u16,
-    pub wEndMonth: u16,
-    pub wEndDay: u16,
-    pub wStartHour: u16,
-    pub wStartMinute: u16,
-    pub MinutesDuration: u32,
-    pub MinutesInterval: u32,
-    pub rgFlags: u32,
-    pub TriggerType: TASK_TRIGGER_TYPE,
-    pub Type: TRIGGER_TYPE_UNION,
-    pub Reserved2: u16,
-    pub wRandomMinutesInterval: u16,
-}
-impl ::core::marker::Copy for TASK_TRIGGER {}
-impl ::core::clone::Clone for TASK_TRIGGER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for TASK_TRIGGER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TASK_TRIGGER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TASK_TRIGGER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TASK_TRIGGER {}
-impl ::core::default::Default for TASK_TRIGGER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_TRIGGER_FLAG_DISABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -8622,10 +8495,140 @@ impl ::core::fmt::Debug for TASK_TRIGGER_TYPE2 {
         f.debug_tuple("TASK_TRIGGER_TYPE2").field(&self.0).finish()
     }
 }
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_TUESDAY: u32 = 4u32;
+pub struct DAILY {
+    pub DaysInterval: u16,
+}
+impl ::core::marker::Copy for DAILY {}
+impl ::core::clone::Clone for DAILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DAILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DAILY").field("DaysInterval", &self.DaysInterval).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DAILY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DAILY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DAILY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DAILY {}
+impl ::core::default::Default for DAILY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
-pub const TASK_WEDNESDAY: u32 = 8u32;
+pub struct MONTHLYDATE {
+    pub rgfDays: u32,
+    pub rgfMonths: u16,
+}
+impl ::core::marker::Copy for MONTHLYDATE {}
+impl ::core::clone::Clone for MONTHLYDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MONTHLYDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONTHLYDATE").field("rgfDays", &self.rgfDays).field("rgfMonths", &self.rgfMonths).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MONTHLYDATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MONTHLYDATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONTHLYDATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MONTHLYDATE {}
+impl ::core::default::Default for MONTHLYDATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub struct MONTHLYDOW {
+    pub wWhichWeek: u16,
+    pub rgfDaysOfTheWeek: u16,
+    pub rgfMonths: u16,
+}
+impl ::core::marker::Copy for MONTHLYDOW {}
+impl ::core::clone::Clone for MONTHLYDOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MONTHLYDOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MONTHLYDOW").field("wWhichWeek", &self.wWhichWeek).field("rgfDaysOfTheWeek", &self.rgfDaysOfTheWeek).field("rgfMonths", &self.rgfMonths).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MONTHLYDOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MONTHLYDOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MONTHLYDOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MONTHLYDOW {}
+impl ::core::default::Default for MONTHLYDOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
+pub struct TASK_TRIGGER {
+    pub cbTriggerSize: u16,
+    pub Reserved1: u16,
+    pub wBeginYear: u16,
+    pub wBeginMonth: u16,
+    pub wBeginDay: u16,
+    pub wEndYear: u16,
+    pub wEndMonth: u16,
+    pub wEndDay: u16,
+    pub wStartHour: u16,
+    pub wStartMinute: u16,
+    pub MinutesDuration: u32,
+    pub MinutesInterval: u32,
+    pub rgFlags: u32,
+    pub TriggerType: TASK_TRIGGER_TYPE,
+    pub Type: TRIGGER_TYPE_UNION,
+    pub Reserved2: u16,
+    pub wRandomMinutesInterval: u16,
+}
+impl ::core::marker::Copy for TASK_TRIGGER {}
+impl ::core::clone::Clone for TASK_TRIGGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_TRIGGER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TASK_TRIGGER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TASK_TRIGGER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TASK_TRIGGER {}
+impl ::core::default::Default for TASK_TRIGGER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub union TRIGGER_TYPE_UNION {
@@ -8654,9 +8657,6 @@ impl ::core::default::Default for TRIGGER_TYPE_UNION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const TaskHandlerPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2a69db7_da2c_4352_9066_86fee6dacac9);
-pub const TaskHandlerStatusPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f15266d_d7ba_48f0_93c1_e6895f6fe5ac);
-pub const TaskScheduler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f87369f_a4e5_4cfc_bd3e_73e6154572dd);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_TaskScheduler\"`*"]
 pub struct WEEKLY {

@@ -1,3 +1,38 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
+    type Vtable = IDeviceLockdownProfileInformation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDeviceLockdownProfileInformation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
+    type Vtable = IDeviceLockdownProfileStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDeviceLockdownProfileStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedLockdownProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedLockdownProfiles: usize,
+    pub GetCurrentLockdownProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ApplyLockdownProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ApplyLockdownProfileAsync: usize,
+    pub GetLockdownProfileInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Embedded_DeviceLockdown\"`*"]
 pub struct DeviceLockdownProfile;
 impl DeviceLockdownProfile {
@@ -112,40 +147,5 @@ impl ::core::convert::From<&DeviceLockdownProfileInformation> for &::windows::co
 }
 unsafe impl ::core::marker::Send for DeviceLockdownProfileInformation {}
 unsafe impl ::core::marker::Sync for DeviceLockdownProfileInformation {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDeviceLockdownProfileInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDeviceLockdownProfileInformation {
-    type Vtable = IDeviceLockdownProfileInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7980e14e_45b1_4a96_92fc_62756b739678);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDeviceLockdownProfileInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDeviceLockdownProfileStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDeviceLockdownProfileStatics {
-    type Vtable = IDeviceLockdownProfileStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622f6965_f9a8_41a1_a691_88cd80c7a069);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDeviceLockdownProfileStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedLockdownProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedLockdownProfiles: usize,
-    pub GetCurrentLockdownProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ApplyLockdownProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ApplyLockdownProfileAsync: usize,
-    pub GetLockdownProfileInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, profileid: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

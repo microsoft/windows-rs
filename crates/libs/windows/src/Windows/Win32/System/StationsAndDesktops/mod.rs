@@ -1,174 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
-impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
-impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
-impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
-impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_INFO").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_INFO {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_INFO {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct BSMINFO {
-    pub cbSize: u32,
-    pub hdesk: HDESK,
-    pub hwnd: super::super::Foundation::HWND,
-    pub luid: super::super::Foundation::LUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BSMINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for BSMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BSMINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BSMINFO").field("cbSize", &self.cbSize).field("hdesk", &self.hdesk).field("hwnd", &self.hwnd).field("luid", &self.luid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BSMINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BSMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSMINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BSMINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BSMINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -339,12 +168,6 @@ where
     let result__ = CreateWindowStationW(lpwinsta.into(), dwflags, dwdesiredaccess, ::core::mem::transmute(lpsa));
     (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DESKTOPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DESKTOPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
@@ -458,70 +281,6 @@ where
         fn GetUserObjectInformationW(hobj: super::super::Foundation::HANDLE, nindex: USER_OBJECT_INFORMATION_INDEX, pvinfo: *mut ::core::ffi::c_void, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
     GetUserObjectInformationW(hobj.into(), nindex, ::core::mem::transmute(pvinfo.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvinfo.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(lpnlengthneeded))
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HDESK(pub isize);
-impl HDESK {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HDESK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HDESK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HDESK {}
-impl ::core::fmt::Debug for HDESK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HDESK").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HDESK>> for HDESK {
-    fn from(optional: ::core::option::Option<HDESK>) -> HDESK {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HDESK {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HWINSTA(pub isize);
-impl HWINSTA {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HWINSTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HWINSTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HWINSTA {}
-impl ::core::fmt::Debug for HWINSTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HWINSTA").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HWINSTA>> for HWINSTA {
-    fn from(optional: ::core::option::Option<HWINSTA>) -> HWINSTA {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HWINSTA {
-    type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -662,6 +421,276 @@ where
     }
     SwitchDesktop(hdesktop.into())
 }
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
+impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
+impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
+impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
+impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_INFO").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
+pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
+impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
+impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for USER_OBJECT_INFORMATION_INDEX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for USER_OBJECT_INFORMATION_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_OBJECT_INFORMATION_INDEX").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BSMINFO {
+    pub cbSize: u32,
+    pub hdesk: HDESK,
+    pub hwnd: super::super::Foundation::HWND,
+    pub luid: super::super::Foundation::LUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BSMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BSMINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BSMINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BSMINFO").field("cbSize", &self.cbSize).field("hdesk", &self.hdesk).field("hwnd", &self.hwnd).field("luid", &self.luid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BSMINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BSMINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSMINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BSMINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for BSMINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HDESK(pub isize);
+impl HDESK {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HDESK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDESK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDESK {}
+impl ::core::fmt::Debug for HDESK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDESK").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HDESK>> for HDESK {
+    fn from(optional: ::core::option::Option<HDESK>) -> HDESK {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HDESK {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HWINSTA(pub isize);
+impl HWINSTA {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HWINSTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWINSTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWINSTA {}
+impl ::core::fmt::Debug for HWINSTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWINSTA").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HWINSTA>> for HWINSTA {
+    fn from(optional: ::core::option::Option<HWINSTA>) -> HWINSTA {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HWINSTA {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -702,41 +731,12 @@ impl ::core::default::Default for USEROBJECTFLAGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
-#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`*"]
-pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
-impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
-impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for USER_OBJECT_INFORMATION_INDEX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for USER_OBJECT_INFORMATION_INDEX {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("USER_OBJECT_INFORMATION_INDEX").field(&self.0).finish()
-    }
-}
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DESKTOPENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DESKTOPENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_System_StationsAndDesktops\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: ::windows::core::PCSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

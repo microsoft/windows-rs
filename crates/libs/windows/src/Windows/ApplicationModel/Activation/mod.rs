@@ -1,5040 +1,5 @@
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivationKind(pub i32);
-impl ActivationKind {
-    pub const Launch: Self = Self(0i32);
-    pub const Search: Self = Self(1i32);
-    pub const ShareTarget: Self = Self(2i32);
-    pub const File: Self = Self(3i32);
-    pub const Protocol: Self = Self(4i32);
-    pub const FileOpenPicker: Self = Self(5i32);
-    pub const FileSavePicker: Self = Self(6i32);
-    pub const CachedFileUpdater: Self = Self(7i32);
-    pub const ContactPicker: Self = Self(8i32);
-    pub const Device: Self = Self(9i32);
-    pub const PrintTaskSettings: Self = Self(10i32);
-    pub const CameraSettings: Self = Self(11i32);
-    pub const RestrictedLaunch: Self = Self(12i32);
-    pub const AppointmentsProvider: Self = Self(13i32);
-    pub const Contact: Self = Self(14i32);
-    pub const LockScreenCall: Self = Self(15i32);
-    pub const VoiceCommand: Self = Self(16i32);
-    pub const LockScreen: Self = Self(17i32);
-    pub const PickerReturned: Self = Self(1000i32);
-    pub const WalletAction: Self = Self(1001i32);
-    pub const PickFileContinuation: Self = Self(1002i32);
-    pub const PickSaveFileContinuation: Self = Self(1003i32);
-    pub const PickFolderContinuation: Self = Self(1004i32);
-    pub const WebAuthenticationBrokerContinuation: Self = Self(1005i32);
-    pub const WebAccountProvider: Self = Self(1006i32);
-    pub const ComponentUI: Self = Self(1007i32);
-    pub const ProtocolForResults: Self = Self(1009i32);
-    pub const ToastNotification: Self = Self(1010i32);
-    pub const Print3DWorkflow: Self = Self(1011i32);
-    pub const DialReceiver: Self = Self(1012i32);
-    pub const DevicePairing: Self = Self(1013i32);
-    pub const UserDataAccountsProvider: Self = Self(1014i32);
-    pub const FilePickerExperience: Self = Self(1015i32);
-    pub const LockScreenComponent: Self = Self(1016i32);
-    pub const ContactPanel: Self = Self(1017i32);
-    pub const PrintWorkflowForegroundTask: Self = Self(1018i32);
-    pub const GameUIProvider: Self = Self(1019i32);
-    pub const StartupTask: Self = Self(1020i32);
-    pub const CommandLineLaunch: Self = Self(1021i32);
-    pub const BarcodeScannerProvider: Self = Self(1022i32);
-    pub const PrintSupportJobUI: Self = Self(1023i32);
-    pub const PrintSupportSettingsUI: Self = Self(1024i32);
-    pub const PhoneCallActivation: Self = Self(1025i32);
-    pub const VpnForeground: Self = Self(1026i32);
-}
-impl ::core::marker::Copy for ActivationKind {}
-impl ::core::clone::Clone for ActivationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivationKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationExecutionState(pub i32);
-impl ApplicationExecutionState {
-    pub const NotRunning: Self = Self(0i32);
-    pub const Running: Self = Self(1i32);
-    pub const Suspended: Self = Self(2i32);
-    pub const Terminated: Self = Self(3i32);
-    pub const ClosedByUser: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ApplicationExecutionState {}
-impl ::core::clone::Clone for ApplicationExecutionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationExecutionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationExecutionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationExecutionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(::windows::core::IUnknown);
-impl AppointmentsProviderAddAppointmentActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub fn AddAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
-}
-impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows::core::IUnknown);
-impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub fn RemoveAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
-}
-impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows::core::IUnknown);
-impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
-    pub fn ReplaceAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
-}
-impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows::core::IUnknown);
-impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InstanceStartDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
-        }
-    }
-    pub fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocalId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn RoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RoamingId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
-}
-impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(::windows::core::IUnknown);
-impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TimeToShow(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToShow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-impl ::core::fmt::Debug for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
-}
-impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct BackgroundActivatedEventArgs(::windows::core::IUnknown);
-impl BackgroundActivatedEventArgs {
-    #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    #[cfg(feature = "ApplicationModel_Background")]
-    pub fn TaskInstance(&self) -> ::windows::core::Result<super::Background::IBackgroundTaskInstance> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TaskInstance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Background::IBackgroundTaskInstance>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BackgroundActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BackgroundActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundActivatedEventArgs {}
-impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BackgroundActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
-    type Vtable = IBackgroundActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IBackgroundActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
-}
-impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BackgroundActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<'a, IBackgroundActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct BarcodeScannerPreviewActivatedEventArgs(::windows::core::IUnknown);
-impl BarcodeScannerPreviewActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn ConnectionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BarcodeScannerPreviewActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarcodeScannerPreviewActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerPreviewActivatedEventArgs {}
-impl ::core::fmt::Debug for BarcodeScannerPreviewActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BarcodeScannerPreviewActivatedEventArgs {
-    type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
-}
-impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IBarcodeScannerPreviewActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for BarcodeScannerPreviewActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct CachedFileUpdaterActivatedEventArgs(::windows::core::IUnknown);
-impl CachedFileUpdaterActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Provider\"`*"]
-    #[cfg(feature = "Storage_Provider")]
-    pub fn CachedFileUpdaterUI(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CachedFileUpdaterActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CachedFileUpdaterActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileUpdaterActivatedEventArgs {}
-impl ::core::fmt::Debug for CachedFileUpdaterActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CachedFileUpdaterActivatedEventArgs {
-    type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICachedFileUpdaterActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
-}
-impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, ICachedFileUpdaterActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for CachedFileUpdaterActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for CachedFileUpdaterActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct CameraSettingsActivatedEventArgs(::windows::core::IUnknown);
-impl CameraSettingsActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    pub fn VideoDeviceController(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceController)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    pub fn VideoDeviceExtension(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CameraSettingsActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CameraSettingsActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraSettingsActivatedEventArgs {}
-impl ::core::fmt::Debug for CameraSettingsActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraSettingsActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CameraSettingsActivatedEventArgs {
-    type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICameraSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CameraSettingsActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
-}
-impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, ICameraSettingsActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for CameraSettingsActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for CameraSettingsActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct CommandLineActivatedEventArgs(::windows::core::IUnknown);
-impl CommandLineActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn Operation(&self) -> ::windows::core::Result<CommandLineActivationOperation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CommandLineActivationOperation>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CommandLineActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CommandLineActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommandLineActivatedEventArgs {}
-impl ::core::fmt::Debug for CommandLineActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommandLineActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CommandLineActivatedEventArgs {
-    type Vtable = ICommandLineActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICommandLineActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CommandLineActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
-}
-impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CommandLineActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for ICommandLineActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ICommandLineActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, ICommandLineActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for CommandLineActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for CommandLineActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct CommandLineActivationOperation(::windows::core::IUnknown);
-impl CommandLineActivationOperation {
-    pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn CurrentDirectoryPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentDirectoryPath)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetExitCode(&self, value: i32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExitCode)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ExitCode(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExitCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CommandLineActivationOperation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CommandLineActivationOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommandLineActivationOperation {}
-impl ::core::fmt::Debug for CommandLineActivationOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommandLineActivationOperation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CommandLineActivationOperation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CommandLineActivationOperation {
-    type Vtable = ICommandLineActivationOperation_Vtbl;
-    const IID: ::windows::core::GUID = <ICommandLineActivationOperation as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CommandLineActivationOperation {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
-}
-impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IUnknown {
-    fn from(value: CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core::IUnknown {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IUnknown {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IInspectable {
-    fn from(value: CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core::IInspectable {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IInspectable {
-    fn from(value: &CommandLineActivationOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
-unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactCallActivatedEventArgs(::windows::core::IUnknown);
-impl ContactCallActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactCallActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactCallActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactCallActivatedEventArgs {
-    type Vtable = IContactCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactCallActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactCallActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
-}
-impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IContactCallActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactCallActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactCallActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactCallActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactCallActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactMapActivatedEventArgs(::windows::core::IUnknown);
-impl ContactMapActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Address(&self) -> ::windows::core::Result<super::Contacts::ContactAddress> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Address)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::ContactAddress>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactMapActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactMapActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactMapActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactMapActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactMapActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactMapActivatedEventArgs {
-    type Vtable = IContactMapActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactMapActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactMapActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
-}
-impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactMapActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IContactMapActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactMapActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactMapActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactMapActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactMapActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactMessageActivatedEventArgs(::windows::core::IUnknown);
-impl ContactMessageActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactMessageActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactMessageActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactMessageActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactMessageActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactMessageActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactMessageActivatedEventArgs {
-    type Vtable = IContactMessageActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactMessageActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactMessageActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
-}
-impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IContactMessageActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactMessageActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactMessageActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactMessageActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactMessageActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactPanelActivatedEventArgs(::windows::core::IUnknown);
-impl ContactPanelActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn ContactPanel(&self) -> ::windows::core::Result<super::Contacts::ContactPanel> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContactPanel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::ContactPanel>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactPanelActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactPanelActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPanelActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactPanelActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPanelActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactPanelActivatedEventArgs {
-    type Vtable = IContactPanelActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactPanelActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactPanelActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
-}
-impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IContactPanelActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IContactPanelActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IContactPanelActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactPanelActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactPanelActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactPickerActivatedEventArgs(::windows::core::IUnknown);
-impl ContactPickerActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts_Provider")]
-    pub fn ContactPickerUI(&self) -> ::windows::core::Result<super::Contacts::Provider::ContactPickerUI> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContactPickerUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactPickerActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPickerActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactPickerActivatedEventArgs {
-    type Vtable = IContactPickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactPickerActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactPickerActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
-}
-impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IContactPickerActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IContactPickerActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IContactPickerActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactPickerActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactPickerActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactPostActivatedEventArgs(::windows::core::IUnknown);
-impl ContactPostActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactPostActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactPostActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPostActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactPostActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactPostActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactPostActivatedEventArgs {
-    type Vtable = IContactPostActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactPostActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactPostActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
-}
-impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactPostActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IContactPostActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactPostActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactPostActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactPostActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactPostActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct ContactVideoCallActivatedEventArgs(::windows::core::IUnknown);
-impl ContactVideoCallActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-    #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContactVideoCallActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContactVideoCallActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactVideoCallActivatedEventArgs {}
-impl ::core::fmt::Debug for ContactVideoCallActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContactVideoCallActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContactVideoCallActivatedEventArgs {
-    type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IContactVideoCallActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContactVideoCallActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
-}
-impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactVideoCallActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ContactVideoCallActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for ContactVideoCallActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct DeviceActivatedEventArgs(::windows::core::IUnknown);
-impl DeviceActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn DeviceInformationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    #[cfg(feature = "UI_ViewManagement")]
-    pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DeviceActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeviceActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceActivatedEventArgs {}
-impl ::core::fmt::Debug for DeviceActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeviceActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DeviceActivatedEventArgs {
-    type Vtable = IDeviceActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDeviceActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DeviceActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
-}
-impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DeviceActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IDeviceActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IDeviceActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IDeviceActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IViewSwitcherProvider {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IViewSwitcherProvider {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for DeviceActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for DeviceActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct DevicePairingActivatedEventArgs(::windows::core::IUnknown);
-impl DevicePairingActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
-    #[cfg(feature = "Devices_Enumeration")]
-    pub fn DeviceInformation(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DevicePairingActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DevicePairingActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingActivatedEventArgs {}
-impl ::core::fmt::Debug for DevicePairingActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DevicePairingActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DevicePairingActivatedEventArgs {
-    type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDevicePairingActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DevicePairingActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
-}
-impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IDevicePairingActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IDevicePairingActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IDevicePairingActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for DevicePairingActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for DevicePairingActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct DialReceiverActivatedEventArgs(::windows::core::IUnknown);
-impl DialReceiverActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn AppName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AppName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    #[cfg(feature = "UI_ViewManagement")]
-    pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DialReceiverActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DialReceiverActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialReceiverActivatedEventArgs {}
-impl ::core::fmt::Debug for DialReceiverActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialReceiverActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DialReceiverActivatedEventArgs {
-    type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDialReceiverActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DialReceiverActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
-}
-impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IDialReceiverActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IDialReceiverActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IDialReceiverActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for ILaunchActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ILaunchActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IViewSwitcherProvider {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IViewSwitcherProvider {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for DialReceiverActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for DialReceiverActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct FileActivatedEventArgs(::windows::core::IUnknown);
-impl FileActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
-        let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
-        }
-    }
-    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Search\"`*"]
-    #[cfg(feature = "Storage_Search")]
-    pub fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult> {
-        let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-    #[cfg(feature = "UI_ViewManagement")]
-    pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
-        let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for FileActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileActivatedEventArgs {}
-impl ::core::fmt::Debug for FileActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileActivatedEventArgs {
-    type Vtable = IFileActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFileActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
-}
-impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IApplicationViewActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithNeighboringFiles> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileActivatedEventArgs> for IViewSwitcherProvider {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IViewSwitcherProvider {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for FileActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for FileActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct FileOpenPickerActivatedEventArgs(::windows::core::IUnknown);
-impl FileOpenPickerActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
-    #[cfg(feature = "Storage_Pickers_Provider")]
-    pub fn FileOpenPickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
-        }
-    }
-    pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for FileOpenPickerActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileOpenPickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileOpenPickerActivatedEventArgs {}
-impl ::core::fmt::Debug for FileOpenPickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenPickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileOpenPickerActivatedEventArgs {
-    type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFileOpenPickerActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileOpenPickerActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
-}
-impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs2> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct FileOpenPickerContinuationEventArgs(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl FileOpenPickerContinuationEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
-    pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for FileOpenPickerContinuationEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FileOpenPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FileOpenPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileOpenPickerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for FileOpenPickerContinuationEventArgs {
-    type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFileOpenPickerContinuationEventArgs as ::windows::core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::RuntimeName for FileOpenPickerContinuationEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerContinuationEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Send for FileOpenPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Sync for FileOpenPickerContinuationEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
-pub struct FileSavePickerActivatedEventArgs(::windows::core::IUnknown);
-impl FileSavePickerActivatedEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
-    #[cfg(feature = "Storage_Pickers_Provider")]
-    pub fn FileSavePickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
-        }
-    }
-    pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn EnterpriseId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnterpriseId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for FileSavePickerActivatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileSavePickerActivatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileSavePickerActivatedEventArgs {}
-impl ::core::fmt::Debug for FileSavePickerActivatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSavePickerActivatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileSavePickerActivatedEventArgs {
-    type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFileSavePickerActivatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileSavePickerActivatedEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
-}
-impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs2 {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs2> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
-unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct FileSavePickerContinuationEventArgs(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl FileSavePickerContinuationEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFile>(result__)
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for FileSavePickerContinuationEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FileSavePickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FileSavePickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSavePickerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for FileSavePickerContinuationEventArgs {
-    type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFileSavePickerContinuationEventArgs as ::windows::core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::RuntimeName for FileSavePickerContinuationEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IContinuationActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IContinuationActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileSavePickerContinuationEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct FolderPickerContinuationEventArgs(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-impl FolderPickerContinuationEventArgs {
-    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
-        }
-    }
-    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
-        }
-    }
-    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage\"`, `\"deprecated\"`*"]
-    #[cfg(all(feature = "Storage", feature = "deprecated"))]
-    pub fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Folder)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFolder>(result__)
-        }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for FolderPickerContinuationEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FolderPickerContinuationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for FolderPickerContinuationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderPickerContinuationEventArgs").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for FolderPickerContinuationEventArgs {
-    type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IFolderPickerContinuationEventArgs as ::windows::core::Interface>::IID;
-}
-#[cfg(feature = "deprecated")]
-impl ::windows::core::RuntimeName for FolderPickerContinuationEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFolderPickerContinuationEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Send for FolderPickerContinuationEventArgs {}
-#[cfg(feature = "deprecated")]
-unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
-#[repr(transparent)]
 pub struct IActivatedEventArgs(::windows::core::IUnknown);
 impl IActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
@@ -12849,6 +7814,4928 @@ pub struct IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
 #[repr(transparent)]
+pub struct AppointmentsProviderAddAppointmentActivatedEventArgs(::windows::core::IUnknown);
+impl AppointmentsProviderAddAppointmentActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+    pub fn AddAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::AddAppointmentOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AddAppointmentOperation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointments::AppointmentsProvider::AddAppointmentOperation>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppointmentsProviderAddAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
+}
+impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderAddAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for IAppointmentsProviderAddAppointmentActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderAddAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderAddAppointmentActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderAddAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AppointmentsProviderAddAppointmentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderAddAppointmentActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct AppointmentsProviderRemoveAppointmentActivatedEventArgs(::windows::core::IUnknown);
+impl AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+    pub fn RemoveAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RemoveAppointmentOperation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointments::AppointmentsProvider::RemoveAppointmentOperation>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
+}
+impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for IAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderRemoveAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderRemoveAppointmentActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderRemoveAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderRemoveAppointmentActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct AppointmentsProviderReplaceAppointmentActivatedEventArgs(::windows::core::IUnknown);
+impl AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
+    #[cfg(feature = "ApplicationModel_Appointments_AppointmentsProvider")]
+    pub fn ReplaceAppointmentOperation(&self) -> ::windows::core::Result<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReplaceAppointmentOperation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Appointments::AppointmentsProvider::ReplaceAppointmentOperation>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
+}
+impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for IAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderReplaceAppointmentActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderReplaceAppointmentActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderReplaceAppointmentActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct AppointmentsProviderShowAppointmentDetailsActivatedEventArgs(::windows::core::IUnknown);
+impl AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).InstanceStartDate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+        }
+    }
+    pub fn LocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LocalId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn RoamingId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RoamingId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
+}
+impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowAppointmentDetailsActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowAppointmentDetailsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct AppointmentsProviderShowTimeFrameActivatedEventArgs(::windows::core::IUnknown);
+impl AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAppointmentsProviderActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TimeToShow(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TimeToShow)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
+impl ::core::fmt::Debug for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
+}
+impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for IAppointmentsProviderShowTimeFrameActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AppointmentsProviderShowTimeFrameActivatedEventArgs> for ::windows::core::InParam<'a, IAppointmentsProviderShowTimeFrameActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AppointmentsProviderShowTimeFrameActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for AppointmentsProviderShowTimeFrameActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct BackgroundActivatedEventArgs(::windows::core::IUnknown);
+impl BackgroundActivatedEventArgs {
+    #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
+    #[cfg(feature = "ApplicationModel_Background")]
+    pub fn TaskInstance(&self) -> ::windows::core::Result<super::Background::IBackgroundTaskInstance> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TaskInstance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Background::IBackgroundTaskInstance>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BackgroundActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BackgroundActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BackgroundActivatedEventArgs {}
+impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
+    type Vtable = IBackgroundActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IBackgroundActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
+}
+impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: BackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &BackgroundActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: BackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &BackgroundActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BackgroundActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BackgroundActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for IBackgroundActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&BackgroundActivatedEventArgs> for ::windows::core::InParam<'a, IBackgroundActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BackgroundActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for BackgroundActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for BackgroundActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct BarcodeScannerPreviewActivatedEventArgs(::windows::core::IUnknown);
+impl BarcodeScannerPreviewActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn ConnectionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ConnectionId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BarcodeScannerPreviewActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BarcodeScannerPreviewActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BarcodeScannerPreviewActivatedEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerPreviewActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BarcodeScannerPreviewActivatedEventArgs {
+    type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
+}
+impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarcodeScannerPreviewActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarcodeScannerPreviewActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<BarcodeScannerPreviewActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for IBarcodeScannerPreviewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&BarcodeScannerPreviewActivatedEventArgs> for ::windows::core::InParam<'a, IBarcodeScannerPreviewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &BarcodeScannerPreviewActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for BarcodeScannerPreviewActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for BarcodeScannerPreviewActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct CachedFileUpdaterActivatedEventArgs(::windows::core::IUnknown);
+impl CachedFileUpdaterActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Provider\"`*"]
+    #[cfg(feature = "Storage_Provider")]
+    pub fn CachedFileUpdaterUI(&self) -> ::windows::core::Result<super::super::Storage::Provider::CachedFileUpdaterUI> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CachedFileUpdaterUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Provider::CachedFileUpdaterUI>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CachedFileUpdaterActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CachedFileUpdaterActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CachedFileUpdaterActivatedEventArgs {}
+impl ::core::fmt::Debug for CachedFileUpdaterActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CachedFileUpdaterActivatedEventArgs {
+    type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICachedFileUpdaterActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
+}
+impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CachedFileUpdaterActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CachedFileUpdaterActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<CachedFileUpdaterActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ICachedFileUpdaterActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CachedFileUpdaterActivatedEventArgs> for ::windows::core::InParam<'a, ICachedFileUpdaterActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CachedFileUpdaterActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for CachedFileUpdaterActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for CachedFileUpdaterActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct CameraSettingsActivatedEventArgs(::windows::core::IUnknown);
+impl CameraSettingsActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    pub fn VideoDeviceController(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VideoDeviceController)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+        }
+    }
+    pub fn VideoDeviceExtension(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VideoDeviceExtension)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CameraSettingsActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CameraSettingsActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CameraSettingsActivatedEventArgs {}
+impl ::core::fmt::Debug for CameraSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CameraSettingsActivatedEventArgs {
+    type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICameraSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CameraSettingsActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
+}
+impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraSettingsActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CameraSettingsActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<CameraSettingsActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ICameraSettingsActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CameraSettingsActivatedEventArgs> for ::windows::core::InParam<'a, ICameraSettingsActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CameraSettingsActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for CameraSettingsActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for CameraSettingsActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct CommandLineActivatedEventArgs(::windows::core::IUnknown);
+impl CommandLineActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn Operation(&self) -> ::windows::core::Result<CommandLineActivationOperation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Operation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CommandLineActivationOperation>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CommandLineActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CommandLineActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CommandLineActivatedEventArgs {}
+impl ::core::fmt::Debug for CommandLineActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandLineActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CommandLineActivatedEventArgs {
+    type Vtable = ICommandLineActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICommandLineActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CommandLineActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
+}
+impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CommandLineActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CommandLineActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CommandLineActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CommandLineActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CommandLineActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<CommandLineActivatedEventArgs> for ICommandLineActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ICommandLineActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CommandLineActivatedEventArgs> for ::windows::core::InParam<'a, ICommandLineActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CommandLineActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for CommandLineActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for CommandLineActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct CommandLineActivationOperation(::windows::core::IUnknown);
+impl CommandLineActivationOperation {
+    pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn CurrentDirectoryPath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CurrentDirectoryPath)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetExitCode(&self, value: i32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetExitCode)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ExitCode(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExitCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Deferral>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CommandLineActivationOperation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CommandLineActivationOperation {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CommandLineActivationOperation {}
+impl ::core::fmt::Debug for CommandLineActivationOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommandLineActivationOperation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CommandLineActivationOperation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.CommandLineActivationOperation;{994b2841-c59e-4f69-bcfd-b61ed4e622eb})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CommandLineActivationOperation {
+    type Vtable = ICommandLineActivationOperation_Vtbl;
+    const IID: ::windows::core::GUID = <ICommandLineActivationOperation as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CommandLineActivationOperation {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
+}
+impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IUnknown {
+    fn from(value: CommandLineActivationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core::IUnknown {
+    fn from(value: &CommandLineActivationOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IUnknown {
+    fn from(value: &CommandLineActivationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CommandLineActivationOperation> for ::windows::core::IInspectable {
+    fn from(value: CommandLineActivationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CommandLineActivationOperation> for ::windows::core::IInspectable {
+    fn from(value: &CommandLineActivationOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CommandLineActivationOperation> for &::windows::core::IInspectable {
+    fn from(value: &CommandLineActivationOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CommandLineActivationOperation {}
+unsafe impl ::core::marker::Sync for CommandLineActivationOperation {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactCallActivatedEventArgs(::windows::core::IUnknown);
+impl ContactCallActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactCallActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactCallActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactCallActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactCallActivatedEventArgs {
+    type Vtable = IContactCallActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactCallActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactCallActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
+}
+impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactCallActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactCallActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactCallActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactCallActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactCallActivatedEventArgs> for IContactCallActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for IContactCallActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactCallActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactCallActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactMapActivatedEventArgs(::windows::core::IUnknown);
+impl ContactMapActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Address(&self) -> ::windows::core::Result<super::Contacts::ContactAddress> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Address)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::ContactAddress>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactMapActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactMapActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactMapActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactMapActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMapActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactMapActivatedEventArgs {
+    type Vtable = IContactMapActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactMapActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactMapActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
+}
+impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactMapActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactMapActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactMapActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactMapActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactMapActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactMapActivatedEventArgs> for IContactMapActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for IContactMapActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactMapActivatedEventArgs> for ::windows::core::InParam<'a, IContactMapActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMapActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactMapActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactMapActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactMessageActivatedEventArgs(::windows::core::IUnknown);
+impl ContactMessageActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactMessageActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactMessageActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactMessageActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactMessageActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactMessageActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactMessageActivatedEventArgs {
+    type Vtable = IContactMessageActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactMessageActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactMessageActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
+}
+impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactMessageActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactMessageActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactMessageActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactMessageActivatedEventArgs> for IContactMessageActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for IContactMessageActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactMessageActivatedEventArgs> for ::windows::core::InParam<'a, IContactMessageActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactMessageActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactMessageActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactMessageActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactPanelActivatedEventArgs(::windows::core::IUnknown);
+impl ContactPanelActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn ContactPanel(&self) -> ::windows::core::Result<super::Contacts::ContactPanel> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ContactPanel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::ContactPanel>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactPanelActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactPanelActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactPanelActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactPanelActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPanelActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactPanelActivatedEventArgs {
+    type Vtable = IContactPanelActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactPanelActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactPanelActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
+}
+impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactPanelActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactPanelActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactPanelActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactPanelActivatedEventArgs> for IContactPanelActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for IContactPanelActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPanelActivatedEventArgs> for ::windows::core::InParam<'a, IContactPanelActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPanelActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactPanelActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPanelActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactPickerActivatedEventArgs(::windows::core::IUnknown);
+impl ContactPickerActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts_Provider\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts_Provider")]
+    pub fn ContactPickerUI(&self) -> ::windows::core::Result<super::Contacts::Provider::ContactPickerUI> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ContactPickerUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Provider::ContactPickerUI>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactPickerActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactPickerActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactPickerActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactPickerActivatedEventArgs {
+    type Vtable = IContactPickerActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactPickerActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactPickerActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
+}
+impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactPickerActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactPickerActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactPickerActivatedEventArgs> for IContactPickerActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for IContactPickerActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPickerActivatedEventArgs> for ::windows::core::InParam<'a, IContactPickerActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactPickerActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPickerActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactPostActivatedEventArgs(::windows::core::IUnknown);
+impl ContactPostActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactPostActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactPostActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactPostActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactPostActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPostActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactPostActivatedEventArgs {
+    type Vtable = IContactPostActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactPostActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactPostActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
+}
+impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactPostActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactPostActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactPostActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactPostActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactPostActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactPostActivatedEventArgs> for IContactPostActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for IContactPostActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactPostActivatedEventArgs> for ::windows::core::InParam<'a, IContactPostActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactPostActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactPostActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactPostActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct ContactVideoCallActivatedEventArgs(::windows::core::IUnknown);
+impl ContactVideoCallActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IContactActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServiceUserId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceUserId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
+    #[cfg(feature = "ApplicationModel_Contacts")]
+    pub fn Contact(&self) -> ::windows::core::Result<super::Contacts::Contact> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Contacts::Contact>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContactVideoCallActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContactVideoCallActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContactVideoCallActivatedEventArgs {}
+impl ::core::fmt::Debug for ContactVideoCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactVideoCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContactVideoCallActivatedEventArgs {
+    type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IContactVideoCallActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContactVideoCallActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
+}
+impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContactVideoCallActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ContactVideoCallActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<ContactVideoCallActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for IContactVideoCallActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&ContactVideoCallActivatedEventArgs> for ::windows::core::InParam<'a, IContactVideoCallActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ContactVideoCallActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ContactVideoCallActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for ContactVideoCallActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct DeviceActivatedEventArgs(::windows::core::IUnknown);
+impl DeviceActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
+        let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn DeviceInformationId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceInformationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[cfg(feature = "UI_ViewManagement")]
+    pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
+        let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DeviceActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeviceActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeviceActivatedEventArgs {}
+impl ::core::fmt::Debug for DeviceActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DeviceActivatedEventArgs {
+    type Vtable = IDeviceActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDeviceActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DeviceActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
+}
+impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DeviceActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DeviceActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeviceActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DeviceActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeviceActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DeviceActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IApplicationViewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IApplicationViewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IDeviceActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IDeviceActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IDeviceActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DeviceActivatedEventArgs> for IViewSwitcherProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DeviceActivatedEventArgs> for IViewSwitcherProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DeviceActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DeviceActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for DeviceActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for DeviceActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct DevicePairingActivatedEventArgs(::windows::core::IUnknown);
+impl DevicePairingActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Devices_Enumeration\"`*"]
+    #[cfg(feature = "Devices_Enumeration")]
+    pub fn DeviceInformation(&self) -> ::windows::core::Result<super::super::Devices::Enumeration::DeviceInformation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceInformation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Enumeration::DeviceInformation>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DevicePairingActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DevicePairingActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DevicePairingActivatedEventArgs {}
+impl ::core::fmt::Debug for DevicePairingActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePairingActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DevicePairingActivatedEventArgs {
+    type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDevicePairingActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DevicePairingActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
+}
+impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DevicePairingActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DevicePairingActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DevicePairingActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DevicePairingActivatedEventArgs> for IDevicePairingActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for IDevicePairingActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DevicePairingActivatedEventArgs> for ::windows::core::InParam<'a, IDevicePairingActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DevicePairingActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for DevicePairingActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for DevicePairingActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct DialReceiverActivatedEventArgs(::windows::core::IUnknown);
+impl DialReceiverActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
+        let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn AppName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AppName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Arguments(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Arguments)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn TileId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<ILaunchActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TileId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[cfg(feature = "UI_ViewManagement")]
+    pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
+        let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DialReceiverActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DialReceiverActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DialReceiverActivatedEventArgs {}
+impl ::core::fmt::Debug for DialReceiverActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialReceiverActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DialReceiverActivatedEventArgs {
+    type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDialReceiverActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DialReceiverActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
+}
+impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DialReceiverActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DialReceiverActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DialReceiverActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IApplicationViewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IApplicationViewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IDialReceiverActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IDialReceiverActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IDialReceiverActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for ILaunchActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ILaunchActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, ILaunchActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<DialReceiverActivatedEventArgs> for IViewSwitcherProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for IViewSwitcherProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DialReceiverActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DialReceiverActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for DialReceiverActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for DialReceiverActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct FileActivatedEventArgs(::windows::core::IUnknown);
+impl FileActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    pub fn CurrentlyShownApplicationViewId(&self) -> ::windows::core::Result<i32> {
+        let this = &::windows::core::Interface::cast::<IApplicationViewActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CurrentlyShownApplicationViewId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::IStorageItem>>(result__)
+        }
+    }
+    pub fn Verb(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Verb)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithCallerPackageFamilyName>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Search\"`*"]
+    #[cfg(feature = "Storage_Search")]
+    pub fn NeighboringFilesQuery(&self) -> ::windows::core::Result<super::super::Storage::Search::StorageFileQueryResult> {
+        let this = &::windows::core::Interface::cast::<IFileActivatedEventArgsWithNeighboringFiles>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NeighboringFilesQuery)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Search::StorageFileQueryResult>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
+    #[cfg(feature = "UI_ViewManagement")]
+    pub fn ViewSwitcher(&self) -> ::windows::core::Result<super::super::UI::ViewManagement::ActivationViewSwitcher> {
+        let this = &::windows::core::Interface::cast::<IViewSwitcherProvider>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ViewSwitcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::ViewManagement::ActivationViewSwitcher>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for FileActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileActivatedEventArgs {}
+impl ::core::fmt::Debug for FileActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileActivatedEventArgs {
+    type Vtable = IFileActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFileActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
+}
+impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FileActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FileActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IApplicationViewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IApplicationViewActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IApplicationViewActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventArgsWithCallerPackageFamilyName {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithCallerPackageFamilyName> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IFileActivatedEventArgsWithNeighboringFiles {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IFileActivatedEventArgsWithNeighboringFiles> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileActivatedEventArgs> for IViewSwitcherProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileActivatedEventArgs> for IViewSwitcherProvider {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileActivatedEventArgs> for ::windows::core::InParam<'a, IViewSwitcherProvider> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for FileActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for FileActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct FileOpenPickerActivatedEventArgs(::windows::core::IUnknown);
+impl FileOpenPickerActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
+    #[cfg(feature = "Storage_Pickers_Provider")]
+    pub fn FileOpenPickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileOpenPickerUI> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FileOpenPickerUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Pickers::Provider::FileOpenPickerUI>(result__)
+        }
+    }
+    pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IFileOpenPickerActivatedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for FileOpenPickerActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileOpenPickerActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileOpenPickerActivatedEventArgs {}
+impl ::core::fmt::Debug for FileOpenPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileOpenPickerActivatedEventArgs {
+    type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFileOpenPickerActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileOpenPickerActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
+}
+impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileOpenPickerActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileOpenPickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs2 {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for IFileOpenPickerActivatedEventArgs2 {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerActivatedEventArgs2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct FileOpenPickerContinuationEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+impl FileOpenPickerContinuationEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
+        let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Storage\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
+    pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>>(result__)
+        }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for FileOpenPickerContinuationEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::PartialEq for FileOpenPickerContinuationEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::Eq for FileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FileOpenPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileOpenPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for FileOpenPickerContinuationEventArgs {
+    type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFileOpenPickerContinuationEventArgs as ::windows::core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl ::windows::core::RuntimeName for FileOpenPickerContinuationEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileOpenPickerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Send for FileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Sync for FileOpenPickerContinuationEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+pub struct FileSavePickerActivatedEventArgs(::windows::core::IUnknown);
+impl FileSavePickerActivatedEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
+    #[cfg(feature = "Storage_Pickers_Provider")]
+    pub fn FileSavePickerUI(&self) -> ::windows::core::Result<super::super::Storage::Pickers::Provider::FileSavePickerUI> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FileSavePickerUI)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Pickers::Provider::FileSavePickerUI>(result__)
+        }
+    }
+    pub fn CallerPackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CallerPackageFamilyName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn EnterpriseId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IFileSavePickerActivatedEventArgs2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).EnterpriseId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for FileSavePickerActivatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileSavePickerActivatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileSavePickerActivatedEventArgs {}
+impl ::core::fmt::Debug for FileSavePickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSavePickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileSavePickerActivatedEventArgs {
+    type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFileSavePickerActivatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileSavePickerActivatedEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
+}
+impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileSavePickerActivatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileSavePickerActivatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs2 {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for IFileSavePickerActivatedEventArgs2 {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileSavePickerActivatedEventArgs> for ::windows::core::InParam<'a, IFileSavePickerActivatedEventArgs2> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerActivatedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
+unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct FileSavePickerContinuationEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+impl FileSavePickerContinuationEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
+        let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFile>(result__)
+        }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for FileSavePickerContinuationEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::PartialEq for FileSavePickerContinuationEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::Eq for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FileSavePickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSavePickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for FileSavePickerContinuationEventArgs {
+    type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFileSavePickerContinuationEventArgs as ::windows::core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl ::windows::core::RuntimeName for FileSavePickerContinuationEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IContinuationActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IContinuationActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for ::windows::core::InParam<'a, IFileSavePickerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct FolderPickerContinuationEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+impl FolderPickerContinuationEventArgs {
+    pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivationKind>(result__)
+        }
+    }
+    pub fn PreviousExecutionState(&self) -> ::windows::core::Result<ApplicationExecutionState> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PreviousExecutionState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationExecutionState>(result__)
+        }
+    }
+    pub fn SplashScreen(&self) -> ::windows::core::Result<SplashScreen> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SplashScreen)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SplashScreen>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = &::windows::core::Interface::cast::<IActivatedEventArgsWithUser>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
+        let this = &::windows::core::Interface::cast::<IContinuationActivatedEventArgs>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ContinuationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage\"`, `\"deprecated\"`*"]
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
+    pub fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Folder)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::StorageFolder>(result__)
+        }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for FolderPickerContinuationEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::PartialEq for FolderPickerContinuationEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::cmp::Eq for FolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for FolderPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for FolderPickerContinuationEventArgs {
+    type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IFolderPickerContinuationEventArgs as ::windows::core::Interface>::IID;
+}
+#[cfg(feature = "deprecated")]
+impl ::windows::core::RuntimeName for FolderPickerContinuationEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: FolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: FolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&FolderPickerContinuationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &FolderPickerContinuationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IActivatedEventArgsWithUser> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IContinuationActivatedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for ::windows::core::InParam<'a, IFolderPickerContinuationEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Send for FolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
+unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
 pub struct LaunchActivatedEventArgs(::windows::core::IUnknown);
 impl LaunchActivatedEventArgs {
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
@@ -16579,5 +16466,118 @@ impl<'a> ::core::convert::TryFrom<&WebAuthenticationBrokerContinuationEventArgs>
 }
 unsafe impl ::core::marker::Send for WebAuthenticationBrokerContinuationEventArgs {}
 unsafe impl ::core::marker::Sync for WebAuthenticationBrokerContinuationEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivationKind(pub i32);
+impl ActivationKind {
+    pub const Launch: Self = Self(0i32);
+    pub const Search: Self = Self(1i32);
+    pub const ShareTarget: Self = Self(2i32);
+    pub const File: Self = Self(3i32);
+    pub const Protocol: Self = Self(4i32);
+    pub const FileOpenPicker: Self = Self(5i32);
+    pub const FileSavePicker: Self = Self(6i32);
+    pub const CachedFileUpdater: Self = Self(7i32);
+    pub const ContactPicker: Self = Self(8i32);
+    pub const Device: Self = Self(9i32);
+    pub const PrintTaskSettings: Self = Self(10i32);
+    pub const CameraSettings: Self = Self(11i32);
+    pub const RestrictedLaunch: Self = Self(12i32);
+    pub const AppointmentsProvider: Self = Self(13i32);
+    pub const Contact: Self = Self(14i32);
+    pub const LockScreenCall: Self = Self(15i32);
+    pub const VoiceCommand: Self = Self(16i32);
+    pub const LockScreen: Self = Self(17i32);
+    pub const PickerReturned: Self = Self(1000i32);
+    pub const WalletAction: Self = Self(1001i32);
+    pub const PickFileContinuation: Self = Self(1002i32);
+    pub const PickSaveFileContinuation: Self = Self(1003i32);
+    pub const PickFolderContinuation: Self = Self(1004i32);
+    pub const WebAuthenticationBrokerContinuation: Self = Self(1005i32);
+    pub const WebAccountProvider: Self = Self(1006i32);
+    pub const ComponentUI: Self = Self(1007i32);
+    pub const ProtocolForResults: Self = Self(1009i32);
+    pub const ToastNotification: Self = Self(1010i32);
+    pub const Print3DWorkflow: Self = Self(1011i32);
+    pub const DialReceiver: Self = Self(1012i32);
+    pub const DevicePairing: Self = Self(1013i32);
+    pub const UserDataAccountsProvider: Self = Self(1014i32);
+    pub const FilePickerExperience: Self = Self(1015i32);
+    pub const LockScreenComponent: Self = Self(1016i32);
+    pub const ContactPanel: Self = Self(1017i32);
+    pub const PrintWorkflowForegroundTask: Self = Self(1018i32);
+    pub const GameUIProvider: Self = Self(1019i32);
+    pub const StartupTask: Self = Self(1020i32);
+    pub const CommandLineLaunch: Self = Self(1021i32);
+    pub const BarcodeScannerProvider: Self = Self(1022i32);
+    pub const PrintSupportJobUI: Self = Self(1023i32);
+    pub const PrintSupportSettingsUI: Self = Self(1024i32);
+    pub const PhoneCallActivation: Self = Self(1025i32);
+    pub const VpnForeground: Self = Self(1026i32);
+}
+impl ::core::marker::Copy for ActivationKind {}
+impl ::core::clone::Clone for ActivationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ActivationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationExecutionState(pub i32);
+impl ApplicationExecutionState {
+    pub const NotRunning: Self = Self(0i32);
+    pub const Running: Self = Self(1i32);
+    pub const Suspended: Self = Self(2i32);
+    pub const Terminated: Self = Self(3i32);
+    pub const ClosedByUser: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ApplicationExecutionState {}
+impl ::core::clone::Clone for ApplicationExecutionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationExecutionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationExecutionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationExecutionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationExecutionState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ApplicationExecutionState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Activation.ApplicationExecutionState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

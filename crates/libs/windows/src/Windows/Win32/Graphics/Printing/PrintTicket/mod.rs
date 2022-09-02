@@ -1,69 +1,3 @@
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EDefaultDevmodeType(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
-impl ::core::marker::Copy for EDefaultDevmodeType {}
-impl ::core::clone::Clone for EDefaultDevmodeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EDefaultDevmodeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EDefaultDevmodeType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EDefaultDevmodeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EDefaultDevmodeType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EPrintTicketScope(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
-impl ::core::marker::Copy for EPrintTicketScope {}
-impl ::core::clone::Clone for EPrintTicketScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPrintTicketScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EPrintTicketScope {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EPrintTicketScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EPrintTicketScope").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
-#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
-pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`, `\"Win32_Storage_Xps\"`*"]
 #[cfg(feature = "Win32_Storage_Xps")]
 #[inline]
@@ -221,8 +155,74 @@ pub unsafe fn PTReleaseMemory(pbuffer: *const ::core::ffi::c_void) -> ::windows:
     PTReleaseMemory(::core::mem::transmute(pbuffer)).ok()
 }
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const E_PRINTCAPABILITIES_FORMAT: u32 = 2147745796u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const E_PRINTDEVICECAPABILITIES_FORMAT: u32 = 2147745798u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const E_PRINTTICKET_FORMAT: u32 = 2147745795u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const PRINTTICKET_ISTREAM_APIS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const S_PT_CONFLICT_RESOLVED: u32 = 262146u32;
 #[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
 pub const S_PT_NO_CONFLICT: u32 = 262145u32;
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EDefaultDevmodeType(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
+impl ::core::marker::Copy for EDefaultDevmodeType {}
+impl ::core::clone::Clone for EDefaultDevmodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EDefaultDevmodeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EDefaultDevmodeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDefaultDevmodeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDefaultDevmodeType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EPrintTicketScope(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_Printing_PrintTicket\"`*"]
+pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
+impl ::core::marker::Copy for EPrintTicketScope {}
+impl ::core::clone::Clone for EPrintTicketScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EPrintTicketScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EPrintTicketScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPrintTicketScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPrintTicketScope").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

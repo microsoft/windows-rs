@@ -1,700 +1,842 @@
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct AAAccountingData {
-    pub userName: super::super::Foundation::BSTR,
-    pub clientName: super::super::Foundation::BSTR,
-    pub authType: AAAuthSchemes,
-    pub resourceName: super::super::Foundation::BSTR,
-    pub portNumber: i32,
-    pub protocolName: super::super::Foundation::BSTR,
-    pub numberOfBytesReceived: i32,
-    pub numberOfBytesTransfered: i32,
-    pub reasonForDisconnect: super::super::Foundation::BSTR,
-    pub mainSessionId: ::windows::core::GUID,
-    pub subSessionId: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AAAccountingData {
-    fn clone(&self) -> Self {
-        Self {
-            userName: self.userName.clone(),
-            clientName: self.clientName.clone(),
-            authType: self.authType,
-            resourceName: self.resourceName.clone(),
-            portNumber: self.portNumber,
-            protocolName: self.protocolName.clone(),
-            numberOfBytesReceived: self.numberOfBytesReceived,
-            numberOfBytesTransfered: self.numberOfBytesTransfered,
-            reasonForDisconnect: self.reasonForDisconnect.clone(),
-            mainSessionId: self.mainSessionId,
-            subSessionId: self.subSessionId,
-        }
+#[inline]
+pub unsafe fn WTSEnableChildSessions<'a, P0>(benable: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
+    WTSEnableChildSessions(benable.into())
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AAAccountingData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AAAccountingData")
-            .field("userName", &self.userName)
-            .field("clientName", &self.clientName)
-            .field("authType", &self.authType)
-            .field("resourceName", &self.resourceName)
-            .field("portNumber", &self.portNumber)
-            .field("protocolName", &self.protocolName)
-            .field("numberOfBytesReceived", &self.numberOfBytesReceived)
-            .field("numberOfBytesTransfered", &self.numberOfBytesTransfered)
-            .field("reasonForDisconnect", &self.reasonForDisconnect)
-            .field("mainSessionId", &self.mainSessionId)
-            .field("subSessionId", &self.subSessionId)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AAAccountingData {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AAAccountingData {
-    fn eq(&self, other: &Self) -> bool {
-        self.userName == other.userName && self.clientName == other.clientName && self.authType == other.authType && self.resourceName == other.resourceName && self.portNumber == other.portNumber && self.protocolName == other.protocolName && self.numberOfBytesReceived == other.numberOfBytesReceived && self.numberOfBytesTransfered == other.numberOfBytesTransfered && self.reasonForDisconnect == other.reasonForDisconnect && self.mainSessionId == other.mainSessionId && self.subSessionId == other.subSessionId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AAAccountingData {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AAAccountingData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AAAccountingDataType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_MAIN_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_SUB_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_SUB_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_MAIN_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(3i32);
-impl ::core::marker::Copy for AAAccountingDataType {}
-impl ::core::clone::Clone for AAAccountingDataType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AAAccountingDataType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AAAccountingDataType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AAAccountingDataType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AAAccountingDataType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AAAuthSchemes(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_MIN: AAAuthSchemes = AAAuthSchemes(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_BASIC: AAAuthSchemes = AAAuthSchemes(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_NTLM: AAAuthSchemes = AAAuthSchemes(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_SC: AAAuthSchemes = AAAuthSchemes(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_LOGGEDONCREDENTIALS: AAAuthSchemes = AAAuthSchemes(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_NEGOTIATE: AAAuthSchemes = AAAuthSchemes(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_ANY: AAAuthSchemes = AAAuthSchemes(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_COOKIE: AAAuthSchemes = AAAuthSchemes(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_DIGEST: AAAuthSchemes = AAAuthSchemes(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_ORGID: AAAuthSchemes = AAAuthSchemes(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_CONID: AAAuthSchemes = AAAuthSchemes(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_SSPI_NTLM: AAAuthSchemes = AAAuthSchemes(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_AUTH_MAX: AAAuthSchemes = AAAuthSchemes(12i32);
-impl ::core::marker::Copy for AAAuthSchemes {}
-impl ::core::clone::Clone for AAAuthSchemes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AAAuthSchemes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AAAuthSchemes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AAAuthSchemes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AAAuthSchemes").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AATrustClassID(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_UNTRUSTED: AATrustClassID = AATrustClassID(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = AATrustClassID(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = AATrustClassID(2i32);
-impl ::core::marker::Copy for AATrustClassID {}
-impl ::core::clone::Clone for AATrustClassID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AATrustClassID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AATrustClassID {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AATrustClassID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AATrustClassID").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
-pub const ADsTSUserEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct AE_CURRENT_POSITION {
-    pub u64DevicePosition: u64,
-    pub u64StreamPosition: u64,
-    pub u64PaddingFrames: u64,
-    pub hnsQPCPosition: i64,
-    pub f32FramesPerSecond: f32,
-    pub Flag: AE_POSITION_FLAGS,
-}
-impl ::core::marker::Copy for AE_CURRENT_POSITION {}
-impl ::core::clone::Clone for AE_CURRENT_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AE_CURRENT_POSITION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AE_CURRENT_POSITION").field("u64DevicePosition", &self.u64DevicePosition).field("u64StreamPosition", &self.u64StreamPosition).field("u64PaddingFrames", &self.u64PaddingFrames).field("hnsQPCPosition", &self.hnsQPCPosition).field("f32FramesPerSecond", &self.f32FramesPerSecond).field("Flag", &self.Flag).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AE_CURRENT_POSITION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AE_CURRENT_POSITION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CURRENT_POSITION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AE_CURRENT_POSITION {}
-impl ::core::default::Default for AE_CURRENT_POSITION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AE_POSITION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_INVALID: AE_POSITION_FLAGS = AE_POSITION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_DISCONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_CONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = AE_POSITION_FLAGS(4i32);
-impl ::core::marker::Copy for AE_POSITION_FLAGS {}
-impl ::core::clone::Clone for AE_POSITION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AE_POSITION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AE_POSITION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AE_POSITION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AE_POSITION_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct BITMAP_RENDERER_STATISTICS {
-    pub dwFramesDelivered: u32,
-    pub dwFramesDropped: u32,
-}
-impl ::core::marker::Copy for BITMAP_RENDERER_STATISTICS {}
-impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BITMAP_RENDERER_STATISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BITMAP_RENDERER_STATISTICS").field("dwFramesDelivered", &self.dwFramesDelivered).field("dwFramesDropped", &self.dwFramesDropped).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BITMAP_RENDERER_STATISTICS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BITMAP_RENDERER_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BITMAP_RENDERER_STATISTICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BITMAP_RENDERER_STATISTICS {}
-impl ::core::default::Default for BITMAP_RENDERER_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
-#[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct CHANNEL_DEF {
-    pub name: [super::super::Foundation::CHAR; 8],
-    pub options: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHANNEL_DEF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHANNEL_DEF {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WTSGetChildSessionId(psessionid: &mut u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSGetChildSessionId(::core::mem::transmute(psessionid))
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHANNEL_DEF {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHANNEL_DEF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_DEF>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHANNEL_DEF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHANNEL_DEF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct CHANNEL_ENTRY_POINTS {
-    pub cbSize: u32,
-    pub protocolVersion: u32,
-    pub pVirtualChannelInit: PVIRTUALCHANNELINIT,
-    pub pVirtualChannelOpen: PVIRTUALCHANNELOPEN,
-    pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
-    pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
+#[inline]
+pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
+#[inline]
+pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: &mut u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    ProcessIdToSessionId(dwprocessid, ::core::mem::transmute(psessionid))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn WTSCloseServer<'a, P0>(hserver: P0)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSCloseServer(hserver: super::super::Foundation::HANDLE);
     }
+    WTSCloseServer(hserver.into())
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CHANNEL_ENTRY_POINTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).field("pVirtualChannelInit", &self.pVirtualChannelInit.map(|f| f as usize)).field("pVirtualChannelOpen", &self.pVirtualChannelOpen.map(|f| f as usize)).field("pVirtualChannelClose", &self.pVirtualChannelClose.map(|f| f as usize)).field("pVirtualChannelWrite", &self.pVirtualChannelWrite.map(|f| f as usize)).finish()
+#[inline]
+pub unsafe fn WTSConnectSessionA<'a, P0, P1>(logonid: u32, targetlogonid: u32, ppassword: P0, bwait: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSConnectSessionA(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
+    WTSConnectSessionA(logonid, targetlogonid, ppassword.into(), bwait.into())
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHANNEL_ENTRY_POINTS {
-    type Abi = Self;
+#[inline]
+pub unsafe fn WTSConnectSessionW<'a, P0, P1>(logonid: u32, targetlogonid: u32, ppassword: P0, bwait: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSConnectSessionW(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCWSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WTSConnectSessionW(logonid, targetlogonid, ppassword.into(), bwait.into())
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHANNEL_ENTRY_POINTS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_ENTRY_POINTS>()) == 0 }
+#[inline]
+pub unsafe fn WTSCreateListenerA<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSCreateListenerA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL;
     }
+    WTSCreateListenerA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHANNEL_ENTRY_POINTS {}
+#[inline]
+pub unsafe fn WTSCreateListenerW<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSCreateListenerW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSCreateListenerW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHANNEL_ENTRY_POINTS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[inline]
+pub unsafe fn WTSDisconnectSession<'a, P0, P1>(hserver: P0, sessionid: u32, bwait: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSDisconnectSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
+    WTSDisconnectSession(hserver.into(), sessionid, bwait.into())
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_DISCONNECTED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_INITIALIZED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_TERMINATED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_V1_CONNECTED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_WRITE_CANCELLED: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_EVENT_WRITE_COMPLETE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_FLAG_FAIL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_FLAG_FIRST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_FLAG_LAST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_FLAG_MIDDLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_MAX_COUNT: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_NAME_LEN: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_COMPRESS: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_COMPRESS_RDP: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_ENCRYPT_CS: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_ENCRYPT_RDP: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_ENCRYPT_SC: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_INITIALIZED: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_PRI_HIGH: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_PRI_LOW: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct CHANNEL_PDU_HEADER {
-    pub length: u32,
-    pub flags: u32,
-}
-impl ::core::marker::Copy for CHANNEL_PDU_HEADER {}
-impl ::core::clone::Clone for CHANNEL_PDU_HEADER {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateListenersA<'a, P0>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateListenersA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateListenersA(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount))
 }
-impl ::core::fmt::Debug for CHANNEL_PDU_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CHANNEL_PDU_HEADER").field("length", &self.length).field("flags", &self.flags).finish()
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateListenersW<'a, P0>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateListenersW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateListenersW(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount))
 }
-unsafe impl ::windows::core::Abi for CHANNEL_PDU_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CHANNEL_PDU_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_PDU_HEADER>()) == 0 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateProcessesA<'a, P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: &mut *mut WTS_PROCESS_INFOA, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateProcessesA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateProcessesA(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
-impl ::core::cmp::Eq for CHANNEL_PDU_HEADER {}
-impl ::core::default::Default for CHANNEL_PDU_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateProcessesExA<'a, P0>(hserver: P0, plevel: &mut u32, sessionid: u32, ppprocessinfo: &mut ::windows::core::PSTR, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateProcessesExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateProcessesExA(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_ALREADY_INITIALIZED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_ALREADY_OPEN: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_BAD_CHANNEL: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_BAD_CHANNEL_HANDLE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_BAD_INIT_HANDLE: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_BAD_PROC: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_INITIALIZATION_ERROR: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_INVALID_INSTANCE: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NOT_CONNECTED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NOT_INITIALIZED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NOT_IN_VIRTUALCHANNELENTRY: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NOT_OPEN: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NO_BUFFER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NO_MEMORY: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_NULL_DATA: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_TOO_MANY_CHANNELS: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_UNKNOWN_CHANNEL_NAME: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_UNSUPPORTED_VERSION: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENTNAME_LENGTH: u32 = 20u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct CLIENT_DISPLAY {
-    pub HorizontalResolution: u32,
-    pub VerticalResolution: u32,
-    pub ColorDepth: u32,
-}
-impl ::core::marker::Copy for CLIENT_DISPLAY {}
-impl ::core::clone::Clone for CLIENT_DISPLAY {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateProcessesExW<'a, P0>(hserver: P0, plevel: &mut u32, sessionid: u32, ppprocessinfo: &mut ::windows::core::PWSTR, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateProcessesExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PWSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateProcessesExW(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
-impl ::core::fmt::Debug for CLIENT_DISPLAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLIENT_DISPLAY").field("HorizontalResolution", &self.HorizontalResolution).field("VerticalResolution", &self.VerticalResolution).field("ColorDepth", &self.ColorDepth).finish()
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateProcessesW<'a, P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: &mut *mut WTS_PROCESS_INFOW, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateProcessesW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateProcessesW(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
 }
-unsafe impl ::windows::core::Abi for CLIENT_DISPLAY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CLIENT_DISPLAY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENT_DISPLAY>()) == 0 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateServersA<'a, P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: &mut *mut WTS_SERVER_INFOA, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateServersA(pdomainname: ::windows::core::PCSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateServersA(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
 }
-impl ::core::cmp::Eq for CLIENT_DISPLAY {}
-impl ::core::default::Default for CLIENT_DISPLAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateServersW<'a, P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: &mut *mut WTS_SERVER_INFOW, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateServersW(pdomainname: ::windows::core::PCWSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateServersW(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CLIENT_MESSAGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(2i32);
-impl ::core::marker::Copy for CLIENT_MESSAGE_TYPE {}
-impl ::core::clone::Clone for CLIENT_MESSAGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateSessionsA<'a, P0>(hserver: P0, reserved: u32, version: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFOA, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateSessionsA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateSessionsA(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
-impl ::core::default::Default for CLIENT_MESSAGE_TYPE {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateSessionsExA<'a, P0>(hserver: P0, plevel: &mut u32, filter: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFO_1A, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateSessionsExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateSessionsExA(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
-unsafe impl ::windows::core::Abi for CLIENT_MESSAGE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CLIENT_MESSAGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CLIENT_MESSAGE_TYPE").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateSessionsExW<'a, P0>(hserver: P0, plevel: &mut u32, filter: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFO_1W, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateSessionsExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateSessionsExW(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONNECTION_CHANGE_NOTIFICATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_PENDING: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_TIMEDOUT: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_SUCCEEDED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_LB_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(8i32);
-impl ::core::marker::Copy for CONNECTION_CHANGE_NOTIFICATION {}
-impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSEnumerateSessionsW<'a, P0>(hserver: P0, reserved: u32, version: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFOW, pcount: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSEnumerateSessionsW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSEnumerateSessionsW(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
 }
-impl ::core::default::Default for CONNECTION_CHANGE_NOTIFICATION {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[inline]
+pub unsafe fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void);
     }
+    WTSFreeMemory(::core::mem::transmute(pmemory))
 }
-unsafe impl ::windows::core::Abi for CONNECTION_CHANGE_NOTIFICATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CONNECTION_CHANGE_NOTIFICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONNECTION_CHANGE_NOTIFICATION").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
     }
+    WTSFreeMemoryExA(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
 }
-pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
-pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_AUTORECONNECTED: u32 = 756u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_AUTORECONNECTING: u32 = 755u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_CONNECTED: u32 = 751u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_CONNECTING: u32 = 750u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_DIALOGDISMISSED: u32 = 758u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_DIALOGDISPLAYING: u32 = 757u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_DISCONNECTED: u32 = 753u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_KEYCOMBINATIONPRESSED: u32 = 761u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_LOGINCOMPLETED: u32 = 752u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_NETWORKSTATUSCHANGED: u32 = 759u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_REMOTEDESKTOPSIZECHANGED: u32 = 762u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_STATUSCHANGED: u32 = 754u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_AX_TOUCHPOINTERCURSORMOVED: u32 = 800u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS: u32 = 722u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT: u32 = 706u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT: u32 = 701u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS: u32 = 704u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT: u32 = 707u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT: u32 = 702u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION: u32 = 732u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY: u32 = 721u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT: u32 = 733u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT: u32 = 703u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES: u32 = 731u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS: u32 = 723u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY: u32 = 720u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES: u32 = 730u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS: u32 = 705u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS: u32 = 711u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS: u32 = 710u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED: u32 = 740u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED: u32 = 741u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED: u32 = 742u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const DOMAIN_LENGTH: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const FORCE_REJOIN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HwtsVirtualChannelHandle(pub isize);
-impl HwtsVirtualChannelHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
     }
+    WTSFreeMemoryExW(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
 }
-impl ::core::default::Default for HwtsVirtualChannelHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[inline]
+pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSGetActiveConsoleSessionId() -> u32;
     }
+    WTSGetActiveConsoleSessionId()
 }
-impl ::core::clone::Clone for HwtsVirtualChannelHandle {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn WTSGetListenerSecurityA<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSGetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSGetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
-impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
-impl ::core::fmt::Debug for HwtsVirtualChannelHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HwtsVirtualChannelHandle").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn WTSGetListenerSecurityW<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSGetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
     }
+    WTSGetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
-impl ::core::convert::From<::core::option::Option<HwtsVirtualChannelHandle>> for HwtsVirtualChannelHandle {
-    fn from(optional: ::core::option::Option<HwtsVirtualChannelHandle>) -> HwtsVirtualChannelHandle {
-        optional.unwrap_or_default()
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSLogoffSession<'a, P0, P1>(hserver: P0, sessionid: u32, bwait: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSLogoffSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
     }
+    WTSLogoffSession(hserver.into(), sessionid, bwait.into())
 }
-unsafe impl ::windows::core::Abi for HwtsVirtualChannelHandle {
-    type Abi = Self;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSOpenServerA<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSOpenServerA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    WTSOpenServerA(pservername.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSOpenServerExA<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSOpenServerExA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    WTSOpenServerExA(pservername.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSOpenServerExW<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSOpenServerExW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    }
+    WTSOpenServerExW(pservername.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSOpenServerW<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSOpenServerW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
+    }
+    WTSOpenServerW(pservername.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQueryListenerConfigA<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQueryListenerConfigA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL;
+    }
+    WTSQueryListenerConfigA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQueryListenerConfigW<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQueryListenerConfigW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL;
+    }
+    WTSQueryListenerConfigW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQuerySessionInformationA<'a, P0>(hserver: P0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: &mut ::windows::core::PSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQuerySessionInformationA(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSQuerySessionInformationA(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQuerySessionInformationW<'a, P0>(hserver: P0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: &mut ::windows::core::PWSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQuerySessionInformationW(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSQuerySessionInformationW(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQueryUserConfigA<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: &mut ::windows::core::PSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQueryUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSQueryUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQueryUserConfigW<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: &mut ::windows::core::PWSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQueryUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSQueryUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: &mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    WTSQueryUserToken(sessionid, ::core::mem::transmute(phtoken))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSRegisterSessionNotification<'a, P0>(hwnd: P0, dwflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSRegisterSessionNotification(hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSRegisterSessionNotification(hwnd.into(), dwflags)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSRegisterSessionNotificationEx<'a, P0, P1>(hserver: P0, hwnd: P1, dwflags: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSRegisterSessionNotificationEx(hserver.into(), hwnd.into(), dwflags)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
+pub unsafe fn WTSSendMessageA<'a, P0, P1>(hserver: P0, sessionid: u32, ptitle: &[u8], pmessage: &[u8], style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: &mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSendMessageA(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCSTR, titlelength: u32, pmessage: ::windows::core::PCSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WTSSendMessageA(hserver.into(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, ::core::mem::transmute(presponse), bwait.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
+pub unsafe fn WTSSendMessageW<'a, P0, P1>(hserver: P0, sessionid: u32, ptitle: &[u8], pmessage: &[u8], style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: &mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSendMessageW(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCWSTR, titlelength: u32, pmessage: ::windows::core::PCWSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WTSSendMessageW(hserver.into(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, ::core::mem::transmute(presponse), bwait.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn WTSSetListenerSecurityA<'a, P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
+    }
+    WTSSetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn WTSSetListenerSecurityW<'a, P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
+    }
+    WTSSetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSSetRenderHint<'a, P0>(prenderhintid: &mut u64, hwndowner: P0, renderhinttype: u32, phintdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSetRenderHint(prenderhintid: *mut u64, hwndowner: super::super::Foundation::HWND, renderhinttype: u32, cbhintdatalength: u32, phintdata: *const u8) -> ::windows::core::HRESULT;
+    }
+    WTSSetRenderHint(::core::mem::transmute(prenderhintid), hwndowner.into(), renderhinttype, phintdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phintdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSSetUserConfigA<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSetUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCSTR, datalength: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSSetUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSSetUserConfigW<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSSetUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCWSTR, datalength: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSSetUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSShutdownSystem<'a, P0>(hserver: P0, shutdownflag: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSShutdownSystem(hserver: super::super::Foundation::HANDLE, shutdownflag: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSShutdownSystem(hserver.into(), shutdownflag)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSStartRemoteControlSessionA<'a, P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSStartRemoteControlSessionA(ptargetservername: ::windows::core::PCSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
+    }
+    WTSStartRemoteControlSessionA(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSStartRemoteControlSessionW<'a, P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSStartRemoteControlSessionW(ptargetservername: ::windows::core::PCWSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
+    }
+    WTSStartRemoteControlSessionW(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSStopRemoteControlSession(logonid)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSTerminateProcess<'a, P0>(hserver: P0, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSTerminateProcess(hserver: super::super::Foundation::HANDLE, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL;
+    }
+    WTSTerminateProcess(hserver.into(), processid, exitcode)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSUnRegisterSessionNotification<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSUnRegisterSessionNotification(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    WTSUnRegisterSessionNotification(hwnd.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSUnRegisterSessionNotificationEx<'a, P0, P1>(hserver: P0, hwnd: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSUnRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    WTSUnRegisterSessionNotificationEx(hserver.into(), hwnd.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelClose<'a, P0>(hchannelhandle: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelClose(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    WTSVirtualChannelClose(hchannelhandle.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelOpen<'a, P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> ::windows::core::Result<HwtsVirtualChannelHandle>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelOpen(hserver: super::super::Foundation::HANDLE, sessionid: u32, pvirtualname: ::windows::core::PCSTR) -> HwtsVirtualChannelHandle;
+    }
+    let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[inline]
+pub unsafe fn WTSVirtualChannelOpenEx<'a, P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> ::windows::core::Result<HwtsVirtualChannelHandle>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelOpenEx(sessionid: u32, pvirtualname: ::windows::core::PCSTR, flags: u32) -> HwtsVirtualChannelHandle;
+    }
+    let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into(), flags);
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelPurgeInput<'a, P0>(hchannelhandle: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelPurgeInput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    WTSVirtualChannelPurgeInput(hchannelhandle.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelPurgeOutput<'a, P0>(hchannelhandle: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelPurgeOutput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    WTSVirtualChannelPurgeOutput(hchannelhandle.into())
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelQuery<'a, P0>(hchannelhandle: P0, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::core::ffi::c_void, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelQuery(hchannelhandle: super::super::Foundation::HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::core::ffi::c_void, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSVirtualChannelQuery(hchannelhandle.into(), param1, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelRead<'a, P0>(hchannelhandle: P0, timeout: u32, buffer: &mut [u8], pbytesread: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelRead(hchannelhandle: super::super::Foundation::HANDLE, timeout: u32, buffer: ::windows::core::PSTR, buffersize: u32, pbytesread: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSVirtualChannelRead(hchannelhandle.into(), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(pbytesread))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSVirtualChannelWrite<'a, P0>(hchannelhandle: P0, buffer: &[u8], pbyteswritten: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSVirtualChannelWrite(hchannelhandle: super::super::Foundation::HANDLE, buffer: ::windows::core::PCSTR, length: u32, pbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSVirtualChannelWrite(hchannelhandle.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(pbyteswritten))
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WTSWaitSystemEvent<'a, P0>(hserver: P0, eventmask: u32, peventflags: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WTSWaitSystemEvent(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    WTSWaitSystemEvent(hserver.into(), eventmask, ::core::mem::transmute(peventflags))
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -9843,8 +9985,800 @@ pub struct ItsPubPlugin2_Vtbl {
     pub ResolvePersonalDesktop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userid: ::windows::core::PCWSTR, poolid: ::windows::core::PCWSTR, epdresolutiontype: TSPUB_PLUGIN_PD_RESOLUTION_TYPE, ppdassignmenttype: *mut TSPUB_PLUGIN_PD_ASSIGNMENT_TYPE, endpointname: ::windows::core::PWSTR) -> ::windows::core::HRESULT,
     pub DeletePersonalDesktopAssignment: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, userid: ::windows::core::PCWSTR, poolid: ::windows::core::PCWSTR, endpointname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct _ITSWkspEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl _ITSWkspEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_ITSWkspEvents> for ::windows::core::IUnknown {
+    fn from(value: _ITSWkspEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _ITSWkspEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _ITSWkspEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_ITSWkspEvents> for ::windows::core::IUnknown {
+    fn from(value: &_ITSWkspEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_ITSWkspEvents> for super::Com::IDispatch {
+    fn from(value: _ITSWkspEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _ITSWkspEvents> for &'a super::Com::IDispatch {
+    fn from(value: &'a _ITSWkspEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_ITSWkspEvents> for super::Com::IDispatch {
+    fn from(value: &_ITSWkspEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for _ITSWkspEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for _ITSWkspEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for _ITSWkspEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _ITSWkspEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ITSWkspEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for _ITSWkspEvents {
+    type Vtable = _ITSWkspEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e9);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct _ITSWkspEvents_Vtbl {
+    pub base__: super::Com::IDispatch_Vtbl,
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const ACQUIRE_TARGET_LOCK_TIMEOUT: u32 = 300000u32;
+pub const ADsTSUserEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e9cae6_1e7b_4b8e_babd_e9bf6292ac29);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_BUFFER_SIZE: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_CHUNK_LENGTH: u32 = 1600u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_CONNECTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_DATA_RECEIVED: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_DISCONNECTED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_INITIALIZED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_TERMINATED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_V1_CONNECTED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_WRITE_CANCELLED: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_EVENT_WRITE_COMPLETE: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_FLAG_FAIL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_FLAG_FIRST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_FLAG_LAST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_FLAG_MIDDLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_MAX_COUNT: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_NAME_LEN: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_COMPRESS: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_COMPRESS_RDP: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_ENCRYPT_CS: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_ENCRYPT_RDP: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_ENCRYPT_SC: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_INITIALIZED: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_PRI_HIGH: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_PRI_LOW: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_PRI_MED: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_OPTION_SHOW_PROTOCOL: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_ALREADY_CONNECTED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_ALREADY_INITIALIZED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_ALREADY_OPEN: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_BAD_CHANNEL: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_BAD_CHANNEL_HANDLE: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_BAD_INIT_HANDLE: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_BAD_PROC: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_INITIALIZATION_ERROR: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_INVALID_INSTANCE: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NOT_CONNECTED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NOT_INITIALIZED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NOT_IN_VIRTUALCHANNELENTRY: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NOT_OPEN: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NO_BUFFER: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NO_MEMORY: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_NULL_DATA: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_OK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_TOO_MANY_CHANNELS: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_UNKNOWN_CHANNEL_NAME: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_UNSUPPORTED_VERSION: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CHANNEL_RC_ZERO_LENGTH: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENTNAME_LENGTH: u32 = 20u32;
+pub const CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b150580_fea4_4d3c_9de4_7433a66618f7);
+pub const CONNECTION_PROPERTY_IDLE_TIME_WARNING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693f7ff5_0c4e_4d17_b8e0_1f70325e5d58);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_ADMINMESSAGERECEIVED: u32 = 760u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_AUTORECONNECTED: u32 = 756u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_AUTORECONNECTING: u32 = 755u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_CONNECTED: u32 = 751u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_CONNECTING: u32 = 750u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_DIALOGDISMISSED: u32 = 758u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_DIALOGDISPLAYING: u32 = 757u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_DISCONNECTED: u32 = 753u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_KEYCOMBINATIONPRESSED: u32 = 761u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_LOGINCOMPLETED: u32 = 752u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_NETWORKSTATUSCHANGED: u32 = 759u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_REMOTEDESKTOPSIZECHANGED: u32 = 762u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_STATUSCHANGED: u32 = 754u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_AX_TOUCHPOINTERCURSORMOVED: u32 = 800u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS: u32 = 722u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT: u32 = 706u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT: u32 = 701u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS: u32 = 704u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT: u32 = 707u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT: u32 = 702u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION: u32 = 732u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY: u32 = 721u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT: u32 = 733u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT: u32 = 703u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES: u32 = 731u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS: u32 = 723u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY: u32 = 720u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES: u32 = 730u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS: u32 = 705u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS: u32 = 711u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS: u32 = 710u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED: u32 = 740u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED: u32 = 741u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED: u32 = 742u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER: u32 = 712u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const DOMAIN_LENGTH: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const FORCE_REJOIN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const FORCE_REJOIN_IN_CLUSTERMODE: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub const KEEP_EXISTING_SESSIONS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MAX_POLICY_ATTRIBUTES: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxAppName_Len: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxDomainName_Len: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxFQDN_Len: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxFarm_Len: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxNetBiosName_Len: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxNumOfExposed_IPs: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const MaxUserName_Len: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
+pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
+pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6212d757_0043_4862_99c3_9f3059ac2a3b);
+pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
+pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RENDER_HINT_CLEAR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RENDER_HINT_MAPPEDWINDOW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RENDER_HINT_VIDEO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RESERVED_FOR_LEGACY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const SINGLE_SESSION: u32 = 1u32;
+pub const TSUserExInterfaces: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const USERNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WKS_FLAG_CREDS_AUTHENTICATED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WKS_FLAG_PASSWORD_ENCRYPTED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_DIRECTORY_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_DRIVER_NAME_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_MAX_COUNTERS: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_MAX_PROTOCOL_CACHE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_MAX_RESERVED: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PASSWORD_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_THEMING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
+pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_VALUE_TYPE_GUID: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_COMMENT_LENGTH: u32 = 60u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRIVER_NAME_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRIVE_LENGTH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_ALL: u32 = 2147483647u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_CONNECT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_CREATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_DELETE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_DISCONNECT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_FLUSH: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_LICENSE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_LOGOFF: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_LOGON: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_RENAME: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_EVENT_STATECHANGE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_IMEFILENAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LISTENER_CREATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LISTENER_UPDATE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_MAX_COUNTERS: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_MAX_PROTOCOL_CACHE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_MAX_RESERVED: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PASSWORD_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_NOTHING: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_THEMING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROPERTY_DEFAULT_CONFIG: &str = "DefaultConfig";
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
+pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc);
+pub const WTS_QUERY_AUDIOENUM_DLL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db);
+pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049);
+pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_CONNECT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_LOGOFF: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_LOGON: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_MESSAGE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_QUERY_INFORMATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_REMOTE_CONTROL: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_RESET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_USERNAME_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_VALUE_TYPE_STRING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_VALUE_TYPE_ULONG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_WSD_LOGOFF: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_WSD_POWEROFF: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_WSD_REBOOT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
+pub const Workspace: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AAAccountingDataType(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_MAIN_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_SUB_SESSION_CREATION: AAAccountingDataType = AAAccountingDataType(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_SUB_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_MAIN_SESSION_CLOSED: AAAccountingDataType = AAAccountingDataType(3i32);
+impl ::core::marker::Copy for AAAccountingDataType {}
+impl ::core::clone::Clone for AAAccountingDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AAAccountingDataType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AAAccountingDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AAAccountingDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AAAccountingDataType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AAAuthSchemes(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_MIN: AAAuthSchemes = AAAuthSchemes(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_BASIC: AAAuthSchemes = AAAuthSchemes(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_NTLM: AAAuthSchemes = AAAuthSchemes(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_SC: AAAuthSchemes = AAAuthSchemes(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_LOGGEDONCREDENTIALS: AAAuthSchemes = AAAuthSchemes(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_NEGOTIATE: AAAuthSchemes = AAAuthSchemes(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_ANY: AAAuthSchemes = AAAuthSchemes(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_COOKIE: AAAuthSchemes = AAAuthSchemes(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_DIGEST: AAAuthSchemes = AAAuthSchemes(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_ORGID: AAAuthSchemes = AAAuthSchemes(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_CONID: AAAuthSchemes = AAAuthSchemes(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_SSPI_NTLM: AAAuthSchemes = AAAuthSchemes(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_AUTH_MAX: AAAuthSchemes = AAAuthSchemes(12i32);
+impl ::core::marker::Copy for AAAuthSchemes {}
+impl ::core::clone::Clone for AAAuthSchemes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AAAuthSchemes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AAAuthSchemes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AAAuthSchemes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AAAuthSchemes").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AATrustClassID(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_UNTRUSTED: AATrustClassID = AATrustClassID(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_TRUSTEDUSER_UNTRUSTEDCLIENT: AATrustClassID = AATrustClassID(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const AA_TRUSTEDUSER_TRUSTEDCLIENT: AATrustClassID = AATrustClassID(2i32);
+impl ::core::marker::Copy for AATrustClassID {}
+impl ::core::clone::Clone for AATrustClassID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AATrustClassID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AATrustClassID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AATrustClassID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AATrustClassID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AE_POSITION_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_INVALID: AE_POSITION_FLAGS = AE_POSITION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_DISCONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_CONTINUOUS: AE_POSITION_FLAGS = AE_POSITION_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const POSITION_QPC_ERROR: AE_POSITION_FLAGS = AE_POSITION_FLAGS(4i32);
+impl ::core::marker::Copy for AE_POSITION_FLAGS {}
+impl ::core::clone::Clone for AE_POSITION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AE_POSITION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AE_POSITION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AE_POSITION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AE_POSITION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CLIENT_MESSAGE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENT_MESSAGE_CONNECTION_INVALID: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENT_MESSAGE_CONNECTION_STATUS: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CLIENT_MESSAGE_CONNECTION_ERROR: CLIENT_MESSAGE_TYPE = CLIENT_MESSAGE_TYPE(2i32);
+impl ::core::marker::Copy for CLIENT_MESSAGE_TYPE {}
+impl ::core::clone::Clone for CLIENT_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CLIENT_MESSAGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CLIENT_MESSAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLIENT_MESSAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLIENT_MESSAGE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONNECTION_CHANGE_NOTIFICATION(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_INVALID: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_PENDING: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_FAILED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_TIMEDOUT: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_SUCCEEDED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_CANCELLED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_LB_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_QUERY_PL_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const CONNECTION_REQUEST_ORCH_COMPLETED: CONNECTION_CHANGE_NOTIFICATION = CONNECTION_CHANGE_NOTIFICATION(8i32);
+impl ::core::marker::Copy for CONNECTION_CHANGE_NOTIFICATION {}
+impl ::core::clone::Clone for CONNECTION_CHANGE_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONNECTION_CHANGE_NOTIFICATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTION_CHANGE_NOTIFICATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONNECTION_CHANGE_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONNECTION_CHANGE_NOTIFICATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9880,36 +10814,6 @@ impl ::core::fmt::Debug for KeyCombinationType {
         f.debug_tuple("KeyCombinationType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MAX_DATE_TIME_LENGTH: u32 = 56u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MAX_ELAPSED_TIME_LENGTH: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MAX_POLICY_ATTRIBUTES: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxAppName_Len: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxDomainName_Len: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxFQDN_Len: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxFarm_Len: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxNetBiosName_Len: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxNumOfExposed_IPs: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const MaxUserName_Len: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const NOTIFY_FOR_ALL_SESSIONS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const NOTIFY_FOR_THIS_SESSION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9949,26 +10853,6 @@ impl ::core::fmt::Debug for PLUGIN_TYPE {
         f.debug_tuple("PLUGIN_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PRODUCTINFO_COMPANYNAME_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const PRODUCTINFO_PRODUCTID_LENGTH: u32 = 4u32;
-pub const PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cdfd28e_d0b9_4c1f_a5eb_6d1f6c6535b9);
-pub const PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2c3fda_338d_4d3f_81a3_e767310d908e);
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6212d757_0043_4862_99c3_9f3059ac2a3b);
-pub const PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x197c427a_0135_4b6d_9c5e_e6579a0ab625);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PVIRTUALCHANNELENTRY = ::core::option::Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PVIRTUALCHANNELINIT = ::core::option::Option<unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PVIRTUALCHANNELOPEN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: ::windows::core::PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32>;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub type PVIRTUALCHANNELWRITE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, puserdata: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -10037,17 +10921,6 @@ impl ::core::fmt::Debug for PolicyAttributeType {
         f.debug_tuple("PolicyAttributeType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ProcessIdToSessionId(dwprocessid: u32, psessionid: &mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ProcessIdToSessionId(dwprocessid: u32, psessionid: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    ProcessIdToSessionId(dwprocessid, ::core::mem::transmute(psessionid))
-}
-pub const RDCLIENT_BITMAP_RENDER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4cc08cb_942e_4b19_8504_bd5a89a747f5);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -10127,343 +11000,6 @@ impl ::core::fmt::Debug for RD_FARM_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const REMOTECONTROL_KBDALT_HOTKEY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const REMOTECONTROL_KBDCTRL_HOTKEY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const REMOTECONTROL_KBDSHIFT_HOTKEY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RENDER_HINT_CLEAR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RENDER_HINT_MAPPEDWINDOW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RENDER_HINT_VIDEO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RESERVED_FOR_LEGACY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RFX_CLIENT_ID_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RFX_GFX_MAX_SUPPORTED_MONITORS: u32 = 16u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct RFX_GFX_MONITOR_INFO {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-    pub physicalWidth: u32,
-    pub physicalHeight: u32,
-    pub orientation: u32,
-    pub primary: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RFX_GFX_MONITOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RFX_GFX_MONITOR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RFX_GFX_MONITOR_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RFX_GFX_MONITOR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MONITOR_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RFX_GFX_MONITOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RFX_GFX_MONITOR_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
-impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
-impl ::core::default::Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-    pub reserved: u32,
-    pub monitorCount: u32,
-    pub MonitorData: [RFX_GFX_MONITOR_INFO; 16],
-    pub clientUniqueId: [u16; 32],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
-impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-    pub ulWidth: u32,
-    pub ulHeight: u32,
-    pub ulBpp: u32,
-    pub Reserved: u32,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
-impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-    pub ulWidth: u32,
-    pub ulHeight: u32,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_INPUT_RESET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
-impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-    pub RedrawRect: RFX_GFX_RECT,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_RESEND_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
-impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-    pub DisconnectReason: u32,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
-impl ::core::clone::Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DISCONNECT_NOTIFY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
-impl ::core::default::Default for RFX_GFX_MSG_DISCONNECT_NOTIFY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_HEADER {
-    pub uMSGType: u16,
-    pub cbSize: u16,
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_HEADER {}
-impl ::core::clone::Clone for RFX_GFX_MSG_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_HEADER {}
-impl ::core::default::Default for RFX_GFX_MSG_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RFX_GFX_MSG_PREFIX: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RFX_GFX_MSG_PREFIX_MASK: u32 = 48u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_MSG_RDP_DATA {
-    pub channelHdr: RFX_GFX_MSG_HEADER,
-    pub rdpData: [u8; 1],
-}
-impl ::core::marker::Copy for RFX_GFX_MSG_RDP_DATA {}
-impl ::core::clone::Clone for RFX_GFX_MSG_RDP_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_MSG_RDP_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_MSG_RDP_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_RDP_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_MSG_RDP_DATA {}
-impl ::core::default::Default for RFX_GFX_MSG_RDP_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct RFX_GFX_RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-impl ::core::marker::Copy for RFX_GFX_RECT {}
-impl ::core::clone::Clone for RFX_GFX_RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for RFX_GFX_RECT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RFX_GFX_RECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_RECT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RFX_GFX_RECT {}
-impl ::core::default::Default for RFX_GFX_RECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const RFX_RDP_MSG_PREFIX: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct RemoteActionType(pub i32);
@@ -10497,8 +11033,6 @@ impl ::core::fmt::Debug for RemoteActionType {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SESSION_TIMEOUT_ACTION_TYPE(pub i32);
@@ -10525,8 +11059,6 @@ impl ::core::fmt::Debug for SESSION_TIMEOUT_ACTION_TYPE {
         f.debug_tuple("SESSION_TIMEOUT_ACTION_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const SINGLE_SESSION: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -10876,39 +11408,6 @@ impl ::core::fmt::Debug for TSSD_AddrV46Type {
         f.debug_tuple("TSSD_AddrV46Type").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub struct TSSD_ConnectionPoint {
-    pub ServerAddressB: [u8; 16],
-    pub AddressType: TSSD_AddrV46Type,
-    pub PortNumber: u16,
-    pub AddressScope: u32,
-}
-impl ::core::marker::Copy for TSSD_ConnectionPoint {}
-impl ::core::clone::Clone for TSSD_ConnectionPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TSSD_ConnectionPoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TSSD_ConnectionPoint").field("ServerAddressB", &self.ServerAddressB).field("AddressType", &self.AddressType).field("PortNumber", &self.PortNumber).field("AddressScope", &self.AddressScope).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TSSD_ConnectionPoint {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TSSD_ConnectionPoint {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TSSD_ConnectionPoint>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TSSD_ConnectionPoint {}
-impl ::core::default::Default for TSSD_ConnectionPoint {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -10956,7 +11455,6 @@ impl ::core::fmt::Debug for TSSESSION_STATE {
         f.debug_tuple("TSSESSION_STATE").field(&self.0).finish()
     }
 }
-pub const TSUserExInterfaces: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0910dd01_df8c_11d1_ae27_00c04fa35813);
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -10987,16 +11485,6 @@ impl ::core::fmt::Debug for TS_SB_SORT_BY {
     }
 }
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const TS_VC_LISTENER_STATIC_CHANNEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const USERNAME_LENGTH: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VALIDATIONINFORMATION_HARDWAREID_LENGTH: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VALIDATIONINFORMATION_LICENSE_LENGTH: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VIRTUAL_CHANNEL_VERSION_WIN2000: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct VM_HOST_NOTIFY_STATUS(pub i32);
@@ -11025,6 +11513,1432 @@ unsafe impl ::windows::core::Abi for VM_HOST_NOTIFY_STATUS {
 impl ::core::fmt::Debug for VM_HOST_NOTIFY_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VM_HOST_NOTIFY_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VM_NOTIFY_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_COMPLETE: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(4i32);
+impl ::core::marker::Copy for VM_NOTIFY_STATUS {}
+impl ::core::clone::Clone for VM_NOTIFY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VM_NOTIFY_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VM_NOTIFY_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VM_NOTIFY_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VM_NOTIFY_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(1i32);
+impl ::core::marker::Copy for WRDS_CONNECTION_SETTING_LEVEL {}
+impl ::core::clone::Clone for WRDS_CONNECTION_SETTING_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRDS_CONNECTION_SETTING_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTING_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRDS_CONNECTION_SETTING_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRDS_CONNECTION_SETTING_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRDS_LISTENER_SETTING_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(1i32);
+impl ::core::marker::Copy for WRDS_LISTENER_SETTING_LEVEL {}
+impl ::core::clone::Clone for WRDS_LISTENER_SETTING_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRDS_LISTENER_SETTING_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTING_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRDS_LISTENER_SETTING_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRDS_LISTENER_SETTING_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRDS_SETTING_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(1i32);
+impl ::core::marker::Copy for WRDS_SETTING_LEVEL {}
+impl ::core::clone::Clone for WRDS_SETTING_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRDS_SETTING_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRDS_SETTING_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRDS_SETTING_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRDS_SETTING_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRDS_SETTING_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_NOTAPPLICABLE: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(-1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_ENABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_STATUS_NOTCONFIGURED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(2i32);
+impl ::core::marker::Copy for WRDS_SETTING_STATUS {}
+impl ::core::clone::Clone for WRDS_SETTING_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRDS_SETTING_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRDS_SETTING_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRDS_SETTING_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRDS_SETTING_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRDS_SETTING_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_INVALID: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(3i32);
+impl ::core::marker::Copy for WRDS_SETTING_TYPE {}
+impl ::core::clone::Clone for WRDS_SETTING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRDS_SETTING_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRDS_SETTING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRDS_SETTING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRDS_SETTING_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WRdsGraphicsChannelType(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(1i32);
+impl ::core::marker::Copy for WRdsGraphicsChannelType {}
+impl ::core::clone::Clone for WRdsGraphicsChannelType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WRdsGraphicsChannelType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WRdsGraphicsChannelType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WRdsGraphicsChannelType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WRdsGraphicsChannelType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTSSBX_ADDRESS_FAMILY(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_INET: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_INET6: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(4i32);
+impl ::core::marker::Copy for WTSSBX_ADDRESS_FAMILY {}
+impl ::core::clone::Clone for WTSSBX_ADDRESS_FAMILY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTSSBX_ADDRESS_FAMILY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTSSBX_ADDRESS_FAMILY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTSSBX_ADDRESS_FAMILY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTSSBX_ADDRESS_FAMILY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTSSBX_MACHINE_DRAIN(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(2i32);
+impl ::core::marker::Copy for WTSSBX_MACHINE_DRAIN {}
+impl ::core::clone::Clone for WTSSBX_MACHINE_DRAIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTSSBX_MACHINE_DRAIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_DRAIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTSSBX_MACHINE_DRAIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTSSBX_MACHINE_DRAIN").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTSSBX_MACHINE_SESSION_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_SESSION_MODE_SINGLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(2i32);
+impl ::core::marker::Copy for WTSSBX_MACHINE_SESSION_MODE {}
+impl ::core::clone::Clone for WTSSBX_MACHINE_SESSION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTSSBX_MACHINE_SESSION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_SESSION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTSSBX_MACHINE_SESSION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTSSBX_MACHINE_SESSION_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTSSBX_MACHINE_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_STATE_UNSPEC: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_STATE_READY: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_MACHINE_STATE_SYNCHRONIZING: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(2i32);
+impl ::core::marker::Copy for WTSSBX_MACHINE_STATE {}
+impl ::core::clone::Clone for WTSSBX_MACHINE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTSSBX_MACHINE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTSSBX_MACHINE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTSSBX_MACHINE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTSSBX_NOTIFICATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_CHANGED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_ADDED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(8i32);
+impl ::core::marker::Copy for WTSSBX_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for WTSSBX_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTSSBX_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTSSBX_NOTIFICATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTSSBX_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTSSBX_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTSSBX_SESSION_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(2i32);
+impl ::core::marker::Copy for WTSSBX_SESSION_STATE {}
+impl ::core::clone::Clone for WTSSBX_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTSSBX_SESSION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTSSBX_SESSION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTSSBX_SESSION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTSSBX_SESSION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_CERT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = WTS_CERT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = WTS_CERT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_CERT_TYPE_X509: WTS_CERT_TYPE = WTS_CERT_TYPE(2i32);
+impl ::core::marker::Copy for WTS_CERT_TYPE {}
+impl ::core::clone::Clone for WTS_CERT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_CERT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_CERT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_CERT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_CERT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_CONFIG_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigWorkingDirectory: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfInheritInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfAllowLogonTerminalServer: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTimeoutSettingsConnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTimeoutSettingsDisconnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTimeoutSettingsIdle: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfDeviceClientDrives: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfDeviceClientPrinters: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfDeviceClientDefaultPrinter: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigReconnectSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigModemCallbackSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigModemCallbackPhoneNumber: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigShadowingSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTerminalServerProfilePath: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTerminalServerHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigTerminalServerHomeDirDrive: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(17i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigfTerminalServerRemoteHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(18i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigUser: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(19i32);
+impl ::core::marker::Copy for WTS_CONFIG_CLASS {}
+impl ::core::clone::Clone for WTS_CONFIG_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_CONFIG_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_CONFIG_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_CONFIG_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_CONFIG_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_CONFIG_SOURCE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserConfigSourceSAM: WTS_CONFIG_SOURCE = WTS_CONFIG_SOURCE(0i32);
+impl ::core::marker::Copy for WTS_CONFIG_SOURCE {}
+impl ::core::clone::Clone for WTS_CONFIG_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_CONFIG_SOURCE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_CONFIG_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_CONFIG_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_CONFIG_SOURCE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_CONNECTSTATE_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSActive: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConnectQuery: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSShadow: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIdle: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSListen: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSReset: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSDown: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSInit: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(9i32);
+impl ::core::marker::Copy for WTS_CONNECTSTATE_CLASS {}
+impl ::core::clone::Clone for WTS_CONNECTSTATE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_CONNECTSTATE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_CONNECTSTATE_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_CONNECTSTATE_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_CONNECTSTATE_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_INFO_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSInitialProgram: WTS_INFO_CLASS = WTS_INFO_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSApplicationName: WTS_INFO_CLASS = WTS_INFO_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSWorkingDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSOEMId: WTS_INFO_CLASS = WTS_INFO_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSUserName: WTS_INFO_CLASS = WTS_INFO_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSWinStationName: WTS_INFO_CLASS = WTS_INFO_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSDomainName: WTS_INFO_CLASS = WTS_INFO_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConnectState: WTS_INFO_CLASS = WTS_INFO_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientName: WTS_INFO_CLASS = WTS_INFO_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientProductId: WTS_INFO_CLASS = WTS_INFO_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientHardwareId: WTS_INFO_CLASS = WTS_INFO_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientDisplay: WTS_INFO_CLASS = WTS_INFO_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientProtocolType: WTS_INFO_CLASS = WTS_INFO_CLASS(16i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIdleTime: WTS_INFO_CLASS = WTS_INFO_CLASS(17i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSLogonTime: WTS_INFO_CLASS = WTS_INFO_CLASS(18i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIncomingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(19i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSOutgoingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(20i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIncomingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(21i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSOutgoingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(22i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSClientInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(23i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(24i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionInfoEx: WTS_INFO_CLASS = WTS_INFO_CLASS(25i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSConfigInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(26i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSValidationInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(27i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSIsRemoteSession: WTS_INFO_CLASS = WTS_INFO_CLASS(29i32);
+impl ::core::marker::Copy for WTS_INFO_CLASS {}
+impl ::core::clone::Clone for WTS_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_INFO_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_INFO_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_INVALID: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_NOT_HANDLED: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(2i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(3i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(4i32);
+impl ::core::marker::Copy for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {}
+impl ::core::clone::Clone for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_LOGON_ERROR_REDIRECTOR_RESPONSE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_RCM_DRAIN_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRAIN_STATE_NONE: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_DRAIN_NOT_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(2i32);
+impl ::core::marker::Copy for WTS_RCM_DRAIN_STATE {}
+impl ::core::clone::Clone for WTS_RCM_DRAIN_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_RCM_DRAIN_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_RCM_DRAIN_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_RCM_DRAIN_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_RCM_DRAIN_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_RCM_SERVICE_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(2i32);
+impl ::core::marker::Copy for WTS_RCM_SERVICE_STATE {}
+impl ::core::clone::Clone for WTS_RCM_SERVICE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_RCM_SERVICE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_RCM_SERVICE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_RCM_SERVICE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_RCM_SERVICE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_TYPE_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = WTS_TYPE_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(2i32);
+impl ::core::marker::Copy for WTS_TYPE_CLASS {}
+impl ::core::clone::Clone for WTS_TYPE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_TYPE_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_TYPE_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_TYPE_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_TYPE_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WTS_VIRTUAL_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(1i32);
+impl ::core::marker::Copy for WTS_VIRTUAL_CLASS {}
+impl ::core::clone::Clone for WTS_VIRTUAL_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WTS_VIRTUAL_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WTS_VIRTUAL_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WTS_VIRTUAL_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WTS_VIRTUAL_CLASS").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AAAccountingData {
+    pub userName: super::super::Foundation::BSTR,
+    pub clientName: super::super::Foundation::BSTR,
+    pub authType: AAAuthSchemes,
+    pub resourceName: super::super::Foundation::BSTR,
+    pub portNumber: i32,
+    pub protocolName: super::super::Foundation::BSTR,
+    pub numberOfBytesReceived: i32,
+    pub numberOfBytesTransfered: i32,
+    pub reasonForDisconnect: super::super::Foundation::BSTR,
+    pub mainSessionId: ::windows::core::GUID,
+    pub subSessionId: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AAAccountingData {
+    fn clone(&self) -> Self {
+        Self {
+            userName: self.userName.clone(),
+            clientName: self.clientName.clone(),
+            authType: self.authType,
+            resourceName: self.resourceName.clone(),
+            portNumber: self.portNumber,
+            protocolName: self.protocolName.clone(),
+            numberOfBytesReceived: self.numberOfBytesReceived,
+            numberOfBytesTransfered: self.numberOfBytesTransfered,
+            reasonForDisconnect: self.reasonForDisconnect.clone(),
+            mainSessionId: self.mainSessionId,
+            subSessionId: self.subSessionId,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AAAccountingData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AAAccountingData")
+            .field("userName", &self.userName)
+            .field("clientName", &self.clientName)
+            .field("authType", &self.authType)
+            .field("resourceName", &self.resourceName)
+            .field("portNumber", &self.portNumber)
+            .field("protocolName", &self.protocolName)
+            .field("numberOfBytesReceived", &self.numberOfBytesReceived)
+            .field("numberOfBytesTransfered", &self.numberOfBytesTransfered)
+            .field("reasonForDisconnect", &self.reasonForDisconnect)
+            .field("mainSessionId", &self.mainSessionId)
+            .field("subSessionId", &self.subSessionId)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AAAccountingData {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AAAccountingData {
+    fn eq(&self, other: &Self) -> bool {
+        self.userName == other.userName && self.clientName == other.clientName && self.authType == other.authType && self.resourceName == other.resourceName && self.portNumber == other.portNumber && self.protocolName == other.protocolName && self.numberOfBytesReceived == other.numberOfBytesReceived && self.numberOfBytesTransfered == other.numberOfBytesTransfered && self.reasonForDisconnect == other.reasonForDisconnect && self.mainSessionId == other.mainSessionId && self.subSessionId == other.subSessionId
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AAAccountingData {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AAAccountingData {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct AE_CURRENT_POSITION {
+    pub u64DevicePosition: u64,
+    pub u64StreamPosition: u64,
+    pub u64PaddingFrames: u64,
+    pub hnsQPCPosition: i64,
+    pub f32FramesPerSecond: f32,
+    pub Flag: AE_POSITION_FLAGS,
+}
+impl ::core::marker::Copy for AE_CURRENT_POSITION {}
+impl ::core::clone::Clone for AE_CURRENT_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AE_CURRENT_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AE_CURRENT_POSITION").field("u64DevicePosition", &self.u64DevicePosition).field("u64StreamPosition", &self.u64StreamPosition).field("u64PaddingFrames", &self.u64PaddingFrames).field("hnsQPCPosition", &self.hnsQPCPosition).field("f32FramesPerSecond", &self.f32FramesPerSecond).field("Flag", &self.Flag).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AE_CURRENT_POSITION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AE_CURRENT_POSITION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AE_CURRENT_POSITION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AE_CURRENT_POSITION {}
+impl ::core::default::Default for AE_CURRENT_POSITION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct BITMAP_RENDERER_STATISTICS {
+    pub dwFramesDelivered: u32,
+    pub dwFramesDropped: u32,
+}
+impl ::core::marker::Copy for BITMAP_RENDERER_STATISTICS {}
+impl ::core::clone::Clone for BITMAP_RENDERER_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BITMAP_RENDERER_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BITMAP_RENDERER_STATISTICS").field("dwFramesDelivered", &self.dwFramesDelivered).field("dwFramesDropped", &self.dwFramesDropped).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BITMAP_RENDERER_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BITMAP_RENDERER_STATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BITMAP_RENDERER_STATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BITMAP_RENDERER_STATISTICS {}
+impl ::core::default::Default for BITMAP_RENDERER_STATISTICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHANNEL_DEF {
+    pub name: [super::super::Foundation::CHAR; 8],
+    pub options: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHANNEL_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHANNEL_DEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CHANNEL_DEF {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CHANNEL_DEF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_DEF>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CHANNEL_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CHANNEL_DEF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHANNEL_ENTRY_POINTS {
+    pub cbSize: u32,
+    pub protocolVersion: u32,
+    pub pVirtualChannelInit: PVIRTUALCHANNELINIT,
+    pub pVirtualChannelOpen: PVIRTUALCHANNELOPEN,
+    pub pVirtualChannelClose: PVIRTUALCHANNELCLOSE,
+    pub pVirtualChannelWrite: PVIRTUALCHANNELWRITE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHANNEL_ENTRY_POINTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHANNEL_ENTRY_POINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CHANNEL_ENTRY_POINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_ENTRY_POINTS").field("cbSize", &self.cbSize).field("protocolVersion", &self.protocolVersion).field("pVirtualChannelInit", &self.pVirtualChannelInit.map(|f| f as usize)).field("pVirtualChannelOpen", &self.pVirtualChannelOpen.map(|f| f as usize)).field("pVirtualChannelClose", &self.pVirtualChannelClose.map(|f| f as usize)).field("pVirtualChannelWrite", &self.pVirtualChannelWrite.map(|f| f as usize)).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CHANNEL_ENTRY_POINTS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CHANNEL_ENTRY_POINTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_ENTRY_POINTS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CHANNEL_ENTRY_POINTS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CHANNEL_ENTRY_POINTS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct CHANNEL_PDU_HEADER {
+    pub length: u32,
+    pub flags: u32,
+}
+impl ::core::marker::Copy for CHANNEL_PDU_HEADER {}
+impl ::core::clone::Clone for CHANNEL_PDU_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CHANNEL_PDU_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CHANNEL_PDU_HEADER").field("length", &self.length).field("flags", &self.flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CHANNEL_PDU_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CHANNEL_PDU_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANNEL_PDU_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CHANNEL_PDU_HEADER {}
+impl ::core::default::Default for CHANNEL_PDU_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct CLIENT_DISPLAY {
+    pub HorizontalResolution: u32,
+    pub VerticalResolution: u32,
+    pub ColorDepth: u32,
+}
+impl ::core::marker::Copy for CLIENT_DISPLAY {}
+impl ::core::clone::Clone for CLIENT_DISPLAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CLIENT_DISPLAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLIENT_DISPLAY").field("HorizontalResolution", &self.HorizontalResolution).field("VerticalResolution", &self.VerticalResolution).field("ColorDepth", &self.ColorDepth).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CLIENT_DISPLAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLIENT_DISPLAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENT_DISPLAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLIENT_DISPLAY {}
+impl ::core::default::Default for CLIENT_DISPLAY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HwtsVirtualChannelHandle(pub isize);
+impl HwtsVirtualChannelHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HwtsVirtualChannelHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HwtsVirtualChannelHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HwtsVirtualChannelHandle {}
+impl ::core::fmt::Debug for HwtsVirtualChannelHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HwtsVirtualChannelHandle").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HwtsVirtualChannelHandle>> for HwtsVirtualChannelHandle {
+    fn from(optional: ::core::option::Option<HwtsVirtualChannelHandle>) -> HwtsVirtualChannelHandle {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HwtsVirtualChannelHandle {
+    type Abi = Self;
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RFX_GFX_MONITOR_INFO {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+    pub physicalWidth: u32,
+    pub physicalHeight: u32,
+    pub orientation: u32,
+    pub primary: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RFX_GFX_MONITOR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RFX_GFX_MONITOR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RFX_GFX_MONITOR_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RFX_GFX_MONITOR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MONITOR_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RFX_GFX_MONITOR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RFX_GFX_MONITOR_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
+impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {}
+impl ::core::default::Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+    pub reserved: u32,
+    pub monitorCount: u32,
+    pub MonitorData: [RFX_GFX_MONITOR_INFO; 16],
+    pub clientUniqueId: [u16; 32],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
+impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {}
+impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+    pub ulWidth: u32,
+    pub ulHeight: u32,
+    pub ulBpp: u32,
+    pub Reserved: u32,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
+impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {}
+impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+    pub ulWidth: u32,
+    pub ulHeight: u32,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
+impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_INPUT_RESET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_INPUT_RESET {}
+impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_INPUT_RESET {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+    pub RedrawRect: RFX_GFX_RECT,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
+impl ::core::clone::Clone for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DESKTOP_RESEND_REQUEST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {}
+impl ::core::default::Default for RFX_GFX_MSG_DESKTOP_RESEND_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_DISCONNECT_NOTIFY {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+    pub DisconnectReason: u32,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
+impl ::core::clone::Clone for RFX_GFX_MSG_DISCONNECT_NOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_DISCONNECT_NOTIFY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_DISCONNECT_NOTIFY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_DISCONNECT_NOTIFY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_DISCONNECT_NOTIFY {}
+impl ::core::default::Default for RFX_GFX_MSG_DISCONNECT_NOTIFY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_HEADER {
+    pub uMSGType: u16,
+    pub cbSize: u16,
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_HEADER {}
+impl ::core::clone::Clone for RFX_GFX_MSG_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_HEADER {}
+impl ::core::default::Default for RFX_GFX_MSG_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_MSG_RDP_DATA {
+    pub channelHdr: RFX_GFX_MSG_HEADER,
+    pub rdpData: [u8; 1],
+}
+impl ::core::marker::Copy for RFX_GFX_MSG_RDP_DATA {}
+impl ::core::clone::Clone for RFX_GFX_MSG_RDP_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_MSG_RDP_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_MSG_RDP_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_MSG_RDP_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_MSG_RDP_DATA {}
+impl ::core::default::Default for RFX_GFX_MSG_RDP_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct RFX_GFX_RECT {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl ::core::marker::Copy for RFX_GFX_RECT {}
+impl ::core::clone::Clone for RFX_GFX_RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RFX_GFX_RECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RFX_GFX_RECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RFX_GFX_RECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RFX_GFX_RECT {}
+impl ::core::default::Default for RFX_GFX_RECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub struct TSSD_ConnectionPoint {
+    pub ServerAddressB: [u8; 16],
+    pub AddressType: TSSD_AddrV46Type,
+    pub PortNumber: u16,
+    pub AddressScope: u32,
+}
+impl ::core::marker::Copy for TSSD_ConnectionPoint {}
+impl ::core::clone::Clone for TSSD_ConnectionPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TSSD_ConnectionPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TSSD_ConnectionPoint").field("ServerAddressB", &self.ServerAddressB).field("AddressType", &self.AddressType).field("PortNumber", &self.PortNumber).field("AddressScope", &self.AddressScope).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TSSD_ConnectionPoint {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TSSD_ConnectionPoint {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TSSD_ConnectionPoint>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TSSD_ConnectionPoint {}
+impl ::core::default::Default for TSSD_ConnectionPoint {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -11089,39 +13003,6 @@ impl ::core::default::Default for VM_NOTIFY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VM_NOTIFY_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_PENDING: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_IN_PROGRESS: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_COMPLETE: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_FAILED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const VM_NOTIFY_STATUS_CANCELED: VM_NOTIFY_STATUS = VM_NOTIFY_STATUS(4i32);
-impl ::core::marker::Copy for VM_NOTIFY_STATUS {}
-impl ::core::clone::Clone for VM_NOTIFY_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VM_NOTIFY_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VM_NOTIFY_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VM_NOTIFY_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VM_NOTIFY_STATUS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct VM_PATCH_INFO {
@@ -11153,20 +13034,6 @@ impl ::core::default::Default for VM_PATCH_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WINSTATIONNAME_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WKS_FLAG_CREDS_AUTHENTICATED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WKS_FLAG_PASSWORD_ENCRYPTED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CLIENTADDRESS_LENGTH: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CLIENTNAME_LENGTH: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11328,41 +13195,6 @@ impl ::core::default::Default for WRDS_CONNECTION_SETTINGS_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WRDS_CONNECTION_SETTING_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CONNECTION_SETTING_LEVEL_INVALID: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_CONNECTION_SETTING_LEVEL_1: WRDS_CONNECTION_SETTING_LEVEL = WRDS_CONNECTION_SETTING_LEVEL(1i32);
-impl ::core::marker::Copy for WRDS_CONNECTION_SETTING_LEVEL {}
-impl ::core::clone::Clone for WRDS_CONNECTION_SETTING_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WRDS_CONNECTION_SETTING_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WRDS_CONNECTION_SETTING_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WRDS_CONNECTION_SETTING_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WRDS_CONNECTION_SETTING_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_DEVICE_NAME_LENGTH: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_DIRECTORY_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_DOMAIN_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_DRIVER_NAME_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
@@ -11401,18 +13233,6 @@ impl ::core::default::Default for WRDS_DYNAMIC_TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_IMEFILENAME_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_INITIALPROGRAM_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub union WRDS_LISTENER_SETTING {
@@ -11496,68 +13316,6 @@ impl ::core::default::Default for WRDS_LISTENER_SETTINGS_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WRDS_LISTENER_SETTING_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_LISTENER_SETTING_LEVEL_INVALID: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_LISTENER_SETTING_LEVEL_1: WRDS_LISTENER_SETTING_LEVEL = WRDS_LISTENER_SETTING_LEVEL(1i32);
-impl ::core::marker::Copy for WRDS_LISTENER_SETTING_LEVEL {}
-impl ::core::clone::Clone for WRDS_LISTENER_SETTING_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WRDS_LISTENER_SETTING_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WRDS_LISTENER_SETTING_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WRDS_LISTENER_SETTING_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WRDS_LISTENER_SETTING_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_MAX_CACHE_RESERVED: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_MAX_COUNTERS: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_MAX_PROTOCOL_CACHE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_MAX_RESERVED: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PASSWORD_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_NOTHING: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_THEMING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
-pub const WRDS_SERVICE_ID_GRAPHICS_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2993f4d_02cf_4280_8c48_1624b44f8706);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11724,134 +13482,6 @@ impl ::core::default::Default for WRDS_SETTINGS_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WRDS_SETTING_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_LEVEL_INVALID: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_LEVEL_1: WRDS_SETTING_LEVEL = WRDS_SETTING_LEVEL(1i32);
-impl ::core::marker::Copy for WRDS_SETTING_LEVEL {}
-impl ::core::clone::Clone for WRDS_SETTING_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WRDS_SETTING_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WRDS_SETTING_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WRDS_SETTING_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WRDS_SETTING_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WRDS_SETTING_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_NOTAPPLICABLE: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(-1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_DISABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_ENABLED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_STATUS_NOTCONFIGURED: WRDS_SETTING_STATUS = WRDS_SETTING_STATUS(2i32);
-impl ::core::marker::Copy for WRDS_SETTING_STATUS {}
-impl ::core::clone::Clone for WRDS_SETTING_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WRDS_SETTING_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WRDS_SETTING_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WRDS_SETTING_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WRDS_SETTING_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WRDS_SETTING_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_INVALID: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_MACHINE: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_USER: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_SETTING_TYPE_SAM: WRDS_SETTING_TYPE = WRDS_SETTING_TYPE(3i32);
-impl ::core::marker::Copy for WRDS_SETTING_TYPE {}
-impl ::core::clone::Clone for WRDS_SETTING_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WRDS_SETTING_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WRDS_SETTING_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WRDS_SETTING_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WRDS_SETTING_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_USERNAME_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_VALUE_TYPE_BINARY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_VALUE_TYPE_GUID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_VALUE_TYPE_STRING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRDS_VALUE_TYPE_ULONG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WRdsGraphicsChannelType(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRdsGraphicsChannelType_GuaranteedDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRdsGraphicsChannelType_BestEffortDelivery: WRdsGraphicsChannelType = WRdsGraphicsChannelType(1i32);
-impl ::core::marker::Copy for WRdsGraphicsChannelType {}
-impl ::core::clone::Clone for WRdsGraphicsChannelType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WRdsGraphicsChannelType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WRdsGraphicsChannelType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WRdsGraphicsChannelType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WRdsGraphicsChannelType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WRdsGraphicsChannels_LossyChannelMaxMessageSize: u32 = 988u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12107,334 +13737,6 @@ impl ::core::default::Default for WTSCONFIGINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSCloseServer<'a, P0>(hserver: P0)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSCloseServer(hserver: super::super::Foundation::HANDLE);
-    }
-    WTSCloseServer(hserver.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSConnectSessionA<'a, P0, P1>(logonid: u32, targetlogonid: u32, ppassword: P0, bwait: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSConnectSessionA(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSConnectSessionA(logonid, targetlogonid, ppassword.into(), bwait.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSConnectSessionW<'a, P0, P1>(logonid: u32, targetlogonid: u32, ppassword: P0, bwait: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSConnectSessionW(logonid: u32, targetlogonid: u32, ppassword: ::windows::core::PCWSTR, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSConnectSessionW(logonid, targetlogonid, ppassword.into(), bwait.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSCreateListenerA<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSCreateListenerA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *const WTSLISTENERCONFIGA, flag: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSCreateListenerA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSCreateListenerW<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSCreateListenerW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *const WTSLISTENERCONFIGW, flag: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSCreateListenerW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer), flag)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSDisconnectSession<'a, P0, P1>(hserver: P0, sessionid: u32, bwait: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSDisconnectSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSDisconnectSession(hserver.into(), sessionid, bwait.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnableChildSessions<'a, P0>(benable: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WTSEnableChildSessions(benable: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSEnableChildSessions(benable.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateListenersA<'a, P0>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateListenersA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut i8, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateListenersA(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateListenersW<'a, P0>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateListenersW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plisteners: *mut *mut u16, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateListenersW(hserver.into(), ::core::mem::transmute(preserved), reserved, ::core::mem::transmute(plisteners), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateProcessesA<'a, P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: &mut *mut WTS_PROCESS_INFOA, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateProcessesA(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateProcessesExA<'a, P0>(hserver: P0, plevel: &mut u32, sessionid: u32, ppprocessinfo: &mut ::windows::core::PSTR, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateProcessesExA(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateProcessesExW<'a, P0>(hserver: P0, plevel: &mut u32, sessionid: u32, ppprocessinfo: &mut ::windows::core::PWSTR, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, sessionid: u32, ppprocessinfo: *mut ::windows::core::PWSTR, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateProcessesExW(hserver.into(), ::core::mem::transmute(plevel), sessionid, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateProcessesW<'a, P0>(hserver: P0, reserved: u32, version: u32, ppprocessinfo: &mut *mut WTS_PROCESS_INFOW, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateProcessesW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppprocessinfo: *mut *mut WTS_PROCESS_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateProcessesW(hserver.into(), reserved, version, ::core::mem::transmute(ppprocessinfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateServersA<'a, P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: &mut *mut WTS_SERVER_INFOA, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateServersA(pdomainname: ::windows::core::PCSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateServersA(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateServersW<'a, P0>(pdomainname: P0, reserved: u32, version: u32, ppserverinfo: &mut *mut WTS_SERVER_INFOW, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateServersW(pdomainname: ::windows::core::PCWSTR, reserved: u32, version: u32, ppserverinfo: *mut *mut WTS_SERVER_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateServersW(pdomainname.into(), reserved, version, ::core::mem::transmute(ppserverinfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateSessionsA<'a, P0>(hserver: P0, reserved: u32, version: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFOA, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsA(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOA, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateSessionsA(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateSessionsExA<'a, P0>(hserver: P0, plevel: &mut u32, filter: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFO_1A, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsExA(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1A, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateSessionsExA(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateSessionsExW<'a, P0>(hserver: P0, plevel: &mut u32, filter: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFO_1W, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsExW(hserver: super::super::Foundation::HANDLE, plevel: *mut u32, filter: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFO_1W, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateSessionsExW(hserver.into(), ::core::mem::transmute(plevel), filter, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSEnumerateSessionsW<'a, P0>(hserver: P0, reserved: u32, version: u32, ppsessioninfo: &mut *mut WTS_SESSION_INFOW, pcount: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSEnumerateSessionsW(hserver: super::super::Foundation::HANDLE, reserved: u32, version: u32, ppsessioninfo: *mut *mut WTS_SESSION_INFOW, pcount: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSEnumerateSessionsW(hserver.into(), reserved, version, ::core::mem::transmute(ppsessioninfo), ::core::mem::transmute(pcount))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[inline]
-pub unsafe fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSFreeMemory(pmemory: *mut ::core::ffi::c_void);
-    }
-    WTSFreeMemory(::core::mem::transmute(pmemory))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSFreeMemoryExA(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSFreeMemoryExA(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSFreeMemoryExW(wtstypeclass: WTS_TYPE_CLASS, pmemory: *const ::core::ffi::c_void, numberofentries: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSFreeMemoryExW(wtstypeclass, ::core::mem::transmute(pmemory), numberofentries)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[inline]
-pub unsafe fn WTSGetActiveConsoleSessionId() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetActiveConsoleSessionId() -> u32;
-    }
-    WTSGetActiveConsoleSessionId()
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSGetChildSessionId(psessionid: &mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WTSGetChildSessionId(psessionid: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSGetChildSessionId(::core::mem::transmute(psessionid))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn WTSGetListenerSecurityA<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSGetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn WTSGetListenerSecurityW<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSGetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSGetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, ::core::mem::transmute(psecuritydescriptor), nlength, ::core::mem::transmute(lpnlengthneeded))
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -12820,16 +14122,6 @@ impl ::core::default::Default for WTSINFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSIsChildSessionsEnabled(pbenabled: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn WTSIsChildSessionsEnabled(pbenabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSIsChildSessionsEnabled(::core::mem::transmute(pbenabled))
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13022,224 +14314,6 @@ impl ::core::default::Default for WTSLISTENERCONFIGW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSLogoffSession<'a, P0, P1>(hserver: P0, sessionid: u32, bwait: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSLogoffSession(hserver: super::super::Foundation::HANDLE, sessionid: u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSLogoffSession(hserver.into(), sessionid, bwait.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSOpenServerA<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    WTSOpenServerA(pservername.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSOpenServerExA<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerExA(pservername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    WTSOpenServerExA(pservername.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSOpenServerExW<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerExW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
-    WTSOpenServerExW(pservername.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSOpenServerW<'a, P0>(pservername: P0) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSOpenServerW(pservername: ::windows::core::PCWSTR) -> super::super::Foundation::HANDLE;
-    }
-    WTSOpenServerW(pservername.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQueryListenerConfigA<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryListenerConfigA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, pbuffer: *mut WTSLISTENERCONFIGA) -> super::super::Foundation::BOOL;
-    }
-    WTSQueryListenerConfigA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQueryListenerConfigW<'a, P0, P1>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, pbuffer: &mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryListenerConfigW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, pbuffer: *mut WTSLISTENERCONFIGW) -> super::super::Foundation::BOOL;
-    }
-    WTSQueryListenerConfigW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), ::core::mem::transmute(pbuffer))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQuerySessionInformationA<'a, P0>(hserver: P0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: &mut ::windows::core::PSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQuerySessionInformationA(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSQuerySessionInformationA(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQuerySessionInformationW<'a, P0>(hserver: P0, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: &mut ::windows::core::PWSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQuerySessionInformationW(hserver: super::super::Foundation::HANDLE, sessionid: u32, wtsinfoclass: WTS_INFO_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSQuerySessionInformationW(hserver.into(), sessionid, wtsinfoclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQueryUserConfigA<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: &mut ::windows::core::PSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSQueryUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQueryUserConfigW<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: &mut ::windows::core::PWSTR, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, ppbuffer: *mut ::windows::core::PWSTR, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSQueryUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSQueryUserToken(sessionid: u32, phtoken: &mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSQueryUserToken(sessionid: u32, phtoken: *mut super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    WTSQueryUserToken(sessionid, ::core::mem::transmute(phtoken))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSRegisterSessionNotification<'a, P0>(hwnd: P0, dwflags: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSRegisterSessionNotification(hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSRegisterSessionNotification(hwnd.into(), dwflags)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSRegisterSessionNotificationEx<'a, P0, P1>(hserver: P0, hwnd: P1, dwflags: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND, dwflags: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSRegisterSessionNotificationEx(hserver.into(), hwnd.into(), dwflags)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTSSBX_ADDRESS_FAMILY(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_UNSPEC: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_INET: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_INET6: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_IPX: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_ADDRESS_FAMILY_AF_NETBIOS: WTSSBX_ADDRESS_FAMILY = WTSSBX_ADDRESS_FAMILY(4i32);
-impl ::core::marker::Copy for WTSSBX_ADDRESS_FAMILY {}
-impl ::core::clone::Clone for WTSSBX_ADDRESS_FAMILY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTSSBX_ADDRESS_FAMILY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTSSBX_ADDRESS_FAMILY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTSSBX_ADDRESS_FAMILY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTSSBX_ADDRESS_FAMILY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSSBX_IP_ADDRESS {
@@ -13306,35 +14380,6 @@ impl ::core::default::Default for WTSSBX_MACHINE_CONNECT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTSSBX_MACHINE_DRAIN(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_DRAIN_UNSPEC: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_DRAIN_OFF: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_DRAIN_ON: WTSSBX_MACHINE_DRAIN = WTSSBX_MACHINE_DRAIN(2i32);
-impl ::core::marker::Copy for WTSSBX_MACHINE_DRAIN {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_DRAIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTSSBX_MACHINE_DRAIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_DRAIN {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTSSBX_MACHINE_DRAIN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTSSBX_MACHINE_DRAIN").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSSBX_MACHINE_INFO {
@@ -13370,95 +14415,6 @@ impl ::core::cmp::Eq for WTSSBX_MACHINE_INFO {}
 impl ::core::default::Default for WTSSBX_MACHINE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTSSBX_MACHINE_SESSION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_SESSION_MODE_UNSPEC: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_SESSION_MODE_SINGLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_SESSION_MODE_MULTIPLE: WTSSBX_MACHINE_SESSION_MODE = WTSSBX_MACHINE_SESSION_MODE(2i32);
-impl ::core::marker::Copy for WTSSBX_MACHINE_SESSION_MODE {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_SESSION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTSSBX_MACHINE_SESSION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_SESSION_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTSSBX_MACHINE_SESSION_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTSSBX_MACHINE_SESSION_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTSSBX_MACHINE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_STATE_UNSPEC: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_STATE_READY: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_MACHINE_STATE_SYNCHRONIZING: WTSSBX_MACHINE_STATE = WTSSBX_MACHINE_STATE(2i32);
-impl ::core::marker::Copy for WTSSBX_MACHINE_STATE {}
-impl ::core::clone::Clone for WTSSBX_MACHINE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTSSBX_MACHINE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTSSBX_MACHINE_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTSSBX_MACHINE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTSSBX_MACHINE_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTSSBX_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_REMOVED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_CHANGED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_ADDED: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_NOTIFICATION_RESYNC: WTSSBX_NOTIFICATION_TYPE = WTSSBX_NOTIFICATION_TYPE(8i32);
-impl ::core::marker::Copy for WTSSBX_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WTSSBX_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTSSBX_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTSSBX_NOTIFICATION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTSSBX_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTSSBX_NOTIFICATION_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -13505,35 +14461,6 @@ impl ::core::default::Default for WTSSBX_SESSION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTSSBX_SESSION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_SESSION_STATE_UNSPEC: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_SESSION_STATE_ACTIVE: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSBX_SESSION_STATE_DISCONNECTED: WTSSBX_SESSION_STATE = WTSSBX_SESSION_STATE(2i32);
-impl ::core::marker::Copy for WTSSBX_SESSION_STATE {}
-impl ::core::clone::Clone for WTSSBX_SESSION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTSSBX_SESSION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTSSBX_SESSION_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTSSBX_SESSION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTSSBX_SESSION_STATE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTSSESSION_NOTIFICATION {
@@ -13564,167 +14491,6 @@ impl ::core::default::Default for WTSSESSION_NOTIFICATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn WTSSendMessageA<'a, P0, P1>(hserver: P0, sessionid: u32, ptitle: &[u8], pmessage: &[u8], style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: &mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSendMessageA(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCSTR, titlelength: u32, pmessage: ::windows::core::PCSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSSendMessageA(hserver.into(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, ::core::mem::transmute(presponse), bwait.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn WTSSendMessageW<'a, P0, P1>(hserver: P0, sessionid: u32, ptitle: &[u8], pmessage: &[u8], style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: &mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSendMessageW(hserver: super::super::Foundation::HANDLE, sessionid: u32, ptitle: ::windows::core::PCWSTR, titlelength: u32, pmessage: ::windows::core::PCWSTR, messagelength: u32, style: super::super::UI::WindowsAndMessaging::MESSAGEBOX_STYLE, timeout: u32, presponse: *mut super::super::UI::WindowsAndMessaging::MESSAGEBOX_RESULT, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WTSSendMessageW(hserver.into(), sessionid, ::core::mem::transmute(ptitle.as_ptr()), ptitle.len() as _, ::core::mem::transmute(pmessage.as_ptr()), pmessage.len() as _, style, timeout, ::core::mem::transmute(presponse), bwait.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn WTSSetListenerSecurityA<'a, P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetListenerSecurityA(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
-    }
-    WTSSetListenerSecurityA(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn WTSSetListenerSecurityW<'a, P0, P1, P2>(hserver: P0, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: P1, securityinformation: u32, psecuritydescriptor: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::Security::PSECURITY_DESCRIPTOR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetListenerSecurityW(hserver: super::super::Foundation::HANDLE, preserved: *const ::core::ffi::c_void, reserved: u32, plistenername: ::windows::core::PCWSTR, securityinformation: u32, psecuritydescriptor: super::super::Security::PSECURITY_DESCRIPTOR) -> super::super::Foundation::BOOL;
-    }
-    WTSSetListenerSecurityW(hserver.into(), ::core::mem::transmute(preserved), reserved, plistenername.into(), securityinformation, psecuritydescriptor.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSSetRenderHint<'a, P0>(prenderhintid: &mut u64, hwndowner: P0, renderhinttype: u32, phintdata: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetRenderHint(prenderhintid: *mut u64, hwndowner: super::super::Foundation::HWND, renderhinttype: u32, cbhintdatalength: u32, phintdata: *const u8) -> ::windows::core::HRESULT;
-    }
-    WTSSetRenderHint(::core::mem::transmute(prenderhintid), hwndowner.into(), renderhinttype, phintdata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(phintdata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr()))).ok()
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSSetUserConfigA<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetUserConfigA(pservername: ::windows::core::PCSTR, pusername: ::windows::core::PCSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCSTR, datalength: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSSetUserConfigA(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSSetUserConfigW<'a, P0, P1>(pservername: P0, pusername: P1, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: &[u8]) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSSetUserConfigW(pservername: ::windows::core::PCWSTR, pusername: ::windows::core::PCWSTR, wtsconfigclass: WTS_CONFIG_CLASS, pbuffer: ::windows::core::PCWSTR, datalength: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSSetUserConfigW(pservername.into(), pusername.into(), wtsconfigclass, ::core::mem::transmute(pbuffer.as_ptr()), pbuffer.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSShutdownSystem<'a, P0>(hserver: P0, shutdownflag: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSShutdownSystem(hserver: super::super::Foundation::HANDLE, shutdownflag: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSShutdownSystem(hserver.into(), shutdownflag)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSStartRemoteControlSessionA<'a, P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSStartRemoteControlSessionA(ptargetservername: ::windows::core::PCSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
-    }
-    WTSStartRemoteControlSessionA(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSStartRemoteControlSessionW<'a, P0>(ptargetservername: P0, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSStartRemoteControlSessionW(ptargetservername: ::windows::core::PCWSTR, targetlogonid: u32, hotkeyvk: u8, hotkeymodifiers: u16) -> super::super::Foundation::BOOL;
-    }
-    WTSStartRemoteControlSessionW(ptargetservername.into(), targetlogonid, hotkeyvk, hotkeymodifiers)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSStopRemoteControlSession(logonid: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSStopRemoteControlSession(logonid)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSTerminateProcess<'a, P0>(hserver: P0, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSTerminateProcess(hserver: super::super::Foundation::HANDLE, processid: u32, exitcode: u32) -> super::super::Foundation::BOOL;
-    }
-    WTSTerminateProcess(hserver.into(), processid, exitcode)
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -13866,152 +14632,6 @@ impl ::core::default::Default for WTSUSERCONFIGW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSUnRegisterSessionNotification<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSUnRegisterSessionNotification(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    WTSUnRegisterSessionNotification(hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSUnRegisterSessionNotificationEx<'a, P0, P1>(hserver: P0, hwnd: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSUnRegisterSessionNotificationEx(hserver: super::super::Foundation::HANDLE, hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    WTSUnRegisterSessionNotificationEx(hserver.into(), hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelClose<'a, P0>(hchannelhandle: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelClose(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    WTSVirtualChannelClose(hchannelhandle.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelOpen<'a, P0, P1>(hserver: P0, sessionid: u32, pvirtualname: P1) -> ::windows::core::Result<HwtsVirtualChannelHandle>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelOpen(hserver: super::super::Foundation::HANDLE, sessionid: u32, pvirtualname: ::windows::core::PCSTR) -> HwtsVirtualChannelHandle;
-    }
-    let result__ = WTSVirtualChannelOpen(hserver.into(), sessionid, pvirtualname.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[inline]
-pub unsafe fn WTSVirtualChannelOpenEx<'a, P0>(sessionid: u32, pvirtualname: P0, flags: u32) -> ::windows::core::Result<HwtsVirtualChannelHandle>
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelOpenEx(sessionid: u32, pvirtualname: ::windows::core::PCSTR, flags: u32) -> HwtsVirtualChannelHandle;
-    }
-    let result__ = WTSVirtualChannelOpenEx(sessionid, pvirtualname.into(), flags);
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelPurgeInput<'a, P0>(hchannelhandle: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelPurgeInput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    WTSVirtualChannelPurgeInput(hchannelhandle.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelPurgeOutput<'a, P0>(hchannelhandle: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelPurgeOutput(hchannelhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    WTSVirtualChannelPurgeOutput(hchannelhandle.into())
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelQuery<'a, P0>(hchannelhandle: P0, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::core::ffi::c_void, pbytesreturned: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelQuery(hchannelhandle: super::super::Foundation::HANDLE, param1: WTS_VIRTUAL_CLASS, ppbuffer: *mut *mut ::core::ffi::c_void, pbytesreturned: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSVirtualChannelQuery(hchannelhandle.into(), param1, ::core::mem::transmute(ppbuffer), ::core::mem::transmute(pbytesreturned))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelRead<'a, P0>(hchannelhandle: P0, timeout: u32, buffer: &mut [u8], pbytesread: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelRead(hchannelhandle: super::super::Foundation::HANDLE, timeout: u32, buffer: ::windows::core::PSTR, buffersize: u32, pbytesread: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSVirtualChannelRead(hchannelhandle.into(), timeout, ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(pbytesread))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSVirtualChannelWrite<'a, P0>(hchannelhandle: P0, buffer: &[u8], pbyteswritten: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSVirtualChannelWrite(hchannelhandle: super::super::Foundation::HANDLE, buffer: ::windows::core::PCSTR, length: u32, pbyteswritten: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSVirtualChannelWrite(hchannelhandle.into(), ::core::mem::transmute(buffer.as_ptr()), buffer.len() as _, ::core::mem::transmute(pbyteswritten))
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WTSWaitSystemEvent<'a, P0>(hserver: P0, eventmask: u32, peventflags: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WTSWaitSystemEvent(hserver: super::super::Foundation::HANDLE, eventmask: u32, peventflags: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    WTSWaitSystemEvent(hserver.into(), eventmask, ::core::mem::transmute(peventflags))
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_CACHE_STATS {
@@ -14067,51 +14687,6 @@ impl ::core::default::Default for WTS_CACHE_STATS_UN {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_CERT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CERT_TYPE_INVALID: WTS_CERT_TYPE = WTS_CERT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CERT_TYPE_PROPRIETORY: WTS_CERT_TYPE = WTS_CERT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CERT_TYPE_X509: WTS_CERT_TYPE = WTS_CERT_TYPE(2i32);
-impl ::core::marker::Copy for WTS_CERT_TYPE {}
-impl ::core::clone::Clone for WTS_CERT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_CERT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_CERT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_CERT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_CERT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CHANNEL_OPTION_DYNAMIC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CLIENTADDRESS_LENGTH: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CLIENTNAME_LENGTH: u32 = 20u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_CLIENT_ADDRESS {
@@ -14261,147 +14836,6 @@ impl ::core::default::Default for WTS_CLIENT_DISPLAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CLIENT_PRODUCT_ID_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_COMMENT_LENGTH: u32 = 60u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_CONFIG_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigWorkingDirectory: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfInheritInitialProgram: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfAllowLogonTerminalServer: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTimeoutSettingsConnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTimeoutSettingsDisconnections: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTimeoutSettingsIdle: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfDeviceClientDrives: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfDeviceClientPrinters: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfDeviceClientDefaultPrinter: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigBrokenTimeoutSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigReconnectSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigModemCallbackSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigModemCallbackPhoneNumber: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigShadowingSettings: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTerminalServerProfilePath: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTerminalServerHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigTerminalServerHomeDirDrive: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigfTerminalServerRemoteHomeDir: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigUser: WTS_CONFIG_CLASS = WTS_CONFIG_CLASS(19i32);
-impl ::core::marker::Copy for WTS_CONFIG_CLASS {}
-impl ::core::clone::Clone for WTS_CONFIG_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_CONFIG_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_CONFIG_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_CONFIG_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_CONFIG_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_CONFIG_SOURCE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserConfigSourceSAM: WTS_CONFIG_SOURCE = WTS_CONFIG_SOURCE(0i32);
-impl ::core::marker::Copy for WTS_CONFIG_SOURCE {}
-impl ::core::clone::Clone for WTS_CONFIG_SOURCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_CONFIG_SOURCE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_CONFIG_SOURCE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_CONFIG_SOURCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_CONFIG_SOURCE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_CONNECTSTATE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSActive: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConnectQuery: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSShadow: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSDisconnected: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIdle: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSListen: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSReset: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSDown: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSInit: WTS_CONNECTSTATE_CLASS = WTS_CONNECTSTATE_CLASS(9i32);
-impl ::core::marker::Copy for WTS_CONNECTSTATE_CLASS {}
-impl ::core::clone::Clone for WTS_CONNECTSTATE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_CONNECTSTATE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_CONNECTSTATE_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_CONNECTSTATE_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_CONNECTSTATE_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_CURRENT_SESSION: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DEVICE_NAME_LENGTH: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DIRECTORY_LENGTH: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_DISPLAY_IOCTL {
@@ -14433,127 +14867,6 @@ impl ::core::default::Default for WTS_DISPLAY_IOCTL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DOMAIN_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRIVER_NAME_LENGTH: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRIVE_LENGTH: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_ALL: u32 = 2147483647u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_CONNECT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_CREATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_DELETE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_DISCONNECT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_FLUSH: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_LICENSE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_LOGOFF: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_LOGON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_RENAME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_EVENT_STATECHANGE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_IMEFILENAME_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_INFO_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSInitialProgram: WTS_INFO_CLASS = WTS_INFO_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSApplicationName: WTS_INFO_CLASS = WTS_INFO_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSWorkingDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSOEMId: WTS_INFO_CLASS = WTS_INFO_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionId: WTS_INFO_CLASS = WTS_INFO_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSUserName: WTS_INFO_CLASS = WTS_INFO_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSWinStationName: WTS_INFO_CLASS = WTS_INFO_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSDomainName: WTS_INFO_CLASS = WTS_INFO_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConnectState: WTS_INFO_CLASS = WTS_INFO_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientBuildNumber: WTS_INFO_CLASS = WTS_INFO_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientName: WTS_INFO_CLASS = WTS_INFO_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientDirectory: WTS_INFO_CLASS = WTS_INFO_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientProductId: WTS_INFO_CLASS = WTS_INFO_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientHardwareId: WTS_INFO_CLASS = WTS_INFO_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientAddress: WTS_INFO_CLASS = WTS_INFO_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientDisplay: WTS_INFO_CLASS = WTS_INFO_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientProtocolType: WTS_INFO_CLASS = WTS_INFO_CLASS(16i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIdleTime: WTS_INFO_CLASS = WTS_INFO_CLASS(17i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSLogonTime: WTS_INFO_CLASS = WTS_INFO_CLASS(18i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIncomingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(19i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSOutgoingBytes: WTS_INFO_CLASS = WTS_INFO_CLASS(20i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIncomingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(21i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSOutgoingFrames: WTS_INFO_CLASS = WTS_INFO_CLASS(22i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSClientInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(24i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionInfoEx: WTS_INFO_CLASS = WTS_INFO_CLASS(25i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSConfigInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(26i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSValidationInfo: WTS_INFO_CLASS = WTS_INFO_CLASS(27i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSSessionAddressV4: WTS_INFO_CLASS = WTS_INFO_CLASS(28i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSIsRemoteSession: WTS_INFO_CLASS = WTS_INFO_CLASS(29i32);
-impl ::core::marker::Copy for WTS_INFO_CLASS {}
-impl ::core::clone::Clone for WTS_INFO_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_INFO_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_INFO_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_INFO_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_INFO_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_INITIALPROGRAM_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_KEY_EXCHANGE_ALG_DH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_KEY_EXCHANGE_ALG_RSA: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14597,81 +14910,6 @@ impl ::core::default::Default for WTS_LICENSE_CAPABILITIES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LICENSE_PREAMBLE_VERSION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LICENSE_PROTOCOL_VERSION: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LISTENER_CREATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LISTENER_NAME_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LISTENER_UPDATE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_INVALID: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_NOT_HANDLED: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_HANDLED_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(2i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(3i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_LOGON_ERR_HANDLED_DONT_SHOW_START_OVER: WTS_LOGON_ERROR_REDIRECTOR_RESPONSE = WTS_LOGON_ERROR_REDIRECTOR_RESPONSE(4i32);
-impl ::core::marker::Copy for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {}
-impl ::core::clone::Clone for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_LOGON_ERROR_REDIRECTOR_RESPONSE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_LOGON_ERROR_REDIRECTOR_RESPONSE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_MAX_CACHE_RESERVED: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_MAX_COUNTERS: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_MAX_DISPLAY_IOCTL_DATA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_MAX_PROTOCOL_CACHE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_MAX_RESERVED: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PASSWORD_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_CURSORSETTINGS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_CURSOR_SHADOW: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_FULLWINDOWDRAG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_MENUANIMATIONS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_NOTHING: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_THEMING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_DISABLE_WALLPAPER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_ENABLE_DESKTOP_COMPOSITION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_ENABLE_ENHANCED_GRAPHICS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PERF_ENABLE_FONT_SMOOTHING: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14936,12 +15174,6 @@ impl ::core::default::Default for WTS_PROCESS_INFO_EXW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROCESS_INFO_LEVEL_0: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROCESS_INFO_LEVEL_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROPERTY_DEFAULT_CONFIG: &str = "DefaultConfig";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_PROPERTY_VALUE {
@@ -15155,8 +15387,6 @@ impl ::core::default::Default for WTS_PROTOCOL_COUNTERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROTOCOL_NAME_LENGTH: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_PROTOCOL_STATUS {
@@ -15187,96 +15417,6 @@ impl ::core::default::Default for WTS_PROTOCOL_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROTOCOL_TYPE_CONSOLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROTOCOL_TYPE_ICA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_PROTOCOL_TYPE_RDP: u32 = 2u32;
-pub const WTS_QUERY_ALLOWED_INITIAL_APP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77d1b30_5be1_4c6b_a0e1_bd6d2e5c9fcc);
-pub const WTS_QUERY_AUDIOENUM_DLL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf4fa97_c883_4c2a_80ab_5a39c9af00db);
-pub const WTS_QUERY_LOGON_SCREEN_SIZE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b8e0fe7_0804_4a0e_b279_8660b1df0049);
-pub const WTS_QUERY_MF_FORMAT_SUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41869ad0_6332_4dc8_95d5_db749e2f1d94);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_RCM_DRAIN_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRAIN_STATE_NONE: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRAIN_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_DRAIN_NOT_IN_DRAIN: WTS_RCM_DRAIN_STATE = WTS_RCM_DRAIN_STATE(2i32);
-impl ::core::marker::Copy for WTS_RCM_DRAIN_STATE {}
-impl ::core::clone::Clone for WTS_RCM_DRAIN_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_RCM_DRAIN_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_RCM_DRAIN_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_RCM_DRAIN_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_RCM_DRAIN_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_RCM_SERVICE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SERVICE_NONE: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SERVICE_START: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SERVICE_STOP: WTS_RCM_SERVICE_STATE = WTS_RCM_SERVICE_STATE(2i32);
-impl ::core::marker::Copy for WTS_RCM_SERVICE_STATE {}
-impl ::core::clone::Clone for WTS_RCM_SERVICE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_RCM_SERVICE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_RCM_SERVICE_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_RCM_SERVICE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_RCM_SERVICE_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_CONNECT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_DISCONNECT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_GUEST_ACCESS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_LOGOFF: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_LOGON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_MESSAGE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_QUERY_INFORMATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_REMOTE_CONTROL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_RESET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_SET_INFORMATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SECURITY_VIRTUAL_CHANNELS: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_SERVER_INFOA {
@@ -15368,12 +15508,6 @@ impl ::core::default::Default for WTS_SERVICE_STATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SESSIONSTATE_LOCK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SESSIONSTATE_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_SESSIONSTATE_UNLOCK: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_SESSION_ADDRESS {
@@ -15797,37 +15931,6 @@ impl ::core::default::Default for WTS_TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_TYPE_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSTypeProcessInfoLevel0: WTS_TYPE_CLASS = WTS_TYPE_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSTypeProcessInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSTypeSessionInfoLevel1: WTS_TYPE_CLASS = WTS_TYPE_CLASS(2i32);
-impl ::core::marker::Copy for WTS_TYPE_CLASS {}
-impl ::core::clone::Clone for WTS_TYPE_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_TYPE_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_TYPE_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_TYPE_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_TYPE_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_USERNAME_LENGTH: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
 pub struct WTS_USER_CREDENTIAL {
@@ -15967,125 +16070,6 @@ impl ::core::default::Default for WTS_VALIDATION_INFORMATIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_VALUE_TYPE_BINARY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_VALUE_TYPE_GUID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_VALUE_TYPE_STRING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_VALUE_TYPE_ULONG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WTS_VIRTUAL_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSVirtualClientData: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTSVirtualFileHandle: WTS_VIRTUAL_CLASS = WTS_VIRTUAL_CLASS(1i32);
-impl ::core::marker::Copy for WTS_VIRTUAL_CLASS {}
-impl ::core::clone::Clone for WTS_VIRTUAL_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WTS_VIRTUAL_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WTS_VIRTUAL_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WTS_VIRTUAL_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WTS_VIRTUAL_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_WSD_FASTREBOOT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_WSD_LOGOFF: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_WSD_POWEROFF: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_WSD_REBOOT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
-pub const WTS_WSD_SHUTDOWN: u32 = 2u32;
-pub const Workspace: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1dfca6_3aad_48e1_8406_4bc21a501d7c);
-#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-pub struct _ITSWkspEvents(::windows::core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _ITSWkspEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ITSWkspEvents> for ::windows::core::IUnknown {
-    fn from(value: _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ITSWkspEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ITSWkspEvents> for ::windows::core::IUnknown {
-    fn from(value: &_ITSWkspEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_ITSWkspEvents> for super::Com::IDispatch {
-    fn from(value: _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _ITSWkspEvents> for &'a super::Com::IDispatch {
-    fn from(value: &'a _ITSWkspEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_ITSWkspEvents> for super::Com::IDispatch {
-    fn from(value: &_ITSWkspEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _ITSWkspEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _ITSWkspEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _ITSWkspEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _ITSWkspEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ITSWkspEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for _ITSWkspEvents {
-    type Vtable = _ITSWkspEvents_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb922bbb8_4c55_4fea_8496_beb0b44285e9);
-}
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct _ITSWkspEvents_Vtbl {
-    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
@@ -16277,5 +16261,21 @@ impl ::core::default::Default for pluginResource2FileAssociation {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub type PCHANNEL_INIT_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32)>;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub type PCHANNEL_OPEN_EVENT_FN = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, event: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, totallength: u32, dataflags: u32)>;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub type PVIRTUALCHANNELCLOSE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PVIRTUALCHANNELENTRY = ::core::option::Option<unsafe extern "system" fn(pentrypoints: *mut CHANNEL_ENTRY_POINTS) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PVIRTUALCHANNELINIT = ::core::option::Option<unsafe extern "system" fn(ppinithandle: *mut *mut ::core::ffi::c_void, pchannel: *mut CHANNEL_DEF, channelcount: i32, versionrequested: u32, pchanneliniteventproc: PCHANNEL_INIT_EVENT_FN) -> u32>;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub type PVIRTUALCHANNELOPEN = ::core::option::Option<unsafe extern "system" fn(pinithandle: *mut ::core::ffi::c_void, popenhandle: *mut u32, pchannelname: ::windows::core::PCSTR, pchannelopeneventproc: PCHANNEL_OPEN_EVENT_FN) -> u32>;
+#[doc = "*Required features: `\"Win32_System_RemoteDesktop\"`*"]
+pub type PVIRTUALCHANNELWRITE = ::core::option::Option<unsafe extern "system" fn(openhandle: u32, pdata: *mut ::core::ffi::c_void, datalength: u32, puserdata: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

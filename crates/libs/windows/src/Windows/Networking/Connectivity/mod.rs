@@ -1,3 +1,725 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAttributedNetworkUsage(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAttributedNetworkUsage {
+    type Vtable = IAttributedNetworkUsage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAttributedNetworkUsage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub AttributionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AttributionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Storage_Streams")]
+    pub AttributionThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    AttributionThumbnail: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICellularApnContext(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICellularApnContext {
+    type Vtable = ICellularApnContext_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICellularApnContext_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AccessPointName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetAccessPointName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Password: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub IsCompressionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsCompressionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub AuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CellularApnAuthenticationType) -> ::windows::core::HRESULT,
+    pub SetAuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CellularApnAuthenticationType) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICellularApnContext2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICellularApnContext2 {
+    type Vtable = ICellularApnContext2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICellularApnContext2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionCost(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionCost {
+    type Vtable = IConnectionCost_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionCost_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub NetworkCostType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkCostType) -> ::windows::core::HRESULT,
+    pub Roaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub OverDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub ApproachingDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionCost2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionCost2 {
+    type Vtable = IConnectionCost2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e113a05_e209_4549_bb25_5e0db691cb05);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionCost2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub BackgroundDataUsageRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfile(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfile {
+    type Vtable = IConnectionProfile_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfile_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub GetNetworkConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkConnectivityLevel) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNetworkNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNetworkNames: usize,
+    pub GetConnectionCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDataPlanStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NetworkAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetLocalUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetLocalUsage: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub GetLocalUsagePerRoamingStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    GetLocalUsagePerRoamingStates: usize,
+    pub NetworkSecuritySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfile2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfile2 {
+    type Vtable = IConnectionProfile2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfile2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsWwanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsWlanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub WwanConnectionProfileDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub WlanConnectionProfileDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ServiceProviderGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ServiceProviderGuid: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetSignalBars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetSignalBars: usize,
+    pub GetDomainConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DomainConnectivityLevel) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetNetworkUsageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetNetworkUsageAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetConnectivityIntervalsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetConnectivityIntervalsAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfile3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfile3 {
+    type Vtable = IConnectionProfile3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x578c2528_4cd9_4161_8045_201cfd5b115c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfile3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetAttributedNetworkUsageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetAttributedNetworkUsageAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfile4(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfile4 {
+    type Vtable = IConnectionProfile4_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfile4_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetProviderNetworkUsageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetProviderNetworkUsageAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfile5(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfile5 {
+    type Vtable = IConnectionProfile5_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfile5_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CanDelete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub TryDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TryDeleteAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfileFilter(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfileFilter {
+    type Vtable = IConnectionProfileFilter_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfileFilter_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SetIsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsWwanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IsWwanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetIsWlanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    pub IsWlanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub SetNetworkCostType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: NetworkCostType) -> ::windows::core::HRESULT,
+    pub NetworkCostType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkCostType) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SetServiceProviderGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetServiceProviderGuid: usize,
+    #[cfg(feature = "Foundation")]
+    pub ServiceProviderGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ServiceProviderGuid: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfileFilter2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfileFilter2 {
+    type Vtable = IConnectionProfileFilter2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfileFilter2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub SetIsRoaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetIsRoaming: usize,
+    #[cfg(feature = "Foundation")]
+    pub IsRoaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsRoaming: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetIsOverDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetIsOverDataLimit: usize,
+    #[cfg(feature = "Foundation")]
+    pub IsOverDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsOverDataLimit: usize,
+    #[cfg(feature = "Foundation")]
+    pub SetIsBackgroundDataUsageRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetIsBackgroundDataUsageRestricted: usize,
+    #[cfg(feature = "Foundation")]
+    pub IsBackgroundDataUsageRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsBackgroundDataUsageRestricted: usize,
+    #[cfg(feature = "Storage_Streams")]
+    pub RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_Streams"))]
+    RawData: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionProfileFilter3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionProfileFilter3 {
+    type Vtable = IConnectionProfileFilter3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionProfileFilter3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub SetPurposeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SetPurposeGuid: usize,
+    #[cfg(feature = "Foundation")]
+    pub PurposeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PurposeGuid: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectionSession(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectionSession {
+    type Vtable = IConnectionSession_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectionSession_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectivityInterval(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectivityInterval {
+    type Vtable = IConnectivityInterval_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectivityInterval_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    StartTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub ConnectionDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ConnectionDuration: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IConnectivityManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IConnectivityManagerStatics {
+    type Vtable = IConnectivityManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IConnectivityManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub AcquireConnectionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cellularapncontext: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AcquireConnectionAsync: usize,
+    pub AddHttpRoutePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, routepolicy: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RemoveHttpRoutePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, routepolicy: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDataPlanStatus(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDataPlanStatus {
+    type Vtable = IDataPlanStatus_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDataPlanStatus_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DataPlanUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub DataLimitInMegabytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DataLimitInMegabytes: usize,
+    #[cfg(feature = "Foundation")]
+    pub InboundBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    InboundBitsPerSecond: usize,
+    #[cfg(feature = "Foundation")]
+    pub OutboundBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    OutboundBitsPerSecond: usize,
+    #[cfg(feature = "Foundation")]
+    pub NextBillingCycle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    NextBillingCycle: usize,
+    #[cfg(feature = "Foundation")]
+    pub MaxTransferSizeInMegabytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    MaxTransferSizeInMegabytes: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDataPlanUsage(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDataPlanUsage {
+    type Vtable = IDataPlanUsage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDataPlanUsage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub MegabytesUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub LastSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    LastSyncTime: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct IDataUsage(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IDataUsage {
+    type Vtable = IDataUsage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDataUsage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    BytesSent: usize,
+    #[cfg(feature = "deprecated")]
+    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    BytesReceived: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IIPInformation(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IIPInformation {
+    type Vtable = IIPInformation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIPInformation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub NetworkAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub PrefixLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PrefixLength: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ILanIdentifier(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ILanIdentifier {
+    type Vtable = ILanIdentifier_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILanIdentifier_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub InfrastructureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub PortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NetworkAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ILanIdentifierData(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ILanIdentifierData {
+    type Vtable = ILanIdentifierData_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILanIdentifierData_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Value: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkAdapter(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkAdapter {
+    type Vtable = INetworkAdapter_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkAdapter_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub OutboundMaxBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub InboundMaxBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub IanaInterfaceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub NetworkItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub NetworkAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetConnectedProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetConnectedProfileAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkInformationStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkInformationStatics {
+    type Vtable = INetworkInformationStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5074f851_950d_4165_9c15_365619481eea);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkInformationStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetConnectionProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetConnectionProfiles: usize,
+    pub GetInternetConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetLanIdentifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetLanIdentifiers: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetHostNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetHostNames: usize,
+    #[cfg(feature = "Foundation")]
+    pub GetProxyConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetProxyConfigurationAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSortedEndpointPairs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationlist: *mut ::core::ffi::c_void, sortoptions: super::HostNameSortOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSortedEndpointPairs: usize,
+    #[cfg(feature = "Foundation")]
+    pub NetworkStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkstatushandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    NetworkStatusChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveNetworkStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveNetworkStatusChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkInformationStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkInformationStatics2 {
+    type Vtable = INetworkInformationStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ced14_2832_49b6_ba6e_e265f04786a8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkInformationStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub FindConnectionProfilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofilefilter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    FindConnectionProfilesAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkItem(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkItem {
+    type Vtable = INetworkItem_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkItem_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub NetworkId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub GetNetworkTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkTypes) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkSecuritySettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkSecuritySettings {
+    type Vtable = INetworkSecuritySettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkSecuritySettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub NetworkAuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkAuthenticationType) -> ::windows::core::HRESULT,
+    pub NetworkEncryptionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkEncryptionType) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkStateChangeEventDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails {
+    type Vtable = INetworkStateChangeEventDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkStateChangeEventDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub HasNewInternetConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasNewConnectionCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasNewNetworkConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasNewDomainConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasNewHostNameList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasNewWwanRegistrationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkStateChangeEventDetails2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails2 {
+    type Vtable = INetworkStateChangeEventDetails2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkStateChangeEventDetails2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub HasNewTetheringOperationalState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub HasNewTetheringClientCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct INetworkUsage(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for INetworkUsage {
+    type Vtable = INetworkUsage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetworkUsage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ConnectionDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ConnectionDuration: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IProviderNetworkUsage(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IProviderNetworkUsage {
+    type Vtable = IProviderNetworkUsage_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IProviderNetworkUsage_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    pub ProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IProxyConfiguration(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IProxyConfiguration {
+    type Vtable = IProxyConfiguration_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IProxyConfiguration_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ProxyUris: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ProxyUris: usize,
+    pub CanConnectDirectly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IRoutePolicy(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IRoutePolicy {
+    type Vtable = IRoutePolicy_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRoutePolicy_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub HostNameType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DomainNameType) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IRoutePolicyFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IRoutePolicyFactory {
+    type Vtable = IRoutePolicyFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36027933_a18e_4db5_a697_f58fa7364e44);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IRoutePolicyFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateRoutePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionprofile: *mut ::core::ffi::c_void, hostname: *mut ::core::ffi::c_void, r#type: super::DomainNameType, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWlanConnectionProfileDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWlanConnectionProfileDetails {
+    type Vtable = IWlanConnectionProfileDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWlanConnectionProfileDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetConnectedSsid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWwanConnectionProfileDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails {
+    type Vtable = IWwanConnectionProfileDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWwanConnectionProfileDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub HomeProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub AccessPointName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub GetNetworkRegistrationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WwanNetworkRegistrationState) -> ::windows::core::HRESULT,
+    pub GetCurrentDataClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WwanDataClass) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IWwanConnectionProfileDetails2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails2 {
+    type Vtable = IWwanConnectionProfileDetails2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWwanConnectionProfileDetails2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IPKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WwanNetworkIPKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub PurposeGuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    PurposeGuids: usize,
+}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct AttributedNetworkUsage(::windows::core::IUnknown);
@@ -102,42 +824,6 @@ impl ::core::convert::From<&AttributedNetworkUsage> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
 unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CellularApnAuthenticationType(pub i32);
-impl CellularApnAuthenticationType {
-    pub const None: Self = Self(0i32);
-    pub const Pap: Self = Self(1i32);
-    pub const Chap: Self = Self(2i32);
-    pub const Mschapv2: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CellularApnAuthenticationType {}
-impl ::core::clone::Clone for CellularApnAuthenticationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CellularApnAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CellularApnAuthenticationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CellularApnAuthenticationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct CellularApnContext(::windows::core::IUnknown);
@@ -632,42 +1318,6 @@ impl ::core::convert::From<&ConnectionProfile> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for ConnectionProfile {}
 unsafe impl ::core::marker::Sync for ConnectionProfile {}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConnectionProfileDeleteStatus(pub i32);
-impl ConnectionProfileDeleteStatus {
-    pub const Success: Self = Self(0i32);
-    pub const DeniedByUser: Self = Self(1i32);
-    pub const DeniedBySystem: Self = Self(2i32);
-    pub const UnknownError: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ConnectionProfileDeleteStatus {}
-impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConnectionProfileDeleteStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionProfileDeleteStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct ConnectionProfileFilter(::windows::core::IUnknown);
@@ -1418,693 +2068,6 @@ unsafe impl ::core::marker::Send for DataUsage {}
 unsafe impl ::core::marker::Sync for DataUsage {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DataUsageGranularity(pub i32);
-impl DataUsageGranularity {
-    pub const PerMinute: Self = Self(0i32);
-    pub const PerHour: Self = Self(1i32);
-    pub const PerDay: Self = Self(2i32);
-    pub const Total: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DataUsageGranularity {}
-impl ::core::clone::Clone for DataUsageGranularity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DataUsageGranularity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DataUsageGranularity {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DataUsageGranularity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataUsageGranularity").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DomainConnectivityLevel(pub i32);
-impl DomainConnectivityLevel {
-    pub const None: Self = Self(0i32);
-    pub const Unauthenticated: Self = Self(1i32);
-    pub const Authenticated: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DomainConnectivityLevel {}
-impl ::core::clone::Clone for DomainConnectivityLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DomainConnectivityLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DomainConnectivityLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DomainConnectivityLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DomainConnectivityLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAttributedNetworkUsage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAttributedNetworkUsage {
-    type Vtable = IAttributedNetworkUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAttributedNetworkUsage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub AttributionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AttributionName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage_Streams")]
-    pub AttributionThumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    AttributionThumbnail: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICellularApnContext(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICellularApnContext {
-    type Vtable = ICellularApnContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICellularApnContext_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AccessPointName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetAccessPointName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub UserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetUserName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Password: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetPassword: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub IsCompressionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsCompressionEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub AuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CellularApnAuthenticationType) -> ::windows::core::HRESULT,
-    pub SetAuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: CellularApnAuthenticationType) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICellularApnContext2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICellularApnContext2 {
-    type Vtable = ICellularApnContext2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICellularApnContext2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionCost(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionCost {
-    type Vtable = IConnectionCost_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionCost_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub NetworkCostType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkCostType) -> ::windows::core::HRESULT,
-    pub Roaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub OverDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub ApproachingDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionCost2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionCost2 {
-    type Vtable = IConnectionCost2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e113a05_e209_4549_bb25_5e0db691cb05);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionCost2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub BackgroundDataUsageRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfile(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfile {
-    type Vtable = IConnectionProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfile_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ProfileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub GetNetworkConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkConnectivityLevel) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNetworkNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNetworkNames: usize,
-    pub GetConnectionCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDataPlanStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NetworkAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetLocalUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetLocalUsage: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub GetLocalUsagePerRoamingStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    GetLocalUsagePerRoamingStates: usize,
-    pub NetworkSecuritySettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfile2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfile2 {
-    type Vtable = IConnectionProfile2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2045145_4c9f_400c_9150_7ec7d6e2888a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfile2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsWwanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsWlanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub WwanConnectionProfileDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub WlanConnectionProfileDetails: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ServiceProviderGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ServiceProviderGuid: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetSignalBars: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetSignalBars: usize,
-    pub GetDomainConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DomainConnectivityLevel) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetNetworkUsageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetNetworkUsageAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetConnectivityIntervalsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConnectivityIntervalsAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfile3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfile3 {
-    type Vtable = IConnectionProfile3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x578c2528_4cd9_4161_8045_201cfd5b115c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfile3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetAttributedNetworkUsageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetAttributedNetworkUsageAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfile4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfile4 {
-    type Vtable = IConnectionProfile4_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfile4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetProviderNetworkUsageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetProviderNetworkUsageAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfile5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfile5 {
-    type Vtable = IConnectionProfile5_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85361ec7_9c73_4be0_8f14_578eec71ee0e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfile5_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CanDelete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub TryDeleteAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TryDeleteAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfileFilter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfileFilter {
-    type Vtable = IConnectionProfileFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfileFilter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SetIsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub IsConnected: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsWwanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub IsWwanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetIsWlanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub IsWlanConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub SetNetworkCostType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: NetworkCostType) -> ::windows::core::HRESULT,
-    pub NetworkCostType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkCostType) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SetServiceProviderGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetServiceProviderGuid: usize,
-    #[cfg(feature = "Foundation")]
-    pub ServiceProviderGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ServiceProviderGuid: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfileFilter2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfileFilter2 {
-    type Vtable = IConnectionProfileFilter2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfileFilter2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub SetIsRoaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetIsRoaming: usize,
-    #[cfg(feature = "Foundation")]
-    pub IsRoaming: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsRoaming: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetIsOverDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetIsOverDataLimit: usize,
-    #[cfg(feature = "Foundation")]
-    pub IsOverDataLimit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsOverDataLimit: usize,
-    #[cfg(feature = "Foundation")]
-    pub SetIsBackgroundDataUsageRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetIsBackgroundDataUsageRestricted: usize,
-    #[cfg(feature = "Foundation")]
-    pub IsBackgroundDataUsageRestricted: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsBackgroundDataUsageRestricted: usize,
-    #[cfg(feature = "Storage_Streams")]
-    pub RawData: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    RawData: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionProfileFilter3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionProfileFilter3 {
-    type Vtable = IConnectionProfileFilter3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aaa09c0_5014_447c_8809_aee4cb0af94a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionProfileFilter3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub SetPurposeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SetPurposeGuid: usize,
-    #[cfg(feature = "Foundation")]
-    pub PurposeGuid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PurposeGuid: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectionSession(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectionSession {
-    type Vtable = IConnectionSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectionSession_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectivityInterval(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectivityInterval {
-    type Vtable = IConnectivityInterval_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectivityInterval_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub ConnectionDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ConnectionDuration: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IConnectivityManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IConnectivityManagerStatics {
-    type Vtable = IConnectivityManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IConnectivityManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub AcquireConnectionAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cellularapncontext: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AcquireConnectionAsync: usize,
-    pub AddHttpRoutePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, routepolicy: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RemoveHttpRoutePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, routepolicy: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDataPlanStatus(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDataPlanStatus {
-    type Vtable = IDataPlanStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDataPlanStatus_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DataPlanUsage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub DataLimitInMegabytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DataLimitInMegabytes: usize,
-    #[cfg(feature = "Foundation")]
-    pub InboundBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    InboundBitsPerSecond: usize,
-    #[cfg(feature = "Foundation")]
-    pub OutboundBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OutboundBitsPerSecond: usize,
-    #[cfg(feature = "Foundation")]
-    pub NextBillingCycle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    NextBillingCycle: usize,
-    #[cfg(feature = "Foundation")]
-    pub MaxTransferSizeInMegabytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    MaxTransferSizeInMegabytes: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDataPlanUsage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDataPlanUsage {
-    type Vtable = IDataPlanUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDataPlanUsage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub MegabytesUsed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub LastSyncTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    LastSyncTime: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct IDataUsage(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IDataUsage {
-    type Vtable = IDataUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDataUsage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    BytesSent: usize,
-    #[cfg(feature = "deprecated")]
-    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    BytesReceived: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IIPInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IIPInformation {
-    type Vtable = IIPInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IIPInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub NetworkAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub PrefixLength: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PrefixLength: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ILanIdentifier(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILanIdentifier {
-    type Vtable = ILanIdentifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ILanIdentifier_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub InfrastructureId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub PortId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NetworkAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ILanIdentifierData(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ILanIdentifierData {
-    type Vtable = ILanIdentifierData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ILanIdentifierData_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Type: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Value: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Value: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkAdapter(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkAdapter {
-    type Vtable = INetworkAdapter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkAdapter_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub OutboundMaxBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub InboundMaxBitsPerSecond: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub IanaInterfaceType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub NetworkItem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub NetworkAdapterId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetConnectedProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetConnectedProfileAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkInformationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkInformationStatics {
-    type Vtable = INetworkInformationStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5074f851_950d_4165_9c15_365619481eea);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkInformationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetConnectionProfiles: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetConnectionProfiles: usize,
-    pub GetInternetConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetLanIdentifiers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetLanIdentifiers: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetHostNames: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetHostNames: usize,
-    #[cfg(feature = "Foundation")]
-    pub GetProxyConfigurationAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetProxyConfigurationAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSortedEndpointPairs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, destinationlist: *mut ::core::ffi::c_void, sortoptions: super::HostNameSortOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSortedEndpointPairs: usize,
-    #[cfg(feature = "Foundation")]
-    pub NetworkStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkstatushandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    NetworkStatusChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveNetworkStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveNetworkStatusChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkInformationStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkInformationStatics2 {
-    type Vtable = INetworkInformationStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x459ced14_2832_49b6_ba6e_e265f04786a8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkInformationStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub FindConnectionProfilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofilefilter: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    FindConnectionProfilesAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkItem(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkItem {
-    type Vtable = INetworkItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkItem_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub NetworkId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub GetNetworkTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkTypes) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkSecuritySettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkSecuritySettings {
-    type Vtable = INetworkSecuritySettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkSecuritySettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub NetworkAuthenticationType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkAuthenticationType) -> ::windows::core::HRESULT,
-    pub NetworkEncryptionType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NetworkEncryptionType) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkStateChangeEventDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails {
-    type Vtable = INetworkStateChangeEventDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkStateChangeEventDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub HasNewInternetConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasNewConnectionCost: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasNewNetworkConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasNewDomainConnectivityLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasNewHostNameList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasNewWwanRegistrationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkStateChangeEventDetails2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkStateChangeEventDetails2 {
-    type Vtable = INetworkStateChangeEventDetails2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkStateChangeEventDetails2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub HasNewTetheringOperationalState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub HasNewTetheringClientCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct INetworkUsage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for INetworkUsage {
-    type Vtable = INetworkUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct INetworkUsage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ConnectionDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ConnectionDuration: usize,
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
 pub struct IPInformation(::windows::core::IUnknown);
 impl IPInformation {
     pub fn NetworkAdapter(&self) -> ::windows::core::Result<NetworkAdapter> {
@@ -2186,112 +2149,6 @@ impl ::core::convert::From<&IPInformation> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for IPInformation {}
 unsafe impl ::core::marker::Sync for IPInformation {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IProviderNetworkUsage(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProviderNetworkUsage {
-    type Vtable = IProviderNetworkUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IProviderNetworkUsage_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub BytesSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub BytesReceived: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub ProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IProxyConfiguration(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IProxyConfiguration {
-    type Vtable = IProxyConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IProxyConfiguration_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ProxyUris: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ProxyUris: usize,
-    pub CanConnectDirectly: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IRoutePolicy(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRoutePolicy {
-    type Vtable = IRoutePolicy_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IRoutePolicy_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ConnectionProfile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub HostName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub HostNameType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DomainNameType) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IRoutePolicyFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IRoutePolicyFactory {
-    type Vtable = IRoutePolicyFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36027933_a18e_4db5_a697_f58fa7364e44);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IRoutePolicyFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateRoutePolicy: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, connectionprofile: *mut ::core::ffi::c_void, hostname: *mut ::core::ffi::c_void, r#type: super::DomainNameType, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWlanConnectionProfileDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWlanConnectionProfileDetails {
-    type Vtable = IWlanConnectionProfileDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWlanConnectionProfileDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetConnectedSsid: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWwanConnectionProfileDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails {
-    type Vtable = IWwanConnectionProfileDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWwanConnectionProfileDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub HomeProviderId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub AccessPointName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub GetNetworkRegistrationState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WwanNetworkRegistrationState) -> ::windows::core::HRESULT,
-    pub GetCurrentDataClass: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WwanDataClass) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IWwanConnectionProfileDetails2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IWwanConnectionProfileDetails2 {
-    type Vtable = IWwanConnectionProfileDetails2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a754ede_a1ed_48b2_8e92_b460033d52e2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWwanConnectionProfileDetails2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IPKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WwanNetworkIPKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub PurposeGuids: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    PurposeGuids: usize,
-}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct LanIdentifier(::windows::core::IUnknown);
@@ -2574,169 +2431,6 @@ impl ::core::convert::From<&NetworkAdapter> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkAuthenticationType(pub i32);
-impl NetworkAuthenticationType {
-    pub const None: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const Open80211: Self = Self(2i32);
-    pub const SharedKey80211: Self = Self(3i32);
-    pub const Wpa: Self = Self(4i32);
-    pub const WpaPsk: Self = Self(5i32);
-    pub const WpaNone: Self = Self(6i32);
-    pub const Rsna: Self = Self(7i32);
-    pub const RsnaPsk: Self = Self(8i32);
-    pub const Ihv: Self = Self(9i32);
-    pub const Wpa3: Self = Self(10i32);
-    pub const Wpa3Enterprise192Bits: Self = Self(10i32);
-    pub const Wpa3Sae: Self = Self(11i32);
-    pub const Owe: Self = Self(12i32);
-    pub const Wpa3Enterprise: Self = Self(13i32);
-}
-impl ::core::marker::Copy for NetworkAuthenticationType {}
-impl ::core::clone::Clone for NetworkAuthenticationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkAuthenticationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkAuthenticationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkAuthenticationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkConnectivityLevel(pub i32);
-impl NetworkConnectivityLevel {
-    pub const None: Self = Self(0i32);
-    pub const LocalAccess: Self = Self(1i32);
-    pub const ConstrainedInternetAccess: Self = Self(2i32);
-    pub const InternetAccess: Self = Self(3i32);
-}
-impl ::core::marker::Copy for NetworkConnectivityLevel {}
-impl ::core::clone::Clone for NetworkConnectivityLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkConnectivityLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkConnectivityLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkConnectivityLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkCostType(pub i32);
-impl NetworkCostType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Unrestricted: Self = Self(1i32);
-    pub const Fixed: Self = Self(2i32);
-    pub const Variable: Self = Self(3i32);
-}
-impl ::core::marker::Copy for NetworkCostType {}
-impl ::core::clone::Clone for NetworkCostType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkCostType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkCostType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkCostType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkCostType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkCostType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkEncryptionType(pub i32);
-impl NetworkEncryptionType {
-    pub const None: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const Wep: Self = Self(2i32);
-    pub const Wep40: Self = Self(3i32);
-    pub const Wep104: Self = Self(4i32);
-    pub const Tkip: Self = Self(5i32);
-    pub const Ccmp: Self = Self(6i32);
-    pub const WpaUseGroup: Self = Self(7i32);
-    pub const RsnUseGroup: Self = Self(8i32);
-    pub const Ihv: Self = Self(9i32);
-    pub const Gcmp: Self = Self(10i32);
-    pub const Gcmp256: Self = Self(11i32);
-}
-impl ::core::marker::Copy for NetworkEncryptionType {}
-impl ::core::clone::Clone for NetworkEncryptionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkEncryptionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkEncryptionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkEncryptionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkEncryptionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 pub struct NetworkInformation;
 impl NetworkInformation {
@@ -3121,156 +2815,6 @@ unsafe impl ::core::marker::Send for NetworkStateChangeEventDetails {}
 unsafe impl ::core::marker::Sync for NetworkStateChangeEventDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-pub struct NetworkStatusChangedEventHandler(pub ::windows::core::IUnknown);
-impl NetworkStatusChangedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = NetworkStatusChangedEventHandlerBox::<F> { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct NetworkStatusChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const NetworkStatusChangedEventHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
-    const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<NetworkStatusChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender)).into()
-    }
-}
-impl ::core::clone::Clone for NetworkStatusChangedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for NetworkStatusChangedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkStatusChangedEventHandler {}
-impl ::core::fmt::Debug for NetworkStatusChangedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkStatusChangedEventHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for NetworkStatusChangedEventHandler {
-    type Vtable = NetworkStatusChangedEventHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
-}
-unsafe impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{71ba143f-598e-49d0-84eb-8febaedcc195}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct NetworkStatusChangedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkTypes(pub u32);
-impl NetworkTypes {
-    pub const None: Self = Self(0u32);
-    pub const Internet: Self = Self(1u32);
-    pub const PrivateNetwork: Self = Self(2u32);
-}
-impl ::core::marker::Copy for NetworkTypes {}
-impl ::core::clone::Clone for NetworkTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkTypes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkTypes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkTypes").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NetworkTypes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NetworkTypes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NetworkTypes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NetworkTypes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NetworkTypes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkTypes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
 pub struct NetworkUsage(::windows::core::IUnknown);
 impl NetworkUsage {
     pub fn BytesSent(&self) -> ::windows::core::Result<u64> {
@@ -3359,44 +2903,6 @@ impl ::core::convert::From<&NetworkUsage> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for NetworkUsage {}
 unsafe impl ::core::marker::Sync for NetworkUsage {}
-#[repr(C)]
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-pub struct NetworkUsageStates {
-    pub Roaming: TriStates,
-    pub Shared: TriStates,
-}
-impl ::core::marker::Copy for NetworkUsageStates {}
-impl ::core::clone::Clone for NetworkUsageStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NetworkUsageStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NetworkUsageStates").field("Roaming", &self.Roaming).field("Shared", &self.Shared).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkUsageStates {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for NetworkUsageStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for NetworkUsageStates {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NetworkUsageStates>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NetworkUsageStates {}
-impl ::core::default::Default for NetworkUsageStates {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct ProviderNetworkUsage(::windows::core::IUnknown);
@@ -3570,69 +3076,6 @@ unsafe impl ::core::marker::Send for ProxyConfiguration {}
 unsafe impl ::core::marker::Sync for ProxyConfiguration {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RoamingStates(pub u32);
-impl RoamingStates {
-    pub const None: Self = Self(0u32);
-    pub const NotRoaming: Self = Self(1u32);
-    pub const Roaming: Self = Self(2u32);
-}
-impl ::core::marker::Copy for RoamingStates {}
-impl ::core::clone::Clone for RoamingStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RoamingStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RoamingStates {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RoamingStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RoamingStates").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for RoamingStates {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for RoamingStates {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for RoamingStates {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for RoamingStates {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for RoamingStates {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RoamingStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
 pub struct RoutePolicy(::windows::core::IUnknown);
 impl RoutePolicy {
     pub fn ConnectionProfile(&self) -> ::windows::core::Result<ConnectionProfile> {
@@ -3734,41 +3177,6 @@ impl ::core::convert::From<&RoutePolicy> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for RoutePolicy {}
 unsafe impl ::core::marker::Sync for RoutePolicy {}
-#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TriStates(pub i32);
-impl TriStates {
-    pub const DoNotCare: Self = Self(0i32);
-    pub const No: Self = Self(1i32);
-    pub const Yes: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TriStates {}
-impl ::core::clone::Clone for TriStates {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TriStates {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TriStates {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TriStates {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TriStates").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TriStates {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 pub struct WlanConnectionProfileDetails(::windows::core::IUnknown);
@@ -3957,6 +3365,473 @@ unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CellularApnAuthenticationType(pub i32);
+impl CellularApnAuthenticationType {
+    pub const None: Self = Self(0i32);
+    pub const Pap: Self = Self(1i32);
+    pub const Chap: Self = Self(2i32);
+    pub const Mschapv2: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CellularApnAuthenticationType {}
+impl ::core::clone::Clone for CellularApnAuthenticationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CellularApnAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CellularApnAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularApnAuthenticationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CellularApnAuthenticationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.CellularApnAuthenticationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConnectionProfileDeleteStatus(pub i32);
+impl ConnectionProfileDeleteStatus {
+    pub const Success: Self = Self(0i32);
+    pub const DeniedByUser: Self = Self(1i32);
+    pub const DeniedBySystem: Self = Self(2i32);
+    pub const UnknownError: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ConnectionProfileDeleteStatus {}
+impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConnectionProfileDeleteStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionProfileDeleteStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ConnectionProfileDeleteStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.ConnectionProfileDeleteStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DataUsageGranularity(pub i32);
+impl DataUsageGranularity {
+    pub const PerMinute: Self = Self(0i32);
+    pub const PerHour: Self = Self(1i32);
+    pub const PerDay: Self = Self(2i32);
+    pub const Total: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DataUsageGranularity {}
+impl ::core::clone::Clone for DataUsageGranularity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DataUsageGranularity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DataUsageGranularity {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataUsageGranularity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataUsageGranularity").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DataUsageGranularity {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DataUsageGranularity;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DomainConnectivityLevel(pub i32);
+impl DomainConnectivityLevel {
+    pub const None: Self = Self(0i32);
+    pub const Unauthenticated: Self = Self(1i32);
+    pub const Authenticated: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DomainConnectivityLevel {}
+impl ::core::clone::Clone for DomainConnectivityLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DomainConnectivityLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DomainConnectivityLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DomainConnectivityLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DomainConnectivityLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.DomainConnectivityLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkAuthenticationType(pub i32);
+impl NetworkAuthenticationType {
+    pub const None: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const Open80211: Self = Self(2i32);
+    pub const SharedKey80211: Self = Self(3i32);
+    pub const Wpa: Self = Self(4i32);
+    pub const WpaPsk: Self = Self(5i32);
+    pub const WpaNone: Self = Self(6i32);
+    pub const Rsna: Self = Self(7i32);
+    pub const RsnaPsk: Self = Self(8i32);
+    pub const Ihv: Self = Self(9i32);
+    pub const Wpa3: Self = Self(10i32);
+    pub const Wpa3Enterprise192Bits: Self = Self(10i32);
+    pub const Wpa3Sae: Self = Self(11i32);
+    pub const Owe: Self = Self(12i32);
+    pub const Wpa3Enterprise: Self = Self(13i32);
+}
+impl ::core::marker::Copy for NetworkAuthenticationType {}
+impl ::core::clone::Clone for NetworkAuthenticationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkAuthenticationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkAuthenticationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkAuthenticationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkAuthenticationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkAuthenticationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkConnectivityLevel(pub i32);
+impl NetworkConnectivityLevel {
+    pub const None: Self = Self(0i32);
+    pub const LocalAccess: Self = Self(1i32);
+    pub const ConstrainedInternetAccess: Self = Self(2i32);
+    pub const InternetAccess: Self = Self(3i32);
+}
+impl ::core::marker::Copy for NetworkConnectivityLevel {}
+impl ::core::clone::Clone for NetworkConnectivityLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkConnectivityLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkConnectivityLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkConnectivityLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkConnectivityLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkConnectivityLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkCostType(pub i32);
+impl NetworkCostType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Unrestricted: Self = Self(1i32);
+    pub const Fixed: Self = Self(2i32);
+    pub const Variable: Self = Self(3i32);
+}
+impl ::core::marker::Copy for NetworkCostType {}
+impl ::core::clone::Clone for NetworkCostType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkCostType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkCostType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkCostType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkCostType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkCostType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkCostType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkEncryptionType(pub i32);
+impl NetworkEncryptionType {
+    pub const None: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const Wep: Self = Self(2i32);
+    pub const Wep40: Self = Self(3i32);
+    pub const Wep104: Self = Self(4i32);
+    pub const Tkip: Self = Self(5i32);
+    pub const Ccmp: Self = Self(6i32);
+    pub const WpaUseGroup: Self = Self(7i32);
+    pub const RsnUseGroup: Self = Self(8i32);
+    pub const Ihv: Self = Self(9i32);
+    pub const Gcmp: Self = Self(10i32);
+    pub const Gcmp256: Self = Self(11i32);
+}
+impl ::core::marker::Copy for NetworkEncryptionType {}
+impl ::core::clone::Clone for NetworkEncryptionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkEncryptionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkEncryptionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkEncryptionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkEncryptionType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkEncryptionType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkTypes(pub u32);
+impl NetworkTypes {
+    pub const None: Self = Self(0u32);
+    pub const Internet: Self = Self(1u32);
+    pub const PrivateNetwork: Self = Self(2u32);
+}
+impl ::core::marker::Copy for NetworkTypes {}
+impl ::core::clone::Clone for NetworkTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkTypes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkTypes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkTypes").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NetworkTypes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NetworkTypes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NetworkTypes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NetworkTypes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NetworkTypes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkTypes {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.NetworkTypes;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RoamingStates(pub u32);
+impl RoamingStates {
+    pub const None: Self = Self(0u32);
+    pub const NotRoaming: Self = Self(1u32);
+    pub const Roaming: Self = Self(2u32);
+}
+impl ::core::marker::Copy for RoamingStates {}
+impl ::core::clone::Clone for RoamingStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RoamingStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RoamingStates {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RoamingStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoamingStates").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RoamingStates {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RoamingStates {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RoamingStates {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RoamingStates {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RoamingStates {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RoamingStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.RoamingStates;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TriStates(pub i32);
+impl TriStates {
+    pub const DoNotCare: Self = Self(0i32);
+    pub const No: Self = Self(1i32);
+    pub const Yes: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TriStates {}
+impl ::core::clone::Clone for TriStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TriStates {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TriStates {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TriStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriStates").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TriStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Connectivity.TriStates;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
     pub const None: Self = Self(0u32);
@@ -4104,6 +3979,131 @@ unsafe impl ::windows::core::RuntimeType for WwanNetworkRegistrationState {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+pub struct NetworkUsageStates {
+    pub Roaming: TriStates,
+    pub Shared: TriStates,
+}
+impl ::core::marker::Copy for NetworkUsageStates {}
+impl ::core::clone::Clone for NetworkUsageStates {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NetworkUsageStates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NetworkUsageStates").field("Roaming", &self.Roaming).field("Shared", &self.Shared).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkUsageStates {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for NetworkUsageStates {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Connectivity.NetworkUsageStates;enum(Windows.Networking.Connectivity.TriStates;i4);enum(Windows.Networking.Connectivity.TriStates;i4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for NetworkUsageStates {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NetworkUsageStates>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NetworkUsageStates {}
+impl ::core::default::Default for NetworkUsageStates {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+#[repr(transparent)]
+pub struct NetworkStatusChangedEventHandler(pub ::windows::core::IUnknown);
+impl NetworkStatusChangedEventHandler {
+    pub fn new<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = NetworkStatusChangedEventHandlerBox::<F> { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct NetworkStatusChangedEventHandlerBox<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const NetworkStatusChangedEventHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
+    const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<NetworkStatusChangedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
+    }
+}
+impl ::core::clone::Clone for NetworkStatusChangedEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for NetworkStatusChangedEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for NetworkStatusChangedEventHandler {}
+impl ::core::fmt::Debug for NetworkStatusChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkStatusChangedEventHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for NetworkStatusChangedEventHandler {
+    type Vtable = NetworkStatusChangedEventHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143f_598e_49d0_84eb_8febaedcc195);
+}
+unsafe impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{71ba143f-598e-49d0-84eb-8febaedcc195}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct NetworkStatusChangedEventHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

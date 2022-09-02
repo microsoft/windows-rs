@@ -92,35 +92,6 @@ where
 }
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DtdProcessing(pub i32);
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-pub const DtdProcessing_Prohibit: DtdProcessing = DtdProcessing(0i32);
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-pub const DtdProcessing_Parse: DtdProcessing = DtdProcessing(1i32);
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-pub const _DtdProcessing_Last: DtdProcessing = DtdProcessing(1i32);
-impl ::core::marker::Copy for DtdProcessing {}
-impl ::core::clone::Clone for DtdProcessing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DtdProcessing {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DtdProcessing {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DtdProcessing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtdProcessing").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
-#[repr(transparent)]
 pub struct IXmlReader(::windows::core::IUnknown);
 impl IXmlReader {
     pub unsafe fn SetInput<'a, P0>(&self, pinput: P0) -> ::windows::core::Result<()>
@@ -811,6 +782,38 @@ pub struct IXmlWriterLite_Vtbl {
     pub WriteWhitespace: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszwhitespace: ::windows::core::PCWSTR) -> ::windows::core::HRESULT,
     pub Flush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+pub const _IID_IXmlReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
+pub const _IID_IXmlResolver: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
+pub const _IID_IXmlWriter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
+#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DtdProcessing(pub i32);
+#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
+pub const DtdProcessing_Prohibit: DtdProcessing = DtdProcessing(0i32);
+#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
+pub const DtdProcessing_Parse: DtdProcessing = DtdProcessing(1i32);
+#[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
+pub const _DtdProcessing_Last: DtdProcessing = DtdProcessing(1i32);
+impl ::core::marker::Copy for DtdProcessing {}
+impl ::core::clone::Clone for DtdProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DtdProcessing {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DtdProcessing {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DtdProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtdProcessing").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1224,8 +1227,5 @@ impl ::core::fmt::Debug for XmlWriterProperty {
         f.debug_tuple("XmlWriterProperty").field(&self.0).finish()
     }
 }
-pub const _IID_IXmlReader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc81_709d_4095_b63d_69fe4b0d9030);
-pub const _IID_IXmlResolver: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc82_709d_4095_b63d_69fe4b0d9030);
-pub const _IID_IXmlWriter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7279fc88_709d_4095_b63d_69fe4b0d9030);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,3 +1,267 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFileInformationFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IFileInformationFactory {
+    type Vtable = IFileInformationFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFileInformationFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetItemsAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetItemsAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetItemsAsyncDefaultStartAndCount: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFilesAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFilesAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFilesAsyncDefaultStartAndCount: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFoldersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFoldersAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetFoldersAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetFoldersAsyncDefaultStartAndCount: usize,
+    pub GetVirtualizedItemsVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetVirtualizedFilesVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetVirtualizedFoldersVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFileInformationFactoryFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IFileInformationFactoryFactory {
+    type Vtable = IFileInformationFactoryFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFileInformationFactoryFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithMode: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithModeAndSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithModeAndSize: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithModeAndSizeAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithModeAndSizeAndOptions: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
+    pub CreateWithModeAndSizeAndOptionsAndFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
+    CreateWithModeAndSizeAndOptionsAndFlags: usize,
+}
+#[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
+#[repr(transparent)]
+pub struct IStorageItemInformation(::windows::core::IUnknown);
+impl IStorageItemInformation {
+    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn MusicProperties(&self) -> ::windows::core::Result<super::FileProperties::MusicProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MusicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::MusicProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn VideoProperties(&self) -> ::windows::core::Result<super::FileProperties::VideoProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VideoProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::VideoProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn ImageProperties(&self) -> ::windows::core::Result<super::FileProperties::ImageProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ImageProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::ImageProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn DocumentProperties(&self) -> ::windows::core::Result<super::FileProperties::DocumentProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DocumentProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::DocumentProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
+    #[cfg(feature = "Storage_FileProperties")]
+    pub fn BasicProperties(&self) -> ::windows::core::Result<super::FileProperties::BasicProperties> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BasicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::BasicProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub fn Thumbnail(&self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ThumbnailUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ThumbnailUpdated)(::windows::core::Interface::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveThumbnailUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveThumbnailUpdated)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PropertiesUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PropertiesUpdated)(::windows::core::Interface::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemovePropertiesUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesUpdated)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
+    }
+}
+impl ::core::convert::From<IStorageItemInformation> for ::windows::core::IUnknown {
+    fn from(value: IStorageItemInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IStorageItemInformation> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IStorageItemInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IStorageItemInformation> for ::windows::core::IUnknown {
+    fn from(value: &IStorageItemInformation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<IStorageItemInformation> for ::windows::core::IInspectable {
+    fn from(value: IStorageItemInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IStorageItemInformation> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IStorageItemInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IStorageItemInformation> for ::windows::core::IInspectable {
+    fn from(value: &IStorageItemInformation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for IStorageItemInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IStorageItemInformation {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IStorageItemInformation {}
+impl ::core::fmt::Debug for IStorageItemInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemInformation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IStorageItemInformation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for IStorageItemInformation {
+    type Vtable = IStorageItemInformation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStorageItemInformation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    MusicProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub VideoProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    VideoProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub ImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    ImageProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub DocumentProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    DocumentProperties: usize,
+    #[cfg(feature = "Storage_FileProperties")]
+    pub BasicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage_FileProperties"))]
+    BasicProperties: usize,
+    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
+    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
+    Thumbnail: usize,
+    #[cfg(feature = "Foundation")]
+    pub ThumbnailUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ThumbnailUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveThumbnailUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveThumbnailUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub PropertiesUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    PropertiesUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemovePropertiesUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemovePropertiesUpdated: usize,
+}
 #[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
 #[repr(transparent)]
 pub struct FileInformation(::windows::core::IUnknown);
@@ -1628,270 +1892,6 @@ impl<'a> ::core::convert::TryFrom<&FolderInformation> for ::windows::core::InPar
         let item = ::std::convert::TryInto::try_into(value)?;
         Ok(::windows::core::InParam::owned(item))
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IFileInformationFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFileInformationFactory {
-    type Vtable = IFileInformationFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFileInformationFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetItemsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetItemsAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetItemsAsyncDefaultStartAndCount: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFilesAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetFilesAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFilesAsyncDefaultStartAndCount: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetFoldersAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxitemstoretrieve: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFoldersAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetFoldersAsyncDefaultStartAndCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetFoldersAsyncDefaultStartAndCount: usize,
-    pub GetVirtualizedItemsVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetVirtualizedFilesVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetVirtualizedFoldersVector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IFileInformationFactoryFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFileInformationFactoryFactory {
-    type Vtable = IFileInformationFactoryFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFileInformationFactoryFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub CreateWithMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
-    CreateWithMode: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub CreateWithModeAndSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
-    CreateWithModeAndSize: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub CreateWithModeAndSizeAndOptions: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
-    CreateWithModeAndSizeAndOptions: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
-    pub CreateWithModeAndSizeAndOptionsAndFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryresult: *mut ::core::ffi::c_void, mode: super::FileProperties::ThumbnailMode, requestedthumbnailsize: u32, thumbnailoptions: super::FileProperties::ThumbnailOptions, delayload: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Search")))]
-    CreateWithModeAndSizeAndOptionsAndFlags: usize,
-}
-#[doc = "*Required features: `\"Storage_BulkAccess\"`*"]
-#[repr(transparent)]
-pub struct IStorageItemInformation(::windows::core::IUnknown);
-impl IStorageItemInformation {
-    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn MusicProperties(&self) -> ::windows::core::Result<super::FileProperties::MusicProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MusicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::MusicProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn VideoProperties(&self) -> ::windows::core::Result<super::FileProperties::VideoProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VideoProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::VideoProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn ImageProperties(&self) -> ::windows::core::Result<super::FileProperties::ImageProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ImageProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::ImageProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn DocumentProperties(&self) -> ::windows::core::Result<super::FileProperties::DocumentProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DocumentProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::DocumentProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-    #[cfg(feature = "Storage_FileProperties")]
-    pub fn BasicProperties(&self) -> ::windows::core::Result<super::FileProperties::BasicProperties> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BasicProperties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::BasicProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub fn Thumbnail(&self) -> ::windows::core::Result<super::FileProperties::StorageItemThumbnail> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Thumbnail)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FileProperties::StorageItemThumbnail>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ThumbnailUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ThumbnailUpdated)(::windows::core::Interface::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveThumbnailUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveThumbnailUpdated)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PropertiesUpdated<'a, P0>(&self, changedhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<IStorageItemInformation, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PropertiesUpdated)(::windows::core::Interface::as_raw(this), changedhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemovePropertiesUpdated(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePropertiesUpdated)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
-    }
-}
-impl ::core::convert::From<IStorageItemInformation> for ::windows::core::IUnknown {
-    fn from(value: IStorageItemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemInformation> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IStorageItemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemInformation> for ::windows::core::IUnknown {
-    fn from(value: &IStorageItemInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IStorageItemInformation> for ::windows::core::IInspectable {
-    fn from(value: IStorageItemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IStorageItemInformation> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IStorageItemInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageItemInformation> for ::windows::core::IInspectable {
-    fn from(value: &IStorageItemInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IStorageItemInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IStorageItemInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IStorageItemInformation {}
-impl ::core::fmt::Debug for IStorageItemInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IStorageItemInformation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IStorageItemInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{87a5cb8b-8972-4f40-8de0-d86fb179d8fa}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for IStorageItemInformation {
-    type Vtable = IStorageItemInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStorageItemInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub MusicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    MusicProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub VideoProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    VideoProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub ImageProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    ImageProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub DocumentProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    DocumentProperties: usize,
-    #[cfg(feature = "Storage_FileProperties")]
-    pub BasicProperties: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage_FileProperties"))]
-    BasicProperties: usize,
-    #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
-    pub Thumbnail: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Storage_FileProperties", feature = "Storage_Streams")))]
-    Thumbnail: usize,
-    #[cfg(feature = "Foundation")]
-    pub ThumbnailUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ThumbnailUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveThumbnailUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveThumbnailUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub PropertiesUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedhandler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    PropertiesUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemovePropertiesUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemovePropertiesUpdated: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,29 +1,94 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ICS_TARGETTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const ICSTT_NAME: ICS_TARGETTYPE = ICS_TARGETTYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = ICS_TARGETTYPE(1i32);
-impl ::core::marker::Copy for ICS_TARGETTYPE {}
-impl ::core::clone::Clone for ICS_TARGETTYPE {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, P0>(wszservername: P0, netisoerror: &mut NETISO_ERROR_TYPE) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
     }
+    NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into(), ::core::mem::transmute(netisoerror))
 }
-impl ::core::default::Default for ICS_TARGETTYPE {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: &mut u32, pppublicappcs: &mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
     }
+    NetworkIsolationEnumAppContainers(flags, ::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(pppublicappcs))
 }
-unsafe impl ::windows::core::Abi for ICS_TARGETTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ICS_TARGETTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ICS_TARGETTYPE").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: &INET_FIREWALL_APP_CONTAINER) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
     }
+    NetworkIsolationFreeAppContainers(::core::mem::transmute(ppublicappcs))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: &mut u32, appcontainersids: &mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
+    }
+    NetworkIsolationGetAppContainerConfig(::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(appcontainersids))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: &mut super::super::Foundation::HANDLE) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32;
+    }
+    NetworkIsolationRegisterForAppContainerChanges(flags, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationobject))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32;
+    }
+    NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(appcontainersids.as_ptr()))
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, P0, P1, P2, P3, P4>(applicationcontainersid: P0, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: P4, binaries: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::PSID>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const ::windows::core::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
+    }
+    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into(), packagefolder.into(), displayname.into(), bbinariesfullycomputed.into(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, P0>(registrationobject: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
+    }
+    NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into())
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -856,254 +921,6 @@ unsafe impl ::windows::core::Interface for INATNumberOfEntriesCallback {
 pub struct INATNumberOfEntriesCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub NewNumberOfEntries: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, lnewnumberofentries: i32) -> ::windows::core::HRESULT,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub struct INET_FIREWALL_AC_BINARIES {
-    pub count: u32,
-    pub binaries: *mut ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for INET_FIREWALL_AC_BINARIES {}
-impl ::core::clone::Clone for INET_FIREWALL_AC_BINARIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for INET_FIREWALL_AC_BINARIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_AC_BINARIES").field("count", &self.count).field("binaries", &self.binaries).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_BINARIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INET_FIREWALL_AC_BINARIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_BINARIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INET_FIREWALL_AC_BINARIES {}
-impl ::core::default::Default for INET_FIREWALL_AC_BINARIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct INET_FIREWALL_AC_CAPABILITIES {
-    pub count: u32,
-    pub capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for INET_FIREWALL_AC_CAPABILITIES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for INET_FIREWALL_AC_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for INET_FIREWALL_AC_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_AC_CAPABILITIES").field("count", &self.count).field("capabilities", &self.capabilities).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CAPABILITIES {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CAPABILITIES>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for INET_FIREWALL_AC_CAPABILITIES {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for INET_FIREWALL_AC_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct INET_FIREWALL_AC_CHANGE {
-    pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
-    pub createType: INET_FIREWALL_AC_CREATION_TYPE,
-    pub appContainerSid: *mut super::super::Security::SID,
-    pub userSid: *mut super::super::Security::SID,
-    pub displayName: ::windows::core::PWSTR,
-    pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CHANGE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for INET_FIREWALL_AC_CHANGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for INET_FIREWALL_AC_CHANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub union INET_FIREWALL_AC_CHANGE_0 {
-    pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
-    pub binaries: INET_FIREWALL_AC_BINARIES,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CHANGE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CHANGE_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for INET_FIREWALL_AC_CHANGE_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(3i32);
-impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE_TYPE {}
-impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INET_FIREWALL_AC_CHANGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INET_FIREWALL_AC_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INET_FIREWALL_AC_CREATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(4i32);
-impl ::core::marker::Copy for INET_FIREWALL_AC_CREATION_TYPE {}
-impl ::core::clone::Clone for INET_FIREWALL_AC_CREATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INET_FIREWALL_AC_CREATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CREATION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INET_FIREWALL_AC_CREATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INET_FIREWALL_AC_CREATION_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct INET_FIREWALL_APP_CONTAINER {
-    pub appContainerSid: *mut super::super::Security::SID,
-    pub userSid: *mut super::super::Security::SID,
-    pub appContainerName: ::windows::core::PWSTR,
-    pub displayName: ::windows::core::PWSTR,
-    pub description: ::windows::core::PWSTR,
-    pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
-    pub binaries: INET_FIREWALL_AC_BINARIES,
-    pub workingDirectory: ::windows::core::PWSTR,
-    pub packageFullName: ::windows::core::PWSTR,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for INET_FIREWALL_APP_CONTAINER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for INET_FIREWALL_APP_CONTAINER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for INET_FIREWALL_APP_CONTAINER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INET_FIREWALL_APP_CONTAINER").field("appContainerSid", &self.appContainerSid).field("userSid", &self.userSid).field("appContainerName", &self.appContainerName).field("displayName", &self.displayName).field("description", &self.description).field("capabilities", &self.capabilities).field("binaries", &self.binaries).field("workingDirectory", &self.workingDirectory).field("packageFullName", &self.packageFullName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for INET_FIREWALL_APP_CONTAINER {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for INET_FIREWALL_APP_CONTAINER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_APP_CONTAINER>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for INET_FIREWALL_APP_CONTAINER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for INET_FIREWALL_APP_CONTAINER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
@@ -5974,6 +5791,112 @@ pub struct IUPnPNAT_Vtbl {
     NATEventManager: usize,
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const NETISO_GEID_FOR_WDAG: u32 = 1u32;
+pub const NetFwAuthorizedApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
+pub const NetFwMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
+pub const NetFwOpenPort: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
+pub const NetFwPolicy2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
+pub const NetFwProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
+pub const NetFwProducts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
+pub const NetFwRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
+pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const S_OBJECT_NO_LONGER_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
+pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ICS_TARGETTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const ICSTT_NAME: ICS_TARGETTYPE = ICS_TARGETTYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = ICS_TARGETTYPE(1i32);
+impl ::core::marker::Copy for ICS_TARGETTYPE {}
+impl ::core::clone::Clone for ICS_TARGETTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ICS_TARGETTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ICS_TARGETTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ICS_TARGETTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICS_TARGETTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(3i32);
+impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE_TYPE {}
+impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INET_FIREWALL_AC_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INET_FIREWALL_AC_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INET_FIREWALL_AC_CREATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(4i32);
+impl ::core::marker::Copy for INET_FIREWALL_AC_CREATION_TYPE {}
+impl ::core::clone::Clone for INET_FIREWALL_AC_CREATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INET_FIREWALL_AC_CREATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CREATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INET_FIREWALL_AC_CREATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INET_FIREWALL_AC_CREATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCONMGR_ENUM_FLAGS(pub i32);
@@ -6095,8 +6018,6 @@ impl ::core::fmt::Debug for NETCON_CHARACTERISTIC_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct NETCON_MEDIATYPE(pub i32);
@@ -6137,43 +6058,6 @@ unsafe impl ::windows::core::Abi for NETCON_MEDIATYPE {
 impl ::core::fmt::Debug for NETCON_MEDIATYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NETCON_MEDIATYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub struct NETCON_PROPERTIES {
-    pub guidId: ::windows::core::GUID,
-    pub pszwName: ::windows::core::PWSTR,
-    pub pszwDeviceName: ::windows::core::PWSTR,
-    pub Status: NETCON_STATUS,
-    pub MediaType: NETCON_MEDIATYPE,
-    pub dwCharacter: u32,
-    pub clsidThisObject: ::windows::core::GUID,
-    pub clsidUiObject: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for NETCON_PROPERTIES {}
-impl ::core::clone::Clone for NETCON_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETCON_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETCON_PROPERTIES").field("guidId", &self.guidId).field("pszwName", &self.pszwName).field("pszwDeviceName", &self.pszwDeviceName).field("Status", &self.Status).field("MediaType", &self.MediaType).field("dwCharacter", &self.dwCharacter).field("clsidThisObject", &self.clsidThisObject).field("clsidUiObject", &self.clsidUiObject).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETCON_PROPERTIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETCON_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETCON_PROPERTIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETCON_PROPERTIES {}
-impl ::core::default::Default for NETCON_PROPERTIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
@@ -6328,10 +6212,6 @@ impl ::core::fmt::Debug for NETISO_FLAG {
         f.debug_tuple("NETISO_FLAG").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const NETISO_GEID_FOR_WDAG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6733,124 +6613,6 @@ impl ::core::fmt::Debug for NET_FW_SERVICE_TYPE {
         f.debug_tuple("NET_FW_SERVICE_TYPE").field(&self.0).finish()
     }
 }
-pub const NetFwAuthorizedApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
-pub const NetFwMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
-pub const NetFwOpenPort: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
-pub const NetFwPolicy2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b3c97f_6ae1_41ac_817a_f6f92166d7dd);
-pub const NetFwProduct: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d745ed8_c514_4d1d_bf42_751fed2d5ac7);
-pub const NetFwProducts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc19079b_8272_4d73_bb70_cdb533527b61);
-pub const NetFwRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c5bc43e_3369_4c33_ab0c_be9469677af4);
-pub const NetSharingManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c63c1ad_3956_4ff8_8486_40034758315b);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-#[inline]
-pub unsafe fn NetworkIsolationDiagnoseConnectFailureAndGetInfo<'a, P0>(wszservername: P0, netisoerror: &mut NETISO_ERROR_TYPE) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername: ::windows::core::PCWSTR, netisoerror: *mut NETISO_ERROR_TYPE) -> u32;
-    }
-    NetworkIsolationDiagnoseConnectFailureAndGetInfo(wszservername.into(), ::core::mem::transmute(netisoerror))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: &mut u32, pppublicappcs: &mut *mut INET_FIREWALL_APP_CONTAINER) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationEnumAppContainers(flags: u32, pdwnumpublicappcs: *mut u32, pppublicappcs: *mut *mut INET_FIREWALL_APP_CONTAINER) -> u32;
-    }
-    NetworkIsolationEnumAppContainers(flags, ::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(pppublicappcs))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn NetworkIsolationFreeAppContainers(ppublicappcs: &INET_FIREWALL_APP_CONTAINER) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationFreeAppContainers(ppublicappcs: *const INET_FIREWALL_APP_CONTAINER) -> u32;
-    }
-    NetworkIsolationFreeAppContainers(::core::mem::transmute(ppublicappcs))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: &mut u32, appcontainersids: &mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationGetAppContainerConfig(pdwnumpublicappcs: *mut u32, appcontainersids: *mut *mut super::super::Security::SID_AND_ATTRIBUTES) -> u32;
-    }
-    NetworkIsolationGetAppContainerConfig(::core::mem::transmute(pdwnumpublicappcs), ::core::mem::transmute(appcontainersids))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: PAC_CHANGES_CALLBACK_FN, context: *const ::core::ffi::c_void, registrationobject: &mut super::super::Foundation::HANDLE) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationRegisterForAppContainerChanges(flags: u32, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void, registrationobject: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    NetworkIsolationRegisterForAppContainerChanges(flags, ::core::mem::transmute(callback), ::core::mem::transmute(context), ::core::mem::transmute(registrationobject))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn NetworkIsolationSetAppContainerConfig(appcontainersids: &[super::super::Security::SID_AND_ATTRIBUTES]) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationSetAppContainerConfig(dwnumpublicappcs: u32, appcontainersids: *const super::super::Security::SID_AND_ATTRIBUTES) -> u32;
-    }
-    NetworkIsolationSetAppContainerConfig(appcontainersids.len() as _, ::core::mem::transmute(appcontainersids.as_ptr()))
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetworkIsolationSetupAppContainerBinaries<'a, P0, P1, P2, P3, P4>(applicationcontainersid: P0, packagefullname: P1, packagefolder: P2, displayname: P3, bbinariesfullycomputed: P4, binaries: &[::windows::core::PWSTR]) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::PSID>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationSetupAppContainerBinaries(applicationcontainersid: super::super::Foundation::PSID, packagefullname: ::windows::core::PCWSTR, packagefolder: ::windows::core::PCWSTR, displayname: ::windows::core::PCWSTR, bbinariesfullycomputed: super::super::Foundation::BOOL, binaries: *const ::windows::core::PWSTR, binariescount: u32) -> ::windows::core::HRESULT;
-    }
-    NetworkIsolationSetupAppContainerBinaries(applicationcontainersid.into(), packagefullname.into(), packagefolder.into(), displayname.into(), bbinariesfullycomputed.into(), ::core::mem::transmute(binaries.as_ptr()), binaries.len() as _).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NetworkIsolationUnregisterForAppContainerChanges<'a, P0>(registrationobject: P0) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn NetworkIsolationUnregisterForAppContainerChanges(registrationobject: super::super::Foundation::HANDLE) -> u32;
-    }
-    NetworkIsolationUnregisterForAppContainerChanges(registrationobject.into())
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub type PAC_CHANGES_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddress: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = ::core::option::Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, updatedaddresses: ::windows::core::PCWSTR, append: super::super::Foundation::BOOL) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub type PNETISO_EDP_ID_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, wszenterpriseid: ::windows::core::PCWSTR, dwerr: u32)>;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -6903,75 +6665,6 @@ unsafe impl ::windows::core::Abi for SHARINGCONNECTION_ENUM_FLAGS {
 impl ::core::fmt::Debug for SHARINGCONNECTION_ENUM_FLAGS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SHARINGCONNECTION_ENUM_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub const S_OBJECT_NO_LONGER_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
-pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    pub id: ::windows::core::GUID,
-    pub keyword: ::windows::core::PCWSTR,
-    pub flags: u32,
-    pub addresses: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_tag_FW_DYNAMIC_KEYWORD_ADDRESS0").field("id", &self.id).field("keyword", &self.keyword).field("flags", &self.flags).field("addresses", &self.addresses).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tag_FW_DYNAMIC_KEYWORD_ADDRESS0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
-pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    pub dynamicKeywordAddress: _tag_FW_DYNAMIC_KEYWORD_ADDRESS0,
-    pub next: *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
-    pub schemaVersion: u16,
-    pub originType: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
-}
-impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
-impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0").field("dynamicKeywordAddress", &self.dynamicKeywordAddress).field("next", &self.next).field("schemaVersion", &self.schemaVersion).field("originType", &self.originType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
-impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
@@ -7057,5 +6750,312 @@ impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
         f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE").field(&self.0).finish()
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub struct INET_FIREWALL_AC_BINARIES {
+    pub count: u32,
+    pub binaries: *mut ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for INET_FIREWALL_AC_BINARIES {}
+impl ::core::clone::Clone for INET_FIREWALL_AC_BINARIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for INET_FIREWALL_AC_BINARIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_FIREWALL_AC_BINARIES").field("count", &self.count).field("binaries", &self.binaries).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_BINARIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INET_FIREWALL_AC_BINARIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_BINARIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INET_FIREWALL_AC_BINARIES {}
+impl ::core::default::Default for INET_FIREWALL_AC_BINARIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct INET_FIREWALL_AC_CAPABILITIES {
+    pub count: u32,
+    pub capabilities: *mut super::super::Security::SID_AND_ATTRIBUTES,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_AC_CAPABILITIES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_AC_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for INET_FIREWALL_AC_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_FIREWALL_AC_CAPABILITIES").field("count", &self.count).field("capabilities", &self.capabilities).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CAPABILITIES {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CAPABILITIES>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for INET_FIREWALL_AC_CAPABILITIES {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for INET_FIREWALL_AC_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct INET_FIREWALL_AC_CHANGE {
+    pub changeType: INET_FIREWALL_AC_CHANGE_TYPE,
+    pub createType: INET_FIREWALL_AC_CREATION_TYPE,
+    pub appContainerSid: *mut super::super::Security::SID,
+    pub userSid: *mut super::super::Security::SID,
+    pub displayName: ::windows::core::PWSTR,
+    pub Anonymous: INET_FIREWALL_AC_CHANGE_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CHANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CHANGE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for INET_FIREWALL_AC_CHANGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for INET_FIREWALL_AC_CHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub union INET_FIREWALL_AC_CHANGE_0 {
+    pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
+    pub binaries: INET_FIREWALL_AC_BINARIES,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for INET_FIREWALL_AC_CHANGE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_AC_CHANGE_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for INET_FIREWALL_AC_CHANGE_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct INET_FIREWALL_APP_CONTAINER {
+    pub appContainerSid: *mut super::super::Security::SID,
+    pub userSid: *mut super::super::Security::SID,
+    pub appContainerName: ::windows::core::PWSTR,
+    pub displayName: ::windows::core::PWSTR,
+    pub description: ::windows::core::PWSTR,
+    pub capabilities: INET_FIREWALL_AC_CAPABILITIES,
+    pub binaries: INET_FIREWALL_AC_BINARIES,
+    pub workingDirectory: ::windows::core::PWSTR,
+    pub packageFullName: ::windows::core::PWSTR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for INET_FIREWALL_APP_CONTAINER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for INET_FIREWALL_APP_CONTAINER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for INET_FIREWALL_APP_CONTAINER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INET_FIREWALL_APP_CONTAINER").field("appContainerSid", &self.appContainerSid).field("userSid", &self.userSid).field("appContainerName", &self.appContainerName).field("displayName", &self.displayName).field("description", &self.description).field("capabilities", &self.capabilities).field("binaries", &self.binaries).field("workingDirectory", &self.workingDirectory).field("packageFullName", &self.packageFullName).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for INET_FIREWALL_APP_CONTAINER {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for INET_FIREWALL_APP_CONTAINER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INET_FIREWALL_APP_CONTAINER>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for INET_FIREWALL_APP_CONTAINER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for INET_FIREWALL_APP_CONTAINER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub struct NETCON_PROPERTIES {
+    pub guidId: ::windows::core::GUID,
+    pub pszwName: ::windows::core::PWSTR,
+    pub pszwDeviceName: ::windows::core::PWSTR,
+    pub Status: NETCON_STATUS,
+    pub MediaType: NETCON_MEDIATYPE,
+    pub dwCharacter: u32,
+    pub clsidThisObject: ::windows::core::GUID,
+    pub clsidUiObject: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for NETCON_PROPERTIES {}
+impl ::core::clone::Clone for NETCON_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETCON_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETCON_PROPERTIES").field("guidId", &self.guidId).field("pszwName", &self.pszwName).field("pszwDeviceName", &self.pszwDeviceName).field("Status", &self.Status).field("MediaType", &self.MediaType).field("dwCharacter", &self.dwCharacter).field("clsidThisObject", &self.clsidThisObject).field("clsidUiObject", &self.clsidUiObject).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETCON_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETCON_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETCON_PROPERTIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETCON_PROPERTIES {}
+impl ::core::default::Default for NETCON_PROPERTIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    pub id: ::windows::core::GUID,
+    pub keyword: ::windows::core::PCWSTR,
+    pub flags: u32,
+    pub addresses: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_tag_FW_DYNAMIC_KEYWORD_ADDRESS0").field("id", &self.id).field("keyword", &self.keyword).field("flags", &self.flags).field("addresses", &self.addresses).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tag_FW_DYNAMIC_KEYWORD_ADDRESS0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {}
+impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    pub dynamicKeywordAddress: _tag_FW_DYNAMIC_KEYWORD_ADDRESS0,
+    pub next: *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0,
+    pub schemaVersion: u16,
+    pub originType: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE,
+}
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0").field("dynamicKeywordAddress", &self.dynamicKeywordAddress).field("next", &self.next).field("schemaVersion", &self.schemaVersion).field("originType", &self.originType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<_tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {}
+impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub type PAC_CHANGES_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, pchange: *const INET_FIREWALL_AC_CHANGE)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub type PFN_FWADDDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddress: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS0) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub type PFN_FWDELETEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSBYID0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub type PFN_FWENUMDYNAMICKEYWORDADDRESSESBYTYPE0 = ::core::option::Option<unsafe extern "system" fn(flags: u32, dynamickeywordaddressdata: *mut *mut _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub type PFN_FWFREEDYNAMICKEYWORDADDRESSDATA0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressdata: *const _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe extern "system" fn(dynamickeywordaddressid: ::windows::core::GUID, updatedaddresses: ::windows::core::PCWSTR, append: super::super::Foundation::BOOL) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsFirewall\"`*"]
+pub type PNETISO_EDP_ID_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, wszenterpriseid: ::windows::core::PCWSTR, dwerr: u32)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

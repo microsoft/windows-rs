@@ -17,61 +17,33 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
     pub fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetRawInputDeviceInfoA(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetRawInputDeviceInfoW(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetRawInputDeviceList(prawinputdevicelist: *mut RAWINPUTDEVICELIST, puinumdevices: *mut u32, cbsize: u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE, puinumdevices: *mut u32, cbsize: u32) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
 }
-pub type HRAWINPUT = isize;
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub type INPUT_MESSAGE_DEVICE_TYPE = i32;
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
@@ -96,6 +68,51 @@ pub const IMO_HARDWARE: INPUT_MESSAGE_ORIGIN_ID = 1i32;
 pub const IMO_INJECTED: INPUT_MESSAGE_ORIGIN_ID = 2i32;
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub const IMO_SYSTEM: INPUT_MESSAGE_ORIGIN_ID = 4i32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub type RAWINPUTDEVICE_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_REMOVE: RAWINPUTDEVICE_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_EXCLUDE: RAWINPUTDEVICE_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_PAGEONLY: RAWINPUTDEVICE_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_NOLEGACY: RAWINPUTDEVICE_FLAGS = 48u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_INPUTSINK: RAWINPUTDEVICE_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_CAPTUREMOUSE: RAWINPUTDEVICE_FLAGS = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_NOHOTKEYS: RAWINPUTDEVICE_FLAGS = 512u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_APPKEYS: RAWINPUTDEVICE_FLAGS = 1024u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_EXINPUTSINK: RAWINPUTDEVICE_FLAGS = 4096u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDEV_DEVNOTIFY: RAWINPUTDEVICE_FLAGS = 8192u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub type RAW_INPUT_DATA_COMMAND_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RID_HEADER: RAW_INPUT_DATA_COMMAND_FLAGS = 268435461u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RID_INPUT: RAW_INPUT_DATA_COMMAND_FLAGS = 268435459u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub type RAW_INPUT_DEVICE_INFO_COMMAND = u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND = 536870917u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDI_DEVICENAME: RAW_INPUT_DEVICE_INFO_COMMAND = 536870919u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIDI_DEVICEINFO: RAW_INPUT_DEVICE_INFO_COMMAND = 536870923u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub type RID_DEVICE_INFO_TYPE = u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIM_TYPEKEYBOARD: RID_DEVICE_INFO_TYPE = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
+pub const RIM_TYPEHID: RID_DEVICE_INFO_TYPE = 2u32;
+pub type HRAWINPUT = isize;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input\"`*"]
 pub struct INPUT_MESSAGE_SOURCE {
@@ -184,28 +201,6 @@ impl ::core::clone::Clone for RAWINPUTDEVICELIST {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub type RAWINPUTDEVICE_FLAGS = u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_REMOVE: RAWINPUTDEVICE_FLAGS = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_EXCLUDE: RAWINPUTDEVICE_FLAGS = 16u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_PAGEONLY: RAWINPUTDEVICE_FLAGS = 32u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_NOLEGACY: RAWINPUTDEVICE_FLAGS = 48u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_INPUTSINK: RAWINPUTDEVICE_FLAGS = 256u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_CAPTUREMOUSE: RAWINPUTDEVICE_FLAGS = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_NOHOTKEYS: RAWINPUTDEVICE_FLAGS = 512u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_APPKEYS: RAWINPUTDEVICE_FLAGS = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_EXINPUTSINK: RAWINPUTDEVICE_FLAGS = 4096u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDEV_DEVNOTIFY: RAWINPUTDEVICE_FLAGS = 8192u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -279,20 +274,6 @@ impl ::core::clone::Clone for RAWMOUSE_0_0 {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub type RAW_INPUT_DATA_COMMAND_FLAGS = u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RID_HEADER: RAW_INPUT_DATA_COMMAND_FLAGS = 268435461u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RID_INPUT: RAW_INPUT_DATA_COMMAND_FLAGS = 268435459u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub type RAW_INPUT_DEVICE_INFO_COMMAND = u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND = 536870917u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDI_DEVICENAME: RAW_INPUT_DEVICE_INFO_COMMAND = 536870919u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIDI_DEVICEINFO: RAW_INPUT_DEVICE_INFO_COMMAND = 536870923u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Input\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -373,11 +354,3 @@ impl ::core::clone::Clone for RID_DEVICE_INFO_MOUSE {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub type RID_DEVICE_INFO_TYPE = u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = 0u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIM_TYPEKEYBOARD: RID_DEVICE_INFO_TYPE = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Input\"`*"]
-pub const RIM_TYPEHID: RID_DEVICE_INFO_TYPE = 2u32;

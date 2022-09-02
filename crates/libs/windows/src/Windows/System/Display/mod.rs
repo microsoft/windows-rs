@@ -1,3 +1,17 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayRequest {
+    type Vtable = IDisplayRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub RequestActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RequestRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"System_Display\"`*"]
 #[repr(transparent)]
 pub struct DisplayRequest(::windows::core::IUnknown);
@@ -77,20 +91,6 @@ impl ::core::convert::From<&DisplayRequest> for &::windows::core::IInspectable {
     fn from(value: &DisplayRequest) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayRequest {
-    type Vtable = IDisplayRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub RequestActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RequestRelease: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

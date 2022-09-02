@@ -1,5 +1,500 @@
 #[cfg(feature = "Graphics_Display_Core")]
 pub mod Core;
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAdvancedColorInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAdvancedColorInfo {
+    type Vtable = IAdvancedColorInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAdvancedColorInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CurrentAdvancedColorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdvancedColorKind) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RedPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RedPrimary: usize,
+    #[cfg(feature = "Foundation")]
+    pub GreenPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GreenPrimary: usize,
+    #[cfg(feature = "Foundation")]
+    pub BluePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    BluePrimary: usize,
+    #[cfg(feature = "Foundation")]
+    pub WhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    WhitePoint: usize,
+    pub MaxLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub MinLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub SdrWhiteLevelInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub IsHdrMetadataFormatCurrentlySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: HdrMetadataFormat, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsAdvancedColorKindAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: AdvancedColorKind, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBrightnessOverride(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBrightnessOverride {
+    type Vtable = IBrightnessOverride_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBrightnessOverride_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsOverrideActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub BrightnessLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub SetBrightnessLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brightnesslevel: f64, options: DisplayBrightnessOverrideOptions) -> ::windows::core::HRESULT,
+    pub SetBrightnessScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: DisplayBrightnessScenario, options: DisplayBrightnessOverrideOptions) -> ::windows::core::HRESULT,
+    pub GetLevelForScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: DisplayBrightnessScenario, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub StartOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StopOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub IsSupportedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsSupportedChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveIsSupportedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveIsSupportedChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub IsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsOverrideActiveChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveIsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveIsOverrideActiveChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub BrightnessLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    BrightnessLevelChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveBrightnessLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveBrightnessLevelChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBrightnessOverrideSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBrightnessOverrideSettings {
+    type Vtable = IBrightnessOverrideSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBrightnessOverrideSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DesiredLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub DesiredNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBrightnessOverrideSettingsStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBrightnessOverrideSettingsStatics {
+    type Vtable = IBrightnessOverrideSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBrightnessOverrideSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateFromLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateFromNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nits: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateFromDisplayBrightnessOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayBrightnessOverrideScenario, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBrightnessOverrideStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBrightnessOverrideStatics {
+    type Vtable = IBrightnessOverrideStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBrightnessOverrideStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefaultForSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SaveForSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SaveForSystemAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IColorOverrideSettings(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IColorOverrideSettings {
+    type Vtable = IColorOverrideSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IColorOverrideSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayColorOverrideScenario) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IColorOverrideSettingsStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IColorOverrideSettingsStatics {
+    type Vtable = IColorOverrideSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IColorOverrideSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayColorOverrideScenario, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayEnhancementOverride(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayEnhancementOverride {
+    type Vtable = IDisplayEnhancementOverride_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayEnhancementOverride_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub BrightnessOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetBrightnessOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CanOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsOverrideActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub GetCurrentDisplayEnhancementOverrideCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub StopOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub CanOverrideChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CanOverrideChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveCanOverrideChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveCanOverrideChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub IsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsOverrideActiveChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveIsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveIsOverrideActiveChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub DisplayEnhancementOverrideCapabilitiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DisplayEnhancementOverrideCapabilitiesChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDisplayEnhancementOverrideCapabilitiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDisplayEnhancementOverrideCapabilitiesChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayEnhancementOverrideCapabilities(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabilities {
+    type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsBrightnessControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsBrightnessNitsControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetSupportedNitRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetSupportedNitRanges: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+    type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayEnhancementOverrideStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideStatics {
+    type Vtable = IDisplayEnhancementOverrideStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf5b7ec1_9791_4453_b013_29b6f778e519);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayEnhancementOverrideStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayInformation(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayInformation {
+    type Vtable = IDisplayInformation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayInformation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
+    pub NativeOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub OrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    OrientationChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveOrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveOrientationChanged: usize,
+    pub ResolutionScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ResolutionScale) -> ::windows::core::HRESULT,
+    pub LogicalDpi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub RawDpiX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    pub RawDpiY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub DpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DpiChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDpiChanged: usize,
+    pub StereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub StereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    StereoEnabledChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveStereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveStereoEnabledChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub GetColorProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
+    GetColorProfileAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ColorProfileChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveColorProfileChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayInformation2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayInformation2 {
+    type Vtable = IDisplayInformation2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayInformation2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub RawPixelsPerViewPixel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayInformation3(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayInformation3 {
+    type Vtable = IDisplayInformation3_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayInformation3_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub DiagonalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DiagonalSizeInInches: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayInformation4(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayInformation4 {
+    type Vtable = IDisplayInformation4_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayInformation4_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ScreenWidthInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    pub ScreenHeightInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayInformation5(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayInformation5 {
+    type Vtable = IDisplayInformation5_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayInformation5_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetAdvancedColorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub AdvancedColorInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    AdvancedColorInfoChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveAdvancedColorInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveAdvancedColorInfoChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayInformationStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayInformationStatics {
+    type Vtable = IDisplayInformationStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayInformationStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
+    pub SetAutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DisplayOrientations) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub DisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DisplayContentsInvalidated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDisplayContentsInvalidated: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct IDisplayPropertiesStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IDisplayPropertiesStatics {
+    type Vtable = IDisplayPropertiesStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayPropertiesStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    CurrentOrientation: usize,
+    #[cfg(feature = "deprecated")]
+    pub NativeOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    NativeOrientation: usize,
+    #[cfg(feature = "deprecated")]
+    pub AutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    AutoRotationPreferences: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetAutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DisplayOrientations) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetAutoRotationPreferences: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub OrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    OrientationChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveOrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveOrientationChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub ResolutionScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ResolutionScale) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    ResolutionScale: usize,
+    #[cfg(feature = "deprecated")]
+    pub LogicalDpi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    LogicalDpi: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub LogicalDpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    LogicalDpiChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveLogicalDpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveLogicalDpiChanged: usize,
+    #[cfg(feature = "deprecated")]
+    pub StereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    StereoEnabled: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub StereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    StereoEnabledChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveStereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveStereoEnabledChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
+    pub GetColorProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
+    GetColorProfileAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub ColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    ColorProfileChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveColorProfileChanged: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub DisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    DisplayContentsInvalidated: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveDisplayContentsInvalidated: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayServices(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayServices {
+    type Vtable = IDisplayServices_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayServices_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IDisplayServicesStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IDisplayServicesStatics {
+    type Vtable = IDisplayServicesStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2096bf_730a_5560_b461_91c13d692e0c);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IDisplayServicesStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub FindAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::DisplayId) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
 pub struct AdvancedColorInfo(::windows::core::IUnknown);
@@ -152,41 +647,6 @@ impl ::core::convert::From<&AdvancedColorInfo> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdvancedColorKind(pub i32);
-impl AdvancedColorKind {
-    pub const StandardDynamicRange: Self = Self(0i32);
-    pub const WideColorGamut: Self = Self(1i32);
-    pub const HighDynamicRange: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AdvancedColorKind {}
-impl ::core::clone::Clone for AdvancedColorKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdvancedColorKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdvancedColorKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdvancedColorKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvancedColorKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdvancedColorKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
 pub struct BrightnessOverride(::windows::core::IUnknown);
@@ -569,172 +1029,6 @@ impl ::core::convert::From<&ColorOverrideSettings> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DisplayBrightnessOverrideOptions(pub u32);
-impl DisplayBrightnessOverrideOptions {
-    pub const None: Self = Self(0u32);
-    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
-}
-impl ::core::marker::Copy for DisplayBrightnessOverrideOptions {}
-impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBrightnessOverrideOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayBrightnessOverrideOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayBrightnessOverrideOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DisplayBrightnessOverrideOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DisplayBrightnessOverrideOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DisplayBrightnessOverrideOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DisplayBrightnessOverrideOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DisplayBrightnessOverrideOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DisplayBrightnessOverrideScenario(pub i32);
-impl DisplayBrightnessOverrideScenario {
-    pub const IdleBrightness: Self = Self(0i32);
-    pub const BarcodeReadingBrightness: Self = Self(1i32);
-    pub const FullBrightness: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DisplayBrightnessOverrideScenario {}
-impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBrightnessOverrideScenario {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideScenario {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayBrightnessOverrideScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayBrightnessOverrideScenario").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DisplayBrightnessScenario(pub i32);
-impl DisplayBrightnessScenario {
-    pub const DefaultBrightness: Self = Self(0i32);
-    pub const IdleBrightness: Self = Self(1i32);
-    pub const BarcodeReadingBrightness: Self = Self(2i32);
-    pub const FullBrightness: Self = Self(3i32);
-}
-impl ::core::marker::Copy for DisplayBrightnessScenario {}
-impl ::core::clone::Clone for DisplayBrightnessScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayBrightnessScenario {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DisplayBrightnessScenario {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayBrightnessScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayBrightnessScenario").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DisplayBrightnessScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DisplayColorOverrideScenario(pub i32);
-impl DisplayColorOverrideScenario {
-    pub const Accurate: Self = Self(0i32);
-}
-impl ::core::marker::Copy for DisplayColorOverrideScenario {}
-impl ::core::clone::Clone for DisplayColorOverrideScenario {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayColorOverrideScenario {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DisplayColorOverrideScenario {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayColorOverrideScenario {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayColorOverrideScenario").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DisplayColorOverrideScenario {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Display\"`*"]
 #[repr(transparent)]
 pub struct DisplayEnhancementOverride(::windows::core::IUnknown);
@@ -1376,71 +1670,6 @@ impl ::core::convert::From<&DisplayInformation> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for DisplayInformation {}
 unsafe impl ::core::marker::Sync for DisplayInformation {}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DisplayOrientations(pub u32);
-impl DisplayOrientations {
-    pub const None: Self = Self(0u32);
-    pub const Landscape: Self = Self(1u32);
-    pub const Portrait: Self = Self(2u32);
-    pub const LandscapeFlipped: Self = Self(4u32);
-    pub const PortraitFlipped: Self = Self(8u32);
-}
-impl ::core::marker::Copy for DisplayOrientations {}
-impl ::core::clone::Clone for DisplayOrientations {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DisplayOrientations {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DisplayOrientations {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DisplayOrientations {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayOrientations").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DisplayOrientations {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DisplayOrientations {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DisplayOrientations {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DisplayOrientations {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DisplayOrientations {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DisplayOrientations {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 pub struct DisplayProperties;
@@ -1598,6 +1827,472 @@ impl DisplayProperties {
 impl ::windows::core::RuntimeName for DisplayProperties {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayProperties";
 }
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+pub struct DisplayServices(::windows::core::IUnknown);
+impl DisplayServices {
+    pub fn FindAll() -> ::windows::core::Result<::windows::core::Array<super::DisplayId>> {
+        Self::IDisplayServicesStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FindAll)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<super::DisplayId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+        })
+    }
+    #[doc(hidden)]
+    pub fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DisplayServices, IDisplayServicesStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for DisplayServices {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DisplayServices {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DisplayServices {}
+impl ::core::fmt::Debug for DisplayServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayServices").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DisplayServices {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DisplayServices {
+    type Vtable = IDisplayServices_Vtbl;
+    const IID: ::windows::core::GUID = <IDisplayServices as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DisplayServices {
+    const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
+}
+impl ::core::convert::From<DisplayServices> for ::windows::core::IUnknown {
+    fn from(value: DisplayServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DisplayServices> for ::windows::core::IUnknown {
+    fn from(value: &DisplayServices) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DisplayServices> for &::windows::core::IUnknown {
+    fn from(value: &DisplayServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DisplayServices> for ::windows::core::IInspectable {
+    fn from(value: DisplayServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DisplayServices> for ::windows::core::IInspectable {
+    fn from(value: &DisplayServices) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DisplayServices> for &::windows::core::IInspectable {
+    fn from(value: &DisplayServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DisplayServices {}
+unsafe impl ::core::marker::Sync for DisplayServices {}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdvancedColorKind(pub i32);
+impl AdvancedColorKind {
+    pub const StandardDynamicRange: Self = Self(0i32);
+    pub const WideColorGamut: Self = Self(1i32);
+    pub const HighDynamicRange: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AdvancedColorKind {}
+impl ::core::clone::Clone for AdvancedColorKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdvancedColorKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdvancedColorKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdvancedColorKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedColorKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AdvancedColorKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.AdvancedColorKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DisplayBrightnessOverrideOptions(pub u32);
+impl DisplayBrightnessOverrideOptions {
+    pub const None: Self = Self(0u32);
+    pub const UseDimmedPolicyWhenBatteryIsLow: Self = Self(1u32);
+}
+impl ::core::marker::Copy for DisplayBrightnessOverrideOptions {}
+impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DisplayBrightnessOverrideOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DisplayBrightnessOverrideOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessOverrideOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DisplayBrightnessOverrideOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DisplayBrightnessOverrideOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DisplayBrightnessOverrideOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DisplayBrightnessOverrideOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DisplayBrightnessOverrideOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DisplayBrightnessOverrideScenario(pub i32);
+impl DisplayBrightnessOverrideScenario {
+    pub const IdleBrightness: Self = Self(0i32);
+    pub const BarcodeReadingBrightness: Self = Self(1i32);
+    pub const FullBrightness: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DisplayBrightnessOverrideScenario {}
+impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DisplayBrightnessOverrideScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideScenario {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DisplayBrightnessOverrideScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessOverrideScenario").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DisplayBrightnessOverrideScenario {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessOverrideScenario;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DisplayBrightnessScenario(pub i32);
+impl DisplayBrightnessScenario {
+    pub const DefaultBrightness: Self = Self(0i32);
+    pub const IdleBrightness: Self = Self(1i32);
+    pub const BarcodeReadingBrightness: Self = Self(2i32);
+    pub const FullBrightness: Self = Self(3i32);
+}
+impl ::core::marker::Copy for DisplayBrightnessScenario {}
+impl ::core::clone::Clone for DisplayBrightnessScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DisplayBrightnessScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DisplayBrightnessScenario {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DisplayBrightnessScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayBrightnessScenario").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DisplayBrightnessScenario {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayBrightnessScenario;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DisplayColorOverrideScenario(pub i32);
+impl DisplayColorOverrideScenario {
+    pub const Accurate: Self = Self(0i32);
+}
+impl ::core::marker::Copy for DisplayColorOverrideScenario {}
+impl ::core::clone::Clone for DisplayColorOverrideScenario {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DisplayColorOverrideScenario {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DisplayColorOverrideScenario {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DisplayColorOverrideScenario {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayColorOverrideScenario").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DisplayColorOverrideScenario {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayColorOverrideScenario;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DisplayOrientations(pub u32);
+impl DisplayOrientations {
+    pub const None: Self = Self(0u32);
+    pub const Landscape: Self = Self(1u32);
+    pub const Portrait: Self = Self(2u32);
+    pub const LandscapeFlipped: Self = Self(4u32);
+    pub const PortraitFlipped: Self = Self(8u32);
+}
+impl ::core::marker::Copy for DisplayOrientations {}
+impl ::core::clone::Clone for DisplayOrientations {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DisplayOrientations {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DisplayOrientations {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DisplayOrientations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayOrientations").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DisplayOrientations {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DisplayOrientations {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DisplayOrientations {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DisplayOrientations {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DisplayOrientations {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DisplayOrientations {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.DisplayOrientations;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HdrMetadataFormat(pub i32);
+impl HdrMetadataFormat {
+    pub const Hdr10: Self = Self(0i32);
+    pub const Hdr10Plus: Self = Self(1i32);
+}
+impl ::core::marker::Copy for HdrMetadataFormat {}
+impl ::core::clone::Clone for HdrMetadataFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HdrMetadataFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HdrMetadataFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HdrMetadataFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrMetadataFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HdrMetadataFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ResolutionScale(pub i32);
+impl ResolutionScale {
+    pub const Invalid: Self = Self(0i32);
+    pub const Scale100Percent: Self = Self(100i32);
+    pub const Scale120Percent: Self = Self(120i32);
+    pub const Scale125Percent: Self = Self(125i32);
+    pub const Scale140Percent: Self = Self(140i32);
+    pub const Scale150Percent: Self = Self(150i32);
+    pub const Scale160Percent: Self = Self(160i32);
+    pub const Scale175Percent: Self = Self(175i32);
+    pub const Scale180Percent: Self = Self(180i32);
+    pub const Scale200Percent: Self = Self(200i32);
+    pub const Scale225Percent: Self = Self(225i32);
+    pub const Scale250Percent: Self = Self(250i32);
+    pub const Scale300Percent: Self = Self(300i32);
+    pub const Scale350Percent: Self = Self(350i32);
+    pub const Scale400Percent: Self = Self(400i32);
+    pub const Scale450Percent: Self = Self(450i32);
+    pub const Scale500Percent: Self = Self(500i32);
+}
+impl ::core::marker::Copy for ResolutionScale {}
+impl ::core::clone::Clone for ResolutionScale {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ResolutionScale {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ResolutionScale {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ResolutionScale {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResolutionScale").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ResolutionScale {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Graphics_Display\"`*"]
+pub struct NitRange {
+    pub MinNits: f32,
+    pub MaxNits: f32,
+    pub StepSizeNits: f32,
+}
+impl ::core::marker::Copy for NitRange {}
+impl ::core::clone::Clone for NitRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NitRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NitRange").field("MinNits", &self.MinNits).field("MaxNits", &self.MaxNits).field("StepSizeNits", &self.StepSizeNits).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NitRange {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for NitRange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for NitRange {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NitRange>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NitRange {}
+impl ::core::default::Default for NitRange {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1700,701 +2395,6 @@ pub struct DisplayPropertiesEventHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Invoke: usize,
-}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-pub struct DisplayServices(::windows::core::IUnknown);
-impl DisplayServices {
-    pub fn FindAll() -> ::windows::core::Result<::windows::core::Array<super::DisplayId>> {
-        Self::IDisplayServicesStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAll)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<super::DisplayId>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
-        })
-    }
-    #[doc(hidden)]
-    pub fn IDisplayServicesStatics<R, F: FnOnce(&IDisplayServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DisplayServices, IDisplayServicesStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for DisplayServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DisplayServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayServices {}
-impl ::core::fmt::Debug for DisplayServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DisplayServices").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DisplayServices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DisplayServices {
-    type Vtable = IDisplayServices_Vtbl;
-    const IID: ::windows::core::GUID = <IDisplayServices as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DisplayServices {
-    const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";
-}
-impl ::core::convert::From<DisplayServices> for ::windows::core::IUnknown {
-    fn from(value: DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayServices> for ::windows::core::IUnknown {
-    fn from(value: &DisplayServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayServices> for &::windows::core::IUnknown {
-    fn from(value: &DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DisplayServices> for ::windows::core::IInspectable {
-    fn from(value: DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DisplayServices> for ::windows::core::IInspectable {
-    fn from(value: &DisplayServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DisplayServices> for &::windows::core::IInspectable {
-    fn from(value: &DisplayServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DisplayServices {}
-unsafe impl ::core::marker::Sync for DisplayServices {}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HdrMetadataFormat(pub i32);
-impl HdrMetadataFormat {
-    pub const Hdr10: Self = Self(0i32);
-    pub const Hdr10Plus: Self = Self(1i32);
-}
-impl ::core::marker::Copy for HdrMetadataFormat {}
-impl ::core::clone::Clone for HdrMetadataFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdrMetadataFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HdrMetadataFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HdrMetadataFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdrMetadataFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HdrMetadataFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.HdrMetadataFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAdvancedColorInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAdvancedColorInfo {
-    type Vtable = IAdvancedColorInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAdvancedColorInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CurrentAdvancedColorKind: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut AdvancedColorKind) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RedPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RedPrimary: usize,
-    #[cfg(feature = "Foundation")]
-    pub GreenPrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GreenPrimary: usize,
-    #[cfg(feature = "Foundation")]
-    pub BluePrimary: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BluePrimary: usize,
-    #[cfg(feature = "Foundation")]
-    pub WhitePoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    WhitePoint: usize,
-    pub MaxLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub MinLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub MaxAverageFullFrameLuminanceInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub SdrWhiteLevelInNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub IsHdrMetadataFormatCurrentlySupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: HdrMetadataFormat, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsAdvancedColorKindAvailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: AdvancedColorKind, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBrightnessOverride(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBrightnessOverride {
-    type Vtable = IBrightnessOverride_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBrightnessOverride_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsOverrideActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub BrightnessLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub SetBrightnessLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, brightnesslevel: f64, options: DisplayBrightnessOverrideOptions) -> ::windows::core::HRESULT,
-    pub SetBrightnessScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: DisplayBrightnessScenario, options: DisplayBrightnessOverrideOptions) -> ::windows::core::HRESULT,
-    pub GetLevelForScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scenario: DisplayBrightnessScenario, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub StartOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StopOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub IsSupportedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsSupportedChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveIsSupportedChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveIsSupportedChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub IsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsOverrideActiveChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveIsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveIsOverrideActiveChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub BrightnessLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    BrightnessLevelChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveBrightnessLevelChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveBrightnessLevelChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBrightnessOverrideSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBrightnessOverrideSettings {
-    type Vtable = IBrightnessOverrideSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBrightnessOverrideSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DesiredLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub DesiredNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBrightnessOverrideSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBrightnessOverrideSettingsStatics {
-    type Vtable = IBrightnessOverrideSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd487dc90_6f74_440b_b383_5fe96cf00b0f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBrightnessOverrideSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateFromLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, level: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateFromNits: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nits: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateFromDisplayBrightnessOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayBrightnessOverrideScenario, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBrightnessOverrideStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBrightnessOverrideStatics {
-    type Vtable = IBrightnessOverrideStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBrightnessOverrideStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefaultForSystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SaveForSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SaveForSystemAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IColorOverrideSettings(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IColorOverrideSettings {
-    type Vtable = IColorOverrideSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IColorOverrideSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DesiredDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayColorOverrideScenario) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IColorOverrideSettingsStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IColorOverrideSettingsStatics {
-    type Vtable = IColorOverrideSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb068e05f_c41f_4ac9_afab_827ab6248f9a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IColorOverrideSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateFromDisplayColorOverrideScenario: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, overridescenario: DisplayColorOverrideScenario, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverride(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayEnhancementOverride {
-    type Vtable = IDisplayEnhancementOverride_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayEnhancementOverride_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetColorOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub BrightnessOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetBrightnessOverrideSettings: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CanOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsOverrideActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub GetCurrentDisplayEnhancementOverrideCapabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RequestOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub StopOverride: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub CanOverrideChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CanOverrideChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveCanOverrideChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCanOverrideChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub IsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsOverrideActiveChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveIsOverrideActiveChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveIsOverrideActiveChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub DisplayEnhancementOverrideCapabilitiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DisplayEnhancementOverrideCapabilitiesChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDisplayEnhancementOverrideCapabilitiesChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDisplayEnhancementOverrideCapabilitiesChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverrideCapabilities(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabilities {
-    type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayEnhancementOverrideCapabilities_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsBrightnessControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsBrightnessNitsControlSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub GetSupportedNitRanges: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    GetSupportedNitRanges: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
-    type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Capabilities: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayEnhancementOverrideStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayEnhancementOverrideStatics {
-    type Vtable = IDisplayEnhancementOverrideStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf5b7ec1_9791_4453_b013_29b6f778e519);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayEnhancementOverrideStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayInformation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayInformation {
-    type Vtable = IDisplayInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayInformation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
-    pub NativeOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub OrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    OrientationChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveOrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveOrientationChanged: usize,
-    pub ResolutionScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ResolutionScale) -> ::windows::core::HRESULT,
-    pub LogicalDpi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub RawDpiX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    pub RawDpiY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub DpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DpiChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDpiChanged: usize,
-    pub StereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub StereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StereoEnabledChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveStereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStereoEnabledChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub GetColorProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))]
-    GetColorProfileAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ColorProfileChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveColorProfileChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayInformation2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayInformation2 {
-    type Vtable = IDisplayInformation2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayInformation2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub RawPixelsPerViewPixel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayInformation3(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayInformation3 {
-    type Vtable = IDisplayInformation3_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb15011d_0f09_4466_8ff3_11de9a3c929a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayInformation3_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub DiagonalSizeInInches: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DiagonalSizeInInches: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayInformation4(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayInformation4 {
-    type Vtable = IDisplayInformation4_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc972ce2f_1242_46be_b536_e1aafe9e7acf);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayInformation4_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ScreenWidthInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub ScreenHeightInRawPixels: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayInformation5(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayInformation5 {
-    type Vtable = IDisplayInformation5_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayInformation5_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetAdvancedColorInfo: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub AdvancedColorInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    AdvancedColorInfoChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveAdvancedColorInfoChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveAdvancedColorInfoChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayInformationStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayInformationStatics {
-    type Vtable = IDisplayInformationStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayInformationStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub AutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
-    pub SetAutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DisplayOrientations) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub DisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DisplayContentsInvalidated: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDisplayContentsInvalidated: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct IDisplayPropertiesStatics(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IDisplayPropertiesStatics {
-    type Vtable = IDisplayPropertiesStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6937ed8d_30ea_4ded_8271_4553ff02f68a);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayPropertiesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub CurrentOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    CurrentOrientation: usize,
-    #[cfg(feature = "deprecated")]
-    pub NativeOrientation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    NativeOrientation: usize,
-    #[cfg(feature = "deprecated")]
-    pub AutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DisplayOrientations) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    AutoRotationPreferences: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetAutoRotationPreferences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DisplayOrientations) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetAutoRotationPreferences: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub OrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    OrientationChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveOrientationChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveOrientationChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub ResolutionScale: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ResolutionScale) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    ResolutionScale: usize,
-    #[cfg(feature = "deprecated")]
-    pub LogicalDpi: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f32) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    LogicalDpi: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub LogicalDpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    LogicalDpiChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveLogicalDpiChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveLogicalDpiChanged: usize,
-    #[cfg(feature = "deprecated")]
-    pub StereoEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    StereoEnabled: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub StereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    StereoEnabledChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveStereoEnabledChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveStereoEnabledChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub GetColorProfileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
-    GetColorProfileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub ColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    ColorProfileChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveColorProfileChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveColorProfileChanged: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub DisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    DisplayContentsInvalidated: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveDisplayContentsInvalidated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveDisplayContentsInvalidated: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayServices(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayServices {
-    type Vtable = IDisplayServices_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayServices_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IDisplayServicesStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IDisplayServicesStatics {
-    type Vtable = IDisplayServicesStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2096bf_730a_5560_b461_91c13d692e0c);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IDisplayServicesStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub FindAll: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result_size__: *mut u32, result__: *mut *mut super::DisplayId) -> ::windows::core::HRESULT,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-pub struct NitRange {
-    pub MinNits: f32,
-    pub MaxNits: f32,
-    pub StepSizeNits: f32,
-}
-impl ::core::marker::Copy for NitRange {}
-impl ::core::clone::Clone for NitRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NitRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NitRange").field("MinNits", &self.MinNits).field("MaxNits", &self.MaxNits).field("StepSizeNits", &self.StepSizeNits).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NitRange {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for NitRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Display.NitRange;f4;f4;f4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for NitRange {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NitRange>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NitRange {}
-impl ::core::default::Default for NitRange {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Graphics_Display\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ResolutionScale(pub i32);
-impl ResolutionScale {
-    pub const Invalid: Self = Self(0i32);
-    pub const Scale100Percent: Self = Self(100i32);
-    pub const Scale120Percent: Self = Self(120i32);
-    pub const Scale125Percent: Self = Self(125i32);
-    pub const Scale140Percent: Self = Self(140i32);
-    pub const Scale150Percent: Self = Self(150i32);
-    pub const Scale160Percent: Self = Self(160i32);
-    pub const Scale175Percent: Self = Self(175i32);
-    pub const Scale180Percent: Self = Self(180i32);
-    pub const Scale200Percent: Self = Self(200i32);
-    pub const Scale225Percent: Self = Self(225i32);
-    pub const Scale250Percent: Self = Self(250i32);
-    pub const Scale300Percent: Self = Self(300i32);
-    pub const Scale350Percent: Self = Self(350i32);
-    pub const Scale400Percent: Self = Self(400i32);
-    pub const Scale450Percent: Self = Self(450i32);
-    pub const Scale500Percent: Self = Self(500i32);
-}
-impl ::core::marker::Copy for ResolutionScale {}
-impl ::core::clone::Clone for ResolutionScale {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResolutionScale {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ResolutionScale {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ResolutionScale {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResolutionScale").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ResolutionScale {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Display.ResolutionScale;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

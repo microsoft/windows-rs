@@ -14,6 +14,72 @@ pub mod Imaging;
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
+#[doc = "*Required features: `\"Graphics\"`*"]
+#[repr(transparent)]
+pub struct IGeometrySource2D(::windows::core::IUnknown);
+impl IGeometrySource2D {}
+impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IUnknown {
+    fn from(value: IGeometrySource2D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IGeometrySource2D> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IGeometrySource2D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IUnknown {
+    fn from(value: &IGeometrySource2D) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
+    fn from(value: IGeometrySource2D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IGeometrySource2D> for &'a ::windows::core::IInspectable {
+    fn from(value: &'a IGeometrySource2D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
+    fn from(value: &IGeometrySource2D) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for IGeometrySource2D {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IGeometrySource2D {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IGeometrySource2D {}
+impl ::core::fmt::Debug for IGeometrySource2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGeometrySource2D").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for IGeometrySource2D {
+    type Vtable = IGeometrySource2D_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGeometrySource2D_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics\"`*"]
 pub struct DisplayAdapterId {
@@ -88,72 +154,6 @@ impl ::core::default::Default for DisplayId {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Graphics\"`*"]
-#[repr(transparent)]
-pub struct IGeometrySource2D(::windows::core::IUnknown);
-impl IGeometrySource2D {}
-impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IUnknown {
-    fn from(value: IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeometrySource2D> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IUnknown {
-    fn from(value: &IGeometrySource2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IGeometrySource2D> for &'a ::windows::core::IInspectable {
-    fn from(value: &'a IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: &IGeometrySource2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IGeometrySource2D {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IGeometrySource2D {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IGeometrySource2D {}
-impl ::core::fmt::Debug for IGeometrySource2D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IGeometrySource2D").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for IGeometrySource2D {
-    type Vtable = IGeometrySource2D_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaff7902_670c_4181_a624_da977203b845);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGeometrySource2D_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Graphics\"`*"]

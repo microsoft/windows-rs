@@ -1,38 +1,183 @@
-#[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
+#[doc(hidden)]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AddFileResult(pub i32);
-impl AddFileResult {
-    pub const Added: Self = Self(0i32);
-    pub const AlreadyAdded: Self = Self(1i32);
-    pub const NotAllowed: Self = Self(2i32);
-    pub const Unavailable: Self = Self(3i32);
+pub struct IFileOpenPickerUI(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IFileOpenPickerUI {
+    type Vtable = IFileOpenPickerUI_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
 }
-impl ::core::marker::Copy for AddFileResult {}
-impl ::core::clone::Clone for AddFileResult {
-    fn clone(&self) -> Self {
-        *self
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFileOpenPickerUI_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: *mut ::core::ffi::c_void, result__: *mut AddFileResult) -> ::windows::core::HRESULT,
+    pub RemoveFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContainsFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub CanAddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AllowedFileTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AllowedFileTypes: usize,
+    pub SelectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FileSelectionMode) -> ::windows::core::HRESULT,
+    pub SettingsIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub FileRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    FileRemoved: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub RemoveFileRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    RemoveFileRemoved: usize,
+    #[cfg(feature = "Foundation")]
+    pub Closing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Closing: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveClosing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveClosing: usize,
 }
-impl ::core::default::Default for AddFileResult {
-    fn default() -> Self {
-        Self(0)
-    }
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct IFileRemovedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for IFileRemovedEventArgs {
+    type Vtable = IFileRemovedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 }
-unsafe impl ::windows::core::Abi for AddFileResult {
-    type Abi = Self;
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFileRemovedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    Id: usize,
 }
-impl ::core::fmt::Debug for AddFileResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AddFileResult").field(&self.0).finish()
-    }
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IFileSavePickerUI(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IFileSavePickerUI {
+    type Vtable = IFileSavePickerUI_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
 }
-unsafe impl ::windows::core::RuntimeType for AddFileResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+#[repr(C)]
+#[doc(hidden)]
+pub struct IFileSavePickerUI_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub AllowedFileTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    AllowedFileTypes: usize,
+    pub SettingsIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub TrySetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut SetFileNameResult) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub FileNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FileNameChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveFileNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveFileNameChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub TargetFileRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    TargetFileRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveTargetFileRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveTargetFileRequested: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPickerClosingDeferral(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPickerClosingDeferral {
+    type Vtable = IPickerClosingDeferral_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af7f71e_1a67_4a31_ae80_e907708a619b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPickerClosingDeferral_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPickerClosingEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPickerClosingEventArgs {
+    type Vtable = IPickerClosingEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPickerClosingEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ClosingOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPickerClosingOperation(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPickerClosingOperation {
+    type Vtable = IPickerClosingOperation_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPickerClosingOperation_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Deadline: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ITargetFileRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ITargetFileRequest {
+    type Vtable = ITargetFileRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42bd3355_7f88_478b_8e81_690b20340678);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITargetFileRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub TargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SetTargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ITargetFileRequestDeferral(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ITargetFileRequestDeferral {
+    type Vtable = ITargetFileRequestDeferral_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITargetFileRequestDeferral_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ITargetFileRequestedEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ITargetFileRequestedEventArgs {
+    type Vtable = ITargetFileRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ITargetFileRequestedEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
@@ -435,221 +580,6 @@ impl ::core::convert::From<&FileSavePickerUI> for &::windows::core::IInspectable
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FileSelectionMode(pub i32);
-impl FileSelectionMode {
-    pub const Single: Self = Self(0i32);
-    pub const Multiple: Self = Self(1i32);
-}
-impl ::core::marker::Copy for FileSelectionMode {}
-impl ::core::clone::Clone for FileSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FileSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FileSelectionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FileSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileSelectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IFileOpenPickerUI(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFileOpenPickerUI {
-    type Vtable = IFileOpenPickerUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda45a10_f9d4_40c4_8af5_c5b6b5a61d1d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFileOpenPickerUI_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: *mut ::core::ffi::c_void, result__: *mut AddFileResult) -> ::windows::core::HRESULT,
-    pub RemoveFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ContainsFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub CanAddFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AllowedFileTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllowedFileTypes: usize,
-    pub SelectionMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut FileSelectionMode) -> ::windows::core::HRESULT,
-    pub SettingsIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub FileRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    FileRemoved: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub RemoveFileRemoved: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    RemoveFileRemoved: usize,
-    #[cfg(feature = "Foundation")]
-    pub Closing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Closing: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveClosing: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveClosing: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct IFileRemovedEventArgs(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for IFileRemovedEventArgs {
-    type Vtable = IFileRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFileRemovedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    Id: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IFileSavePickerUI(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IFileSavePickerUI {
-    type Vtable = IFileSavePickerUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9656c1e7_3e56_43cc_8a39_33c73d9d542b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFileSavePickerUI_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Title: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub SetTitle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub AllowedFileTypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    AllowedFileTypes: usize,
-    pub SettingsIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub FileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub TrySetFileName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut SetFileNameResult) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub FileNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FileNameChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveFileNameChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveFileNameChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub TargetFileRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    TargetFileRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveTargetFileRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveTargetFileRequested: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPickerClosingDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPickerClosingDeferral {
-    type Vtable = IPickerClosingDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af7f71e_1a67_4a31_ae80_e907708a619b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPickerClosingDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPickerClosingEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPickerClosingEventArgs {
-    type Vtable = IPickerClosingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e59f224_b332_4f12_8b9f_a8c2f06b32cd);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPickerClosingEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ClosingOperation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub IsCanceled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IPickerClosingOperation(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPickerClosingOperation {
-    type Vtable = IPickerClosingOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce9fb84_beee_4e39_a773_fc5f0eae328d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPickerClosingOperation_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub Deadline: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Deadline: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ITargetFileRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITargetFileRequest {
-    type Vtable = ITargetFileRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42bd3355_7f88_478b_8e81_690b20340678);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ITargetFileRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub TargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SetTargetFile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ITargetFileRequestDeferral(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITargetFileRequestDeferral {
-    type Vtable = ITargetFileRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aee9d91_bf15_4da9_95f6_f6b7d558225b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ITargetFileRequestDeferral_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Complete: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ITargetFileRequestedEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ITargetFileRequestedEventArgs {
-    type Vtable = ITargetFileRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb163dbc1_1b51_4c89_a591_0fd40b3c57c9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ITargetFileRequestedEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
-#[repr(transparent)]
 pub struct PickerClosingDeferral(::windows::core::IUnknown);
 impl PickerClosingDeferral {
     pub fn Complete(&self) -> ::windows::core::Result<()> {
@@ -879,41 +809,6 @@ impl ::core::convert::From<&PickerClosingOperation> for &::windows::core::IInspe
 }
 #[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SetFileNameResult(pub i32);
-impl SetFileNameResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const NotAllowed: Self = Self(1i32);
-    pub const Unavailable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SetFileNameResult {}
-impl ::core::clone::Clone for SetFileNameResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SetFileNameResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SetFileNameResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SetFileNameResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
-#[repr(transparent)]
 pub struct TargetFileRequest(::windows::core::IUnknown);
 impl TargetFileRequest {
     pub fn TargetFile(&self) -> ::windows::core::Result<super::super::IStorageFile> {
@@ -1138,6 +1033,111 @@ impl ::core::convert::From<&TargetFileRequestedEventArgs> for ::windows::core::I
 impl ::core::convert::From<&TargetFileRequestedEventArgs> for &::windows::core::IInspectable {
     fn from(value: &TargetFileRequestedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AddFileResult(pub i32);
+impl AddFileResult {
+    pub const Added: Self = Self(0i32);
+    pub const AlreadyAdded: Self = Self(1i32);
+    pub const NotAllowed: Self = Self(2i32);
+    pub const Unavailable: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AddFileResult {}
+impl ::core::clone::Clone for AddFileResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AddFileResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AddFileResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AddFileResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddFileResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AddFileResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.AddFileResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FileSelectionMode(pub i32);
+impl FileSelectionMode {
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
+}
+impl ::core::marker::Copy for FileSelectionMode {}
+impl ::core::clone::Clone for FileSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FileSelectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FileSelectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FileSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileSelectionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileSelectionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.FileSelectionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Pickers_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SetFileNameResult(pub i32);
+impl SetFileNameResult {
+    pub const Succeeded: Self = Self(0i32);
+    pub const NotAllowed: Self = Self(1i32);
+    pub const Unavailable: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SetFileNameResult {}
+impl ::core::clone::Clone for SetFileNameResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SetFileNameResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SetFileNameResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SetFileNameResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetFileNameResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Pickers.Provider.SetFileNameResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

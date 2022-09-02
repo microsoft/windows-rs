@@ -1,786 +1,111 @@
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_MODE_PASS_THROUGH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_STATUS_FD_CURRENTLY_CONVERGED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_STATUS_FD_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_STATUS_FD_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AEC_STATUS_FD_HISTORY_UNINITIALIZED: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct ALLOCATOR_PROPERTIES_EX {
-    pub cBuffers: i32,
-    pub cbBuffer: i32,
-    pub cbAlign: i32,
-    pub cbPrefix: i32,
-    pub MemoryType: ::windows::core::GUID,
-    pub BusType: ::windows::core::GUID,
-    pub State: PIPE_STATE,
-    pub Input: PIPE_TERMINATION,
-    pub Output: PIPE_TERMINATION,
-    pub Strategy: u32,
-    pub Flags: u32,
-    pub Weight: u32,
-    pub LogicalMemoryType: KS_LogicalMemoryType,
-    pub AllocatorPlace: PIPE_ALLOCATOR_PLACE,
-    pub Dimensions: PIPE_DIMENSIONS,
-    pub PhysicalRange: KS_FRAMING_RANGE,
-    pub PrevSegment: *mut IKsAllocatorEx,
-    pub CountNextSegments: u32,
-    pub NextSegments: *mut *mut IKsAllocatorEx,
-    pub InsideFactors: u32,
-    pub NumberPins: u32,
-}
-impl ::core::marker::Copy for ALLOCATOR_PROPERTIES_EX {}
-impl ::core::clone::Clone for ALLOCATOR_PROPERTIES_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ALLOCATOR_PROPERTIES_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ALLOCATOR_PROPERTIES_EX")
-            .field("cBuffers", &self.cBuffers)
-            .field("cbBuffer", &self.cbBuffer)
-            .field("cbAlign", &self.cbAlign)
-            .field("cbPrefix", &self.cbPrefix)
-            .field("MemoryType", &self.MemoryType)
-            .field("BusType", &self.BusType)
-            .field("State", &self.State)
-            .field("Input", &self.Input)
-            .field("Output", &self.Output)
-            .field("Strategy", &self.Strategy)
-            .field("Flags", &self.Flags)
-            .field("Weight", &self.Weight)
-            .field("LogicalMemoryType", &self.LogicalMemoryType)
-            .field("AllocatorPlace", &self.AllocatorPlace)
-            .field("Dimensions", &self.Dimensions)
-            .field("PhysicalRange", &self.PhysicalRange)
-            .field("PrevSegment", &self.PrevSegment)
-            .field("CountNextSegments", &self.CountNextSegments)
-            .field("NextSegments", &self.NextSegments)
-            .field("InsideFactors", &self.InsideFactors)
-            .field("NumberPins", &self.NumberPins)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ALLOCATOR_PROPERTIES_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ALLOCATOR_PROPERTIES_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ALLOCATOR_PROPERTIES_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ALLOCATOR_PROPERTIES_EX {}
-impl ::core::default::Default for ALLOCATOR_PROPERTIES_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const APO_CLASS_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
-pub const AUDIOENDPOINT_CLASS_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUDIOPOSTURE_ORIENTATION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOPOSTURE_ORIENTATION_NOTROTATED: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOPOSTURE_ORIENTATION_ROTATED180DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIOPOSTURE_ORIENTATION_ROTATED270DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(3i32);
-impl ::core::marker::Copy for AUDIOPOSTURE_ORIENTATION {}
-impl ::core::clone::Clone for AUDIOPOSTURE_ORIENTATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIOPOSTURE_ORIENTATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIOPOSTURE_ORIENTATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUDIOPOSTURE_ORIENTATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUDIOPOSTURE_ORIENTATION").field(&self.0).finish()
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    pub ResourceGroupAcquired: super::super::Foundation::BOOL,
-    pub ResourceGroupName: [u16; 256],
+#[inline]
+pub unsafe fn KsCreateAllocator<'a, P0>(connectionhandle: P0, allocatorframing: &KSALLOCATOR_FRAMING, allocatorhandle: &mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreateAllocator(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    }
+    KsCreateAllocator(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(allocatorhandle))
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
+#[inline]
+pub unsafe fn KsCreateAllocator2<'a, P0>(connectionhandle: P0, allocatorframing: &KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreateAllocator2(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    KsCreateAllocator2(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn KsCreateClock<'a, P0>(connectionhandle: P0, clockcreate: &KSCLOCK_CREATE, clockhandle: &mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreateClock(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32;
     }
+    KsCreateClock(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(clockhandle))
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIORESOURCEMANAGEMENT_RESOURCEGROUP").field("ResourceGroupAcquired", &self.ResourceGroupAcquired).field("ResourceGroupName", &self.ResourceGroupName).finish()
+#[inline]
+pub unsafe fn KsCreateClock2<'a, P0>(connectionhandle: P0, clockcreate: &KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreateClock2(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    KsCreateClock2(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    type Abi = Self;
+#[inline]
+pub unsafe fn KsCreatePin<'a, P0>(filterhandle: P0, connect: &KSPIN_CONNECT, desiredaccess: u32, connectionhandle: &mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreatePin(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32;
+    }
+    KsCreatePin(filterhandle.into(), ::core::mem::transmute(connect), desiredaccess, ::core::mem::transmute(connectionhandle))
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIORESOURCEMANAGEMENT_RESOURCEGROUP>()) == 0 }
+#[inline]
+pub unsafe fn KsCreatePin2<'a, P0>(filterhandle: P0, connect: &KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreatePin2(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    KsCreatePin2(filterhandle.into(), ::core::mem::transmute(connect), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
+#[inline]
+pub unsafe fn KsCreateTopologyNode<'a, P0>(parenthandle: P0, nodecreate: &KSNODE_CREATE, desiredaccess: u32, nodehandle: &mut super::super::Foundation::HANDLE) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreateTopologyNode(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32;
+    }
+    KsCreateTopologyNode(parenthandle.into(), ::core::mem::transmute(nodecreate), desiredaccess, ::core::mem::transmute(nodehandle))
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[inline]
+pub unsafe fn KsCreateTopologyNode2<'a, P0>(parenthandle: P0, nodecreate: &KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn KsCreateTopologyNode2(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    KsCreateTopologyNode2(parenthandle.into(), ::core::mem::transmute(nodecreate), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUDIO_CURVE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_CURVE_TYPE_NONE: AUDIO_CURVE_TYPE = AUDIO_CURVE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AUDIO_CURVE_TYPE_WINDOWS_FADE: AUDIO_CURVE_TYPE = AUDIO_CURVE_TYPE(1i32);
-impl ::core::marker::Copy for AUDIO_CURVE_TYPE {}
-impl ::core::clone::Clone for AUDIO_CURVE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIO_CURVE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIO_CURVE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUDIO_CURVE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUDIO_CURVE_TYPE").field(&self.0).finish()
-    }
-}
-pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_BASS_BOOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_BEAMFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
-pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
-pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
-pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
-pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
-pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
-pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
-pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
-pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AllocatorStrategy_DontCare: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AllocatorStrategy_MaximizeSpeed: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AllocatorStrategy_MinimizeFrameSize: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AllocatorStrategy_MinimizeNumberOfAllocators: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const AllocatorStrategy_MinimizeNumberOfFrames: u32 = 1u32;
-pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
-pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const BUS_INTERFACE_REFERENCE_VERSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CAPTURE_MEMORY_ALLOCATION_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAPTURE_ALLOC_INVALID: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAPTURE_ALLOC_SYSTEM: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAPTURE_ALLOC_VRAM: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAPTURE_ALLOC_SYSTEM_AGP: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAPTURE_ALLOC_VRAM_MAPPED: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAPTURE_ALLOC_SECURE_BUFFER: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(16i32);
-impl ::core::marker::Copy for CAPTURE_MEMORY_ALLOCATION_FLAGS {}
-impl ::core::clone::Clone for CAPTURE_MEMORY_ALLOCATION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CAPTURE_MEMORY_ALLOCATION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CAPTURE_MEMORY_ALLOCATION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CAPTURE_MEMORY_ALLOCATION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CAPTURE_MEMORY_ALLOCATION_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct CC_BYTE_PAIR {
-    pub Decoded: [u8; 2],
-    pub Reserved: u16,
-}
-impl ::core::marker::Copy for CC_BYTE_PAIR {}
-impl ::core::clone::Clone for CC_BYTE_PAIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CC_BYTE_PAIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CC_BYTE_PAIR").field("Decoded", &self.Decoded).field("Reserved", &self.Reserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CC_BYTE_PAIR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CC_BYTE_PAIR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CC_BYTE_PAIR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CC_BYTE_PAIR {}
-impl ::core::default::Default for CC_BYTE_PAIR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct CC_HW_FIELD {
-    pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
-    pub fieldFlags: u32,
-    pub PictureNumber: i64,
-    pub Lines: [CC_BYTE_PAIR; 12],
-}
-impl ::core::marker::Copy for CC_HW_FIELD {}
-impl ::core::clone::Clone for CC_HW_FIELD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CC_HW_FIELD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CC_HW_FIELD").field("ScanlinesRequested", &self.ScanlinesRequested).field("fieldFlags", &self.fieldFlags).field("PictureNumber", &self.PictureNumber).field("Lines", &self.Lines).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CC_HW_FIELD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CC_HW_FIELD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CC_HW_FIELD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CC_HW_FIELD {}
-impl ::core::default::Default for CC_HW_FIELD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
-pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
-pub const CLSID_Proxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONSTRICTOR_OPTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(1i32);
-impl ::core::marker::Copy for CONSTRICTOR_OPTION {}
-impl ::core::clone::Clone for CONSTRICTOR_OPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONSTRICTOR_OPTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CONSTRICTOR_OPTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CONSTRICTOR_OPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONSTRICTOR_OPTION").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct DEVCAPS {
-    pub CanRecord: i32,
-    pub CanRecordStrobe: i32,
-    pub HasAudio: i32,
-    pub HasVideo: i32,
-    pub UsesFiles: i32,
-    pub CanSave: i32,
-    pub DeviceType: i32,
-    pub TCRead: i32,
-    pub TCWrite: i32,
-    pub CTLRead: i32,
-    pub IndexRead: i32,
-    pub Preroll: i32,
-    pub Postroll: i32,
-    pub SyncAcc: i32,
-    pub NormRate: i32,
-    pub CanPreview: i32,
-    pub CanMonitorSrc: i32,
-    pub CanTest: i32,
-    pub VideoIn: i32,
-    pub AudioIn: i32,
-    pub Calibrate: i32,
-    pub SeekType: i32,
-    pub SimulatedHardware: i32,
-}
-impl ::core::marker::Copy for DEVCAPS {}
-impl ::core::clone::Clone for DEVCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DEVCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DEVCAPS")
-            .field("CanRecord", &self.CanRecord)
-            .field("CanRecordStrobe", &self.CanRecordStrobe)
-            .field("HasAudio", &self.HasAudio)
-            .field("HasVideo", &self.HasVideo)
-            .field("UsesFiles", &self.UsesFiles)
-            .field("CanSave", &self.CanSave)
-            .field("DeviceType", &self.DeviceType)
-            .field("TCRead", &self.TCRead)
-            .field("TCWrite", &self.TCWrite)
-            .field("CTLRead", &self.CTLRead)
-            .field("IndexRead", &self.IndexRead)
-            .field("Preroll", &self.Preroll)
-            .field("Postroll", &self.Postroll)
-            .field("SyncAcc", &self.SyncAcc)
-            .field("NormRate", &self.NormRate)
-            .field("CanPreview", &self.CanPreview)
-            .field("CanMonitorSrc", &self.CanMonitorSrc)
-            .field("CanTest", &self.CanTest)
-            .field("VideoIn", &self.VideoIn)
-            .field("AudioIn", &self.AudioIn)
-            .field("Calibrate", &self.Calibrate)
-            .field("SeekType", &self.SeekType)
-            .field("SimulatedHardware", &self.SimulatedHardware)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DEVCAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DEVCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DEVCAPS {}
-impl ::core::default::Default for DEVCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
-#[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3u32 };
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
-#[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2u32 };
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
-#[cfg(feature = "Win32_Devices_Properties")]
-pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2u32 };
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub struct DS3DVECTOR {
-    pub Anonymous1: DS3DVECTOR_0,
-    pub Anonymous2: DS3DVECTOR_1,
-    pub Anonymous3: DS3DVECTOR_2,
-}
-impl ::core::marker::Copy for DS3DVECTOR {}
-impl ::core::clone::Clone for DS3DVECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DS3DVECTOR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS3DVECTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS3DVECTOR {}
-impl ::core::default::Default for DS3DVECTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub union DS3DVECTOR_0 {
-    pub x: f32,
-    pub dvX: f32,
-}
-impl ::core::marker::Copy for DS3DVECTOR_0 {}
-impl ::core::clone::Clone for DS3DVECTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DS3DVECTOR_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS3DVECTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS3DVECTOR_0 {}
-impl ::core::default::Default for DS3DVECTOR_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub union DS3DVECTOR_1 {
-    pub y: f32,
-    pub dvY: f32,
-}
-impl ::core::marker::Copy for DS3DVECTOR_1 {}
-impl ::core::clone::Clone for DS3DVECTOR_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DS3DVECTOR_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS3DVECTOR_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS3DVECTOR_1 {}
-impl ::core::default::Default for DS3DVECTOR_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub union DS3DVECTOR_2 {
-    pub z: f32,
-    pub dvZ: f32,
-}
-impl ::core::marker::Copy for DS3DVECTOR_2 {}
-impl ::core::clone::Clone for DS3DVECTOR_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DS3DVECTOR_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS3DVECTOR_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS3DVECTOR_2 {}
-impl ::core::default::Default for DS3DVECTOR_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EPcxConnectionType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeUnknown: EPcxConnectionType = EPcxConnectionType(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnType3Point5mm: EPcxConnectionType = EPcxConnectionType(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeQuarter: EPcxConnectionType = EPcxConnectionType(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeAtapiInternal: EPcxConnectionType = EPcxConnectionType(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeRCA: EPcxConnectionType = EPcxConnectionType(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeOptical: EPcxConnectionType = EPcxConnectionType(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeOtherDigital: EPcxConnectionType = EPcxConnectionType(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeOtherAnalog: EPcxConnectionType = EPcxConnectionType(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeMultichannelAnalogDIN: EPcxConnectionType = EPcxConnectionType(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeXlrProfessional: EPcxConnectionType = EPcxConnectionType(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeRJ11Modem: EPcxConnectionType = EPcxConnectionType(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eConnTypeCombination: EPcxConnectionType = EPcxConnectionType(11i32);
-impl ::core::marker::Copy for EPcxConnectionType {}
-impl ::core::clone::Clone for EPcxConnectionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPcxConnectionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EPcxConnectionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EPcxConnectionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EPcxConnectionType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EPcxGenLocation(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGenLocPrimaryBox: EPcxGenLocation = EPcxGenLocation(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGenLocInternal: EPcxGenLocation = EPcxGenLocation(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGenLocSeparate: EPcxGenLocation = EPcxGenLocation(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGenLocOther: EPcxGenLocation = EPcxGenLocation(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const EPcxGenLocation_enum_count: EPcxGenLocation = EPcxGenLocation(4i32);
-impl ::core::marker::Copy for EPcxGenLocation {}
-impl ::core::clone::Clone for EPcxGenLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPcxGenLocation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EPcxGenLocation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EPcxGenLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EPcxGenLocation").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EPcxGeoLocation(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocRear: EPcxGeoLocation = EPcxGeoLocation(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocFront: EPcxGeoLocation = EPcxGeoLocation(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocLeft: EPcxGeoLocation = EPcxGeoLocation(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocRight: EPcxGeoLocation = EPcxGeoLocation(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocTop: EPcxGeoLocation = EPcxGeoLocation(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocBottom: EPcxGeoLocation = EPcxGeoLocation(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocRearPanel: EPcxGeoLocation = EPcxGeoLocation(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocRiser: EPcxGeoLocation = EPcxGeoLocation(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocInsideMobileLid: EPcxGeoLocation = EPcxGeoLocation(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocDrivebay: EPcxGeoLocation = EPcxGeoLocation(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocHDMI: EPcxGeoLocation = EPcxGeoLocation(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocOutsideMobileLid: EPcxGeoLocation = EPcxGeoLocation(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocATAPI: EPcxGeoLocation = EPcxGeoLocation(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocNotApplicable: EPcxGeoLocation = EPcxGeoLocation(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const eGeoLocReserved6: EPcxGeoLocation = EPcxGeoLocation(15i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const EPcxGeoLocation_enum_count: EPcxGeoLocation = EPcxGeoLocation(16i32);
-impl ::core::marker::Copy for EPcxGeoLocation {}
-impl ::core::clone::Clone for EPcxGeoLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPcxGeoLocation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EPcxGeoLocation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EPcxGeoLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EPcxGeoLocation").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EPxcPortConnection(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const ePortConnJack: EPxcPortConnection = EPxcPortConnection(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const ePortConnIntegratedDevice: EPxcPortConnection = EPxcPortConnection(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const ePortConnBothIntegratedAndJack: EPxcPortConnection = EPxcPortConnection(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const ePortConnUnknown: EPxcPortConnection = EPxcPortConnection(3i32);
-impl ::core::marker::Copy for EPxcPortConnection {}
-impl ::core::clone::Clone for EPxcPortConnection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EPxcPortConnection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EPxcPortConnection {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EPxcPortConnection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EPxcPortConnection").field(&self.0).finish()
-    }
-}
-pub const EVENTSETID_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
-pub const EVENTSETID_TUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
-pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
-pub const EVENTSETID_VIDEODECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FRAMING_CACHE_OPS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Framing_Cache_Update: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Framing_Cache_ReadLast: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Framing_Cache_ReadOrig: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Framing_Cache_Write: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(3i32);
-impl ::core::marker::Copy for FRAMING_CACHE_OPS {}
-impl ::core::clone::Clone for FRAMING_CACHE_OPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FRAMING_CACHE_OPS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FRAMING_CACHE_OPS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FRAMING_CACHE_OPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FRAMING_CACHE_OPS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FRAMING_PROP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const FramingProp_Uninitialized: FRAMING_PROP = FRAMING_PROP(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const FramingProp_None: FRAMING_PROP = FRAMING_PROP(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const FramingProp_Old: FRAMING_PROP = FRAMING_PROP(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const FramingProp_Ex: FRAMING_PROP = FRAMING_PROP(3i32);
-impl ::core::marker::Copy for FRAMING_PROP {}
-impl ::core::clone::Clone for FRAMING_PROP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FRAMING_PROP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FRAMING_PROP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FRAMING_PROP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FRAMING_PROP").field(&self.0).finish()
-    }
-}
-pub const GUID_NULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 pub struct IKsAggregateControl(::windows::core::IUnknown);
@@ -834,10 +159,6 @@ pub struct IKsAggregateControl_Vtbl {
     pub KsAddAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub KsRemoveAggregate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aggregateclass: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-pub struct IKsAllocator(pub u8);
-#[repr(C)]
-pub struct IKsAllocatorEx(pub u8);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 pub struct IKsControl(::windows::core::IUnknown);
@@ -1174,8 +495,6 @@ pub struct IKsJackSinkInformation_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetJackSinkInformation: usize,
 }
-#[repr(C)]
-pub struct IKsPin(pub u8);
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[repr(transparent)]
 pub struct IKsPropertySet(::windows::core::IUnknown);
@@ -1286,6 +605,7471 @@ pub struct IKsTopology_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateNodeInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodeid: u32, flags: u32, desiredaccess: u32, unkouter: *mut ::core::ffi::c_void, interfaceid: *const ::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_MODE_FULL_DUPLEX: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_MODE_HALF_DUPLEX: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_MODE_PASS_THROUGH: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_STATUS_FD_CURRENTLY_CONVERGED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_STATUS_FD_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_STATUS_FD_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AEC_STATUS_FD_HISTORY_UNINITIALIZED: u32 = 0u32;
+pub const APO_CLASS_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5989fce8_9cd0_467d_8a6a_5419e31529d4);
+pub const AUDIOENDPOINT_CLASS_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc166523c_fe0c_4a94_a586_f1a80cfbbf3e);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIOMODULE_MAX_DATA_SIZE: u32 = 64000u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIOMODULE_MAX_NAME_CCH_SIZE: u32 = 128u32;
+pub const AUDIO_EFFECT_TYPE_ACOUSTIC_ECHO_CANCELLATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adbe_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_AUTOMATIC_GAIN_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_BOOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc5_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BASS_MANAGEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adca_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_BEAMFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc1_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_CONSTANT_TONE_REMOVAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc2_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DEEP_NOISE_SUPPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64add0_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_DYNAMIC_RANGE_COMPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adce_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ENVIRONMENTAL_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcb_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc3_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_FAR_FIELD_BEAMFORMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_LOUDNESS_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc4_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_NOISE_SUPPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adbf_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_ROOM_CORRECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc9_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_COMPENSATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcd_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_FILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc8_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_SPEAKER_PROTECTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adcc_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_HEADPHONES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc7_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_EFFECT_TYPE_VIRTUAL_SURROUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f64adc6_8211_11e2_8c70_2c27d7f001fa);
+pub const AUDIO_SIGNALPROCESSINGMODE_COMMUNICATIONS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98951333_b9cd_48b1_a0a3_ff40682d73f7);
+pub const AUDIO_SIGNALPROCESSINGMODE_DEFAULT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18e2f7e_933d_4965_b7d1_1eef228d2af3);
+pub const AUDIO_SIGNALPROCESSINGMODE_FAR_FIELD_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28941cba_3be6_4a78_9a76_30fd91559b64);
+pub const AUDIO_SIGNALPROCESSINGMODE_MEDIA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4780004e_7133_41d8_8c74_660dadd2c0ee);
+pub const AUDIO_SIGNALPROCESSINGMODE_MOVIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb26feb0d_ec94_477c_9494_d1ab8e753f6e);
+pub const AUDIO_SIGNALPROCESSINGMODE_NOTIFICATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cf2a70b_f377_403b_bd6b_360863e0355c);
+pub const AUDIO_SIGNALPROCESSINGMODE_RAW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e90ea20_b493_4fd1_a1a8_7e1361a956cf);
+pub const AUDIO_SIGNALPROCESSINGMODE_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc1cfc9b_b9d6_4cfa_b5e0_4bb2166878b2);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AllocatorStrategy_DontCare: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AllocatorStrategy_MaximizeSpeed: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AllocatorStrategy_MinimizeFrameSize: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AllocatorStrategy_MinimizeNumberOfAllocators: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AllocatorStrategy_MinimizeNumberOfFrames: u32 = 1u32;
+pub const BLUETOOTHLE_MIDI_SERVICE_UUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b80e5a_ede8_4b33_a751_6ce34ec4c700);
+pub const BLUETOOTH_MIDI_DATAIO_CHARACTERISTIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7772e5db_3868_4112_a1a9_f2669d106bf3);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const BUS_INTERFACE_REFERENCE_VERSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const CC_MAX_HW_DECODE_LINES: u32 = 12u32;
+pub const CLSID_KsIBasicAudioInterfaceHandler: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f8ac3e_0f71_11d2_b72c_00c04fb6bd3d);
+pub const CLSID_Proxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17cca71b_ecd7_11d0_b908_00a0c9223196);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_KsAudio_Controller_DeviceInterface_Path: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 3u32 };
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_KsAudio_PacketSize_Constraints: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x13e004d6_b066_43bd_913b_a415cd13da87), pid: 2u32 };
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+pub const DEVPKEY_KsAudio_PacketSize_Constraints2: super::super::Devices::Properties::DEVPROPKEY = super::super::Devices::Properties::DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0x9404f781_7191_409b_8b0b_80bf6ec229ae), pid: 2u32 };
+pub const EVENTSETID_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0641_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_TUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0606_28e4_11d0_a18c_00a0c9118956);
+pub const EVENTSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fdffc5d_c732_4ba6_b5df_6b4d7fc88b8b);
+pub const EVENTSETID_VIDEODECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0621_28e4_11d0_a18c_00a0c9118956);
+pub const GUID_NULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_DISABLE_EVENT: u32 = 3080203u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_ENABLE_EVENT: u32 = 3080199u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_HANDSHAKE: u32 = 3080223u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_METHOD: u32 = 3080207u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_PROPERTY: u32 = 3080195u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_READ_STREAM: u32 = 3096599u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_RESET_STATE: u32 = 3080219u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const IOCTL_KS_WRITE_STREAM: u32 = 3112979u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_ALTERNATE_AUDIO_2: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_COMMENTARY: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_EMERGENCY_FLASH: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_HEARING_IMPAIRED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_MAIN_AUDIO: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_NO_DIALOG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAC3_SERVICE_VOICE_OVER: u32 = 7u32;
+pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
+pub const KSALGORITHMINSTANCE_SYSTEM_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
+pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
+pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_2D_BUFFER_REQUIRED: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_ALLOCATOR_EXISTS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_ATTENTION_STEPPING: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_CAN_ALLOCATE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_CYCLE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_DEVICE_SPECIFIC: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_ENABLE_CACHED_MDL: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_INDEPENDENT_RANGES: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_INSIST_ON_FRAMESIZE_RATIO: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_MULTIPLE_OUTPUT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_NO_FRAME_INTEGRITY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_FLAG_PARTIAL_READ_SUPPORT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_OPTIONF_COMPATIBLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_OPTIONF_SYSTEM_MEMORY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_OPTIONF_VALID: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_REQUIREMENTF_FRAME_INTEGRITY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_REQUIREMENTF_INPLACE_MODIFIER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_REQUIREMENTF_MUST_ALLOCATE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_REQUIREMENTF_PREFERENCES_ONLY: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY_CUSTOM_ALLOCATION: u32 = 16u32;
+pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSATTRIBUTE_REQUIRED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDDECOUTMODE_PCM_51: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDDECOUTMODE_SPDIFF: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDDECOUTMODE_STEREO_ANALOG: u32 = 1u32;
+pub const KSAUDFNAME_3D_CENTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_DEPTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_3D_STEREO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_ALTERNATE_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_AUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_AUX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_BASS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_CD_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_LINE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MASTER_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MICROPHONE_BOOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MIC_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIC_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDI_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_MIDRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
+pub const KSAUDFNAME_MONO_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_MIX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_MONO_OUT_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_PC_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PC_SPEAKER_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_PEAKMETER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
+pub const KSAUDFNAME_RECORDING_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_RECORDING_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_STEREO_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_STEREO_MIX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
+pub const KSAUDFNAME_TREBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VIDEO_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
+pub const KSAUDFNAME_VOLUME_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_OUT_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
+pub const KSAUDFNAME_WAVE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_QUALITY_ADVANCED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_QUALITY_BASIC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_QUALITY_PC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_QUALITY_WORST: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_DIRECTOUT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_GROUND_FRONT_CENTER: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_GROUND_FRONT_LEFT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_GROUND_FRONT_RIGHT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_GROUND_REAR_LEFT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_GROUND_REAR_RIGHT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_MONO: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_SUPER_WOOFER: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_SPEAKER_TOP_MIDDLE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_HEADPHONE: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MAX: u32 = 180u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE: u32 = 20u32;
+pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
+pub const KSCAMERAPROFILE_CompressedCamera: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERAPROFILE_FLAGS_FACEDETECTION: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERAPROFILE_FLAGS_PHOTOHDR: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERAPROFILE_FLAGS_PREVIEW_RES_MUSTMATCH: u64 = 32u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERAPROFILE_FLAGS_VIDEOHDR: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: u64 = 1u64;
+pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
+pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
+pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
+pub const KSCAMERAPROFILE_HighFrameRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
+pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
+pub const KSCAMERAPROFILE_Legacy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
+pub const KSCAMERAPROFILE_PhotoSequence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
+pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
+pub const KSCAMERAPROFILE_VideoConferencing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
+pub const KSCAMERAPROFILE_VideoHDR8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
+pub const KSCAMERAPROFILE_VideoRecording: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_HDR: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_CAPS_MASK: u64 = 18374686479671623680u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_CAPS_RESERVED: u64 = 18374686479671623680u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EVCOMP_QUARTERSTEP: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EVCOMP_SIXTHSTEP: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_BACKGROUND_SUBTRACTION: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_DISABLED: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_BLINK: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PHOTO: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PREVIEW: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION: u64 = 9223372036854775808u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLAG_MASK: u64 = 18374686479671623680u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_AUTO: u64 = 256u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_ON: u64 = 128u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_AUTO: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_AUTO_ADJUSTABLEPOWER: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_MULTIFLASHSUPPORTED: u64 = 64u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_ON_ADJUSTABLEPOWER: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_REDEYEREDUCTION: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FLASH_SINGLEFLASH: u64 = 32u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUS: u64 = 256u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUSLOCK: u64 = 512u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_HYPERFOCAL: u64 = 33554432u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_INFINITY: u64 = 16777216u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_NEAREST: u64 = 67108864u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_DRIVERFALLBACK_OFF: u64 = 2048u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_FULLRANGE: u64 = 262144u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_HYPERFOCAL: u64 = 1048576u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_INFINITY: u64 = 524288u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_MACRO: u64 = 65536u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_NORMAL: u64 = 131072u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_REGIONBASED: u64 = 4096u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK: u64 = 1024u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALTERNATING_FRAME_ILLUMINATION: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALWAYS_ON: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_OFF: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_100: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_12800: u64 = 1024u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_1600: u64 = 128u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_200: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_25600: u64 = 2048u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_3200: u64 = 256u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_400: u64 = 32u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_50: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_6400: u64 = 512u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_80: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_800: u64 = 64u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_AUTO: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ISO_MANUAL: u64 = 36028797018963968u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: u64 = 256u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK: u64 = 255u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_METADATA_SYSTEMMEMORY: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OIS_AUTO: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OIS_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OIS_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_DEFAULT: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_LATENCY: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_PHOTO: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_POWER: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_QUALITY: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_VIDEO: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_VARIABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_16X: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_2X: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_4X: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_8X: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT: u64 = 1024u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_BEACH: u64 = 32u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_CANDLELIGHT: u64 = 128u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_LANDSCAPE: u64 = 256u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_MACRO: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_MANUAL: u64 = 36028797018963968u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHT: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHTPORTRAIT: u64 = 512u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_PORTRAIT: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SNOW: u64 = 8u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SPORT: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SUNSET: u64 = 64u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_DISABLED: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_ENABLED: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VFR_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VFR_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOHDR_AUTO: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOHDR_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOHDR_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_AUTO: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_LOCK: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_AUTO: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_OFF: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_ON: u64 = 4u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_OFF: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON_ADJUSTABLEPOWER: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_DISABLED: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_ENABLED: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: u64 = 0u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: u64 = 1u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: u64 = 2u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASHPOWER: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FOCUSSTATE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ISOSPEED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_LENSPOSITION: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SCENEMODE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SENSORFRAMERATE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_WHITEBALANCE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ZOOMFACTOR: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296u64;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592u64;
+pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSCATEGORY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_BRIDGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
+pub const KSCATEGORY_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_CLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_DATACOMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATADECOMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_DATATRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
+pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
+pub const KSCATEGORY_FILESYSTEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_INTERFACETRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MEDIUMTRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
+pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
+pub const KSCATEGORY_MIXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_MULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
+pub const KSCATEGORY_NETWORK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
+pub const KSCATEGORY_NETWORK_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
+pub const KSCATEGORY_PROXY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_QUALITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
+pub const KSCATEGORY_REALTIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
+pub const KSCATEGORY_RENDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
+pub const KSCATEGORY_SENSOR_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
+pub const KSCATEGORY_SENSOR_GROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
+pub const KSCATEGORY_SPLITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
+pub const KSCATEGORY_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_TOPOLOGY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
+pub const KSCATEGORY_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_TVTUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_VBICODEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
+pub const KSCATEGORY_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
+pub const KSCATEGORY_VIDEO_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
+pub const KSCATEGORY_VIRTUAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
+pub const KSCATEGORY_VPMUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
+pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
+pub const KSCOMPONENTID_USBAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCREATE_ITEM_FREEONSTOP: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCREATE_ITEM_NOPARAMETERS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCREATE_ITEM_SECURITYCHANGED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCREATE_ITEM_WILDCARD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCameraProfileSensorType_Custom: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCameraProfileSensorType_Depth: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCameraProfileSensorType_ImageSegmentation: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCameraProfileSensorType_Infrared: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCameraProfileSensorType_PoseTracking: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCameraProfileSensorType_RGB: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDATAFORMAT_BIT_ATTRIBUTES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: u32 = 0u32;
+pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SPECIFIER_DSOUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
+pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_FILENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
+pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
+pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SPECIFIER_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_VC_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
+pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_ANALOG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
+pub const KSDATAFORMAT_SUBTYPE_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
+pub const KSDATAFORMAT_SUBTYPE_D16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
+pub const KSDATAFORMAT_SUBTYPE_L16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L16_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_L8_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
+pub const KSDATAFORMAT_SUBTYPE_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_SUBTYPE_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_OVERLAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_RAW8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
+pub const KSDATAFORMAT_SUBTYPE_RIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
+pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_SUBTYPE_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_SUBTYPE_VPVBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_VPVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
+pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
+pub const KSDATAFORMAT_TYPE_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_AUXLine21Data: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
+pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
+pub const KSDATAFORMAT_TYPE_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
+pub const KSDATAFORMAT_TYPE_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_MPEG2_PES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
+pub const KSDATAFORMAT_TYPE_MUSIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
+pub const KSDATAFORMAT_TYPE_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
+pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
+pub const KSDATAFORMAT_TYPE_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
+pub const KSDATAFORMAT_TYPE_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
+pub const KSDATAFORMAT_TYPE_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
+pub const KSDATAFORMAT_TYPE_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDATARANGE_BIT_ATTRIBUTES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: u32 = 2u32;
+pub const KSDEGRADESETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_DESCRIPTOR_VERSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_DESCRIPTOR_VERSION_2: u32 = 272u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_FLAG_ENABLE_QUERYINTERFACE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_FLAG_ENABLE_REMOTE_WAKEUP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_FLAG_LOWPOWER_PASSTHROUGH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_PROFILE_TYPE_CAMERA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDISPATCH_FASTIO: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_3D_MODE_DISABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_3D_MODE_HEADRELATIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_3D_MODE_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_CTRL_3D: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_CTRL_FREQUENCY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_CTRL_HRTF_3D: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_CTRL_PAN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_CTRL_POSITIONNOTIFY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_CTRL_VOLUME: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_LOCHARDWARE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_LOCSOFTWARE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_PRIMARY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDSOUND_BUFFER_STATIC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_DPC: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_EVENT_HANDLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_EVENT_OBJECT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_KSWORKITEM: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_SEMAPHORE_HANDLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_SEMAPHORE_OBJECT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENTF_WORKITEM: u32 = 32u32;
+pub const KSEVENTSETID_AudioControlChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
+pub const KSEVENTSETID_CameraAsyncControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
+pub const KSEVENTSETID_CameraEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
+pub const KSEVENTSETID_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Connection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
+pub const KSEVENTSETID_Device: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
+pub const KSEVENTSETID_DynamicFormatChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
+pub const KSEVENTSETID_EXTDEV_Command: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
+pub const KSEVENTSETID_ExtendedCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
+pub const KSEVENTSETID_LoopedStreaming: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
+pub const KSEVENTSETID_PinCapsChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
+pub const KSEVENTSETID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
+pub const KSEVENTSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
+pub const KSEVENTSETID_Telephony: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
+pub const KSEVENTSETID_VIDCAPTOSTI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
+pub const KSEVENTSETID_VIDCAP_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
+pub const KSEVENTSETID_VPNotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
+pub const KSEVENTSETID_VPVBINotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
+pub const KSEVENTSETID_VolumeLimit: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_ENTRY_BUFFERED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_ENTRY_DELETED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_ENTRY_ONESHOT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_BASICSUPPORT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_ENABLEBUFFERED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_ONESHOT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_QUERYBUFFER: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_SETSUPPORT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TYPE_TOPOLOGY: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFILTER_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFILTER_FLAG_DENY_USERMODE_ACCESS: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFILTER_FLAG_DISPATCH_LEVEL_PROCESSING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFILTER_FLAG_HYPERCRITICAL_PROCESSING: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFILTER_FLAG_PRIORITIZE_REFERENCEGUID: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFILTER_FLAG_RECEIVE_ZERO_LENGTH_SAMPLES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
+pub const KSINTERFACESETID_FileIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
+pub const KSINTERFACESETID_Media: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
+pub const KSINTERFACESETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_MidiBus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
+pub const KSMEDIUMSETID_VPBus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMEDIUM_STANDARD_DEVIO: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMEDIUM_TYPE_ANYINSTANCE: u32 = 0u32;
+pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_NONPAGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_KERNEL_PAGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
+pub const KSMEMORY_TYPE_SYSTEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
+pub const KSMEMORY_TYPE_USER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
+pub const KSMETHODSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
+pub const KSMETHODSETID_StreamIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
+pub const KSMETHODSETID_Wavetable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_BASICSUPPORT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_MODIFY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_READ: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_SEND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_SETSUPPORT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_SOURCE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_TOPOLOGY: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_TYPE_WRITE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_WAVE_QUEUED_BREAKLOOP: u32 = 1u32;
+pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
+pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
+pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
+pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
+pub const KSMFT_CATEGORY_MULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
+pub const KSMFT_CATEGORY_OTHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
+pub const KSMFT_CATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
+pub const KSMFT_CATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
+pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
+pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMPEGVIDMODE_LTRBOX: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMPEGVIDMODE_PANSCAN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMPEGVIDMODE_SCALE: u32 = 4u32;
+pub const KSMUSIC_TECHNOLOGY_FMSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_PORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SQSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
+pub const KSMUSIC_TECHNOLOGY_SWSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
+pub const KSMUSIC_TECHNOLOGY_WAVETABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
+pub const KSNAME_Allocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_Filter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
+pub const KSNAME_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
+pub const KSNAME_TopologyNode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_AEC_CAPTURE_IN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_AEC_CAPTURE_OUT: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_AEC_RENDER_IN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_AEC_RENDER_OUT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_DEMUX_IN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_DEMUX_OUT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_STANDARD_IN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_STANDARD_OUT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_SUM_MUX_IN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSNODEPIN_SUM_MUX_OUT: u32 = 0u32;
+pub const KSNODETYPE_1394_DA_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_3D_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ADC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ANALOG_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ANALOG_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_AUDIO_ENGINE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
+pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
+pub const KSNODETYPE_AUDIO_LOOPBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
+pub const KSNODETYPE_AUDIO_MODULE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
+pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CABLE_TUNER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CD_PLAYER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_CHORUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_COMMUNICATION_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DELAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DEMUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
+pub const KSNODETYPE_DESKTOP_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DESKTOP_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DEV_SPECIFIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
+pub const KSNODETYPE_DOWN_LINE_PHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DRM_DESCRAMBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
+pub const KSNODETYPE_DSS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DVD_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
+pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EMBEDDED_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZATION_NOISE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_EXTERNAL_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_FM_RX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
+pub const KSNODETYPE_HANDSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HDMI_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
+pub const KSNODETYPE_HEADPHONES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEADSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_INPUT_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LINE_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_LOUDNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MICROPHONE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MIDI_ELEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
+pub const KSNODETYPE_MIDI_JACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
+pub const KSNODETYPE_MINIDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MULTITRACK_RECORDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_MUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_OUTPUT_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
+pub const KSNODETYPE_PEAKMETER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
+pub const KSNODETYPE_PERSONAL_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONE_LINE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PHONOGRAPH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_PROLOGIC_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_PROLOGIC_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
+pub const KSNODETYPE_RADIO_RECEIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_RADIO_TRANSMITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_ROOM_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPDIF_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_SPEAKERS_STATIC_JACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
+pub const KSNODETYPE_SRC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_STEREO_WIDE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SUPERMIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_SYNTHESIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TELEPHONY_BIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
+pub const KSNODETYPE_TELEPHONY_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_TONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNODETYPE_TV_TUNER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_UPDOWN_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
+pub const KSNODETYPE_VCR_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_DISC_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_MTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_MTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_SELECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VIDEO_STREAMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
+pub const KSNODETYPE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
+pub const KSNOTIFICATIONID_AudioModule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
+pub const KSNOTIFICATIONID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_ASYNCHRONOUS_PROCESSING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_DENY_USERMODE_ACCESS: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_DISPATCH_LEVEL_PROCESSING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_DISTINCT_TRAILING_EDGE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_DO_NOT_INITIATE_PROCESSING: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_DO_NOT_USE_STANDARD_TRANSPORT: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_ENFORCE_FIFO: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_FIXED_FORMAT: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_FRAMES_NOT_REQUIRED_FOR_PROCESSING: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_GENERATE_EOS_EVENTS: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_GENERATE_MAPPINGS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_HYPERCRITICAL_PROCESSING: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_IMPLEMENT_CLOCK: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_INITIATE_PROCESSING_ON_EVERY_ARRIVAL: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_PROCESS_IF_ANY_IN_RUN_STATE: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_PROCESS_IN_RUN_STATE_ONLY: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_SOME_FRAMES_REQUIRED_FOR_PROCESSING: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_SPLITTER: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_FLAG_USE_STANDARD_TRANSPORT: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPRIORITY_EXCLUSIVE: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPRIORITY_HIGH: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPRIORITY_LOW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPRIORITY_NORMAL: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_ALLOCATEMDL: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_ALLOWFORMATCHANGE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_MODIFY: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_PROBEANDLOCK: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_STREAMREAD: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_STREAMWRITE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROBE_SYSTEMADDRESS: u32 = 64u32;
+pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
+pub const KSPROPERTYSETID_NetworkCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
+pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_BUFFER_DURATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLAGS_ABSOLUTE: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLAGS_ASYNCHRONOUS: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLAGS_AUTO: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLAGS_MANUAL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLAGS_RELATIVE: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLASH_AUTO: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_AUTO: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_MANUAL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLASH_OFF: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLASH_ON: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_EXPOSURE: i32 = 512i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_FOCUS: i32 = 256i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_WB: i32 = 1024i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONVERGEMODE: i32 = 1073741824i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_ASYNC: i32 = -2147483648i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_AUTO: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_MANUAL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_AUTO: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_MANUAL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_HIGH: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_LOW: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_MULTICHANNEL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_UNIFORM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMBER_FLAG_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMBER_RANGES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMBER_STEPPEDRANGES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMBER_VALUES: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEMORY_TRANSPORT: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_FLAGS_ATTRIBUTE_RANGE_AWARE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_FLAGS_MASK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_BASICSUPPORT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_COPYPAYLOAD: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_DEFAULTVALUES: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_FSFILTERSCOPE: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_GET: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_GETPAYLOADSIZE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_HIGHPRIORITY: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_RELATIONS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_SERIALIZERAW: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_SERIALIZESET: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_SERIALIZESIZE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_SET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_SETSUPPORT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_TOPOLOGY: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_UNSERIALIZERAW: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TYPE_UNSERIALIZESET: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_FLAGS_AUTO: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_FLAGS_MANUAL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_QUEUED_POSITION: u32 = 1u32;
+pub const KSPROPSETID_AC3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
+pub const KSPROPSETID_Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_AudioBufferDuration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
+pub const KSPROPSETID_AudioDecoderOut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_AudioEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
+pub const KSPROPSETID_AudioModule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
+pub const KSPROPSETID_AudioPosture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
+pub const KSPROPSETID_AudioResourceManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
+pub const KSPROPSETID_AudioSignalProcessing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
+pub const KSPROPSETID_Bibliographic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
+pub const KSPROPSETID_BtAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
+pub const KSPROPSETID_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_Connection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_CopyProt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
+pub const KSPROPSETID_Cyclic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_DirectSound3DBuffer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DirectSound3DListener: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
+pub const KSPROPSETID_DrmAudioStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
+pub const KSPROPSETID_DvdSubPic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
+pub const KSPROPSETID_FMRXControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
+pub const KSPROPSETID_FMRXTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
+pub const KSPROPSETID_General: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
+pub const KSPROPSETID_Hrtf3d: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
+pub const KSPROPSETID_InterleavedAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
+pub const KSPROPSETID_Itd3d: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
+pub const KSPROPSETID_Jack: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
+pub const KSPROPSETID_MPEG4_MediaType_Attributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
+pub const KSPROPSETID_MediaSeeking: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
+pub const KSPROPSETID_MemoryTransport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
+pub const KSPROPSETID_Mpeg2Vid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
+pub const KSPROPSETID_OverlayUpdate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
+pub const KSPROPSETID_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
+pub const KSPROPSETID_PinMDLCacheClearProp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
+pub const KSPROPSETID_Quality: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
+pub const KSPROPSETID_RtAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
+pub const KSPROPSETID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
+pub const KSPROPSETID_SoundDetector2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
+pub const KSPROPSETID_Stream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
+pub const KSPROPSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
+pub const KSPROPSETID_StreamInterface: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
+pub const KSPROPSETID_TSRateChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
+pub const KSPROPSETID_TelephonyControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
+pub const KSPROPSETID_TelephonyTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
+pub const KSPROPSETID_Topology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
+pub const KSPROPSETID_TopologyNode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
+pub const KSPROPSETID_VBICAP_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
+pub const KSPROPSETID_VBICodecFiltering: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
+pub const KSPROPSETID_VPConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
+pub const KSPROPSETID_VPVBIConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
+pub const KSPROPSETID_VramCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
+pub const KSPROPSETID_Wave: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
+pub const KSPROPTYPESETID_General: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSRATE_NOPRESENTATIONSTART: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSRELATIVEEVENT_FLAG_HANDLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSRELATIVEEVENT_FLAG_POINTER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_DURATIONVALID: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_ENDOFPHOTOSEQUENCE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_ENDOFSTREAM: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_FLUSHONPAUSE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_FRAMEINFO: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_LOOPEDDATA: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_METADATA: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_PERSIST_SAMPLE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_PREROLL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_SAMPLE_PERSISTED: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_SECUREBUFFERTRANSFER: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_SPLICEPOINT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_TIMEDISCONTINUITY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_TIMEVALID: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_TYPECHANGED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_NONPAGED_DATA: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_PAGED_DATA: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_READ: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_SYNCHRONOUS: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTREAM_WRITE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTRING_Allocator: &str = "{642F5D00-4791-11D0-A5D6-28DB04C10000}";
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTRING_AllocatorEx: &str = "{091BB63B-603F-11D1-B067-00A0C9062802}";
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTRING_Clock: &str = "{53172480-4791-11D0-A5D6-28DB04C10000}";
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTRING_Filter: &str = "{9B365890-165F-11D0-A195-0020AFD156E4}";
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTRING_Pin: &str = "{146F1A80-4791-11D0-A5D6-28DB04C10000}";
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTRING_TopologyNode: &str = "{0621061A-EE75-11D0-B915-00A0C9223196}";
+pub const KSTIME_FORMAT_BYTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FIELD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_FRAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_MEDIA_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
+pub const KSTIME_FORMAT_SAMPLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSWAVE_COMPATCAPS_INPUT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSWAVE_COMPATCAPS_OUTPUT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMCONTROL_PAD_TO_16x9: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMCONTROL_PAD_TO_4x3: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMCONTROL_USED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AM_UseNewCSSKey: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_NTSC_Mask: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_Mask: u32 = 1052656u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_Mask: u32 = 1044480u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_BI_BITFIELDS: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_BI_JPEG: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_BI_RGB: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_BI_RLE4: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_BI_RLE8: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_EVEN: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_FIELD1_MASK: i32 = 240i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_FIELD2_MASK: i32 = 7936i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_ODD: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_CC1: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_CC2: i32 = 32i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_CC3: i32 = 256i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_CC4: i32 = 512i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_T1: i32 = 64i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_T2: i32 = 128i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_T3: i32 = 1024i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_T4: i32 = 2048i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CC_SUBSTREAM_SERVICE_XDS: i32 = 4096i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_COPYPROTECT_RestrictDuplication: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_CGMS_COPY_ONCE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_CGMS_NO_COPY: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_CGMS_RESERVED_MASK: u32 = 120u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_COPYRIGHTED: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_COPYRIGHT_MASK: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_NOT_COPYRIGHTED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_SECTOR_PROTECTED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_1FieldPerSample: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_DisplayModeBobOnly: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_DisplayModeBobOrWeave: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_DisplayModeMask: u32 = 192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_DisplayModeWeaveOnly: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_Field1First: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_FieldPatBothIrregular: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_FieldPatBothRegular: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_FieldPatField1Only: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_FieldPatField2Only: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_FieldPatternMask: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_IsInterlaced: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_INTERLACE_UNUSED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_27MhzTimebase: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_DSS_UserData: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_DVB_UserData: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_DVDLine21Field1: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_DVDLine21Field2: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_DoPanScan: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_FilmCameraMode: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_LetterboxAnalogOut: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_SourceIsLetterboxed: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2_WidescreenAnalogOut: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEGAUDIOINFO_27MhzTimebase: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE: u32 = 2224u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_CONTENT_BASE: u32 = 2208u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_MICROSOFT_RESERVED_TEST_DATA_BASE: u32 = 2288u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_NETWORK_WIDE_ADVERTISER_BASE: u32 = 2160u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_NETWORK_WIDE_CONTENT_BASE: u32 = 2144u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_ORIGINAL_CONTENT_ADVERTISER_BASE: u32 = 2064u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_ORIGINAL_CONTENT_BASE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_PRODUCTION_COMPANY_ADVERTISER_BASE: u32 = 2096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_PRODUCTION_COMPANY_CONTENT_BASE: u32 = 2080u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_SYNDICATED_SHOW_ADVERTISER_BASE: u32 = 2128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_SYNDICATED_SHOW_CONTENT_BASE: u32 = 2112u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_TELEVISION_STATION_ADVERTISER_BASE: u32 = 2192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_NABTS_GROUPID_TELEVISION_STATION_CONTENT_BASE: u32 = 2176u32;
+pub const KS_SECURE_CAMERA_SCENARIO_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_MODE_LANG_A: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_MODE_LANG_B: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_MODE_LANG_C: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_MODE_MONO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_MODE_STEREO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_PRESET_LANG_A: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_PRESET_LANG_B: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_PRESET_LANG_C: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVAUDIO_PRESET_STEREO: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TVTUNER_CHANGE_END_TUNE: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBICAP_PROTECTION_MV_DETECTED: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBICAP_PROTECTION_MV_HARDWARE: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBICAP_PROTECTION_MV_PRESENT: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBIDATARATE_CC: i32 = 503493i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBIDATARATE_NABTS: i32 = 5727272i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_FIELD1: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_FIELD2: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_FRAME: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_MV_DETECTED: i32 = 1024i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_MV_HARDWARE: i32 = 512i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_MV_PRESENT: i32 = 256i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_TVTUNER_CHANGE: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: i32 = 32i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_CAPTURE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_CC: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_EDS: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_IS_VPE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_NABTS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_PREVIEW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_STILL: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_TELETEXT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEOSTREAM_VBI: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_ALLOC_VPE_AGP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_ALLOC_VPE_DISPLAY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_ALLOC_VPE_SYSTEM: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_B_FRAME: i32 = 32i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_FIELD1: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_FIELD1FIRST: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_FIELD2: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_FIELD_MASK: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_FRAME: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_IPB_MASK: i32 = 48i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_I_FRAME: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_P_FRAME: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEO_FLAG_WEAVE: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iBLUE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iEGA_COLORS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iGREEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iMASK_COLORS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iMAXBITS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iPALETTE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iPALETTE_COLORS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iRED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_iTRUECOLOR: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MAX_RESOURCEGROUPID_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MIN_DEV_VER_FOR_FLAGS: u32 = 272u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MIN_DEV_VER_FOR_QI: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const NABTS_BUFFER_PICTURENUMBER_SUPPORT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const NABTS_BYTES_PER_LINE: u32 = 36u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const NABTS_LINES_PER_BUNDLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const NABTS_PAYLOAD_PER_LINE: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const NANOSECONDS: u32 = 10000000u32;
+pub const PINNAME_DISPLAYPORT_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
+pub const PINNAME_HDMI_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
+pub const PINNAME_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
+pub const PINNAME_SPDIF_IN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
+pub const PINNAME_SPDIF_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
+pub const PINNAME_VIDEO_ANALOGVIDEOIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_CC_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_EDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_NABTS_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
+pub const PINNAME_VIDEO_PREVIEW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_STILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_TIMECODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
+pub const PINNAME_VIDEO_VIDEOPORT_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
+pub const PROPSETID_ALLOCATOR_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
+pub const PROPSETID_EXT_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
+pub const PROPSETID_EXT_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
+pub const PROPSETID_TIMECODE_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
+pub const PROPSETID_TUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
+pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
+pub const PROPSETID_VIDCAP_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_DROPPEDFRAMES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_SELECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
+pub const PROPSETID_VIDCAP_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOCONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEODECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
+pub const PROPSETID_VIDCAP_VIDEOPROCAMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_Align: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_Buffers: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_FixedCompression: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_Flags: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_LogicalEnd: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_MemoryTypes: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_None: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_OptimalRanges: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_PhysicalEnd: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_PhysicalRanges: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_UnknownCompression: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_UserModeDownstream: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeFactor_UserModeUpstream: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const RT_RCDATA: ::windows::core::PCWSTR = ::windows::core::PCWSTR(10i32 as _);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const RT_STRING: ::windows::core::PCWSTR = ::windows::core::PCWSTR(6i32 as _);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_ALL: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_BACK_CENTER: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_BACK_LEFT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_BACK_RIGHT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_FRONT_CENTER: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_FRONT_LEFT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_FRONT_LEFT_OF_CENTER: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_FRONT_RIGHT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_FRONT_RIGHT_OF_CENTER: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_LOW_FREQUENCY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_RESERVED: u32 = 2147221504u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_SIDE_LEFT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_SIDE_RIGHT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_BACK_CENTER: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_BACK_LEFT: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_BACK_RIGHT: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_CENTER: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_FRONT_CENTER: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_FRONT_LEFT: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SPEAKER_TOP_FRONT_RIGHT: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SYSAUDIO_FLAGS_CLEAR_PREFERRED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SYSAUDIO_FLAGS_DONT_COMBINE_PINS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const WAVE_FORMAT_EXTENSIBLE: u32 = 65534u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const WST_BYTES_PER_LINE: u32 = 42u32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const WST_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 4096i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const WST_TVTUNER_CHANGE_END_TUNE: i32 = 8192i32;
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUDIOPOSTURE_ORIENTATION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIOPOSTURE_ORIENTATION_NOTROTATED: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIOPOSTURE_ORIENTATION_ROTATED90DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIOPOSTURE_ORIENTATION_ROTATED180DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIOPOSTURE_ORIENTATION_ROTATED270DEGREESCOUNTERCLOCKWISE: AUDIOPOSTURE_ORIENTATION = AUDIOPOSTURE_ORIENTATION(3i32);
+impl ::core::marker::Copy for AUDIOPOSTURE_ORIENTATION {}
+impl ::core::clone::Clone for AUDIOPOSTURE_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUDIOPOSTURE_ORIENTATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIOPOSTURE_ORIENTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIOPOSTURE_ORIENTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIOPOSTURE_ORIENTATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUDIO_CURVE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIO_CURVE_TYPE_NONE: AUDIO_CURVE_TYPE = AUDIO_CURVE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const AUDIO_CURVE_TYPE_WINDOWS_FADE: AUDIO_CURVE_TYPE = AUDIO_CURVE_TYPE(1i32);
+impl ::core::marker::Copy for AUDIO_CURVE_TYPE {}
+impl ::core::clone::Clone for AUDIO_CURVE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUDIO_CURVE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIO_CURVE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIO_CURVE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIO_CURVE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CAPTURE_MEMORY_ALLOCATION_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAPTURE_ALLOC_INVALID: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAPTURE_ALLOC_SYSTEM: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAPTURE_ALLOC_VRAM: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAPTURE_ALLOC_SYSTEM_AGP: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAPTURE_ALLOC_VRAM_MAPPED: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAPTURE_ALLOC_SECURE_BUFFER: CAPTURE_MEMORY_ALLOCATION_FLAGS = CAPTURE_MEMORY_ALLOCATION_FLAGS(16i32);
+impl ::core::marker::Copy for CAPTURE_MEMORY_ALLOCATION_FLAGS {}
+impl ::core::clone::Clone for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CAPTURE_MEMORY_ALLOCATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CAPTURE_MEMORY_ALLOCATION_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONSTRICTOR_OPTION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const CONSTRICTOR_OPTION_DISABLE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const CONSTRICTOR_OPTION_MUTE: CONSTRICTOR_OPTION = CONSTRICTOR_OPTION(1i32);
+impl ::core::marker::Copy for CONSTRICTOR_OPTION {}
+impl ::core::clone::Clone for CONSTRICTOR_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONSTRICTOR_OPTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONSTRICTOR_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONSTRICTOR_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONSTRICTOR_OPTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EPcxConnectionType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeUnknown: EPcxConnectionType = EPcxConnectionType(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnType3Point5mm: EPcxConnectionType = EPcxConnectionType(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeQuarter: EPcxConnectionType = EPcxConnectionType(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeAtapiInternal: EPcxConnectionType = EPcxConnectionType(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeRCA: EPcxConnectionType = EPcxConnectionType(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeOptical: EPcxConnectionType = EPcxConnectionType(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeOtherDigital: EPcxConnectionType = EPcxConnectionType(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeOtherAnalog: EPcxConnectionType = EPcxConnectionType(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeMultichannelAnalogDIN: EPcxConnectionType = EPcxConnectionType(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeXlrProfessional: EPcxConnectionType = EPcxConnectionType(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeRJ11Modem: EPcxConnectionType = EPcxConnectionType(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eConnTypeCombination: EPcxConnectionType = EPcxConnectionType(11i32);
+impl ::core::marker::Copy for EPcxConnectionType {}
+impl ::core::clone::Clone for EPcxConnectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EPcxConnectionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EPcxConnectionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPcxConnectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPcxConnectionType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EPcxGenLocation(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGenLocPrimaryBox: EPcxGenLocation = EPcxGenLocation(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGenLocInternal: EPcxGenLocation = EPcxGenLocation(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGenLocSeparate: EPcxGenLocation = EPcxGenLocation(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGenLocOther: EPcxGenLocation = EPcxGenLocation(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const EPcxGenLocation_enum_count: EPcxGenLocation = EPcxGenLocation(4i32);
+impl ::core::marker::Copy for EPcxGenLocation {}
+impl ::core::clone::Clone for EPcxGenLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EPcxGenLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EPcxGenLocation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPcxGenLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPcxGenLocation").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EPcxGeoLocation(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocRear: EPcxGeoLocation = EPcxGeoLocation(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocFront: EPcxGeoLocation = EPcxGeoLocation(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocLeft: EPcxGeoLocation = EPcxGeoLocation(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocRight: EPcxGeoLocation = EPcxGeoLocation(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocTop: EPcxGeoLocation = EPcxGeoLocation(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocBottom: EPcxGeoLocation = EPcxGeoLocation(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocRearPanel: EPcxGeoLocation = EPcxGeoLocation(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocRiser: EPcxGeoLocation = EPcxGeoLocation(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocInsideMobileLid: EPcxGeoLocation = EPcxGeoLocation(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocDrivebay: EPcxGeoLocation = EPcxGeoLocation(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocHDMI: EPcxGeoLocation = EPcxGeoLocation(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocOutsideMobileLid: EPcxGeoLocation = EPcxGeoLocation(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocATAPI: EPcxGeoLocation = EPcxGeoLocation(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocNotApplicable: EPcxGeoLocation = EPcxGeoLocation(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const eGeoLocReserved6: EPcxGeoLocation = EPcxGeoLocation(15i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const EPcxGeoLocation_enum_count: EPcxGeoLocation = EPcxGeoLocation(16i32);
+impl ::core::marker::Copy for EPcxGeoLocation {}
+impl ::core::clone::Clone for EPcxGeoLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EPcxGeoLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EPcxGeoLocation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPcxGeoLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPcxGeoLocation").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EPxcPortConnection(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const ePortConnJack: EPxcPortConnection = EPxcPortConnection(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const ePortConnIntegratedDevice: EPxcPortConnection = EPxcPortConnection(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const ePortConnBothIntegratedAndJack: EPxcPortConnection = EPxcPortConnection(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const ePortConnUnknown: EPxcPortConnection = EPxcPortConnection(3i32);
+impl ::core::marker::Copy for EPxcPortConnection {}
+impl ::core::clone::Clone for EPxcPortConnection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EPxcPortConnection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EPxcPortConnection {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPxcPortConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPxcPortConnection").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FRAMING_CACHE_OPS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Framing_Cache_Update: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Framing_Cache_ReadLast: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Framing_Cache_ReadOrig: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Framing_Cache_Write: FRAMING_CACHE_OPS = FRAMING_CACHE_OPS(3i32);
+impl ::core::marker::Copy for FRAMING_CACHE_OPS {}
+impl ::core::clone::Clone for FRAMING_CACHE_OPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FRAMING_CACHE_OPS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FRAMING_CACHE_OPS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FRAMING_CACHE_OPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FRAMING_CACHE_OPS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FRAMING_PROP(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const FramingProp_Uninitialized: FRAMING_PROP = FRAMING_PROP(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const FramingProp_None: FRAMING_PROP = FRAMING_PROP(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const FramingProp_Old: FRAMING_PROP = FRAMING_PROP(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const FramingProp_Ex: FRAMING_PROP = FRAMING_PROP(3i32);
+impl ::core::marker::Copy for FRAMING_PROP {}
+impl ::core::clone::Clone for FRAMING_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FRAMING_PROP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FRAMING_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FRAMING_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FRAMING_PROP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSALLOCATORMODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsAllocatorMode_User: KSALLOCATORMODE = KSALLOCATORMODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KsAllocatorMode_Kernel: KSALLOCATORMODE = KSALLOCATORMODE(1i32);
+impl ::core::marker::Copy for KSALLOCATORMODE {}
+impl ::core::clone::Clone for KSALLOCATORMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSALLOCATORMODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSALLOCATORMODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSALLOCATORMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSALLOCATORMODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_EXTENDEDPROP_FOCUSSTATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_UNINITIALIZED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_LOST: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_SEARCHING: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FOCUSED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FAILED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(4i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_EXTENDEDPROP_FOCUSSTATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_EXTENDEDPROP_MetadataAlignment(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_16: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_32: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_64: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_128: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_256: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_512: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_1024: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_2048: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_4096: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_8192: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(13i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_MetadataAlignment {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_EXTENDEDPROP_MetadataAlignment").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_EXTENDEDPROP_ROITYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ROITYPE_UNKNOWN: KSCAMERA_EXTENDEDPROP_ROITYPE = KSCAMERA_EXTENDEDPROP_ROITYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_ROITYPE_FACE: KSCAMERA_EXTENDEDPROP_ROITYPE = KSCAMERA_EXTENDEDPROP_ROITYPE(1i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROITYPE {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROITYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_EXTENDEDPROP_ROITYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_EXTENDEDPROP_WBPRESET(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WBPRESET_CLOUDY: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WBPRESET_DAYLIGHT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WBPRESET_FLASH: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WBPRESET_FLUORESCENT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WBPRESET_TUNGSTEN: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WBPRESET_CANDLELIGHT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(6i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WBPRESET {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_WBPRESET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_EXTENDEDPROP_WBPRESET").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WHITEBALANCE_TEMPERATURE: KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE = KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_EXTENDEDPROP_WHITEBALANCE_PRESET: KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE = KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(2i32);
+impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {}
+impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_MetadataId(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_Standard_Start: KSCAMERA_MetadataId = KSCAMERA_MetadataId(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_PhotoConfirmation: KSCAMERA_MetadataId = KSCAMERA_MetadataId(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_UsbVideoHeader: KSCAMERA_MetadataId = KSCAMERA_MetadataId(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_CaptureStats: KSCAMERA_MetadataId = KSCAMERA_MetadataId(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_CameraExtrinsics: KSCAMERA_MetadataId = KSCAMERA_MetadataId(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_CameraIntrinsics: KSCAMERA_MetadataId = KSCAMERA_MetadataId(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_FrameIllumination: KSCAMERA_MetadataId = KSCAMERA_MetadataId(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_DigitalWindow: KSCAMERA_MetadataId = KSCAMERA_MetadataId(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_BackgroundSegmentationMask: KSCAMERA_MetadataId = KSCAMERA_MetadataId(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_Standard_End: KSCAMERA_MetadataId = KSCAMERA_MetadataId(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const MetadataId_Custom_Start: KSCAMERA_MetadataId = KSCAMERA_MetadataId(-2147483648i32);
+impl ::core::marker::Copy for KSCAMERA_MetadataId {}
+impl ::core::clone::Clone for KSCAMERA_MetadataId {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_MetadataId {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_MetadataId {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_MetadataId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_MetadataId").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSCAMERA_PERFRAMESETTING_ITEM_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_TIME: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_FLASH: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_COMPENSATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_ISO: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_FOCUS: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSCAMERA_PERFRAMESETTING_ITEM_CUSTOM: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(7i32);
+impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {}
+impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSCAMERA_PERFRAMESETTING_ITEM_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSDEGRADE_STANDARD(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEGRADE_STANDARD_SAMPLE: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEGRADE_STANDARD_QUALITY: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEGRADE_STANDARD_COMPUTATION: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEGRADE_STANDARD_SKIP: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(3i32);
+impl ::core::marker::Copy for KSDEGRADE_STANDARD {}
+impl ::core::clone::Clone for KSDEGRADE_STANDARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSDEGRADE_STANDARD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSDEGRADE_STANDARD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSDEGRADE_STANDARD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSDEGRADE_STANDARD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSDEVICE_THERMAL_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_THERMAL_STATE_LOW: KSDEVICE_THERMAL_STATE = KSDEVICE_THERMAL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDEVICE_THERMAL_STATE_HIGH: KSDEVICE_THERMAL_STATE = KSDEVICE_THERMAL_STATE(1i32);
+impl ::core::marker::Copy for KSDEVICE_THERMAL_STATE {}
+impl ::core::clone::Clone for KSDEVICE_THERMAL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSDEVICE_THERMAL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSDEVICE_THERMAL_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSDEVICE_THERMAL_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSDEVICE_THERMAL_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSDS3D_HRTF_COEFF_FORMAT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const FLOAT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDS3D_COEFF_COUNT: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(2i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_COEFF_FORMAT {}
+impl ::core::clone::Clone for KSDS3D_HRTF_COEFF_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSDS3D_HRTF_COEFF_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSDS3D_HRTF_COEFF_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSDS3D_HRTF_COEFF_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSDS3D_HRTF_COEFF_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSDS3D_HRTF_FILTER_METHOD(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const CASCADE_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDS3D_FILTER_METHOD_COUNT: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(2i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_METHOD {}
+impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSDS3D_HRTF_FILTER_METHOD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSDS3D_HRTF_FILTER_METHOD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSDS3D_HRTF_FILTER_QUALITY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const FULL_FILTER: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const LIGHT_FILTER: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSDS3D_FILTER_QUALITY_COUNT: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(2i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_QUALITY {}
+impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSDS3D_HRTF_FILTER_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_QUALITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_QUALITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSDS3D_HRTF_FILTER_QUALITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSDS3D_HRTF_FILTER_VERSION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = KSDS3D_HRTF_FILTER_VERSION(0i32);
+impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_VERSION {}
+impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSDS3D_HRTF_FILTER_VERSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSDS3D_HRTF_FILTER_VERSION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_AUDIO_CONTROL_CHANGE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CONTROL_CHANGE: KSEVENT_AUDIO_CONTROL_CHANGE = KSEVENT_AUDIO_CONTROL_CHANGE(0i32);
+impl ::core::marker::Copy for KSEVENT_AUDIO_CONTROL_CHANGE {}
+impl ::core::clone::Clone for KSEVENT_AUDIO_CONTROL_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_AUDIO_CONTROL_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_AUDIO_CONTROL_CHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_AUDIO_CONTROL_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_AUDIO_CONTROL_CHANGE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_CAMERACONTROL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CAMERACONTROL_FOCUS: KSEVENT_CAMERACONTROL = KSEVENT_CAMERACONTROL(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CAMERACONTROL_ZOOM: KSEVENT_CAMERACONTROL = KSEVENT_CAMERACONTROL(1i32);
+impl ::core::marker::Copy for KSEVENT_CAMERACONTROL {}
+impl ::core::clone::Clone for KSEVENT_CAMERACONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CAMERACONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_CAMERACONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_CAMERACONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_CAMERACONTROL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_CAMERAEVENT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_PHOTO_SAMPLE_SCANNED: KSEVENT_CAMERAEVENT = KSEVENT_CAMERAEVENT(0i32);
+impl ::core::marker::Copy for KSEVENT_CAMERAEVENT {}
+impl ::core::clone::Clone for KSEVENT_CAMERAEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CAMERAEVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_CAMERAEVENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_CAMERAEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_CAMERAEVENT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_CLOCK_POSITION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CLOCK_INTERVAL_MARK: KSEVENT_CLOCK_POSITION = KSEVENT_CLOCK_POSITION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CLOCK_POSITION_MARK: KSEVENT_CLOCK_POSITION = KSEVENT_CLOCK_POSITION(1i32);
+impl ::core::marker::Copy for KSEVENT_CLOCK_POSITION {}
+impl ::core::clone::Clone for KSEVENT_CLOCK_POSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CLOCK_POSITION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_CLOCK_POSITION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_CLOCK_POSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_CLOCK_POSITION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_CONNECTION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CONNECTION_POSITIONUPDATE: KSEVENT_CONNECTION = KSEVENT_CONNECTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CONNECTION_DATADISCONTINUITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CONNECTION_TIMEDISCONTINUITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CONNECTION_PRIORITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CONNECTION_ENDOFSTREAM: KSEVENT_CONNECTION = KSEVENT_CONNECTION(4i32);
+impl ::core::marker::Copy for KSEVENT_CONNECTION {}
+impl ::core::clone::Clone for KSEVENT_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CONNECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_CONNECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_CONNECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_CONNECTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_CROSSBAR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_CROSSBAR_CHANGED: KSEVENT_CROSSBAR = KSEVENT_CROSSBAR(0i32);
+impl ::core::marker::Copy for KSEVENT_CROSSBAR {}
+impl ::core::clone::Clone for KSEVENT_CROSSBAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_CROSSBAR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_CROSSBAR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_CROSSBAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_CROSSBAR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_DEVCMD(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_COMMAND_NOTIFY_INTERIM_READY: KSEVENT_DEVCMD = KSEVENT_DEVCMD(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_COMMAND_CONTROL_INTERIM_READY: KSEVENT_DEVCMD = KSEVENT_DEVCMD(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_COMMAND_BUSRESET: KSEVENT_DEVCMD = KSEVENT_DEVCMD(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_TIMECODE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_OPERATION_MODE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_TRANSPORT_STATE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_NOTIFY_REMOVAL: KSEVENT_DEVCMD = KSEVENT_DEVCMD(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_EXTDEV_NOTIFY_MEDIUM_CHANGE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(7i32);
+impl ::core::marker::Copy for KSEVENT_DEVCMD {}
+impl ::core::clone::Clone for KSEVENT_DEVCMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_DEVCMD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_DEVCMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_DEVCMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_DEVCMD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_DEVICE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_DEVICE_LOST: KSEVENT_DEVICE = KSEVENT_DEVICE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_DEVICE_PREEMPTED: KSEVENT_DEVICE = KSEVENT_DEVICE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_DEVICE_THERMAL_HIGH: KSEVENT_DEVICE = KSEVENT_DEVICE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_DEVICE_THERMAL_LOW: KSEVENT_DEVICE = KSEVENT_DEVICE(3i32);
+impl ::core::marker::Copy for KSEVENT_DEVICE {}
+impl ::core::clone::Clone for KSEVENT_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_DEVICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_DEVICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_DEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_DEVICE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_DYNAMICFORMATCHANGE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_DYNAMIC_FORMAT_CHANGE: KSEVENT_DYNAMICFORMATCHANGE = KSEVENT_DYNAMICFORMATCHANGE(0i32);
+impl ::core::marker::Copy for KSEVENT_DYNAMICFORMATCHANGE {}
+impl ::core::clone::Clone for KSEVENT_DYNAMICFORMATCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_DYNAMICFORMATCHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_DYNAMICFORMATCHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_DYNAMICFORMATCHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_DYNAMICFORMATCHANGE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_LOOPEDSTREAMING(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_LOOPEDSTREAMING_POSITION: KSEVENT_LOOPEDSTREAMING = KSEVENT_LOOPEDSTREAMING(0i32);
+impl ::core::marker::Copy for KSEVENT_LOOPEDSTREAMING {}
+impl ::core::clone::Clone for KSEVENT_LOOPEDSTREAMING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_LOOPEDSTREAMING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_LOOPEDSTREAMING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_LOOPEDSTREAMING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_LOOPEDSTREAMING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_PINCAPS_CHANGENOTIFICATIONS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_PINCAPS_FORMATCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = KSEVENT_PINCAPS_CHANGENOTIFICATIONS(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_PINCAPS_JACKINFOCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = KSEVENT_PINCAPS_CHANGENOTIFICATIONS(1i32);
+impl ::core::marker::Copy for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {}
+impl ::core::clone::Clone for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_PINCAPS_CHANGENOTIFICATIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_SOUNDDETECTOR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_SOUNDDETECTOR_MATCHDETECTED: KSEVENT_SOUNDDETECTOR = KSEVENT_SOUNDDETECTOR(1i32);
+impl ::core::marker::Copy for KSEVENT_SOUNDDETECTOR {}
+impl ::core::clone::Clone for KSEVENT_SOUNDDETECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_SOUNDDETECTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_SOUNDDETECTOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_SOUNDDETECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_SOUNDDETECTOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_STREAMALLOCATOR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_STREAMALLOCATOR_INTERNAL_FREEFRAME: KSEVENT_STREAMALLOCATOR = KSEVENT_STREAMALLOCATOR(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_STREAMALLOCATOR_FREEFRAME: KSEVENT_STREAMALLOCATOR = KSEVENT_STREAMALLOCATOR(1i32);
+impl ::core::marker::Copy for KSEVENT_STREAMALLOCATOR {}
+impl ::core::clone::Clone for KSEVENT_STREAMALLOCATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_STREAMALLOCATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_STREAMALLOCATOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_STREAMALLOCATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_STREAMALLOCATOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_TELEPHONY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TELEPHONY_ENDPOINTPAIRS_CHANGED: KSEVENT_TELEPHONY = KSEVENT_TELEPHONY(0i32);
+impl ::core::marker::Copy for KSEVENT_TELEPHONY {}
+impl ::core::clone::Clone for KSEVENT_TELEPHONY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_TELEPHONY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_TELEPHONY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_TELEPHONY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_TELEPHONY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_TUNER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TUNER_CHANGED: KSEVENT_TUNER = KSEVENT_TUNER(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TUNER_INITIATE_SCAN: KSEVENT_TUNER = KSEVENT_TUNER(1i32);
+impl ::core::marker::Copy for KSEVENT_TUNER {}
+impl ::core::clone::Clone for KSEVENT_TUNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_TUNER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_TUNER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_TUNER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_TUNER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_TVAUDIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_TVAUDIO_CHANGED: KSEVENT_TVAUDIO = KSEVENT_TVAUDIO(0i32);
+impl ::core::marker::Copy for KSEVENT_TVAUDIO {}
+impl ::core::clone::Clone for KSEVENT_TVAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_TVAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_TVAUDIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_TVAUDIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_TVAUDIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_VIDCAPTOSTI(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VIDCAPTOSTI_EXT_TRIGGER: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VIDCAP_AUTO_UPDATE: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VIDCAP_SEARCH: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(2i32);
+impl ::core::marker::Copy for KSEVENT_VIDCAPTOSTI {}
+impl ::core::clone::Clone for KSEVENT_VIDCAPTOSTI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VIDCAPTOSTI {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_VIDCAPTOSTI {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_VIDCAPTOSTI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_VIDCAPTOSTI").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_VIDEODECODER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VIDEODECODER_CHANGED: KSEVENT_VIDEODECODER = KSEVENT_VIDEODECODER(0i32);
+impl ::core::marker::Copy for KSEVENT_VIDEODECODER {}
+impl ::core::clone::Clone for KSEVENT_VIDEODECODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VIDEODECODER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_VIDEODECODER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_VIDEODECODER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_VIDEODECODER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_VOLUMELIMIT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VOLUMELIMIT_CHANGED: KSEVENT_VOLUMELIMIT = KSEVENT_VOLUMELIMIT(0i32);
+impl ::core::marker::Copy for KSEVENT_VOLUMELIMIT {}
+impl ::core::clone::Clone for KSEVENT_VOLUMELIMIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VOLUMELIMIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_VOLUMELIMIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_VOLUMELIMIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_VOLUMELIMIT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_VPNOTIFY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VPNOTIFY_FORMATCHANGE: KSEVENT_VPNOTIFY = KSEVENT_VPNOTIFY(0i32);
+impl ::core::marker::Copy for KSEVENT_VPNOTIFY {}
+impl ::core::clone::Clone for KSEVENT_VPNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VPNOTIFY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_VPNOTIFY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_VPNOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_VPNOTIFY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSEVENT_VPVBINOTIFY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSEVENT_VPVBINOTIFY_FORMATCHANGE: KSEVENT_VPVBINOTIFY = KSEVENT_VPVBINOTIFY(0i32);
+impl ::core::marker::Copy for KSEVENT_VPVBINOTIFY {}
+impl ::core::clone::Clone for KSEVENT_VPVBINOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSEVENT_VPVBINOTIFY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSEVENT_VPVBINOTIFY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEVENT_VPVBINOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEVENT_VPVBINOTIFY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSINTERFACE_FILEIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_FILEIO_STREAMING: KSINTERFACE_FILEIO = KSINTERFACE_FILEIO(0i32);
+impl ::core::marker::Copy for KSINTERFACE_FILEIO {}
+impl ::core::clone::Clone for KSINTERFACE_FILEIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSINTERFACE_FILEIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSINTERFACE_FILEIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSINTERFACE_FILEIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSINTERFACE_FILEIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSINTERFACE_MEDIA(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_MEDIA_MUSIC: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_MEDIA_WAVE_BUFFERED: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_MEDIA_WAVE_QUEUED: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(2i32);
+impl ::core::marker::Copy for KSINTERFACE_MEDIA {}
+impl ::core::clone::Clone for KSINTERFACE_MEDIA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSINTERFACE_MEDIA {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSINTERFACE_MEDIA {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSINTERFACE_MEDIA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSINTERFACE_MEDIA").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSINTERFACE_STANDARD(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_STANDARD_STREAMING: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_STANDARD_LOOPED_STREAMING: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSINTERFACE_STANDARD_CONTROL: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(2i32);
+impl ::core::marker::Copy for KSINTERFACE_STANDARD {}
+impl ::core::clone::Clone for KSINTERFACE_STANDARD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSINTERFACE_STANDARD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSINTERFACE_STANDARD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSINTERFACE_STANDARD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSINTERFACE_STANDARD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSJACK_SINK_CONNECTIONTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(1i32);
+impl ::core::marker::Copy for KSJACK_SINK_CONNECTIONTYPE {}
+impl ::core::clone::Clone for KSJACK_SINK_CONNECTIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSJACK_SINK_CONNECTIONTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSJACK_SINK_CONNECTIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSJACK_SINK_CONNECTIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSJACK_SINK_CONNECTIONTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSMETHOD_STREAMALLOCATOR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_STREAMALLOCATOR_ALLOC: KSMETHOD_STREAMALLOCATOR = KSMETHOD_STREAMALLOCATOR(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_STREAMALLOCATOR_FREE: KSMETHOD_STREAMALLOCATOR = KSMETHOD_STREAMALLOCATOR(1i32);
+impl ::core::marker::Copy for KSMETHOD_STREAMALLOCATOR {}
+impl ::core::clone::Clone for KSMETHOD_STREAMALLOCATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSMETHOD_STREAMALLOCATOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSMETHOD_STREAMALLOCATOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSMETHOD_STREAMALLOCATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSMETHOD_STREAMALLOCATOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSMETHOD_STREAMIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_STREAMIO_READ: KSMETHOD_STREAMIO = KSMETHOD_STREAMIO(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_STREAMIO_WRITE: KSMETHOD_STREAMIO = KSMETHOD_STREAMIO(1i32);
+impl ::core::marker::Copy for KSMETHOD_STREAMIO {}
+impl ::core::clone::Clone for KSMETHOD_STREAMIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSMETHOD_STREAMIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSMETHOD_STREAMIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSMETHOD_STREAMIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSMETHOD_STREAMIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSMETHOD_WAVETABLE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_WAVETABLE_WAVE_ALLOC: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_WAVETABLE_WAVE_FREE: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_WAVETABLE_WAVE_FIND: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMETHOD_WAVETABLE_WAVE_WRITE: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(3i32);
+impl ::core::marker::Copy for KSMETHOD_WAVETABLE {}
+impl ::core::clone::Clone for KSMETHOD_WAVETABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSMETHOD_WAVETABLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSMETHOD_WAVETABLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSMETHOD_WAVETABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSMETHOD_WAVETABLE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSMICARRAY_MICARRAYTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICARRAYTYPE_LINEAR: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICARRAYTYPE_PLANAR: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICARRAYTYPE_3D: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(2i32);
+impl ::core::marker::Copy for KSMICARRAY_MICARRAYTYPE {}
+impl ::core::clone::Clone for KSMICARRAY_MICARRAYTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSMICARRAY_MICARRAYTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSMICARRAY_MICARRAYTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSMICARRAY_MICARRAYTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSMICARRAY_MICARRAYTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSMICARRAY_MICTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_OMNIDIRECTIONAL: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_CARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_HYPERCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_8SHAPED: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(15i32);
+impl ::core::marker::Copy for KSMICARRAY_MICTYPE {}
+impl ::core::clone::Clone for KSMICARRAY_MICTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSMICARRAY_MICTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSMICARRAY_MICTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSMICARRAY_MICTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSMICARRAY_MICTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPIN_COMMUNICATION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_COMMUNICATION_NONE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_COMMUNICATION_SINK: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_COMMUNICATION_SOURCE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_COMMUNICATION_BOTH: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_COMMUNICATION_BRIDGE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(4i32);
+impl ::core::marker::Copy for KSPIN_COMMUNICATION {}
+impl ::core::clone::Clone for KSPIN_COMMUNICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPIN_COMMUNICATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPIN_COMMUNICATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPIN_COMMUNICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPIN_COMMUNICATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPIN_DATAFLOW(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_DATAFLOW_IN: KSPIN_DATAFLOW = KSPIN_DATAFLOW(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_DATAFLOW_OUT: KSPIN_DATAFLOW = KSPIN_DATAFLOW(2i32);
+impl ::core::marker::Copy for KSPIN_DATAFLOW {}
+impl ::core::clone::Clone for KSPIN_DATAFLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPIN_DATAFLOW {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPIN_DATAFLOW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPIN_DATAFLOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPIN_DATAFLOW").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPIN_MDL_CACHING_EVENT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_MDL_CACHING_NOTIFY_CLEANUP: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_WAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_NOWAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPIN_MDL_CACHING_NOTIFY_ADDSAMPLE: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(3i32);
+impl ::core::marker::Copy for KSPIN_MDL_CACHING_EVENT {}
+impl ::core::clone::Clone for KSPIN_MDL_CACHING_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPIN_MDL_CACHING_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPIN_MDL_CACHING_EVENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPIN_MDL_CACHING_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPIN_MDL_CACHING_EVENT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPPROPERTY_ALLOCATOR_MDLCACHING(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ALLOCATOR_CLEANUP_CACHEDMDLPAGES: KSPPROPERTY_ALLOCATOR_MDLCACHING = KSPPROPERTY_ALLOCATOR_MDLCACHING(1i32);
+impl ::core::marker::Copy for KSPPROPERTY_ALLOCATOR_MDLCACHING {}
+impl ::core::clone::Clone for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPPROPERTY_ALLOCATOR_MDLCACHING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPPROPERTY_ALLOCATOR_MDLCACHING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AC3(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_ERROR_CONCEALMENT: KSPROPERTY_AC3 = KSPROPERTY_AC3(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_ALTERNATE_AUDIO: KSPROPERTY_AC3 = KSPROPERTY_AC3(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_DOWNMIX: KSPROPERTY_AC3 = KSPROPERTY_AC3(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_BIT_STREAM_MODE: KSPROPERTY_AC3 = KSPROPERTY_AC3(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_DIALOGUE_LEVEL: KSPROPERTY_AC3 = KSPROPERTY_AC3(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_LANGUAGE_CODE: KSPROPERTY_AC3 = KSPROPERTY_AC3(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AC3_ROOM_TYPE: KSPROPERTY_AC3 = KSPROPERTY_AC3(7i32);
+impl ::core::marker::Copy for KSPROPERTY_AC3 {}
+impl ::core::clone::Clone for KSPROPERTY_AC3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AC3 {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AC3 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AC3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AC3").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_ALLOCATOR_CONTROL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(3i32);
+impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_ALLOCATOR_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_ALLOCATOR_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_ALLOCATOR_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_ALLOCATOR_CONTROL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDDECOUT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDDECOUT_MODES: KSPROPERTY_AUDDECOUT = KSPROPERTY_AUDDECOUT(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDDECOUT_CUR_MODE: KSPROPERTY_AUDDECOUT = KSPROPERTY_AUDDECOUT(1i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDDECOUT {}
+impl ::core::clone::Clone for KSPROPERTY_AUDDECOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDDECOUT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDDECOUT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDDECOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDDECOUT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_LATENCY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_COPY_PROTECTION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_CHANNEL_CONFIG: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_VOLUMELEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_DYNAMIC_RANGE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_QUALITY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_SAMPLING_RATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_DYNAMIC_SAMPLING_RATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MIX_LEVEL_TABLE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MIX_LEVEL_CAPS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MUX_SOURCE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MUTE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_BASS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MID: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(15i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_TREBLE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_BASS_BOOST: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(17i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_EQ_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(18i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_NUM_EQ_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(19i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_EQ_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(20i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_AGC: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(21i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_DELAY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(22i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_LOUDNESS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(23i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_WIDE_MODE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(24i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_WIDENESS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(25i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_REVERB_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(26i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_CHORUS_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(27i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_DEV_SPECIFIC: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(28i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_DEMUX_DEST: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(29i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_STEREO_ENHANCE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(30i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MANUFACTURE_GUID: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(31i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PRODUCT_GUID: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(32i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_CPU_RESOURCES: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(33i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_STEREO_SPEAKER_GEOMETRY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(34i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_SURROUND_ENCODE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(35i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_3D_INTERFACE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(36i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEAKMETER: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(37i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_ALGORITHM_INSTANCE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(38i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_FILTER_STATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(39i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PREFERRED_STATUS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(40i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEQ_MAX_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(41i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEQ_NUM_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(42i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEQ_BAND_CENTER_FREQ: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(43i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEQ_BAND_Q_FACTOR: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(44i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEQ_BAND_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(45i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_CHORUS_MODULATION_RATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(46i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_CHORUS_MODULATION_DEPTH: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(47i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_REVERB_TIME: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(48i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_REVERB_DELAY_FEEDBACK: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(49i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_POSITIONEX: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(50i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MIC_ARRAY_GEOMETRY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(51i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PRESENTATION_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(52i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_WAVERT_CURRENT_WRITE_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(53i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_LINEAR_BUFFER_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(54i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_PEAKMETER2: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(55i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_WAVERT_CURRENT_WRITE_LASTBUFFER_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(56i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_VOLUMELIMIT_ENGAGED: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(57i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MIC_SENSITIVITY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(58i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MIC_SNR: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(59i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIO_MIC_SENSITIVITY2: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(60i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDIOENGINE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_LFXENABLE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_GFXENABLE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_MIXFORMAT: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_DEVICEFORMAT: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_SUPPORTEDDEVICEFORMATS: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_DESCRIPTOR: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_BUFFER_SIZE_RANGE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(9i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOENGINE {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOENGINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIOENGINE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOENGINE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDIOENGINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDIOENGINE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDIOMODULE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOMODULE_DESCRIPTORS: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOMODULE_COMMAND: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOMODULE_NOTIFICATION_DEVICE_ID: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(3i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOMODULE {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOMODULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIOMODULE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOMODULE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDIOMODULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDIOMODULE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDIOPOSTURE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOPOSTURE_ORIENTATION: KSPROPERTY_AUDIOPOSTURE = KSPROPERTY_AUDIOPOSTURE(1i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOPOSTURE {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOPOSTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIOPOSTURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOPOSTURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDIOPOSTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDIOPOSTURE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDIORESOURCEMANAGEMENT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIORESOURCEMANAGEMENT_RESOURCEGROUP: KSPROPERTY_AUDIORESOURCEMANAGEMENT = KSPROPERTY_AUDIORESOURCEMANAGEMENT(0i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIORESOURCEMANAGEMENT {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDIORESOURCEMANAGEMENT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_AUDIOSIGNALPROCESSING(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_AUDIOSIGNALPROCESSING_MODES: KSPROPERTY_AUDIOSIGNALPROCESSING = KSPROPERTY_AUDIOSIGNALPROCESSING(0i32);
+impl ::core::marker::Copy for KSPROPERTY_AUDIOSIGNALPROCESSING {}
+impl ::core::clone::Clone for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_AUDIOSIGNALPROCESSING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_AUDIOSIGNALPROCESSING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_BIBLIOGRAPHIC(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_LEADER: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(1380207648i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_LCCN: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808529952i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ISBN: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808595488i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ISSN: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(842149920i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_CATALOGINGSOURCE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808726560i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_MAINPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808464672i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_MAINCORPORATEBODY: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808530208i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_MAINMEETINGNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825307424i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_MAINUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808661280i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_UNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808727072i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_TITLESTATEMENT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(892613152i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_VARYINGFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(909390368i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_PUBLICATION: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808858144i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_PHYSICALDESCRIPTION: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808465184i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808727584i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(809055264i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_GENERALNOTE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808465696i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_BIBLIOGRAPHYNOTE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(875574560i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_CONTENTSNOTE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(892351776i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_CREATIONCREDIT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(942683424i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_CITATION: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808531232i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_PARTICIPANT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825308448i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_SUMMARY: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808596768i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_TARGETAUDIENCE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825373984i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDFORMAVAILABLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808662304i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_SYSTEMDETAILS: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(942880032i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_AWARDS: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(909653280i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808465952i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYTOPICALTERM: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808793632i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYGEOGRAPHIC: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825570848i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_INDEXTERMGENRE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(892679712i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_INDEXTERMCURRICULUM: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(943011360i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808662816i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYRELATED: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808728352i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808466464i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808663072i32);
+impl ::core::marker::Copy for KSPROPERTY_BIBLIOGRAPHIC {}
+impl ::core::clone::Clone for KSPROPERTY_BIBLIOGRAPHIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_BIBLIOGRAPHIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_BIBLIOGRAPHIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_BIBLIOGRAPHIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_BIBLIOGRAPHIC").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_BTAUDIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ONESHOT_RECONNECT: KSPROPERTY_BTAUDIO = KSPROPERTY_BTAUDIO(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ONESHOT_DISCONNECT: KSPROPERTY_BTAUDIO = KSPROPERTY_BTAUDIO(1i32);
+impl ::core::marker::Copy for KSPROPERTY_BTAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_BTAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_BTAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_BTAUDIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_BTAUDIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_BTAUDIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOFRAMERATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMAXFRAMERATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOTRIGGERTIME: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_WARMSTART: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_MAXVIDFPS_PHOTORES: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOTHUMBNAIL: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_SCENEMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_TORCHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FLASHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_OPTIMIZATIONHINT: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_WHITEBALANCEMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EXPOSUREMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ISO: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(15i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EVCOMPENSATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_CAMERAANGLEOFFSET: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(17i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_METADATA: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(18i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSPRIORITY: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(19i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSSTATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(20i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ROI_CONFIGCAPS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(21i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ROI_ISPCONTROL: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(22i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOCONFIRMATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(23i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ZOOM: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(24i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_MCC: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(25i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ISO_ADVANCED: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(26i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOSTABILIZATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(27i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VFR: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(28i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FACEDETECTION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(29i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOHDR: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(30i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_HISTOGRAM: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(31i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_OIS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(32i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ADVANCEDPHOTO: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(33i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PROFILE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(34i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FACEAUTH_MODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(35i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_SECURE_MODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(36i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOTEMPORALDENOISING: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(37i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_IRTORCHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(38i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_RELATIVEPANELOPTIMIZATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(39i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EYEGAZECORRECTION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(40i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(41i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW_CONFIGCAPS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(42i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(43i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(44i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END2: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(44i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERACONTROL_FLASH(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FLASH_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_FLASH = KSPROPERTY_CAMERACONTROL_FLASH(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_FLASH {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FLASH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_FLASH {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_FLASH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_FLASH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERACONTROL_FLASH").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CAPABILITY: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_SET: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CLEAR: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(2i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST = KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE = KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(1i32);
+impl ::core::marker::Copy for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {}
+impl ::core::clone::Clone for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CLOCK(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CLOCK_TIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CLOCK_PHYSICALTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CLOCK_CORRELATEDTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CLOCK_CORRELATEDPHYSICALTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CLOCK_RESOLUTION: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CLOCK_STATE: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(5i32);
+impl ::core::marker::Copy for KSPROPERTY_CLOCK {}
+impl ::core::clone::Clone for KSPROPERTY_CLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CLOCK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CLOCK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CLOCK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CLOCK").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CONNECTION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_STATE: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_PRIORITY: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_DATAFORMAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_ALLOCATORFRAMING: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_PROPOSEDATAFORMAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_ACQUIREORDERING: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_ALLOCATORFRAMING_EX: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CONNECTION_STARTAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(7i32);
+impl ::core::marker::Copy for KSPROPERTY_CONNECTION {}
+impl ::core::clone::Clone for KSPROPERTY_CONNECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CONNECTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CONNECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CONNECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CONNECTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_COPYPROT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_CHLG_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_DVD_KEY1: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_DEC_KEY2: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_TITLE_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_COPY_MACROVISION: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_REGION: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_SET_COPY_STATE: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDCOPY_DISC_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(128i32);
+impl ::core::marker::Copy for KSPROPERTY_COPYPROT {}
+impl ::core::clone::Clone for KSPROPERTY_COPYPROT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_COPYPROT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_COPYPROT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_COPYPROT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_COPYPROT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_CYCLIC(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CYCLIC_POSITION: KSPROPERTY_CYCLIC = KSPROPERTY_CYCLIC(0i32);
+impl ::core::marker::Copy for KSPROPERTY_CYCLIC {}
+impl ::core::clone::Clone for KSPROPERTY_CYCLIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_CYCLIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_CYCLIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_CYCLIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_CYCLIC").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_DIRECTSOUND3DBUFFER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_ALL: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_POSITION: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_VELOCITY: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEANGLES: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEORIENTATION: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEOUTSIDEVOLUME: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MINDISTANCE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MAXDISTANCE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MODE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(8i32);
+impl ::core::marker::Copy for KSPROPERTY_DIRECTSOUND3DBUFFER {}
+impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_DIRECTSOUND3DBUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_DIRECTSOUND3DBUFFER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_DIRECTSOUND3DLISTENER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ALL: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_POSITION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_VELOCITY: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ORIENTATION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_DISTANCEFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ROLLOFFFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_DOPPLERFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_BATCH: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ALLOCATION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(8i32);
+impl ::core::marker::Copy for KSPROPERTY_DIRECTSOUND3DLISTENER {}
+impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_DIRECTSOUND3DLISTENER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_DIRECTSOUND3DLISTENER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_DRMAUDIOSTREAM(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DRMAUDIOSTREAM_CONTENTID: KSPROPERTY_DRMAUDIOSTREAM = KSPROPERTY_DRMAUDIOSTREAM(0i32);
+impl ::core::marker::Copy for KSPROPERTY_DRMAUDIOSTREAM {}
+impl ::core::clone::Clone for KSPROPERTY_DRMAUDIOSTREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_DRMAUDIOSTREAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_DRMAUDIOSTREAM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_DRMAUDIOSTREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_DRMAUDIOSTREAM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_DVDSUBPIC(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDSUBPIC_PALETTE: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDSUBPIC_HLI: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DVDSUBPIC_COMPOSIT_ON: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(2i32);
+impl ::core::marker::Copy for KSPROPERTY_DVDSUBPIC {}
+impl ::core::clone::Clone for KSPROPERTY_DVDSUBPIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_DVDSUBPIC {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_DVDSUBPIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_DVDSUBPIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_DVDSUBPIC").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_EXTDEVICE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTDEVICE_ID: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTDEVICE_VERSION: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTDEVICE_POWER_STATE: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTDEVICE_PORT: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTDEVICE_CAPABILITIES: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(4i32);
+impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE {}
+impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_EXTDEVICE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_EXTDEVICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_EXTDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_EXTDEVICE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_EXTENSION_UNIT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTENSION_UNIT_INFO: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTENSION_UNIT_CONTROL: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTENSION_UNIT_PASS_THROUGH: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(65535i32);
+impl ::core::marker::Copy for KSPROPERTY_EXTENSION_UNIT {}
+impl ::core::clone::Clone for KSPROPERTY_EXTENSION_UNIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_EXTENSION_UNIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_EXTENSION_UNIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_EXTENSION_UNIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_EXTENSION_UNIT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_EXTXPORT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_CAPABILITIES: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_INPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_LOAD_MEDIUM: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_MEDIUM_INFO: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_TIMECODE_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_ATN_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RAW_AVC_CMD: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(10i32);
+impl ::core::marker::Copy for KSPROPERTY_EXTXPORT {}
+impl ::core::clone::Clone for KSPROPERTY_EXTXPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_EXTXPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_EXTXPORT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_EXTXPORT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_FMRX_CONTROL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_FMRX_STATE: KSPROPERTY_FMRX_CONTROL = KSPROPERTY_FMRX_CONTROL(0i32);
+impl ::core::marker::Copy for KSPROPERTY_FMRX_CONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_FMRX_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_FMRX_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_FMRX_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_FMRX_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_FMRX_CONTROL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_FMRX_TOPOLOGY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_FMRX_ENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_FMRX_VOLUME: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_FMRX_ANTENNAENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(2i32);
+impl ::core::marker::Copy for KSPROPERTY_FMRX_TOPOLOGY {}
+impl ::core::clone::Clone for KSPROPERTY_FMRX_TOPOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_FMRX_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_FMRX_TOPOLOGY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_FMRX_TOPOLOGY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_FMRX_TOPOLOGY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_GENERAL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_GENERAL_COMPONENTID: KSPROPERTY_GENERAL = KSPROPERTY_GENERAL(0i32);
+impl ::core::marker::Copy for KSPROPERTY_GENERAL {}
+impl ::core::clone::Clone for KSPROPERTY_GENERAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_GENERAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_GENERAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_GENERAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_GENERAL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_HRTF3D(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_HRTF3D_PARAMS: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_HRTF3D_INITIALIZE: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_HRTF3D_FILTER_FORMAT: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(2i32);
+impl ::core::marker::Copy for KSPROPERTY_HRTF3D {}
+impl ::core::clone::Clone for KSPROPERTY_HRTF3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_HRTF3D {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_HRTF3D {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_HRTF3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_HRTF3D").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_INTERLEAVEDAUDIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_INTERLEAVEDAUDIO_FORMATINFORMATION: KSPROPERTY_INTERLEAVEDAUDIO = KSPROPERTY_INTERLEAVEDAUDIO(1i32);
+impl ::core::marker::Copy for KSPROPERTY_INTERLEAVEDAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_INTERLEAVEDAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_INTERLEAVEDAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_INTERLEAVEDAUDIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_INTERLEAVEDAUDIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_INTERLEAVEDAUDIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_ITD3D(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ITD3D_PARAMS: KSPROPERTY_ITD3D = KSPROPERTY_ITD3D(0i32);
+impl ::core::marker::Copy for KSPROPERTY_ITD3D {}
+impl ::core::clone::Clone for KSPROPERTY_ITD3D {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_ITD3D {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_ITD3D {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_ITD3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_ITD3D").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_JACK(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_DESCRIPTION: KSPROPERTY_JACK = KSPROPERTY_JACK(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_DESCRIPTION2: KSPROPERTY_JACK = KSPROPERTY_JACK(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_SINK_INFO: KSPROPERTY_JACK = KSPROPERTY_JACK(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_JACK_CONTAINERID: KSPROPERTY_JACK = KSPROPERTY_JACK(4i32);
+impl ::core::marker::Copy for KSPROPERTY_JACK {}
+impl ::core::clone::Clone for KSPROPERTY_JACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_JACK {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_JACK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_JACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_JACK").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_MEDIASEEKING(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_CAPABILITIES: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_FORMATS: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_TIMEFORMAT: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_POSITION: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_STOPPOSITION: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_POSITIONS: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_DURATION: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_AVAILABLE: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_PREROLL: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MEDIASEEKING_CONVERTTIMEFORMAT: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(9i32);
+impl ::core::marker::Copy for KSPROPERTY_MEDIASEEKING {}
+impl ::core::clone::Clone for KSPROPERTY_MEDIASEEKING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_MEDIASEEKING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_MEDIASEEKING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_MEDIASEEKING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_MEDIASEEKING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_MPEG2VID(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MPEG2VID_MODES: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MPEG2VID_CUR_MODE: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MPEG2VID_4_3_RECT: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MPEG2VID_16_9_RECT: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MPEG2VID_16_9_PANSCAN: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(4i32);
+impl ::core::marker::Copy for KSPROPERTY_MPEG2VID {}
+impl ::core::clone::Clone for KSPROPERTY_MPEG2VID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_MPEG2VID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_MPEG2VID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_MPEG2VID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_MPEG2VID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MPEG4_MEDIATYPE_SD_BOX: KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(1i32);
+impl ::core::marker::Copy for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {}
+impl ::core::clone::Clone for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO: KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(0i32);
+impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {}
+impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_DISABLE: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_HOSTNTP: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(2i32);
+impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {}
+impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_NTP: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_URI: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_NETWORKCAMERACONTROL_EVENTTOPICS_XML: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(3i32);
+impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {}
+impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_OVERLAYUPDATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_INTERESTS: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_CLIPLIST: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_PALETTE: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_COLORKEY: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_VIDEOPOSITION: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_DISPLAYCHANGE: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_OVERLAYUPDATE_COLORREF: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(268435456i32);
+impl ::core::marker::Copy for KSPROPERTY_OVERLAYUPDATE {}
+impl ::core::clone::Clone for KSPROPERTY_OVERLAYUPDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_OVERLAYUPDATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_OVERLAYUPDATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_OVERLAYUPDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_OVERLAYUPDATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_PIN(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_CINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_CTYPES: KSPROPERTY_PIN = KSPROPERTY_PIN(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_DATAFLOW: KSPROPERTY_PIN = KSPROPERTY_PIN(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_DATARANGES: KSPROPERTY_PIN = KSPROPERTY_PIN(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_DATAINTERSECTION: KSPROPERTY_PIN = KSPROPERTY_PIN(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_INTERFACES: KSPROPERTY_PIN = KSPROPERTY_PIN(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_MEDIUMS: KSPROPERTY_PIN = KSPROPERTY_PIN(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_COMMUNICATION: KSPROPERTY_PIN = KSPROPERTY_PIN(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_GLOBALCINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_NECESSARYINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_PHYSICALCONNECTION: KSPROPERTY_PIN = KSPROPERTY_PIN(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_CATEGORY: KSPROPERTY_PIN = KSPROPERTY_PIN(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_NAME: KSPROPERTY_PIN = KSPROPERTY_PIN(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_CONSTRAINEDDATARANGES: KSPROPERTY_PIN = KSPROPERTY_PIN(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT: KSPROPERTY_PIN = KSPROPERTY_PIN(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT2: KSPROPERTY_PIN = KSPROPERTY_PIN(15i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PIN_MODEDATAFORMATS: KSPROPERTY_PIN = KSPROPERTY_PIN(16i32);
+impl ::core::marker::Copy for KSPROPERTY_PIN {}
+impl ::core::clone::Clone for KSPROPERTY_PIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_PIN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_PIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_PIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_PIN").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_QUALITY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_QUALITY_REPORT: KSPROPERTY_QUALITY = KSPROPERTY_QUALITY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_QUALITY_ERROR: KSPROPERTY_QUALITY = KSPROPERTY_QUALITY(1i32);
+impl ::core::marker::Copy for KSPROPERTY_QUALITY {}
+impl ::core::clone::Clone for KSPROPERTY_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_QUALITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_QUALITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_QUALITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_RTAUDIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_GETPOSITIONFUNCTION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_BUFFER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_HWLATENCY: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_POSITIONREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_CLOCKREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_BUFFER_WITH_NOTIFICATION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_REGISTER_NOTIFICATION_EVENT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_UNREGISTER_NOTIFICATION_EVENT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_QUERY_NOTIFICATION_SUPPORT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_PACKETCOUNT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_PRESENTATION_POSITION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_GETREADPACKET: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_SETWRITEPACKET: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTAUDIO_PACKETVREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(13i32);
+impl ::core::marker::Copy for KSPROPERTY_RTAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_RTAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_RTAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_RTAUDIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_RTAUDIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_RTAUDIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_SOUNDDETECTOR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SOUNDDETECTOR_SUPPORTEDPATTERNS: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SOUNDDETECTOR_PATTERNS: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SOUNDDETECTOR_ARMED: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SOUNDDETECTOR_MATCHRESULT: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SOUNDDETECTOR_RESET: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(6i32);
+impl ::core::marker::Copy for KSPROPERTY_SOUNDDETECTOR {}
+impl ::core::clone::Clone for KSPROPERTY_SOUNDDETECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_SOUNDDETECTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_SOUNDDETECTOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_SOUNDDETECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_SOUNDDETECTOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_STREAM(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_ALLOCATOR: KSPROPERTY_STREAM = KSPROPERTY_STREAM(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_QUALITY: KSPROPERTY_STREAM = KSPROPERTY_STREAM(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_DEGRADATION: KSPROPERTY_STREAM = KSPROPERTY_STREAM(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_MASTERCLOCK: KSPROPERTY_STREAM = KSPROPERTY_STREAM(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_TIMEFORMAT: KSPROPERTY_STREAM = KSPROPERTY_STREAM(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_PRESENTATIONTIME: KSPROPERTY_STREAM = KSPROPERTY_STREAM(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_PRESENTATIONEXTENT: KSPROPERTY_STREAM = KSPROPERTY_STREAM(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_FRAMETIME: KSPROPERTY_STREAM = KSPROPERTY_STREAM(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_RATECAPABILITY: KSPROPERTY_STREAM = KSPROPERTY_STREAM(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_RATE: KSPROPERTY_STREAM = KSPROPERTY_STREAM(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAM_PIPE_ID: KSPROPERTY_STREAM = KSPROPERTY_STREAM(10i32);
+impl ::core::marker::Copy for KSPROPERTY_STREAM {}
+impl ::core::clone::Clone for KSPROPERTY_STREAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_STREAM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_STREAM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_STREAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_STREAM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_STREAMINTERFACE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_STREAMINTERFACE_HEADERSIZE: KSPROPERTY_STREAMINTERFACE = KSPROPERTY_STREAMINTERFACE(0i32);
+impl ::core::marker::Copy for KSPROPERTY_STREAMINTERFACE {}
+impl ::core::clone::Clone for KSPROPERTY_STREAMINTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_STREAMINTERFACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_STREAMINTERFACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_STREAMINTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_STREAMINTERFACE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TELEPHONY_CONTROL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_PROVIDERID: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_CALLINFO: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_CALLCONTROL: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_PROVIDERCHANGE: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_CALLHOLD: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_MUTE_TX: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(5i32);
+impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_CONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TELEPHONY_CONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TELEPHONY_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TELEPHONY_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TELEPHONY_CONTROL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TELEPHONY_TOPOLOGY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_ENDPOINTIDPAIR: KSPROPERTY_TELEPHONY_TOPOLOGY = KSPROPERTY_TELEPHONY_TOPOLOGY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TELEPHONY_VOLUME: KSPROPERTY_TELEPHONY_TOPOLOGY = KSPROPERTY_TELEPHONY_TOPOLOGY(1i32);
+impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_TOPOLOGY {}
+impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TELEPHONY_TOPOLOGY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TELEPHONY_TOPOLOGY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TIMECODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TIMECODE_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_ATN_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_RTC_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(2i32);
+impl ::core::marker::Copy for KSPROPERTY_TIMECODE {}
+impl ::core::clone::Clone for KSPROPERTY_TIMECODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TIMECODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TIMECODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TIMECODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TIMECODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TOPOLOGY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TOPOLOGY_CATEGORIES: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TOPOLOGY_NODES: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TOPOLOGY_CONNECTIONS: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TOPOLOGY_NAME: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(3i32);
+impl ::core::marker::Copy for KSPROPERTY_TOPOLOGY {}
+impl ::core::clone::Clone for KSPROPERTY_TOPOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TOPOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TOPOLOGY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TOPOLOGY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TOPOLOGY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TOPOLOGYNODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TOPOLOGYNODE_ENABLE: KSPROPERTY_TOPOLOGYNODE = KSPROPERTY_TOPOLOGYNODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TOPOLOGYNODE_RESET: KSPROPERTY_TOPOLOGYNODE = KSPROPERTY_TOPOLOGYNODE(2i32);
+impl ::core::marker::Copy for KSPROPERTY_TOPOLOGYNODE {}
+impl ::core::clone::Clone for KSPROPERTY_TOPOLOGYNODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TOPOLOGYNODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TOPOLOGYNODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TOPOLOGYNODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TOPOLOGYNODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TUNER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_STANDARD: KSPROPERTY_TUNER = KSPROPERTY_TUNER(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_FREQUENCY: KSPROPERTY_TUNER = KSPROPERTY_TUNER(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_INPUT: KSPROPERTY_TUNER = KSPROPERTY_TUNER(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_IF_MEDIUM: KSPROPERTY_TUNER = KSPROPERTY_TUNER(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_SCAN_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(11i32);
+impl ::core::marker::Copy for KSPROPERTY_TUNER {}
+impl ::core::clone::Clone for KSPROPERTY_TUNER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TUNER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TUNER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TUNER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_TUNER_MODES(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE_TV: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE_FM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE_AM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE_DSS: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TUNER_MODE_ATSC: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(16i32);
+impl ::core::marker::Copy for KSPROPERTY_TUNER_MODES {}
+impl ::core::clone::Clone for KSPROPERTY_TUNER_MODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_TUNER_MODES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_MODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_TUNER_MODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_TUNER_MODES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VBICAP(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VBICAP_PROPERTIES_PROTECTION: KSPROPERTY_VBICAP = KSPROPERTY_VBICAP(1i32);
+impl ::core::marker::Copy for KSPROPERTY_VBICAP {}
+impl ::core::clone::Clone for KSPROPERTY_VBICAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VBICAP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VBICAP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VBICAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VBICAP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VBICODECFILTERING(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VBICODECFILTERING_STATISTICS: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(5i32);
+impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING {}
+impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VBICODECFILTERING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_CAMERACONTROL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PAN: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_TILT: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_ROLL: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_ZOOM: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXPOSURE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_IRIS: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FOCUS: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_SCANMODE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PRIVACY: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PANTILT: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PAN_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_TILT_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_ROLL_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_ZOOM_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_EXPOSURE_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_IRIS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(15i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FOCUS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_PANTILT_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(17i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(18i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CAMERACONTROL_AUTO_EXPOSURE_PRIORITY: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(19i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_CAMERACONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_CAMERACONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_CAMERACONTROL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_CROSSBAR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CROSSBAR_CAPS: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CROSSBAR_PININFO: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CROSSBAR_CAN_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CROSSBAR_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CROSSBAR_INPUT_ACTIVE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(4i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_CROSSBAR {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CROSSBAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_CROSSBAR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_CROSSBAR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_CROSSBAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_CROSSBAR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_DROPPEDFRAMES(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DROPPEDFRAMES_CURRENT: KSPROPERTY_VIDCAP_DROPPEDFRAMES = KSPROPERTY_VIDCAP_DROPPEDFRAMES(0i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_DROPPEDFRAMES {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_DROPPEDFRAMES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_SELECTOR(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SELECTOR_SOURCE_NODE_ID: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_SELECTOR_NUM_SOURCES: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(1i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_SELECTOR {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_SELECTOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_SELECTOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_SELECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_SELECTOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_TVAUDIO(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TVAUDIO_CAPS: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TVAUDIO_MODE: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_TVAUDIO_CURRENTLY_AVAILABLE_MODES: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(2i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_TVAUDIO {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_TVAUDIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_TVAUDIO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_TVAUDIO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_TVAUDIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_TVAUDIO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_GETINFO: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_KEYFRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_PFRAMES_PER_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_QUALITY: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_FRAME_SIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCOMPRESSION_WINDOWSIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(6i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOCOMPRESSION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_VIDEOCONTROL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCONTROL_CAPS: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCONTROL_FRAME_RATES: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOCONTROL_MODE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(3i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCONTROL {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOCONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOCONTROL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_VIDEODECODER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEODECODER_CAPS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEODECODER_STANDARD: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEODECODER_STATUS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEODECODER_OUTPUT_ENABLE: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEODECODER_VCR_TIMING: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEODECODER_STATUS2: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(5i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEODECODER {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEODECODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEODECODER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEODECODER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEODECODER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEODECODER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_VIDEOENCODER(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOENCODER_CAPS: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOENCODER_STANDARD: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOENCODER_COPYPROTECTION: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOENCODER_CC_ENABLE: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(3i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOENCODER {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOENCODER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOENCODER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDCAP_VIDEOPROCAMP(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_BRIGHTNESS: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_CONTRAST: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_HUE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_SATURATION: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_SHARPNESS: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_GAMMA: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_COLORENABLE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_BACKLIGHT_COMPENSATION: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_GAIN: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER_LIMIT: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE_COMPONENT: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VIDEOPROCAMP_POWERLINE_FREQUENCY: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(13i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOPROCAMP {}
+impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOPROCAMP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VIDMEM_TRANSPORT(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_DISPLAY_ADAPTER_GUID: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_PREFERRED_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_CURRENT_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_MAP_CAPTURE_HANDLE_TO_VRAM_ADDRESS: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(4i32);
+impl ::core::marker::Copy for KSPROPERTY_VIDMEM_TRANSPORT {}
+impl ::core::clone::Clone for KSPROPERTY_VIDMEM_TRANSPORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VIDMEM_TRANSPORT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VIDMEM_TRANSPORT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VIDMEM_TRANSPORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VIDMEM_TRANSPORT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_VPCONFIG(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_NUMCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_GETCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_SETCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_VPDATAINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_MAXPIXELRATE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_INFORMVPINPUT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_NUMVIDEOFORMAT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_GETVIDEOFORMAT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_SETVIDEOFORMAT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_INVERTPOLARITY: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_DECIMATIONCAPABILITY: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_SCALEFACTOR: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_DDRAWHANDLE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_VIDEOPORTID: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_DDRAWSURFACEHANDLE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_VPCONFIG_SURFACEPARAMS: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(15i32);
+impl ::core::marker::Copy for KSPROPERTY_VPCONFIG {}
+impl ::core::clone::Clone for KSPROPERTY_VPCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_VPCONFIG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_VPCONFIG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_VPCONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_VPCONFIG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSPROPERTY_WAVE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_COMPATIBLE_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_INPUT_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_OUTPUT_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_BUFFER: KSPROPERTY_WAVE = KSPROPERTY_WAVE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_FREQUENCY: KSPROPERTY_WAVE = KSPROPERTY_WAVE(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_VOLUME: KSPROPERTY_WAVE = KSPROPERTY_WAVE(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSPROPERTY_WAVE_PAN: KSPROPERTY_WAVE = KSPROPERTY_WAVE(6i32);
+impl ::core::marker::Copy for KSPROPERTY_WAVE {}
+impl ::core::clone::Clone for KSPROPERTY_WAVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSPROPERTY_WAVE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSPROPERTY_WAVE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSPROPERTY_WAVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSPROPERTY_WAVE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSRESET(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSRESET_BEGIN: KSRESET = KSRESET(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSRESET_END: KSRESET = KSRESET(1i32);
+impl ::core::marker::Copy for KSRESET {}
+impl ::core::clone::Clone for KSRESET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSRESET {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSRESET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSRESET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSRESET").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KSSTATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTATE_STOP: KSSTATE = KSSTATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTATE_ACQUIRE: KSSTATE = KSSTATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTATE_PAUSE: KSSTATE = KSSTATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KSSTATE_RUN: KSSTATE = KSSTATE(3i32);
+impl ::core::marker::Copy for KSSTATE {}
+impl ::core::clone::Clone for KSSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KSSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KSSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSSTATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_AMPixAspectRatio(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PixAspectRatio_NTSC4x3: KS_AMPixAspectRatio = KS_AMPixAspectRatio(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PixAspectRatio_NTSC16x9: KS_AMPixAspectRatio = KS_AMPixAspectRatio(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PixAspectRatio_PAL4x3: KS_AMPixAspectRatio = KS_AMPixAspectRatio(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PixAspectRatio_PAL16x9: KS_AMPixAspectRatio = KS_AMPixAspectRatio(3i32);
+impl ::core::marker::Copy for KS_AMPixAspectRatio {}
+impl ::core::clone::Clone for KS_AMPixAspectRatio {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_AMPixAspectRatio {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_AMPixAspectRatio {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_AMPixAspectRatio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_AMPixAspectRatio").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_AMVP_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_MODE_WEAVE: KS_AMVP_MODE = KS_AMVP_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_MODE_BOBINTERLEAVED: KS_AMVP_MODE = KS_AMVP_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_MODE_BOBNONINTERLEAVED: KS_AMVP_MODE = KS_AMVP_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_MODE_SKIPEVEN: KS_AMVP_MODE = KS_AMVP_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_MODE_SKIPODD: KS_AMVP_MODE = KS_AMVP_MODE(4i32);
+impl ::core::marker::Copy for KS_AMVP_MODE {}
+impl ::core::clone::Clone for KS_AMVP_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_AMVP_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_AMVP_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_AMVP_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_AMVP_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_AMVP_SELECTFORMATBY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_DO_NOT_CARE: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_BEST_BANDWIDTH: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AMVP_INPUT_SAME_AS_OUTPUT: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(2i32);
+impl ::core::marker::Copy for KS_AMVP_SELECTFORMATBY {}
+impl ::core::clone::Clone for KS_AMVP_SELECTFORMATBY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_AMVP_SELECTFORMATBY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_AMVP_SELECTFORMATBY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_AMVP_SELECTFORMATBY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_AMVP_SELECTFORMATBY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_AM_PROPERTY_TS_RATE_CHANGE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AM_RATE_ExactRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AM_RATE_MaxFullDataRate: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(4i32);
+impl ::core::marker::Copy for KS_AM_PROPERTY_TS_RATE_CHANGE {}
+impl ::core::clone::Clone for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_AM_PROPERTY_TS_RATE_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_AM_PROPERTY_TS_RATE_CHANGE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_AnalogVideoStandard(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_None: KS_AnalogVideoStandard = KS_AnalogVideoStandard(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_NTSC_M: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_NTSC_M_J: KS_AnalogVideoStandard = KS_AnalogVideoStandard(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_NTSC_433: KS_AnalogVideoStandard = KS_AnalogVideoStandard(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_B: KS_AnalogVideoStandard = KS_AnalogVideoStandard(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_D: KS_AnalogVideoStandard = KS_AnalogVideoStandard(32i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_G: KS_AnalogVideoStandard = KS_AnalogVideoStandard(64i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_H: KS_AnalogVideoStandard = KS_AnalogVideoStandard(128i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_I: KS_AnalogVideoStandard = KS_AnalogVideoStandard(256i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_M: KS_AnalogVideoStandard = KS_AnalogVideoStandard(512i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_N: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1024i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_60: KS_AnalogVideoStandard = KS_AnalogVideoStandard(2048i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_B: KS_AnalogVideoStandard = KS_AnalogVideoStandard(4096i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_D: KS_AnalogVideoStandard = KS_AnalogVideoStandard(8192i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_G: KS_AnalogVideoStandard = KS_AnalogVideoStandard(16384i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_H: KS_AnalogVideoStandard = KS_AnalogVideoStandard(32768i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_K: KS_AnalogVideoStandard = KS_AnalogVideoStandard(65536i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_K1: KS_AnalogVideoStandard = KS_AnalogVideoStandard(131072i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_L: KS_AnalogVideoStandard = KS_AnalogVideoStandard(262144i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_SECAM_L1: KS_AnalogVideoStandard = KS_AnalogVideoStandard(524288i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_AnalogVideo_PAL_N_COMBO: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1048576i32);
+impl ::core::marker::Copy for KS_AnalogVideoStandard {}
+impl ::core::clone::Clone for KS_AnalogVideoStandard {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_AnalogVideoStandard {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_AnalogVideoStandard {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_AnalogVideoStandard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_AnalogVideoStandard").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_COPY_MACROVISION_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MACROVISION_DISABLED: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MACROVISION_LEVEL1: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MACROVISION_LEVEL2: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(3i32);
+impl ::core::marker::Copy for KS_COPY_MACROVISION_LEVEL {}
+impl ::core::clone::Clone for KS_COPY_MACROVISION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_COPY_MACROVISION_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_COPY_MACROVISION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_COPY_MACROVISION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_COPY_MACROVISION_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_CameraControlAsyncOperation(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAMERACONTROL_ASYNC_START: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAMERACONTROL_ASYNC_STOP: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CAMERACONTROL_ASYNC_RESET: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(3i32);
+impl ::core::marker::Copy for KS_CameraControlAsyncOperation {}
+impl ::core::clone::Clone for KS_CameraControlAsyncOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_CameraControlAsyncOperation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_CameraControlAsyncOperation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_CameraControlAsyncOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_CameraControlAsyncOperation").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_CompressionCaps(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CompressionCaps_CanQuality: KS_CompressionCaps = KS_CompressionCaps(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CompressionCaps_CanCrunch: KS_CompressionCaps = KS_CompressionCaps(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CompressionCaps_CanKeyFrame: KS_CompressionCaps = KS_CompressionCaps(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CompressionCaps_CanBFrame: KS_CompressionCaps = KS_CompressionCaps(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_CompressionCaps_CanWindow: KS_CompressionCaps = KS_CompressionCaps(16i32);
+impl ::core::marker::Copy for KS_CompressionCaps {}
+impl ::core::clone::Clone for KS_CompressionCaps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_CompressionCaps {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_CompressionCaps {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_CompressionCaps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_CompressionCaps").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_DVDCOPYSTATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVDCOPYSTATE_INITIALIZE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVDCOPYSTATE_INITIALIZE_TITLE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_DVDCOPYSTATE_DONE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(4i32);
+impl ::core::marker::Copy for KS_DVDCOPYSTATE {}
+impl ::core::clone::Clone for KS_DVDCOPYSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_DVDCOPYSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_DVDCOPYSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_DVDCOPYSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_DVDCOPYSTATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_LogicalMemoryType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeDontCare: KS_LogicalMemoryType = KS_LogicalMemoryType(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeKernelPaged: KS_LogicalMemoryType = KS_LogicalMemoryType(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeKernelNonPaged: KS_LogicalMemoryType = KS_LogicalMemoryType(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeDeviceHostMapped: KS_LogicalMemoryType = KS_LogicalMemoryType(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeDeviceSpecific: KS_LogicalMemoryType = KS_LogicalMemoryType(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeUser: KS_LogicalMemoryType = KS_LogicalMemoryType(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MemoryTypeAnyHost: KS_LogicalMemoryType = KS_LogicalMemoryType(6i32);
+impl ::core::marker::Copy for KS_LogicalMemoryType {}
+impl ::core::clone::Clone for KS_LogicalMemoryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_LogicalMemoryType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_LogicalMemoryType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_LogicalMemoryType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_LogicalMemoryType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_MPEG2Level(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Level_Low: KS_MPEG2Level = KS_MPEG2Level(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Level_Main: KS_MPEG2Level = KS_MPEG2Level(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Level_High1440: KS_MPEG2Level = KS_MPEG2Level(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Level_High: KS_MPEG2Level = KS_MPEG2Level(3i32);
+impl ::core::marker::Copy for KS_MPEG2Level {}
+impl ::core::clone::Clone for KS_MPEG2Level {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_MPEG2Level {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_MPEG2Level {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_MPEG2Level {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_MPEG2Level").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_MPEG2Profile(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Profile_Simple: KS_MPEG2Profile = KS_MPEG2Profile(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Profile_Main: KS_MPEG2Profile = KS_MPEG2Profile(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Profile_SNRScalable: KS_MPEG2Profile = KS_MPEG2Profile(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Profile_SpatiallyScalable: KS_MPEG2Profile = KS_MPEG2Profile(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_MPEG2Profile_High: KS_MPEG2Profile = KS_MPEG2Profile(4i32);
+impl ::core::marker::Copy for KS_MPEG2Profile {}
+impl ::core::clone::Clone for KS_MPEG2Profile {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_MPEG2Profile {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_MPEG2Profile {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_MPEG2Profile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_MPEG2Profile").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_PhysicalConnectorType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_Tuner: KS_PhysicalConnectorType = KS_PhysicalConnectorType(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_Composite: KS_PhysicalConnectorType = KS_PhysicalConnectorType(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_SVideo: KS_PhysicalConnectorType = KS_PhysicalConnectorType(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_RGB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_YRYBY: KS_PhysicalConnectorType = KS_PhysicalConnectorType(5i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_SerialDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(6i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_ParallelDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(7i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_SCSI: KS_PhysicalConnectorType = KS_PhysicalConnectorType(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_AUX: KS_PhysicalConnectorType = KS_PhysicalConnectorType(9i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_1394: KS_PhysicalConnectorType = KS_PhysicalConnectorType(10i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_USB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(11i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_VideoDecoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(12i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_VideoEncoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(13i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Video_SCART: KS_PhysicalConnectorType = KS_PhysicalConnectorType(14i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_Tuner: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4096i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_Line: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4097i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_Mic: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4098i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_AESDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4099i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_SPDIFDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4100i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_SCSI: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4101i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_AUX: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4102i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_1394: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4103i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_USB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4104i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_PhysConn_Audio_AudioDecoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4105i32);
+impl ::core::marker::Copy for KS_PhysicalConnectorType {}
+impl ::core::clone::Clone for KS_PhysicalConnectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_PhysicalConnectorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_PhysicalConnectorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_PhysicalConnectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_PhysicalConnectorType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_SEEKING_CAPABILITIES(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanSeekAbsolute: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanSeekForwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanSeekBackwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanGetCurrentPos: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanGetStopPos: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanGetDuration: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(32i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_CanPlayBackwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(64i32);
+impl ::core::marker::Copy for KS_SEEKING_CAPABILITIES {}
+impl ::core::clone::Clone for KS_SEEKING_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_SEEKING_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_SEEKING_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_SEEKING_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_SEEKING_CAPABILITIES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_SEEKING_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_NoPositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_AbsolutePositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_RelativePositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_IncrementalPositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_PositioningBitsMask: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_SeekToKeyFrame: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_SEEKING_ReturnTime: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(8i32);
+impl ::core::marker::Copy for KS_SEEKING_FLAGS {}
+impl ::core::clone::Clone for KS_SEEKING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_SEEKING_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_SEEKING_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_SEEKING_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_SEEKING_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_TUNER_STRATEGY(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TUNER_STRATEGY_PLL: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TUNER_STRATEGY_SIGNAL_STRENGTH: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TUNER_STRATEGY_DRIVER_TUNES: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(4i32);
+impl ::core::marker::Copy for KS_TUNER_STRATEGY {}
+impl ::core::clone::Clone for KS_TUNER_STRATEGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_TUNER_STRATEGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_TUNER_STRATEGY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_TUNER_STRATEGY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_TUNER_STRATEGY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_TUNER_TUNING_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TUNER_TUNING_EXACT: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TUNER_TUNING_FINE: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_TUNER_TUNING_COARSE: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(3i32);
+impl ::core::marker::Copy for KS_TUNER_TUNING_FLAGS {}
+impl ::core::clone::Clone for KS_TUNER_TUNING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_TUNER_TUNING_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_TUNER_TUNING_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_TUNER_TUNING_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_TUNER_TUNING_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_VIDEODECODER_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(4i32);
+impl ::core::marker::Copy for KS_VIDEODECODER_FLAGS {}
+impl ::core::clone::Clone for KS_VIDEODECODER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_VIDEODECODER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_VIDEODECODER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_VIDEODECODER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_VIDEODECODER_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_VideoControlFlags(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_FlipHorizontal: KS_VideoControlFlags = KS_VideoControlFlags(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_FlipVertical: KS_VideoControlFlags = KS_VideoControlFlags(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_Obsolete_VideoControlFlag_ExternalTriggerEnable: KS_VideoControlFlags = KS_VideoControlFlags(16i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_Obsolete_VideoControlFlag_Trigger: KS_VideoControlFlags = KS_VideoControlFlags(32i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_ExternalTriggerEnable: KS_VideoControlFlags = KS_VideoControlFlags(4i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_Trigger: KS_VideoControlFlags = KS_VideoControlFlags(8i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_IndependentImagePin: KS_VideoControlFlags = KS_VideoControlFlags(64i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_StillCapturePreviewFrame: KS_VideoControlFlags = KS_VideoControlFlags(128i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_StartPhotoSequenceCapture: KS_VideoControlFlags = KS_VideoControlFlags(256i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_VideoControlFlag_StopPhotoSequenceCapture: KS_VideoControlFlags = KS_VideoControlFlags(512i32);
+impl ::core::marker::Copy for KS_VideoControlFlags {}
+impl ::core::clone::Clone for KS_VideoControlFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_VideoControlFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_VideoControlFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_VideoControlFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_VideoControlFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KS_VideoStreamingHints(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_StreamingHint_FrameInterval: KS_VideoStreamingHints = KS_VideoStreamingHints(256i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_StreamingHint_KeyFrameRate: KS_VideoStreamingHints = KS_VideoStreamingHints(512i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_StreamingHint_PFrameRate: KS_VideoStreamingHints = KS_VideoStreamingHints(1024i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_StreamingHint_CompQuality: KS_VideoStreamingHints = KS_VideoStreamingHints(2048i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const KS_StreamingHint_CompWindowSize: KS_VideoStreamingHints = KS_VideoStreamingHints(4096i32);
+impl ::core::marker::Copy for KS_VideoStreamingHints {}
+impl ::core::clone::Clone for KS_VideoStreamingHints {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KS_VideoStreamingHints {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KS_VideoStreamingHints {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KS_VideoStreamingHints {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KS_VideoStreamingHints").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PIPE_ALLOCATOR_PLACE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Pipe_Allocator_None: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Pipe_Allocator_FirstPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Pipe_Allocator_LastPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Pipe_Allocator_MiddlePin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(3i32);
+impl ::core::marker::Copy for PIPE_ALLOCATOR_PLACE {}
+impl ::core::clone::Clone for PIPE_ALLOCATOR_PLACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PIPE_ALLOCATOR_PLACE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PIPE_ALLOCATOR_PLACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PIPE_ALLOCATOR_PLACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PIPE_ALLOCATOR_PLACE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PIPE_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeState_DontCare: PIPE_STATE = PIPE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeState_RangeNotFixed: PIPE_STATE = PIPE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeState_RangeFixed: PIPE_STATE = PIPE_STATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeState_CompressionUnknown: PIPE_STATE = PIPE_STATE(3i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const PipeState_Finalized: PIPE_STATE = PIPE_STATE(4i32);
+impl ::core::marker::Copy for PIPE_STATE {}
+impl ::core::clone::Clone for PIPE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PIPE_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PIPE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PIPE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PIPE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TELEPHONY_CALLCONTROLOP(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLCONTROLOP_DISABLE: TELEPHONY_CALLCONTROLOP = TELEPHONY_CALLCONTROLOP(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLCONTROLOP_ENABLE: TELEPHONY_CALLCONTROLOP = TELEPHONY_CALLCONTROLOP(1i32);
+impl ::core::marker::Copy for TELEPHONY_CALLCONTROLOP {}
+impl ::core::clone::Clone for TELEPHONY_CALLCONTROLOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TELEPHONY_CALLCONTROLOP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TELEPHONY_CALLCONTROLOP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TELEPHONY_CALLCONTROLOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TELEPHONY_CALLCONTROLOP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TELEPHONY_CALLSTATE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLSTATE_DISABLED: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLSTATE_ENABLED: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLSTATE_HOLD: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(2i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLSTATE_PROVIDERTRANSITION: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(3i32);
+impl ::core::marker::Copy for TELEPHONY_CALLSTATE {}
+impl ::core::clone::Clone for TELEPHONY_CALLSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TELEPHONY_CALLSTATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TELEPHONY_CALLSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TELEPHONY_CALLSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TELEPHONY_CALLSTATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TELEPHONY_CALLTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLTYPE_CIRCUITSWITCHED: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLTYPE_PACKETSWITCHED_LTE: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_CALLTYPE_PACKETSWITCHED_WLAN: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(2i32);
+impl ::core::marker::Copy for TELEPHONY_CALLTYPE {}
+impl ::core::clone::Clone for TELEPHONY_CALLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TELEPHONY_CALLTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TELEPHONY_CALLTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TELEPHONY_CALLTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TELEPHONY_CALLTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TELEPHONY_PROVIDERCHANGEOP(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_PROVIDERCHANGEOP_END: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_PROVIDERCHANGEOP_BEGIN: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const TELEPHONY_PROVIDERCHANGEOP_CANCEL: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(2i32);
+impl ::core::marker::Copy for TELEPHONY_PROVIDERCHANGEOP {}
+impl ::core::clone::Clone for TELEPHONY_PROVIDERCHANGEOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TELEPHONY_PROVIDERCHANGEOP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TELEPHONY_PROVIDERCHANGEOP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TELEPHONY_PROVIDERCHANGEOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TELEPHONY_PROVIDERCHANGEOP").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct _TunerDecoderLockType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Tuner_LockType_None: _TunerDecoderLockType = _TunerDecoderLockType(0i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Tuner_LockType_Within_Scan_Sensing_Range: _TunerDecoderLockType = _TunerDecoderLockType(1i32);
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub const Tuner_LockType_Locked: _TunerDecoderLockType = _TunerDecoderLockType(2i32);
+impl ::core::marker::Copy for _TunerDecoderLockType {}
+impl ::core::clone::Clone for _TunerDecoderLockType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for _TunerDecoderLockType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for _TunerDecoderLockType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _TunerDecoderLockType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_TunerDecoderLockType").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct ALLOCATOR_PROPERTIES_EX {
+    pub cBuffers: i32,
+    pub cbBuffer: i32,
+    pub cbAlign: i32,
+    pub cbPrefix: i32,
+    pub MemoryType: ::windows::core::GUID,
+    pub BusType: ::windows::core::GUID,
+    pub State: PIPE_STATE,
+    pub Input: PIPE_TERMINATION,
+    pub Output: PIPE_TERMINATION,
+    pub Strategy: u32,
+    pub Flags: u32,
+    pub Weight: u32,
+    pub LogicalMemoryType: KS_LogicalMemoryType,
+    pub AllocatorPlace: PIPE_ALLOCATOR_PLACE,
+    pub Dimensions: PIPE_DIMENSIONS,
+    pub PhysicalRange: KS_FRAMING_RANGE,
+    pub PrevSegment: *mut IKsAllocatorEx,
+    pub CountNextSegments: u32,
+    pub NextSegments: *mut *mut IKsAllocatorEx,
+    pub InsideFactors: u32,
+    pub NumberPins: u32,
+}
+impl ::core::marker::Copy for ALLOCATOR_PROPERTIES_EX {}
+impl ::core::clone::Clone for ALLOCATOR_PROPERTIES_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ALLOCATOR_PROPERTIES_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ALLOCATOR_PROPERTIES_EX")
+            .field("cBuffers", &self.cBuffers)
+            .field("cbBuffer", &self.cbBuffer)
+            .field("cbAlign", &self.cbAlign)
+            .field("cbPrefix", &self.cbPrefix)
+            .field("MemoryType", &self.MemoryType)
+            .field("BusType", &self.BusType)
+            .field("State", &self.State)
+            .field("Input", &self.Input)
+            .field("Output", &self.Output)
+            .field("Strategy", &self.Strategy)
+            .field("Flags", &self.Flags)
+            .field("Weight", &self.Weight)
+            .field("LogicalMemoryType", &self.LogicalMemoryType)
+            .field("AllocatorPlace", &self.AllocatorPlace)
+            .field("Dimensions", &self.Dimensions)
+            .field("PhysicalRange", &self.PhysicalRange)
+            .field("PrevSegment", &self.PrevSegment)
+            .field("CountNextSegments", &self.CountNextSegments)
+            .field("NextSegments", &self.NextSegments)
+            .field("InsideFactors", &self.InsideFactors)
+            .field("NumberPins", &self.NumberPins)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ALLOCATOR_PROPERTIES_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ALLOCATOR_PROPERTIES_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ALLOCATOR_PROPERTIES_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ALLOCATOR_PROPERTIES_EX {}
+impl ::core::default::Default for ALLOCATOR_PROPERTIES_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    pub ResourceGroupAcquired: super::super::Foundation::BOOL,
+    pub ResourceGroupName: [u16; 256],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIORESOURCEMANAGEMENT_RESOURCEGROUP").field("ResourceGroupAcquired", &self.ResourceGroupAcquired).field("ResourceGroupName", &self.ResourceGroupName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIORESOURCEMANAGEMENT_RESOURCEGROUP>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AUDIORESOURCEMANAGEMENT_RESOURCEGROUP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct CC_BYTE_PAIR {
+    pub Decoded: [u8; 2],
+    pub Reserved: u16,
+}
+impl ::core::marker::Copy for CC_BYTE_PAIR {}
+impl ::core::clone::Clone for CC_BYTE_PAIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CC_BYTE_PAIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CC_BYTE_PAIR").field("Decoded", &self.Decoded).field("Reserved", &self.Reserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CC_BYTE_PAIR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CC_BYTE_PAIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CC_BYTE_PAIR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CC_BYTE_PAIR {}
+impl ::core::default::Default for CC_BYTE_PAIR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct CC_HW_FIELD {
+    pub ScanlinesRequested: VBICODECFILTERING_SCANLINES,
+    pub fieldFlags: u32,
+    pub PictureNumber: i64,
+    pub Lines: [CC_BYTE_PAIR; 12],
+}
+impl ::core::marker::Copy for CC_HW_FIELD {}
+impl ::core::clone::Clone for CC_HW_FIELD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CC_HW_FIELD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CC_HW_FIELD").field("ScanlinesRequested", &self.ScanlinesRequested).field("fieldFlags", &self.fieldFlags).field("PictureNumber", &self.PictureNumber).field("Lines", &self.Lines).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CC_HW_FIELD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CC_HW_FIELD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CC_HW_FIELD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CC_HW_FIELD {}
+impl ::core::default::Default for CC_HW_FIELD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct DEVCAPS {
+    pub CanRecord: i32,
+    pub CanRecordStrobe: i32,
+    pub HasAudio: i32,
+    pub HasVideo: i32,
+    pub UsesFiles: i32,
+    pub CanSave: i32,
+    pub DeviceType: i32,
+    pub TCRead: i32,
+    pub TCWrite: i32,
+    pub CTLRead: i32,
+    pub IndexRead: i32,
+    pub Preroll: i32,
+    pub Postroll: i32,
+    pub SyncAcc: i32,
+    pub NormRate: i32,
+    pub CanPreview: i32,
+    pub CanMonitorSrc: i32,
+    pub CanTest: i32,
+    pub VideoIn: i32,
+    pub AudioIn: i32,
+    pub Calibrate: i32,
+    pub SeekType: i32,
+    pub SimulatedHardware: i32,
+}
+impl ::core::marker::Copy for DEVCAPS {}
+impl ::core::clone::Clone for DEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DEVCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DEVCAPS")
+            .field("CanRecord", &self.CanRecord)
+            .field("CanRecordStrobe", &self.CanRecordStrobe)
+            .field("HasAudio", &self.HasAudio)
+            .field("HasVideo", &self.HasVideo)
+            .field("UsesFiles", &self.UsesFiles)
+            .field("CanSave", &self.CanSave)
+            .field("DeviceType", &self.DeviceType)
+            .field("TCRead", &self.TCRead)
+            .field("TCWrite", &self.TCWrite)
+            .field("CTLRead", &self.CTLRead)
+            .field("IndexRead", &self.IndexRead)
+            .field("Preroll", &self.Preroll)
+            .field("Postroll", &self.Postroll)
+            .field("SyncAcc", &self.SyncAcc)
+            .field("NormRate", &self.NormRate)
+            .field("CanPreview", &self.CanPreview)
+            .field("CanMonitorSrc", &self.CanMonitorSrc)
+            .field("CanTest", &self.CanTest)
+            .field("VideoIn", &self.VideoIn)
+            .field("AudioIn", &self.AudioIn)
+            .field("Calibrate", &self.Calibrate)
+            .field("SeekType", &self.SeekType)
+            .field("SimulatedHardware", &self.SimulatedHardware)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DEVCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DEVCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DEVCAPS {}
+impl ::core::default::Default for DEVCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub struct DS3DVECTOR {
+    pub Anonymous1: DS3DVECTOR_0,
+    pub Anonymous2: DS3DVECTOR_1,
+    pub Anonymous3: DS3DVECTOR_2,
+}
+impl ::core::marker::Copy for DS3DVECTOR {}
+impl ::core::clone::Clone for DS3DVECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DS3DVECTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS3DVECTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS3DVECTOR {}
+impl ::core::default::Default for DS3DVECTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub union DS3DVECTOR_0 {
+    pub x: f32,
+    pub dvX: f32,
+}
+impl ::core::marker::Copy for DS3DVECTOR_0 {}
+impl ::core::clone::Clone for DS3DVECTOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DS3DVECTOR_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS3DVECTOR_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS3DVECTOR_0 {}
+impl ::core::default::Default for DS3DVECTOR_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub union DS3DVECTOR_1 {
+    pub y: f32,
+    pub dvY: f32,
+}
+impl ::core::marker::Copy for DS3DVECTOR_1 {}
+impl ::core::clone::Clone for DS3DVECTOR_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DS3DVECTOR_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS3DVECTOR_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS3DVECTOR_1 {}
+impl ::core::default::Default for DS3DVECTOR_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
+pub union DS3DVECTOR_2 {
+    pub z: f32,
+    pub dvZ: f32,
+}
+impl ::core::marker::Copy for DS3DVECTOR_2 {}
+impl ::core::clone::Clone for DS3DVECTOR_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DS3DVECTOR_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS3DVECTOR_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DVECTOR_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS3DVECTOR_2 {}
+impl ::core::default::Default for DS3DVECTOR_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct IKsAllocator(pub u8);
+#[repr(C)]
+pub struct IKsAllocatorEx(pub u8);
+#[repr(C)]
+pub struct IKsPin(pub u8);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct INTERLEAVED_AUDIO_FORMAT_INFORMATION {
@@ -1322,26 +8106,6 @@ impl ::core::default::Default for INTERLEAVED_AUDIO_FORMAT_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_DISABLE_EVENT: u32 = 3080203u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_ENABLE_EVENT: u32 = 3080199u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_HANDSHAKE: u32 = 3080223u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_METHOD: u32 = 3080207u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_PROPERTY: u32 = 3080195u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_READ_STREAM: u32 = 3096599u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_RESET_STATE: u32 = 3080219u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const IOCTL_KS_WRITE_STREAM: u32 = 3112979u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const JACKDESC2_PRESENCE_DETECT_CAPABILITY: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1381,12 +8145,6 @@ impl ::core::default::Default for KSAC3_ALTERNATE_AUDIO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_ALTERNATE_AUDIO_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_ALTERNATE_AUDIO_2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_ALTERNATE_AUDIO_BOTH: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAC3_BIT_STREAM_MODE {
@@ -1563,77 +8321,6 @@ impl ::core::default::Default for KSAC3_ROOM_TYPE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_COMMENTARY: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_DIALOG_ONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_EMERGENCY_FLASH: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_HEARING_IMPAIRED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_MAIN_AUDIO: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_NO_DIALOG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_VISUALLY_IMPAIRED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAC3_SERVICE_VOICE_OVER: u32 = 7u32;
-pub const KSALGORITHMINSTANCE_SYSTEM_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
-pub const KSALGORITHMINSTANCE_SYSTEM_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x950e55b9_877c_4c67_be08_e47b5611130a);
-pub const KSALGORITHMINSTANCE_SYSTEM_MICROPHONE_ARRAY_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f5a0a0_9e61_4f8c_91e3_76cf0f3c471f);
-pub const KSALGORITHMINSTANCE_SYSTEM_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSALLOCATORMODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KsAllocatorMode_User: KSALLOCATORMODE = KSALLOCATORMODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KsAllocatorMode_Kernel: KSALLOCATORMODE = KSALLOCATORMODE(1i32);
-impl ::core::marker::Copy for KSALLOCATORMODE {}
-impl ::core::clone::Clone for KSALLOCATORMODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSALLOCATORMODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSALLOCATORMODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSALLOCATORMODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSALLOCATORMODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_2D_BUFFER_REQUIRED: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_ALLOCATOR_EXISTS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_ATTENTION_STEPPING: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_CAN_ALLOCATE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_CYCLE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_DEVICE_SPECIFIC: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_ENABLE_CACHED_MDL: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_INDEPENDENT_RANGES: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_INSIST_ON_FRAMESIZE_RATIO: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_MULTIPLE_OUTPUT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_NO_FRAME_INTEGRITY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_FLAG_PARTIAL_READ_SUPPORT: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSALLOCATOR_FRAMING {
@@ -1745,24 +8432,6 @@ impl ::core::default::Default for KSALLOCATOR_FRAMING_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_OPTIONF_COMPATIBLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_OPTIONF_SYSTEM_MEMORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_OPTIONF_VALID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_REQUIREMENTF_FRAME_INTEGRITY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_REQUIREMENTF_INPLACE_MODIFIER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_REQUIREMENTF_MUST_ALLOCATE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_REQUIREMENTF_PREFERENCES_ONLY: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY_CUSTOM_ALLOCATION: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSATTRIBUTE {
@@ -1795,7 +8464,6 @@ impl ::core::default::Default for KSATTRIBUTE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSATTRIBUTEID_AUDIOSIGNALPROCESSING_MODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1f89eb5_5f46_419b_967b_ff6770b98401);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
@@ -1827,65 +8495,6 @@ impl ::core::default::Default for KSATTRIBUTE_AUDIOSIGNALPROCESSING_MODE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSATTRIBUTE_REQUIRED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDDECOUTMODE_PCM_51: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDDECOUTMODE_SPDIFF: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDDECOUTMODE_STEREO_ANALOG: u32 = 1u32;
-pub const KSAUDFNAME_3D_CENTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f0670b4_991f_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_3D_DEPTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ff5747_991f_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_3D_STEREO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede2_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_ALTERNATE_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d6b_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_AUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfe_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_AUX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfd_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_AUX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfc_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_BASS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede0_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfb_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf3_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedea_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_CD_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede9_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_IN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf9_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf4_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedec_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_LINE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedeb_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MASTER_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede4_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MASTER_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede3_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MICROPHONE_BOOST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d6a_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MIC_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf5_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIC_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedee_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIC_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185feded_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf8_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf2_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede8_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDI_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede7_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_MIDRANGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2cbe478_ae84_49a1_8b72_4ad09b78ed34);
-pub const KSAUDFNAME_MONO_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dff078_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_MIX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc31d69_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_MIX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b0eafe_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b41dc3_96e2_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_OUT_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247ec_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_MONO_OUT_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247eb_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_PC_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedff_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_PC_SPEAKER_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf1_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_PC_SPEAKER_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf0_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_PEAKMETER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57e24340_fc5b_4612_a562_72b11a29dfae);
-pub const KSAUDFNAME_RECORDING_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedfa_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_RECORDING_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedef_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_STEREO_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dff077_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_STEREO_MIX_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b0eafd_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_STEREO_MIX_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad247ed_96e3_11d2_ac4c_00c04f8efb68);
-pub const KSAUDFNAME_TREBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede1_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x915daec4_a434_11d2_ac52_00c04f8efb68);
-pub const KSAUDFNAME_VIDEO_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b46e709_992a_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_VIDEO_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b46e708_992a_11d2_ac4d_00c04f8efb68);
-pub const KSAUDFNAME_VOLUME_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf7_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_IN_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fedf6_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede6_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_OUT_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fee00_9905_11d1_95a9_00c04fb925d3);
-pub const KSAUDFNAME_WAVE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x185fede5_9905_11d1_95a9_00c04fb925d3);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAUDIOENGINE_BUFFER_SIZE_RANGE {
@@ -2195,10 +8804,6 @@ impl ::core::default::Default for KSAUDIO_COPY_PROTECTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_CPU_RESOURCES_HOST_CPU: u32 = 2147483647u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSAUDIO_DYNAMIC_RANGE {
@@ -2619,79 +9224,6 @@ impl ::core::default::Default for KSAUDIO_PRESENTATION_POSITION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_QUALITY_ADVANCED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_QUALITY_BASIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_QUALITY_PC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_QUALITY_WORST: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_DIRECTOUT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_GROUND_FRONT_CENTER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_GROUND_FRONT_LEFT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_GROUND_FRONT_RIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_GROUND_REAR_LEFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_GROUND_REAR_RIGHT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_MONO: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_SUPER_WOOFER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_SPEAKER_TOP_MIDDLE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_HEADPHONE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MAX: u32 = 180u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE: u32 = 20u32;
-pub const KSCAMERAPROFILE_BalancedVideoAndPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b52b017_42c7_4a21_bfe3_23f009149887);
-pub const KSCAMERAPROFILE_CompressedCamera: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e34cdc1_27ad_437f_abde_02b629f37b44);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FLAGS_FACEDETECTION: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FLAGS_PHOTOHDR: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FLAGS_PREVIEW_RES_MUSTMATCH: u64 = 32u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FLAGS_VIDEOHDR: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION: u64 = 1u64;
-pub const KSCAMERAPROFILE_FaceAuth_Mode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81361b22_700b_4546_a2d4_c52e907bfc27);
-pub const KSCAMERAPROFILE_HDRWithWCGPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bf6f1ff_b555_4625_b326_a46def318fb7);
-pub const KSCAMERAPROFILE_HDRWithWCGVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b27c336_4924_4989_b994_fdaf1dc7cd85);
-pub const KSCAMERAPROFILE_HighFrameRate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x566e6113_8c35_48e7_b89f_d23fdc1219dc);
-pub const KSCAMERAPROFILE_HighQualityPhoto: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32440725_961b_4ca3_b5b2_854e719d9e1b);
-pub const KSCAMERAPROFILE_Legacy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4894d81_62b7_4eec_8740_80658c4a9d3e);
-pub const KSCAMERAPROFILE_PhotoSequence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02399d9d_4ee8_49ba_bc07_5ff156531413);
-pub const KSCAMERAPROFILE_VariablePhotoSequence: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff2cb56_e75a_49b1_a928_9985d5946f87);
-pub const KSCAMERAPROFILE_VideoConferencing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5444a88_e1bf_4597_b2dd_9e1ead864bb8);
-pub const KSCAMERAPROFILE_VideoHDR8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f3f4ec_bdff_4314_b1d4_008e281f74e7);
-pub const KSCAMERAPROFILE_VideoRecording: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e517e8_8f8c_4f6f_9a57_46fc2f647ec0);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_HDR: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR: u64 = 1u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2772,10 +9304,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_C
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF: u64 = 0u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
@@ -2809,16 +9337,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_CAMERAOFFSET {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL: u64 = 9223372036854775808u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE: u64 = 4611686018427387904u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_CAPS_MASK: u64 = 18374686479671623680u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_CAPS_RESERVED: u64 = 18374686479671623680u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING: u64 = 1u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS {
@@ -2900,8 +9418,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_CONFIGCAPS
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL: u64 = 0u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_SETTING {
@@ -2969,40 +9485,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_EVCOMPENSATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EVCOMP_QUARTERSTEP: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EVCOMP_SIXTHSTEP: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_BACKGROUND_SUBTRACTION: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_DISABLED: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_BLINK: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PHOTO: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_PREVIEW: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO: u64 = 2u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
@@ -3036,97 +9518,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_FIELDOFVIEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FILTERSCOPE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION: u64 = 9223372036854775808u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLAG_MASK: u64 = 18374686479671623680u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_AUTO: u64 = 256u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_ON: u64 = 128u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_AUTO: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_AUTO_ADJUSTABLEPOWER: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_MULTIFLASHSUPPORTED: u64 = 64u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_ON_ADJUSTABLEPOWER: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_REDEYEREDUCTION: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FLASH_SINGLEFLASH: u64 = 32u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_EXTENDEDPROP_FOCUSSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_UNINITIALIZED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_LOST: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_SEARCHING: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FOCUSED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUSSTATE_FAILED: KSCAMERA_EXTENDEDPROP_FOCUSSTATE = KSCAMERA_EXTENDEDPROP_FOCUSSTATE(4i32);
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_FOCUSSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_EXTENDEDPROP_FOCUSSTATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUS: u64 = 256u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUSLOCK: u64 = 512u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_HYPERFOCAL: u64 = 33554432u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_INFINITY: u64 = 16777216u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_NEAREST: u64 = 67108864u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_DRIVERFALLBACK_OFF: u64 = 2048u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_FULLRANGE: u64 = 262144u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_HYPERFOCAL: u64 = 1048576u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_INFINITY: u64 = 524288u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_MACRO: u64 = 65536u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_NORMAL: u64 = 131072u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_REGIONBASED: u64 = 4096u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK: u64 = 1024u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_HEADER {
@@ -3162,42 +9553,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALTERNATING_FRAME_ILLUMINATION: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALWAYS_ON: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_IRTORCHMODE_OFF: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_100: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_12800: u64 = 1024u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_1600: u64 = 128u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_200: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_25600: u64 = 2048u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_3200: u64 = 256u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_400: u64 = 32u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_50: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_6400: u64 = 512u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_80: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_800: u64 = 64u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_AUTO: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ISO_MANUAL: u64 = 36028797018963968u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_METADATAINFO {
@@ -3229,77 +9584,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_METADATAINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED: u64 = 256u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK: u64 = 255u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_METADATA_SYSTEMMEMORY: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_EXTENDEDPROP_MetadataAlignment(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_16: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_32: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_64: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_128: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_256: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_512: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_1024: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_2048: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_4096: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_MetadataAlignment_8192: KSCAMERA_EXTENDEDPROP_MetadataAlignment = KSCAMERA_EXTENDEDPROP_MetadataAlignment(13i32);
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_MetadataAlignment {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_MetadataAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_EXTENDEDPROP_MetadataAlignment").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OIS_AUTO: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OIS_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OIS_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_DEFAULT: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_LATENCY: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_PHOTO: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_POWER: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_QUALITY: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_OPTIMIZATION_VIDEO: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON: u64 = 1u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_PHOTOMODE {
@@ -3333,24 +9617,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_PHOTOMODE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_VARIABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_16X: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_2X: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_4X: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_8X: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE: u64 = 0u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_PROFILE {
@@ -3381,39 +9647,6 @@ impl ::core::cmp::Eq for KSCAMERA_EXTENDEDPROP_PROFILE {}
 impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_PROFILE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_EXTENDEDPROP_ROITYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ROITYPE_UNKNOWN: KSCAMERA_EXTENDEDPROP_ROITYPE = KSCAMERA_EXTENDEDPROP_ROITYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ROITYPE_FACE: KSCAMERA_EXTENDEDPROP_ROITYPE = KSCAMERA_EXTENDEDPROP_ROITYPE(1i32);
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_ROITYPE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_ROITYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROITYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_ROITYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_ROITYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_EXTENDEDPROP_ROITYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -3703,36 +9936,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_ROI_WHITEBALANCE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT: u64 = 1024u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_BEACH: u64 = 32u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_CANDLELIGHT: u64 = 128u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_LANDSCAPE: u64 = 256u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_MACRO: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_MANUAL: u64 = 36028797018963968u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHT: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHTPORTRAIT: u64 = 512u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_PORTRAIT: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SNOW: u64 = 8u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SPORT: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SCENEMODE_SUNSET: u64 = 64u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_DISABLED: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_SECUREMODE_ENABLED: u64 = 2u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_VALUE {
@@ -3788,22 +9991,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_VALUE_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VFR_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VFR_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOHDR_AUTO: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOHDR_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOHDR_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_AUTO: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_LOCK: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL: u64 = 2u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
@@ -3834,96 +10021,6 @@ impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_VIDEOPROCSETTING {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_AUTO: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_OFF: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_ON: u64 = 4u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_OFF: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON_ADJUSTABLEPOWER: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_DISABLED: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_ENABLED: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_EXTENDEDPROP_WBPRESET(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WBPRESET_CLOUDY: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WBPRESET_DAYLIGHT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WBPRESET_FLASH: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WBPRESET_FLUORESCENT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WBPRESET_TUNGSTEN: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WBPRESET_CANDLELIGHT: KSCAMERA_EXTENDEDPROP_WBPRESET = KSCAMERA_EXTENDEDPROP_WBPRESET(6i32);
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WBPRESET {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WBPRESET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WBPRESET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_WBPRESET {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_WBPRESET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_EXTENDEDPROP_WBPRESET").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WHITEBALANCE_TEMPERATURE: KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE = KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_WHITEBALANCE_PRESET: KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE = KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE(2i32);
-impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {}
-impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_EXTENDEDPROP_WHITEBALANCE_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT: u64 = 0u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT: u64 = 1u64;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH: u64 = 2u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_MAXVIDEOFPS_FORPHOTORES {
@@ -4061,28 +10158,6 @@ impl ::core::default::Default for KSCAMERA_METADATA_CAPTURESTATS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASHPOWER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_FOCUSSTATE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ISOSPEED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_LENSPOSITION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SCENEMODE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_SENSORFRAMERATE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_WHITEBALANCE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_CAPTURESTATS_FLAG_ZOOMFACTOR: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_METADATA_DIGITALWINDOW {
@@ -4146,8 +10221,6 @@ impl ::core::default::Default for KSCAMERA_METADATA_FRAMEILLUMINATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_METADATA_ITEMHEADER {
@@ -4211,53 +10284,6 @@ impl ::core::default::Default for KSCAMERA_METADATA_PHOTOCONFIRMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_MetadataId(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_Standard_Start: KSCAMERA_MetadataId = KSCAMERA_MetadataId(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_PhotoConfirmation: KSCAMERA_MetadataId = KSCAMERA_MetadataId(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_UsbVideoHeader: KSCAMERA_MetadataId = KSCAMERA_MetadataId(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_CaptureStats: KSCAMERA_MetadataId = KSCAMERA_MetadataId(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_CameraExtrinsics: KSCAMERA_MetadataId = KSCAMERA_MetadataId(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_CameraIntrinsics: KSCAMERA_MetadataId = KSCAMERA_MetadataId(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_FrameIllumination: KSCAMERA_MetadataId = KSCAMERA_MetadataId(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_DigitalWindow: KSCAMERA_MetadataId = KSCAMERA_MetadataId(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_BackgroundSegmentationMask: KSCAMERA_MetadataId = KSCAMERA_MetadataId(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_Standard_End: KSCAMERA_MetadataId = KSCAMERA_MetadataId(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MetadataId_Custom_Start: KSCAMERA_MetadataId = KSCAMERA_MetadataId(-2147483648i32);
-impl ::core::marker::Copy for KSCAMERA_MetadataId {}
-impl ::core::clone::Clone for KSCAMERA_MetadataId {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_MetadataId {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_MetadataId {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_MetadataId {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_MetadataId").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_AUTO: u64 = 4294967296u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_PERFRAMESETTING_CAP_HEADER {
@@ -4454,45 +10480,6 @@ impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_ITEM_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSCAMERA_PERFRAMESETTING_ITEM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_TIME: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_FLASH: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_EXPOSURE_COMPENSATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_ISO: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_FOCUS: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_PHOTOCONFIRMATION: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_ITEM_CUSTOM: KSCAMERA_PERFRAMESETTING_ITEM_TYPE = KSCAMERA_PERFRAMESETTING_ITEM_TYPE(7i32);
-impl ::core::marker::Copy for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {}
-impl ::core::clone::Clone for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSCAMERA_PERFRAMESETTING_ITEM_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSCAMERA_PERFRAMESETTING_ITEM_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCAMERA_PERFRAMESETTING_MANUAL: u64 = 8589934592u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCAMERA_PROFILE_CONCURRENCYINFO {
@@ -4742,43 +10729,6 @@ impl ::core::default::Default for KSCAMERA_PROFILE_PININFO_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSCATEGORY_ACOUSTIC_ECHO_CANCEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSCATEGORY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad04_93ef_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_BRIDGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085aff00_62ce_11cf_a5d6_28db04c10000);
-pub const KSCATEGORY_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773d_8f56_11d0_a3b9_00a0c9223196);
-pub const KSCATEGORY_CLOCK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_COMMUNICATIONSTRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2c_9743_11d0_a3ee_00a0c9223196);
-pub const KSCATEGORY_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a801_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_DATACOMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e84c900_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_DATADECOMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2721ae20_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_DATATRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eb07ea0_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19689bf6_c384_48fd_ad51_90e58c79f70b);
-pub const KSCATEGORY_ESCALANTE_PLATFORM_DRIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74f3aea8_9768_11d1_8e07_00a0c95ec22e);
-pub const KSCATEGORY_FILESYSTEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x760fed5e_9357_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_INTERFACETRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2d_9743_11d0_a3ee_00a0c9223196);
-pub const KSCATEGORY_MEDIUMTRANSFORM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1dda2e_9743_11d0_a3ee_00a0c9223196);
-pub const KSCATEGORY_MICROPHONE_ARRAY_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x830a44f2_a32d_476b_be97_42845673b35a);
-pub const KSCATEGORY_MIXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad809c00_7b88_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_MULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a5de1d3_01a1_452c_b481_4fa2b96271e8);
-pub const KSCATEGORY_NETWORK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67c9cc3c_69c4_11d2_8759_00a0c9223196);
-pub const KSCATEGORY_NETWORK_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8238652_b500_41eb_b4f3_4234f7f5ae99);
-pub const KSCATEGORY_PROXY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ebaaca_95bd_11d0_a3ea_00a0c9223196);
-pub const KSCATEGORY_QUALITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ebaacb_95bd_11d0_a3ea_00a0c9223196);
-pub const KSCATEGORY_REALTIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb115ffc_10c8_4964_831d_6dcb02e6f23f);
-pub const KSCATEGORY_RENDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773e_8f56_11d0_a3b9_00a0c9223196);
-pub const KSCATEGORY_SENSOR_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24e552d7_6523_47f7_a647_d3465bf1f5ca);
-pub const KSCATEGORY_SENSOR_GROUP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x669c7214_0a88_4311_a7f3_4e79820e33bd);
-pub const KSCATEGORY_SPLITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4252a0_7e70_11d0_a5d6_28db04c10000);
-pub const KSCATEGORY_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad06_93ef_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_TOPOLOGY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda54a40_1e4c_11d1_a050_405705c10000);
-pub const KSCATEGORY_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a802_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_TVTUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a800_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_VBICODEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dad660_22f1_11d1_a9f4_00c04fbbde8f);
-pub const KSCATEGORY_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6994ad05_93ef_11d0_a3cc_00a0c9223196);
-pub const KSCATEGORY_VIDEO_CAMERA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5323777_f976_4f5b_9b55_b94699c46e44);
-pub const KSCATEGORY_VIRTUAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3503eac4_1f26_11d1_8ab0_00a0c9223196);
-pub const KSCATEGORY_VPMUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa799a803_a46d_11d0_a18c_00a02401dcd4);
-pub const KSCATEGORY_WDMAUD_USE_PIN_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47a4fa20_a251_11d1_a050_0000f8004788);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCLOCK_CREATE {
@@ -4844,7 +10794,6 @@ impl ::core::default::Default for KSCOMPONENTID {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSCOMPONENTID_USBAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1275f0_26e9_4264_ba4d_39fff01d94aa);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSCORRELATED_TIME {
@@ -4876,26 +10825,6 @@ impl ::core::default::Default for KSCORRELATED_TIME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCREATE_ITEM_FREEONSTOP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCREATE_ITEM_NOPARAMETERS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCREATE_ITEM_SECURITYCHANGED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCREATE_ITEM_WILDCARD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCameraProfileSensorType_Custom: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCameraProfileSensorType_Depth: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCameraProfileSensorType_ImageSegmentation: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCameraProfileSensorType_Infrared: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCameraProfileSensorType_PoseTracking: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSCameraProfileSensorType_RGB: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub union KSDATAFORMAT {
@@ -4958,123 +10887,6 @@ impl ::core::default::Default for KSDATAFORMAT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_BIT_ATTRIBUTES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: u32 = 0u32;
-pub const KSDATAFORMAT_SPECIFIER_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e4_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_ANALOGVIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde0_7817_11cf_8a03_00aa006ecb65);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b35_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b32_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b31_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b34_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DIALECT_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b33_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SPECIFIER_DSOUND: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518590a2_a184_11d0_8522_00c04fd9baf3);
-pub const KSDATAFORMAT_SPECIFIER_FILEHANDLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65e8773c_8f56_11d0_a3b9_00a0c9223196);
-pub const KSDATAFORMAT_SPECIFIER_FILENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa797b40_e974_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_SPECIFIER_H264_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2017be05_6629_4248_aaed_7e1a47bc9b9c);
-pub const KSDATAFORMAT_SPECIFIER_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
-pub const KSDATAFORMAT_SPECIFIER_JPEG_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x692fa379_d3e8_4651_b5b4_0b94b013eeaf);
-pub const KSDATAFORMAT_SPECIFIER_LPCM_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e6_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f82_c356_11ce_bf01_00aa0055595a);
-pub const KSDATAFORMAT_SPECIFIER_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e5_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d80e3_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SPECIFIER_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6417d6_c318_11d0_a43f_00a0c9223196);
-pub const KSDATAFORMAT_SPECIFIER_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e0_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SPECIFIER_VC_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad98d184_aac3_11d0_a41c_00a0c9223196);
-pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f80_c356_11ce_bf01_00aa0055595a);
-pub const KSDATAFORMAT_SPECIFIER_VIDEOINFO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76a0_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SPECIFIER_WAVEFORMATEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05589f81_c356_11ce_bf01_00aa0055595a);
-pub const KSDATAFORMAT_SUBTYPE_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802c_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_ANALOG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dba3190_67bd_11cf_a0f7_0020afd156e4);
-pub const KSDATAFORMAT_SUBTYPE_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33214cc1_011f_11d2_b4b1_00a0d102cfbe);
-pub const KSDATAFORMAT_SUBTYPE_D16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000050_0004_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_DSS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f82_e163_11d0_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_DSS_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0af4f81_e163_11d0_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_DTS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8033_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_AAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000006_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_ATRAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000008_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000092_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_DIGITAL_PLUS_ATMOS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT20: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010c_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MAT21: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000030c_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DOLBY_MLP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000c_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000008_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010b_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTSX_E2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000030b_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_DTS_HD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG1: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000003_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000004_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_MPEG3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000005_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_ONE_BIT_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000009_0cea_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IEC61937_WMA_PRO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000164_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_IMAGE_RGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
-pub const KSDATAFORMAT_SUBTYPE_L16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L16_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_8000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L16_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000051_0002_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L8_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_8000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_L8_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000032_0002_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_LPCM_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8032_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_Line21_BytePair: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a22_310c_11d0_b79a_00aa003767a7);
-pub const KSDATAFORMAT_SUBTYPE_Line21_GOPPacket: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e8d4a23_310c_11d0_b79a_00aa003767a7);
-pub const KSDATAFORMAT_SUBTYPE_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d262760_e957_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_SUBTYPE_MIDI_BUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca15fa0_6cfe_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_SUBTYPE_MJPG_CUSTOM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_8000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MJPG_DEPTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0004_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MJPG_IR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47504a4d_0002_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Packet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb80_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Payload: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb81_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_MPEG1Video: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb86_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802b_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8026_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_MPEGLAYER3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000055_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_MPEG_HEAAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00001610_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e2_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SUBTYPE_NABTS_FEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757bca1_39ac_11d1_a9f5_00c04fbbde8f);
-pub const KSDATAFORMAT_SUBTYPE_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8e_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_OVERLAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb7f_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_PCM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000001_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_RAW8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca20d9a0_3e3e_11d1_9bf9_00c04fbbdebf);
-pub const KSDATAFORMAT_SUBTYPE_RIFF: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4995daee_9ee6_11d0_a40e_00a0c9223196);
-pub const KSDATAFORMAT_SUBTYPE_RIFFMIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4995daf0_9ee6_11d0_a40e_00a0c9223196);
-pub const KSDATAFORMAT_SUBTYPE_RIFFWAVE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb8b_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_SUBTYPE_SDDS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8034_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_AC3_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b25_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b22_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG1_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b21_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b24_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_STANDARD_MPEG2_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b23_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_SUBTYPE_SUBPICTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d802d_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_SUBTYPE_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e3_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_SUBTYPE_VPVBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a41_1a22_11d1_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_VPVideo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9b6a40_1a22_11d1_bad9_00609744111a);
-pub const KSDATAFORMAT_SUBTYPE_WAVEFORMATEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000161_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000162_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000163_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_ANALOGAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dee1_7817_11cf_8a03_00aa006ecb65);
-pub const KSDATAFORMAT_TYPE_ANALOGVIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0482dde1_7817_11cf_8a03_00aa006ecb65);
-pub const KSDATAFORMAT_TYPE_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73647561_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_AUXLine21Data: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670aea80_3a82_11d0_b79b_00aa003767a7);
-pub const KSDATAFORMAT_TYPE_DVD_ENCRYPTED_PACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed0b916a_044d_11d1_aa78_00c04fc31d60);
-pub const KSDATAFORMAT_TYPE_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72178c23_e45b_11d5_bc2a_00b0d0f3f4ab);
-pub const KSDATAFORMAT_TYPE_MIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7364696d_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_MPEG2_PES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8020_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_TYPE_MPEG2_PROGRAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8022_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_TYPE_MPEG2_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe06d8023_db46_11cf_b4d1_00805f6cbbea);
-pub const KSDATAFORMAT_TYPE_MUSIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe725d360_62cc_11cf_a5d6_28db04c10000);
-pub const KSDATAFORMAT_TYPE_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe757bca0_39ac_11d1_a9f5_00c04fbbde8f);
-pub const KSDATAFORMAT_TYPE_STANDARD_ELEMENTARY_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b11_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_TYPE_STANDARD_PACK_HEADER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b13_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_TYPE_STANDARD_PES_PACKET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36523b12_8ee5_11d1_8ca3_0060b057664a);
-pub const KSDATAFORMAT_TYPE_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe436eb83_524f_11ce_9f53_0020af0ba770);
-pub const KSDATAFORMAT_TYPE_TEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73747874_0000_0010_8000_00aa00389b71);
-pub const KSDATAFORMAT_TYPE_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72a76e1_eb0a_11d0_ace4_0000c0cc16ba);
-pub const KSDATAFORMAT_TYPE_VIDEO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73646976_0000_0010_8000_00aa00389b71);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSDATARANGE_AUDIO {
@@ -5105,10 +10917,6 @@ impl ::core::default::Default for KSDATARANGE_AUDIO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATARANGE_BIT_ATTRIBUTES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSDATARANGE_MUSIC {
@@ -5138,48 +10946,6 @@ impl ::core::default::Default for KSDATARANGE_MUSIC {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSDEGRADESETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f564180_704c_11d0_a5d6_28db04c10000);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSDEGRADE_STANDARD(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEGRADE_STANDARD_SAMPLE: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEGRADE_STANDARD_QUALITY: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEGRADE_STANDARD_COMPUTATION: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEGRADE_STANDARD_SKIP: KSDEGRADE_STANDARD = KSDEGRADE_STANDARD(3i32);
-impl ::core::marker::Copy for KSDEGRADE_STANDARD {}
-impl ::core::clone::Clone for KSDEGRADE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSDEGRADE_STANDARD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSDEGRADE_STANDARD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSDEGRADE_STANDARD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSDEGRADE_STANDARD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_DESCRIPTOR_VERSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_DESCRIPTOR_VERSION_2: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_FLAG_ENABLE_QUERYINTERFACE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_FLAG_ENABLE_REMOTE_WAKEUP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_FLAG_LOWPOWER_PASSTHROUGH: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSDEVICE_PROFILE_INFO {
@@ -5265,39 +11031,6 @@ impl ::core::default::Default for KSDEVICE_PROFILE_INFO_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_PROFILE_TYPE_CAMERA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_PROFILE_TYPE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSDEVICE_THERMAL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_THERMAL_STATE_LOW: KSDEVICE_THERMAL_STATE = KSDEVICE_THERMAL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDEVICE_THERMAL_STATE_HIGH: KSDEVICE_THERMAL_STATE = KSDEVICE_THERMAL_STATE(1i32);
-impl ::core::marker::Copy for KSDEVICE_THERMAL_STATE {}
-impl ::core::clone::Clone for KSDEVICE_THERMAL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSDEVICE_THERMAL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSDEVICE_THERMAL_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSDEVICE_THERMAL_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSDEVICE_THERMAL_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDISPATCH_FASTIO: u32 = 2147483648u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSDISPLAYCHANGE {
@@ -5395,35 +11128,6 @@ impl ::core::default::Default for KSDS3D_BUFFER_CONE_ANGLES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSDS3D_HRTF_COEFF_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const FLOAT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SHORT_COEFF: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDS3D_COEFF_COUNT: KSDS3D_HRTF_COEFF_FORMAT = KSDS3D_HRTF_COEFF_FORMAT(2i32);
-impl ::core::marker::Copy for KSDS3D_HRTF_COEFF_FORMAT {}
-impl ::core::clone::Clone for KSDS3D_HRTF_COEFF_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSDS3D_HRTF_COEFF_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSDS3D_HRTF_COEFF_FORMAT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSDS3D_HRTF_COEFF_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSDS3D_HRTF_COEFF_FORMAT").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSDS3D_HRTF_FILTER_FORMAT_MSG {
@@ -5455,89 +11159,6 @@ impl ::core::cmp::Eq for KSDS3D_HRTF_FILTER_FORMAT_MSG {}
 impl ::core::default::Default for KSDS3D_HRTF_FILTER_FORMAT_MSG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSDS3D_HRTF_FILTER_METHOD(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const DIRECT_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const CASCADE_FORM: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDS3D_FILTER_METHOD_COUNT: KSDS3D_HRTF_FILTER_METHOD = KSDS3D_HRTF_FILTER_METHOD(2i32);
-impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_METHOD {}
-impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_METHOD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSDS3D_HRTF_FILTER_METHOD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_METHOD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_METHOD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSDS3D_HRTF_FILTER_METHOD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSDS3D_HRTF_FILTER_QUALITY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const FULL_FILTER: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const LIGHT_FILTER: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDS3D_FILTER_QUALITY_COUNT: KSDS3D_HRTF_FILTER_QUALITY = KSDS3D_HRTF_FILTER_QUALITY(2i32);
-impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_QUALITY {}
-impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_QUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSDS3D_HRTF_FILTER_QUALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_QUALITY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_QUALITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSDS3D_HRTF_FILTER_QUALITY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSDS3D_HRTF_FILTER_VERSION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const DS3D_HRTF_VERSION_1: KSDS3D_HRTF_FILTER_VERSION = KSDS3D_HRTF_FILTER_VERSION(0i32);
-impl ::core::marker::Copy for KSDS3D_HRTF_FILTER_VERSION {}
-impl ::core::clone::Clone for KSDS3D_HRTF_FILTER_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSDS3D_HRTF_FILTER_VERSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSDS3D_HRTF_FILTER_VERSION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSDS3D_HRTF_FILTER_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSDS3D_HRTF_FILTER_VERSION").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -5745,32 +11366,6 @@ impl ::core::default::Default for KSDS3D_LISTENER_ORIENTATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_3D_MODE_DISABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_3D_MODE_HEADRELATIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_3D_MODE_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_CTRL_3D: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_CTRL_FREQUENCY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_CTRL_HRTF_3D: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_CTRL_PAN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_CTRL_POSITIONNOTIFY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_CTRL_VOLUME: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_LOCHARDWARE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_LOCSOFTWARE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_PRIMARY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSDSOUND_BUFFER_STATIC: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSERROR {
@@ -5987,431 +11582,6 @@ impl ::core::default::Default for KSEVENTDATA_0_2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_DPC: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_EVENT_HANDLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_EVENT_OBJECT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_KSWORKITEM: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_SEMAPHORE_HANDLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_SEMAPHORE_OBJECT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENTF_WORKITEM: u32 = 32u32;
-pub const KSEVENTSETID_AudioControlChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85e9698_fa2f_11d1_95bd_00c04fb925d3);
-pub const KSEVENTSETID_CameraAsyncControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a11754_9701_4088_b33f_6b9cbc52df5e);
-pub const KSEVENTSETID_CameraEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7899b2e0_6b43_4964_9d2a_a21f4061f576);
-pub const KSEVENTSETID_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364d8e20_62c7_11cf_a5d6_28db04c10000);
-pub const KSEVENTSETID_Connection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f4bcbe0_9ea5_11cf_a5d6_28db04c10000);
-pub const KSEVENTSETID_Device: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x288296ec_9f94_41b4_a153_aa31aeecb33f);
-pub const KSEVENTSETID_DynamicFormatChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x162ac456_83d7_4239_96df_c75ffa138bc6);
-pub const KSEVENTSETID_EXTDEV_Command: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x109c7988_b3cb_11d2_b48e_006097b3391b);
-pub const KSEVENTSETID_ExtendedCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x571c92c9_13a2_47e3_a649_d2a778166384);
-pub const KSEVENTSETID_LoopedStreaming: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4682b940_c6ef_11d0_96d8_00aa0051e51d);
-pub const KSEVENTSETID_PinCapsChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4f192e_3b78_49ad_a534_2c315b822000);
-pub const KSEVENTSETID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69785c9b_fc2d_49d6_ac32_4799f87de9f6);
-pub const KSEVENTSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d95571_073c_11d0_a161_0020afd156e4);
-pub const KSEVENTSETID_Telephony: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77f12b4_ceb4_4484_8d5e_52c1e7d8762d);
-pub const KSEVENTSETID_VIDCAPTOSTI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb47de20_f628_11d1_ba41_00a0c90d2b05);
-pub const KSEVENTSETID_VIDCAP_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0651_28e4_11d0_a18c_00a0c9118956);
-pub const KSEVENTSETID_VPNotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20c5598e_d3c8_11d0_8dfc_00c04fd7c08b);
-pub const KSEVENTSETID_VPVBINotify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec529b01_1a1f_11d1_bad9_00609744111a);
-pub const KSEVENTSETID_VolumeLimit: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda168465_3a7c_4858_9d4a_3e8e24701aef);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_AUDIO_CONTROL_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CONTROL_CHANGE: KSEVENT_AUDIO_CONTROL_CHANGE = KSEVENT_AUDIO_CONTROL_CHANGE(0i32);
-impl ::core::marker::Copy for KSEVENT_AUDIO_CONTROL_CHANGE {}
-impl ::core::clone::Clone for KSEVENT_AUDIO_CONTROL_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_AUDIO_CONTROL_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_AUDIO_CONTROL_CHANGE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_AUDIO_CONTROL_CHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_AUDIO_CONTROL_CHANGE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_CAMERACONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CAMERACONTROL_FOCUS: KSEVENT_CAMERACONTROL = KSEVENT_CAMERACONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CAMERACONTROL_ZOOM: KSEVENT_CAMERACONTROL = KSEVENT_CAMERACONTROL(1i32);
-impl ::core::marker::Copy for KSEVENT_CAMERACONTROL {}
-impl ::core::clone::Clone for KSEVENT_CAMERACONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_CAMERACONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_CAMERACONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_CAMERACONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_CAMERACONTROL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_CAMERAEVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_PHOTO_SAMPLE_SCANNED: KSEVENT_CAMERAEVENT = KSEVENT_CAMERAEVENT(0i32);
-impl ::core::marker::Copy for KSEVENT_CAMERAEVENT {}
-impl ::core::clone::Clone for KSEVENT_CAMERAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_CAMERAEVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_CAMERAEVENT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_CAMERAEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_CAMERAEVENT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_CLOCK_POSITION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CLOCK_INTERVAL_MARK: KSEVENT_CLOCK_POSITION = KSEVENT_CLOCK_POSITION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CLOCK_POSITION_MARK: KSEVENT_CLOCK_POSITION = KSEVENT_CLOCK_POSITION(1i32);
-impl ::core::marker::Copy for KSEVENT_CLOCK_POSITION {}
-impl ::core::clone::Clone for KSEVENT_CLOCK_POSITION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_CLOCK_POSITION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_CLOCK_POSITION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_CLOCK_POSITION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_CLOCK_POSITION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_CONNECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CONNECTION_POSITIONUPDATE: KSEVENT_CONNECTION = KSEVENT_CONNECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CONNECTION_DATADISCONTINUITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CONNECTION_TIMEDISCONTINUITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CONNECTION_PRIORITY: KSEVENT_CONNECTION = KSEVENT_CONNECTION(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CONNECTION_ENDOFSTREAM: KSEVENT_CONNECTION = KSEVENT_CONNECTION(4i32);
-impl ::core::marker::Copy for KSEVENT_CONNECTION {}
-impl ::core::clone::Clone for KSEVENT_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_CONNECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_CONNECTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_CONNECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_CONNECTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_CROSSBAR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_CROSSBAR_CHANGED: KSEVENT_CROSSBAR = KSEVENT_CROSSBAR(0i32);
-impl ::core::marker::Copy for KSEVENT_CROSSBAR {}
-impl ::core::clone::Clone for KSEVENT_CROSSBAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_CROSSBAR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_CROSSBAR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_CROSSBAR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_CROSSBAR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_DEVCMD(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_COMMAND_NOTIFY_INTERIM_READY: KSEVENT_DEVCMD = KSEVENT_DEVCMD(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_COMMAND_CONTROL_INTERIM_READY: KSEVENT_DEVCMD = KSEVENT_DEVCMD(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_COMMAND_BUSRESET: KSEVENT_DEVCMD = KSEVENT_DEVCMD(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_TIMECODE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_OPERATION_MODE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_TRANSPORT_STATE_UPDATE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_NOTIFY_REMOVAL: KSEVENT_DEVCMD = KSEVENT_DEVCMD(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_EXTDEV_NOTIFY_MEDIUM_CHANGE: KSEVENT_DEVCMD = KSEVENT_DEVCMD(7i32);
-impl ::core::marker::Copy for KSEVENT_DEVCMD {}
-impl ::core::clone::Clone for KSEVENT_DEVCMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_DEVCMD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_DEVCMD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_DEVCMD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_DEVCMD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_DEVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_DEVICE_LOST: KSEVENT_DEVICE = KSEVENT_DEVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_DEVICE_PREEMPTED: KSEVENT_DEVICE = KSEVENT_DEVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_DEVICE_THERMAL_HIGH: KSEVENT_DEVICE = KSEVENT_DEVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_DEVICE_THERMAL_LOW: KSEVENT_DEVICE = KSEVENT_DEVICE(3i32);
-impl ::core::marker::Copy for KSEVENT_DEVICE {}
-impl ::core::clone::Clone for KSEVENT_DEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_DEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_DEVICE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_DEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_DEVICE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_DYNAMICFORMATCHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_DYNAMIC_FORMAT_CHANGE: KSEVENT_DYNAMICFORMATCHANGE = KSEVENT_DYNAMICFORMATCHANGE(0i32);
-impl ::core::marker::Copy for KSEVENT_DYNAMICFORMATCHANGE {}
-impl ::core::clone::Clone for KSEVENT_DYNAMICFORMATCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_DYNAMICFORMATCHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_DYNAMICFORMATCHANGE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_DYNAMICFORMATCHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_DYNAMICFORMATCHANGE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_ENTRY_BUFFERED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_ENTRY_DELETED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_ENTRY_ONESHOT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_LOOPEDSTREAMING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_LOOPEDSTREAMING_POSITION: KSEVENT_LOOPEDSTREAMING = KSEVENT_LOOPEDSTREAMING(0i32);
-impl ::core::marker::Copy for KSEVENT_LOOPEDSTREAMING {}
-impl ::core::clone::Clone for KSEVENT_LOOPEDSTREAMING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_LOOPEDSTREAMING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_LOOPEDSTREAMING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_LOOPEDSTREAMING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_LOOPEDSTREAMING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_PINCAPS_CHANGENOTIFICATIONS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_PINCAPS_FORMATCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = KSEVENT_PINCAPS_CHANGENOTIFICATIONS(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_PINCAPS_JACKINFOCHANGE: KSEVENT_PINCAPS_CHANGENOTIFICATIONS = KSEVENT_PINCAPS_CHANGENOTIFICATIONS(1i32);
-impl ::core::marker::Copy for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {}
-impl ::core::clone::Clone for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_PINCAPS_CHANGENOTIFICATIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_PINCAPS_CHANGENOTIFICATIONS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_SOUNDDETECTOR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_SOUNDDETECTOR_MATCHDETECTED: KSEVENT_SOUNDDETECTOR = KSEVENT_SOUNDDETECTOR(1i32);
-impl ::core::marker::Copy for KSEVENT_SOUNDDETECTOR {}
-impl ::core::clone::Clone for KSEVENT_SOUNDDETECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_SOUNDDETECTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_SOUNDDETECTOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_SOUNDDETECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_SOUNDDETECTOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_STREAMALLOCATOR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_STREAMALLOCATOR_INTERNAL_FREEFRAME: KSEVENT_STREAMALLOCATOR = KSEVENT_STREAMALLOCATOR(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_STREAMALLOCATOR_FREEFRAME: KSEVENT_STREAMALLOCATOR = KSEVENT_STREAMALLOCATOR(1i32);
-impl ::core::marker::Copy for KSEVENT_STREAMALLOCATOR {}
-impl ::core::clone::Clone for KSEVENT_STREAMALLOCATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_STREAMALLOCATOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_STREAMALLOCATOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_STREAMALLOCATOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_STREAMALLOCATOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_TELEPHONY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TELEPHONY_ENDPOINTPAIRS_CHANGED: KSEVENT_TELEPHONY = KSEVENT_TELEPHONY(0i32);
-impl ::core::marker::Copy for KSEVENT_TELEPHONY {}
-impl ::core::clone::Clone for KSEVENT_TELEPHONY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_TELEPHONY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_TELEPHONY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_TELEPHONY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_TELEPHONY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6479,33 +11649,6 @@ impl ::core::default::Default for KSEVENT_TIME_MARK {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_TUNER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TUNER_CHANGED: KSEVENT_TUNER = KSEVENT_TUNER(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TUNER_INITIATE_SCAN: KSEVENT_TUNER = KSEVENT_TUNER(1i32);
-impl ::core::marker::Copy for KSEVENT_TUNER {}
-impl ::core::clone::Clone for KSEVENT_TUNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_TUNER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_TUNER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_TUNER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_TUNER").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6538,174 +11681,6 @@ impl ::core::cmp::Eq for KSEVENT_TUNER_INITIATE_SCAN_S {}
 impl ::core::default::Default for KSEVENT_TUNER_INITIATE_SCAN_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_TVAUDIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TVAUDIO_CHANGED: KSEVENT_TVAUDIO = KSEVENT_TVAUDIO(0i32);
-impl ::core::marker::Copy for KSEVENT_TVAUDIO {}
-impl ::core::clone::Clone for KSEVENT_TVAUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_TVAUDIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_TVAUDIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_TVAUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_TVAUDIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_BASICSUPPORT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_ENABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_ENABLEBUFFERED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_ONESHOT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_QUERYBUFFER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_SETSUPPORT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_TYPE_TOPOLOGY: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_VIDCAPTOSTI(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VIDCAPTOSTI_EXT_TRIGGER: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VIDCAP_AUTO_UPDATE: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VIDCAP_SEARCH: KSEVENT_VIDCAPTOSTI = KSEVENT_VIDCAPTOSTI(2i32);
-impl ::core::marker::Copy for KSEVENT_VIDCAPTOSTI {}
-impl ::core::clone::Clone for KSEVENT_VIDCAPTOSTI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_VIDCAPTOSTI {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_VIDCAPTOSTI {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_VIDCAPTOSTI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_VIDCAPTOSTI").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_VIDEODECODER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VIDEODECODER_CHANGED: KSEVENT_VIDEODECODER = KSEVENT_VIDEODECODER(0i32);
-impl ::core::marker::Copy for KSEVENT_VIDEODECODER {}
-impl ::core::clone::Clone for KSEVENT_VIDEODECODER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_VIDEODECODER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_VIDEODECODER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_VIDEODECODER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_VIDEODECODER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_VOLUMELIMIT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VOLUMELIMIT_CHANGED: KSEVENT_VOLUMELIMIT = KSEVENT_VOLUMELIMIT(0i32);
-impl ::core::marker::Copy for KSEVENT_VOLUMELIMIT {}
-impl ::core::clone::Clone for KSEVENT_VOLUMELIMIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_VOLUMELIMIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_VOLUMELIMIT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_VOLUMELIMIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_VOLUMELIMIT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_VPNOTIFY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VPNOTIFY_FORMATCHANGE: KSEVENT_VPNOTIFY = KSEVENT_VPNOTIFY(0i32);
-impl ::core::marker::Copy for KSEVENT_VPNOTIFY {}
-impl ::core::clone::Clone for KSEVENT_VPNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_VPNOTIFY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_VPNOTIFY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_VPNOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_VPNOTIFY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSEVENT_VPVBINOTIFY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSEVENT_VPVBINOTIFY_FORMATCHANGE: KSEVENT_VPVBINOTIFY = KSEVENT_VPVBINOTIFY(0i32);
-impl ::core::marker::Copy for KSEVENT_VPVBINOTIFY {}
-impl ::core::clone::Clone for KSEVENT_VPVBINOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSEVENT_VPVBINOTIFY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSEVENT_VPVBINOTIFY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSEVENT_VPVBINOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSEVENT_VPVBINOTIFY").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -6762,18 +11737,6 @@ impl ::core::default::Default for KSE_PIN {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFILTER_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFILTER_FLAG_DENY_USERMODE_ACCESS: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFILTER_FLAG_DISPATCH_LEVEL_PROCESSING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFILTER_FLAG_HYPERCRITICAL_PROCESSING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFILTER_FLAG_PRIORITIZE_REFERENCEGUID: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFILTER_FLAG_RECEIVE_ZERO_LENGTH_SAMPLES: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSFRAMETIME {
@@ -6806,8 +11769,6 @@ impl ::core::default::Default for KSFRAMETIME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSFRAMETIME_VARIABLESIZE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6932,92 +11893,6 @@ impl ::core::default::Default for KSIDENTIFIER_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSINTERFACESETID_FileIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c6f932c_e771_11d0_b8ff_00a0c9223196);
-pub const KSINTERFACESETID_Media: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a13eb40_30a7_11d0_a5d6_28db04c10000);
-pub const KSINTERFACESETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a8766a0_62ce_11cf_a5d6_28db04c10000);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSINTERFACE_FILEIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_FILEIO_STREAMING: KSINTERFACE_FILEIO = KSINTERFACE_FILEIO(0i32);
-impl ::core::marker::Copy for KSINTERFACE_FILEIO {}
-impl ::core::clone::Clone for KSINTERFACE_FILEIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSINTERFACE_FILEIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSINTERFACE_FILEIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSINTERFACE_FILEIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSINTERFACE_FILEIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSINTERFACE_MEDIA(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_MEDIA_MUSIC: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_MEDIA_WAVE_BUFFERED: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_MEDIA_WAVE_QUEUED: KSINTERFACE_MEDIA = KSINTERFACE_MEDIA(2i32);
-impl ::core::marker::Copy for KSINTERFACE_MEDIA {}
-impl ::core::clone::Clone for KSINTERFACE_MEDIA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSINTERFACE_MEDIA {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSINTERFACE_MEDIA {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSINTERFACE_MEDIA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSINTERFACE_MEDIA").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSINTERFACE_STANDARD(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_STANDARD_STREAMING: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_STANDARD_LOOPED_STREAMING: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSINTERFACE_STANDARD_CONTROL: KSINTERFACE_STANDARD = KSINTERFACE_STANDARD(2i32);
-impl ::core::marker::Copy for KSINTERFACE_STANDARD {}
-impl ::core::clone::Clone for KSINTERFACE_STANDARD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSINTERFACE_STANDARD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSINTERFACE_STANDARD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSINTERFACE_STANDARD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSINTERFACE_STANDARD").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSINTERVAL {
@@ -7124,33 +11999,6 @@ impl ::core::default::Default for KSJACK_DESCRIPTION2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSJACK_SINK_CONNECTIONTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSJACK_SINK_CONNECTIONTYPE_HDMI: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSJACK_SINK_CONNECTIONTYPE_DISPLAYPORT: KSJACK_SINK_CONNECTIONTYPE = KSJACK_SINK_CONNECTIONTYPE(1i32);
-impl ::core::marker::Copy for KSJACK_SINK_CONNECTIONTYPE {}
-impl ::core::clone::Clone for KSJACK_SINK_CONNECTIONTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSJACK_SINK_CONNECTIONTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSJACK_SINK_CONNECTIONTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSJACK_SINK_CONNECTIONTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSJACK_SINK_CONNECTIONTYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7197,208 +12045,6 @@ impl ::core::default::Default for KSJACK_SINK_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSMEDIUMSETID_MidiBus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05908040_3246_11d0_a5d6_28db04c10000);
-pub const KSMEDIUMSETID_Standard: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4747b320_62ce_11cf_a5d6_28db04c10000);
-pub const KSMEDIUMSETID_VPBus: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18c15ec_ce43_11d0_abe7_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEDIUM_STANDARD_DEVIO: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMEDIUM_TYPE_ANYINSTANCE: u32 = 0u32;
-pub const KSMEMORY_TYPE_DEVICE_UNKNOWN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091bb639_603f_11d1_b067_00a0c9062802);
-pub const KSMEMORY_TYPE_KERNEL_NONPAGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a6d5fc4_7895_11d1_b069_00a0c9062802);
-pub const KSMEMORY_TYPE_KERNEL_PAGED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd833f8f8_7894_11d1_b069_00a0c9062802);
-pub const KSMEMORY_TYPE_SYSTEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091bb638_603f_11d1_b067_00a0c9062802);
-pub const KSMEMORY_TYPE_USER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb0fc28_7893_11d1_b069_00a0c9062802);
-pub const KSMETHODSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6e4341_ec87_11cf_a130_0020afd156e4);
-pub const KSMETHODSETID_StreamIo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65d003ca_1523_11d2_b27a_00a0c9223196);
-pub const KSMETHODSETID_Wavetable: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcef31eb_d907_11d0_9583_00c04fb925d3);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSMETHOD_STREAMALLOCATOR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_STREAMALLOCATOR_ALLOC: KSMETHOD_STREAMALLOCATOR = KSMETHOD_STREAMALLOCATOR(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_STREAMALLOCATOR_FREE: KSMETHOD_STREAMALLOCATOR = KSMETHOD_STREAMALLOCATOR(1i32);
-impl ::core::marker::Copy for KSMETHOD_STREAMALLOCATOR {}
-impl ::core::clone::Clone for KSMETHOD_STREAMALLOCATOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSMETHOD_STREAMALLOCATOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSMETHOD_STREAMALLOCATOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSMETHOD_STREAMALLOCATOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSMETHOD_STREAMALLOCATOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSMETHOD_STREAMIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_STREAMIO_READ: KSMETHOD_STREAMIO = KSMETHOD_STREAMIO(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_STREAMIO_WRITE: KSMETHOD_STREAMIO = KSMETHOD_STREAMIO(1i32);
-impl ::core::marker::Copy for KSMETHOD_STREAMIO {}
-impl ::core::clone::Clone for KSMETHOD_STREAMIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSMETHOD_STREAMIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSMETHOD_STREAMIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSMETHOD_STREAMIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSMETHOD_STREAMIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_BASICSUPPORT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_MODIFY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_READ: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_SEND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_SETSUPPORT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_SOURCE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_TOPOLOGY: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_TYPE_WRITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSMETHOD_WAVETABLE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_WAVETABLE_WAVE_ALLOC: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_WAVETABLE_WAVE_FREE: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_WAVETABLE_WAVE_FIND: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_WAVETABLE_WAVE_WRITE: KSMETHOD_WAVETABLE = KSMETHOD_WAVETABLE(3i32);
-impl ::core::marker::Copy for KSMETHOD_WAVETABLE {}
-impl ::core::clone::Clone for KSMETHOD_WAVETABLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSMETHOD_WAVETABLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSMETHOD_WAVETABLE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSMETHOD_WAVETABLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSMETHOD_WAVETABLE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMETHOD_WAVE_QUEUED_BREAKLOOP: u32 = 1u32;
-pub const KSMFT_CATEGORY_AUDIO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ea73fb4_ef7a_4559_8d5d_719d8f0426c7);
-pub const KSMFT_CATEGORY_AUDIO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11064c48_3648_4ed0_932e_05ce8ac811b7);
-pub const KSMFT_CATEGORY_AUDIO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c64bd0_f91e_4d8c_9276_db248279d975);
-pub const KSMFT_CATEGORY_DEMULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8700a7a_939b_44c5_99d7_76226b23b3f1);
-pub const KSMFT_CATEGORY_MULTIPLEXER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x059c561e_05ae_4b61_b69d_55b61ee54a7b);
-pub const KSMFT_CATEGORY_OTHER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90175d57_b7ea_4901_aeb3_933a8747756f);
-pub const KSMFT_CATEGORY_VIDEO_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6c02d4b_6833_45b4_971a_05a4b04bab91);
-pub const KSMFT_CATEGORY_VIDEO_EFFECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12e17c21_532c_4a6e_8a1c_40825a736397);
-pub const KSMFT_CATEGORY_VIDEO_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf79eac7d_e545_4387_bdee_d647d7bde42a);
-pub const KSMFT_CATEGORY_VIDEO_PROCESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x302ea3fc_aa5f_47f9_9f7a_c2188bb16302);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSMICARRAY_MICARRAYTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICARRAYTYPE_LINEAR: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICARRAYTYPE_PLANAR: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICARRAYTYPE_3D: KSMICARRAY_MICARRAYTYPE = KSMICARRAY_MICARRAYTYPE(2i32);
-impl ::core::marker::Copy for KSMICARRAY_MICARRAYTYPE {}
-impl ::core::clone::Clone for KSMICARRAY_MICARRAYTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSMICARRAY_MICARRAYTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSMICARRAY_MICARRAYTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSMICARRAY_MICARRAYTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSMICARRAY_MICARRAYTYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSMICARRAY_MICTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_OMNIDIRECTIONAL: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_SUBCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_CARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_SUPERCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_HYPERCARDIOID: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_8SHAPED: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMICARRAY_MICTYPE_VENDORDEFINED: KSMICARRAY_MICTYPE = KSMICARRAY_MICTYPE(15i32);
-impl ::core::marker::Copy for KSMICARRAY_MICTYPE {}
-impl ::core::clone::Clone for KSMICARRAY_MICTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSMICARRAY_MICTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSMICARRAY_MICTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSMICARRAY_MICTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSMICARRAY_MICTYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMPEGVIDMODE_LTRBOX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMPEGVIDMODE_PANSCAN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSMPEGVIDMODE_SCALE: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSMPEGVID_RECT {
@@ -7520,11 +12166,6 @@ impl ::core::default::Default for KSMUSICFORMAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSMUSIC_TECHNOLOGY_FMSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252c5c80_62e9_11cf_a5d6_28db04c10000);
-pub const KSMUSIC_TECHNOLOGY_PORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86c92e60_62e8_11cf_a5d6_28db04c10000);
-pub const KSMUSIC_TECHNOLOGY_SQSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ecf4380_62e9_11cf_a5d6_28db04c10000);
-pub const KSMUSIC_TECHNOLOGY_SWSYNTH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37407736_3620_11d1_85d3_0000f8754380);
-pub const KSMUSIC_TECHNOLOGY_WAVETABLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394ec7c0_62e9_11cf_a5d6_28db04c10000);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSM_NODE {
@@ -7552,31 +12193,6 @@ impl ::core::default::Default for KSM_NODE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSNAME_Allocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x642f5d00_4791_11d0_a5d6_28db04c10000);
-pub const KSNAME_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53172480_4791_11d0_a5d6_28db04c10000);
-pub const KSNAME_Filter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b365890_165f_11d0_a195_0020afd156e4);
-pub const KSNAME_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146f1a80_4791_11d0_a5d6_28db04c10000);
-pub const KSNAME_TopologyNode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0621061a_ee75_11d0_b915_00a0c9223196);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_AEC_CAPTURE_IN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_AEC_CAPTURE_OUT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_AEC_RENDER_IN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_AEC_RENDER_OUT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_DEMUX_IN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_DEMUX_OUT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_STANDARD_IN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_STANDARD_OUT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_SUM_MUX_IN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSNODEPIN_SUM_MUX_OUT: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSNODEPROPERTY {
@@ -7795,105 +12411,6 @@ impl ::core::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSNODETYPE_1394_DA_STREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_1394_DV_STREAM_SOUNDTRACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_3D_EFFECTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55515860_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_ADC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d837fe0_c555_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_AGC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe88c9ba0_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_ANALOG_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_ANALOG_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_AUDIO_ENGINE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35caf6e4_f3b3_4168_bb4b_55e77a461c7e);
-pub const KSNODETYPE_AUDIO_KEYWORDDETECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3817e0b8_df58_4375_b669_c49634331f9d);
-pub const KSNODETYPE_AUDIO_LOOPBACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f42c0b2_91ce_4bcf_9ccd_0e599037ab35);
-pub const KSNODETYPE_AUDIO_MODULE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45aab42e_caeb_4052_8aa9_b38cb5109619);
-pub const KSNODETYPE_BIDIRECTIONAL_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_CABLE_TUNER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ee_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_CD_PLAYER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_CHORUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20173f20_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_COMMUNICATION_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DAC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x507ae360_c554_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_DAT_IO_DIGITAL_AUDIO_TAPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DCC_IO_DIGITAL_COMPACT_CASSETTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DELAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x144981e0_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_DEMUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0eb67d4_e807_11d0_958a_00c04fb925d3);
-pub const KSNODETYPE_DESKTOP_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DESKTOP_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DEV_SPECIFIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x941c7ac0_c559_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_DIGITAL_AUDIO_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DISPLAYPORT_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47e4031_3ea6_418d_8f9b_b73843ccba97);
-pub const KSNODETYPE_DOWN_LINE_PHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DRM_DESCRAMBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffbb6e3f_ccfe_4d84_90d9_421418b03a8e);
-pub const KSNODETYPE_DSS_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ef_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DVD_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220eb_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_DYN_RANGE_COMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c8a6a8_601f_4af8_8793_d905ff4ca97d);
-pub const KSNODETYPE_ECHO_CANCELING_SPEAKERPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_ECHO_SUPPRESSING_SPEAKERPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_EMBEDDED_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_EQUALIZATION_NOISE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d41b4a0_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_EXTERNAL_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_FM_RX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x834a733c_f485_41c0_a62b_513025014e40);
-pub const KSNODETYPE_HANDSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_HDMI_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1b9cc2a_f519_417f_91c9_55fa65481001);
-pub const KSNODETYPE_HEADPHONES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_HEADSET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_HEAD_MOUNTED_DISPLAY_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_INPUT_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LEGACY_AUDIO_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LEVEL_CALIBRATION_NOISE_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LINE_CONNECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_LOUDNESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41887440_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_LOW_FREQUENCY_EFFECTS_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MICROPHONE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MIDI_ELEMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01c6fe66_6e48_4c65_ac9b_52db5d656c7e);
-pub const KSNODETYPE_MIDI_JACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x265e0c3f_fa39_4df3_ab04_be01b91e299a);
-pub const KSNODETYPE_MINIDISK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MULTITRACK_RECORDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_MUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b223c0_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_MUX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ceaf780_c556_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_NOISE_SUPPRESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
-pub const KSNODETYPE_OMNI_DIRECTIONAL_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_OUTPUT_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PARAMETRIC_EQUALIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19bb3a6a_ce2b_4442_87ec_6727c3cab477);
-pub const KSNODETYPE_PEAKMETER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa085651e_5f0d_4b36_a869_d195d6ab4b9e);
-pub const KSNODETYPE_PERSONAL_MICROPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PHONE_LINE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PHONOGRAPH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e8_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PROCESSING_MICROPHONE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21be6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_PROLOGIC_DECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x831c2c80_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_PROLOGIC_ENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8074c5b2_3c66_11d2_b45a_3078302c2030);
-pub const KSNODETYPE_RADIO_RECEIVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_RADIO_TRANSMITTER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0328e0_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_ROOM_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SATELLITE_RECEIVER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ed_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPDIF_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21fe5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPEAKER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ce1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPEAKERPHONE_NO_ECHO_REDUCTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21de3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_SPEAKERS_STATIC_JACK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e04f87_4dbe_4f8d_8589_025d209dfb4a);
-pub const KSNODETYPE_SRC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db7b9e0_c555_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_STEREO_WIDE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69800_c558_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_SUM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda441a60_c556_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_SUPERMIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe573adc0_c555_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_SYNTHESIZER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220f3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_TELEPHONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_TELEPHONY_BIDI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686d7cc0_d903_4258_b443_3a3d3580741c);
-pub const KSNODETYPE_TELEPHONY_UNDEFINED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff21ee0_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_TONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7607e580_c557_11d0_8a2b_00a0c9255ac1);
-pub const KSNODETYPE_TV_TUNER_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ec_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_UPDOWN_MIX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7edc5cf_7b63_4ee2_a100_29ee2cb6b2de);
-pub const KSNODETYPE_VCR_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220e9_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_CAMERA_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e6_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_DISC_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff220ea_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_INPUT_MTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e7_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_INPUT_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e2_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_OUTPUT_MTT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e8_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_OUTPUT_TERMINAL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e3_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_PROCESSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e5_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_SELECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e4_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VIDEO_STREAMING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdff229e1_f70f_11d0_b917_00a0c9223196);
-pub const KSNODETYPE_VOLUME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a5acc00_c557_11d0_8a2b_00a0c9255ac1);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSNODE_CREATE {
@@ -7925,8 +12442,6 @@ impl ::core::default::Default for KSNODE_CREATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSNOTIFICATIONID_AudioModule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2220f0_d9a6_4d5c_a036_573857fd50d2);
-pub const KSNOTIFICATIONID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6389d844_bb32_4c4c_a802_f4b4b77afead);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPIN_CINSTANCES {
@@ -7956,39 +12471,6 @@ impl ::core::cmp::Eq for KSPIN_CINSTANCES {}
 impl ::core::default::Default for KSPIN_CINSTANCES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPIN_COMMUNICATION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_COMMUNICATION_NONE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_COMMUNICATION_SINK: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_COMMUNICATION_SOURCE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_COMMUNICATION_BOTH: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_COMMUNICATION_BRIDGE: KSPIN_COMMUNICATION = KSPIN_COMMUNICATION(4i32);
-impl ::core::marker::Copy for KSPIN_COMMUNICATION {}
-impl ::core::clone::Clone for KSPIN_COMMUNICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPIN_COMMUNICATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPIN_COMMUNICATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPIN_COMMUNICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPIN_COMMUNICATION").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -8025,104 +12507,6 @@ impl ::core::cmp::Eq for KSPIN_CONNECT {}
 impl ::core::default::Default for KSPIN_CONNECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPIN_DATAFLOW(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_DATAFLOW_IN: KSPIN_DATAFLOW = KSPIN_DATAFLOW(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_DATAFLOW_OUT: KSPIN_DATAFLOW = KSPIN_DATAFLOW(2i32);
-impl ::core::marker::Copy for KSPIN_DATAFLOW {}
-impl ::core::clone::Clone for KSPIN_DATAFLOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPIN_DATAFLOW {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPIN_DATAFLOW {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPIN_DATAFLOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPIN_DATAFLOW").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_ASYNCHRONOUS_PROCESSING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_CRITICAL_PROCESSING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_DENY_USERMODE_ACCESS: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_DISPATCH_LEVEL_PROCESSING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_DISTINCT_TRAILING_EDGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_DO_NOT_INITIATE_PROCESSING: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_DO_NOT_USE_STANDARD_TRANSPORT: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_ENFORCE_FIFO: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_FIXED_FORMAT: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_FRAMES_NOT_REQUIRED_FOR_PROCESSING: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_GENERATE_EOS_EVENTS: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_GENERATE_MAPPINGS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_HYPERCRITICAL_PROCESSING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_IMPLEMENT_CLOCK: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_INITIATE_PROCESSING_ON_EVERY_ARRIVAL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_PROCESS_IF_ANY_IN_RUN_STATE: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_PROCESS_IN_RUN_STATE_ONLY: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_SOME_FRAMES_REQUIRED_FOR_PROCESSING: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_SPLITTER: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_FLAG_USE_STANDARD_TRANSPORT: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPIN_MDL_CACHING_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_MDL_CACHING_NOTIFY_CLEANUP: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_WAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_NOWAIT: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPIN_MDL_CACHING_NOTIFY_ADDSAMPLE: KSPIN_MDL_CACHING_EVENT = KSPIN_MDL_CACHING_EVENT(3i32);
-impl ::core::marker::Copy for KSPIN_MDL_CACHING_EVENT {}
-impl ::core::clone::Clone for KSPIN_MDL_CACHING_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPIN_MDL_CACHING_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPIN_MDL_CACHING_EVENT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPIN_MDL_CACHING_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPIN_MDL_CACHING_EVENT").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -8219,31 +12603,6 @@ impl ::core::default::Default for KSPIN_PHYSICALCONNECTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPPROPERTY_ALLOCATOR_MDLCACHING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ALLOCATOR_CLEANUP_CACHEDMDLPAGES: KSPPROPERTY_ALLOCATOR_MDLCACHING = KSPPROPERTY_ALLOCATOR_MDLCACHING(1i32);
-impl ::core::marker::Copy for KSPPROPERTY_ALLOCATOR_MDLCACHING {}
-impl ::core::clone::Clone for KSPPROPERTY_ALLOCATOR_MDLCACHING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPPROPERTY_ALLOCATOR_MDLCACHING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPPROPERTY_ALLOCATOR_MDLCACHING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPPROPERTY_ALLOCATOR_MDLCACHING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPPROPERTY_ALLOCATOR_MDLCACHING").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPRIORITY {
@@ -8273,99 +12632,6 @@ impl ::core::cmp::Eq for KSPRIORITY {}
 impl ::core::default::Default for KSPRIORITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPRIORITY_EXCLUSIVE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPRIORITY_HIGH: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPRIORITY_LOW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPRIORITY_NORMAL: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_ALLOCATEMDL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_ALLOWFORMATCHANGE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_MODIFY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_PROBEANDLOCK: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_STREAMREAD: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_STREAMWRITE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROBE_SYSTEMADDRESS: u32 = 64u32;
-pub const KSPROPERTYSETID_ExtendedCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb79112_c0d2_4213_9ca6_cd4fdb927972);
-pub const KSPROPERTYSETID_NetworkCameraControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e780f09_5745_4e3a_bc9f_f226ea43a6ec);
-pub const KSPROPERTYSETID_PerFrameSettingControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f3e261_dee6_4537_bff5_ee206db54aac);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AC3(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_ERROR_CONCEALMENT: KSPROPERTY_AC3 = KSPROPERTY_AC3(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_ALTERNATE_AUDIO: KSPROPERTY_AC3 = KSPROPERTY_AC3(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_DOWNMIX: KSPROPERTY_AC3 = KSPROPERTY_AC3(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_BIT_STREAM_MODE: KSPROPERTY_AC3 = KSPROPERTY_AC3(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_DIALOGUE_LEVEL: KSPROPERTY_AC3 = KSPROPERTY_AC3(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_LANGUAGE_CODE: KSPROPERTY_AC3 = KSPROPERTY_AC3(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AC3_ROOM_TYPE: KSPROPERTY_AC3 = KSPROPERTY_AC3(7i32);
-impl ::core::marker::Copy for KSPROPERTY_AC3 {}
-impl ::core::clone::Clone for KSPROPERTY_AC3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AC3 {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AC3 {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AC3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AC3").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_ALLOCATOR_CONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ALLOCATOR_CONTROL_HONOR_COUNT: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_CAPS: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ALLOCATOR_CONTROL_CAPTURE_INTERLEAVE: KSPROPERTY_ALLOCATOR_CONTROL = KSPROPERTY_ALLOCATOR_CONTROL(3i32);
-impl ::core::marker::Copy for KSPROPERTY_ALLOCATOR_CONTROL {}
-impl ::core::clone::Clone for KSPROPERTY_ALLOCATOR_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_ALLOCATOR_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_ALLOCATOR_CONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_ALLOCATOR_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_ALLOCATOR_CONTROL").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -8457,418 +12723,6 @@ impl ::core::cmp::Eq for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {}
 impl ::core::default::Default for KSPROPERTY_ALLOCATOR_CONTROL_SURFACE_SIZE_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDDECOUT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDDECOUT_MODES: KSPROPERTY_AUDDECOUT = KSPROPERTY_AUDDECOUT(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDDECOUT_CUR_MODE: KSPROPERTY_AUDDECOUT = KSPROPERTY_AUDDECOUT(1i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDDECOUT {}
-impl ::core::clone::Clone for KSPROPERTY_AUDDECOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDDECOUT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDDECOUT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDDECOUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDDECOUT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_LATENCY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_COPY_PROTECTION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_CHANNEL_CONFIG: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_VOLUMELEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_DYNAMIC_RANGE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_QUALITY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_SAMPLING_RATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_DYNAMIC_SAMPLING_RATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MIX_LEVEL_TABLE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MIX_LEVEL_CAPS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MUX_SOURCE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MUTE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_BASS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MID: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(15i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_TREBLE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_BASS_BOOST: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(17i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_EQ_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(18i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_NUM_EQ_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(19i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_EQ_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(20i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_AGC: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(21i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_DELAY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(22i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_LOUDNESS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(23i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_WIDE_MODE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(24i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_WIDENESS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(25i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_REVERB_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(26i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_CHORUS_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(27i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_DEV_SPECIFIC: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(28i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_DEMUX_DEST: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(29i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_STEREO_ENHANCE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(30i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MANUFACTURE_GUID: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(31i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PRODUCT_GUID: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(32i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_CPU_RESOURCES: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(33i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_STEREO_SPEAKER_GEOMETRY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(34i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_SURROUND_ENCODE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(35i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_3D_INTERFACE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(36i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEAKMETER: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(37i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_ALGORITHM_INSTANCE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(38i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_FILTER_STATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(39i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PREFERRED_STATUS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(40i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEQ_MAX_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(41i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEQ_NUM_BANDS: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(42i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEQ_BAND_CENTER_FREQ: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(43i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEQ_BAND_Q_FACTOR: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(44i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEQ_BAND_LEVEL: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(45i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_CHORUS_MODULATION_RATE: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(46i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_CHORUS_MODULATION_DEPTH: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(47i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_REVERB_TIME: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(48i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_REVERB_DELAY_FEEDBACK: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(49i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_POSITIONEX: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(50i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MIC_ARRAY_GEOMETRY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(51i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PRESENTATION_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(52i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_WAVERT_CURRENT_WRITE_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(53i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_LINEAR_BUFFER_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(54i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_PEAKMETER2: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(55i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_WAVERT_CURRENT_WRITE_LASTBUFFER_POSITION: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(56i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_VOLUMELIMIT_ENGAGED: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(57i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MIC_SENSITIVITY: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(58i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MIC_SNR: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(59i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_MIC_SENSITIVITY2: KSPROPERTY_AUDIO = KSPROPERTY_AUDIO(60i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDIO {}
-impl ::core::clone::Clone for KSPROPERTY_AUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDIOENGINE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_LFXENABLE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_GFXENABLE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_MIXFORMAT: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_DEVICEFORMAT: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_SUPPORTEDDEVICEFORMATS: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_DESCRIPTOR: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_BUFFER_SIZE_RANGE: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_LOOPBACK_PROTECTION: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOENGINE_VOLUMELEVEL: KSPROPERTY_AUDIOENGINE = KSPROPERTY_AUDIOENGINE(9i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDIOENGINE {}
-impl ::core::clone::Clone for KSPROPERTY_AUDIOENGINE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDIOENGINE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOENGINE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDIOENGINE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDIOENGINE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDIOMODULE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOMODULE_DESCRIPTORS: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOMODULE_COMMAND: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOMODULE_NOTIFICATION_DEVICE_ID: KSPROPERTY_AUDIOMODULE = KSPROPERTY_AUDIOMODULE(3i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDIOMODULE {}
-impl ::core::clone::Clone for KSPROPERTY_AUDIOMODULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDIOMODULE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOMODULE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDIOMODULE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDIOMODULE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDIOPOSTURE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOPOSTURE_ORIENTATION: KSPROPERTY_AUDIOPOSTURE = KSPROPERTY_AUDIOPOSTURE(1i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDIOPOSTURE {}
-impl ::core::clone::Clone for KSPROPERTY_AUDIOPOSTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDIOPOSTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOPOSTURE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDIOPOSTURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDIOPOSTURE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDIORESOURCEMANAGEMENT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIORESOURCEMANAGEMENT_RESOURCEGROUP: KSPROPERTY_AUDIORESOURCEMANAGEMENT = KSPROPERTY_AUDIORESOURCEMANAGEMENT(0i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDIORESOURCEMANAGEMENT {}
-impl ::core::clone::Clone for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDIORESOURCEMANAGEMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDIORESOURCEMANAGEMENT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_AUDIOSIGNALPROCESSING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIOSIGNALPROCESSING_MODES: KSPROPERTY_AUDIOSIGNALPROCESSING = KSPROPERTY_AUDIOSIGNALPROCESSING(0i32);
-impl ::core::marker::Copy for KSPROPERTY_AUDIOSIGNALPROCESSING {}
-impl ::core::clone::Clone for KSPROPERTY_AUDIOSIGNALPROCESSING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_AUDIOSIGNALPROCESSING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_AUDIOSIGNALPROCESSING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_AUDIOSIGNALPROCESSING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_AUDIOSIGNALPROCESSING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_AUDIO_BUFFER_DURATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_BIBLIOGRAPHIC(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_LEADER: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(1380207648i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_LCCN: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808529952i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ISBN: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808595488i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ISSN: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(842149920i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_CATALOGINGSOURCE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808726560i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_MAINPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808464672i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_MAINCORPORATEBODY: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808530208i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_MAINMEETINGNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825307424i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_MAINUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808661280i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_UNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808727072i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_TITLESTATEMENT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(892613152i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_VARYINGFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(909390368i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_PUBLICATION: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808858144i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_PHYSICALDESCRIPTION: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808465184i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808727584i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(809055264i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_GENERALNOTE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808465696i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_BIBLIOGRAPHYNOTE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(875574560i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_CONTENTSNOTE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(892351776i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_CREATIONCREDIT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(942683424i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_CITATION: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808531232i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_PARTICIPANT: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825308448i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_SUMMARY: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808596768i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_TARGETAUDIENCE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825373984i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDFORMAVAILABLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808662304i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_SYSTEMDETAILS: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(942880032i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_AWARDS: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(909653280i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808465952i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYTOPICALTERM: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808793632i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYGEOGRAPHIC: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(825570848i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_INDEXTERMGENRE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(892679712i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_INDEXTERMCURRICULUM: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(943011360i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808662816i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_ADDEDENTRYRELATED: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808728352i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTPERSONALNAME: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808466464i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_BIBLIOGRAPHIC_SERIESSTATEMENTUNIFORMTITLE: KSPROPERTY_BIBLIOGRAPHIC = KSPROPERTY_BIBLIOGRAPHIC(808663072i32);
-impl ::core::marker::Copy for KSPROPERTY_BIBLIOGRAPHIC {}
-impl ::core::clone::Clone for KSPROPERTY_BIBLIOGRAPHIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_BIBLIOGRAPHIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_BIBLIOGRAPHIC {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_BIBLIOGRAPHIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_BIBLIOGRAPHIC").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -9047,193 +12901,6 @@ impl ::core::default::Default for KSPROPERTY_BOUNDS_LONGLONG_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_BTAUDIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ONESHOT_RECONNECT: KSPROPERTY_BTAUDIO = KSPROPERTY_BTAUDIO(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ONESHOT_DISCONNECT: KSPROPERTY_BTAUDIO = KSPROPERTY_BTAUDIO(1i32);
-impl ::core::marker::Copy for KSPROPERTY_BTAUDIO {}
-impl ::core::clone::Clone for KSPROPERTY_BTAUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_BTAUDIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_BTAUDIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_BTAUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_BTAUDIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOFRAMERATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOMAXFRAMERATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOTRIGGERTIME: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_WARMSTART: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_MAXVIDFPS_PHOTORES: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOTHUMBNAIL: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_SCENEMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_TORCHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FLASHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_OPTIMIZATIONHINT: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_WHITEBALANCEMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EXPOSUREMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ISO: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FIELDOFVIEW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(15i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EVCOMPENSATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_CAMERAANGLEOFFSET: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(17i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_METADATA: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(18i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSPRIORITY: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(19i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FOCUSSTATE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(20i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ROI_CONFIGCAPS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(21i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ROI_ISPCONTROL: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(22i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PHOTOCONFIRMATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(23i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ZOOM: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(24i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_MCC: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(25i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ISO_ADVANCED: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(26i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOSTABILIZATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(27i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VFR: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(28i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FACEDETECTION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(29i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOHDR: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(30i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_HISTOGRAM: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(31i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_OIS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(32i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_ADVANCEDPHOTO: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(33i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_PROFILE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(34i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_FACEAUTH_MODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(35i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_SECURE_MODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(36i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_VIDEOTEMPORALDENOISING: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(37i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_IRTORCHMODE: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(38i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_RELATIVEPANELOPTIMIZATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(39i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_EYEGAZECORRECTION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(40i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_BACKGROUNDSEGMENTATION: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(41i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW_CONFIGCAPS: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(42i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_DIGITALWINDOW: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(43i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(44i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXTENDED_END2: KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY = KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY(44i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERACONTROL_EXTENDED_PROPERTY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLAGS_ABSOLUTE: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLAGS_ASYNCHRONOUS: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLAGS_AUTO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLAGS_MANUAL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLAGS_RELATIVE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERACONTROL_FLASH(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLASH_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_FLASH = KSPROPERTY_CAMERACONTROL_FLASH(0i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_FLASH {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_FLASH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_FLASH {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_FLASH {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_FLASH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERACONTROL_FLASH").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLASH_AUTO: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_AUTO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_MANUAL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLASH_OFF: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FLASH_ON: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_CAMERACONTROL_FLASH_S {
@@ -9293,33 +12960,6 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY = KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY(0i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_S {
@@ -9351,8 +12991,6 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD: i32 = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_CAMERACONTROL_NODE_FOCAL_LENGTH_S {
@@ -9438,74 +13076,6 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_NODE_S2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CAPABILITY: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_SET: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_CLEAR: KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY = KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY(2i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERACONTROL_PERFRAMESETTING_PROPERTY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST = KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST(0i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_EXPOSURE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_FOCUS: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_WB: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONVERGEMODE: i32 = 1073741824i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_ASYNC: i32 = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_AUTO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_MANUAL: i32 = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9668,20 +13238,6 @@ impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_S_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_AUTO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_MANUAL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_HIGH: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_LOW: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF: i32 = 0i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
@@ -9711,171 +13267,6 @@ impl ::core::cmp::Eq for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {}
 impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE_PROPERTY_ID: KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE = KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE(0i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERACONTROL_VIDEO_STABILIZATION_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_CLEAR: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_SET: KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS = KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS(1i32);
-impl ::core::marker::Copy for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {}
-impl ::core::clone::Clone for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CAMERA_PHOTOTRIGGERTIME_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CLOCK(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CLOCK_TIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CLOCK_PHYSICALTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CLOCK_CORRELATEDTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CLOCK_CORRELATEDPHYSICALTIME: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CLOCK_RESOLUTION: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CLOCK_STATE: KSPROPERTY_CLOCK = KSPROPERTY_CLOCK(5i32);
-impl ::core::marker::Copy for KSPROPERTY_CLOCK {}
-impl ::core::clone::Clone for KSPROPERTY_CLOCK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CLOCK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CLOCK {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CLOCK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CLOCK").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CONNECTION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_STATE: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_PRIORITY: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_DATAFORMAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_ALLOCATORFRAMING: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_PROPOSEDATAFORMAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_ACQUIREORDERING: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_ALLOCATORFRAMING_EX: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CONNECTION_STARTAT: KSPROPERTY_CONNECTION = KSPROPERTY_CONNECTION(7i32);
-impl ::core::marker::Copy for KSPROPERTY_CONNECTION {}
-impl ::core::clone::Clone for KSPROPERTY_CONNECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CONNECTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CONNECTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CONNECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CONNECTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_COPYPROT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_CHLG_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_DVD_KEY1: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_DEC_KEY2: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_TITLE_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_COPY_MACROVISION: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_REGION: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_SET_COPY_STATE: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDCOPY_DISC_KEY: KSPROPERTY_COPYPROT = KSPROPERTY_COPYPROT(128i32);
-impl ::core::marker::Copy for KSPROPERTY_COPYPROT {}
-impl ::core::clone::Clone for KSPROPERTY_COPYPROT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_COPYPROT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_COPYPROT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_COPYPROT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_COPYPROT").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -9990,31 +13381,6 @@ impl ::core::default::Default for KSPROPERTY_CROSSBAR_ROUTE_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_CYCLIC(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CYCLIC_POSITION: KSPROPERTY_CYCLIC = KSPROPERTY_CYCLIC(0i32);
-impl ::core::marker::Copy for KSPROPERTY_CYCLIC {}
-impl ::core::clone::Clone for KSPROPERTY_CYCLIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_CYCLIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_CYCLIC {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_CYCLIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_CYCLIC").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_DESCRIPTION {
@@ -10044,113 +13410,6 @@ impl ::core::default::Default for KSPROPERTY_DESCRIPTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_DIRECTSOUND3DBUFFER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_ALL: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_POSITION: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_VELOCITY: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEANGLES: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEORIENTATION: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_CONEOUTSIDEVOLUME: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MINDISTANCE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MAXDISTANCE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DBUFFER_MODE: KSPROPERTY_DIRECTSOUND3DBUFFER = KSPROPERTY_DIRECTSOUND3DBUFFER(8i32);
-impl ::core::marker::Copy for KSPROPERTY_DIRECTSOUND3DBUFFER {}
-impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DBUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DBUFFER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_DIRECTSOUND3DBUFFER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_DIRECTSOUND3DBUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_DIRECTSOUND3DBUFFER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_DIRECTSOUND3DLISTENER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ALL: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_POSITION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_VELOCITY: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ORIENTATION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_DISTANCEFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ROLLOFFFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_DOPPLERFACTOR: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_BATCH: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DIRECTSOUND3DLISTENER_ALLOCATION: KSPROPERTY_DIRECTSOUND3DLISTENER = KSPROPERTY_DIRECTSOUND3DLISTENER(8i32);
-impl ::core::marker::Copy for KSPROPERTY_DIRECTSOUND3DLISTENER {}
-impl ::core::clone::Clone for KSPROPERTY_DIRECTSOUND3DLISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_DIRECTSOUND3DLISTENER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_DIRECTSOUND3DLISTENER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_DIRECTSOUND3DLISTENER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_DIRECTSOUND3DLISTENER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_DRMAUDIOSTREAM(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DRMAUDIOSTREAM_CONTENTID: KSPROPERTY_DRMAUDIOSTREAM = KSPROPERTY_DRMAUDIOSTREAM(0i32);
-impl ::core::marker::Copy for KSPROPERTY_DRMAUDIOSTREAM {}
-impl ::core::clone::Clone for KSPROPERTY_DRMAUDIOSTREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_DRMAUDIOSTREAM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_DRMAUDIOSTREAM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_DRMAUDIOSTREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_DRMAUDIOSTREAM").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
@@ -10177,68 +13436,6 @@ impl ::core::cmp::Eq for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {}
 impl ::core::default::Default for KSPROPERTY_DROPPEDFRAMES_CURRENT_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_DVDSUBPIC(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDSUBPIC_PALETTE: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDSUBPIC_HLI: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DVDSUBPIC_COMPOSIT_ON: KSPROPERTY_DVDSUBPIC = KSPROPERTY_DVDSUBPIC(2i32);
-impl ::core::marker::Copy for KSPROPERTY_DVDSUBPIC {}
-impl ::core::clone::Clone for KSPROPERTY_DVDSUBPIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_DVDSUBPIC {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_DVDSUBPIC {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_DVDSUBPIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_DVDSUBPIC").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_EXTDEVICE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTDEVICE_ID: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTDEVICE_VERSION: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTDEVICE_POWER_STATE: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTDEVICE_PORT: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTDEVICE_CAPABILITIES: KSPROPERTY_EXTDEVICE = KSPROPERTY_EXTDEVICE(4i32);
-impl ::core::marker::Copy for KSPROPERTY_EXTDEVICE {}
-impl ::core::clone::Clone for KSPROPERTY_EXTDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_EXTDEVICE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_EXTDEVICE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_EXTDEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_EXTDEVICE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -10294,80 +13491,6 @@ impl ::core::cmp::Eq for KSPROPERTY_EXTDEVICE_S_0 {}
 impl ::core::default::Default for KSPROPERTY_EXTDEVICE_S_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_EXTENSION_UNIT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTENSION_UNIT_INFO: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTENSION_UNIT_CONTROL: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTENSION_UNIT_PASS_THROUGH: KSPROPERTY_EXTENSION_UNIT = KSPROPERTY_EXTENSION_UNIT(65535i32);
-impl ::core::marker::Copy for KSPROPERTY_EXTENSION_UNIT {}
-impl ::core::clone::Clone for KSPROPERTY_EXTENSION_UNIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_EXTENSION_UNIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_EXTENSION_UNIT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_EXTENSION_UNIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_EXTENSION_UNIT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_EXTXPORT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_CAPABILITIES: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_INPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_OUTPUT_SIGNAL_MODE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_LOAD_MEDIUM: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_MEDIUM_INFO: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_STATE: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_STATE_NOTIFY: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_TIMECODE_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_ATN_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_EXTXPORT_RTC_SEARCH: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RAW_AVC_CMD: KSPROPERTY_EXTXPORT = KSPROPERTY_EXTXPORT(10i32);
-impl ::core::marker::Copy for KSPROPERTY_EXTXPORT {}
-impl ::core::clone::Clone for KSPROPERTY_EXTXPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_EXTXPORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_EXTXPORT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_EXTXPORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_EXTXPORT").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -10676,195 +13799,6 @@ impl ::core::default::Default for KSPROPERTY_EXTXPORT_S_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_FMRX_CONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_FMRX_STATE: KSPROPERTY_FMRX_CONTROL = KSPROPERTY_FMRX_CONTROL(0i32);
-impl ::core::marker::Copy for KSPROPERTY_FMRX_CONTROL {}
-impl ::core::clone::Clone for KSPROPERTY_FMRX_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_FMRX_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_FMRX_CONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_FMRX_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_FMRX_CONTROL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_FMRX_TOPOLOGY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_FMRX_ENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_FMRX_VOLUME: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_FMRX_ANTENNAENDPOINTID: KSPROPERTY_FMRX_TOPOLOGY = KSPROPERTY_FMRX_TOPOLOGY(2i32);
-impl ::core::marker::Copy for KSPROPERTY_FMRX_TOPOLOGY {}
-impl ::core::clone::Clone for KSPROPERTY_FMRX_TOPOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_FMRX_TOPOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_FMRX_TOPOLOGY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_FMRX_TOPOLOGY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_FMRX_TOPOLOGY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_GENERAL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_GENERAL_COMPONENTID: KSPROPERTY_GENERAL = KSPROPERTY_GENERAL(0i32);
-impl ::core::marker::Copy for KSPROPERTY_GENERAL {}
-impl ::core::clone::Clone for KSPROPERTY_GENERAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_GENERAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_GENERAL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_GENERAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_GENERAL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_HRTF3D(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_HRTF3D_PARAMS: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_HRTF3D_INITIALIZE: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_HRTF3D_FILTER_FORMAT: KSPROPERTY_HRTF3D = KSPROPERTY_HRTF3D(2i32);
-impl ::core::marker::Copy for KSPROPERTY_HRTF3D {}
-impl ::core::clone::Clone for KSPROPERTY_HRTF3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_HRTF3D {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_HRTF3D {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_HRTF3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_HRTF3D").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_INTERLEAVEDAUDIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_INTERLEAVEDAUDIO_FORMATINFORMATION: KSPROPERTY_INTERLEAVEDAUDIO = KSPROPERTY_INTERLEAVEDAUDIO(1i32);
-impl ::core::marker::Copy for KSPROPERTY_INTERLEAVEDAUDIO {}
-impl ::core::clone::Clone for KSPROPERTY_INTERLEAVEDAUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_INTERLEAVEDAUDIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_INTERLEAVEDAUDIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_INTERLEAVEDAUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_INTERLEAVEDAUDIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_ITD3D(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ITD3D_PARAMS: KSPROPERTY_ITD3D = KSPROPERTY_ITD3D(0i32);
-impl ::core::marker::Copy for KSPROPERTY_ITD3D {}
-impl ::core::clone::Clone for KSPROPERTY_ITD3D {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_ITD3D {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_ITD3D {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_ITD3D {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_ITD3D").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_JACK(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_JACK_DESCRIPTION: KSPROPERTY_JACK = KSPROPERTY_JACK(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_JACK_DESCRIPTION2: KSPROPERTY_JACK = KSPROPERTY_JACK(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_JACK_SINK_INFO: KSPROPERTY_JACK = KSPROPERTY_JACK(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_JACK_CONTAINERID: KSPROPERTY_JACK = KSPROPERTY_JACK(4i32);
-impl ::core::marker::Copy for KSPROPERTY_JACK {}
-impl ::core::clone::Clone for KSPROPERTY_JACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_JACK {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_JACK {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_JACK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_JACK").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_MEDIAAVAILABLE {
@@ -10894,49 +13828,6 @@ impl ::core::cmp::Eq for KSPROPERTY_MEDIAAVAILABLE {}
 impl ::core::default::Default for KSPROPERTY_MEDIAAVAILABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_MEDIASEEKING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_CAPABILITIES: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_FORMATS: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_TIMEFORMAT: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_POSITION: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_STOPPOSITION: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_POSITIONS: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_DURATION: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_AVAILABLE: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_PREROLL: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEDIASEEKING_CONVERTTIMEFORMAT: KSPROPERTY_MEDIASEEKING = KSPROPERTY_MEDIASEEKING(9i32);
-impl ::core::marker::Copy for KSPROPERTY_MEDIASEEKING {}
-impl ::core::clone::Clone for KSPROPERTY_MEDIASEEKING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_MEDIASEEKING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_MEDIASEEKING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_MEDIASEEKING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_MEDIASEEKING").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -10970,78 +13861,6 @@ impl ::core::cmp::Eq for KSPROPERTY_MEMBERSHEADER {}
 impl ::core::default::Default for KSPROPERTY_MEMBERSHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_MULTICHANNEL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_UNIFORM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMBER_FLAG_DEFAULT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMBER_RANGES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMBER_STEPPEDRANGES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMBER_VALUES: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MEMORY_TRANSPORT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_MPEG2VID(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MPEG2VID_MODES: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MPEG2VID_CUR_MODE: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MPEG2VID_4_3_RECT: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MPEG2VID_16_9_RECT: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MPEG2VID_16_9_PANSCAN: KSPROPERTY_MPEG2VID = KSPROPERTY_MPEG2VID(4i32);
-impl ::core::marker::Copy for KSPROPERTY_MPEG2VID {}
-impl ::core::clone::Clone for KSPROPERTY_MPEG2VID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_MPEG2VID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_MPEG2VID {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_MPEG2VID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_MPEG2VID").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MPEG4_MEDIATYPE_SD_BOX: KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES = KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES(1i32);
-impl ::core::marker::Copy for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {}
-impl ::core::clone::Clone for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_MPEG4_MEDIATYPE_ATTRIBUTES").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -11118,31 +13937,6 @@ impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO 
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE_EVENTSINFO: KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE(0i32);
-impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {}
-impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_NETWORKCAMERACONTROL_METADATA_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER {
@@ -11174,164 +13968,6 @@ impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_HEADER
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_DISABLE: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_HOSTNTP: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE_CUSTOM: KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE = KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE(2i32);
-impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {}
-impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_NETWORKCAMERACONTROL_NTPINFO_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_NTP: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_URI: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_METADATA: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_NETWORKCAMERACONTROL_EVENTTOPICS_XML: KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY = KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY(3i32);
-impl ::core::marker::Copy for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {}
-impl ::core::clone::Clone for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_NETWORKCAMERACONTROL_PROPERTY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_OVERLAYUPDATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_INTERESTS: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_CLIPLIST: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_PALETTE: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_COLORKEY: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_VIDEOPOSITION: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_DISPLAYCHANGE: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_OVERLAYUPDATE_COLORREF: KSPROPERTY_OVERLAYUPDATE = KSPROPERTY_OVERLAYUPDATE(268435456i32);
-impl ::core::marker::Copy for KSPROPERTY_OVERLAYUPDATE {}
-impl ::core::clone::Clone for KSPROPERTY_OVERLAYUPDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_OVERLAYUPDATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_OVERLAYUPDATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_OVERLAYUPDATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_OVERLAYUPDATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_PIN(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_CINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_CTYPES: KSPROPERTY_PIN = KSPROPERTY_PIN(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_DATAFLOW: KSPROPERTY_PIN = KSPROPERTY_PIN(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_DATARANGES: KSPROPERTY_PIN = KSPROPERTY_PIN(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_DATAINTERSECTION: KSPROPERTY_PIN = KSPROPERTY_PIN(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_INTERFACES: KSPROPERTY_PIN = KSPROPERTY_PIN(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_MEDIUMS: KSPROPERTY_PIN = KSPROPERTY_PIN(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_COMMUNICATION: KSPROPERTY_PIN = KSPROPERTY_PIN(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_GLOBALCINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_NECESSARYINSTANCES: KSPROPERTY_PIN = KSPROPERTY_PIN(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_PHYSICALCONNECTION: KSPROPERTY_PIN = KSPROPERTY_PIN(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_CATEGORY: KSPROPERTY_PIN = KSPROPERTY_PIN(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_NAME: KSPROPERTY_PIN = KSPROPERTY_PIN(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_CONSTRAINEDDATARANGES: KSPROPERTY_PIN = KSPROPERTY_PIN(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT: KSPROPERTY_PIN = KSPROPERTY_PIN(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT2: KSPROPERTY_PIN = KSPROPERTY_PIN(15i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_MODEDATAFORMATS: KSPROPERTY_PIN = KSPROPERTY_PIN(16i32);
-impl ::core::marker::Copy for KSPROPERTY_PIN {}
-impl ::core::clone::Clone for KSPROPERTY_PIN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_PIN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_PIN {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_PIN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_PIN").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_FLAGS_ATTRIBUTE_RANGE_AWARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PIN_FLAGS_MASK: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_POSITIONS {
@@ -11363,84 +13999,6 @@ impl ::core::cmp::Eq for KSPROPERTY_POSITIONS {}
 impl ::core::default::Default for KSPROPERTY_POSITIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_QUALITY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_QUALITY_REPORT: KSPROPERTY_QUALITY = KSPROPERTY_QUALITY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_QUALITY_ERROR: KSPROPERTY_QUALITY = KSPROPERTY_QUALITY(1i32);
-impl ::core::marker::Copy for KSPROPERTY_QUALITY {}
-impl ::core::clone::Clone for KSPROPERTY_QUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_QUALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_QUALITY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_QUALITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_QUALITY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_RTAUDIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_GETPOSITIONFUNCTION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_BUFFER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_HWLATENCY: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_POSITIONREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_CLOCKREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_BUFFER_WITH_NOTIFICATION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_REGISTER_NOTIFICATION_EVENT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_UNREGISTER_NOTIFICATION_EVENT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_QUERY_NOTIFICATION_SUPPORT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_PACKETCOUNT: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_PRESENTATION_POSITION: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_GETREADPACKET: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_SETWRITEPACKET: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTAUDIO_PACKETVREGISTER: KSPROPERTY_RTAUDIO = KSPROPERTY_RTAUDIO(13i32);
-impl ::core::marker::Copy for KSPROPERTY_RTAUDIO {}
-impl ::core::clone::Clone for KSPROPERTY_RTAUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_RTAUDIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_RTAUDIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_RTAUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_RTAUDIO").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -11550,41 +14108,6 @@ impl ::core::cmp::Eq for KSPROPERTY_SERIALHDR {}
 impl ::core::default::Default for KSPROPERTY_SERIALHDR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_SOUNDDETECTOR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SOUNDDETECTOR_SUPPORTEDPATTERNS: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SOUNDDETECTOR_PATTERNS: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SOUNDDETECTOR_ARMED: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SOUNDDETECTOR_MATCHRESULT: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SOUNDDETECTOR_RESET: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SOUNDDETECTOR_STREAMINGSUPPORT: KSPROPERTY_SOUNDDETECTOR = KSPROPERTY_SOUNDDETECTOR(6i32);
-impl ::core::marker::Copy for KSPROPERTY_SOUNDDETECTOR {}
-impl ::core::clone::Clone for KSPROPERTY_SOUNDDETECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_SOUNDDETECTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_SOUNDDETECTOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_SOUNDDETECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_SOUNDDETECTOR").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -11708,167 +14231,6 @@ impl ::core::default::Default for KSPROPERTY_STEPPING_LONGLONG {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_STREAM(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_ALLOCATOR: KSPROPERTY_STREAM = KSPROPERTY_STREAM(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_QUALITY: KSPROPERTY_STREAM = KSPROPERTY_STREAM(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_DEGRADATION: KSPROPERTY_STREAM = KSPROPERTY_STREAM(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_MASTERCLOCK: KSPROPERTY_STREAM = KSPROPERTY_STREAM(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_TIMEFORMAT: KSPROPERTY_STREAM = KSPROPERTY_STREAM(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_PRESENTATIONTIME: KSPROPERTY_STREAM = KSPROPERTY_STREAM(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_PRESENTATIONEXTENT: KSPROPERTY_STREAM = KSPROPERTY_STREAM(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_FRAMETIME: KSPROPERTY_STREAM = KSPROPERTY_STREAM(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_RATECAPABILITY: KSPROPERTY_STREAM = KSPROPERTY_STREAM(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_RATE: KSPROPERTY_STREAM = KSPROPERTY_STREAM(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAM_PIPE_ID: KSPROPERTY_STREAM = KSPROPERTY_STREAM(10i32);
-impl ::core::marker::Copy for KSPROPERTY_STREAM {}
-impl ::core::clone::Clone for KSPROPERTY_STREAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_STREAM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_STREAM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_STREAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_STREAM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_STREAMINTERFACE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_STREAMINTERFACE_HEADERSIZE: KSPROPERTY_STREAMINTERFACE = KSPROPERTY_STREAMINTERFACE(0i32);
-impl ::core::marker::Copy for KSPROPERTY_STREAMINTERFACE {}
-impl ::core::clone::Clone for KSPROPERTY_STREAMINTERFACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_STREAMINTERFACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_STREAMINTERFACE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_STREAMINTERFACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_STREAMINTERFACE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TELEPHONY_CONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_PROVIDERID: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_CALLINFO: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_CALLCONTROL: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_PROVIDERCHANGE: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_CALLHOLD: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_MUTE_TX: KSPROPERTY_TELEPHONY_CONTROL = KSPROPERTY_TELEPHONY_CONTROL(5i32);
-impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_CONTROL {}
-impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_CONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TELEPHONY_CONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TELEPHONY_CONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TELEPHONY_CONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TELEPHONY_CONTROL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TELEPHONY_TOPOLOGY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_ENDPOINTIDPAIR: KSPROPERTY_TELEPHONY_TOPOLOGY = KSPROPERTY_TELEPHONY_TOPOLOGY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TELEPHONY_VOLUME: KSPROPERTY_TELEPHONY_TOPOLOGY = KSPROPERTY_TELEPHONY_TOPOLOGY(1i32);
-impl ::core::marker::Copy for KSPROPERTY_TELEPHONY_TOPOLOGY {}
-impl ::core::clone::Clone for KSPROPERTY_TELEPHONY_TOPOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TELEPHONY_TOPOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TELEPHONY_TOPOLOGY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TELEPHONY_TOPOLOGY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TELEPHONY_TOPOLOGY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TIMECODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TIMECODE_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_ATN_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_RTC_READER: KSPROPERTY_TIMECODE = KSPROPERTY_TIMECODE(2i32);
-impl ::core::marker::Copy for KSPROPERTY_TIMECODE {}
-impl ::core::clone::Clone for KSPROPERTY_TIMECODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TIMECODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TIMECODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TIMECODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TIMECODE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_TIMECODE_NODE_S {
@@ -11919,111 +14281,6 @@ impl ::core::cmp::Eq for KSPROPERTY_TIMECODE_S {}
 impl ::core::default::Default for KSPROPERTY_TIMECODE_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TOPOLOGY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TOPOLOGY_CATEGORIES: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TOPOLOGY_NODES: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TOPOLOGY_CONNECTIONS: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TOPOLOGY_NAME: KSPROPERTY_TOPOLOGY = KSPROPERTY_TOPOLOGY(3i32);
-impl ::core::marker::Copy for KSPROPERTY_TOPOLOGY {}
-impl ::core::clone::Clone for KSPROPERTY_TOPOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TOPOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TOPOLOGY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TOPOLOGY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TOPOLOGY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TOPOLOGYNODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TOPOLOGYNODE_ENABLE: KSPROPERTY_TOPOLOGYNODE = KSPROPERTY_TOPOLOGYNODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TOPOLOGYNODE_RESET: KSPROPERTY_TOPOLOGYNODE = KSPROPERTY_TOPOLOGYNODE(2i32);
-impl ::core::marker::Copy for KSPROPERTY_TOPOLOGYNODE {}
-impl ::core::clone::Clone for KSPROPERTY_TOPOLOGYNODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TOPOLOGYNODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TOPOLOGYNODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TOPOLOGYNODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TOPOLOGYNODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TUNER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_STANDARD: KSPROPERTY_TUNER = KSPROPERTY_TUNER(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_FREQUENCY: KSPROPERTY_TUNER = KSPROPERTY_TUNER(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_INPUT: KSPROPERTY_TUNER = KSPROPERTY_TUNER(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_IF_MEDIUM: KSPROPERTY_TUNER = KSPROPERTY_TUNER(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_SCAN_STATUS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_STANDARD_MODE: KSPROPERTY_TUNER = KSPROPERTY_TUNER(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_NETWORKTYPE_SCAN_CAPS: KSPROPERTY_TUNER = KSPROPERTY_TUNER(11i32);
-impl ::core::marker::Copy for KSPROPERTY_TUNER {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TUNER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TUNER").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -12137,39 +14394,6 @@ impl ::core::cmp::Eq for KSPROPERTY_TUNER_INPUT_S {}
 impl ::core::default::Default for KSPROPERTY_TUNER_INPUT_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_TUNER_MODES(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE_TV: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE_FM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE_AM_RADIO: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE_DSS: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TUNER_MODE_ATSC: KSPROPERTY_TUNER_MODES = KSPROPERTY_TUNER_MODES(16i32);
-impl ::core::marker::Copy for KSPROPERTY_TUNER_MODES {}
-impl ::core::clone::Clone for KSPROPERTY_TUNER_MODES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_TUNER_MODES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_TUNER_MODES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_TUNER_MODES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_TUNER_MODES").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -12464,96 +14688,6 @@ impl ::core::default::Default for KSPROPERTY_TVAUDIO_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_BASICSUPPORT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_COPYPAYLOAD: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_DEFAULTVALUES: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_FSFILTERSCOPE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_GET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_GETPAYLOADSIZE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_HIGHPRIORITY: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_RELATIONS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_SERIALIZERAW: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_SERIALIZESET: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_SERIALIZESIZE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_SET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_SETSUPPORT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_TOPOLOGY: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_UNSERIALIZERAW: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TYPE_UNSERIALIZESET: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VBICAP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VBICAP_PROPERTIES_PROTECTION: KSPROPERTY_VBICAP = KSPROPERTY_VBICAP(1i32);
-impl ::core::marker::Copy for KSPROPERTY_VBICAP {}
-impl ::core::clone::Clone for KSPROPERTY_VBICAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VBICAP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VBICAP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VBICAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VBICAP").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VBICODECFILTERING(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VBICODECFILTERING_SCANLINES_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_REQUESTED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VBICODECFILTERING_SUBSTREAMS_DISCOVERED_BIT_ARRAY: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VBICODECFILTERING_STATISTICS: KSPROPERTY_VBICODECFILTERING = KSPROPERTY_VBICODECFILTERING(5i32);
-impl ::core::marker::Copy for KSPROPERTY_VBICODECFILTERING {}
-impl ::core::clone::Clone for KSPROPERTY_VBICODECFILTERING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VBICODECFILTERING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VBICODECFILTERING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VBICODECFILTERING").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_VBICODECFILTERING_CC_SUBSTREAMS_S {
@@ -12786,368 +14920,6 @@ impl ::core::cmp::Eq for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {}
 impl ::core::default::Default for KSPROPERTY_VBICODECFILTERING_STATISTICS_NABTS_S {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_CAMERACONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PAN: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_TILT: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_ROLL: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_ZOOM: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXPOSURE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_IRIS: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FOCUS: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_SCANMODE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PRIVACY: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PANTILT: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PAN_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_TILT_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_ROLL_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_ZOOM_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_EXPOSURE_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_IRIS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(15i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FOCUS_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_PANTILT_RELATIVE: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(17i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_FOCAL_LENGTH: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(18i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CAMERACONTROL_AUTO_EXPOSURE_PRIORITY: KSPROPERTY_VIDCAP_CAMERACONTROL = KSPROPERTY_VIDCAP_CAMERACONTROL(19i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_CAMERACONTROL {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CAMERACONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_CAMERACONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_CAMERACONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_CAMERACONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_CAMERACONTROL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_CROSSBAR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CROSSBAR_CAPS: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CROSSBAR_PININFO: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CROSSBAR_CAN_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CROSSBAR_ROUTE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CROSSBAR_INPUT_ACTIVE: KSPROPERTY_VIDCAP_CROSSBAR = KSPROPERTY_VIDCAP_CROSSBAR(4i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_CROSSBAR {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_CROSSBAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_CROSSBAR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_CROSSBAR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_CROSSBAR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_CROSSBAR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_DROPPEDFRAMES(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DROPPEDFRAMES_CURRENT: KSPROPERTY_VIDCAP_DROPPEDFRAMES = KSPROPERTY_VIDCAP_DROPPEDFRAMES(0i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_DROPPEDFRAMES {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_DROPPEDFRAMES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_DROPPEDFRAMES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_SELECTOR(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SELECTOR_SOURCE_NODE_ID: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_SELECTOR_NUM_SOURCES: KSPROPERTY_VIDCAP_SELECTOR = KSPROPERTY_VIDCAP_SELECTOR(1i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_SELECTOR {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_SELECTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_SELECTOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_SELECTOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_SELECTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_SELECTOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_TVAUDIO(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TVAUDIO_CAPS: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TVAUDIO_MODE: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_TVAUDIO_CURRENTLY_AVAILABLE_MODES: KSPROPERTY_VIDCAP_TVAUDIO = KSPROPERTY_VIDCAP_TVAUDIO(2i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_TVAUDIO {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_TVAUDIO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_TVAUDIO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_TVAUDIO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_TVAUDIO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_TVAUDIO").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_GETINFO: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_KEYFRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_PFRAMES_PER_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_QUALITY: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_KEYFRAME: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_OVERRIDE_FRAME_SIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCOMPRESSION_WINDOWSIZE: KSPROPERTY_VIDCAP_VIDEOCOMPRESSION = KSPROPERTY_VIDCAP_VIDEOCOMPRESSION(6i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOCOMPRESSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOCOMPRESSION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_VIDEOCONTROL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCONTROL_CAPS: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCONTROL_ACTUAL_FRAME_RATE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCONTROL_FRAME_RATES: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOCONTROL_MODE: KSPROPERTY_VIDCAP_VIDEOCONTROL = KSPROPERTY_VIDCAP_VIDEOCONTROL(3i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOCONTROL {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOCONTROL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOCONTROL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOCONTROL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOCONTROL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOCONTROL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_VIDEODECODER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEODECODER_CAPS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEODECODER_STANDARD: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEODECODER_STATUS: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEODECODER_OUTPUT_ENABLE: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEODECODER_VCR_TIMING: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEODECODER_STATUS2: KSPROPERTY_VIDCAP_VIDEODECODER = KSPROPERTY_VIDCAP_VIDEODECODER(5i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEODECODER {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEODECODER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEODECODER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEODECODER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEODECODER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEODECODER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_VIDEOENCODER(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOENCODER_CAPS: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOENCODER_STANDARD: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOENCODER_COPYPROTECTION: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOENCODER_CC_ENABLE: KSPROPERTY_VIDCAP_VIDEOENCODER = KSPROPERTY_VIDCAP_VIDEOENCODER(3i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOENCODER {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOENCODER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOENCODER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOENCODER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOENCODER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOENCODER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDCAP_VIDEOPROCAMP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_BRIGHTNESS: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_CONTRAST: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_HUE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_SATURATION: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_SHARPNESS: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_GAMMA: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_COLORENABLE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_BACKLIGHT_COMPENSATION: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_GAIN: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_DIGITAL_MULTIPLIER_LIMIT: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_WHITEBALANCE_COMPONENT: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_POWERLINE_FREQUENCY: KSPROPERTY_VIDCAP_VIDEOPROCAMP = KSPROPERTY_VIDCAP_VIDEOPROCAMP(13i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDCAP_VIDEOPROCAMP {}
-impl ::core::clone::Clone for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDCAP_VIDEOPROCAMP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDCAP_VIDEOPROCAMP").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -13500,10 +15272,6 @@ impl ::core::default::Default for KSPROPERTY_VIDEOENCODER_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_FLAGS_AUTO: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VIDEOPROCAMP_FLAGS_MANUAL: i32 = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSPROPERTY_VIDEOPROCAMP_NODE_S {
@@ -13618,183 +15386,6 @@ impl ::core::default::Default for KSPROPERTY_VIDEOPROCAMP_S2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VIDMEM_TRANSPORT(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_DISPLAY_ADAPTER_GUID: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_PREFERRED_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_CURRENT_CAPTURE_SURFACE: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_MAP_CAPTURE_HANDLE_TO_VRAM_ADDRESS: KSPROPERTY_VIDMEM_TRANSPORT = KSPROPERTY_VIDMEM_TRANSPORT(4i32);
-impl ::core::marker::Copy for KSPROPERTY_VIDMEM_TRANSPORT {}
-impl ::core::clone::Clone for KSPROPERTY_VIDMEM_TRANSPORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VIDMEM_TRANSPORT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VIDMEM_TRANSPORT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VIDMEM_TRANSPORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VIDMEM_TRANSPORT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_VPCONFIG(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_NUMCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_GETCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_SETCONNECTINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_VPDATAINFO: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_MAXPIXELRATE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_INFORMVPINPUT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_NUMVIDEOFORMAT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_GETVIDEOFORMAT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_SETVIDEOFORMAT: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_INVERTPOLARITY: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_DECIMATIONCAPABILITY: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_SCALEFACTOR: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_DDRAWHANDLE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_VIDEOPORTID: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_DDRAWSURFACEHANDLE: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_VPCONFIG_SURFACEPARAMS: KSPROPERTY_VPCONFIG = KSPROPERTY_VPCONFIG(15i32);
-impl ::core::marker::Copy for KSPROPERTY_VPCONFIG {}
-impl ::core::clone::Clone for KSPROPERTY_VPCONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_VPCONFIG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_VPCONFIG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_VPCONFIG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_VPCONFIG").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSPROPERTY_WAVE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_COMPATIBLE_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_INPUT_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_OUTPUT_CAPABILITIES: KSPROPERTY_WAVE = KSPROPERTY_WAVE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_BUFFER: KSPROPERTY_WAVE = KSPROPERTY_WAVE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_FREQUENCY: KSPROPERTY_WAVE = KSPROPERTY_WAVE(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_VOLUME: KSPROPERTY_WAVE = KSPROPERTY_WAVE(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_PAN: KSPROPERTY_WAVE = KSPROPERTY_WAVE(6i32);
-impl ::core::marker::Copy for KSPROPERTY_WAVE {}
-impl ::core::clone::Clone for KSPROPERTY_WAVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSPROPERTY_WAVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSPROPERTY_WAVE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSPROPERTY_WAVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSPROPERTY_WAVE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSPROPERTY_WAVE_QUEUED_POSITION: u32 = 1u32;
-pub const KSPROPSETID_AC3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfabe720_6e1f_11d0_bcf2_444553540000);
-pub const KSPROPSETID_Audio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45ffaaa0_6e1b_11d0_bcf2_444553540000);
-pub const KSPROPSETID_AudioBufferDuration: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e73c07f_23cc_4955_a7ea_3da502496290);
-pub const KSPROPSETID_AudioDecoderOut: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ca6e020_43bd_11d0_bd6a_003505c103a9);
-pub const KSPROPSETID_AudioEngine: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a2f82dc_886f_4baa_9eb4_082b9025c536);
-pub const KSPROPSETID_AudioModule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc034fdb0_ff75_47c8_aa3c_ee46716b50c6);
-pub const KSPROPSETID_AudioPosture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3fb7b0d_474e_4f51_a379_51282dd4fa8f);
-pub const KSPROPSETID_AudioResourceManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0b305e1_b2cc_484c_8f23_e5d28ad9cf88);
-pub const KSPROPSETID_AudioSignalProcessing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f67b528_30c9_40de_b2fb_859ddd1f3470);
-pub const KSPROPSETID_Bibliographic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07ba150e_e2b1_11d0_ac17_00a0c9223196);
-pub const KSPROPSETID_BtAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fa06c40_b8f6_4c7e_8556_e8c33a12e54d);
-pub const KSPROPSETID_Clock: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf12a4c0_ac17_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_Connection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d58c920_ac9b_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_CopyProt: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e8a0a40_6aef_11d0_9ed0_00a024ca19b3);
-pub const KSPROPSETID_Cyclic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ffeaea0_2bee_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_DirectSound3DBuffer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437b3411_d060_11d0_8583_00c04fd9baf3);
-pub const KSPROPSETID_DirectSound3DListener: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437b3414_d060_11d0_8583_00c04fd9baf3);
-pub const KSPROPSETID_DrmAudioStream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f2c8ddd_4198_4fac_ba29_61bb05b7de06);
-pub const KSPROPSETID_DvdSubPic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac390460_43af_11d0_bd6a_003505c103a9);
-pub const KSPROPSETID_FMRXControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947bba3a_e8ee_4786_90c4_8428185f05be);
-pub const KSPROPSETID_FMRXTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c46ce8f_dc2d_4204_9dc9_f58963366563);
-pub const KSPROPSETID_General: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1464eda5_6a8f_11d1_9aa7_00a0c9223196);
-pub const KSPROPSETID_Hrtf3d: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb66decb0_a083_11d0_851e_00c04fd9baf3);
-pub const KSPROPSETID_InterleavedAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ebe550_d619_4c0a_976b_7062322b3006);
-pub const KSPROPSETID_Itd3d: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6429f090_9fd9_11d0_a75b_00a0c90365e3);
-pub const KSPROPSETID_Jack: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
-pub const KSPROPSETID_MPEG4_MediaType_Attributes: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff6c4bfa_07a9_4c7b_a237_672f9d68065f);
-pub const KSPROPSETID_MediaSeeking: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee904f0c_d09b_11d0_abe9_00a0c9223196);
-pub const KSPROPSETID_MemoryTransport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3d1c5d_5243_4819_9ed0_aee8044cee2b);
-pub const KSPROPSETID_Mpeg2Vid: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e11b60_0cc9_11d0_bd69_003505c103a9);
-pub const KSPROPSETID_OverlayUpdate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x490ea5cf_7681_11d1_a21c_00a0c9223196);
-pub const KSPROPSETID_Pin: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c134960_51ad_11cf_878a_94f801c10000);
-pub const KSPROPSETID_PinMDLCacheClearProp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd718a7b_97fc_40c7_88ce_d3ff06f55b16);
-pub const KSPROPSETID_Quality: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16ad380_ac1a_11cf_a5d6_28db04c10000);
-pub const KSPROPSETID_RtAudio: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa855a48c_2f78_4729_9051_1968746b9eef);
-pub const KSPROPSETID_SoundDetector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x113c425e_fd17_4057_b422_ed4074f1afdf);
-pub const KSPROPSETID_SoundDetector2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe07e322_450c_4bd5_84ca_a948500ea6aa);
-pub const KSPROPSETID_Stream: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65aaba60_98ae_11cf_a10d_0020afd156e4);
-pub const KSPROPSETID_StreamAllocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6e4342_ec87_11cf_a130_0020afd156e4);
-pub const KSPROPSETID_StreamInterface: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fdd8ee1_9cd3_11d0_82aa_0000f822fe8a);
-pub const KSPROPSETID_TSRateChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa503c5c0_1d1d_11d1_ad80_444553540000);
-pub const KSPROPSETID_TelephonyControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6df7eb1_d099_489f_a6a0_c0106f0887a7);
-pub const KSPROPSETID_TelephonyTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabf25c7e_0e64_4e32_b190_d0f6d7c53e97);
-pub const KSPROPSETID_Topology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720d4ac0_7533_11d0_a5d6_28db04c10000);
-pub const KSPROPSETID_TopologyNode: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45ffaaa1_6e1b_11d0_bcf2_444553540000);
-pub const KSPROPSETID_VBICAP_PROPERTIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf162c607_7b35_496f_ad7f_2dca3b46b718);
-pub const KSPROPSETID_VBICodecFiltering: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafeb0ca_8715_11d0_bd6a_0035c0edbabe);
-pub const KSPROPSETID_VPConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc29a660_30e3_11d0_9e69_00c04fd7c15b);
-pub const KSPROPSETID_VPVBIConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec529b00_1a1f_11d1_bad9_00609744111a);
-pub const KSPROPSETID_VramCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe73face3_2880_4902_b799_88d0cd634e0f);
-pub const KSPROPSETID_Wave: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x924e54b0_630f_11cf_ada7_08003e30494a);
-pub const KSPROPTYPESETID_General: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97e99ba0_bdea_11cf_a5d6_28db04c10000);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSP_NODE {
@@ -14063,10 +15654,6 @@ impl ::core::default::Default for KSRATE_CAPABILITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSRATE_NOPRESENTATIONDURATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSRATE_NOPRESENTATIONSTART: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14135,37 +15722,6 @@ impl ::core::cmp::Eq for KSRELATIVEEVENT_0 {}
 impl ::core::default::Default for KSRELATIVEEVENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSRELATIVEEVENT_FLAG_HANDLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSRELATIVEEVENT_FLAG_POINTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSRESET(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSRESET_BEGIN: KSRESET = KSRESET(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSRESET_END: KSRESET = KSRESET(1i32);
-impl ::core::marker::Copy for KSRESET {}
-impl ::core::clone::Clone for KSRESET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSRESET {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSRESET {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSRESET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSRESET").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -14757,37 +16313,6 @@ impl ::core::default::Default for KSSOUNDDETECTORPROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KSSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTATE_STOP: KSSTATE = KSSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTATE_ACQUIRE: KSSTATE = KSSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTATE_PAUSE: KSSTATE = KSSTATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTATE_RUN: KSSTATE = KSSTATE(3i32);
-impl ::core::marker::Copy for KSSTATE {}
-impl ::core::clone::Clone for KSSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KSSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KSSTATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KSSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KSSTATE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSSTREAMALLOCATOR_STATUS {
@@ -14842,8 +16367,6 @@ impl ::core::default::Default for KSSTREAMALLOCATOR_STATUS_EX {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -14935,44 +16458,6 @@ impl ::core::default::Default for KSSTREAM_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_DURATIONVALID: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_ENDOFPHOTOSEQUENCE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_ENDOFSTREAM: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_FLUSHONPAUSE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_FRAMEINFO: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_LOOPEDDATA: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_METADATA: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_PERSIST_SAMPLE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_PREROLL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_SAMPLE_PERSISTED: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_SECUREBUFFERTRANSFER: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_SPLICEPOINT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_TIMEDISCONTINUITY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_TIMEVALID: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_TYPECHANGED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS: u32 = 131072u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSSTREAM_METADATA_INFO {
@@ -15008,14 +16493,6 @@ impl ::core::default::Default for KSSTREAM_METADATA_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_NONPAGED_DATA: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_PAGED_DATA: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_READ: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_SYNCHRONOUS: u32 = 4096u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSSTREAM_UVC_METADATA {
@@ -15127,22 +16604,6 @@ impl ::core::default::Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTREAM_WRITE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Allocator: &str = "{642F5D00-4791-11D0-A5D6-28DB04C10000}";
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_AllocatorEx: &str = "{091BB63B-603F-11D1-B067-00A0C9062802}";
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Clock: &str = "{53172480-4791-11D0-A5D6-28DB04C10000}";
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Filter: &str = "{9B365890-165F-11D0-A195-0020AFD156E4}";
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_Pin: &str = "{146F1A80-4791-11D0-A5D6-28DB04C10000}";
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSSTRING_TopologyNode: &str = "{0621061A-EE75-11D0-B915-00A0C9223196}";
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSTELEPHONY_CALLCONTROL {
@@ -15268,11 +16729,6 @@ impl ::core::default::Default for KSTIME {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KSTIME_FORMAT_BYTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785571_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_FIELD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785573_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_FRAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785570_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_MEDIA_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785574_8c82_11cf_bc0c_00aa00ac74f6);
-pub const KSTIME_FORMAT_SAMPLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b785572_8c82_11cf_bc0c_00aa00ac74f6);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSTOPOLOGY {
@@ -15564,10 +17020,6 @@ impl ::core::default::Default for KSWAVE_BUFFER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSWAVE_BUFFER_ATTRIBUTEF_LOOPING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSWAVE_BUFFER_ATTRIBUTEF_STATIC: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSWAVE_COMPATCAPS {
@@ -15598,10 +17050,6 @@ impl ::core::default::Default for KSWAVE_COMPATCAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSWAVE_COMPATCAPS_INPUT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KSWAVE_COMPATCAPS_OUTPUT: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KSWAVE_INPUT_CAPABILITIES {
@@ -15737,45 +17185,6 @@ impl ::core::cmp::Eq for KSWAVE_VOLUME {}
 impl ::core::default::Default for KSWAVE_VOLUME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMCONTROL_COLORINFO_PRESENT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMCONTROL_PAD_TO_16x9: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMCONTROL_PAD_TO_4x3: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMCONTROL_USED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_AMPixAspectRatio(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PixAspectRatio_NTSC4x3: KS_AMPixAspectRatio = KS_AMPixAspectRatio(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PixAspectRatio_NTSC16x9: KS_AMPixAspectRatio = KS_AMPixAspectRatio(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PixAspectRatio_PAL4x3: KS_AMPixAspectRatio = KS_AMPixAspectRatio(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PixAspectRatio_PAL16x9: KS_AMPixAspectRatio = KS_AMPixAspectRatio(3i32);
-impl ::core::marker::Copy for KS_AMPixAspectRatio {}
-impl ::core::clone::Clone for KS_AMPixAspectRatio {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_AMPixAspectRatio {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_AMPixAspectRatio {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_AMPixAspectRatio {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_AMPixAspectRatio").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -15915,68 +17324,6 @@ impl ::core::default::Default for KS_AMVPSIZE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_AMVP_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_MODE_WEAVE: KS_AMVP_MODE = KS_AMVP_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_MODE_BOBINTERLEAVED: KS_AMVP_MODE = KS_AMVP_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_MODE_BOBNONINTERLEAVED: KS_AMVP_MODE = KS_AMVP_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_MODE_SKIPEVEN: KS_AMVP_MODE = KS_AMVP_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_MODE_SKIPODD: KS_AMVP_MODE = KS_AMVP_MODE(4i32);
-impl ::core::marker::Copy for KS_AMVP_MODE {}
-impl ::core::clone::Clone for KS_AMVP_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_AMVP_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_AMVP_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_AMVP_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_AMVP_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_AMVP_SELECTFORMATBY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_DO_NOT_CARE: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_BEST_BANDWIDTH: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AMVP_INPUT_SAME_AS_OUTPUT: KS_AMVP_SELECTFORMATBY = KS_AMVP_SELECTFORMATBY(2i32);
-impl ::core::marker::Copy for KS_AMVP_SELECTFORMATBY {}
-impl ::core::clone::Clone for KS_AMVP_SELECTFORMATBY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_AMVP_SELECTFORMATBY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_AMVP_SELECTFORMATBY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_AMVP_SELECTFORMATBY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_AMVP_SELECTFORMATBY").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_AM_ExactRateChange {
@@ -16006,37 +17353,6 @@ impl ::core::cmp::Eq for KS_AM_ExactRateChange {}
 impl ::core::default::Default for KS_AM_ExactRateChange {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_AM_PROPERTY_TS_RATE_CHANGE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AM_RATE_SimpleRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AM_RATE_ExactRateChange: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AM_RATE_MaxFullDataRate: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AM_RATE_Step: KS_AM_PROPERTY_TS_RATE_CHANGE = KS_AM_PROPERTY_TS_RATE_CHANGE(4i32);
-impl ::core::marker::Copy for KS_AM_PROPERTY_TS_RATE_CHANGE {}
-impl ::core::clone::Clone for KS_AM_PROPERTY_TS_RATE_CHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_AM_PROPERTY_TS_RATE_CHANGE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_AM_PROPERTY_TS_RATE_CHANGE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_AM_PROPERTY_TS_RATE_CHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_AM_PROPERTY_TS_RATE_CHANGE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -16070,8 +17386,6 @@ impl ::core::default::Default for KS_AM_SimpleRateChange {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AM_UseNewCSSKey: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16114,77 +17428,6 @@ impl ::core::default::Default for KS_AnalogVideoInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_AnalogVideoStandard(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_None: KS_AnalogVideoStandard = KS_AnalogVideoStandard(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_NTSC_M: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_NTSC_M_J: KS_AnalogVideoStandard = KS_AnalogVideoStandard(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_NTSC_433: KS_AnalogVideoStandard = KS_AnalogVideoStandard(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_B: KS_AnalogVideoStandard = KS_AnalogVideoStandard(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_D: KS_AnalogVideoStandard = KS_AnalogVideoStandard(32i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_G: KS_AnalogVideoStandard = KS_AnalogVideoStandard(64i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_H: KS_AnalogVideoStandard = KS_AnalogVideoStandard(128i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_I: KS_AnalogVideoStandard = KS_AnalogVideoStandard(256i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_M: KS_AnalogVideoStandard = KS_AnalogVideoStandard(512i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_N: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1024i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_60: KS_AnalogVideoStandard = KS_AnalogVideoStandard(2048i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_B: KS_AnalogVideoStandard = KS_AnalogVideoStandard(4096i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_D: KS_AnalogVideoStandard = KS_AnalogVideoStandard(8192i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_G: KS_AnalogVideoStandard = KS_AnalogVideoStandard(16384i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_H: KS_AnalogVideoStandard = KS_AnalogVideoStandard(32768i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_K: KS_AnalogVideoStandard = KS_AnalogVideoStandard(65536i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_K1: KS_AnalogVideoStandard = KS_AnalogVideoStandard(131072i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_L: KS_AnalogVideoStandard = KS_AnalogVideoStandard(262144i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_L1: KS_AnalogVideoStandard = KS_AnalogVideoStandard(524288i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_N_COMBO: KS_AnalogVideoStandard = KS_AnalogVideoStandard(1048576i32);
-impl ::core::marker::Copy for KS_AnalogVideoStandard {}
-impl ::core::clone::Clone for KS_AnalogVideoStandard {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_AnalogVideoStandard {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_AnalogVideoStandard {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_AnalogVideoStandard {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_AnalogVideoStandard").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_NTSC_Mask: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_PAL_Mask: u32 = 1052656u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_AnalogVideo_SECAM_Mask: u32 = 1044480u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_BITMAPINFOHEADER {
@@ -16225,42 +17468,6 @@ impl ::core::default::Default for KS_BITMAPINFOHEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_BI_BITFIELDS: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_BI_JPEG: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_BI_RGB: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_BI_RLE4: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_BI_RLE8: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_EVEN: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_FIELD1_MASK: i32 = 240i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_FIELD2_MASK: i32 = 7936i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_ODD: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_CC1: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_CC2: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_CC3: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_CC4: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_T1: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_T2: i32 = 128i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_T3: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_T4: i32 = 2048i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CC_SUBSTREAM_SERVICE_XDS: i32 = 4096i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_COLCON {
@@ -16326,8 +17533,6 @@ impl ::core::default::Default for KS_COMPRESSION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_COPYPROTECT_RestrictDuplication: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_COPY_MACROVISION {
@@ -16356,99 +17561,6 @@ impl ::core::cmp::Eq for KS_COPY_MACROVISION {}
 impl ::core::default::Default for KS_COPY_MACROVISION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_COPY_MACROVISION_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MACROVISION_DISABLED: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MACROVISION_LEVEL1: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MACROVISION_LEVEL2: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MACROVISION_LEVEL3: KS_COPY_MACROVISION_LEVEL = KS_COPY_MACROVISION_LEVEL(3i32);
-impl ::core::marker::Copy for KS_COPY_MACROVISION_LEVEL {}
-impl ::core::clone::Clone for KS_COPY_MACROVISION_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_COPY_MACROVISION_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_COPY_MACROVISION_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_COPY_MACROVISION_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_COPY_MACROVISION_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_CameraControlAsyncOperation(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAMERACONTROL_ASYNC_START: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAMERACONTROL_ASYNC_STOP: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CAMERACONTROL_ASYNC_RESET: KS_CameraControlAsyncOperation = KS_CameraControlAsyncOperation(3i32);
-impl ::core::marker::Copy for KS_CameraControlAsyncOperation {}
-impl ::core::clone::Clone for KS_CameraControlAsyncOperation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_CameraControlAsyncOperation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_CameraControlAsyncOperation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_CameraControlAsyncOperation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_CameraControlAsyncOperation").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_CompressionCaps(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CompressionCaps_CanQuality: KS_CompressionCaps = KS_CompressionCaps(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CompressionCaps_CanCrunch: KS_CompressionCaps = KS_CompressionCaps(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CompressionCaps_CanKeyFrame: KS_CompressionCaps = KS_CompressionCaps(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CompressionCaps_CanBFrame: KS_CompressionCaps = KS_CompressionCaps(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_CompressionCaps_CanWindow: KS_CompressionCaps = KS_CompressionCaps(16i32);
-impl ::core::marker::Copy for KS_CompressionCaps {}
-impl ::core::clone::Clone for KS_CompressionCaps {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_CompressionCaps {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_CompressionCaps {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_CompressionCaps {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_CompressionCaps").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -16994,39 +18106,6 @@ impl ::core::default::Default for KS_DATARANGE_VIDEO_VBI {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_DVDCOPYSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVDCOPYSTATE_INITIALIZE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVDCOPYSTATE_INITIALIZE_TITLE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVDCOPYSTATE_AUTHENTICATION_NOT_REQUIRED: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVDCOPYSTATE_AUTHENTICATION_REQUIRED: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVDCOPYSTATE_DONE: KS_DVDCOPYSTATE = KS_DVDCOPYSTATE(4i32);
-impl ::core::marker::Copy for KS_DVDCOPYSTATE {}
-impl ::core::clone::Clone for KS_DVDCOPYSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_DVDCOPYSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_DVDCOPYSTATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_DVDCOPYSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_DVDCOPYSTATE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_DVDCOPY_BUSKEY {
@@ -17214,28 +18293,6 @@ impl ::core::default::Default for KS_DVDCOPY_TITLEKEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_CGMS_COPY_ONCE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_CGMS_COPY_PERMITTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_CGMS_COPY_PROTECT_MASK: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_CGMS_NO_COPY: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_CGMS_RESERVED_MASK: u32 = 120u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_COPYRIGHTED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_COPYRIGHT_MASK: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_NOT_COPYRIGHTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_SECTOR_NOT_PROTECTED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_SECTOR_PROTECTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_DVD_SECTOR_PROTECT_MASK: u32 = 32u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_DVD_YCrCb {
@@ -17678,71 +18735,6 @@ impl ::core::default::Default for KS_H264VIDEOINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_1FieldPerSample: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_DisplayModeBobOnly: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_DisplayModeBobOrWeave: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_DisplayModeMask: u32 = 192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_DisplayModeWeaveOnly: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_Field1First: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_FieldPatBothIrregular: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_FieldPatBothRegular: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_FieldPatField1Only: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_FieldPatField2Only: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_FieldPatternMask: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_IsInterlaced: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_INTERLACE_UNUSED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_LogicalMemoryType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeDontCare: KS_LogicalMemoryType = KS_LogicalMemoryType(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeKernelPaged: KS_LogicalMemoryType = KS_LogicalMemoryType(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeKernelNonPaged: KS_LogicalMemoryType = KS_LogicalMemoryType(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeDeviceHostMapped: KS_LogicalMemoryType = KS_LogicalMemoryType(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeDeviceSpecific: KS_LogicalMemoryType = KS_LogicalMemoryType(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeUser: KS_LogicalMemoryType = KS_LogicalMemoryType(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MemoryTypeAnyHost: KS_LogicalMemoryType = KS_LogicalMemoryType(6i32);
-impl ::core::marker::Copy for KS_LogicalMemoryType {}
-impl ::core::clone::Clone for KS_LogicalMemoryType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_LogicalMemoryType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_LogicalMemoryType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_LogicalMemoryType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_LogicalMemoryType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_MPEAUDIOINFO {
@@ -17817,92 +18809,6 @@ impl ::core::default::Default for KS_MPEG1VIDEOINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_MPEG2Level(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Level_Low: KS_MPEG2Level = KS_MPEG2Level(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Level_Main: KS_MPEG2Level = KS_MPEG2Level(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Level_High1440: KS_MPEG2Level = KS_MPEG2Level(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Level_High: KS_MPEG2Level = KS_MPEG2Level(3i32);
-impl ::core::marker::Copy for KS_MPEG2Level {}
-impl ::core::clone::Clone for KS_MPEG2Level {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_MPEG2Level {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_MPEG2Level {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_MPEG2Level {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_MPEG2Level").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_MPEG2Profile(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Profile_Simple: KS_MPEG2Profile = KS_MPEG2Profile(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Profile_Main: KS_MPEG2Profile = KS_MPEG2Profile(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Profile_SNRScalable: KS_MPEG2Profile = KS_MPEG2Profile(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Profile_SpatiallyScalable: KS_MPEG2Profile = KS_MPEG2Profile(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2Profile_High: KS_MPEG2Profile = KS_MPEG2Profile(4i32);
-impl ::core::marker::Copy for KS_MPEG2Profile {}
-impl ::core::clone::Clone for KS_MPEG2Profile {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_MPEG2Profile {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_MPEG2Profile {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_MPEG2Profile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_MPEG2Profile").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_27MhzTimebase: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_DSS_UserData: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_DVB_UserData: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_DVDLine21Field1: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_DVDLine21Field2: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_DoPanScan: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_FilmCameraMode: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_LetterboxAnalogOut: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_SourceIsLetterboxed: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEG2_WidescreenAnalogOut: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_MPEGAUDIOINFO_27MhzTimebase: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -17941,103 +18847,6 @@ impl ::core::default::Default for KS_MPEGVIDEOINFO2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE: u32 = 2224u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_CONTENT_BASE: u32 = 2208u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_MICROSOFT_RESERVED_TEST_DATA_BASE: u32 = 2288u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_NETWORK_WIDE_ADVERTISER_BASE: u32 = 2160u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_NETWORK_WIDE_CONTENT_BASE: u32 = 2144u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_ORIGINAL_CONTENT_ADVERTISER_BASE: u32 = 2064u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_ORIGINAL_CONTENT_BASE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_PRODUCTION_COMPANY_ADVERTISER_BASE: u32 = 2096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_PRODUCTION_COMPANY_CONTENT_BASE: u32 = 2080u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_SYNDICATED_SHOW_ADVERTISER_BASE: u32 = 2128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_SYNDICATED_SHOW_CONTENT_BASE: u32 = 2112u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_TELEVISION_STATION_ADVERTISER_BASE: u32 = 2192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_NABTS_GROUPID_TELEVISION_STATION_CONTENT_BASE: u32 = 2176u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_PhysicalConnectorType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_Tuner: KS_PhysicalConnectorType = KS_PhysicalConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_Composite: KS_PhysicalConnectorType = KS_PhysicalConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_SVideo: KS_PhysicalConnectorType = KS_PhysicalConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_RGB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_YRYBY: KS_PhysicalConnectorType = KS_PhysicalConnectorType(5i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_SerialDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(6i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_ParallelDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(7i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_SCSI: KS_PhysicalConnectorType = KS_PhysicalConnectorType(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_AUX: KS_PhysicalConnectorType = KS_PhysicalConnectorType(9i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_1394: KS_PhysicalConnectorType = KS_PhysicalConnectorType(10i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_USB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(11i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_VideoDecoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(12i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_VideoEncoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(13i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Video_SCART: KS_PhysicalConnectorType = KS_PhysicalConnectorType(14i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_Tuner: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4096i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_Line: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4097i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_Mic: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4098i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_AESDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4099i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_SPDIFDigital: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4100i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_SCSI: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4101i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_AUX: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4102i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_1394: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4103i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_USB: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4104i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_PhysConn_Audio_AudioDecoder: KS_PhysicalConnectorType = KS_PhysicalConnectorType(4105i32);
-impl ::core::marker::Copy for KS_PhysicalConnectorType {}
-impl ::core::clone::Clone for KS_PhysicalConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_PhysicalConnectorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_PhysicalConnectorType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_PhysicalConnectorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_PhysicalConnectorType").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_RGBQUAD {
@@ -18071,81 +18880,6 @@ impl ::core::default::Default for KS_RGBQUAD {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const KS_SECURE_CAMERA_SCENARIO_ID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae53fc6e_8d89_4488_9d2e_4d008731c5fd);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_SEEKING_CAPABILITIES(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanSeekAbsolute: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanSeekForwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanSeekBackwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanGetCurrentPos: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanGetStopPos: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanGetDuration: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(32i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_CanPlayBackwards: KS_SEEKING_CAPABILITIES = KS_SEEKING_CAPABILITIES(64i32);
-impl ::core::marker::Copy for KS_SEEKING_CAPABILITIES {}
-impl ::core::clone::Clone for KS_SEEKING_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_SEEKING_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_SEEKING_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_SEEKING_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_SEEKING_CAPABILITIES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_SEEKING_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_NoPositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_AbsolutePositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_RelativePositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_IncrementalPositioning: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_PositioningBitsMask: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_SeekToKeyFrame: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_SEEKING_ReturnTime: KS_SEEKING_FLAGS = KS_SEEKING_FLAGS(8i32);
-impl ::core::marker::Copy for KS_SEEKING_FLAGS {}
-impl ::core::clone::Clone for KS_SEEKING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_SEEKING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_SEEKING_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_SEEKING_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_SEEKING_FLAGS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_TRUECOLORINFO {
@@ -18177,86 +18911,6 @@ impl ::core::default::Default for KS_TRUECOLORINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_TUNER_STRATEGY(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TUNER_STRATEGY_PLL: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TUNER_STRATEGY_SIGNAL_STRENGTH: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TUNER_STRATEGY_DRIVER_TUNES: KS_TUNER_STRATEGY = KS_TUNER_STRATEGY(4i32);
-impl ::core::marker::Copy for KS_TUNER_STRATEGY {}
-impl ::core::clone::Clone for KS_TUNER_STRATEGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_TUNER_STRATEGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_TUNER_STRATEGY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_TUNER_STRATEGY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_TUNER_STRATEGY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_TUNER_TUNING_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TUNER_TUNING_EXACT: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TUNER_TUNING_FINE: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TUNER_TUNING_COARSE: KS_TUNER_TUNING_FLAGS = KS_TUNER_TUNING_FLAGS(3i32);
-impl ::core::marker::Copy for KS_TUNER_TUNING_FLAGS {}
-impl ::core::clone::Clone for KS_TUNER_TUNING_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_TUNER_TUNING_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_TUNER_TUNING_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_TUNER_TUNING_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_TUNER_TUNING_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_MODE_LANG_A: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_MODE_LANG_B: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_MODE_LANG_C: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_MODE_MONO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_MODE_STEREO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_PRESET_LANG_A: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_PRESET_LANG_B: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_PRESET_LANG_C: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVAUDIO_PRESET_STEREO: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_TVTUNER_CHANGE_END_TUNE: i32 = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_TVTUNER_CHANGE_INFO {
@@ -18290,16 +18944,6 @@ impl ::core::default::Default for KS_TVTUNER_CHANGE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBICAP_PROTECTION_MV_DETECTED: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBICAP_PROTECTION_MV_HARDWARE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBICAP_PROTECTION_MV_PRESENT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBIDATARATE_CC: i32 = 503493i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBIDATARATE_NABTS: i32 = 5727272i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_VBIINFOHEADER {
@@ -18352,22 +18996,6 @@ impl ::core::default::Default for KS_VBIINFOHEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_FIELD1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_FIELD2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_FRAME: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_MV_DETECTED: i32 = 1024i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_MV_HARDWARE: i32 = 512i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_MV_PRESENT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_TVTUNER_CHANGE: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VBI_FLAG_VBIINFOHEADER_CHANGE: i32 = 32i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct KS_VBI_FRAME_INFO {
@@ -18402,35 +19030,6 @@ impl ::core::cmp::Eq for KS_VBI_FRAME_INFO {}
 impl ::core::default::Default for KS_VBI_FRAME_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_VIDEODECODER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEODECODER_FLAGS_CAN_DISABLE_OUTPUT: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEODECODER_FLAGS_CAN_USE_VCR_LOCKING: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEODECODER_FLAGS_CAN_INDICATE_LOCKED: KS_VIDEODECODER_FLAGS = KS_VIDEODECODER_FLAGS(4i32);
-impl ::core::marker::Copy for KS_VIDEODECODER_FLAGS {}
-impl ::core::clone::Clone for KS_VIDEODECODER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_VIDEODECODER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_VIDEODECODER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_VIDEODECODER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_VIDEODECODER_FLAGS").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -18624,52 +19223,6 @@ impl ::core::default::Default for KS_VIDEOINFOHEADER2_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_CAPTURE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_CC: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_EDS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_IS_VPE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_NABTS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_PREVIEW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_STILL: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_TELETEXT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEOSTREAM_VBI: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_ALLOC_VPE_AGP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_ALLOC_VPE_DISPLAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_ALLOC_VPE_SYSTEM: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_B_FRAME: i32 = 32i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_FIELD1: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_FIELD1FIRST: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_FIELD2: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_FIELD_MASK: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_FRAME: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_IPB_MASK: i32 = 48i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_I_FRAME: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_P_FRAME: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_REPEAT_FIELD: i32 = 64i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VIDEO_FLAG_WEAVE: i32 = 8i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18750,208 +19303,6 @@ impl ::core::default::Default for KS_VIDEO_STREAM_CONFIG_CAPS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_VideoControlFlags(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_FlipHorizontal: KS_VideoControlFlags = KS_VideoControlFlags(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_FlipVertical: KS_VideoControlFlags = KS_VideoControlFlags(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_Obsolete_VideoControlFlag_ExternalTriggerEnable: KS_VideoControlFlags = KS_VideoControlFlags(16i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_Obsolete_VideoControlFlag_Trigger: KS_VideoControlFlags = KS_VideoControlFlags(32i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_ExternalTriggerEnable: KS_VideoControlFlags = KS_VideoControlFlags(4i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_Trigger: KS_VideoControlFlags = KS_VideoControlFlags(8i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_IndependentImagePin: KS_VideoControlFlags = KS_VideoControlFlags(64i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_StillCapturePreviewFrame: KS_VideoControlFlags = KS_VideoControlFlags(128i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_StartPhotoSequenceCapture: KS_VideoControlFlags = KS_VideoControlFlags(256i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_VideoControlFlag_StopPhotoSequenceCapture: KS_VideoControlFlags = KS_VideoControlFlags(512i32);
-impl ::core::marker::Copy for KS_VideoControlFlags {}
-impl ::core::clone::Clone for KS_VideoControlFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_VideoControlFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_VideoControlFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_VideoControlFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_VideoControlFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KS_VideoStreamingHints(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_StreamingHint_FrameInterval: KS_VideoStreamingHints = KS_VideoStreamingHints(256i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_StreamingHint_KeyFrameRate: KS_VideoStreamingHints = KS_VideoStreamingHints(512i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_StreamingHint_PFrameRate: KS_VideoStreamingHints = KS_VideoStreamingHints(1024i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_StreamingHint_CompQuality: KS_VideoStreamingHints = KS_VideoStreamingHints(2048i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_StreamingHint_CompWindowSize: KS_VideoStreamingHints = KS_VideoStreamingHints(4096i32);
-impl ::core::marker::Copy for KS_VideoStreamingHints {}
-impl ::core::clone::Clone for KS_VideoStreamingHints {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KS_VideoStreamingHints {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KS_VideoStreamingHints {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KS_VideoStreamingHints {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KS_VideoStreamingHints").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iBLUE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iEGA_COLORS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iGREEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iMASK_COLORS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iMAXBITS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iPALETTE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iPALETTE_COLORS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iRED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const KS_iTRUECOLOR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreateAllocator<'a, P0>(connectionhandle: P0, allocatorframing: &KSALLOCATOR_FRAMING, allocatorhandle: &mut super::super::Foundation::HANDLE) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreateAllocator(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    KsCreateAllocator(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(allocatorhandle))
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreateAllocator2<'a, P0>(connectionhandle: P0, allocatorframing: &KSALLOCATOR_FRAMING) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreateAllocator2(connectionhandle: super::super::Foundation::HANDLE, allocatorframing: *const KSALLOCATOR_FRAMING, allocatorhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreateAllocator2(connectionhandle.into(), ::core::mem::transmute(allocatorframing), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreateClock<'a, P0>(connectionhandle: P0, clockcreate: &KSCLOCK_CREATE, clockhandle: &mut super::super::Foundation::HANDLE) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreateClock(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    KsCreateClock(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(clockhandle))
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreateClock2<'a, P0>(connectionhandle: P0, clockcreate: &KSCLOCK_CREATE) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreateClock2(connectionhandle: super::super::Foundation::HANDLE, clockcreate: *const KSCLOCK_CREATE, clockhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreateClock2(connectionhandle.into(), ::core::mem::transmute(clockcreate), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreatePin<'a, P0>(filterhandle: P0, connect: &KSPIN_CONNECT, desiredaccess: u32, connectionhandle: &mut super::super::Foundation::HANDLE) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreatePin(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    KsCreatePin(filterhandle.into(), ::core::mem::transmute(connect), desiredaccess, ::core::mem::transmute(connectionhandle))
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreatePin2<'a, P0>(filterhandle: P0, connect: &KSPIN_CONNECT, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreatePin2(filterhandle: super::super::Foundation::HANDLE, connect: *const KSPIN_CONNECT, desiredaccess: u32, connectionhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreatePin2(filterhandle.into(), ::core::mem::transmute(connect), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreateTopologyNode<'a, P0>(parenthandle: P0, nodecreate: &KSNODE_CREATE, desiredaccess: u32, nodehandle: &mut super::super::Foundation::HANDLE) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreateTopologyNode(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> u32;
-    }
-    KsCreateTopologyNode(parenthandle.into(), ::core::mem::transmute(nodecreate), desiredaccess, ::core::mem::transmute(nodehandle))
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn KsCreateTopologyNode2<'a, P0>(parenthandle: P0, nodecreate: &KSNODE_CREATE, desiredaccess: u32) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn KsCreateTopologyNode2(parenthandle: super::super::Foundation::HANDLE, nodecreate: *const KSNODE_CREATE, desiredaccess: u32, nodehandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    KsCreateTopologyNode2(parenthandle.into(), ::core::mem::transmute(nodecreate), desiredaccess, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18985,14 +19336,6 @@ impl ::core::default::Default for LOOPEDSTREAMING_POSITION_EVENT_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MAX_NABTS_VBI_LINES_PER_FIELD: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MAX_RESOURCEGROUPID_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MAX_SINK_DESCRIPTION_NAME_LENGTH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MAX_WST_VBI_LINES_PER_FIELD: u32 = 17u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19091,10 +19434,6 @@ impl ::core::default::Default for MF_MDL_SHARED_PAYLOAD_KEY_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MIN_DEV_VER_FOR_FLAGS: u32 = 272u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const MIN_DEV_VER_FOR_QI: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct NABTSFEC_BUFFER {
@@ -19186,16 +19525,6 @@ impl ::core::default::Default for NABTS_BUFFER_LINE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const NABTS_BUFFER_PICTURENUMBER_SUPPORT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const NABTS_BYTES_PER_LINE: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const NABTS_LINES_PER_BUNDLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const NABTS_PAYLOAD_PER_LINE: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const NANOSECONDS: u32 = 10000000u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct OPTIMAL_WEIGHT_TOTALS {
@@ -19228,56 +19557,6 @@ impl ::core::default::Default for OPTIMAL_WEIGHT_TOTALS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const PINNAME_DISPLAYPORT_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21fbb329_1a4a_48da_a076_2318a3c59b26);
-pub const PINNAME_HDMI_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387bfc03_e7ef_4901_86e0_35b7c32b00ef);
-pub const PINNAME_IMAGE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38a0cd98_d49b_4ce8_b48a_344667a17830);
-pub const PINNAME_SPDIF_IN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15dc9025_22ad_41b3_8875_f4ceb0299e20);
-pub const PINNAME_SPDIF_OUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a264481_e52c_4b82_8e7a_c8e2f91dc380);
-pub const PINNAME_VIDEO_ANALOGVIDEOIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4283_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4281_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_CC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4289_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_CC_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aad8061_012d_11d2_b4b1_00a0d102cfbe);
-pub const PINNAME_VIDEO_EDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4287_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_NABTS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4286_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_NABTS_CAPTURE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29703660_498a_11d2_b4b1_00a0d102cfbe);
-pub const PINNAME_VIDEO_PREVIEW: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4282_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_STILL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428a_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_TELETEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4288_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_TIMECODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428b_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4284_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_VIDEOPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c4285_0353_11d1_905f_0000c0cc16ba);
-pub const PINNAME_VIDEO_VIDEOPORT_VBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c428c_0353_11d1_905f_0000c0cc16ba);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PIPE_ALLOCATOR_PLACE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Pipe_Allocator_None: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Pipe_Allocator_FirstPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Pipe_Allocator_LastPin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Pipe_Allocator_MiddlePin: PIPE_ALLOCATOR_PLACE = PIPE_ALLOCATOR_PLACE(3i32);
-impl ::core::marker::Copy for PIPE_ALLOCATOR_PLACE {}
-impl ::core::clone::Clone for PIPE_ALLOCATOR_PLACE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PIPE_ALLOCATOR_PLACE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PIPE_ALLOCATOR_PLACE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PIPE_ALLOCATOR_PLACE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PIPE_ALLOCATOR_PLACE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct PIPE_DIMENSIONS {
@@ -19308,39 +19587,6 @@ impl ::core::cmp::Eq for PIPE_DIMENSIONS {}
 impl ::core::default::Default for PIPE_DIMENSIONS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PIPE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeState_DontCare: PIPE_STATE = PIPE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeState_RangeNotFixed: PIPE_STATE = PIPE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeState_RangeFixed: PIPE_STATE = PIPE_STATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeState_CompressionUnknown: PIPE_STATE = PIPE_STATE(3i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeState_Finalized: PIPE_STATE = PIPE_STATE(4i32);
-impl ::core::marker::Copy for PIPE_STATE {}
-impl ::core::clone::Clone for PIPE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PIPE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PIPE_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PIPE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PIPE_STATE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -19378,55 +19624,6 @@ impl ::core::default::Default for PIPE_TERMINATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub const PROPSETID_ALLOCATOR_CONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53171960_148e_11d2_9979_0000c0cc16ba);
-pub const PROPSETID_EXT_DEVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5730a90_1a2c_11cf_8c23_00aa006b6814);
-pub const PROPSETID_EXT_TRANSPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa03cd5f0_3045_11cf_8c44_00aa006b6814);
-pub const PROPSETID_TIMECODE_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b496ce1_811b_11cf_8c77_00aa006b6814);
-pub const PROPSETID_TUNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0605_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_CAMERACONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13370_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_FLASH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785e8f49_63a2_4144_ab70_ffb278fa26ce);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_IMAGE_PIN_CAPABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d3d7bbf_5c6d_4138_bb00_584edd20f7c5);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_REGION_OF_INTEREST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d12d198_f86c_4fed_b023_5d87653da793);
-pub const PROPSETID_VIDCAP_CAMERACONTROL_VIDEO_STABILIZATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43964bd3_7716_404e_8be1_d299b20e50fd);
-pub const PROPSETID_VIDCAP_CROSSBAR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0640_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_DROPPEDFRAMES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13344_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_SELECTOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1abdaeca_68b6_4f83_9371_b413907c7b9f);
-pub const PROPSETID_VIDCAP_TVAUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0650_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOCOMPRESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13343_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOCONTROL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0670_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEODECODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13350_30ac_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOENCODER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a2e0610_28e4_11d0_a18c_00a0c9118956);
-pub const PROPSETID_VIDCAP_VIDEOPROCAMP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e13360_30ac_11d0_a18c_00a0c9118956);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_Align: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_Buffers: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_FixedCompression: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_Flags: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_LogicalEnd: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_MemoryTypes: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_None: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_OptimalRanges: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_PhysicalEnd: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_PhysicalRanges: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_UnknownCompression: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_UserModeDownstream: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const PipeFactor_UserModeUpstream: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const RT_RCDATA: ::windows::core::PCWSTR = ::windows::core::PCWSTR(10i32 as _);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const RT_STRING: ::windows::core::PCWSTR = ::windows::core::PCWSTR(6i32 as _);
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct SECURE_BUFFER_INFO {
@@ -19489,166 +19686,6 @@ impl ::core::cmp::Eq for SOUNDDETECTOR_PATTERNHEADER {}
 impl ::core::default::Default for SOUNDDETECTOR_PATTERNHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_ALL: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_BACK_CENTER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_BACK_LEFT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_BACK_RIGHT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_FRONT_CENTER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_FRONT_LEFT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_FRONT_LEFT_OF_CENTER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_FRONT_RIGHT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_FRONT_RIGHT_OF_CENTER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_LOW_FREQUENCY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_RESERVED: u32 = 2147221504u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_SIDE_LEFT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_SIDE_RIGHT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_BACK_CENTER: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_BACK_LEFT: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_BACK_RIGHT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_CENTER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_FRONT_CENTER: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_FRONT_LEFT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SPEAKER_TOP_FRONT_RIGHT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SYSAUDIO_FLAGS_CLEAR_PREFERRED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const SYSAUDIO_FLAGS_DONT_COMBINE_PINS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TELEPHONY_CALLCONTROLOP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLCONTROLOP_DISABLE: TELEPHONY_CALLCONTROLOP = TELEPHONY_CALLCONTROLOP(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLCONTROLOP_ENABLE: TELEPHONY_CALLCONTROLOP = TELEPHONY_CALLCONTROLOP(1i32);
-impl ::core::marker::Copy for TELEPHONY_CALLCONTROLOP {}
-impl ::core::clone::Clone for TELEPHONY_CALLCONTROLOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TELEPHONY_CALLCONTROLOP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TELEPHONY_CALLCONTROLOP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TELEPHONY_CALLCONTROLOP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TELEPHONY_CALLCONTROLOP").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TELEPHONY_CALLSTATE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLSTATE_DISABLED: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLSTATE_ENABLED: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLSTATE_HOLD: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(2i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLSTATE_PROVIDERTRANSITION: TELEPHONY_CALLSTATE = TELEPHONY_CALLSTATE(3i32);
-impl ::core::marker::Copy for TELEPHONY_CALLSTATE {}
-impl ::core::clone::Clone for TELEPHONY_CALLSTATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TELEPHONY_CALLSTATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TELEPHONY_CALLSTATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TELEPHONY_CALLSTATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TELEPHONY_CALLSTATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TELEPHONY_CALLTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLTYPE_CIRCUITSWITCHED: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLTYPE_PACKETSWITCHED_LTE: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_CALLTYPE_PACKETSWITCHED_WLAN: TELEPHONY_CALLTYPE = TELEPHONY_CALLTYPE(2i32);
-impl ::core::marker::Copy for TELEPHONY_CALLTYPE {}
-impl ::core::clone::Clone for TELEPHONY_CALLTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TELEPHONY_CALLTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TELEPHONY_CALLTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TELEPHONY_CALLTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TELEPHONY_CALLTYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TELEPHONY_PROVIDERCHANGEOP(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_PROVIDERCHANGEOP_END: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_PROVIDERCHANGEOP_BEGIN: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const TELEPHONY_PROVIDERCHANGEOP_CANCEL: TELEPHONY_PROVIDERCHANGEOP = TELEPHONY_PROVIDERCHANGEOP(2i32);
-impl ::core::marker::Copy for TELEPHONY_PROVIDERCHANGEOP {}
-impl ::core::clone::Clone for TELEPHONY_PROVIDERCHANGEOP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TELEPHONY_PROVIDERCHANGEOP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TELEPHONY_PROVIDERCHANGEOP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TELEPHONY_PROVIDERCHANGEOP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TELEPHONY_PROVIDERCHANGEOP").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -20392,8 +20429,6 @@ impl ::core::default::Default for VRAM_SURFACE_INFO_PROPERTY_S {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const WAVE_FORMAT_EXTENSIBLE: u32 = 65534u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct WNF_KSCAMERA_STREAMSTATE_INFO {
@@ -20489,12 +20524,6 @@ impl ::core::default::Default for WST_BUFFER_LINE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const WST_BYTES_PER_LINE: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const WST_TVTUNER_CHANGE_BEGIN_TUNE: i32 = 4096i32;
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const WST_TVTUNER_CHANGE_END_TUNE: i32 = 8192i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
 pub struct _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
@@ -20525,35 +20554,6 @@ impl ::core::cmp::Eq for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {}
 impl ::core::default::Default for _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _TunerDecoderLockType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_None: _TunerDecoderLockType = _TunerDecoderLockType(0i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_Within_Scan_Sensing_Range: _TunerDecoderLockType = _TunerDecoderLockType(1i32);
-#[doc = "*Required features: `\"Win32_Media_KernelStreaming\"`*"]
-pub const Tuner_LockType_Locked: _TunerDecoderLockType = _TunerDecoderLockType(2i32);
-impl ::core::marker::Copy for _TunerDecoderLockType {}
-impl ::core::clone::Clone for _TunerDecoderLockType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _TunerDecoderLockType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _TunerDecoderLockType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _TunerDecoderLockType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_TunerDecoderLockType").field(&self.0).finish()
     }
 }
 #[cfg(feature = "implement")]

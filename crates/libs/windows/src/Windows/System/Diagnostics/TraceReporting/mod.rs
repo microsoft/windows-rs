@@ -60,41 +60,6 @@ pub struct IPlatformDiagnosticTraceRuntimeInfo_Vtbl {
     pub EtwRuntimeFileTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i64) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlatformDiagnosticActionState(pub i32);
-impl PlatformDiagnosticActionState {
-    pub const Success: Self = Self(0i32);
-    pub const FreeNetworkNotAvailable: Self = Self(1i32);
-    pub const ACPowerNotAvailable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PlatformDiagnosticActionState {}
-impl ::core::clone::Clone for PlatformDiagnosticActionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlatformDiagnosticActionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PlatformDiagnosticActionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PlatformDiagnosticActionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticActionState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 pub struct PlatformDiagnosticActions;
 impl PlatformDiagnosticActions {
     pub fn IsScenarioEnabled(scenarioid: ::windows::core::GUID) -> ::windows::core::Result<bool> {
@@ -163,103 +128,6 @@ impl PlatformDiagnosticActions {
 }
 impl ::windows::core::RuntimeName for PlatformDiagnosticActions {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActions";
-}
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlatformDiagnosticEscalationType(pub i32);
-impl PlatformDiagnosticEscalationType {
-    pub const OnCompletion: Self = Self(0i32);
-    pub const OnFailure: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PlatformDiagnosticEscalationType {}
-impl ::core::clone::Clone for PlatformDiagnosticEscalationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlatformDiagnosticEscalationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PlatformDiagnosticEscalationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticEscalationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
-impl PlatformDiagnosticEventBufferLatencies {
-    pub const Normal: Self = Self(1u32);
-    pub const CostDeferred: Self = Self(2u32);
-    pub const Realtime: Self = Self(4u32);
-}
-impl ::core::marker::Copy for PlatformDiagnosticEventBufferLatencies {}
-impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlatformDiagnosticEventBufferLatencies {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PlatformDiagnosticEventBufferLatencies {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PlatformDiagnosticEventBufferLatencies {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticEventBufferLatencies").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PlatformDiagnosticEventBufferLatencies {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PlatformDiagnosticEventBufferLatencies {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PlatformDiagnosticEventBufferLatencies {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PlatformDiagnosticEventBufferLatencies {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PlatformDiagnosticEventBufferLatencies {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
@@ -372,40 +240,6 @@ unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlatformDiagnosticTracePriority(pub i32);
-impl PlatformDiagnosticTracePriority {
-    pub const Normal: Self = Self(0i32);
-    pub const UserElevated: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PlatformDiagnosticTracePriority {}
-impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PlatformDiagnosticTracePriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PlatformDiagnosticTracePriority {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlatformDiagnosticTracePriority").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-#[repr(transparent)]
 pub struct PlatformDiagnosticTraceRuntimeInfo(::windows::core::IUnknown);
 impl PlatformDiagnosticTraceRuntimeInfo {
     pub fn RuntimeFileTime(&self) -> ::windows::core::Result<i64> {
@@ -485,6 +319,172 @@ impl ::core::convert::From<&PlatformDiagnosticTraceRuntimeInfo> for &::windows::
 }
 unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
+#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlatformDiagnosticActionState(pub i32);
+impl PlatformDiagnosticActionState {
+    pub const Success: Self = Self(0i32);
+    pub const FreeNetworkNotAvailable: Self = Self(1i32);
+    pub const ACPowerNotAvailable: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PlatformDiagnosticActionState {}
+impl ::core::clone::Clone for PlatformDiagnosticActionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PlatformDiagnosticActionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PlatformDiagnosticActionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PlatformDiagnosticActionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticActionState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActionState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlatformDiagnosticEscalationType(pub i32);
+impl PlatformDiagnosticEscalationType {
+    pub const OnCompletion: Self = Self(0i32);
+    pub const OnFailure: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PlatformDiagnosticEscalationType {}
+impl ::core::clone::Clone for PlatformDiagnosticEscalationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PlatformDiagnosticEscalationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PlatformDiagnosticEscalationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticEscalationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEscalationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEscalationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
+impl PlatformDiagnosticEventBufferLatencies {
+    pub const Normal: Self = Self(1u32);
+    pub const CostDeferred: Self = Self(2u32);
+    pub const Realtime: Self = Self(4u32);
+}
+impl ::core::marker::Copy for PlatformDiagnosticEventBufferLatencies {}
+impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PlatformDiagnosticEventBufferLatencies {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PlatformDiagnosticEventBufferLatencies {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PlatformDiagnosticEventBufferLatencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticEventBufferLatencies").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PlatformDiagnosticEventBufferLatencies {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PlatformDiagnosticEventBufferLatencies {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PlatformDiagnosticEventBufferLatencies {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PlatformDiagnosticEventBufferLatencies {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PlatformDiagnosticEventBufferLatencies {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticEventBufferLatencies {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticEventBufferLatencies;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlatformDiagnosticTracePriority(pub i32);
+impl PlatformDiagnosticTracePriority {
+    pub const Normal: Self = Self(0i32);
+    pub const UserElevated: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PlatformDiagnosticTracePriority {}
+impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PlatformDiagnosticTracePriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PlatformDiagnosticTracePriority {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTracePriority").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTracePriority {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTracePriority;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

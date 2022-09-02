@@ -1,331 +1,157 @@
 #[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
 extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionDeletePolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionDeleteProxyInfo(pwszconnectionname: ::windows_sys::core::PCWSTR, r#type: DNS_CONNECTION_PROXY_TYPE) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionFreeNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionFreeProxyInfo(pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsConnectionFreeProxyInfoEx(pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionFreeProxyList(pproxylist: *mut DNS_CONNECTION_PROXY_LIST);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionGetNameList(pnamelist: *mut DNS_CONNECTION_NAME_LIST) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionGetProxyInfo(pwszconnectionname: ::windows_sys::core::PCWSTR, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *mut DNS_CONNECTION_PROXY_INFO) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl: ::windows_sys::core::PCWSTR, pselectioncontext: *const u8, dwselectioncontextlength: u32, dwexplicitinterfaceindex: u32, pproxyinfoex: *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionGetProxyList(pwszconnectionname: ::windows_sys::core::PCWSTR, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionSetPolicyEntries(policyentrytag: DNS_CONNECTION_POLICY_TAG, ppolicyentrylist: *const DNS_CONNECTION_POLICY_ENTRY_LIST) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionSetProxyInfo(pwszconnectionname: ::windows_sys::core::PCWSTR, r#type: DNS_CONNECTION_PROXY_TYPE, pproxyinfo: *const DNS_CONNECTION_PROXY_INFO) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsConnectionUpdateIfIndexTable(pconnectionifindexentries: *const DNS_CONNECTION_IFINDEX_LIST) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsFreeCustomServers(pcservers: *mut u32, ppservers: *mut *mut DNS_CUSTOM_SERVER);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsFreeProxyName(proxyname: ::windows_sys::core::PCWSTR);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsGetApplicationSettings(pcservers: *mut u32, ppdefaultservers: *mut *mut DNS_CUSTOM_SERVER, psettings: *mut DNS_APPLICATION_SETTINGS) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsGetProxyInformation(hostname: ::windows_sys::core::PCWSTR, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: *const ::core::ffi::c_void) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsModifyRecordsInSet_A(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsModifyRecordsInSet_UTF8(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsModifyRecordsInSet_W(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsNameCompare_A(pname1: ::windows_sys::core::PCSTR, pname2: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsNameCompare_W(pname1: ::windows_sys::core::PCWSTR, pname2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsQueryConfig(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: ::windows_sys::core::PCWSTR, preserved: *const ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void, pbuflen: *mut u32) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsQuery_A(pszname: ::windows_sys::core::PCSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsQuery_UTF8(pszname: ::windows_sys::core::PCSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsQuery_W(pszname: ::windows_sys::core::PCWSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsRecordSetDetach(precordlist: *mut DNS_RECORDA) -> *mut DNS_RECORDA;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsReleaseContextHandle(hcontext: super::super::Foundation::HANDLE);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceConstructInstance(pservicename: ::windows_sys::core::PCWSTR, phostname: ::windows_sys::core::PCWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows_sys::core::PWSTR, values: *const ::windows_sys::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE);
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsSetApplicationSettings(cservers: u32, pservers: *const DNS_CUSTOM_SERVER, psettings: *const DNS_APPLICATION_SETTINGS) -> u32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
-    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-    pub fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsValidateName_A(pszname: ::windows_sys::core::PCSTR, format: DNS_NAME_FORMAT) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsValidateName_UTF8(pszname: ::windows_sys::core::PCSTR, format: DNS_NAME_FORMAT) -> i32;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "cdecl" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
     pub fn DnsValidateName_W(pszname: ::windows_sys::core::PCWSTR, format: DNS_NAME_FORMAT) -> i32;
 }
 #[cfg_attr(windows, link(name = "windows"))]
 extern "system" {
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsAcquireContextHandle_A(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsAcquireContextHandle_W(credentialflags: u32, credentials: *const ::core::ffi::c_void, pcontext: *mut DnsContextHandle) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsCancelQuery(pcancelhandle: *const DNS_QUERY_CANCEL) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsExtractRecordsFromMessage_UTF8(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsExtractRecordsFromMessage_W(pdnsbuffer: *const DNS_MESSAGE_BUFFER, wmessagelength: u16, pprecord: *mut *mut DNS_RECORDA) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsFree(pdata: *const ::core::ffi::c_void, freetype: DNS_FREE_TYPE);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsFreeProxyName(proxyname: ::windows_sys::core::PCWSTR);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsGetProxyInformation(hostname: ::windows_sys::core::PCWSTR, proxyinformation: *mut DNS_PROXY_INFORMATION, defaultproxyinformation: *mut DNS_PROXY_INFORMATION, completionroutine: DNS_PROXY_COMPLETION_ROUTINE, completioncontext: *const ::core::ffi::c_void) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsModifyRecordsInSet_A(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsModifyRecordsInSet_UTF8(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsModifyRecordsInSet_W(paddrecords: *const DNS_RECORDA, pdeleterecords: *const DNS_RECORDA, options: u32, hcredentials: super::super::Foundation::HANDLE, pextralist: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsNameCompare_A(pname1: ::windows_sys::core::PCSTR, pname2: ::windows_sys::core::PCSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsNameCompare_W(pname1: ::windows_sys::core::PCWSTR, pname2: ::windows_sys::core::PCWSTR) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsQueryConfig(config: DNS_CONFIG_TYPE, flag: u32, pwsadaptername: ::windows_sys::core::PCWSTR, preserved: *const ::core::ffi::c_void, pbuffer: *mut ::core::ffi::c_void, pbuflen: *mut u32) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQueryEx(pqueryrequest: *const DNS_QUERY_REQUEST, pqueryresults: *mut DNS_QUERY_RESULT, pcancelhandle: *mut DNS_QUERY_CANCEL) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQuery_A(pszname: ::windows_sys::core::PCSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQuery_UTF8(pszname: ::windows_sys::core::PCSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsQuery_W(pszname: ::windows_sys::core::PCWSTR, wtype: u16, options: u32, pextra: *mut ::core::ffi::c_void, ppqueryresults: *mut *mut DNS_RECORDA, preserved: *mut *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordCompare(precord1: *const DNS_RECORDA, precord2: *const DNS_RECORDA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordCopyEx(precord: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordSetCompare(prr1: *mut DNS_RECORDA, prr2: *mut DNS_RECORDA, ppdiff1: *mut *mut DNS_RECORDA, ppdiff2: *mut *mut DNS_RECORDA) -> super::super::Foundation::BOOL;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsRecordSetCopyEx(precordset: *const DNS_RECORDA, charsetin: DNS_CHARSET, charsetout: DNS_CHARSET) -> *mut DNS_RECORDA;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReleaseContextHandle(hcontext: super::super::Foundation::HANDLE);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReplaceRecordSetA(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReplaceRecordSetUTF8(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsReplaceRecordSetW(preplaceset: *const DNS_RECORDA, options: u32, hcontext: super::super::Foundation::HANDLE, pextrainfo: *mut ::core::ffi::c_void, preserved: *mut ::core::ffi::c_void) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceBrowse(prequest: *const DNS_SERVICE_BROWSE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceBrowseCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceConstructInstance(pservicename: ::windows_sys::core::PCWSTR, phostname: ::windows_sys::core::PCWSTR, pip4: *const u32, pip6: *const IP6_ADDRESS, wport: u16, wpriority: u16, wweight: u16, dwpropertiescount: u32, keys: *const ::windows_sys::core::PWSTR, values: *const ::windows_sys::core::PWSTR) -> *mut DNS_SERVICE_INSTANCE;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceCopyInstance(porig: *const DNS_SERVICE_INSTANCE) -> *mut DNS_SERVICE_INSTANCE;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceDeRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceFreeInstance(pinstance: *const DNS_SERVICE_INSTANCE);
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsServiceRegister(prequest: *const DNS_SERVICE_REGISTER_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceRegisterCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> u32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceResolve(prequest: *const DNS_SERVICE_RESOLVE_REQUEST, pcancel: *mut DNS_SERVICE_CANCEL) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn DnsStartMulticastQuery(pqueryrequest: *const MDNS_QUERY_REQUEST, phandle: *mut MDNS_QUERY_HANDLE) -> i32;
+    #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+    pub fn DnsStopMulticastQuery(phandle: *mut MDNS_QUERY_HANDLE) -> i32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsWriteQuestionToBuffer_UTF8(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: ::windows_sys::core::PCSTR, wtype: u16, xid: u16, frecursiondesired: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-}
-#[cfg_attr(windows, link(name = "windows"))]
-extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn DnsWriteQuestionToBuffer_W(pdnsbuffer: *mut DNS_MESSAGE_BUFFER, pdwbuffersize: *mut u32, pszname: ::windows_sys::core::PCWSTR, wtype: u16, xid: u16, frecursiondesired: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
@@ -444,103 +270,16 @@ pub const DNSSEC_PROTOCOL_IPSEC: u32 = 4u32;
 pub const DNSSEC_PROTOCOL_NONE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNSSEC_PROTOCOL_TLS: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub struct DNS_AAAA_DATA {
-    pub Ip6Address: IP6_ADDRESS,
-}
-impl ::core::marker::Copy for DNS_AAAA_DATA {}
-impl ::core::clone::Clone for DNS_AAAA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DNS_ADDR {
-    pub MaxSa: [super::super::Foundation::CHAR; 32],
-    pub Data: DNS_ADDR_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DNS_ADDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DNS_ADDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union DNS_ADDR_0 {
-    pub DnsAddrUserDword: [u32; 8],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DNS_ADDR_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DNS_ADDR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_ADDRESS_STRING_LENGTH: u32 = 65u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DNS_ADDR_ARRAY {
-    pub MaxCount: u32,
-    pub AddrCount: u32,
-    pub Tag: u32,
-    pub Family: u16,
-    pub WordReserved: u16,
-    pub Flags: u32,
-    pub MatchFlag: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub AddrArray: [DNS_ADDR; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DNS_ADDR_ARRAY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DNS_ADDR_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_ADDR_MAX_SOCKADDR_LENGTH: u32 = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub struct DNS_APPLICATION_SETTINGS {
-    pub Version: u32,
-    pub Flags: u64,
-}
-impl ::core::marker::Copy for DNS_APPLICATION_SETTINGS {}
-impl ::core::clone::Clone for DNS_APPLICATION_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_APP_SETTINGS_EXCLUSIVE_SERVERS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_APP_SETTINGS_VERSION1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_ATMA_AESA_ADDR_LENGTH: u32 = 20u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub struct DNS_ATMA_DATA {
-    pub AddressType: u8,
-    pub Address: [u8; 20],
-}
-impl ::core::marker::Copy for DNS_ATMA_DATA {}
-impl ::core::clone::Clone for DNS_ATMA_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_ATMA_FORMAT_AESA: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -549,27 +288,6 @@ pub const DNS_ATMA_FORMAT_E164: u32 = 1u32;
 pub const DNS_ATMA_MAX_ADDR_LENGTH: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_ATMA_MAX_RECORD_LENGTH: u32 = 21u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub struct DNS_A_DATA {
-    pub IpAddress: u32,
-}
-impl ::core::marker::Copy for DNS_A_DATA {}
-impl ::core::clone::Clone for DNS_A_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_CHARSET = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsCharSetUnknown: DNS_CHARSET = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsCharSetUnicode: DNS_CHARSET = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsCharSetUtf8: DNS_CHARSET = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsCharSetAnsi: DNS_CHARSET = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_CLASS_ALL: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -590,6 +308,514 @@ pub const DNS_CLASS_UNICAST_RESPONSE: u32 = 32768u32;
 pub const DNS_COMPRESSED_QUESTION_NAME: u32 = 49164u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DNS_CONFIG_FLAG_ALLOC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_IP6_REVERSE_NAME_LENGTH: u32 = 75u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_LABEL_BUFFER_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_LABEL_LENGTH: u32 = 63u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_NAME_BUFFER_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_NAME_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_OPCODE_IQUERY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_OPCODE_NOTIFY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_OPCODE_QUERY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_OPCODE_SERVER_STATUS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_OPCODE_UNKNOWN: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_OPCODE_UPDATE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_ADDRCONFIG: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_BYPASS_CACHE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_CACHE_ONLY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_DNSSEC_OK: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_DONT_RESET_TTL_VALUES: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_DUAL_ADDR: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_MULTICAST_ONLY: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_NO_HOSTS_FILE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_NO_LOCAL_NAME: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_NO_MULTICAST: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_NO_NETBT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_NO_RECURSION: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_RESERVED: u32 = 4026531840u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_RETURN_MESSAGE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_STANDARD: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_TREAT_AS_FQDN: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_USE_TCP_ONLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_QUERY_WIRE_ONLY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_ALL: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_ANY: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_CHAOS: u32 = 768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_CSNET: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_HESIOD: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_INTERNET: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_NONE: u32 = 65024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCLASS_UNICAST_RESPONSE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_BADKEY: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_BADSIG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_BADTIME: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_BADVERS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_FORMAT_ERROR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_FORMERR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_MAX: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NAME_ERROR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NOERROR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NOTAUTH: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NOTIMPL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NOTZONE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NOT_IMPLEMENTED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NO_ERROR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NXDOMAIN: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_NXRRSET: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_REFUSED: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_SERVER_FAILURE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_SERVFAIL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_YXDOMAIN: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RCODE_YXRRSET: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_A: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_A6: u32 = 9728u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_AAAA: u32 = 7168u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_AFSDB: u32 = 4608u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_ALL: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_ANY: u32 = 65280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_ATMA: u32 = 8704u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_AXFR: u32 = 64512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_CERT: u32 = 9472u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_CNAME: u32 = 1280u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_DHCID: u32 = 12544u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_DNAME: u32 = 9984u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_DNSKEY: u32 = 12288u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_DS: u32 = 11008u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_EID: u32 = 7936u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_GID: u32 = 26112u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_GPOS: u32 = 6912u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_HINFO: u32 = 3328u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_ISDN: u32 = 5120u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_IXFR: u32 = 64256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_KEY: u32 = 6400u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_KX: u32 = 9216u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_LOC: u32 = 7424u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MAILA: u32 = 65024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MAILB: u32 = 64768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MB: u32 = 1792u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MD: u32 = 768u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MF: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MG: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MINFO: u32 = 3584u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MR: u32 = 2304u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_MX: u32 = 3840u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NAPTR: u32 = 8960u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NIMLOC: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NS: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NSAP: u32 = 5632u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NSAPPTR: u32 = 5888u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NSEC: u32 = 12032u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NSEC3: u32 = 12800u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NSEC3PARAM: u32 = 13056u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NULL: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_NXT: u32 = 7680u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_OPT: u32 = 10496u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_PTR: u32 = 3072u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_PX: u32 = 6656u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_RP: u32 = 4352u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_RRSIG: u32 = 11776u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_RT: u32 = 5376u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_SIG: u32 = 6144u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_SINK: u32 = 10240u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_SOA: u32 = 1536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_SRV: u32 = 8448u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_TEXT: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_TKEY: u32 = 63744u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_TLSA: u32 = 13312u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_TSIG: u32 = 64000u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_UID: u32 = 25856u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_UINFO: u32 = 25600u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_UNSPEC: u32 = 26368u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_WINS: u32 = 511u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_WINSR: u32 = 767u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_WKS: u32 = 2816u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_RTYPE_X25: u32 = 4864u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TKEY_MODE_GSS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_A: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_A6: u32 = 38u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_AAAA: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_ADDRS: u32 = 248u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_AFSDB: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_ALL: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_ANY: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_ATMA: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_AXFR: u32 = 252u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_CERT: u32 = 37u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_CNAME: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_DHCID: u32 = 49u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_DNAME: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_DNSKEY: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_DS: u32 = 43u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_EID: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_GID: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_GPOS: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_HINFO: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_ISDN: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_IXFR: u32 = 251u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_KEY: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_KX: u32 = 36u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_LOC: u32 = 29u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MAILA: u32 = 254u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MAILB: u32 = 253u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MB: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MD: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MF: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MINFO: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MR: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_MX: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NAPTR: u32 = 35u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NBSTAT: u32 = 65282u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NIMLOC: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NSAP: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NSAPPTR: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NSEC: u32 = 47u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NSEC3: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NSEC3PARAM: u32 = 51u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NULL: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_NXT: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_OPT: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_PTR: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_PX: u32 = 26u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_RP: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_RRSIG: u32 = 46u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_RT: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_SIG: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_SINK: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_SOA: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_SRV: u32 = 33u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_TEXT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_TKEY: u32 = 249u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_TLSA: u32 = 52u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_TSIG: u32 = 250u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_UID: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_UINFO: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_UNSPEC: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_WINS: u32 = 65281u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_WINSR: u32 = 65282u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_WKS: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_X25: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_TYPE_ZERO: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_REMOTE_SERVER: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_RESERVED: u32 = 4294901760u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_SECURITY_OFF: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_SECURITY_ON: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_SECURITY_ONLY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_SECURITY_USE_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_INVALID_ADDR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_INVALID_NAME: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_NO_AUTH: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_NO_RESPONSE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_NO_TCP: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_WINS_FLAG_LOCAL: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_CHARSET = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsCharSetUnknown: DNS_CHARSET = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsCharSetUnicode: DNS_CHARSET = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsCharSetUtf8: DNS_CHARSET = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsCharSetAnsi: DNS_CHARSET = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub type DNS_CONFIG_TYPE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
@@ -630,6 +856,176 @@ pub const DnsConfigFullHostName_A: DNS_CONFIG_TYPE = 16i32;
 pub const DnsConfigFullHostName_UTF8: DNS_CONFIG_TYPE = 17i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub const DnsConfigNameServer: DNS_CONFIG_TYPE = 18i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_CONNECTION_POLICY_TAG = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_CONNECTION_PROXY_INFO_SWITCH = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_CONNECTION_PROXY_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_FREE_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsFreeFlat: DNS_FREE_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsFreeRecordList: DNS_FREE_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_NAME_FORMAT = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameDomain: DNS_NAME_FORMAT = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameDomainLabel: DNS_NAME_FORMAT = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameHostnameFull: DNS_NAME_FORMAT = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameWildcard: DNS_NAME_FORMAT = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameSrvRecord: DNS_NAME_FORMAT = 5i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsNameValidateTld: DNS_NAME_FORMAT = 6i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_PROXY_INFORMATION_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_SECTION = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSectionQuestion: DNS_SECTION = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSectionAnswer: DNS_SECTION = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSectionAuthority: DNS_SECTION = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub const DnsSectionAddtional: DNS_SECTION = 3i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_AAAA_DATA {
+    pub Ip6Address: IP6_ADDRESS,
+}
+impl ::core::marker::Copy for DNS_AAAA_DATA {}
+impl ::core::clone::Clone for DNS_AAAA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_ADDR {
+    pub MaxSa: [super::super::Foundation::CHAR; 32],
+    pub Data: DNS_ADDR_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_ADDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union DNS_ADDR_0 {
+    pub DnsAddrUserDword: [u32; 8],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_ADDR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DNS_ADDR_ARRAY {
+    pub MaxCount: u32,
+    pub AddrCount: u32,
+    pub Tag: u32,
+    pub Family: u16,
+    pub WordReserved: u16,
+    pub Flags: u32,
+    pub MatchFlag: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub AddrArray: [DNS_ADDR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DNS_ADDR_ARRAY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DNS_ADDR_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_APPLICATION_SETTINGS {
+    pub Version: u32,
+    pub Flags: u64,
+}
+impl ::core::marker::Copy for DNS_APPLICATION_SETTINGS {}
+impl ::core::clone::Clone for DNS_APPLICATION_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_ATMA_DATA {
+    pub AddressType: u8,
+    pub Address: [u8; 20],
+}
+impl ::core::marker::Copy for DNS_ATMA_DATA {}
+impl ::core::clone::Clone for DNS_ATMA_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub struct DNS_A_DATA {
+    pub IpAddress: u32,
+}
+impl ::core::marker::Copy for DNS_A_DATA {}
+impl ::core::clone::Clone for DNS_A_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_CONNECTION_IFINDEX_ENTRY {
@@ -677,8 +1073,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_NAME_LIST {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_NAME_MAX_LENGTH: u32 = 64u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_CONNECTION_POLICY_ENTRY {
@@ -708,16 +1102,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_POLICY_ENTRY_LIST {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_POLICY_ENTRY_ONDEMAND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_CONNECTION_POLICY_TAG = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const TAG_DNS_CONNECTION_POLICY_TAG_DEFAULT: DNS_CONNECTION_POLICY_TAG = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const TAG_DNS_CONNECTION_POLICY_TAG_CONNECTION_MANAGER: DNS_CONNECTION_POLICY_TAG = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const TAG_DNS_CONNECTION_POLICY_TAG_WWWPT: DNS_CONNECTION_POLICY_TAG = 2i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_CONNECTION_PROXY_ELEMENT {
@@ -786,8 +1170,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_0_1 {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -806,30 +1188,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_INFO_EX {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_CONNECTION_PROXY_INFO_SWITCH = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_CONFIG: DNS_CONNECTION_PROXY_INFO_SWITCH = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_SCRIPT: DNS_CONNECTION_PROXY_INFO_SWITCH = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_SWITCH_WPAD: DNS_CONNECTION_PROXY_INFO_SWITCH = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH: u32 = 128u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_CONNECTION_PROXY_LIST {
@@ -842,18 +1200,6 @@ impl ::core::clone::Clone for DNS_CONNECTION_PROXY_LIST {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_CONNECTION_PROXY_TYPE = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_TYPE_NULL: DNS_CONNECTION_PROXY_TYPE = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_TYPE_HTTP: DNS_CONNECTION_PROXY_TYPE = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_TYPE_WAP: DNS_CONNECTION_PROXY_TYPE = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_TYPE_SOCKS4: DNS_CONNECTION_PROXY_TYPE = 4i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CONNECTION_PROXY_TYPE_SOCKS5: DNS_CONNECTION_PROXY_TYPE = 5i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -899,12 +1245,6 @@ impl ::core::clone::Clone for DNS_CUSTOM_SERVER_1 {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CUSTOM_SERVER_TYPE_DOH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CUSTOM_SERVER_TYPE_UDP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_CUSTOM_SERVER_UDP_FALLBACK: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_DHCID_DATA {
@@ -933,14 +1273,6 @@ impl ::core::clone::Clone for DNS_DS_DATA {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_FREE_TYPE = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsFreeFlat: DNS_FREE_TYPE = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsFreeRecordList: DNS_FREE_TYPE = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsFreeParsedMessageFields: DNS_FREE_TYPE = 2i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_HEADER {
@@ -1004,28 +1336,6 @@ impl ::core::clone::Clone for DNS_LOC_DATA {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_IP4_REVERSE_NAME_LENGTH: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_IP6_REVERSE_NAME_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_LABEL_BUFFER_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_LABEL_LENGTH: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_NAME_BUFFER_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_NAME_LENGTH: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_REVERSE_NAME_BUFFER_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_REVERSE_NAME_LENGTH: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_MAX_TEXT_STRING_LENGTH: u32 = 255u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1091,22 +1401,6 @@ impl ::core::clone::Clone for DNS_MX_DATAW {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_NAME_FORMAT = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameDomain: DNS_NAME_FORMAT = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameDomainLabel: DNS_NAME_FORMAT = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameHostnameFull: DNS_NAME_FORMAT = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameHostnameLabel: DNS_NAME_FORMAT = 3i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameWildcard: DNS_NAME_FORMAT = 4i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameSrvRecord: DNS_NAME_FORMAT = 5i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsNameValidateTld: DNS_NAME_FORMAT = 6i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_NAPTR_DATAA {
@@ -1238,18 +1532,6 @@ impl ::core::clone::Clone for DNS_NXT_DATAW {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_OPCODE_IQUERY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_OPCODE_NOTIFY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_OPCODE_QUERY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_OPCODE_SERVER_STATUS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_OPCODE_UNKNOWN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_OPCODE_UPDATE: u32 = 5u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_OPT_DATA {
@@ -1263,12 +1545,6 @@ impl ::core::clone::Clone for DNS_OPT_DATA {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_PORT_HOST_ORDER: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_PORT_NET_ORDER: u32 = 13568u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_PROXY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32)>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_PROXY_INFORMATION {
@@ -1282,16 +1558,6 @@ impl ::core::clone::Clone for DNS_PROXY_INFORMATION {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_PROXY_INFORMATION_TYPE = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_PROXY_INFORMATION_DIRECT: DNS_PROXY_INFORMATION_TYPE = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_PROXY_INFORMATION_DEFAULT_SETTINGS: DNS_PROXY_INFORMATION_TYPE = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_PROXY_INFORMATION_PROXY_NAME: DNS_PROXY_INFORMATION_TYPE = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_PROXY_INFORMATION_DOES_NOT_EXIST: DNS_PROXY_INFORMATION_TYPE = 3i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_PTR_DATAA {
@@ -1314,16 +1580,6 @@ impl ::core::clone::Clone for DNS_PTR_DATAW {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_ADDRCONFIG: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_APPEND_MULTILABEL: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_BYPASS_CACHE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_CACHE_ONLY: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1338,30 +1594,6 @@ impl ::core::clone::Clone for DNS_QUERY_CANCEL {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_DISABLE_IDN_ENCODING: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_DNSSEC_CHECKING_DISABLED: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_DNSSEC_OK: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_DONT_RESET_TTL_VALUES: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_DUAL_ADDR: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_MULTICAST_ONLY: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_NO_HOSTS_FILE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_NO_LOCAL_NAME: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_NO_MULTICAST: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_NO_NETBT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_NO_RECURSION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_NO_WIRE_QUERY: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1408,14 +1640,6 @@ impl ::core::clone::Clone for DNS_QUERY_REQUEST3 {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_REQUEST_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_REQUEST_VERSION2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_REQUEST_VERSION3: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_RESERVED: u32 = 4026531840u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1434,76 +1658,6 @@ impl ::core::clone::Clone for DNS_QUERY_RESULT {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_RESULTS_VERSION1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_RETURN_MESSAGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_STANDARD: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_TREAT_AS_FQDN: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_USE_TCP_ONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_QUERY_WIRE_ONLY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_ALL: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_ANY: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_CHAOS: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_CSNET: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_HESIOD: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_INTERNET: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_NONE: u32 = 65024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCLASS_UNICAST_RESPONSE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_BADKEY: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_BADSIG: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_BADTIME: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_BADVERS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_FORMAT_ERROR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_FORMERR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_MAX: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NAME_ERROR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NOERROR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NOTAUTH: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NOTIMPL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NOTZONE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NOT_IMPLEMENTED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NO_ERROR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NXDOMAIN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_NXRRSET: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_REFUSED: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_SERVER_FAILURE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_SERVFAIL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_YXDOMAIN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RCODE_YXRRSET: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1781,8 +1935,6 @@ impl ::core::clone::Clone for DNS_RECORD_FLAGS {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RFC_MAX_UDP_PACKET_LENGTH: u32 = 512u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1798,142 +1950,6 @@ impl ::core::clone::Clone for DNS_RRSET {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_A: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_A6: u32 = 9728u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_AAAA: u32 = 7168u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_AFSDB: u32 = 4608u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_ALL: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_ANY: u32 = 65280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_ATMA: u32 = 8704u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_AXFR: u32 = 64512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_CERT: u32 = 9472u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_CNAME: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_DHCID: u32 = 12544u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_DNAME: u32 = 9984u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_DNSKEY: u32 = 12288u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_DS: u32 = 11008u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_EID: u32 = 7936u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_GID: u32 = 26112u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_GPOS: u32 = 6912u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_HINFO: u32 = 3328u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_ISDN: u32 = 5120u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_IXFR: u32 = 64256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_KEY: u32 = 6400u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_KX: u32 = 9216u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_LOC: u32 = 7424u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MAILA: u32 = 65024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MAILB: u32 = 64768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MB: u32 = 1792u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MD: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MF: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MG: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MINFO: u32 = 3584u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MR: u32 = 2304u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_MX: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NAPTR: u32 = 8960u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NIMLOC: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NSAP: u32 = 5632u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NSAPPTR: u32 = 5888u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NSEC: u32 = 12032u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NSEC3: u32 = 12800u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NSEC3PARAM: u32 = 13056u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NULL: u32 = 2560u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_NXT: u32 = 7680u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_OPT: u32 = 10496u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_PTR: u32 = 3072u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_PX: u32 = 6656u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_RP: u32 = 4352u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_RRSIG: u32 = 11776u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_RT: u32 = 5376u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_SIG: u32 = 6144u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_SINK: u32 = 10240u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_SOA: u32 = 1536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_SRV: u32 = 8448u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_TEXT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_TKEY: u32 = 63744u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_TLSA: u32 = 13312u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_TSIG: u32 = 64000u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_UID: u32 = 25856u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_UINFO: u32 = 25600u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_UNSPEC: u32 = 26368u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_WINS: u32 = 511u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_WINSR: u32 = 767u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_WKS: u32 = 2816u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_RTYPE_X25: u32 = 4864u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type DNS_SECTION = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsSectionQuestion: DNS_SECTION = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsSectionAnswer: DNS_SECTION = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsSectionAuthority: DNS_SECTION = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DnsSectionAddtional: DNS_SECTION = 3i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2188,14 +2204,6 @@ impl ::core::clone::Clone for DNS_TKEY_DATAW {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TKEY_MODE_DIFFIE_HELLMAN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TKEY_MODE_GSS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TKEY_MODE_RESOLVER_ASSIGN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TKEY_MODE_SERVER_ASSIGN: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_TLSA_DATA {
@@ -2286,138 +2294,6 @@ impl ::core::clone::Clone for DNS_TXT_DATAW {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_A: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_A6: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_AAAA: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_ADDRS: u32 = 248u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_AFSDB: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_ALL: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_ANY: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_ATMA: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_AXFR: u32 = 252u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_CERT: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_CNAME: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_DHCID: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_DNAME: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_DNSKEY: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_DS: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_EID: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_GID: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_GPOS: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_HINFO: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_ISDN: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_IXFR: u32 = 251u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_KEY: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_KX: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_LOC: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MAILA: u32 = 254u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MAILB: u32 = 253u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MB: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MF: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MG: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MINFO: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MR: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_MX: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NAPTR: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NBSTAT: u32 = 65282u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NIMLOC: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NSAP: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NSAPPTR: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NSEC: u32 = 47u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NSEC3: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NSEC3PARAM: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NULL: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_NXT: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_OPT: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_PTR: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_PX: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_RP: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_RRSIG: u32 = 46u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_RT: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_SIG: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_SINK: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_SOA: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_SRV: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_TEXT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_TKEY: u32 = 249u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_TLSA: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_TSIG: u32 = 250u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_UID: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_UINFO: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_UNSPEC: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_WINS: u32 = 65281u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_WINSR: u32 = 65282u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_WKS: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_X25: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_TYPE_ZERO: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_UNKNOWN_DATA {
@@ -2430,44 +2306,6 @@ impl ::core::clone::Clone for DNS_UNKNOWN_DATA {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_CACHE_SECURITY_CONTEXT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_FORCE_SECURITY_NEGO: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_REMOTE_SERVER: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_RESERVED: u32 = 4294901760u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_SECURITY_OFF: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_SECURITY_ON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_SECURITY_ONLY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_SECURITY_USE_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_UPDATE_TRY_ALL_MASTER_SERVERS: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_INVALID_ADDR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_INVALID_NAME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_NO_AUTH: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_NO_RESPONSE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_NO_TCP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_REFUSED: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_UNKNOWN: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_VALSVR_ERROR_UNREACHABLE: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_WINSR_DATAA {
@@ -2511,10 +2349,6 @@ impl ::core::clone::Clone for DNS_WINS_DATA {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_WINS_FLAG_LOCAL: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const DNS_WINS_FLAG_SCOPE: u32 = 2147483648u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct DNS_WIRE_QUESTION {
@@ -2555,10 +2389,6 @@ impl ::core::clone::Clone for DNS_WKS_DATA {
     }
 }
 pub type DnsContextHandle = isize;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const IP4_ADDRESS_STRING_BUFFER_LENGTH: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const IP4_ADDRESS_STRING_LENGTH: u32 = 16u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct IP4_ARRAY {
@@ -2604,10 +2434,6 @@ impl ::core::clone::Clone for IP6_ADDRESS {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const IP6_ADDRESS_STRING_BUFFER_LENGTH: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const IP6_ADDRESS_STRING_LENGTH: u32 = 65u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
 pub struct MDNS_QUERY_HANDLE {
@@ -2646,21 +2472,6 @@ impl ::core::clone::Clone for MDNS_QUERY_REQUEST {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PDNS_QUERY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_BROWSE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDW)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type PDNS_SERVICE_REGISTER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub type PDNS_SERVICE_RESOLVE_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PMDNS_QUERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
-pub const SIZEOF_IP4_ADDRESS: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2765,3 +2576,18 @@ impl ::core::clone::Clone for _DnsRecordOptW_1 {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type DNS_PROXY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(completioncontext: *const ::core::ffi::c_void, status: i32)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PDNS_QUERY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PDNS_SERVICE_BROWSE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDW)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type PDNS_SERVICE_REGISTER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`*"]
+pub type PDNS_SERVICE_RESOLVE_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Dns\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PMDNS_QUERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryhandle: *mut MDNS_QUERY_HANDLE, pqueryresults: *mut DNS_QUERY_RESULT)>;

@@ -1,3 +1,89 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppBroadcastingMonitor(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppBroadcastingMonitor {
+    type Vtable = IAppBroadcastingMonitor_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f95a68_8907_48a0_b8ef_24d208137542);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppBroadcastingMonitor_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsCurrentAppBroadcasting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub IsCurrentAppBroadcastingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsCurrentAppBroadcastingChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveIsCurrentAppBroadcastingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveIsCurrentAppBroadcastingChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppBroadcastingStatus(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppBroadcastingStatus {
+    type Vtable = IAppBroadcastingStatus_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppBroadcastingStatus_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CanStartBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppBroadcastingStatusDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppBroadcastingStatusDetails {
+    type Vtable = IAppBroadcastingStatusDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x069dada4_b573_4e3c_8e19_1bafacd09713);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppBroadcastingStatusDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsAnyAppBroadcasting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsCaptureResourceUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsGameStreamInProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsGpuConstrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsAppInactive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsBlockedForApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsDisabledByUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsDisabledBySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppBroadcastingUI(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppBroadcastingUI {
+    type Vtable = IAppBroadcastingUI_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppBroadcastingUI_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShowBroadcastUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppBroadcastingUIStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppBroadcastingUIStatics {
+    type Vtable = IAppBroadcastingUIStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55a8a79d_23cb_4579_9c34_886fe02c045a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppBroadcastingUIStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "System")]
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System"))]
+    GetForUser: usize,
+}
 #[doc = "*Required features: `\"Media_AppBroadcasting\"`*"]
 #[repr(transparent)]
 pub struct AppBroadcastingMonitor(::windows::core::IUnknown);
@@ -401,91 +487,5 @@ impl ::core::convert::From<&AppBroadcastingUI> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for AppBroadcastingUI {}
 unsafe impl ::core::marker::Sync for AppBroadcastingUI {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppBroadcastingMonitor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppBroadcastingMonitor {
-    type Vtable = IAppBroadcastingMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f95a68_8907_48a0_b8ef_24d208137542);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppBroadcastingMonitor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsCurrentAppBroadcasting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub IsCurrentAppBroadcastingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsCurrentAppBroadcastingChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveIsCurrentAppBroadcastingChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveIsCurrentAppBroadcastingChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppBroadcastingStatus(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppBroadcastingStatus {
-    type Vtable = IAppBroadcastingStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppBroadcastingStatus_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CanStartBroadcast: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppBroadcastingStatusDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppBroadcastingStatusDetails {
-    type Vtable = IAppBroadcastingStatusDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x069dada4_b573_4e3c_8e19_1bafacd09713);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppBroadcastingStatusDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsAnyAppBroadcasting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsCaptureResourceUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsGameStreamInProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsGpuConstrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsAppInactive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsBlockedForApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsDisabledByUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsDisabledBySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppBroadcastingUI(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppBroadcastingUI {
-    type Vtable = IAppBroadcastingUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppBroadcastingUI_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ShowBroadcastUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppBroadcastingUIStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppBroadcastingUIStatics {
-    type Vtable = IAppBroadcastingUIStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55a8a79d_23cb_4579_9c34_886fe02c045a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppBroadcastingUIStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "System")]
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System"))]
-    GetForUser: usize,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,86 +1,3 @@
-pub const CEventClass: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdbec9c0_7a68_11d1_88f9_0080c7d771bf);
-pub const CEventPublisher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab944620_79c6_11d1_88f9_0080c7d771bf);
-pub const CEventSubscription: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
-pub const CEventSystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct COMEVENTSYSCHANGEINFO {
-    pub cbSize: u32,
-    pub changeType: EOC_ChangeType,
-    pub objectId: super::super::super::Foundation::BSTR,
-    pub partitionId: super::super::super::Foundation::BSTR,
-    pub applicationId: super::super::super::Foundation::BSTR,
-    pub reserved: [::windows::core::GUID; 10],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for COMEVENTSYSCHANGEINFO {
-    fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            changeType: self.changeType,
-            objectId: self.objectId.clone(),
-            partitionId: self.partitionId.clone(),
-            applicationId: self.applicationId.clone(),
-            reserved: self.reserved,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COMEVENTSYSCHANGEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMEVENTSYSCHANGEINFO").field("cbSize", &self.cbSize).field("changeType", &self.changeType).field("objectId", &self.objectId).field("partitionId", &self.partitionId).field("applicationId", &self.applicationId).field("reserved", &self.reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COMEVENTSYSCHANGEINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COMEVENTSYSCHANGEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.changeType == other.changeType && self.objectId == other.objectId && self.partitionId == other.partitionId && self.applicationId == other.applicationId && self.reserved == other.reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COMEVENTSYSCHANGEINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for COMEVENTSYSCHANGEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EOC_ChangeType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
-pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
-impl ::core::marker::Copy for EOC_ChangeType {}
-impl ::core::clone::Clone for EOC_ChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EOC_ChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EOC_ChangeType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EOC_ChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EOC_ChangeType").field(&self.0).finish()
-    }
-}
-pub const EventObjectChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
-pub const EventObjectChange2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
 #[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
 #[repr(transparent)]
 pub struct IDontSupportEventSubscription(::windows::core::IUnknown);
@@ -2237,6 +2154,89 @@ pub struct IPublisherFilter_Vtbl {
     pub PrepareToFire: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, methodname: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, firingcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     PrepareToFire: usize,
+}
+pub const CEventClass: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdbec9c0_7a68_11d1_88f9_0080c7d771bf);
+pub const CEventPublisher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab944620_79c6_11d1_88f9_0080c7d771bf);
+pub const CEventSubscription: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7542e960_79c7_11d1_88f9_0080c7d771bf);
+pub const CEventSystem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e14fba2_2e22_11d1_9964_00c04fbbb345);
+pub const EventObjectChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
+pub const EventObjectChange2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EOC_ChangeType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`*"]
+pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
+impl ::core::marker::Copy for EOC_ChangeType {}
+impl ::core::clone::Clone for EOC_ChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EOC_ChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EOC_ChangeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EOC_ChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EOC_ChangeType").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_Events\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct COMEVENTSYSCHANGEINFO {
+    pub cbSize: u32,
+    pub changeType: EOC_ChangeType,
+    pub objectId: super::super::super::Foundation::BSTR,
+    pub partitionId: super::super::super::Foundation::BSTR,
+    pub applicationId: super::super::super::Foundation::BSTR,
+    pub reserved: [::windows::core::GUID; 10],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMEVENTSYSCHANGEINFO {
+    fn clone(&self) -> Self {
+        Self {
+            cbSize: self.cbSize,
+            changeType: self.changeType,
+            objectId: self.objectId.clone(),
+            partitionId: self.partitionId.clone(),
+            applicationId: self.applicationId.clone(),
+            reserved: self.reserved,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for COMEVENTSYSCHANGEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMEVENTSYSCHANGEINFO").field("cbSize", &self.cbSize).field("changeType", &self.changeType).field("objectId", &self.objectId).field("partitionId", &self.partitionId).field("applicationId", &self.applicationId).field("reserved", &self.reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COMEVENTSYSCHANGEINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COMEVENTSYSCHANGEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.changeType == other.changeType && self.objectId == other.objectId && self.partitionId == other.partitionId && self.applicationId == other.applicationId && self.reserved == other.reserved
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COMEVENTSYSCHANGEINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for COMEVENTSYSCHANGEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

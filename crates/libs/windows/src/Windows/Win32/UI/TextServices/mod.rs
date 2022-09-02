@@ -1,77 +1,3 @@
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
-impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
-impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ANCHOR_CHANGE_HISTORY_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-pub const AccClientDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
-pub const AccDictionary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
-pub const AccServerDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
-pub const AccStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
-pub const CLSID_TF_CategoryMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
-pub const CLSID_TF_ClassicLangBar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
-pub const CLSID_TF_DisplayAttributeMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ce74de4_53d3_4d74_8b83_431b3828ba53);
-pub const CLSID_TF_InputProcessorProfiles: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33c53a50_f456_4884_b049_85fd643ecfed);
-pub const CLSID_TF_LangBarItemMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9931692_a2b3_4fab_bf33_9ec6f9fb96ac);
-pub const CLSID_TF_LangBarMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebb08c45_6c4a_4fdc_ae53_4eb8c4c7db8e);
-pub const CLSID_TF_ThreadMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
-pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
-pub const CLSID_TsfServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const DCM_FLAGS_CTFMON: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const DCM_FLAGS_TASKENG: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -85,168 +11,23 @@ where
     }
     DoMsCtfMonitor(dwflags, heventforservicestop.into())
 }
-pub const DocWrap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
+#[inline]
+pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::HRESULT;
+    }
+    InitLocalMsCtfMonitor(dwflags).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
-impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
-impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UninitLocalMsCtfMonitor() -> ::windows::core::HRESULT;
     }
-}
-impl ::core::default::Default for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GET_TEXT_AND_PROPERTY_UPDATES_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-pub const GUID_APP_FUNCTIONPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
-pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
-pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
-pub const GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92c1fd48_a9ae_4a7c_be08_4329e4723817);
-pub const GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9ae2c6b_1866_4361_af72_7aa30948890e);
-pub const GUID_COMPARTMENT_KEYBOARD_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71a5b253_1951_466b_9fbc_9c8808fa84f2);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6592511_bcee_4122_a7c4_09f4b3fa4396);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf05dd8_4a87_11d7_a6e2_00065b84435c);
-pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf05dd9_4a87_11d7_a6e2_00065b84435c);
-pub const GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58273aad_01bb_4164_95c6_755ba0b5162d);
-pub const GUID_COMPARTMENT_SAPI_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51af2086_cc6b_457d_b5aa_8b19dc290ab4);
-pub const GUID_COMPARTMENT_SPEECH_CFGMENU: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c5c2d_4e83_4bb6_91a2_e019bff6762d);
-pub const GUID_COMPARTMENT_SPEECH_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c5c607_0703_4e59_8e52_cbc84e8bbe35);
-pub const GUID_COMPARTMENT_SPEECH_GLOBALSTATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a54fe8e_0d08_460c_a75d_87035ff436c5);
-pub const GUID_COMPARTMENT_SPEECH_OPENCLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x544d6a63_e2e8_4752_bbd1_000960bca083);
-pub const GUID_COMPARTMENT_SPEECH_UI_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd92016f0_9367_4fe7_9abf_bc59dacbe0e3);
-pub const GUID_COMPARTMENT_TIPUISTATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148ca3ec_0366_401c_8d75_ed978d85fbc9);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be347f5_c7a0_11d7_b408_00065b84435c);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be347f7_c7a0_11d7_b408_00065b84435c);
-pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be347f8_c7a0_11d7_b408_00065b84435c);
-pub const GUID_INTEGRATIONSTYLE_SEARCHBOX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d1bd11_82f7_4903_ae21_1a6397cde2eb);
-pub const GUID_LBI_INPUTMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c77a81e_41cc_4178_a3a7_5f8a987568e6);
-pub const GUID_LBI_SAPILAYR_CFGMENUBUTTON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd02f24a1_942d_422e_8d99_b4f2addee999);
-pub const GUID_MODEBIAS_CHINESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7add26de_4328_489b_83ae_6493750cad5c);
-pub const GUID_MODEBIAS_CONVERSATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f4ec104_1790_443b_95f1_e10f939d6546);
-pub const GUID_MODEBIAS_DATETIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2bdb372_7f61_4039_92ef_1c35599f0222);
-pub const GUID_MODEBIAS_FILENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f707fe_44c6_4fca_8e76_86ab50c7931b);
-pub const GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81489fb8_b36a_473d_8146_e4a2258b24ae);
-pub const GUID_MODEBIAS_FULLWIDTHHANGUL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc01ae6c9_45b5_4fd0_9cb1_9f4cebc39fea);
-pub const GUID_MODEBIAS_HALFWIDTHKATAKANA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x005f6b63_78d4_41cc_8859_485ca821a795);
-pub const GUID_MODEBIAS_HANGUL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ef0541_23b3_4d77_a074_691801ccea17);
-pub const GUID_MODEBIAS_HIRAGANA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd73d316e_9b91_46f1_a280_31597f52c694);
-pub const GUID_MODEBIAS_KATAKANA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e0eeddd_3a1a_499e_8543_3c7ee7949811);
-pub const GUID_MODEBIAS_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfddc10f0_d239_49bf_b8fc_5410caaa427e);
-pub const GUID_MODEBIAS_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
-pub const GUID_MODEBIAS_NUMERIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4021766c_e872_48fd_9cee_4ec5c75e16c3);
-pub const GUID_MODEBIAS_READING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe31643a3_6466_4cbf_8d8b_0bd4d8545461);
-pub const GUID_MODEBIAS_URLHISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b0e54d9_63f2_4c68_84d4_79aee7a59f09);
-pub const GUID_PROP_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34b45670_7526_11d2_a147_00105a2799b5);
-pub const GUID_PROP_COMPOSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe12ac060_af15_11d2_afc5_00105a2799b5);
-pub const GUID_PROP_INPUTSCOPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1713dd5a_68e7_4a5b_9af6_592a595c778d);
-pub const GUID_PROP_LANGID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3280ce20_8032_11d2_b603_00105a2799b5);
-pub const GUID_PROP_MODEBIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x372e0716_974f_40ac_a088_08cdc92ebfbc);
-pub const GUID_PROP_READING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5463f7c0_8e31_11d2_bf46_00105a2799b5);
-pub const GUID_PROP_TEXTOWNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1e2d520_0969_11d3_8df0_00105a2799b5);
-pub const GUID_PROP_TKB_ALTERNATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b2a803_968d_462e_b93b_2164c91517f7);
-pub const GUID_SYSTEM_FUNCTIONPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a698bb0_0f21_11d3_8df1_00105a2799b5);
-pub const GUID_TFCAT_CATEGORY_OF_TIP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x534c48c1_0607_4098_a521_4fc899c73e90);
-pub const GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb95f181b_ea4c_4af1_8056_7c321abbb091);
-pub const GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x046b8c80_1647_40f7_9b21_b93b81aabc1b);
-pub const GUID_TFCAT_PROPSTYLE_STATIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x565fb8d8_6bd4_4ca1_b223_0f2ccb8f4f96);
-pub const GUID_TFCAT_PROP_AUDIODATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7be3a9_e8ab_4d47_a8fe_254fa423436d);
-pub const GUID_TFCAT_PROP_INKDATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6a82ae_b0d7_4f14_a745_14f28b009d61);
-pub const GUID_TFCAT_TIPCAP_COMLESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364215d9_75bc_11d7_a6ef_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_DUALMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af314a2_d79f_4b1b_9992_15086d339b05);
-pub const GUID_TFCAT_TIPCAP_IMMERSIVEONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4259ac_640d_4ad4_89f7_1eb67e7c4ee8);
-pub const GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a016df_560b_46cd_947a_4c3af1e0e35d);
-pub const GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf05dd7_4a87_11d7_a6e2_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_LOCALSERVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74769ee9_4a66_4f9d_90d6_bf8b7c3eb461);
-pub const GUID_TFCAT_TIPCAP_SECUREMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d2f9ce_1f5e_11d7_a6d3_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25504fb4_7bab_4bc1_9c69_cf81890f0ef5);
-pub const GUID_TFCAT_TIPCAP_TSF3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dcb4af_98de_4548_bef7_25bd45979a1f);
-pub const GUID_TFCAT_TIPCAP_UIELEMENTENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d2f9cf_1f5e_11d7_a6d3_00065b84435c);
-pub const GUID_TFCAT_TIPCAP_WOW16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364215da_75bc_11d7_a6ef_00065b84435c);
-pub const GUID_TFCAT_TIP_HANDWRITING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x246ecb87_c2f2_4abe_905b_c8b38add2c43);
-pub const GUID_TFCAT_TIP_KEYBOARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34745c63_b2f0_4784_8b67_5e12c8701a31);
-pub const GUID_TFCAT_TIP_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a73cd1_8355_426b_a161_259808f26b14);
-pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6302de22_a5cf_4b02_bfe8_4d72b2bed3c6);
-pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
-pub const GUID_TS_SERVICE_ACTIVEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
-pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GXFPF_NEAREST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HKL(pub isize);
-impl HKL {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HKL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HKL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HKL {}
-impl ::core::fmt::Debug for HKL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HKL").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HKL>> for HKL {
-    fn from(optional: ::core::option::Option<HKL>) -> HKL {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HKL {
-    type Abi = Self;
+    UninitLocalMsCtfMonitor().ok()
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -1994,39 +1775,6 @@ unsafe impl ::windows::core::Interface for IInternalDocWrap {
 pub struct IInternalDocWrap_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub NotifyRevoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
-impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
-impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INSERT_TEXT_AT_SELECTION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INSERT_TEXT_AT_SELECTION_FLAGS").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -13002,14 +12750,849 @@ pub struct IVersionInfo_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetInstanceDescription: usize,
 }
+pub const AccClientDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
+pub const AccDictionary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
+pub const AccServerDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
+pub const AccStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5440837f_4bff_4ae5_a1b1_7722ecc6332a);
+pub const CLSID_TF_CategoryMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4b544a1_438d_4b41_9325_869523e2d6c7);
+pub const CLSID_TF_ClassicLangBar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3318360c_1afc_4d09_a86b_9f9cb6dceb9c);
+pub const CLSID_TF_DisplayAttributeMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ce74de4_53d3_4d74_8b83_431b3828ba53);
+pub const CLSID_TF_InputProcessorProfiles: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33c53a50_f456_4884_b049_85fd643ecfed);
+pub const CLSID_TF_LangBarItemMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9931692_a2b3_4fab_bf33_9ec6f9fb96ac);
+pub const CLSID_TF_LangBarMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebb08c45_6c4a_4fdc_ae53_4eb8c4c7db8e);
+pub const CLSID_TF_ThreadMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x529a9e6b_6587_4f23_ab9e_9c7d683e3c50);
+pub const CLSID_TF_TransitoryExtensionUIEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6be008_07fb_400d_8beb_337a64f7051f);
+pub const CLSID_TsfServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39aedc00_6b60_46db_8d31_3642be0e4373);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[inline]
-pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::HRESULT;
+pub const DCM_FLAGS_CTFMON: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const DCM_FLAGS_LOCALTHREADTSF: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const DCM_FLAGS_TASKENG: u32 = 1u32;
+pub const DocWrap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
+pub const GUID_APP_FUNCTIONPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
+pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
+pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
+pub const GUID_COMPARTMENT_ENABLED_PROFILES_UPDATED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92c1fd48_a9ae_4a7c_be08_4329e4723817);
+pub const GUID_COMPARTMENT_HANDWRITING_OPENCLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9ae2c6b_1866_4361_af72_7aa30948890e);
+pub const GUID_COMPARTMENT_KEYBOARD_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71a5b253_1951_466b_9fbc_9c8808fa84f2);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6592511_bcee_4122_a7c4_09f4b3fa4396);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_CONVERSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf05dd8_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_COMPARTMENT_KEYBOARD_INPUTMODE_SENTENCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf05dd9_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_COMPARTMENT_KEYBOARD_OPENCLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58273aad_01bb_4164_95c6_755ba0b5162d);
+pub const GUID_COMPARTMENT_SAPI_AUDIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51af2086_cc6b_457d_b5aa_8b19dc290ab4);
+pub const GUID_COMPARTMENT_SPEECH_CFGMENU: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb6c5c2d_4e83_4bb6_91a2_e019bff6762d);
+pub const GUID_COMPARTMENT_SPEECH_DISABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c5c607_0703_4e59_8e52_cbc84e8bbe35);
+pub const GUID_COMPARTMENT_SPEECH_GLOBALSTATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a54fe8e_0d08_460c_a75d_87035ff436c5);
+pub const GUID_COMPARTMENT_SPEECH_OPENCLOSE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x544d6a63_e2e8_4752_bbd1_000960bca083);
+pub const GUID_COMPARTMENT_SPEECH_UI_STATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd92016f0_9367_4fe7_9abf_bc59dacbe0e3);
+pub const GUID_COMPARTMENT_TIPUISTATUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x148ca3ec_0366_401c_8d75_ed978d85fbc9);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be347f5_c7a0_11d7_b408_00065b84435c);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_DOCUMENTMANAGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be347f7_c7a0_11d7_b408_00065b84435c);
+pub const GUID_COMPARTMENT_TRANSITORYEXTENSION_PARENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8be347f8_c7a0_11d7_b408_00065b84435c);
+pub const GUID_INTEGRATIONSTYLE_SEARCHBOX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d1bd11_82f7_4903_ae21_1a6397cde2eb);
+pub const GUID_LBI_INPUTMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c77a81e_41cc_4178_a3a7_5f8a987568e6);
+pub const GUID_LBI_SAPILAYR_CFGMENUBUTTON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd02f24a1_942d_422e_8d99_b4f2addee999);
+pub const GUID_MODEBIAS_CHINESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7add26de_4328_489b_83ae_6493750cad5c);
+pub const GUID_MODEBIAS_CONVERSATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f4ec104_1790_443b_95f1_e10f939d6546);
+pub const GUID_MODEBIAS_DATETIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2bdb372_7f61_4039_92ef_1c35599f0222);
+pub const GUID_MODEBIAS_FILENAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f707fe_44c6_4fca_8e76_86ab50c7931b);
+pub const GUID_MODEBIAS_FULLWIDTHALPHANUMERIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81489fb8_b36a_473d_8146_e4a2258b24ae);
+pub const GUID_MODEBIAS_FULLWIDTHHANGUL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc01ae6c9_45b5_4fd0_9cb1_9f4cebc39fea);
+pub const GUID_MODEBIAS_HALFWIDTHKATAKANA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x005f6b63_78d4_41cc_8859_485ca821a795);
+pub const GUID_MODEBIAS_HANGUL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ef0541_23b3_4d77_a074_691801ccea17);
+pub const GUID_MODEBIAS_HIRAGANA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd73d316e_9b91_46f1_a280_31597f52c694);
+pub const GUID_MODEBIAS_KATAKANA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e0eeddd_3a1a_499e_8543_3c7ee7949811);
+pub const GUID_MODEBIAS_NAME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfddc10f0_d239_49bf_b8fc_5410caaa427e);
+pub const GUID_MODEBIAS_NONE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
+pub const GUID_MODEBIAS_NUMERIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4021766c_e872_48fd_9cee_4ec5c75e16c3);
+pub const GUID_MODEBIAS_READING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe31643a3_6466_4cbf_8d8b_0bd4d8545461);
+pub const GUID_MODEBIAS_URLHISTORY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b0e54d9_63f2_4c68_84d4_79aee7a59f09);
+pub const GUID_PROP_ATTRIBUTE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34b45670_7526_11d2_a147_00105a2799b5);
+pub const GUID_PROP_COMPOSING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe12ac060_af15_11d2_afc5_00105a2799b5);
+pub const GUID_PROP_INPUTSCOPE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1713dd5a_68e7_4a5b_9af6_592a595c778d);
+pub const GUID_PROP_LANGID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3280ce20_8032_11d2_b603_00105a2799b5);
+pub const GUID_PROP_MODEBIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x372e0716_974f_40ac_a088_08cdc92ebfbc);
+pub const GUID_PROP_READING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5463f7c0_8e31_11d2_bf46_00105a2799b5);
+pub const GUID_PROP_TEXTOWNER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1e2d520_0969_11d3_8df0_00105a2799b5);
+pub const GUID_PROP_TKB_ALTERNATES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b2a803_968d_462e_b93b_2164c91517f7);
+pub const GUID_SYSTEM_FUNCTIONPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a698bb0_0f21_11d3_8df1_00105a2799b5);
+pub const GUID_TFCAT_CATEGORY_OF_TIP: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x534c48c1_0607_4098_a521_4fc899c73e90);
+pub const GUID_TFCAT_DISPLAYATTRIBUTEPROPERTY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb95f181b_ea4c_4af1_8056_7c321abbb091);
+pub const GUID_TFCAT_DISPLAYATTRIBUTEPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x046b8c80_1647_40f7_9b21_b93b81aabc1b);
+pub const GUID_TFCAT_PROPSTYLE_STATIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x565fb8d8_6bd4_4ca1_b223_0f2ccb8f4f96);
+pub const GUID_TFCAT_PROP_AUDIODATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7be3a9_e8ab_4d47_a8fe_254fa423436d);
+pub const GUID_TFCAT_PROP_INKDATA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6a82ae_b0d7_4f14_a745_14f28b009d61);
+pub const GUID_TFCAT_TIPCAP_COMLESS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364215d9_75bc_11d7_a6ef_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_DUALMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af314a2_d79f_4b1b_9992_15086d339b05);
+pub const GUID_TFCAT_TIPCAP_IMMERSIVEONLY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4259ac_640d_4ad4_89f7_1eb67e7c4ee8);
+pub const GUID_TFCAT_TIPCAP_IMMERSIVESUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a016df_560b_46cd_947a_4c3af1e0e35d);
+pub const GUID_TFCAT_TIPCAP_INPUTMODECOMPARTMENT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf05dd7_4a87_11d7_a6e2_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_LOCALSERVER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74769ee9_4a66_4f9d_90d6_bf8b7c3eb461);
+pub const GUID_TFCAT_TIPCAP_SECUREMODE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d2f9ce_1f5e_11d7_a6d3_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_SYSTRAYSUPPORT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25504fb4_7bab_4bc1_9c69_cf81890f0ef5);
+pub const GUID_TFCAT_TIPCAP_TSF3: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dcb4af_98de_4548_bef7_25bd45979a1f);
+pub const GUID_TFCAT_TIPCAP_UIELEMENTENABLED: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d2f9cf_1f5e_11d7_a6d3_00065b84435c);
+pub const GUID_TFCAT_TIPCAP_WOW16: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x364215da_75bc_11d7_a6ef_00065b84435c);
+pub const GUID_TFCAT_TIP_HANDWRITING: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x246ecb87_c2f2_4abe_905b_c8b38add2c43);
+pub const GUID_TFCAT_TIP_KEYBOARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34745c63_b2f0_4784_8b67_5e12c8701a31);
+pub const GUID_TFCAT_TIP_SPEECH: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a73cd1_8355_426b_a161_259808f26b14);
+pub const GUID_TFCAT_TRANSITORYEXTENSIONUI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6302de22_a5cf_4b02_bfe8_4d72b2bed3c6);
+pub const GUID_TS_SERVICE_ACCESSIBLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9786200_a5bf_4a0f_8c24_fb16f5d1aabb);
+pub const GUID_TS_SERVICE_ACTIVEX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea937a50_c9a6_4b7d_894a_49d99b784834);
+pub const GUID_TS_SERVICE_DATAOBJECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6086fbb5_e225_46ce_a770_c1bbd3e05d7b);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GXFPF_NEAREST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const GXFPF_ROUND_NEAREST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
+pub const LIBID_MSAATEXTLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
+pub const MSAAControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CLUIE_COUNT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CLUIE_SELECTION: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CLUIE_STRING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_COMMANDING_ENABLED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_COMMANDING_ON: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DICTATION_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DICTATION_ON: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DISABLE_BALLOON: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DISABLE_COMMANDING: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DISABLE_DICTATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_DISABLE_SPEECH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ENABLE_PROCESS_ATOM: &str = "_CTF_ENABLE_PROCESS_ATOM_";
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220218i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_COMPOSITION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220216i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220220i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_EMPTYCONTEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220215i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220982i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_INVALIDPOINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_INVALIDPOS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_INVALIDVIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220219i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220224i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOCONVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219968i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOLAYOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOPROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220221i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOSELECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOSERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_NOTOWNEDRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220222i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_RANGE_NOT_COVERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220217i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_STACKFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220223i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_FLOATINGLANGBAR_WNDTITLE: &str = "TF_FloatingLangBar_WndTitle";
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_FLOATINGLANGBAR_WNDTITLEA: &str = "TF_FloatingLangBar_WndTitle";
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_FLOATINGLANGBAR_WNDTITLEW: &str = "TF_FloatingLangBar_WndTitle";
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_HF_OBJECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IE_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_BALLOON: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_BITMAP: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_CUSTOMUI: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_ICON: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STATUS: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STATUS_DISABLED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STATUS_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_TEXT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBI_TOOLTIP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBMENUF_CHECKED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBMENUF_GRAYED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MENUREADY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_ALT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_CONTROL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_LALT: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_LCONTROL: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_LSHIFT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_ON_KEYUP: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_RALT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_RCONTROL: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_RSHIFT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_MOD_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_POPF_ALL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_PROCESS_ATOM: &str = "_CTF_PROCESS_ATOM_";
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
+pub const TF_PROFILE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd38eff65_aa46_4fd5_91a7_67845fb02f5b);
+pub const TF_PROFILE_CANTONESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aec109c_7e96_11d4_b2ef_0080c882687e);
+pub const TF_PROFILE_CHANGJIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdf9f03_c7d3_11d4_b2ab_0080c882687e);
+pub const TF_PROFILE_DAYI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x037b2c25_480c_4d7f_b027_d6ca6b69788a);
+pub const TF_PROFILE_NEWCHANGJIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3ba907a_6c7e_11d4_97fa_0080c882687e);
+pub const TF_PROFILE_NEWPHONETIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f9c502_1742_11d4_9790_0080c882687e);
+pub const TF_PROFILE_NEWQUICK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b883ba0_c1c7_11d4_87f9_0080c882687e);
+pub const TF_PROFILE_PHONETIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x761309de_317a_11d4_9b5d_0080c882687e);
+pub const TF_PROFILE_PINYIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3ba9077_6c7e_11d4_97fa_0080c882687e);
+pub const TF_PROFILE_QUICK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6024b45f_5c54_11d4_b921_0080c882687e);
+pub const TF_PROFILE_SIMPLEFAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa550b04_5ad7_411f_a5ac_ca038ec515d7);
+pub const TF_PROFILE_TIGRINYA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cab88b7_cc3e_46a6_9765_b772ad7761ff);
+pub const TF_PROFILE_WUBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
+pub const TF_PROFILE_YI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RCM_COMLESS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RCM_HINT_READING_LENGTH: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RCM_VKEY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RIUIE_CONTEXT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RIUIE_ERRORINDEX: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RIUIE_STRING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RIUIE_VERTICALORDER: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RP_HIDDENINSETTINGUI: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RP_LOCALPROCESS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RP_LOCALTHREAD: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SD_LOADING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SD_READONLY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_DESKBAND: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_DOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_HIDDEN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_LABELS: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_LOWTRANSPARENCY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_MINIMIZED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_NOLABELS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_NOTRANSPARENCY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SFT_SHOWNORMAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SHOW_BALLOON: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SPEECHUI_SHOWN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SS_DISJOINTSEL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SS_REGIONS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_SS_TRANSITORY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_ST_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262912i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TF_IGNOREEND: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TF_MOVESTART: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_COMLESS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_CONSOLE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_NOACTIVATETIP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_SECUREMODE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMAE_WOW16: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_ACTIVATED: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_COMLESS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_CONSOLE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_NOACTIVATETIP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_SECUREMODE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TMF_WOW16: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_TU_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_URP_ALLPROFILES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_URP_LOCALPROCESS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_URP_LOCALTHREAD: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_US_HIDETIPUI: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKBL_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
+pub const TSATTRID_App: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa80f77df_4237_40e5_849c_b5fa51c13ac7);
+pub const TSATTRID_App_IncorrectGrammar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd54e398_ad03_4b74_b6b3_5edb19996388);
+pub const TSATTRID_App_IncorrectSpelling: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf42de43c_ef12_430d_944c_9a08970a25d2);
+pub const TSATTRID_Font: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x573ea825_749b_4f8a_9cfd_21c3605ca828);
+pub const TSATTRID_Font_FaceName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb536aeb6_053b_4eb8_b65a_50da1e81e72e);
+pub const TSATTRID_Font_SizePts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8493302_a5e9_456d_af04_8005e4130f03);
+pub const TSATTRID_Font_Style: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68b2a77f_6b0e_4f28_8177_571c2f3a42b1);
+pub const TSATTRID_Font_Style_Animation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcf73d22_e029_47b7_bb36_f263a3d004cc);
+pub const TSATTRID_Font_Style_Animation_BlinkingBackground: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e5b104_0104_4b10_b585_00f2527522b5);
+pub const TSATTRID_Font_Style_Animation_LasVegasLights: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf40423d5_0f87_4f8f_bada_e6d60c25e152);
+pub const TSATTRID_Font_Style_Animation_MarchingBlackAnts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7644e067_f186_4902_bfc6_ec815aa20e9d);
+pub const TSATTRID_Font_Style_Animation_MarchingRedAnts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78368dad_50fb_4c6f_840b_d486bb6cf781);
+pub const TSATTRID_Font_Style_Animation_Shimmer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce31b58_5293_4c36_8809_bf8bb51a27b3);
+pub const TSATTRID_Font_Style_Animation_SparkleText: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x533aad20_962c_4e9f_8c09_b42ea4749711);
+pub const TSATTRID_Font_Style_Animation_WipeDown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5872e874_367b_4803_b160_c90ff62569d0);
+pub const TSATTRID_Font_Style_Animation_WipeRight: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb855cbe3_3d2c_4600_b1e9_e1c9ce02f842);
+pub const TSATTRID_Font_Style_BackgroundColor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb50eaa4e_3091_4468_81db_d79ea190c7c7);
+pub const TSATTRID_Font_Style_Blink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb2c036_7acf_4532_b720_b416dd7765a8);
+pub const TSATTRID_Font_Style_Bold: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48813a43_8a20_4940_8e58_97823f7b268a);
+pub const TSATTRID_Font_Style_Capitalize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d85a3ba_b4fd_43b3_befc_6b985c843141);
+pub const TSATTRID_Font_Style_Color: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x857a7a37_b8af_4e9a_81b4_acf700c8411b);
+pub const TSATTRID_Font_Style_Emboss: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd8ed742_349e_4e37_82fb_437979cb53a7);
+pub const TSATTRID_Font_Style_Engrave: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c3371de_8332_4897_be5d_89233223179a);
+pub const TSATTRID_Font_Style_Height: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e937477_12e6_458b_926a_1fa44ee8f391);
+pub const TSATTRID_Font_Style_Hidden: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1e28770_881c_475f_863f_887a647b1090);
+pub const TSATTRID_Font_Style_Italic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8740682a_a765_48e1_acfc_d22222b2f810);
+pub const TSATTRID_Font_Style_Kerning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc26e1b4_2f9a_47c8_8bff_bf1eb7cce0dd);
+pub const TSATTRID_Font_Style_Lowercase: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76d8ccb5_ca7b_4498_8ee9_d5c4f6f74c60);
+pub const TSATTRID_Font_Style_Outlined: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10e6db31_db0d_4ac6_a7f5_9c9cff6f2ab4);
+pub const TSATTRID_Font_Style_Overline: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3989f4a_992b_4301_8ce1_a5b7c6d1f3c8);
+pub const TSATTRID_Font_Style_Overline_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc46063a_e115_46e3_bcd8_ca6772aa95b4);
+pub const TSATTRID_Font_Style_Overline_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8440d94c_51ce_47b2_8d4c_15751e5f721b);
+pub const TSATTRID_Font_Style_Position: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15cd26ab_f2fb_4062_b5a6_9a49e1a5cc0b);
+pub const TSATTRID_Font_Style_Protected: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c557cb2_14cf_4554_a574_ecb2f7e7efd4);
+pub const TSATTRID_Font_Style_Shadow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f686d2f_c6cd_4c56_8a1a_994a4b9766be);
+pub const TSATTRID_Font_Style_SmallCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfacb6bc6_9100_4cc6_b969_11eea45a86b4);
+pub const TSATTRID_Font_Style_Spacing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c1200d_8f06_409a_8e49_6a554bf7c153);
+pub const TSATTRID_Font_Style_Strikethrough: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c562193_2d08_4668_9601_ced41309d7af);
+pub const TSATTRID_Font_Style_Strikethrough_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62489b31_a3e7_4f94_ac43_ebaf8fcc7a9f);
+pub const TSATTRID_Font_Style_Strikethrough_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d736b6_3c8f_4b97_ab78_1877cb990d31);
+pub const TSATTRID_Font_Style_Subscript: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5774fb84_389b_43bc_a74b_1568347cf0f4);
+pub const TSATTRID_Font_Style_Superscript: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea4993c_563c_49aa_9372_0bef09a9255b);
+pub const TSATTRID_Font_Style_Underline: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c9c9f3_7902_444b_9a7b_48e70f4b50f7);
+pub const TSATTRID_Font_Style_Underline_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d24aa6_1db3_4c69_a176_31120e7586d5);
+pub const TSATTRID_Font_Style_Underline_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b6720e5_0f73_4951_a6b3_6f19e43c9461);
+pub const TSATTRID_Font_Style_Uppercase: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a300e8_e340_4937_b697_8f234045cd9a);
+pub const TSATTRID_Font_Style_Weight: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12f3189c_8bb0_461b_b1fa_eaf907047fe0);
+pub const TSATTRID_List: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x436d673b_26f1_4aee_9e65_8f83a4ed4884);
+pub const TSATTRID_List_LevelIndel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f7cc899_311f_487b_ad5d_e2a459e12d42);
+pub const TSATTRID_List_Type: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae3e665e_4bce_49e3_a0fe_2db47d3a17ae);
+pub const TSATTRID_List_Type_Arabic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1338c5d6_98a3_4fa3_9bd1_7a60eef8e9e0);
+pub const TSATTRID_List_Type_Bullet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbccd77c5_4c4d_4ce2_b102_559f3b2bfcea);
+pub const TSATTRID_List_Type_LowerLetter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96372285_f3cf_491e_a925_3832347fd237);
+pub const TSATTRID_List_Type_LowerRoman: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90466262_3980_4b8e_9368_918bd1218a41);
+pub const TSATTRID_List_Type_UpperLetter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7987b7cd_ce52_428b_9b95_a357f6f10c45);
+pub const TSATTRID_List_Type_UpperRoman: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6ab552_4a80_467f_b2f1_127e2aa3ba9e);
+pub const TSATTRID_OTHERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c32af9_57d0_46a9_bca8_dac238a13057);
+pub const TSATTRID_Text: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb8e68_81f9_449d_a15a_87a8388faac0);
+pub const TSATTRID_Text_Alignment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x139941e6_1767_456d_938e_35ba568b5cd4);
+pub const TSATTRID_Text_Alignment_Center: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a95c16_53bf_4d55_8b87_4bdd8d4275fc);
+pub const TSATTRID_Text_Alignment_Justify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed350740_a0f7_42d3_8ea8_f81b6488faf0);
+pub const TSATTRID_Text_Alignment_Left: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ae95d3_6361_43a2_8495_d00f397f1693);
+pub const TSATTRID_Text_Alignment_Right: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36f0f98_1b9e_4360_8616_03fb08a78456);
+pub const TSATTRID_Text_EmbeddedObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb8e68_81f9_449d_a15a_87a8388faac0);
+pub const TSATTRID_Text_Hyphenation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdadf4525_618e_49eb_b1a8_3b68bd7648e3);
+pub const TSATTRID_Text_Language: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c04ef1_5753_4c25_8887_85443fe5f819);
+pub const TSATTRID_Text_Link: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47cd9051_3722_4cd8_b7c8_4e17ca1759f5);
+pub const TSATTRID_Text_Orientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bab707f_8785_4c39_8b52_96f878303ffb);
+pub const TSATTRID_Text_Para: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5edc5822_99dc_4dd6_aec3_b62baa5b2e7c);
+pub const TSATTRID_Text_Para_FirstLineIndent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07c97a13_7472_4dd8_90a9_91e3d7e4f29c);
+pub const TSATTRID_Text_Para_LeftIndent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2848e9_7471_41c9_b6b3_8a1450e01897);
+pub const TSATTRID_Text_Para_LineSpacing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x699b380d_7f8c_46d6_a73b_dfe3d1538df3);
+pub const TSATTRID_Text_Para_LineSpacing_AtLeast: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadfedf31_2d44_4434_a5ff_7f4c4990a905);
+pub const TSATTRID_Text_Para_LineSpacing_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82fb1805_a6c4_4231_ac12_6260af2aba28);
+pub const TSATTRID_Text_Para_LineSpacing_Exactly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d45ad40_23de_48d7_a6b3_765420c620cc);
+pub const TSATTRID_Text_Para_LineSpacing_Multiple: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x910f1e3c_d6d0_4f65_8a3c_42b4b31868c5);
+pub const TSATTRID_Text_Para_LineSpacing_OnePtFive: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0428a021_0397_4b57_9a17_0795994cd3c5);
+pub const TSATTRID_Text_Para_LineSpacing_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed350740_a0f7_42d3_8ea8_f81b6488faf0);
+pub const TSATTRID_Text_Para_RightIndent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c7f26f9_a5e2_48da_b98a_520cb16513bf);
+pub const TSATTRID_Text_Para_SpaceAfter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b0a3f55_22dc_425f_a411_93da1d8f9baa);
+pub const TSATTRID_Text_Para_SpaceBefore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8df98589_194a_4601_b251_9865a3e906dd);
+pub const TSATTRID_Text_ReadOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85836617_de32_4afd_a50f_a2db110e6e4d);
+pub const TSATTRID_Text_RightToLeft: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca666e71_1b08_453d_bfdd_28e08c8aaf7a);
+pub const TSATTRID_Text_VerticalWriting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bba8195_046f_4ea9_b311_97fd66c4274b);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AS_SEL_CHANGE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ATTR_FIND_WANT_END: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CHAR_REGION: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220982i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_INVALIDPOINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_INVALIDPOS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_NOLAYOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_NOLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_NOOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_NOSELECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_NOSERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_GEA_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_GTA_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_IAS_NOQUERY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_IAS_QUERYONLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_IE_COMPOSITION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_IE_CORRECTION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_LF_SYNC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_LOADING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_READONLY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_RESERVED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_DISJOINTSEL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_REGIONS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_TRANSITORY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_SS_UWPCONTROL: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_STRF_END: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_STRF_MID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_STRF_START: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262912i32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
+impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
+impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
     }
-    InitLocalMsCtfMonitor(dwflags).ok()
+}
+impl ::core::default::Default for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ANCHOR_CHANGE_HISTORY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
+impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
+impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_TEXT_AND_PROPERTY_UPDATES_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
+impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
+impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INSERT_TEXT_AT_SELECTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INSERT_TEXT_AT_SELECTION_FLAGS").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
@@ -13209,8 +13792,6 @@ impl ::core::fmt::Debug for LANG_BAR_ITEM_ICON_MODE_FLAGS {
         f.debug_tuple("LANG_BAR_ITEM_ICON_MODE_FLAGS").field(&self.0).finish()
     }
 }
-pub const LIBID_MSAATEXTLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
-pub const MSAAControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -13349,24 +13930,6 @@ impl ::core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CLUIE_COUNT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CLUIE_CURRENTPAGE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CLUIE_DOCUMENTMGR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CLUIE_PAGEINDEX: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CLUIE_SELECTION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CLUIE_STRING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_COMMANDING_ENABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_COMMANDING_ON: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
@@ -13428,28 +13991,6 @@ impl ::core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_CHARCODE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_EUDC: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_FIXED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_FULLSHAPE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_KATAKANA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_NATIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_NOCONVERSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_ROMAN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TF_DA_ATTR_INFO(pub i32);
@@ -13484,72 +14025,6 @@ unsafe impl ::windows::core::Abi for TF_DA_ATTR_INFO {
 impl ::core::fmt::Debug for TF_DA_ATTR_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TF_DA_ATTR_INFO").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_DA_COLOR {
-    pub r#type: TF_DA_COLORTYPE,
-    pub Anonymous: TF_DA_COLOR_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_DA_COLOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_DA_COLOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_DA_COLOR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_DA_COLOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DA_COLOR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_DA_COLOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_DA_COLOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union TF_DA_COLOR_0 {
-    pub nIndex: i32,
-    pub cr: super::super::Foundation::COLORREF,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_DA_COLOR_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_DA_COLOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_DA_COLOR_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_DA_COLOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DA_COLOR_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_DA_COLOR_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_DA_COLOR_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
@@ -13615,822 +14090,6 @@ impl ::core::fmt::Debug for TF_DA_LINESTYLE {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DICTATION_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DICTATION_ON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DISABLE_BALLOON: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DISABLE_COMMANDING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DISABLE_DICTATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_DISABLE_SPEECH: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_DISPLAYATTRIBUTE {
-    pub crText: TF_DA_COLOR,
-    pub crBk: TF_DA_COLOR,
-    pub lsStyle: TF_DA_LINESTYLE,
-    pub fBoldLine: super::super::Foundation::BOOL,
-    pub crLine: TF_DA_COLOR,
-    pub bAttr: TF_DA_ATTR_INFO,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_DISPLAYATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_DISPLAYATTRIBUTE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_DISPLAYATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DISPLAYATTRIBUTE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_DISPLAYATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ENABLE_PROCESS_ATOM: &str = "_CTF_ENABLE_PROCESS_ATOM_";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220218i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_COMPOSITION_REJECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220216i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220220i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_EMPTYCONTEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220215i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220982i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_INVALIDPOINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_INVALIDPOS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_INVALIDVIEW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220219i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220224i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOCONVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147219968i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOLAYOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOPROVIDER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220221i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOSELECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOSERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_NOTOWNEDRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220222i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_RANGE_NOT_COVERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220217i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_STACKFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220223i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_FLOATINGLANGBAR_WNDTITLE: &str = "TF_FloatingLangBar_WndTitle";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_FLOATINGLANGBAR_WNDTITLEA: &str = "TF_FloatingLangBar_WndTitle";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_FLOATINGLANGBAR_WNDTITLEW: &str = "TF_FloatingLangBar_WndTitle";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TF_HALTCOND {
-    pub pHaltRange: ::core::option::Option<ITfRange>,
-    pub aHaltPos: TfAnchor,
-    pub dwFlags: u32,
-}
-impl ::core::clone::Clone for TF_HALTCOND {
-    fn clone(&self) -> Self {
-        Self { pHaltRange: self.pHaltRange.clone(), aHaltPos: self.aHaltPos, dwFlags: self.dwFlags }
-    }
-}
-impl ::core::fmt::Debug for TF_HALTCOND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_HALTCOND").field("pHaltRange", &self.pHaltRange).field("aHaltPos", &self.aHaltPos).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TF_HALTCOND {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for TF_HALTCOND {
-    fn eq(&self, other: &Self) -> bool {
-        self.pHaltRange == other.pHaltRange && self.aHaltPos == other.aHaltPos && self.dwFlags == other.dwFlags
-    }
-}
-impl ::core::cmp::Eq for TF_HALTCOND {}
-impl ::core::default::Default for TF_HALTCOND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_HF_OBJECT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IE_CORRECTION: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TF_INPUTPROCESSORPROFILE {
-    pub dwProfileType: u32,
-    pub langid: u16,
-    pub clsid: ::windows::core::GUID,
-    pub guidProfile: ::windows::core::GUID,
-    pub catid: ::windows::core::GUID,
-    pub hklSubstitute: HKL,
-    pub dwCaps: u32,
-    pub hkl: HKL,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for TF_INPUTPROCESSORPROFILE {}
-impl ::core::clone::Clone for TF_INPUTPROCESSORPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TF_INPUTPROCESSORPROFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_INPUTPROCESSORPROFILE").field("dwProfileType", &self.dwProfileType).field("langid", &self.langid).field("clsid", &self.clsid).field("guidProfile", &self.guidProfile).field("catid", &self.catid).field("hklSubstitute", &self.hklSubstitute).field("dwCaps", &self.dwCaps).field("hkl", &self.hkl).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TF_INPUTPROCESSORPROFILE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_INPUTPROCESSORPROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_INPUTPROCESSORPROFILE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TF_INPUTPROCESSORPROFILE {}
-impl ::core::default::Default for TF_INPUTPROCESSORPROFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_INVALID_COOKIE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_INVALID_EDIT_COOKIE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPPMF_DISABLEPROFILE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPPMF_DONTCARECURRENTINPUTLANGUAGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPPMF_ENABLEPROFILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPPMF_FORPROCESS: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPPMF_FORSESSION: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPPMF_FORSYSTEMALL: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_COMLESSSUPPORT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_DISABLEONTRANSITORY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_IMMERSIVESUPPORT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_SECUREMODESUPPORT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_SYSTRAYSUPPORT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_UIELEMENTENABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_CAPS_WOW16SUPPORT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_FLAG_ACTIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_FLAG_ENABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TF_LANGBARITEMINFO {
-    pub clsidService: ::windows::core::GUID,
-    pub guidItem: ::windows::core::GUID,
-    pub dwStyle: u32,
-    pub ulSort: u32,
-    pub szDescription: [u16; 32],
-}
-impl ::core::marker::Copy for TF_LANGBARITEMINFO {}
-impl ::core::clone::Clone for TF_LANGBARITEMINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TF_LANGBARITEMINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LANGBARITEMINFO").field("clsidService", &self.clsidService).field("guidItem", &self.guidItem).field("dwStyle", &self.dwStyle).field("ulSort", &self.ulSort).field("szDescription", &self.szDescription).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TF_LANGBARITEMINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_LANGBARITEMINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LANGBARITEMINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TF_LANGBARITEMINFO {}
-impl ::core::default::Default for TF_LANGBARITEMINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_LANGUAGEPROFILE {
-    pub clsid: ::windows::core::GUID,
-    pub langid: u16,
-    pub catid: ::windows::core::GUID,
-    pub fActive: super::super::Foundation::BOOL,
-    pub guidProfile: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_LANGUAGEPROFILE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_LANGUAGEPROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_LANGUAGEPROFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LANGUAGEPROFILE").field("clsid", &self.clsid).field("langid", &self.langid).field("catid", &self.catid).field("fActive", &self.fActive).field("guidProfile", &self.guidProfile).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_LANGUAGEPROFILE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_LANGUAGEPROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LANGUAGEPROFILE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_LANGUAGEPROFILE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_LANGUAGEPROFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_LBBALLOONINFO {
-    pub style: TfLBBalloonStyle,
-    pub bstrText: super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_LBBALLOONINFO {
-    fn clone(&self) -> Self {
-        Self { style: self.style, bstrText: self.bstrText.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_LBBALLOONINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_LBBALLOONINFO").field("style", &self.style).field("bstrText", &self.bstrText).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_LBBALLOONINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_LBBALLOONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.style == other.style && self.bstrText == other.bstrText
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_LBBALLOONINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_LBBALLOONINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_BALLOON: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_BITMAP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_BMPF_VERTICAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_CUSTOMUI: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_DESC_MAXLEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_ICON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STATUS: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STATUS_BTN_TOGGLED: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STATUS_DISABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STATUS_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_BTN_BUTTON: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_BTN_MENU: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_BTN_TOGGLE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_HIDDENBYDEFAULT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_HIDDENSTATUSCONTROL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_HIDEONNOOTHERITEMS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_SHOWNINTRAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_SHOWNINTRAYONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_STYLE_TEXTCOLORICON: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_TEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBI_TOOLTIP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBMENUF_CHECKED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBMENUF_GRAYED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBMENUF_RADIOCHECKED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBMENUF_SEPARATOR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_LBMENUF_SUBMENU: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_LMLATTELEMENT {
-    pub dwFrameStart: u32,
-    pub dwFrameLen: u32,
-    pub dwFlags: u32,
-    pub Anonymous: TF_LMLATTELEMENT_0,
-    pub bstrText: super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_LMLATTELEMENT {
-    fn clone(&self) -> Self {
-        Self { dwFrameStart: self.dwFrameStart, dwFrameLen: self.dwFrameLen, dwFlags: self.dwFlags, Anonymous: self.Anonymous, bstrText: self.bstrText.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_LMLATTELEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFrameStart == other.dwFrameStart && self.dwFrameLen == other.dwFrameLen && self.dwFlags == other.dwFlags && self.Anonymous == other.Anonymous && self.bstrText == other.bstrText
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_LMLATTELEMENT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_LMLATTELEMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union TF_LMLATTELEMENT_0 {
-    pub iCost: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_LMLATTELEMENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_LMLATTELEMENT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LMLATTELEMENT_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_LMLATTELEMENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_LMLATTELEMENT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MENUREADY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_ALT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_CONTROL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_IGNORE_ALL_MODIFIER: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_LALT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_LCONTROL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_LSHIFT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_ON_KEYUP: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_RALT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_RCONTROL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_RSHIFT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_MOD_SHIFT: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    pub guidType: ::windows::core::GUID,
-    pub ichStart: i32,
-    pub cch: i32,
-    pub cb: u32,
-    pub dwPrivate: u32,
-    pub clsidTIP: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
-impl ::core::clone::Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_PERSISTENT_PROPERTY_HEADER_ACP").field("guidType", &self.guidType).field("ichStart", &self.ichStart).field("cch", &self.cch).field("cb", &self.cb).field("dwPrivate", &self.dwPrivate).field("clsidTIP", &self.clsidTIP).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PERSISTENT_PROPERTY_HEADER_ACP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
-impl ::core::default::Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_POPF_ALL: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TF_PRESERVEDKEY {
-    pub uVKey: u32,
-    pub uModifiers: u32,
-}
-impl ::core::marker::Copy for TF_PRESERVEDKEY {}
-impl ::core::clone::Clone for TF_PRESERVEDKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TF_PRESERVEDKEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_PRESERVEDKEY").field("uVKey", &self.uVKey).field("uModifiers", &self.uModifiers).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TF_PRESERVEDKEY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TF_PRESERVEDKEY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PRESERVEDKEY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TF_PRESERVEDKEY {}
-impl ::core::default::Default for TF_PRESERVEDKEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_PROCESS_ATOM: &str = "_CTF_PROCESS_ATOM_";
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_PROFILETYPE_INPUTPROCESSOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_PROFILETYPE_KEYBOARDLAYOUT: u32 = 2u32;
-pub const TF_PROFILE_ARRAY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd38eff65_aa46_4fd5_91a7_67845fb02f5b);
-pub const TF_PROFILE_CANTONESE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aec109c_7e96_11d4_b2ef_0080c882687e);
-pub const TF_PROFILE_CHANGJIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdf9f03_c7d3_11d4_b2ab_0080c882687e);
-pub const TF_PROFILE_DAYI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x037b2c25_480c_4d7f_b027_d6ca6b69788a);
-pub const TF_PROFILE_NEWCHANGJIE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3ba907a_6c7e_11d4_97fa_0080c882687e);
-pub const TF_PROFILE_NEWPHONETIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f9c502_1742_11d4_9790_0080c882687e);
-pub const TF_PROFILE_NEWQUICK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b883ba0_c1c7_11d4_87f9_0080c882687e);
-pub const TF_PROFILE_PHONETIC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x761309de_317a_11d4_9b5d_0080c882687e);
-pub const TF_PROFILE_PINYIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3ba9077_6c7e_11d4_97fa_0080c882687e);
-pub const TF_PROFILE_QUICK: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6024b45f_5c54_11d4_b921_0080c882687e);
-pub const TF_PROFILE_SIMPLEFAST: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa550b04_5ad7_411f_a5ac_ca038ec515d7);
-pub const TF_PROFILE_TIGRINYA: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cab88b7_cc3e_46a6_9765_b772ad7761ff);
-pub const TF_PROFILE_WUBI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82590c13_f4dd_44f4_ba1d_8667246fdf8e);
-pub const TF_PROFILE_YI: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409c8376_007b_4357_ae8e_26316ee3fb0d);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct TF_PROPERTYVAL {
-    pub guidId: ::windows::core::GUID,
-    pub varValue: super::super::System::Com::VARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for TF_PROPERTYVAL {
-    fn clone(&self) -> Self {
-        Self { guidId: self.guidId, varValue: self.varValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for TF_PROPERTYVAL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for TF_PROPERTYVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.guidId == other.guidId && self.varValue == other.varValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for TF_PROPERTYVAL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for TF_PROPERTYVAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_PROPUI_STATUS_SAVETOFILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RCM_COMLESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RCM_HINT_COLLISION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RCM_HINT_READING_LENGTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RCM_VKEY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RIP_FLAG_FREEUNUSEDLIBRARIES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RIUIE_CONTEXT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RIUIE_ERRORINDEX: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RIUIE_MAXREADINGSTRINGLENGTH: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RIUIE_STRING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RIUIE_VERTICALORDER: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RP_HIDDENINSETTINGUI: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RP_LOCALPROCESS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RP_LOCALTHREAD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_RP_SUBITEMINSETTINGUI: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SD_LOADING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SD_READONLY: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_SELECTION {
-    pub range: ::core::option::Option<ITfRange>,
-    pub style: TF_SELECTIONSTYLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_SELECTION {
-    fn clone(&self) -> Self {
-        Self { range: self.range.clone(), style: self.style }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_SELECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_SELECTION").field("range", &self.range).field("style", &self.style).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_SELECTION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_SELECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.range == other.range && self.style == other.style
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_SELECTION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_SELECTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TF_SELECTIONSTYLE {
-    pub ase: TfActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TF_SELECTIONSTYLE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TF_SELECTIONSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TF_SELECTIONSTYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TF_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TF_SELECTIONSTYLE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TF_SELECTIONSTYLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_SELECTIONSTYLE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TF_SELECTIONSTYLE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TF_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SENTENCEMODE_AUTOMATIC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SENTENCEMODE_CONVERSATION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SENTENCEMODE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SENTENCEMODE_PHRASEPREDICT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SENTENCEMODE_PLAURALCLAUSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SENTENCEMODE_SINGLECONVERT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_DESKBAND: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_DOCK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_EXTRAICONSONMINIMIZED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_HIDDEN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_HIGHTRANSPARENCY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_LABELS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_LOWTRANSPARENCY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_MINIMIZED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_NOEXTRAICONSONMINIMIZED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_NOLABELS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_NOTRANSPARENCY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SFT_SHOWNORMAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SHOW_BALLOON: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SPEECHUI_SHOWN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SS_DISJOINTSEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SS_REGIONS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_SS_TRANSITORY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_ST_CORRECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262912i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TF_IGNOREEND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TF_MOVESTART: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_COMLESS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_CONSOLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_NOACTIVATEKEYBOARDLAYOUT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_NOACTIVATETIP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_SECUREMODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_UIELEMENTENABLEDONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMAE_WOW16: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_ACTIVATED: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_COMLESS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_CONSOLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_IMMERSIVEMODE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_NOACTIVATETIP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_SECUREMODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_UIELEMENTENABLEDONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TMF_WOW16: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TRANSITORYEXTENSION_ATSELECTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TRANSITORYEXTENSION_FLOATING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TRANSITORYEXTENSION_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_TU_CORRECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_URP_ALLPROFILES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_URP_LOCALPROCESS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_URP_LOCALTHREAD: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TF_US_HIDETIPUI: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_CHANGJIE: u32 = 61506u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_DAYI: u32 = 61507u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_CLASSIC_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_OPT_JAPANESE_ABC: u32 = 1041u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_OPT_KOREAN_HANGUL_2_BULSIK: u32 = 1042u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_OPT_SIMPLIFIED_CHINESE_PINYIN: u32 = 2052u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKBL_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TKBLayoutType(pub i32);
@@ -14459,455 +14118,6 @@ impl ::core::fmt::Debug for TKBLayoutType {
         f.debug_tuple("TKBLayoutType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKB_ALTERNATES_FOR_AUTOCORRECTION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKB_ALTERNATES_FOR_PREDICTION: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TKB_ALTERNATES_STANDARD: u32 = 1u32;
-pub const TSATTRID_App: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa80f77df_4237_40e5_849c_b5fa51c13ac7);
-pub const TSATTRID_App_IncorrectGrammar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd54e398_ad03_4b74_b6b3_5edb19996388);
-pub const TSATTRID_App_IncorrectSpelling: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf42de43c_ef12_430d_944c_9a08970a25d2);
-pub const TSATTRID_Font: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x573ea825_749b_4f8a_9cfd_21c3605ca828);
-pub const TSATTRID_Font_FaceName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb536aeb6_053b_4eb8_b65a_50da1e81e72e);
-pub const TSATTRID_Font_SizePts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8493302_a5e9_456d_af04_8005e4130f03);
-pub const TSATTRID_Font_Style: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68b2a77f_6b0e_4f28_8177_571c2f3a42b1);
-pub const TSATTRID_Font_Style_Animation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcf73d22_e029_47b7_bb36_f263a3d004cc);
-pub const TSATTRID_Font_Style_Animation_BlinkingBackground: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e5b104_0104_4b10_b585_00f2527522b5);
-pub const TSATTRID_Font_Style_Animation_LasVegasLights: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf40423d5_0f87_4f8f_bada_e6d60c25e152);
-pub const TSATTRID_Font_Style_Animation_MarchingBlackAnts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7644e067_f186_4902_bfc6_ec815aa20e9d);
-pub const TSATTRID_Font_Style_Animation_MarchingRedAnts: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78368dad_50fb_4c6f_840b_d486bb6cf781);
-pub const TSATTRID_Font_Style_Animation_Shimmer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce31b58_5293_4c36_8809_bf8bb51a27b3);
-pub const TSATTRID_Font_Style_Animation_SparkleText: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x533aad20_962c_4e9f_8c09_b42ea4749711);
-pub const TSATTRID_Font_Style_Animation_WipeDown: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5872e874_367b_4803_b160_c90ff62569d0);
-pub const TSATTRID_Font_Style_Animation_WipeRight: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb855cbe3_3d2c_4600_b1e9_e1c9ce02f842);
-pub const TSATTRID_Font_Style_BackgroundColor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb50eaa4e_3091_4468_81db_d79ea190c7c7);
-pub const TSATTRID_Font_Style_Blink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb2c036_7acf_4532_b720_b416dd7765a8);
-pub const TSATTRID_Font_Style_Bold: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48813a43_8a20_4940_8e58_97823f7b268a);
-pub const TSATTRID_Font_Style_Capitalize: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d85a3ba_b4fd_43b3_befc_6b985c843141);
-pub const TSATTRID_Font_Style_Color: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x857a7a37_b8af_4e9a_81b4_acf700c8411b);
-pub const TSATTRID_Font_Style_Emboss: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd8ed742_349e_4e37_82fb_437979cb53a7);
-pub const TSATTRID_Font_Style_Engrave: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c3371de_8332_4897_be5d_89233223179a);
-pub const TSATTRID_Font_Style_Height: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e937477_12e6_458b_926a_1fa44ee8f391);
-pub const TSATTRID_Font_Style_Hidden: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1e28770_881c_475f_863f_887a647b1090);
-pub const TSATTRID_Font_Style_Italic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8740682a_a765_48e1_acfc_d22222b2f810);
-pub const TSATTRID_Font_Style_Kerning: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc26e1b4_2f9a_47c8_8bff_bf1eb7cce0dd);
-pub const TSATTRID_Font_Style_Lowercase: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76d8ccb5_ca7b_4498_8ee9_d5c4f6f74c60);
-pub const TSATTRID_Font_Style_Outlined: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10e6db31_db0d_4ac6_a7f5_9c9cff6f2ab4);
-pub const TSATTRID_Font_Style_Overline: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3989f4a_992b_4301_8ce1_a5b7c6d1f3c8);
-pub const TSATTRID_Font_Style_Overline_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc46063a_e115_46e3_bcd8_ca6772aa95b4);
-pub const TSATTRID_Font_Style_Overline_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8440d94c_51ce_47b2_8d4c_15751e5f721b);
-pub const TSATTRID_Font_Style_Position: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15cd26ab_f2fb_4062_b5a6_9a49e1a5cc0b);
-pub const TSATTRID_Font_Style_Protected: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c557cb2_14cf_4554_a574_ecb2f7e7efd4);
-pub const TSATTRID_Font_Style_Shadow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f686d2f_c6cd_4c56_8a1a_994a4b9766be);
-pub const TSATTRID_Font_Style_SmallCaps: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfacb6bc6_9100_4cc6_b969_11eea45a86b4);
-pub const TSATTRID_Font_Style_Spacing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c1200d_8f06_409a_8e49_6a554bf7c153);
-pub const TSATTRID_Font_Style_Strikethrough: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c562193_2d08_4668_9601_ced41309d7af);
-pub const TSATTRID_Font_Style_Strikethrough_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62489b31_a3e7_4f94_ac43_ebaf8fcc7a9f);
-pub const TSATTRID_Font_Style_Strikethrough_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d736b6_3c8f_4b97_ab78_1877cb990d31);
-pub const TSATTRID_Font_Style_Subscript: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5774fb84_389b_43bc_a74b_1568347cf0f4);
-pub const TSATTRID_Font_Style_Superscript: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ea4993c_563c_49aa_9372_0bef09a9255b);
-pub const TSATTRID_Font_Style_Underline: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c9c9f3_7902_444b_9a7b_48e70f4b50f7);
-pub const TSATTRID_Font_Style_Underline_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d24aa6_1db3_4c69_a176_31120e7586d5);
-pub const TSATTRID_Font_Style_Underline_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b6720e5_0f73_4951_a6b3_6f19e43c9461);
-pub const TSATTRID_Font_Style_Uppercase: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a300e8_e340_4937_b697_8f234045cd9a);
-pub const TSATTRID_Font_Style_Weight: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12f3189c_8bb0_461b_b1fa_eaf907047fe0);
-pub const TSATTRID_List: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x436d673b_26f1_4aee_9e65_8f83a4ed4884);
-pub const TSATTRID_List_LevelIndel: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f7cc899_311f_487b_ad5d_e2a459e12d42);
-pub const TSATTRID_List_Type: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae3e665e_4bce_49e3_a0fe_2db47d3a17ae);
-pub const TSATTRID_List_Type_Arabic: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1338c5d6_98a3_4fa3_9bd1_7a60eef8e9e0);
-pub const TSATTRID_List_Type_Bullet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbccd77c5_4c4d_4ce2_b102_559f3b2bfcea);
-pub const TSATTRID_List_Type_LowerLetter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96372285_f3cf_491e_a925_3832347fd237);
-pub const TSATTRID_List_Type_LowerRoman: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90466262_3980_4b8e_9368_918bd1218a41);
-pub const TSATTRID_List_Type_UpperLetter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7987b7cd_ce52_428b_9b95_a357f6f10c45);
-pub const TSATTRID_List_Type_UpperRoman: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6ab552_4a80_467f_b2f1_127e2aa3ba9e);
-pub const TSATTRID_OTHERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c32af9_57d0_46a9_bca8_dac238a13057);
-pub const TSATTRID_Text: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb8e68_81f9_449d_a15a_87a8388faac0);
-pub const TSATTRID_Text_Alignment: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x139941e6_1767_456d_938e_35ba568b5cd4);
-pub const TSATTRID_Text_Alignment_Center: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a95c16_53bf_4d55_8b87_4bdd8d4275fc);
-pub const TSATTRID_Text_Alignment_Justify: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed350740_a0f7_42d3_8ea8_f81b6488faf0);
-pub const TSATTRID_Text_Alignment_Left: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ae95d3_6361_43a2_8495_d00f397f1693);
-pub const TSATTRID_Text_Alignment_Right: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36f0f98_1b9e_4360_8616_03fb08a78456);
-pub const TSATTRID_Text_EmbeddedObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb8e68_81f9_449d_a15a_87a8388faac0);
-pub const TSATTRID_Text_Hyphenation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdadf4525_618e_49eb_b1a8_3b68bd7648e3);
-pub const TSATTRID_Text_Language: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c04ef1_5753_4c25_8887_85443fe5f819);
-pub const TSATTRID_Text_Link: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47cd9051_3722_4cd8_b7c8_4e17ca1759f5);
-pub const TSATTRID_Text_Orientation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bab707f_8785_4c39_8b52_96f878303ffb);
-pub const TSATTRID_Text_Para: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5edc5822_99dc_4dd6_aec3_b62baa5b2e7c);
-pub const TSATTRID_Text_Para_FirstLineIndent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07c97a13_7472_4dd8_90a9_91e3d7e4f29c);
-pub const TSATTRID_Text_Para_LeftIndent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2848e9_7471_41c9_b6b3_8a1450e01897);
-pub const TSATTRID_Text_Para_LineSpacing: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x699b380d_7f8c_46d6_a73b_dfe3d1538df3);
-pub const TSATTRID_Text_Para_LineSpacing_AtLeast: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadfedf31_2d44_4434_a5ff_7f4c4990a905);
-pub const TSATTRID_Text_Para_LineSpacing_Double: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82fb1805_a6c4_4231_ac12_6260af2aba28);
-pub const TSATTRID_Text_Para_LineSpacing_Exactly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d45ad40_23de_48d7_a6b3_765420c620cc);
-pub const TSATTRID_Text_Para_LineSpacing_Multiple: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x910f1e3c_d6d0_4f65_8a3c_42b4b31868c5);
-pub const TSATTRID_Text_Para_LineSpacing_OnePtFive: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0428a021_0397_4b57_9a17_0795994cd3c5);
-pub const TSATTRID_Text_Para_LineSpacing_Single: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed350740_a0f7_42d3_8ea8_f81b6488faf0);
-pub const TSATTRID_Text_Para_RightIndent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c7f26f9_a5e2_48da_b98a_520cb16513bf);
-pub const TSATTRID_Text_Para_SpaceAfter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b0a3f55_22dc_425f_a411_93da1d8f9baa);
-pub const TSATTRID_Text_Para_SpaceBefore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8df98589_194a_4601_b251_9865a3e906dd);
-pub const TSATTRID_Text_ReadOnly: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85836617_de32_4afd_a50f_a2db110e6e4d);
-pub const TSATTRID_Text_RightToLeft: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca666e71_1b08_453d_bfdd_28e08c8aaf7a);
-pub const TSATTRID_Text_VerticalWriting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bba8195_046f_4ea9_b311_97fd66c4274b);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AS_ATTR_CHANGE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AS_LAYOUT_CHANGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AS_SEL_CHANGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AS_STATUS_CHANGE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_AS_TEXT_CHANGE: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct TS_ATTRVAL {
-    pub idAttr: ::windows::core::GUID,
-    pub dwOverlapId: u32,
-    pub varValue: super::super::System::Com::VARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for TS_ATTRVAL {
-    fn clone(&self) -> Self {
-        Self { idAttr: self.idAttr, dwOverlapId: self.dwOverlapId, varValue: self.varValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for TS_ATTRVAL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for TS_ATTRVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.idAttr == other.idAttr && self.dwOverlapId == other.dwOverlapId && self.varValue == other.varValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for TS_ATTRVAL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for TS_ATTRVAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ATTR_FIND_BACKWARDS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ATTR_FIND_HIDDEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ATTR_FIND_UPDATESTART: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ATTR_FIND_WANT_END: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ATTR_FIND_WANT_OFFSET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_ATTR_FIND_WANT_VALUE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CHAR_EMBEDDED: u32 = 65532u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CHAR_REGION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_CHAR_REPLACEMENT: u32 = 65533u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220982i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_INVALIDPOINT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220985i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_INVALIDPOS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220988i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_NOLAYOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220986i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_NOLOCK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_NOOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_NOSELECTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220987i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_NOSERVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220989i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220983i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_E_SYNCHRONOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220984i32);
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_GEA_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_GTA_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_IAS_NOQUERY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_IAS_QUERYONLY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_IE_COMPOSITION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_IE_CORRECTION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_LF_SYNC: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TS_RUNINFO {
-    pub uCount: u32,
-    pub r#type: TsRunType,
-}
-impl ::core::marker::Copy for TS_RUNINFO {}
-impl ::core::clone::Clone for TS_RUNINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TS_RUNINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_RUNINFO").field("uCount", &self.uCount).field("type", &self.r#type).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TS_RUNINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TS_RUNINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_RUNINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TS_RUNINFO {}
-impl ::core::default::Default for TS_RUNINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_ENABLED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_EMBEDDEDHANDWRITINGVIEW_VISIBLE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_INPUTPANEMANUALDISPLAYENABLE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_LOADING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_READONLY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_RESERVED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TS_SELECTIONSTYLE {
-    pub ase: TsActiveSelEnd,
-    pub fInterimChar: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TS_SELECTIONSTYLE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TS_SELECTIONSTYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TS_SELECTIONSTYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TS_SELECTIONSTYLE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TS_SELECTIONSTYLE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTIONSTYLE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TS_SELECTIONSTYLE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TS_SELECTIONSTYLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TS_SELECTION_ACP {
-    pub acpStart: i32,
-    pub acpEnd: i32,
-    pub style: TS_SELECTIONSTYLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for TS_SELECTION_ACP {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TS_SELECTION_ACP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TS_SELECTION_ACP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_SELECTION_ACP").field("acpStart", &self.acpStart).field("acpEnd", &self.acpEnd).field("style", &self.style).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TS_SELECTION_ACP {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TS_SELECTION_ACP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTION_ACP>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TS_SELECTION_ACP {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TS_SELECTION_ACP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TS_SELECTION_ANCHOR {
-    pub paStart: ::core::option::Option<IAnchor>,
-    pub paEnd: ::core::option::Option<IAnchor>,
-    pub style: TS_SELECTIONSTYLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for TS_SELECTION_ANCHOR {
-    fn clone(&self) -> Self {
-        Self { paStart: self.paStart.clone(), paEnd: self.paEnd.clone(), style: self.style }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TS_SELECTION_ANCHOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_SELECTION_ANCHOR").field("paStart", &self.paStart).field("paEnd", &self.paEnd).field("style", &self.style).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TS_SELECTION_ANCHOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TS_SELECTION_ANCHOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.paStart == other.paStart && self.paEnd == other.paEnd && self.style == other.style
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TS_SELECTION_ANCHOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TS_SELECTION_ANCHOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SHIFT_COUNT_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SHIFT_COUNT_ONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SHIFT_HALT_HIDDEN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SHIFT_HALT_VISIBLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_DISJOINTSEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_NOHIDDENTEXT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_REGIONS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_TKBAUTOCORRECTENABLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_TRANSITORY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_SS_UWPCONTROL: u32 = 64u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TS_STATUS {
-    pub dwDynamicFlags: u32,
-    pub dwStaticFlags: u32,
-}
-impl ::core::marker::Copy for TS_STATUS {}
-impl ::core::clone::Clone for TS_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TS_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_STATUS").field("dwDynamicFlags", &self.dwDynamicFlags).field("dwStaticFlags", &self.dwStaticFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TS_STATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TS_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TS_STATUS {}
-impl ::core::default::Default for TS_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_STRF_END: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_STRF_MID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_STRF_START: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(262912i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub struct TS_TEXTCHANGE {
-    pub acpStart: i32,
-    pub acpOldEnd: i32,
-    pub acpNewEnd: i32,
-}
-impl ::core::marker::Copy for TS_TEXTCHANGE {}
-impl ::core::clone::Clone for TS_TEXTCHANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TS_TEXTCHANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TS_TEXTCHANGE").field("acpStart", &self.acpStart).field("acpOldEnd", &self.acpOldEnd).field("acpNewEnd", &self.acpNewEnd).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TS_TEXTCHANGE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TS_TEXTCHANGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_TEXTCHANGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TS_TEXTCHANGE {}
-impl ::core::default::Default for TS_TEXTCHANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -15335,14 +14545,804 @@ impl ::core::fmt::Debug for TsShiftDir {
         f.debug_tuple("TsShiftDir").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
-#[inline]
-pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UninitLocalMsCtfMonitor() -> ::windows::core::HRESULT;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HKL(pub isize);
+impl HKL {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
     }
-    UninitLocalMsCtfMonitor().ok()
+}
+impl ::core::default::Default for HKL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HKL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HKL {}
+impl ::core::fmt::Debug for HKL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HKL").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HKL>> for HKL {
+    fn from(optional: ::core::option::Option<HKL>) -> HKL {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HKL {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_DA_COLOR {
+    pub r#type: TF_DA_COLORTYPE,
+    pub Anonymous: TF_DA_COLOR_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_DA_COLOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_DA_COLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_DA_COLOR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_DA_COLOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DA_COLOR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_DA_COLOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_DA_COLOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union TF_DA_COLOR_0 {
+    pub nIndex: i32,
+    pub cr: super::super::Foundation::COLORREF,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_DA_COLOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_DA_COLOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_DA_COLOR_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_DA_COLOR_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DA_COLOR_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_DA_COLOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_DA_COLOR_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_DISPLAYATTRIBUTE {
+    pub crText: TF_DA_COLOR,
+    pub crBk: TF_DA_COLOR,
+    pub lsStyle: TF_DA_LINESTYLE,
+    pub fBoldLine: super::super::Foundation::BOOL,
+    pub crLine: TF_DA_COLOR,
+    pub bAttr: TF_DA_ATTR_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_DISPLAYATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_DISPLAYATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_DISPLAYATTRIBUTE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_DISPLAYATTRIBUTE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_DISPLAYATTRIBUTE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_DISPLAYATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_DISPLAYATTRIBUTE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TF_HALTCOND {
+    pub pHaltRange: ::core::option::Option<ITfRange>,
+    pub aHaltPos: TfAnchor,
+    pub dwFlags: u32,
+}
+impl ::core::clone::Clone for TF_HALTCOND {
+    fn clone(&self) -> Self {
+        Self { pHaltRange: self.pHaltRange.clone(), aHaltPos: self.aHaltPos, dwFlags: self.dwFlags }
+    }
+}
+impl ::core::fmt::Debug for TF_HALTCOND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_HALTCOND").field("pHaltRange", &self.pHaltRange).field("aHaltPos", &self.aHaltPos).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TF_HALTCOND {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for TF_HALTCOND {
+    fn eq(&self, other: &Self) -> bool {
+        self.pHaltRange == other.pHaltRange && self.aHaltPos == other.aHaltPos && self.dwFlags == other.dwFlags
+    }
+}
+impl ::core::cmp::Eq for TF_HALTCOND {}
+impl ::core::default::Default for TF_HALTCOND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TF_INPUTPROCESSORPROFILE {
+    pub dwProfileType: u32,
+    pub langid: u16,
+    pub clsid: ::windows::core::GUID,
+    pub guidProfile: ::windows::core::GUID,
+    pub catid: ::windows::core::GUID,
+    pub hklSubstitute: HKL,
+    pub dwCaps: u32,
+    pub hkl: HKL,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for TF_INPUTPROCESSORPROFILE {}
+impl ::core::clone::Clone for TF_INPUTPROCESSORPROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TF_INPUTPROCESSORPROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_INPUTPROCESSORPROFILE").field("dwProfileType", &self.dwProfileType).field("langid", &self.langid).field("clsid", &self.clsid).field("guidProfile", &self.guidProfile).field("catid", &self.catid).field("hklSubstitute", &self.hklSubstitute).field("dwCaps", &self.dwCaps).field("hkl", &self.hkl).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TF_INPUTPROCESSORPROFILE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TF_INPUTPROCESSORPROFILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_INPUTPROCESSORPROFILE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TF_INPUTPROCESSORPROFILE {}
+impl ::core::default::Default for TF_INPUTPROCESSORPROFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TF_LANGBARITEMINFO {
+    pub clsidService: ::windows::core::GUID,
+    pub guidItem: ::windows::core::GUID,
+    pub dwStyle: u32,
+    pub ulSort: u32,
+    pub szDescription: [u16; 32],
+}
+impl ::core::marker::Copy for TF_LANGBARITEMINFO {}
+impl ::core::clone::Clone for TF_LANGBARITEMINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TF_LANGBARITEMINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LANGBARITEMINFO").field("clsidService", &self.clsidService).field("guidItem", &self.guidItem).field("dwStyle", &self.dwStyle).field("ulSort", &self.ulSort).field("szDescription", &self.szDescription).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TF_LANGBARITEMINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TF_LANGBARITEMINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LANGBARITEMINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TF_LANGBARITEMINFO {}
+impl ::core::default::Default for TF_LANGBARITEMINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_LANGUAGEPROFILE {
+    pub clsid: ::windows::core::GUID,
+    pub langid: u16,
+    pub catid: ::windows::core::GUID,
+    pub fActive: super::super::Foundation::BOOL,
+    pub guidProfile: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_LANGUAGEPROFILE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LANGUAGEPROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_LANGUAGEPROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LANGUAGEPROFILE").field("clsid", &self.clsid).field("langid", &self.langid).field("catid", &self.catid).field("fActive", &self.fActive).field("guidProfile", &self.guidProfile).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_LANGUAGEPROFILE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_LANGUAGEPROFILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LANGUAGEPROFILE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_LANGUAGEPROFILE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_LANGUAGEPROFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_LBBALLOONINFO {
+    pub style: TfLBBalloonStyle,
+    pub bstrText: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LBBALLOONINFO {
+    fn clone(&self) -> Self {
+        Self { style: self.style, bstrText: self.bstrText.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_LBBALLOONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_LBBALLOONINFO").field("style", &self.style).field("bstrText", &self.bstrText).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_LBBALLOONINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_LBBALLOONINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.style == other.style && self.bstrText == other.bstrText
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_LBBALLOONINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_LBBALLOONINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_LMLATTELEMENT {
+    pub dwFrameStart: u32,
+    pub dwFrameLen: u32,
+    pub dwFlags: u32,
+    pub Anonymous: TF_LMLATTELEMENT_0,
+    pub bstrText: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LMLATTELEMENT {
+    fn clone(&self) -> Self {
+        Self { dwFrameStart: self.dwFrameStart, dwFrameLen: self.dwFrameLen, dwFlags: self.dwFlags, Anonymous: self.Anonymous, bstrText: self.bstrText.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_LMLATTELEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwFrameStart == other.dwFrameStart && self.dwFrameLen == other.dwFrameLen && self.dwFlags == other.dwFlags && self.Anonymous == other.Anonymous && self.bstrText == other.bstrText
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_LMLATTELEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_LMLATTELEMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union TF_LMLATTELEMENT_0 {
+    pub iCost: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_LMLATTELEMENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_LMLATTELEMENT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_LMLATTELEMENT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_LMLATTELEMENT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_LMLATTELEMENT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_LMLATTELEMENT_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    pub guidType: ::windows::core::GUID,
+    pub ichStart: i32,
+    pub cch: i32,
+    pub cb: u32,
+    pub dwPrivate: u32,
+    pub clsidTIP: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
+impl ::core::clone::Clone for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_PERSISTENT_PROPERTY_HEADER_ACP").field("guidType", &self.guidType).field("ichStart", &self.ichStart).field("cch", &self.cch).field("cb", &self.cb).field("dwPrivate", &self.dwPrivate).field("clsidTIP", &self.clsidTIP).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PERSISTENT_PROPERTY_HEADER_ACP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TF_PERSISTENT_PROPERTY_HEADER_ACP {}
+impl ::core::default::Default for TF_PERSISTENT_PROPERTY_HEADER_ACP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TF_PRESERVEDKEY {
+    pub uVKey: u32,
+    pub uModifiers: u32,
+}
+impl ::core::marker::Copy for TF_PRESERVEDKEY {}
+impl ::core::clone::Clone for TF_PRESERVEDKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TF_PRESERVEDKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_PRESERVEDKEY").field("uVKey", &self.uVKey).field("uModifiers", &self.uModifiers).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TF_PRESERVEDKEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TF_PRESERVEDKEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_PRESERVEDKEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TF_PRESERVEDKEY {}
+impl ::core::default::Default for TF_PRESERVEDKEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct TF_PROPERTYVAL {
+    pub guidId: ::windows::core::GUID,
+    pub varValue: super::super::System::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for TF_PROPERTYVAL {
+    fn clone(&self) -> Self {
+        Self { guidId: self.guidId, varValue: self.varValue.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for TF_PROPERTYVAL {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for TF_PROPERTYVAL {
+    fn eq(&self, other: &Self) -> bool {
+        self.guidId == other.guidId && self.varValue == other.varValue
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for TF_PROPERTYVAL {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for TF_PROPERTYVAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_SELECTION {
+    pub range: ::core::option::Option<ITfRange>,
+    pub style: TF_SELECTIONSTYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_SELECTION {
+    fn clone(&self) -> Self {
+        Self { range: self.range.clone(), style: self.style }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_SELECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_SELECTION").field("range", &self.range).field("style", &self.style).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_SELECTION {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_SELECTION {
+    fn eq(&self, other: &Self) -> bool {
+        self.range == other.range && self.style == other.style
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_SELECTION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_SELECTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TF_SELECTIONSTYLE {
+    pub ase: TfActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TF_SELECTIONSTYLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TF_SELECTIONSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TF_SELECTIONSTYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TF_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TF_SELECTIONSTYLE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TF_SELECTIONSTYLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TF_SELECTIONSTYLE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TF_SELECTIONSTYLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TF_SELECTIONSTYLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct TS_ATTRVAL {
+    pub idAttr: ::windows::core::GUID,
+    pub dwOverlapId: u32,
+    pub varValue: super::super::System::Com::VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for TS_ATTRVAL {
+    fn clone(&self) -> Self {
+        Self { idAttr: self.idAttr, dwOverlapId: self.dwOverlapId, varValue: self.varValue.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for TS_ATTRVAL {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for TS_ATTRVAL {
+    fn eq(&self, other: &Self) -> bool {
+        self.idAttr == other.idAttr && self.dwOverlapId == other.dwOverlapId && self.varValue == other.varValue
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for TS_ATTRVAL {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for TS_ATTRVAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TS_RUNINFO {
+    pub uCount: u32,
+    pub r#type: TsRunType,
+}
+impl ::core::marker::Copy for TS_RUNINFO {}
+impl ::core::clone::Clone for TS_RUNINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TS_RUNINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_RUNINFO").field("uCount", &self.uCount).field("type", &self.r#type).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TS_RUNINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TS_RUNINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_RUNINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TS_RUNINFO {}
+impl ::core::default::Default for TS_RUNINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TS_SELECTIONSTYLE {
+    pub ase: TsActiveSelEnd,
+    pub fInterimChar: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TS_SELECTIONSTYLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TS_SELECTIONSTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TS_SELECTIONSTYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_SELECTIONSTYLE").field("ase", &self.ase).field("fInterimChar", &self.fInterimChar).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TS_SELECTIONSTYLE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TS_SELECTIONSTYLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTIONSTYLE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TS_SELECTIONSTYLE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TS_SELECTIONSTYLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TS_SELECTION_ACP {
+    pub acpStart: i32,
+    pub acpEnd: i32,
+    pub style: TS_SELECTIONSTYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for TS_SELECTION_ACP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TS_SELECTION_ACP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TS_SELECTION_ACP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_SELECTION_ACP").field("acpStart", &self.acpStart).field("acpEnd", &self.acpEnd).field("style", &self.style).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TS_SELECTION_ACP {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TS_SELECTION_ACP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_SELECTION_ACP>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TS_SELECTION_ACP {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TS_SELECTION_ACP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct TS_SELECTION_ANCHOR {
+    pub paStart: ::core::option::Option<IAnchor>,
+    pub paEnd: ::core::option::Option<IAnchor>,
+    pub style: TS_SELECTIONSTYLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TS_SELECTION_ANCHOR {
+    fn clone(&self) -> Self {
+        Self { paStart: self.paStart.clone(), paEnd: self.paEnd.clone(), style: self.style }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for TS_SELECTION_ANCHOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_SELECTION_ANCHOR").field("paStart", &self.paStart).field("paEnd", &self.paEnd).field("style", &self.style).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TS_SELECTION_ANCHOR {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TS_SELECTION_ANCHOR {
+    fn eq(&self, other: &Self) -> bool {
+        self.paStart == other.paStart && self.paEnd == other.paEnd && self.style == other.style
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TS_SELECTION_ANCHOR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for TS_SELECTION_ANCHOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TS_STATUS {
+    pub dwDynamicFlags: u32,
+    pub dwStaticFlags: u32,
+}
+impl ::core::marker::Copy for TS_STATUS {}
+impl ::core::clone::Clone for TS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TS_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_STATUS").field("dwDynamicFlags", &self.dwDynamicFlags).field("dwStaticFlags", &self.dwStaticFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TS_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TS_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TS_STATUS {}
+impl ::core::default::Default for TS_STATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_TextServices\"`*"]
+pub struct TS_TEXTCHANGE {
+    pub acpStart: i32,
+    pub acpOldEnd: i32,
+    pub acpNewEnd: i32,
+}
+impl ::core::marker::Copy for TS_TEXTCHANGE {}
+impl ::core::clone::Clone for TS_TEXTCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TS_TEXTCHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TS_TEXTCHANGE").field("acpStart", &self.acpStart).field("acpOldEnd", &self.acpOldEnd).field("acpNewEnd", &self.acpNewEnd).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TS_TEXTCHANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TS_TEXTCHANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TS_TEXTCHANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TS_TEXTCHANGE {}
+impl ::core::default::Default for TS_TEXTCHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

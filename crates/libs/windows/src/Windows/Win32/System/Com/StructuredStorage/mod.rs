@@ -1,776 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct BSTRBLOB {
-    pub cbSize: u32,
-    pub pData: *mut u8,
-}
-impl ::core::marker::Copy for BSTRBLOB {}
-impl ::core::clone::Clone for BSTRBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BSTRBLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BSTRBLOB").field("cbSize", &self.cbSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BSTRBLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BSTRBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSTRBLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BSTRBLOB {}
-impl ::core::default::Default for BSTRBLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CABOOL {
-    pub cElems: u32,
-    pub pElems: *mut i16,
-}
-impl ::core::marker::Copy for CABOOL {}
-impl ::core::clone::Clone for CABOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CABOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABOOL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CABOOL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CABOOL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABOOL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CABOOL {}
-impl ::core::default::Default for CABOOL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CABSTR {
-    pub cElems: u32,
-    pub pElems: *mut super::super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CABSTR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CABSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CABSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABSTR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CABSTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABSTR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CABSTR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CABSTRBLOB {
-    pub cElems: u32,
-    pub pElems: *mut BSTRBLOB,
-}
-impl ::core::marker::Copy for CABSTRBLOB {}
-impl ::core::clone::Clone for CABSTRBLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CABSTRBLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABSTRBLOB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CABSTRBLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CABSTRBLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABSTRBLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CABSTRBLOB {}
-impl ::core::default::Default for CABSTRBLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAC {
-    pub cElems: u32,
-    pub pElems: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for CAC {}
-impl ::core::clone::Clone for CAC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAC").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAC {}
-impl ::core::default::Default for CAC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CACLIPDATA {
-    pub cElems: u32,
-    pub pElems: *mut CLIPDATA,
-}
-impl ::core::marker::Copy for CACLIPDATA {}
-impl ::core::clone::Clone for CACLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CACLIPDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACLIPDATA").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CACLIPDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CACLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CACLIPDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CACLIPDATA {}
-impl ::core::default::Default for CACLIPDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CACLSID {
-    pub cElems: u32,
-    pub pElems: *mut ::windows::core::GUID,
-}
-impl ::core::marker::Copy for CACLSID {}
-impl ::core::clone::Clone for CACLSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CACLSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACLSID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CACLSID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CACLSID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CACLSID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CACLSID {}
-impl ::core::default::Default for CACLSID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CACY {
-    pub cElems: u32,
-    pub pElems: *mut super::CY,
-}
-impl ::core::marker::Copy for CACY {}
-impl ::core::clone::Clone for CACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CACY").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CACY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CACY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CACY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CACY {}
-impl ::core::default::Default for CACY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CADATE {
-    pub cElems: u32,
-    pub pElems: *mut f64,
-}
-impl ::core::marker::Copy for CADATE {}
-impl ::core::clone::Clone for CADATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CADATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CADATE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CADATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CADATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CADATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CADATE {}
-impl ::core::default::Default for CADATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CADBL {
-    pub cElems: u32,
-    pub pElems: *mut f64,
-}
-impl ::core::marker::Copy for CADBL {}
-impl ::core::clone::Clone for CADBL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CADBL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CADBL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CADBL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CADBL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CADBL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CADBL {}
-impl ::core::default::Default for CADBL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CAFILETIME {
-    pub cElems: u32,
-    pub pElems: *mut super::super::super::Foundation::FILETIME,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CAFILETIME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CAFILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CAFILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAFILETIME").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAFILETIME {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CAFILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAFILETIME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CAFILETIME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CAFILETIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAFLT {
-    pub cElems: u32,
-    pub pElems: *mut f32,
-}
-impl ::core::marker::Copy for CAFLT {}
-impl ::core::clone::Clone for CAFLT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAFLT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAFLT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAFLT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAFLT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAFLT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAFLT {}
-impl ::core::default::Default for CAFLT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAH {
-    pub cElems: u32,
-    pub pElems: *mut i64,
-}
-impl ::core::marker::Copy for CAH {}
-impl ::core::clone::Clone for CAH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAH {}
-impl ::core::default::Default for CAH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAI {
-    pub cElems: u32,
-    pub pElems: *mut i16,
-}
-impl ::core::marker::Copy for CAI {}
-impl ::core::clone::Clone for CAI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAI {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAI {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAI>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAI {}
-impl ::core::default::Default for CAI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAL {
-    pub cElems: u32,
-    pub pElems: *mut i32,
-}
-impl ::core::marker::Copy for CAL {}
-impl ::core::clone::Clone for CAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAL {}
-impl ::core::default::Default for CAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CALPSTR {
-    pub cElems: u32,
-    pub pElems: *mut ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for CALPSTR {}
-impl ::core::clone::Clone for CALPSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CALPSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALPSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CALPSTR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CALPSTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALPSTR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CALPSTR {}
-impl ::core::default::Default for CALPSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CALPWSTR {
-    pub cElems: u32,
-    pub pElems: *mut ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for CALPWSTR {}
-impl ::core::clone::Clone for CALPWSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CALPWSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CALPWSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CALPWSTR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CALPWSTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALPWSTR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CALPWSTR {}
-impl ::core::default::Default for CALPWSTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CAPROPVARIANT {
-    pub cElems: u32,
-    pub pElems: *mut PROPVARIANT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CAPROPVARIANT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CAPROPVARIANT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CAPROPVARIANT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAPROPVARIANT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CAPROPVARIANT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CAPROPVARIANT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPROPVARIANT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CAPROPVARIANT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CAPROPVARIANT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CASCODE {
-    pub cElems: u32,
-    pub pElems: *mut i32,
-}
-impl ::core::marker::Copy for CASCODE {}
-impl ::core::clone::Clone for CASCODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CASCODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CASCODE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CASCODE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CASCODE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CASCODE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CASCODE {}
-impl ::core::default::Default for CASCODE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAUB {
-    pub cElems: u32,
-    pub pElems: *mut u8,
-}
-impl ::core::marker::Copy for CAUB {}
-impl ::core::clone::Clone for CAUB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAUB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAUB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAUB {}
-impl ::core::default::Default for CAUB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAUH {
-    pub cElems: u32,
-    pub pElems: *mut u64,
-}
-impl ::core::marker::Copy for CAUH {}
-impl ::core::clone::Clone for CAUH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAUH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAUH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAUH {}
-impl ::core::default::Default for CAUH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAUI {
-    pub cElems: u32,
-    pub pElems: *mut u16,
-}
-impl ::core::marker::Copy for CAUI {}
-impl ::core::clone::Clone for CAUI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAUI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAUI {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUI {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUI>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAUI {}
-impl ::core::default::Default for CAUI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CAUL {
-    pub cElems: u32,
-    pub pElems: *mut u32,
-}
-impl ::core::marker::Copy for CAUL {}
-impl ::core::clone::Clone for CAUL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAUL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAUL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAUL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAUL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAUL {}
-impl ::core::default::Default for CAUL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub struct CLIPDATA {
-    pub cbSize: u32,
-    pub ulClipFmt: i32,
-    pub pClipData: *mut u8,
-}
-impl ::core::marker::Copy for CLIPDATA {}
-impl ::core::clone::Clone for CLIPDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CLIPDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLIPDATA").field("cbSize", &self.cbSize).field("ulClipFmt", &self.ulClipFmt).field("pClipData", &self.pClipData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CLIPDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CLIPDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIPDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CLIPDATA {}
-impl ::core::default::Default for CLIPDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const CWCSTORAGENAME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[inline]
 pub unsafe fn CoGetInstanceFromFile<'a, P0, P1>(pserverinfo: ::core::option::Option<&super::COSERVERINFO>, pclsid: ::core::option::Option<&::windows::core::GUID>, punkouter: P0, dwclsctx: super::CLSCTX, grfmode: u32, pwszname: P1, presults: &mut [super::MULTI_QI]) -> ::windows::core::Result<()>
@@ -895,6 +122,443 @@ where
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetHGlobalFromStream(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn OleConvertIStorageToOLESTREAM<'a, P0>(pstg: P0) -> ::windows::core::Result<OLESTREAM>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleConvertIStorageToOLESTREAM(pstg: *mut ::core::ffi::c_void, lpolestream: *mut OLESTREAM) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    OleConvertIStorageToOLESTREAM(pstg.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, P0>(pstg: P0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: &super::STGMEDIUM) -> ::windows::core::Result<OLESTREAM>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleConvertIStorageToOLESTREAMEx(pstg: *mut ::core::ffi::c_void, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, ::core::mem::transmute(pmedium), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn OleConvertOLESTREAMToIStorage<'a, P0>(lpolestream: &OLESTREAM, pstg: P0, ptd: &super::DVTARGETDEVICE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::HRESULT;
+    }
+    OleConvertOLESTREAMToIStorage(::core::mem::transmute(lpolestream), pstg.into().abi(), ::core::mem::transmute(ptd)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, P0>(polestm: &OLESTREAM, pstg: P0, pcfformat: &mut u16, plwwidth: &mut i32, plheight: &mut i32, pdwsize: &mut u32, pmedium: &mut super::STGMEDIUM) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
+    }
+    OleConvertOLESTREAMToIStorageEx(::core::mem::transmute(polestm), pstg.into().abi(), ::core::mem::transmute(pcfformat), ::core::mem::transmute(plwwidth), ::core::mem::transmute(plheight), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pmedium)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn PropStgNameToFmtId<'a, P0>(oszname: P0) -> ::windows::core::Result<::windows::core::GUID>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropStgNameToFmtId(oszname: ::windows::core::PCWSTR, pfmtid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    PropStgNameToFmtId(oszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PropVariantClear(pvar: &mut PROPVARIANT) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
+    }
+    PropVariantClear(::core::mem::transmute(pvar)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PropVariantCopy(pvardest: &mut PROPVARIANT, pvarsrc: &PROPVARIANT) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::HRESULT;
+    }
+    PropVariantCopy(::core::mem::transmute(pvardest), ::core::mem::transmute(pvarsrc)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn ReadClassStg<'a, P0>(pstg: P0) -> ::windows::core::Result<::windows::core::GUID>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadClassStg(pstg: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    ReadClassStg(pstg.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn ReadClassStm<'a, P0>(pstm: P0) -> ::windows::core::Result<::windows::core::GUID>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadClassStm(pstm: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    ReadClassStm(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn ReadFmtUserTypeStg<'a, P0>(pstg: P0, pcf: &mut u16, lplpszusertype: ::core::option::Option<&mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReadFmtUserTypeStg(pstg: *mut ::core::ffi::c_void, pcf: *mut u16, lplpszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    ReadFmtUserTypeStg(pstg.into().abi(), ::core::mem::transmute(pcf), ::core::mem::transmute(lplpszusertype)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetConvertStg<'a, P0, P1>(pstg: P0, fconvert: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+    P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetConvertStg(pstg: *mut ::core::ffi::c_void, fconvert: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    SetConvertStg(pstg.into().abi(), fconvert.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn StgConvertPropertyToVariant(pprop: &SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: &mut PROPVARIANT, pma: &PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
+    }
+    StgConvertPropertyToVariant(::core::mem::transmute(pprop), codepage, ::core::mem::transmute(pvar), ::core::mem::transmute(pma))
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn StgConvertVariantToProperty<'a, P0>(pvar: &PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: &mut u32, pid: u32, freserved: P0, pcindirect: ::core::option::Option<&mut u32>) -> *mut SERIALIZEDPROPERTYVALUE
+where
+    P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
+    }
+    StgConvertVariantToProperty(::core::mem::transmute(pvar), codepage, ::core::mem::transmute(pprop), ::core::mem::transmute(pcb), pid, freserved.into(), ::core::mem::transmute(pcindirect))
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgCreateDocfile<'a, P0>(pwcsname: P0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgCreateDocfile(pwcsname: ::windows::core::PCWSTR, grfmode: STGM, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgCreateDocfile(pwcsname.into(), grfmode, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgCreateDocfileOnILockBytes<'a, P0>(plkbyt: P0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgCreateDocfileOnILockBytes(plkbyt: *mut ::core::ffi::c_void, grfmode: STGM, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgCreateDocfileOnILockBytes(plkbyt.into().abi(), grfmode, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgCreatePropSetStg<'a, P0>(pstorage: P0, dwreserved: u32) -> ::windows::core::Result<IPropertySetStorage>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgCreatePropSetStg(pstorage: *mut ::core::ffi::c_void, dwreserved: u32, pppropsetstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgCreatePropSetStg(pstorage.into().abi(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPropertySetStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgCreatePropStg<'a, P0>(punk: P0, fmtid: &::windows::core::GUID, pclsid: &::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgCreatePropStg(punk: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgCreatePropStg(punk.into().abi(), ::core::mem::transmute(fmtid), ::core::mem::transmute(pclsid), grfflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPropertyStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
+#[inline]
+pub unsafe fn StgCreateStorageEx<'a, P0, P1>(pwcsname: P0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: ::core::option::Option<&mut STGOPTIONS>, psecuritydescriptor: P1, riid: &::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::super::Security::PSECURITY_DESCRIPTOR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgCreateStorageEx(pwcsname: ::windows::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    StgCreateStorageEx(pwcsname.into(), grfmode, stgfmt, grfattrs, ::core::mem::transmute(pstgoptions), psecuritydescriptor.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobjectopen)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn StgDeserializePropVariant(pprop: &SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgDeserializePropVariant(::core::mem::transmute(pprop), cbmax, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPVARIANT>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgGetIFillLockBytesOnFile<'a, P0>(pwcsname: P0) -> ::windows::core::Result<IFillLockBytes>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgGetIFillLockBytesOnFile(pwcsname: ::windows::core::PCWSTR, ppflb: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgGetIFillLockBytesOnFile(pwcsname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFillLockBytes>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, P0>(pilb: P0) -> ::windows::core::Result<IFillLockBytes>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgGetIFillLockBytesOnILockBytes(pilb: *mut ::core::ffi::c_void, ppflb: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgGetIFillLockBytesOnILockBytes(pilb.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFillLockBytes>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgIsStorageFile<'a, P0>(pwcsname: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgIsStorageFile(pwcsname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+    }
+    StgIsStorageFile(pwcsname.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgIsStorageILockBytes<'a, P0>(plkbyt: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgIsStorageILockBytes(plkbyt: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    StgIsStorageILockBytes(plkbyt.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, P0>(pflb: P0, grfmode: u32, asyncflags: u32) -> ::windows::core::Result<IStorage>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IFillLockBytes>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: *mut ::core::ffi::c_void, grfmode: u32, asyncflags: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgOpenAsyncDocfileOnIFillLockBytes(pflb.into().abi(), grfmode, asyncflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgOpenLayoutDocfile<'a, P0>(pwcsdfname: P0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgOpenLayoutDocfile(pwcsdfname: ::windows::core::PCWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgOpenLayoutDocfile(pwcsdfname.into(), grfmode, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgOpenPropStg<'a, P0>(punk: P0, fmtid: &::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgOpenPropStg(punk: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgOpenPropStg(punk.into().abi(), ::core::mem::transmute(fmtid), grfflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPropertyStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgOpenStorage<'a, P0, P1>(pwcsname: P0, pstgpriority: P1, grfmode: STGM, snbexclude: ::core::option::Option<&*const u16>, reserved: u32) -> ::windows::core::Result<IStorage>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgOpenStorage(pwcsname: ::windows::core::PCWSTR, pstgpriority: *mut ::core::ffi::c_void, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgOpenStorage(pwcsname.into(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude), reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
+#[cfg(feature = "Win32_Security")]
+#[inline]
+pub unsafe fn StgOpenStorageEx<'a, P0, P1>(pwcsname: P0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: ::core::option::Option<&mut STGOPTIONS>, psecuritydescriptor: P1, riid: &::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::super::Security::PSECURITY_DESCRIPTOR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgOpenStorageEx(pwcsname: ::windows::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    StgOpenStorageEx(pwcsname.into(), grfmode, stgfmt, grfattrs, ::core::mem::transmute(pstgoptions), psecuritydescriptor.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobjectopen)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgOpenStorageOnILockBytes<'a, P0, P1>(plkbyt: P0, pstgpriority: P1, grfmode: u32, snbexclude: ::core::option::Option<&*const u16>, reserved: u32) -> ::windows::core::Result<IStorage>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgOpenStorageOnILockBytes(plkbyt: *mut ::core::ffi::c_void, pstgpriority: *mut ::core::ffi::c_void, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StgOpenStorageOnILockBytes(plkbyt.into().abi(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude), reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn StgPropertyLengthAsVariant(pprop: &[u8], codepage: u16, breserved: u8) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
+    }
+    StgPropertyLengthAsVariant(::core::mem::transmute(pprop.as_ptr()), pprop.len() as _, codepage, breserved)
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn StgSerializePropVariant(ppropvar: &PROPVARIANT, ppprop: &mut *mut SERIALIZEDPROPERTYVALUE, pcb: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::HRESULT;
+    }
+    StgSerializePropVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(ppprop), ::core::mem::transmute(pcb)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn StgSetTimes<'a, P0>(lpszname: P0, pctime: ::core::option::Option<&super::super::super::Foundation::FILETIME>, patime: ::core::option::Option<&super::super::super::Foundation::FILETIME>, pmtime: ::core::option::Option<&super::super::super::Foundation::FILETIME>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StgSetTimes(lpszname: ::windows::core::PCWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
+    }
+    StgSetTimes(lpszname.into(), ::core::mem::transmute(pctime), ::core::mem::transmute(patime), ::core::mem::transmute(pmtime)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn WriteClassStg<'a, P0>(pstg: P0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteClassStg(pstg: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+    }
+    WriteClassStg(pstg.into().abi(), ::core::mem::transmute(rclsid)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn WriteClassStm<'a, P0>(pstm: P0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteClassStm(pstm: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+    }
+    WriteClassStm(pstm.into().abi(), ::core::mem::transmute(rclsid)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[inline]
+pub unsafe fn WriteFmtUserTypeStg<'a, P0, P1>(pstg: P0, cf: u16, lpszusertype: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteFmtUserTypeStg(pstg: *mut ::core::ffi::c_void, cf: u16, lpszusertype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+    }
+    WriteFmtUserTypeStg(pstg.into().abi(), cf, lpszusertype.into()).ok()
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
@@ -2011,6 +1675,138 @@ pub struct IStorage_Vtbl {
     Stat: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const CCH_MAX_PROPSTG_NAME: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const CWCSTORAGENAME: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDI_THUMBNAIL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_BYTECOUNT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_CATEGORY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_COMPANY: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_DOCPARTS: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_HEADINGPAIR: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_HIDDENCOUNT: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_LINECOUNT: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_LINKSDIRTY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_MANAGER: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_MMCLIPCOUNT: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_NOTECOUNT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_PARCOUNT: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_PRESFORMAT: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_SCALE: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDDSI_SLIDECOUNT: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_COPYRIGHT: i32 = 11i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_EDITOR: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_OWNER: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_PRODUCTION: i32 = 10i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_PROJECT: i32 = 6i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_RATING: i32 = 9i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_SOURCE: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS: i32 = 7i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_SUPPLIER: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_APPNAME: i32 = 18i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_AUTHOR: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_CHARCOUNT: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_COMMENTS: i32 = 6i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_CREATE_DTM: i32 = 12i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_DOC_SECURITY: i32 = 19i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_EDITTIME: i32 = 10i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_KEYWORDS: i32 = 5i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_LASTAUTHOR: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_LASTPRINTED: i32 = 11i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_LASTSAVE_DTM: i32 = 13i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_PAGECOUNT: i32 = 14i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_REVNUMBER: i32 = 9i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_SUBJECT: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_TEMPLATE: i32 = 7i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_THUMBNAIL: i32 = 17i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_TITLE: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDSI_WORDCOUNT: i32 = 15i32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_BEHAVIOR: u32 = 2147483651u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_CODEPAGE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_DICTIONARY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_FIRST_NAME_DEFAULT: u32 = 4095u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_FIRST_USABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_ILLEGAL: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_LOCALE: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_MAX_READONLY: u32 = 3221225471u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_MIN_READONLY: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_MODIFY_TIME: u32 = 2147483649u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PID_SECURITY: u32 = 2147483650u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSETFLAG_ANSI: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSETFLAG_NONSIMPLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PRSPEC_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGOPTIONS_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct LOCKTYPE(pub i32);
@@ -2037,6 +1833,1025 @@ unsafe impl ::windows::core::Abi for LOCKTYPE {
 impl ::core::fmt::Debug for LOCKTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LOCKTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PIDMSI_STATUS_VALUE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
+impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
+impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PIDMSI_STATUS_VALUE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PIDMSI_STATUS_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PIDMSI_STATUS_VALUE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROPSPEC_KIND(pub u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
+impl ::core::marker::Copy for PROPSPEC_KIND {}
+impl ::core::clone::Clone for PROPSPEC_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROPSPEC_KIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROPSPEC_KIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROPSPEC_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROPSPEC_KIND").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STATFLAG(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
+impl ::core::marker::Copy for STATFLAG {}
+impl ::core::clone::Clone for STATFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STATFLAG {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STATFLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STATFLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STATFLAG").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STGFMT(pub u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_NATIVE: STGFMT = STGFMT(1u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_FILE: STGFMT = STGFMT(3u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_ANY: STGFMT = STGFMT(4u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_DOCFILE: STGFMT = STGFMT(5u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0u32);
+impl ::core::marker::Copy for STGFMT {}
+impl ::core::clone::Clone for STGFMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STGFMT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STGFMT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGFMT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGFMT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STGM(pub u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_DIRECT: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_TRANSACTED: STGM = STGM(65536u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_SIMPLE: STGM = STGM(134217728u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_READ: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_WRITE: STGM = STGM(1u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_READWRITE: STGM = STGM(2u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_PRIORITY: STGM = STGM(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_CREATE: STGM = STGM(4096u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_CONVERT: STGM = STGM(131072u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
+impl ::core::marker::Copy for STGM {}
+impl ::core::clone::Clone for STGM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STGM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STGM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGM").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STGM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STGM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STGM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STGM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STGM {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STGMOVE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
+impl ::core::marker::Copy for STGMOVE {}
+impl ::core::clone::Clone for STGMOVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STGMOVE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STGMOVE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGMOVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGMOVE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct BSTRBLOB {
+    pub cbSize: u32,
+    pub pData: *mut u8,
+}
+impl ::core::marker::Copy for BSTRBLOB {}
+impl ::core::clone::Clone for BSTRBLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BSTRBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BSTRBLOB").field("cbSize", &self.cbSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BSTRBLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BSTRBLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSTRBLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BSTRBLOB {}
+impl ::core::default::Default for BSTRBLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CABOOL {
+    pub cElems: u32,
+    pub pElems: *mut i16,
+}
+impl ::core::marker::Copy for CABOOL {}
+impl ::core::clone::Clone for CABOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CABOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABOOL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CABOOL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CABOOL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABOOL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CABOOL {}
+impl ::core::default::Default for CABOOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CABSTR {
+    pub cElems: u32,
+    pub pElems: *mut super::super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CABSTR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CABSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CABSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CABSTR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CABSTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABSTR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CABSTR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CABSTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CABSTRBLOB {
+    pub cElems: u32,
+    pub pElems: *mut BSTRBLOB,
+}
+impl ::core::marker::Copy for CABSTRBLOB {}
+impl ::core::clone::Clone for CABSTRBLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CABSTRBLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABSTRBLOB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CABSTRBLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CABSTRBLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABSTRBLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CABSTRBLOB {}
+impl ::core::default::Default for CABSTRBLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAC {
+    pub cElems: u32,
+    pub pElems: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for CAC {}
+impl ::core::clone::Clone for CAC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAC").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAC {}
+impl ::core::default::Default for CAC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CACLIPDATA {
+    pub cElems: u32,
+    pub pElems: *mut CLIPDATA,
+}
+impl ::core::marker::Copy for CACLIPDATA {}
+impl ::core::clone::Clone for CACLIPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CACLIPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CACLIPDATA").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CACLIPDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CACLIPDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CACLIPDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CACLIPDATA {}
+impl ::core::default::Default for CACLIPDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CACLSID {
+    pub cElems: u32,
+    pub pElems: *mut ::windows::core::GUID,
+}
+impl ::core::marker::Copy for CACLSID {}
+impl ::core::clone::Clone for CACLSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CACLSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CACLSID").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CACLSID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CACLSID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CACLSID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CACLSID {}
+impl ::core::default::Default for CACLSID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CACY {
+    pub cElems: u32,
+    pub pElems: *mut super::CY,
+}
+impl ::core::marker::Copy for CACY {}
+impl ::core::clone::Clone for CACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CACY").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CACY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CACY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CACY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CACY {}
+impl ::core::default::Default for CACY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CADATE {
+    pub cElems: u32,
+    pub pElems: *mut f64,
+}
+impl ::core::marker::Copy for CADATE {}
+impl ::core::clone::Clone for CADATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CADATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CADATE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CADATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CADATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CADATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CADATE {}
+impl ::core::default::Default for CADATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CADBL {
+    pub cElems: u32,
+    pub pElems: *mut f64,
+}
+impl ::core::marker::Copy for CADBL {}
+impl ::core::clone::Clone for CADBL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CADBL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CADBL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CADBL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CADBL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CADBL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CADBL {}
+impl ::core::default::Default for CADBL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CAFILETIME {
+    pub cElems: u32,
+    pub pElems: *mut super::super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CAFILETIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CAFILETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAFILETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAFILETIME").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CAFILETIME {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CAFILETIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAFILETIME>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CAFILETIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CAFILETIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAFLT {
+    pub cElems: u32,
+    pub pElems: *mut f32,
+}
+impl ::core::marker::Copy for CAFLT {}
+impl ::core::clone::Clone for CAFLT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAFLT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAFLT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAFLT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAFLT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAFLT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAFLT {}
+impl ::core::default::Default for CAFLT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAH {
+    pub cElems: u32,
+    pub pElems: *mut i64,
+}
+impl ::core::marker::Copy for CAH {}
+impl ::core::clone::Clone for CAH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAH {}
+impl ::core::default::Default for CAH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAI {
+    pub cElems: u32,
+    pub pElems: *mut i16,
+}
+impl ::core::marker::Copy for CAI {}
+impl ::core::clone::Clone for CAI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAI {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAI {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAI>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAI {}
+impl ::core::default::Default for CAI {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAL {
+    pub cElems: u32,
+    pub pElems: *mut i32,
+}
+impl ::core::marker::Copy for CAL {}
+impl ::core::clone::Clone for CAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAL {}
+impl ::core::default::Default for CAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CALPSTR {
+    pub cElems: u32,
+    pub pElems: *mut ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for CALPSTR {}
+impl ::core::clone::Clone for CALPSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CALPSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALPSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CALPSTR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CALPSTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALPSTR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CALPSTR {}
+impl ::core::default::Default for CALPSTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CALPWSTR {
+    pub cElems: u32,
+    pub pElems: *mut ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for CALPWSTR {}
+impl ::core::clone::Clone for CALPWSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CALPWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CALPWSTR").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CALPWSTR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CALPWSTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CALPWSTR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CALPWSTR {}
+impl ::core::default::Default for CALPWSTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CAPROPVARIANT {
+    pub cElems: u32,
+    pub pElems: *mut PROPVARIANT,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CAPROPVARIANT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CAPROPVARIANT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CAPROPVARIANT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAPROPVARIANT").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CAPROPVARIANT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CAPROPVARIANT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAPROPVARIANT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CAPROPVARIANT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CAPROPVARIANT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CASCODE {
+    pub cElems: u32,
+    pub pElems: *mut i32,
+}
+impl ::core::marker::Copy for CASCODE {}
+impl ::core::clone::Clone for CASCODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CASCODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CASCODE").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CASCODE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CASCODE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CASCODE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CASCODE {}
+impl ::core::default::Default for CASCODE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAUB {
+    pub cElems: u32,
+    pub pElems: *mut u8,
+}
+impl ::core::marker::Copy for CAUB {}
+impl ::core::clone::Clone for CAUB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAUB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUB").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAUB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAUB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAUB {}
+impl ::core::default::Default for CAUB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAUH {
+    pub cElems: u32,
+    pub pElems: *mut u64,
+}
+impl ::core::marker::Copy for CAUH {}
+impl ::core::clone::Clone for CAUH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAUH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUH").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAUH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAUH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAUH {}
+impl ::core::default::Default for CAUH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAUI {
+    pub cElems: u32,
+    pub pElems: *mut u16,
+}
+impl ::core::marker::Copy for CAUI {}
+impl ::core::clone::Clone for CAUI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUI").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAUI {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAUI {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUI>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAUI {}
+impl ::core::default::Default for CAUI {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CAUL {
+    pub cElems: u32,
+    pub pElems: *mut u32,
+}
+impl ::core::marker::Copy for CAUL {}
+impl ::core::clone::Clone for CAUL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAUL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAUL").field("cElems", &self.cElems).field("pElems", &self.pElems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAUL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAUL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAUL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAUL {}
+impl ::core::default::Default for CAUL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
+pub struct CLIPDATA {
+    pub cbSize: u32,
+    pub ulClipFmt: i32,
+    pub pClipData: *mut u8,
+}
+impl ::core::marker::Copy for CLIPDATA {}
+impl ::core::clone::Clone for CLIPDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CLIPDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLIPDATA").field("cbSize", &self.cbSize).field("ulClipFmt", &self.ulClipFmt).field("pClipData", &self.pClipData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CLIPDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CLIPDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIPDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CLIPDATA {}
+impl ::core::default::Default for CLIPDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -2100,211 +2915,6 @@ impl ::core::default::Default for OLESTREAMVTBL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn OleConvertIStorageToOLESTREAM<'a, P0>(pstg: P0) -> ::windows::core::Result<OLESTREAM>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OleConvertIStorageToOLESTREAM(pstg: *mut ::core::ffi::c_void, lpolestream: *mut OLESTREAM) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleConvertIStorageToOLESTREAM(pstg.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn OleConvertIStorageToOLESTREAMEx<'a, P0>(pstg: P0, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: &super::STGMEDIUM) -> ::windows::core::Result<OLESTREAM>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OleConvertIStorageToOLESTREAMEx(pstg: *mut ::core::ffi::c_void, cfformat: u16, lwidth: i32, lheight: i32, dwsize: u32, pmedium: *const super::STGMEDIUM, polestm: *mut OLESTREAM) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    OleConvertIStorageToOLESTREAMEx(pstg.into().abi(), cfformat, lwidth, lheight, dwsize, ::core::mem::transmute(pmedium), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OLESTREAM>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorage<'a, P0>(lpolestream: &OLESTREAM, pstg: P0, ptd: &super::DVTARGETDEVICE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OleConvertOLESTREAMToIStorage(lpolestream: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, ptd: *const super::DVTARGETDEVICE) -> ::windows::core::HRESULT;
-    }
-    OleConvertOLESTREAMToIStorage(::core::mem::transmute(lpolestream), pstg.into().abi(), ::core::mem::transmute(ptd)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn OleConvertOLESTREAMToIStorageEx<'a, P0>(polestm: &OLESTREAM, pstg: P0, pcfformat: &mut u16, plwwidth: &mut i32, plheight: &mut i32, pdwsize: &mut u32, pmedium: &mut super::STGMEDIUM) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OleConvertOLESTREAMToIStorageEx(polestm: *const OLESTREAM, pstg: *mut ::core::ffi::c_void, pcfformat: *mut u16, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
-    }
-    OleConvertOLESTREAMToIStorageEx(::core::mem::transmute(polestm), pstg.into().abi(), ::core::mem::transmute(pcfformat), ::core::mem::transmute(plwwidth), ::core::mem::transmute(plheight), ::core::mem::transmute(pdwsize), ::core::mem::transmute(pmedium)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDI_THUMBNAIL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_BYTECOUNT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_CATEGORY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_COMPANY: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_DOCPARTS: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_HEADINGPAIR: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_HIDDENCOUNT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_LINECOUNT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_LINKSDIRTY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_MANAGER: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_MMCLIPCOUNT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_NOTECOUNT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_PARCOUNT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_PRESFORMAT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_SCALE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDDSI_SLIDECOUNT: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_COPYRIGHT: i32 = 11i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_EDITOR: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_OWNER: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_PRODUCTION: i32 = 10i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_PROJECT: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_RATING: i32 = 9i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_SEQUENCE_NO: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_SOURCE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PIDMSI_STATUS_VALUE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
-impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
-impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PIDMSI_STATUS_VALUE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PIDMSI_STATUS_VALUE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PIDMSI_STATUS_VALUE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDMSI_SUPPLIER: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_APPNAME: i32 = 18i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_AUTHOR: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_CHARCOUNT: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_COMMENTS: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_CREATE_DTM: i32 = 12i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_DOC_SECURITY: i32 = 19i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_EDITTIME: i32 = 10i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_KEYWORDS: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_LASTAUTHOR: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_LASTPRINTED: i32 = 11i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_LASTSAVE_DTM: i32 = 13i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_PAGECOUNT: i32 = 14i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_REVNUMBER: i32 = 9i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_SUBJECT: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_TEMPLATE: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_THUMBNAIL: i32 = 17i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_TITLE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PIDSI_WORDCOUNT: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_BEHAVIOR: u32 = 2147483651u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_CODEPAGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_DICTIONARY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_FIRST_NAME_DEFAULT: u32 = 4095u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_FIRST_USABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_ILLEGAL: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_LOCALE: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_MAX_READONLY: u32 = 3221225471u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_MIN_READONLY: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_MODIFY_TIME: u32 = 2147483649u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PID_SECURITY: u32 = 2147483650u32;
 #[repr(C)]
 pub struct PMemoryAllocator(pub u8);
 #[repr(C)]
@@ -2342,20 +2952,6 @@ impl ::core::default::Default for PROPBAG2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSETFLAG_ANSI: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSETFLAG_CASE_SENSITIVE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSETFLAG_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSETFLAG_NONSIMPLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSETFLAG_UNBUFFERED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSETHDR_OSVERSION_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PROPSET_BEHAVIOR_CASE_SENSITIVE: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct PROPSPEC {
@@ -2406,33 +3002,6 @@ impl ::core::cmp::Eq for PROPSPEC_0 {}
 impl ::core::default::Default for PROPSPEC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROPSPEC_KIND(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
-impl ::core::marker::Copy for PROPSPEC_KIND {}
-impl ::core::clone::Clone for PROPSPEC_KIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROPSPEC_KIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PROPSPEC_KIND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PROPSPEC_KIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROPSPEC_KIND").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -2632,79 +3201,6 @@ impl ::core::default::Default for PROPVARIANT_0_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const PRSPEC_INVALID: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn PropStgNameToFmtId<'a, P0>(oszname: P0) -> ::windows::core::Result<::windows::core::GUID>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PropStgNameToFmtId(oszname: ::windows::core::PCWSTR, pfmtid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PropStgNameToFmtId(oszname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PropVariantClear(pvar: &mut PROPVARIANT) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PropVariantClear(pvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
-    }
-    PropVariantClear(::core::mem::transmute(pvar)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PropVariantCopy(pvardest: &mut PROPVARIANT, pvarsrc: &PROPVARIANT) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PropVariantCopy(pvardest: *mut PROPVARIANT, pvarsrc: *const PROPVARIANT) -> ::windows::core::HRESULT;
-    }
-    PropVariantCopy(::core::mem::transmute(pvardest), ::core::mem::transmute(pvarsrc)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn ReadClassStg<'a, P0>(pstg: P0) -> ::windows::core::Result<::windows::core::GUID>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReadClassStg(pstg: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ReadClassStg(pstg.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn ReadClassStm<'a, P0>(pstm: P0) -> ::windows::core::Result<::windows::core::GUID>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReadClassStm(pstm: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ReadClassStm(pstm.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn ReadFmtUserTypeStg<'a, P0>(pstg: P0, pcf: &mut u16, lplpszusertype: ::core::option::Option<&mut ::windows::core::PWSTR>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReadFmtUserTypeStg(pstg: *mut ::core::ffi::c_void, pcf: *mut u16, lplpszusertype: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    ReadFmtUserTypeStg(pstg.into().abi(), ::core::mem::transmute(pcf), ::core::mem::transmute(lplpszusertype)).ok()
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct RemSNB {
@@ -2766,35 +3262,6 @@ impl ::core::cmp::Eq for SERIALIZEDPROPERTYVALUE {}
 impl ::core::default::Default for SERIALIZEDPROPERTYVALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STATFLAG(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
-impl ::core::marker::Copy for STATFLAG {}
-impl ::core::clone::Clone for STATFLAG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STATFLAG {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for STATFLAG {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for STATFLAG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STATFLAG").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -2873,157 +3340,6 @@ impl ::core::default::Default for STATPROPSTG {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STGFMT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_NATIVE: STGFMT = STGFMT(1u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_FILE: STGFMT = STGFMT(3u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_ANY: STGFMT = STGFMT(4u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_DOCFILE: STGFMT = STGFMT(5u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0u32);
-impl ::core::marker::Copy for STGFMT {}
-impl ::core::clone::Clone for STGFMT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STGFMT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for STGFMT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for STGFMT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STGFMT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STGM(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_DIRECT: STGM = STGM(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_TRANSACTED: STGM = STGM(65536u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_SIMPLE: STGM = STGM(134217728u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_READ: STGM = STGM(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_WRITE: STGM = STGM(1u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_READWRITE: STGM = STGM(2u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_PRIORITY: STGM = STGM(262144u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_CREATE: STGM = STGM(4096u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_CONVERT: STGM = STGM(131072u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
-impl ::core::marker::Copy for STGM {}
-impl ::core::clone::Clone for STGM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STGM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for STGM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for STGM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STGM").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for STGM {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for STGM {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for STGM {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for STGM {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for STGM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STGMOVE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
-impl ::core::marker::Copy for STGMOVE {}
-impl ::core::clone::Clone for STGMOVE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STGMOVE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for STGMOVE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for STGMOVE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STGMOVE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct STGOPTIONS {
@@ -3057,285 +3373,6 @@ impl ::core::default::Default for STGOPTIONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGOPTIONS_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetConvertStg<'a, P0, P1>(pstg: P0, fconvert: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-    P1: ::std::convert::Into<super::super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetConvertStg(pstg: *mut ::core::ffi::c_void, fconvert: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    SetConvertStg(pstg.into().abi(), fconvert.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn StgConvertPropertyToVariant(pprop: &SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: &mut PROPVARIANT, pma: &PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut PROPVARIANT, pma: *const PMemoryAllocator) -> super::super::super::Foundation::BOOLEAN;
-    }
-    StgConvertPropertyToVariant(::core::mem::transmute(pprop), codepage, ::core::mem::transmute(pvar), ::core::mem::transmute(pma))
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn StgConvertVariantToProperty<'a, P0>(pvar: &PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: &mut u32, pid: u32, freserved: P0, pcindirect: ::core::option::Option<&mut u32>) -> *mut SERIALIZEDPROPERTYVALUE
-where
-    P0: ::std::convert::Into<super::super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
-    }
-    StgConvertVariantToProperty(::core::mem::transmute(pvar), codepage, ::core::mem::transmute(pprop), ::core::mem::transmute(pcb), pid, freserved.into(), ::core::mem::transmute(pcindirect))
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgCreateDocfile<'a, P0>(pwcsname: P0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgCreateDocfile(pwcsname: ::windows::core::PCWSTR, grfmode: STGM, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreateDocfile(pwcsname.into(), grfmode, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgCreateDocfileOnILockBytes<'a, P0>(plkbyt: P0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgCreateDocfileOnILockBytes(plkbyt: *mut ::core::ffi::c_void, grfmode: STGM, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreateDocfileOnILockBytes(plkbyt.into().abi(), grfmode, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgCreatePropSetStg<'a, P0>(pstorage: P0, dwreserved: u32) -> ::windows::core::Result<IPropertySetStorage>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgCreatePropSetStg(pstorage: *mut ::core::ffi::c_void, dwreserved: u32, pppropsetstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreatePropSetStg(pstorage.into().abi(), dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPropertySetStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgCreatePropStg<'a, P0>(punk: P0, fmtid: &::windows::core::GUID, pclsid: &::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgCreatePropStg(punk: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, pclsid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgCreatePropStg(punk.into().abi(), ::core::mem::transmute(fmtid), ::core::mem::transmute(pclsid), grfflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPropertyStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
-#[cfg(feature = "Win32_Security")]
-#[inline]
-pub unsafe fn StgCreateStorageEx<'a, P0, P1>(pwcsname: P0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: ::core::option::Option<&mut STGOPTIONS>, psecuritydescriptor: P1, riid: &::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::super::Security::PSECURITY_DESCRIPTOR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgCreateStorageEx(pwcsname: ::windows::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    StgCreateStorageEx(pwcsname.into(), grfmode, stgfmt, grfattrs, ::core::mem::transmute(pstgoptions), psecuritydescriptor.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobjectopen)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn StgDeserializePropVariant(pprop: &SERIALIZEDPROPERTYVALUE, cbmax: u32) -> ::windows::core::Result<PROPVARIANT> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgDeserializePropVariant(::core::mem::transmute(pprop), cbmax, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPVARIANT>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgGetIFillLockBytesOnFile<'a, P0>(pwcsname: P0) -> ::windows::core::Result<IFillLockBytes>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgGetIFillLockBytesOnFile(pwcsname: ::windows::core::PCWSTR, ppflb: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgGetIFillLockBytesOnFile(pwcsname.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFillLockBytes>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgGetIFillLockBytesOnILockBytes<'a, P0>(pilb: P0) -> ::windows::core::Result<IFillLockBytes>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgGetIFillLockBytesOnILockBytes(pilb: *mut ::core::ffi::c_void, ppflb: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgGetIFillLockBytesOnILockBytes(pilb.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IFillLockBytes>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgIsStorageFile<'a, P0>(pwcsname: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgIsStorageFile(pwcsname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
-    StgIsStorageFile(pwcsname.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgIsStorageILockBytes<'a, P0>(plkbyt: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgIsStorageILockBytes(plkbyt: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    StgIsStorageILockBytes(plkbyt.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgOpenAsyncDocfileOnIFillLockBytes<'a, P0>(pflb: P0, grfmode: u32, asyncflags: u32) -> ::windows::core::Result<IStorage>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IFillLockBytes>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgOpenAsyncDocfileOnIFillLockBytes(pflb: *mut ::core::ffi::c_void, grfmode: u32, asyncflags: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenAsyncDocfileOnIFillLockBytes(pflb.into().abi(), grfmode, asyncflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgOpenLayoutDocfile<'a, P0>(pwcsdfname: P0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgOpenLayoutDocfile(pwcsdfname: ::windows::core::PCWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenLayoutDocfile(pwcsdfname.into(), grfmode, reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgOpenPropStg<'a, P0>(punk: P0, fmtid: &::windows::core::GUID, grfflags: u32, dwreserved: u32) -> ::windows::core::Result<IPropertyStorage>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgOpenPropStg(punk: *mut ::core::ffi::c_void, fmtid: *const ::windows::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenPropStg(punk.into().abi(), ::core::mem::transmute(fmtid), grfflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPropertyStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgOpenStorage<'a, P0, P1>(pwcsname: P0, pstgpriority: P1, grfmode: STGM, snbexclude: ::core::option::Option<&*const u16>, reserved: u32) -> ::windows::core::Result<IStorage>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgOpenStorage(pwcsname: ::windows::core::PCWSTR, pstgpriority: *mut ::core::ffi::c_void, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenStorage(pwcsname.into(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude), reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Security\"`*"]
-#[cfg(feature = "Win32_Security")]
-#[inline]
-pub unsafe fn StgOpenStorageEx<'a, P0, P1>(pwcsname: P0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: ::core::option::Option<&mut STGOPTIONS>, psecuritydescriptor: P1, riid: &::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::super::Security::PSECURITY_DESCRIPTOR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgOpenStorageEx(pwcsname: ::windows::core::PCWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: super::super::super::Security::PSECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    StgOpenStorageEx(pwcsname.into(), grfmode, stgfmt, grfattrs, ::core::mem::transmute(pstgoptions), psecuritydescriptor.into(), ::core::mem::transmute(riid), ::core::mem::transmute(ppobjectopen)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgOpenStorageOnILockBytes<'a, P0, P1>(plkbyt: P0, pstgpriority: P1, grfmode: u32, snbexclude: ::core::option::Option<&*const u16>, reserved: u32) -> ::windows::core::Result<IStorage>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ILockBytes>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgOpenStorageOnILockBytes(plkbyt: *mut ::core::ffi::c_void, pstgpriority: *mut ::core::ffi::c_void, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StgOpenStorageOnILockBytes(plkbyt.into().abi(), pstgpriority.into().abi(), grfmode, ::core::mem::transmute(snbexclude), reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IStorage>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn StgPropertyLengthAsVariant(pprop: &[u8], codepage: u16, breserved: u8) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgPropertyLengthAsVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbprop: u32, codepage: u16, breserved: u8) -> u32;
-    }
-    StgPropertyLengthAsVariant(::core::mem::transmute(pprop.as_ptr()), pprop.len() as _, codepage, breserved)
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn StgSerializePropVariant(ppropvar: &PROPVARIANT, ppprop: &mut *mut SERIALIZEDPROPERTYVALUE, pcb: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgSerializePropVariant(ppropvar: *const PROPVARIANT, ppprop: *mut *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32) -> ::windows::core::HRESULT;
-    }
-    StgSerializePropVariant(::core::mem::transmute(ppropvar), ::core::mem::transmute(ppprop), ::core::mem::transmute(pcb)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn StgSetTimes<'a, P0>(lpszname: P0, pctime: ::core::option::Option<&super::super::super::Foundation::FILETIME>, patime: ::core::option::Option<&super::super::super::Foundation::FILETIME>, pmtime: ::core::option::Option<&super::super::super::Foundation::FILETIME>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StgSetTimes(lpszname: ::windows::core::PCWSTR, pctime: *const super::super::super::Foundation::FILETIME, patime: *const super::super::super::Foundation::FILETIME, pmtime: *const super::super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
-    }
-    StgSetTimes(lpszname.into(), ::core::mem::transmute(pctime), ::core::mem::transmute(patime), ::core::mem::transmute(pmtime)).ok()
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub struct VERSIONEDSTREAM {
@@ -3365,43 +3402,6 @@ impl ::core::default::Default for VERSIONEDSTREAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn WriteClassStg<'a, P0>(pstg: P0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteClassStg(pstg: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    WriteClassStg(pstg.into().abi(), ::core::mem::transmute(rclsid)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn WriteClassStm<'a, P0>(pstm: P0, rclsid: &::windows::core::GUID) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::IStream>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteClassStm(pstm: *mut ::core::ffi::c_void, rclsid: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    WriteClassStm(pstm.into().abi(), ::core::mem::transmute(rclsid)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-#[inline]
-pub unsafe fn WriteFmtUserTypeStg<'a, P0, P1>(pstg: P0, cf: u16, lpszusertype: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IStorage>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteFmtUserTypeStg(pstg: *mut ::core::ffi::c_void, cf: u16, lpszusertype: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
-    WriteFmtUserTypeStg(pstg.into().abi(), cf, lpszusertype.into()).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

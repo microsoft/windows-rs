@@ -1,32 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FOREIGN_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_STATUS_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_STATUS_NOT_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_STATUS_UNKNOWN: FOREIGN_STATUS = FOREIGN_STATUS(2i32);
-impl ::core::marker::Copy for FOREIGN_STATUS {}
-impl ::core::clone::Clone for FOREIGN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FOREIGN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FOREIGN_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FOREIGN_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FOREIGN_STATUS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -8654,6 +8625,79 @@ pub struct IMSMQTransactionDispenser3_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     Properties: usize,
 }
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[repr(transparent)]
+pub struct _DMSMQEventEvents(::windows::core::IUnknown);
+#[cfg(feature = "Win32_System_Com")]
+impl _DMSMQEventEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_DMSMQEventEvents> for ::windows::core::IUnknown {
+    fn from(value: _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _DMSMQEventEvents> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_DMSMQEventEvents> for ::windows::core::IUnknown {
+    fn from(value: &_DMSMQEventEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<_DMSMQEventEvents> for super::Com::IDispatch {
+    fn from(value: _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::core::convert::From<&'a _DMSMQEventEvents> for &'a super::Com::IDispatch {
+    fn from(value: &'a _DMSMQEventEvents) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&_DMSMQEventEvents> for super::Com::IDispatch {
+    fn from(value: &_DMSMQEventEvents) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for _DMSMQEventEvents {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for _DMSMQEventEvents {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for _DMSMQEventEvents {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for _DMSMQEventEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMSMQEventEvents").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
+    type Vtable = _DMSMQEventEvents_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
+}
+#[cfg(feature = "Win32_System_Com")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct _DMSMQEventEvents_Vtbl {
+    pub base__: super::Com::IDispatch_Vtbl,
+}
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const LONG_LIVED: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
@@ -8712,6 +8756,422 @@ pub const MGMT_QUEUE_UNKNOWN_TYPE: &str = "UNKNOWN";
 pub const MO_MACHINE_TOKEN: &str = "MACHINE";
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 pub const MO_QUEUE_TOKEN: &str = "QUEUE";
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQMSG_FIRST_IN_XACT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQMSG_LAST_IN_XACT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQMSG_NOT_FIRST_IN_XACT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_DELETE_JOURNAL_MESSAGE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_DELETE_MESSAGE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_GET_QUEUE_PROPERTIES: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_PEEK_MESSAGE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_QUEUE_GENERIC_EXECUTE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ACTION_RECEIVE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824164i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ERROR_MESSAGE_NOT_AUTHENTICATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824165i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ERROR_RESOLVE_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824167i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_ERROR_TOO_MANY_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824166i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_PEEK_CURRENT: u32 = 1073741840u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_PEEK_FIRST: u32 = 1073741844u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_PEEK_LAST: u32 = 1073741848u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_PEEK_NEXT: u32 = 1073741841u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_PEEK_PREV: u32 = 1073741842u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_RECEIVE_ALLOW_PEEK: u32 = 1073742112u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_RECEIVE_CURRENT: u32 = 1073741856u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_RECEIVE_FIRST: u32 = 1073741860u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_RECEIVE_LAST: u32 = 1073741864u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_RECEIVE_NEXT: u32 = 1073741857u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_MOVE_ACCESS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
+pub const MSMQApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
+pub const MSMQCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
+pub const MSMQCoordinatedTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
+pub const MSMQDestination: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
+pub const MSMQEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
+pub const MSMQManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
+pub const MSMQMessage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
+pub const MSMQOutgoingQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
+pub const MSMQQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueInfos: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
+pub const MSMQQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
+pub const MSMQTransaction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
+pub const MSMQTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MSMQ_CONNECTED: &str = "CONNECTED";
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MSMQ_DISCONNECTED: &str = "DISCONNECTED";
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PREQ: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PRGE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PRGT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PRLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PRLT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PRNE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_ACTIVEQUEUES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_BASE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_BYTES_IN_ALL_QUEUES: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_CONNECTED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_DSSERVER: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_PRIVATEQ: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_MSMQ_TYPE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_BASE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_BYTES_IN_JOURNAL: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_BYTES_IN_QUEUE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_CONNECTION_HISTORY: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_FIRST_NON_ACK: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK_COUNT: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK_TIME: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_LAST_NON_ACK: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_NEXT_SEQ: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_NO_ACK_COUNT: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_NO_READ_COUNT: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_RESEND_COUNT: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_RESEND_INTERVAL: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_RESEND_TIME: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_EOD_SOURCE_INFO: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_FOREIGN: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_FORMATNAME: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_JOURNAL_MESSAGE_COUNT: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_JOURNAL_USED_QUOTA: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_LOCATION: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_MESSAGE_COUNT: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_NEXTHOPS: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_PATHNAME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_STATE: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_SUBQUEUE_COUNT: u32 = 26u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_SUBQUEUE_NAMES: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_TYPE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_USED_QUOTA: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_MGMT_QUEUE_XACT: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_ABORT_COUNT: u32 = 69u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_ACKNOWLEDGE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_ADMIN_QUEUE: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_ADMIN_QUEUE_LEN: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_APPSPECIFIC: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_ARRIVEDTIME: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_AUTHENTICATED: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_AUTHENTICATED_EX: u32 = 53u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_AUTH_LEVEL: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_BASE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_BODY: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_BODY_SIZE: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_BODY_TYPE: u32 = 42u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_CLASS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_COMPOUND_MESSAGE: u32 = 63u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_COMPOUND_MESSAGE_SIZE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_CONNECTOR_TYPE: u32 = 38u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_CORRELATIONID: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_CORRELATIONID_SIZE: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEADLETTER_QUEUE: u32 = 67u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEADLETTER_QUEUE_LEN: u32 = 68u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DELIVERY: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEST_FORMAT_NAME: u32 = 58u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEST_FORMAT_NAME_LEN: u32 = 59u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEST_QUEUE: u32 = 33u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEST_QUEUE_LEN: u32 = 34u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEST_SYMM_KEY: u32 = 43u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_DEST_SYMM_KEY_LEN: u32 = 44u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_ENCRYPTION_ALG: u32 = 27u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_EXTENSION: u32 = 35u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_EXTENSION_LEN: u32 = 36u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_FIRST_IN_XACT: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_HASH_ALG: u32 = 26u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_JOURNAL: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_LABEL: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_LABEL_LEN: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_LAST_IN_XACT: u32 = 51u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_LAST_MOVE_TIME: u32 = 75u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_LOOKUPID: u32 = 60u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_MOVE_COUNT: u32 = 70u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_MSGID: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_MSGID_SIZE: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_PRIORITY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_PRIV_LEVEL: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_PROV_NAME: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_PROV_NAME_LEN: u32 = 49u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_PROV_TYPE: u32 = 47u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_RESP_FORMAT_NAME: u32 = 54u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_RESP_FORMAT_NAME_LEN: u32 = 55u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_RESP_QUEUE: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_RESP_QUEUE_LEN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SECURITY_CONTEXT: u32 = 37u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SENDERID: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SENDERID_LEN: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SENDERID_TYPE: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SENDER_CERT: u32 = 28u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SENDER_CERT_LEN: u32 = 29u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SENTTIME: u32 = 31u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SIGNATURE: u32 = 45u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SIGNATURE_LEN: u32 = 46u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SOAP_BODY: u32 = 66u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SOAP_ENVELOPE: u32 = 61u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SOAP_ENVELOPE_LEN: u32 = 62u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SOAP_HEADER: u32 = 65u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_SRC_MACHINE_ID: u32 = 30u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_TIME_TO_BE_RECEIVED: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_TIME_TO_REACH_QUEUE: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_TRACE: u32 = 41u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_VERSION: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_XACTID: u32 = 52u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_XACTID_SIZE: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_XACT_STATUS_QUEUE: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_M_XACT_STATUS_QUEUE_LEN: u32 = 40u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_PC_BASE: u32 = 5800u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_PC_DS_ENABLED: u32 = 5802u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_PC_VERSION: u32 = 5801u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_BASE: u32 = 200u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_CONNECTION: u32 = 204u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_ENCRYPTION_PK: u32 = 205u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_ENCRYPTION_PK_AES: u32 = 244u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_ENCRYPTION_PK_BASE: u32 = 231u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_ENCRYPTION_PK_ENHANCED: u32 = 232u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_MACHINE_ID: u32 = 202u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_PATHNAME: u32 = 203u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_PATHNAME_DNS: u32 = 233u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_QM_SITE_ID: u32 = 201u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_ADS_PATH: u32 = 126u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_AUTHENTICATE: u32 = 111u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_BASE: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_BASEPRIORITY: u32 = 106u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_CREATE_TIME: u32 = 109u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_INSTANCE: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_JOURNAL: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_JOURNAL_QUOTA: u32 = 107u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_LABEL: u32 = 108u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_MODIFY_TIME: u32 = 110u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_MULTICAST_ADDRESS: u32 = 125u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_PATHNAME: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_PATHNAME_DNS: u32 = 124u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_PRIV_LEVEL: u32 = 112u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_QUOTA: u32 = 105u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_TRANSACTION: u32 = 113u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const PROPID_Q_TYPE: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const QUERY_SORTASCEND: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const QUERY_SORTDESCEND: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const QUEUE_ACTION_EOD_RESEND: &str = "EOD_RESEND";
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const QUEUE_ACTION_PAUSE: &str = "PAUSE";
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const QUEUE_ACTION_RESUME: &str = "RESUME";
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FOREIGN_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_STATUS_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_STATUS_NOT_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
+pub const MQ_STATUS_UNKNOWN: FOREIGN_STATUS = FOREIGN_STATUS(2i32);
+impl ::core::marker::Copy for FOREIGN_STATUS {}
+impl ::core::clone::Clone for FOREIGN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FOREIGN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FOREIGN_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FOREIGN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FOREIGN_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9647,18 +10107,6 @@ impl ::core::fmt::Debug for MQMSGTRACE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQMSG_FIRST_IN_XACT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQMSG_LAST_IN_XACT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQMSG_NOT_FIRST_IN_XACT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MQPRIORITY(pub i32);
@@ -9714,20 +10162,6 @@ impl ::core::fmt::Debug for MQPRIVLEVEL {
         f.debug_tuple("MQPRIVLEVEL").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_DELETE_JOURNAL_MESSAGE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_DELETE_MESSAGE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_GET_QUEUE_PROPERTIES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_PEEK_MESSAGE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_QUEUE_GENERIC_EXECUTE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_SET_QUEUE_PROPERTIES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -9854,367 +10288,6 @@ impl ::core::fmt::Debug for MQWARNING {
         f.debug_tuple("MQWARNING").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ACTION_PEEK_NEXT: u32 = 2147483649u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ACTION_RECEIVE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824164i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_MESSAGE_NOT_AUTHENTICATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824165i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_RESOLVE_ADDRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824167i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_ERROR_TOO_MANY_PROPERTIES: ::windows::core::HRESULT = ::windows::core::HRESULT(-1072824166i32);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_PEEK_CURRENT: u32 = 1073741840u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_PEEK_FIRST: u32 = 1073741844u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_PEEK_LAST: u32 = 1073741848u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_PEEK_NEXT: u32 = 1073741841u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_PEEK_PREV: u32 = 1073741842u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_RECEIVE_ALLOW_PEEK: u32 = 1073742112u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_RECEIVE_CURRENT: u32 = 1073741856u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_RECEIVE_FIRST: u32 = 1073741860u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_RECEIVE_LAST: u32 = 1073741864u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_RECEIVE_NEXT: u32 = 1073741857u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_LOOKUP_RECEIVE_PREV: u32 = 1073741858u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_MOVE_ACCESS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MQ_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
-pub const MSMQApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e086_dccd_11d0_aa4b_0060970debae);
-pub const MSMQCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf72b9031_2f0c_43e8_924e_e6052cdc493f);
-pub const MSMQCoordinatedTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e082_dccd_11d0_aa4b_0060970debae);
-pub const MSMQDestination: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b18_2168_11d3_898c_00e02c074f6b);
-pub const MSMQEvent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07a_dccd_11d0_aa4b_0060970debae);
-pub const MSMQManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39ce96fe_f4c5_4484_a143_4c2d5d324229);
-pub const MSMQMessage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e075_dccd_11d0_aa4b_0060970debae);
-pub const MSMQOutgoingQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188401c_247a_4fed_99c6_bf14119d7055);
-pub const MSMQQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e073_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e079_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07c_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueInfos: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07e_dccd_11d0_aa4b_0060970debae);
-pub const MSMQQueueManagement: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33b6d07e_f27d_42fa_b2d7_bf82e11e9374);
-pub const MSMQTransaction: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e080_dccd_11d0_aa4b_0060970debae);
-pub const MSMQTransactionDispenser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e084_dccd_11d0_aa4b_0060970debae);
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQ_CONNECTED: &str = "CONNECTED";
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const MSMQ_DISCONNECTED: &str = "DISCONNECTED";
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PREQ: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PRGE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PRGT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PRLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PRLT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PRNE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_ACTIVEQUEUES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_BASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_BYTES_IN_ALL_QUEUES: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_CONNECTED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_DSSERVER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_PRIVATEQ: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_MSMQ_TYPE: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_BASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_BYTES_IN_JOURNAL: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_BYTES_IN_QUEUE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_CONNECTION_HISTORY: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_FIRST_NON_ACK: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK_COUNT: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_LAST_ACK_TIME: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_LAST_NON_ACK: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_NEXT_SEQ: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_NO_ACK_COUNT: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_NO_READ_COUNT: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_RESEND_COUNT: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_RESEND_INTERVAL: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_RESEND_TIME: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_EOD_SOURCE_INFO: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_FOREIGN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_FORMATNAME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_JOURNAL_MESSAGE_COUNT: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_JOURNAL_USED_QUOTA: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_LOCATION: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_MESSAGE_COUNT: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_NEXTHOPS: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_PATHNAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_STATE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_SUBQUEUE_COUNT: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_SUBQUEUE_NAMES: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_TYPE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_USED_QUOTA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_MGMT_QUEUE_XACT: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_ABORT_COUNT: u32 = 69u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_ACKNOWLEDGE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_ADMIN_QUEUE: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_ADMIN_QUEUE_LEN: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_APPSPECIFIC: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_ARRIVEDTIME: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_AUTHENTICATED: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_AUTHENTICATED_EX: u32 = 53u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_AUTH_LEVEL: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_BASE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_BODY: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_BODY_SIZE: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_BODY_TYPE: u32 = 42u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_CLASS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_COMPOUND_MESSAGE: u32 = 63u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_COMPOUND_MESSAGE_SIZE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_CONNECTOR_TYPE: u32 = 38u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_CORRELATIONID: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_CORRELATIONID_SIZE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEADLETTER_QUEUE: u32 = 67u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEADLETTER_QUEUE_LEN: u32 = 68u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DELIVERY: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEST_FORMAT_NAME: u32 = 58u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEST_FORMAT_NAME_LEN: u32 = 59u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEST_QUEUE: u32 = 33u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEST_QUEUE_LEN: u32 = 34u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEST_SYMM_KEY: u32 = 43u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_DEST_SYMM_KEY_LEN: u32 = 44u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_ENCRYPTION_ALG: u32 = 27u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_EXTENSION: u32 = 35u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_EXTENSION_LEN: u32 = 36u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_FIRST_IN_XACT: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_HASH_ALG: u32 = 26u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_JOURNAL: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_LABEL: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_LABEL_LEN: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_LAST_IN_XACT: u32 = 51u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_LAST_MOVE_TIME: u32 = 75u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_LOOKUPID: u32 = 60u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_MOVE_COUNT: u32 = 70u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_MSGID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_MSGID_SIZE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_PRIORITY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_PRIV_LEVEL: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_PROV_NAME: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_PROV_NAME_LEN: u32 = 49u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_PROV_TYPE: u32 = 47u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_RESP_FORMAT_NAME: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_RESP_FORMAT_NAME_LEN: u32 = 55u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_RESP_QUEUE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_RESP_QUEUE_LEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SECURITY_CONTEXT: u32 = 37u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SENDERID: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SENDERID_LEN: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SENDERID_TYPE: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SENDER_CERT: u32 = 28u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SENDER_CERT_LEN: u32 = 29u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SENTTIME: u32 = 31u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SIGNATURE: u32 = 45u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SIGNATURE_LEN: u32 = 46u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SOAP_BODY: u32 = 66u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SOAP_ENVELOPE: u32 = 61u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SOAP_ENVELOPE_LEN: u32 = 62u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SOAP_HEADER: u32 = 65u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_SRC_MACHINE_ID: u32 = 30u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_TIME_TO_BE_RECEIVED: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_TIME_TO_REACH_QUEUE: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_TRACE: u32 = 41u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_VERSION: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_XACTID: u32 = 52u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_XACTID_SIZE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_XACT_STATUS_QUEUE: u32 = 39u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_M_XACT_STATUS_QUEUE_LEN: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_PC_BASE: u32 = 5800u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_PC_DS_ENABLED: u32 = 5802u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_PC_VERSION: u32 = 5801u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_BASE: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_CONNECTION: u32 = 204u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_ENCRYPTION_PK: u32 = 205u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_ENCRYPTION_PK_AES: u32 = 244u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_ENCRYPTION_PK_BASE: u32 = 231u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_ENCRYPTION_PK_ENHANCED: u32 = 232u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_MACHINE_ID: u32 = 202u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_PATHNAME: u32 = 203u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_PATHNAME_DNS: u32 = 233u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_QM_SITE_ID: u32 = 201u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_ADS_PATH: u32 = 126u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_AUTHENTICATE: u32 = 111u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_BASE: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_BASEPRIORITY: u32 = 106u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_CREATE_TIME: u32 = 109u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_INSTANCE: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_JOURNAL: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_JOURNAL_QUOTA: u32 = 107u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_LABEL: u32 = 108u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_MODIFY_TIME: u32 = 110u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_MULTICAST_ADDRESS: u32 = 125u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_PATHNAME: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_PATHNAME_DNS: u32 = 124u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_PRIV_LEVEL: u32 = 112u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_QUOTA: u32 = 105u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_TRANSACTION: u32 = 113u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const PROPID_Q_TYPE: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUERY_SORTASCEND: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUERY_SORTDESCEND: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUEUE_ACTION_EOD_RESEND: &str = "EOD_RESEND";
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUEUE_ACTION_PAUSE: &str = "PAUSE";
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
-pub const QUEUE_ACTION_RESUME: &str = "RESUME";
 #[doc = "*Required features: `\"Win32_System_MessageQueuing\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -10354,79 +10427,6 @@ impl ::core::fmt::Debug for XACT_STATUS {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XACT_STATUS").field(&self.0).finish()
     }
-}
-#[doc = "*Required features: `\"Win32_System_MessageQueuing\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[repr(transparent)]
-pub struct _DMSMQEventEvents(::windows::core::IUnknown);
-#[cfg(feature = "Win32_System_Com")]
-impl _DMSMQEventEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_DMSMQEventEvents> for ::windows::core::IUnknown {
-    fn from(value: _DMSMQEventEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _DMSMQEventEvents> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a _DMSMQEventEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_DMSMQEventEvents> for ::windows::core::IUnknown {
-    fn from(value: &_DMSMQEventEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<_DMSMQEventEvents> for super::Com::IDispatch {
-    fn from(value: _DMSMQEventEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::core::convert::From<&'a _DMSMQEventEvents> for &'a super::Com::IDispatch {
-    fn from(value: &'a _DMSMQEventEvents) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&_DMSMQEventEvents> for super::Com::IDispatch {
-    fn from(value: &_DMSMQEventEvents) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for _DMSMQEventEvents {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for _DMSMQEventEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for _DMSMQEventEvents {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for _DMSMQEventEvents {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DMSMQEventEvents").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
-    type Vtable = _DMSMQEventEvents_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);
-}
-#[cfg(feature = "Win32_System_Com")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct _DMSMQEventEvents_Vtbl {
-    pub base__: super::Com::IDispatch_Vtbl,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

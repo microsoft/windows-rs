@@ -663,43 +663,6 @@ impl ::windows::core::RuntimeName for JsonError {
 }
 #[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JsonErrorStatus(pub i32);
-impl JsonErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const InvalidJsonString: Self = Self(1i32);
-    pub const InvalidJsonNumber: Self = Self(2i32);
-    pub const JsonValueNotFound: Self = Self(3i32);
-    pub const ImplementationLimit: Self = Self(4i32);
-}
-impl ::core::marker::Copy for JsonErrorStatus {}
-impl ::core::clone::Clone for JsonErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsonErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JsonErrorStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JsonErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsonErrorStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for JsonErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Data_Json\"`*"]
-#[repr(transparent)]
 pub struct JsonObject(::windows::core::IUnknown);
 impl JsonObject {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1331,6 +1294,43 @@ impl<'a> ::core::convert::TryFrom<&JsonValue> for ::windows::core::InParam<'a, s
 }
 unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}
+#[doc = "*Required features: `\"Data_Json\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JsonErrorStatus(pub i32);
+impl JsonErrorStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const InvalidJsonString: Self = Self(1i32);
+    pub const InvalidJsonNumber: Self = Self(2i32);
+    pub const JsonValueNotFound: Self = Self(3i32);
+    pub const ImplementationLimit: Self = Self(4i32);
+}
+impl ::core::marker::Copy for JsonErrorStatus {}
+impl ::core::clone::Clone for JsonErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JsonErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JsonErrorStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JsonErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonErrorStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for JsonErrorStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Json.JsonErrorStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Data_Json\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -1,2336 +1,53 @@
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 pub mod UI;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACCCTRL_DEFAULT_PROVIDER: &str = "Windows NT Access Provider";
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACCCTRL_DEFAULT_PROVIDERA: &str = "Windows NT Access Provider";
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACCCTRL_DEFAULT_PROVIDERW: &str = "Windows NT Access Provider";
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACCESS_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const NOT_USED_ACCESS: ACCESS_MODE = ACCESS_MODE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const GRANT_ACCESS: ACCESS_MODE = ACCESS_MODE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SET_ACCESS: ACCESS_MODE = ACCESS_MODE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const DENY_ACCESS: ACCESS_MODE = ACCESS_MODE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const REVOKE_ACCESS: ACCESS_MODE = ACCESS_MODE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SET_AUDIT_SUCCESS: ACCESS_MODE = ACCESS_MODE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const SET_AUDIT_FAILURE: ACCESS_MODE = ACCESS_MODE(6i32);
-impl ::core::marker::Copy for ACCESS_MODE {}
-impl ::core::clone::Clone for ACCESS_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACCESS_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACCESS_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACCESS_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACCESS_MODE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESSA {
-    pub cEntries: u32,
-    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
-}
-impl ::core::marker::Copy for ACTRL_ACCESSA {}
-impl ::core::clone::Clone for ACTRL_ACCESSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESSA").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESSA {}
-impl ::core::default::Default for ACTRL_ACCESSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESSW {
-    pub cEntries: u32,
-    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
-}
-impl ::core::marker::Copy for ACTRL_ACCESSW {}
-impl ::core::clone::Clone for ACTRL_ACCESSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESSW").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESSW {}
-impl ::core::default::Default for ACTRL_ACCESSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESS_ENTRYA {
-    pub Trustee: TRUSTEE_A,
-    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
-    pub Access: u32,
-    pub ProvSpecificAccess: u32,
-    pub Inheritance: super::ACE_FLAGS,
-    pub lpInheritProperty: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for ACTRL_ACCESS_ENTRYA {}
-impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRYA").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRYA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRYA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRYA {}
-impl ::core::default::Default for ACTRL_ACCESS_ENTRYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESS_ENTRYW {
-    pub Trustee: TRUSTEE_W,
-    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
-    pub Access: u32,
-    pub ProvSpecificAccess: u32,
-    pub Inheritance: super::ACE_FLAGS,
-    pub lpInheritProperty: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ACTRL_ACCESS_ENTRYW {}
-impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRYW").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRYW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRYW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRYW {}
-impl ::core::default::Default for ACTRL_ACCESS_ENTRYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(8u32);
-impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {}
-impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACTRL_ACCESS_ENTRY_ACCESS_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESS_ENTRY_LISTA {
-    pub cEntries: u32,
-    pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
-}
-impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_LISTA {}
-impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTA").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_LISTA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRY_LISTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRY_LISTA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRY_LISTA {}
-impl ::core::default::Default for ACTRL_ACCESS_ENTRY_LISTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESS_ENTRY_LISTW {
-    pub cEntries: u32,
-    pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
-}
-impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_LISTW {}
-impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTW").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_LISTW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRY_LISTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRY_LISTW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRY_LISTW {}
-impl ::core::default::Default for ACTRL_ACCESS_ENTRY_LISTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESS_INFOA {
-    pub fAccessPermission: u32,
-    pub lpAccessPermissionName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for ACTRL_ACCESS_INFOA {}
-impl ::core::clone::Clone for ACTRL_ACCESS_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_INFOA").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_INFOA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESS_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_INFOA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESS_INFOA {}
-impl ::core::default::Default for ACTRL_ACCESS_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_ACCESS_INFOW {
-    pub fAccessPermission: u32,
-    pub lpAccessPermissionName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ACTRL_ACCESS_INFOW {}
-impl ::core::clone::Clone for ACTRL_ACCESS_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_ACCESS_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_ACCESS_INFOW").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_ACCESS_INFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_ACCESS_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_INFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_ACCESS_INFOW {}
-impl ::core::default::Default for ACTRL_ACCESS_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_CHANGE_ACCESS: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_CHANGE_OWNER: u32 = 1073741824u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_CONTROL_INFOA {
-    pub lpControlId: ::windows::core::PSTR,
-    pub lpControlName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for ACTRL_CONTROL_INFOA {}
-impl ::core::clone::Clone for ACTRL_CONTROL_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_CONTROL_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_CONTROL_INFOA").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_CONTROL_INFOA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_CONTROL_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_CONTROL_INFOA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_CONTROL_INFOA {}
-impl ::core::default::Default for ACTRL_CONTROL_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_CONTROL_INFOW {
-    pub lpControlId: ::windows::core::PWSTR,
-    pub lpControlName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ACTRL_CONTROL_INFOW {}
-impl ::core::clone::Clone for ACTRL_CONTROL_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_CONTROL_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_CONTROL_INFOW").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_CONTROL_INFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_CONTROL_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_CONTROL_INFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_CONTROL_INFOW {}
-impl ::core::default::Default for ACTRL_CONTROL_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_DELETE: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_DIR_CREATE_OBJECT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_DIR_DELETE_CHILD: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_DIR_LIST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_DIR_TRAVERSE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_APPEND: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_CREATE_PIPE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_EXECUTE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_READ: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_READ_ATTRIB: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_READ_PROP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_WRITE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_WRITE_ATTRIB: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_FILE_WRITE_PROP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_ALERT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_CONTROL: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_DIMPERSONATE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_DUP_HANDLE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_GET_CONTEXT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_GET_INFO: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_IMPERSONATE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_PROCESS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_SET_CONTEXT: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_SET_INFO: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_TERMINATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_THREAD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_TOKEN: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_VM: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_VM_READ: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_KERNEL_VM_WRITE: u32 = 16u32;
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct ACTRL_OVERLAPPED {
-    pub Anonymous: ACTRL_OVERLAPPED_0,
-    pub Reserved2: u32,
-    pub hEvent: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ACTRL_OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACTRL_OVERLAPPED {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn AuthzInitializeObjectAccessAuditEvent<'a, P0, P1, P2, P3, P4>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, phauditevent: &mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn AuthzInitializeObjectAccessAuditEvent(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: ::windows::core::PCWSTR, szobjecttype: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, szadditionalinfo: ::windows::core::PCWSTR, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL;
     }
+    AuthzInitializeObjectAccessAuditEvent(flags, hauditeventtype.into(), szoperationtype.into(), szobjecttype.into(), szobjectname.into(), szadditionalinfo.into(), ::core::mem::transmute(phauditevent), dwadditionalparametercount)
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ACTRL_OVERLAPPED {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACTRL_OVERLAPPED {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_OVERLAPPED>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACTRL_OVERLAPPED {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACTRL_OVERLAPPED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub union ACTRL_OVERLAPPED_0 {
-    pub Provider: *mut ::core::ffi::c_void,
-    pub Reserved1: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ACTRL_OVERLAPPED_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACTRL_OVERLAPPED_0 {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<'a, P0, P1, P2, P3, P4, P5>(flags: u32, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, szadditionalinfo2: P5, phauditevent: &mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+    P5: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn AuthzInitializeObjectAccessAuditEvent2(flags: u32, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: ::windows::core::PCWSTR, szobjecttype: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, szadditionalinfo: ::windows::core::PCWSTR, szadditionalinfo2: ::windows::core::PCWSTR, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL;
     }
+    AuthzInitializeObjectAccessAuditEvent2(flags, hauditeventtype.into(), szoperationtype.into(), szobjecttype.into(), szobjectname.into(), szadditionalinfo.into(), szadditionalinfo2.into(), ::core::mem::transmute(phauditevent), dwadditionalparametercount)
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ACTRL_OVERLAPPED_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACTRL_OVERLAPPED_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_OVERLAPPED_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACTRL_OVERLAPPED_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACTRL_OVERLAPPED_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_10: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_11: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_12: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_13: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_14: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_15: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_16: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_17: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_18: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_19: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_2: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_20: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_3: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_4: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_5: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_6: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_7: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_8: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PERM_9: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PRINT_JADMIN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PRINT_PADMIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PRINT_PUSE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PRINT_SADMIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_PRINT_SLIST: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_PROPERTY_ENTRYA {
-    pub lpProperty: ::windows::core::PSTR,
-    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
-    pub fListFlags: u32,
-}
-impl ::core::marker::Copy for ACTRL_PROPERTY_ENTRYA {}
-impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_PROPERTY_ENTRYA").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_PROPERTY_ENTRYA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_PROPERTY_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_PROPERTY_ENTRYA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_PROPERTY_ENTRYA {}
-impl ::core::default::Default for ACTRL_PROPERTY_ENTRYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct ACTRL_PROPERTY_ENTRYW {
-    pub lpProperty: ::windows::core::PWSTR,
-    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
-    pub fListFlags: u32,
-}
-impl ::core::marker::Copy for ACTRL_PROPERTY_ENTRYW {}
-impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTRL_PROPERTY_ENTRYW").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACTRL_PROPERTY_ENTRYW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTRL_PROPERTY_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_PROPERTY_ENTRYW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACTRL_PROPERTY_ENTRYW {}
-impl ::core::default::Default for ACTRL_PROPERTY_ENTRYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_REG_LINK: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_REG_LIST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_REG_NOTIFY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_REG_QUERY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_REG_SET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_RESERVED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_STD_RIGHTS_ALL: u32 = 4160749568u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_GET_INFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_INTERROGATE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_LIST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_PAUSE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_SET_INFO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_START: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_STATUS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_STOP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SVC_UCONTROL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SYNCHRONIZE: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_SYSTEM_ACCESS: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_CLIPBRD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_CREATE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_EXIT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_GLOBAL_ATOMS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_LIST: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_LIST_DESK: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_READ_ATTRIBS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_SCREEN: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ACTRL_WIN_WRITE_ATTRIBS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APF_AuditFailure: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APF_AuditSuccess: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APF_ValidFlags: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AP_ParamTypeBits: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AP_ParamTypeMask: i32 = 255i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUDIT_IP_ADDRESS {
-    pub pIpAddress: [u8; 128],
-}
-impl ::core::marker::Copy for AUDIT_IP_ADDRESS {}
-impl ::core::clone::Clone for AUDIT_IP_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUDIT_IP_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIT_IP_ADDRESS").field("pIpAddress", &self.pIpAddress).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_IP_ADDRESS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_IP_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_IP_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_IP_ADDRESS {}
-impl ::core::default::Default for AUDIT_IP_ADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUDIT_OBJECT_TYPE {
-    pub ObjectType: ::windows::core::GUID,
-    pub Flags: u16,
-    pub Level: u16,
-    pub AccessMask: u32,
-}
-impl ::core::marker::Copy for AUDIT_OBJECT_TYPE {}
-impl ::core::clone::Clone for AUDIT_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUDIT_OBJECT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIT_OBJECT_TYPE").field("ObjectType", &self.ObjectType).field("Flags", &self.Flags).field("Level", &self.Level).field("AccessMask", &self.AccessMask).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_OBJECT_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_OBJECT_TYPE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_OBJECT_TYPE {}
-impl ::core::default::Default for AUDIT_OBJECT_TYPE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUDIT_OBJECT_TYPES {
-    pub Count: u16,
-    pub Flags: u16,
-    pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
-}
-impl ::core::marker::Copy for AUDIT_OBJECT_TYPES {}
-impl ::core::clone::Clone for AUDIT_OBJECT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUDIT_OBJECT_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIT_OBJECT_TYPES").field("Count", &self.Count).field("Flags", &self.Flags).field("pObjectTypes", &self.pObjectTypes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_OBJECT_TYPES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_OBJECT_TYPES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_OBJECT_TYPES {}
-impl ::core::default::Default for AUDIT_OBJECT_TYPES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUDIT_PARAM {
-    pub Type: AUDIT_PARAM_TYPE,
-    pub Length: u32,
-    pub Flags: u32,
-    pub Anonymous1: AUDIT_PARAM_0,
-    pub Anonymous2: AUDIT_PARAM_1,
-}
-impl ::core::marker::Copy for AUDIT_PARAM {}
-impl ::core::clone::Clone for AUDIT_PARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_PARAM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_PARAM {}
-impl ::core::default::Default for AUDIT_PARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub union AUDIT_PARAM_0 {
-    pub Data0: usize,
-    pub String: ::windows::core::PWSTR,
-    pub u: usize,
-    pub psid: *mut super::SID,
-    pub pguid: *mut ::windows::core::GUID,
-    pub LogonId_LowPart: u32,
-    pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
-    pub pIpAddress: *mut AUDIT_IP_ADDRESS,
-}
-impl ::core::marker::Copy for AUDIT_PARAM_0 {}
-impl ::core::clone::Clone for AUDIT_PARAM_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_PARAM_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_PARAM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_PARAM_0 {}
-impl ::core::default::Default for AUDIT_PARAM_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub union AUDIT_PARAM_1 {
-    pub Data1: usize,
-    pub LogonId_HighPart: i32,
-}
-impl ::core::marker::Copy for AUDIT_PARAM_1 {}
-impl ::core::clone::Clone for AUDIT_PARAM_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_PARAM_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_PARAM_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_PARAM_1 {}
-impl ::core::default::Default for AUDIT_PARAM_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUDIT_PARAMS {
-    pub Length: u32,
-    pub Flags: u32,
-    pub Count: u16,
-    pub Parameters: *mut AUDIT_PARAM,
-}
-impl ::core::marker::Copy for AUDIT_PARAMS {}
-impl ::core::clone::Clone for AUDIT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUDIT_PARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUDIT_PARAMS").field("Length", &self.Length).field("Flags", &self.Flags).field("Count", &self.Count).field("Parameters", &self.Parameters).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_PARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIT_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIT_PARAMS {}
-impl ::core::default::Default for AUDIT_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUDIT_PARAM_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_None: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_String: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Ulong: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Pointer: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Sid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_LogonId: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_ObjectTypeList: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Luid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Guid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Time: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_Int64: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_IpAddress: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(13i32);
-impl ::core::marker::Copy for AUDIT_PARAM_TYPE {}
-impl ::core::clone::Clone for AUDIT_PARAM_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUDIT_PARAM_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIT_PARAM_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUDIT_PARAM_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUDIT_PARAM_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUDIT_TYPE_WMI: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZP_WPD_EVENT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_ACCESS_CHECK_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = AUTHZ_ACCESS_CHECK_FLAGS(1u32);
-impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_FLAGS {}
-impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_ACCESS_CHECK_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_CHECK_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_ACCESS_CHECK_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
-impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
-impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_ACCESS_CHECK_RESULTS_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>> for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    fn from(optional: ::core::option::Option<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_ACCESS_REPLY {
-    pub ResultListLength: u32,
-    pub GrantedAccessMask: *mut u32,
-    pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
-    pub Error: *mut u32,
-}
-impl ::core::marker::Copy for AUTHZ_ACCESS_REPLY {}
-impl ::core::clone::Clone for AUTHZ_ACCESS_REPLY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_ACCESS_REPLY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_ACCESS_REPLY").field("ResultListLength", &self.ResultListLength).field("GrantedAccessMask", &self.GrantedAccessMask).field("SaclEvaluationResults", &self.SaclEvaluationResults).field("Error", &self.Error).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_REPLY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_ACCESS_REPLY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_ACCESS_REPLY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_ACCESS_REPLY {}
-impl ::core::default::Default for AUTHZ_ACCESS_REPLY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct AUTHZ_ACCESS_REQUEST {
-    pub DesiredAccess: u32,
-    pub PrincipalSelfSid: super::super::Foundation::PSID,
-    pub ObjectTypeList: *mut super::OBJECT_TYPE_LIST,
-    pub ObjectTypeListLength: u32,
-    pub OptionalArguments: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_ACCESS_REQUEST {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTHZ_ACCESS_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_ACCESS_REQUEST").field("DesiredAccess", &self.DesiredAccess).field("PrincipalSelfSid", &self.PrincipalSelfSid).field("ObjectTypeList", &self.ObjectTypeList).field("ObjectTypeListLength", &self.ObjectTypeListLength).field("OptionalArguments", &self.OptionalArguments).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_REQUEST {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AUTHZ_ACCESS_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_ACCESS_REQUEST>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AUTHZ_ACCESS_REQUEST {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUTHZ_ACCESS_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
-impl AUTHZ_AUDIT_EVENT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
-impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_AUDIT_EVENT_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<AUTHZ_AUDIT_EVENT_HANDLE>> for AUTHZ_AUDIT_EVENT_HANDLE {
-    fn from(optional: ::core::option::Option<AUTHZ_AUDIT_EVENT_HANDLE>) -> AUTHZ_AUDIT_EVENT_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoOperationType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoObjectType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(5i32);
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_AUDIT_EVENT_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
-impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
-impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_AUDIT_EVENT_TYPE_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>> for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    fn from(optional: ::core::option::Option<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>) -> AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    pub CategoryId: u16,
-    pub AuditId: u16,
-    pub ParameterCount: u16,
-}
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_LEGACY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_AUDIT_EVENT_TYPE_LEGACY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
-impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    pub Version: u32,
-    pub dwFlags: u32,
-    pub RefCount: i32,
-    pub hAudit: usize,
-    pub LinkId: super::super::Foundation::LUID,
-    pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_AUDIT_EVENT_TYPE_OLD>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
-}
-impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
-impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_AUDIT_EVENT_TYPE_UNION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
-impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {}
-impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {}
-impl ::core::default::Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
-impl AUTHZ_CLIENT_CONTEXT_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
-impl ::core::fmt::Debug for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_CLIENT_CONTEXT_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<AUTHZ_CLIENT_CONTEXT_HANDLE>> for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    fn from(optional: ::core::option::Option<AUTHZ_CLIENT_CONTEXT_HANDLE>) -> AUTHZ_CLIENT_CONTEXT_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_CLIENT_CONTEXT_HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_CONTEXT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoGroupsSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoRestrictedSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoPrivileges: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoExpirationTime: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoIdentifier: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoAll: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(9i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoAuthenticationId: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(10i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoSecurityAttributes: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(11i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoDeviceSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(12i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(13i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoDeviceClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(14i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoAppContainerSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(15i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AuthzContextInfoCapabilitySids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(16i32);
-impl ::core::marker::Copy for AUTHZ_CONTEXT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for AUTHZ_CONTEXT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_CONTEXT_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_CONTEXT_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_CONTEXT_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_CONTEXT_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_GENERATE_RESULTS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(2u32);
-impl ::core::marker::Copy for AUTHZ_GENERATE_RESULTS {}
-impl ::core::clone::Clone for AUTHZ_GENERATE_RESULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_GENERATE_RESULTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_GENERATE_RESULTS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_GENERATE_RESULTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_GENERATE_RESULTS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(4u32);
-impl ::core::marker::Copy for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {}
-impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct AUTHZ_INIT_INFO {
-    pub version: u16,
-    pub szResourceManagerName: ::windows::core::PCWSTR,
-    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
-    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
-    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
-    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
-    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AUTHZ_INIT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AUTHZ_INIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUTHZ_INIT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_INIT_INFO")
-            .field("version", &self.version)
-            .field("szResourceManagerName", &self.szResourceManagerName)
-            .field("pfnDynamicAccessCheck", &self.pfnDynamicAccessCheck.map(|f| f as usize))
-            .field("pfnComputeDynamicGroups", &self.pfnComputeDynamicGroups.map(|f| f as usize))
-            .field("pfnFreeDynamicGroups", &self.pfnFreeDynamicGroups.map(|f| f as usize))
-            .field("pfnGetCentralAccessPolicy", &self.pfnGetCentralAccessPolicy.map(|f| f as usize))
-            .field("pfnFreeCentralAccessPolicy", &self.pfnFreeCentralAccessPolicy.map(|f| f as usize))
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUTHZ_INIT_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AUTHZ_INIT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_INIT_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AUTHZ_INIT_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUTHZ_INIT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    pub szObjectTypeName: ::windows::core::PWSTR,
-    pub dwOffset: u32,
-}
-impl ::core::marker::Copy for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
-impl ::core::clone::Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET").field("szObjectTypeName", &self.szObjectTypeName).field("dwOffset", &self.dwOffset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
-impl ::core::default::Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_RESOURCE_MANAGER_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(4u32);
-impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_FLAGS {}
-impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_RESOURCE_MANAGER_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AUTHZ_RESOURCE_MANAGER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
-impl AUTHZ_RESOURCE_MANAGER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
-impl ::core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_RESOURCE_MANAGER_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<AUTHZ_RESOURCE_MANAGER_HANDLE>> for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    fn from(optional: ::core::option::Option<AUTHZ_RESOURCE_MANAGER_HANDLE>) -> AUTHZ_RESOURCE_MANAGER_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_RESOURCE_MANAGER_HANDLE {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
-    pub version: u16,
-    pub ObjectUuid: ::windows::core::PWSTR,
-    pub ProtSeq: ::windows::core::PWSTR,
-    pub NetworkAddr: ::windows::core::PWSTR,
-    pub Endpoint: ::windows::core::PWSTR,
-    pub Options: ::windows::core::PWSTR,
-    pub ServerSpn: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for AUTHZ_RPC_INIT_INFO_CLIENT {}
-impl ::core::clone::Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_RPC_INIT_INFO_CLIENT").field("version", &self.version).field("ObjectUuid", &self.ObjectUuid).field("ProtSeq", &self.ProtSeq).field("NetworkAddr", &self.NetworkAddr).field("Endpoint", &self.Endpoint).field("Options", &self.Options).field("ServerSpn", &self.ServerSpn).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_RPC_INIT_INFO_CLIENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_RPC_INIT_INFO_CLIENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_RPC_INIT_INFO_CLIENT {}
-impl ::core::default::Default for AUTHZ_RPC_INIT_INFO_CLIENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    pub Version: u16,
-    pub Reserved: u16,
-    pub AttributeCount: u32,
-    pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(2u32);
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_SECURITY_ATTRIBUTE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    pub Version: u64,
-    pub pName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("pName", &self.pName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    pub pValue: *mut ::core::ffi::c_void,
-    pub ValueLength: u32,
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(4i32);
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_SECURITY_ATTRIBUTE_OPERATION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    pub pName: ::windows::core::PWSTR,
-    pub ValueType: u16,
-    pub Reserved: u16,
-    pub Flags: AUTHZ_SECURITY_ATTRIBUTE_FLAGS,
-    pub ValueCount: u32,
-    pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    pub pInt64: *mut i64,
-    pub pUint64: *mut u64,
-    pub ppString: *mut ::windows::core::PWSTR,
-    pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
-    pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
-impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_V1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
-impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
-impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
-impl ::core::fmt::Debug for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>> for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    fn from(optional: ::core::option::Option<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>) -> AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AUTHZ_SID_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(4i32);
-impl ::core::marker::Copy for AUTHZ_SID_OPERATION {}
-impl ::core::clone::Clone for AUTHZ_SID_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AUTHZ_SID_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SID_OPERATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AUTHZ_SID_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AUTHZ_SID_OPERATION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    pub dwFlags: u32,
-    pub szEventSourceName: ::windows::core::PWSTR,
-    pub szEventMessageFile: ::windows::core::PWSTR,
-    pub szEventSourceXmlSchemaFile: ::windows::core::PWSTR,
-    pub szEventAccessStringsFile: ::windows::core::PWSTR,
-    pub szExecutableImagePath: ::windows::core::PWSTR,
-    pub Anonymous: AUTHZ_SOURCE_SCHEMA_REGISTRATION_0,
-    pub dwObjectTypeNameCount: u32,
-    pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
-}
-impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
-impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SOURCE_SCHEMA_REGISTRATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
-impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    pub pReserved: *mut ::core::ffi::c_void,
-    pub pProviderGuid: *mut ::windows::core::GUID,
-}
-impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
-impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SOURCE_SCHEMA_REGISTRATION_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
-impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AZ_PROP_CONSTANTS(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_DESCRIPTION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_DATA: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CHILD_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_APPLICATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_OPERATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_SCOPE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_ROLE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_DESCRIPTION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1024i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_APPLICATION_DATA_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_SUBMIT_FLAG_ABORT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_SUBMIT_FLAG_FLUSH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_POLICY_URL_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_MANAGE_STORE_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_BATCH_UPDATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_AUDIT_IS_CRITICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(8i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FORCE_APPLICATION_CLOSE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(16i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_NT6_FUNCTION_LEVEL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_FLAG_MANAGE_ONLY_PASSIVE_SUBMIT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32768i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(100i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(15000i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(101i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_MIN_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_MIN_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5000i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_DEFAULT_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(45000i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(102i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_AZSTORE_DEFAULT_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(120i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_MAJOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(103i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_MINOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(104i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZSTORE_TARGET_MACHINE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(105i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_AZTORE_IS_ADAM_INSTANCE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(106i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_OPERATION_ID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(200i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(300i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(301i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(302i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(303i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(304i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_TASK_IS_ROLE_DEFINITION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(305i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_TASK_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_BIZRULE_STRING: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_TYPE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(400i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_GROUPTYPE_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_GROUPTYPE_BASIC: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_GROUPTYPE_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(401i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_APP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(402i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(403i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_LDAP_QUERY_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(404i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(405i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(406i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_NON_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(407i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(408i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(409i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GROUP_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(410i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_GROUP_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(501i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(502i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(504i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_ROLE_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(505i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_SCOPE_BIZRULES_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(600i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_SCOPE_CAN_BE_DELEGATED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(601i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(700i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(701i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_DISPLAY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(702i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_GUID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(703i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_CANONICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(704i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_UPN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(705i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_USER_DNS_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(707i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_ROLE_FOR_ACCESS_CHECK: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(708i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_CLIENT_CONTEXT_LDAP_QUERY_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(709i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_AUTHZ_INTERFACE_CLSID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(800i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(801i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_MAX_APPLICATION_VERSION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(802i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLICATION_BIZRULE_ENABLED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(803i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_APPLY_STORE_SACL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(900i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_GENERATE_AUDITS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(901i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_ADMINS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(902i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_READERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(903i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_DELEGATED_POLICY_USERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(904i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_ADMINS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(905i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_POLICY_READERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(906i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_PROP_DELEGATED_POLICY_USERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(907i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_SKIP_GROUP: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
-impl ::core::marker::Copy for AZ_PROP_CONSTANTS {}
-impl ::core::clone::Clone for AZ_PROP_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AZ_PROP_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AZ_PROP_CONSTANTS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AZ_PROP_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AZ_PROP_CONSTANTS").field(&self.0).finish()
-    }
+#[inline]
+pub unsafe fn AuthzReportSecurityEvent<'a, P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, dwcount: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn AuthzReportSecurityEvent(dwflags: u32, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: u32, pusersid: super::super::Foundation::PSID, dwcount: u32) -> super::super::Foundation::BOOL;
+    }
+    AuthzReportSecurityEvent(dwflags, heventprovider.into(), dwauditid, pusersid.into(), dwcount)
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2531,41 +248,6 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzInitializeObjectAccessAuditEvent<'a, P0, P1, P2, P3, P4>(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, phauditevent: &mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn AuthzInitializeObjectAccessAuditEvent(flags: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: ::windows::core::PCWSTR, szobjecttype: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, szadditionalinfo: ::windows::core::PCWSTR, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL;
-    }
-    AuthzInitializeObjectAccessAuditEvent(flags, hauditeventtype.into(), szoperationtype.into(), szobjecttype.into(), szobjectname.into(), szadditionalinfo.into(), ::core::mem::transmute(phauditevent), dwadditionalparametercount)
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn AuthzInitializeObjectAccessAuditEvent2<'a, P0, P1, P2, P3, P4, P5>(flags: u32, hauditeventtype: P0, szoperationtype: P1, szobjecttype: P2, szobjectname: P3, szadditionalinfo: P4, szadditionalinfo2: P5, phauditevent: &mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-    P5: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn AuthzInitializeObjectAccessAuditEvent2(flags: u32, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: ::windows::core::PCWSTR, szobjecttype: ::windows::core::PCWSTR, szobjectname: ::windows::core::PCWSTR, szadditionalinfo: ::windows::core::PCWSTR, szadditionalinfo2: ::windows::core::PCWSTR, phauditevent: *mut isize, dwadditionalparametercount: u32) -> super::super::Foundation::BOOL;
-    }
-    AuthzInitializeObjectAccessAuditEvent2(flags, hauditeventtype.into(), szoperationtype.into(), szobjecttype.into(), szobjectname.into(), szadditionalinfo.into(), szadditionalinfo2.into(), ::core::mem::transmute(phauditevent), dwadditionalparametercount)
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AuthzInitializeRemoteResourceManager(prpcinitinfo: &AUTHZ_RPC_INIT_INFO_CLIENT, phauthzresourcemanager: &mut AUTHZ_RESOURCE_MANAGER_HANDLE) -> super::super::Foundation::BOOL {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -2686,20 +368,6 @@ where
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AuthzReportSecurityEvent<'a, P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, dwcount: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn AuthzReportSecurityEvent(dwflags: u32, heventprovider: AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE, dwauditid: u32, pusersid: super::super::Foundation::PSID, dwcount: u32) -> super::super::Foundation::BOOL;
-    }
-    AuthzReportSecurityEvent(dwflags, heventprovider.into(), dwauditid, pusersid.into(), dwcount)
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
 pub unsafe fn AuthzReportSecurityEventFromParams<'a, P0, P1>(dwflags: u32, heventprovider: P0, dwauditid: u32, pusersid: P1, pparams: &AUDIT_PARAMS) -> super::super::Foundation::BOOL
 where
     P0: ::std::convert::Into<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>,
@@ -2758,9 +426,6 @@ pub unsafe fn AuthzUnregisterSecurityEventSource(dwflags: u32, pheventprovider: 
     }
     AuthzUnregisterSecurityEventSource(dwflags, ::core::mem::transmute(pheventprovider))
 }
-pub const AzAuthorizationStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
-pub const AzBizRuleContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
-pub const AzPrincipalLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn BuildExplicitAccessWithNameA<'a, P0>(pexplicitaccess: &mut EXPLICIT_ACCESS_A, ptrusteename: P0, accesspermissions: u32, accessmode: ACCESS_MODE, inheritance: super::ACE_FLAGS)
@@ -3079,105 +744,6 @@ where
     }
     ConvertStringSidToSidW(stringsid.into(), ::core::mem::transmute(sid))
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct EXPLICIT_ACCESS_A {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: super::ACE_FLAGS,
-    pub Trustee: TRUSTEE_A,
-}
-impl ::core::marker::Copy for EXPLICIT_ACCESS_A {}
-impl ::core::clone::Clone for EXPLICIT_ACCESS_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for EXPLICIT_ACCESS_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXPLICIT_ACCESS_A").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_A {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for EXPLICIT_ACCESS_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXPLICIT_ACCESS_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EXPLICIT_ACCESS_A {}
-impl ::core::default::Default for EXPLICIT_ACCESS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct EXPLICIT_ACCESS_W {
-    pub grfAccessPermissions: u32,
-    pub grfAccessMode: ACCESS_MODE,
-    pub grfInheritance: super::ACE_FLAGS,
-    pub Trustee: TRUSTEE_W,
-}
-impl ::core::marker::Copy for EXPLICIT_ACCESS_W {}
-impl ::core::clone::Clone for EXPLICIT_ACCESS_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for EXPLICIT_ACCESS_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXPLICIT_ACCESS_W").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_W {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for EXPLICIT_ACCESS_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXPLICIT_ACCESS_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for EXPLICIT_ACCESS_W {}
-impl ::core::default::Default for EXPLICIT_ACCESS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct FN_OBJECT_MGR_FUNCTIONS {
-    pub Placeholder: u32,
-}
-impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTIONS {}
-impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FN_OBJECT_MGR_FUNCTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FN_OBJECT_MGR_FUNCTIONS").field("Placeholder", &self.Placeholder).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTIONS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FN_OBJECT_MGR_FUNCTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FN_OBJECT_MGR_FUNCTIONS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FN_OBJECT_MGR_FUNCTIONS {}
-impl ::core::default::Default for FN_OBJECT_MGR_FUNCTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type FN_PROGRESS = ::core::option::Option<unsafe extern "system" fn(pobjectname: ::windows::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[inline]
 pub unsafe fn FreeInheritedFromArray(pinheritarray: &[INHERITED_FROMW], pfnarray: ::core::option::Option<&FN_OBJECT_MGR_FUNCTIONS>) -> u32 {
@@ -3397,6 +963,155 @@ pub unsafe fn GetTrusteeTypeW(ptrustee: ::core::option::Option<&TRUSTEE_W>) -> T
         fn GetTrusteeTypeW(ptrustee: *const TRUSTEE_W) -> TRUSTEE_TYPE;
     }
     GetTrusteeTypeW(::core::mem::transmute(ptrustee))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[inline]
+pub unsafe fn LookupSecurityDescriptorPartsA<'a, P0>(ppowner: ::core::option::Option<&mut *mut TRUSTEE_A>, ppgroup: ::core::option::Option<&mut *mut TRUSTEE_A>, pccountofaccessentries: ::core::option::Option<&mut u32>, pplistofaccessentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_A>, pccountofauditentries: ::core::option::Option<&mut u32>, pplistofauditentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_A>, psd: P0) -> u32
+where
+    P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: super::PSECURITY_DESCRIPTOR) -> u32;
+    }
+    LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into())
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[inline]
+pub unsafe fn LookupSecurityDescriptorPartsW<'a, P0>(ppowner: ::core::option::Option<&mut *mut TRUSTEE_W>, ppgroup: ::core::option::Option<&mut *mut TRUSTEE_W>, pccountofaccessentries: ::core::option::Option<&mut u32>, pplistofaccessentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_W>, pccountofauditentries: ::core::option::Option<&mut u32>, pplistofauditentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_W>, psd: P0) -> u32
+where
+    P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: super::PSECURITY_DESCRIPTOR) -> u32;
+    }
+    LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into())
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[inline]
+pub unsafe fn SetEntriesInAclA(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, oldacl: ::core::option::Option<&super::ACL>, newacl: &mut *mut super::ACL) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
+    }
+    SetEntriesInAclA(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl), ::core::mem::transmute(newacl))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[inline]
+pub unsafe fn SetEntriesInAclW(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, oldacl: ::core::option::Option<&super::ACL>, newacl: &mut *mut super::ACL) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
+    }
+    SetEntriesInAclW(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl), ::core::mem::transmute(newacl))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
+    }
+    SetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
+    }
+    SetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetSecurityInfo<'a, P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
+    }
+    SetSecurityInfo(handle.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TreeResetNamedSecurityInfoA<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TreeResetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
+    }
+    TreeResetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TreeResetNamedSecurityInfoW<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TreeResetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
+    }
+    TreeResetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TreeSetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TreeSetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
+    }
+    TreeSetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TreeSetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::PSID>,
+    P2: ::std::convert::Into<super::super::Foundation::PSID>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TreeSetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
+    }
+    TreeSetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -13552,276 +11267,258 @@ pub struct IAzTasks_Vtbl {
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACCCTRL_DEFAULT_PROVIDER: &str = "Windows NT Access Provider";
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACCCTRL_DEFAULT_PROVIDERA: &str = "Windows NT Access Provider";
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACCCTRL_DEFAULT_PROVIDERW: &str = "Windows NT Access Provider";
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_NO_OPTIONS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_PROTECTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_CHANGE_ACCESS: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_CHANGE_OWNER: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_DELETE: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_DIR_CREATE_CHILD: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_DIR_CREATE_OBJECT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_DIR_DELETE_CHILD: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_DIR_LIST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_DIR_TRAVERSE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_APPEND: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_CREATE_PIPE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_EXECUTE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_READ: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_READ_ATTRIB: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_READ_PROP: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_WRITE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_WRITE_ATTRIB: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_FILE_WRITE_PROP: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_ALERT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_CONTROL: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_DIMPERSONATE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_DUP_HANDLE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_GET_CONTEXT: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_GET_INFO: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_IMPERSONATE: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_PROCESS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_SET_CONTEXT: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_SET_INFO: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_TERMINATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_THREAD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_TOKEN: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_VM: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_VM_READ: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_KERNEL_VM_WRITE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_10: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_11: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_12: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_13: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_14: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_15: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_16: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_17: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_18: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_19: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_2: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_20: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_3: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_4: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_5: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_6: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_7: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_8: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PERM_9: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PRINT_JADMIN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PRINT_PADMIN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PRINT_PUSE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PRINT_SADMIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_PRINT_SLIST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_READ_CONTROL: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_REG_CREATE_CHILD: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_REG_LINK: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_REG_LIST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_REG_NOTIFY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_REG_QUERY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_REG_SET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_RESERVED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_STD_RIGHTS_ALL: u32 = 4160749568u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_GET_INFO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_INTERROGATE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_LIST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_PAUSE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_SET_INFO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_START: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_STATUS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_STOP: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SVC_UCONTROL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SYNCHRONIZE: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_SYSTEM_ACCESS: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_CLIPBRD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_CREATE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_EXIT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_GLOBAL_ATOMS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_LIST: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_LIST_DESK: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_READ_ATTRIBS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_SCREEN: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_WIN_WRITE_ATTRIBS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APF_AuditFailure: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APF_AuditSuccess: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APF_ValidFlags: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AP_ParamTypeBits: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AP_ParamTypeMask: i32 = 255i32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUDIT_TYPE_LEGACY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUDIT_TYPE_WMI: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZP_WPD_EVENT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_AUDIT_INSTANCE_INFORMATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_COMPUTE_PRIVILEGES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_INIT_INFO_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_MIGRATED_LEGACY_PUBLISHER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_REQUIRE_S4U_LOGON: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SKIP_TOKEN_GROUPS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_WPD_CATEGORY_FLAG: u32 = 16u32;
+pub const AzAuthorizationStore: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bcff59_a757_4b0b_a1bc_ea69981da69e);
+pub const AzBizRuleContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c2dc96f_8d51_434b_b33c_379bccae77c3);
+pub const AzPrincipalLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x483afb5d_70df_4e16_abdc_a1de4d015a3e);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_ACCESS_ENTRY: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct INHERITED_FROMA {
-    pub GenerationGap: i32,
-    pub AncestorName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for INHERITED_FROMA {}
-impl ::core::clone::Clone for INHERITED_FROMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for INHERITED_FROMA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INHERITED_FROMA").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for INHERITED_FROMA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INHERITED_FROMA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INHERITED_FROMA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INHERITED_FROMA {}
-impl ::core::default::Default for INHERITED_FROMA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct INHERITED_FROMW {
-    pub GenerationGap: i32,
-    pub AncestorName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for INHERITED_FROMW {}
-impl ::core::clone::Clone for INHERITED_FROMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for INHERITED_FROMW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INHERITED_FROMW").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for INHERITED_FROMW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for INHERITED_FROMW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INHERITED_FROMW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for INHERITED_FROMW {}
-impl ::core::default::Default for INHERITED_FROMW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_GRANDPARENT: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const INHERITED_PARENT: u32 = 268435456u32;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[inline]
-pub unsafe fn LookupSecurityDescriptorPartsA<'a, P0>(ppowner: ::core::option::Option<&mut *mut TRUSTEE_A>, ppgroup: ::core::option::Option<&mut *mut TRUSTEE_A>, pccountofaccessentries: ::core::option::Option<&mut u32>, pplistofaccessentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_A>, pccountofauditentries: ::core::option::Option<&mut u32>, pplistofauditentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_A>, psd: P0) -> u32
-where
-    P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LookupSecurityDescriptorPartsA(ppowner: *mut *mut TRUSTEE_A, ppgroup: *mut *mut TRUSTEE_A, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_A, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_A, psd: super::PSECURITY_DESCRIPTOR) -> u32;
-    }
-    LookupSecurityDescriptorPartsA(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into())
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[inline]
-pub unsafe fn LookupSecurityDescriptorPartsW<'a, P0>(ppowner: ::core::option::Option<&mut *mut TRUSTEE_W>, ppgroup: ::core::option::Option<&mut *mut TRUSTEE_W>, pccountofaccessentries: ::core::option::Option<&mut u32>, pplistofaccessentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_W>, pccountofauditentries: ::core::option::Option<&mut u32>, pplistofauditentries: ::core::option::Option<&mut *mut EXPLICIT_ACCESS_W>, psd: P0) -> u32
-where
-    P0: ::std::convert::Into<super::PSECURITY_DESCRIPTOR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LookupSecurityDescriptorPartsW(ppowner: *mut *mut TRUSTEE_W, ppgroup: *mut *mut TRUSTEE_W, pccountofaccessentries: *mut u32, pplistofaccessentries: *mut *mut EXPLICIT_ACCESS_W, pccountofauditentries: *mut u32, pplistofauditentries: *mut *mut EXPLICIT_ACCESS_W, psd: super::PSECURITY_DESCRIPTOR) -> u32;
-    }
-    LookupSecurityDescriptorPartsW(::core::mem::transmute(ppowner), ::core::mem::transmute(ppgroup), ::core::mem::transmute(pccountofaccessentries), ::core::mem::transmute(pplistofaccessentries), ::core::mem::transmute(pccountofauditentries), ::core::mem::transmute(pplistofauditentries), psd.into())
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MULTIPLE_TRUSTEE_OPERATION(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_IMPERSONATE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(1i32);
-impl ::core::marker::Copy for MULTIPLE_TRUSTEE_OPERATION {}
-impl ::core::clone::Clone for MULTIPLE_TRUSTEE_OPERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MULTIPLE_TRUSTEE_OPERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MULTIPLE_TRUSTEE_OPERATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MULTIPLE_TRUSTEE_OPERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MULTIPLE_TRUSTEE_OPERATION").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct OBJECTS_AND_NAME_A {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: SE_OBJECT_TYPE,
-    pub ObjectTypeName: ::windows::core::PSTR,
-    pub InheritedObjectTypeName: ::windows::core::PSTR,
-    pub ptstrName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for OBJECTS_AND_NAME_A {}
-impl ::core::clone::Clone for OBJECTS_AND_NAME_A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OBJECTS_AND_NAME_A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OBJECTS_AND_NAME_A").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_A {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OBJECTS_AND_NAME_A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTS_AND_NAME_A>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OBJECTS_AND_NAME_A {}
-impl ::core::default::Default for OBJECTS_AND_NAME_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct OBJECTS_AND_NAME_W {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectType: SE_OBJECT_TYPE,
-    pub ObjectTypeName: ::windows::core::PWSTR,
-    pub InheritedObjectTypeName: ::windows::core::PWSTR,
-    pub ptstrName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for OBJECTS_AND_NAME_W {}
-impl ::core::clone::Clone for OBJECTS_AND_NAME_W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OBJECTS_AND_NAME_W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OBJECTS_AND_NAME_W").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_W {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OBJECTS_AND_NAME_W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTS_AND_NAME_W>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OBJECTS_AND_NAME_W {}
-impl ::core::default::Default for OBJECTS_AND_NAME_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub struct OBJECTS_AND_SID {
-    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
-    pub ObjectTypeGuid: ::windows::core::GUID,
-    pub InheritedObjectTypeGuid: ::windows::core::GUID,
-    pub pSid: *mut super::SID,
-}
-impl ::core::marker::Copy for OBJECTS_AND_SID {}
-impl ::core::clone::Clone for OBJECTS_AND_SID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OBJECTS_AND_SID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OBJECTS_AND_SID").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectTypeGuid", &self.ObjectTypeGuid).field("InheritedObjectTypeGuid", &self.InheritedObjectTypeGuid).field("pSid", &self.pSid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OBJECTS_AND_SID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OBJECTS_AND_SID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTS_AND_SID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OBJECTS_AND_SID {}
-impl ::core::default::Default for OBJECTS_AND_SID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const OLESCRIPT_E_SYNTAX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147352319i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const ::core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const ::core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(pcentralaccesspolicy: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::super::Foundation::PSID, pargs: *const ::core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PROG_INVOKE_SETTING(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokeNever: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokeOnError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressCancelOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressRetryOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const ProgressInvokePrePostError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(6i32);
-impl ::core::marker::Copy for PROG_INVOKE_SETTING {}
-impl ::core::clone::Clone for PROG_INVOKE_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PROG_INVOKE_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PROG_INVOKE_SETTING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PROG_INVOKE_SETTING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PROG_INVOKE_SETTING").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_ACCESS_ALLOWED: &str = "A";
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
@@ -14125,6 +11822,763 @@ pub const SDDL_WRITE_RESTRICTED_CODE: &str = "WR";
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub const SDDL_WSTRING: &str = "TS";
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_ACCESS_EXPLICIT: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_ACCESS_READ: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_ACCESS_WRITE: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACCESS_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const NOT_USED_ACCESS: ACCESS_MODE = ACCESS_MODE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const GRANT_ACCESS: ACCESS_MODE = ACCESS_MODE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SET_ACCESS: ACCESS_MODE = ACCESS_MODE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const DENY_ACCESS: ACCESS_MODE = ACCESS_MODE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const REVOKE_ACCESS: ACCESS_MODE = ACCESS_MODE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SET_AUDIT_SUCCESS: ACCESS_MODE = ACCESS_MODE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const SET_AUDIT_FAILURE: ACCESS_MODE = ACCESS_MODE(6i32);
+impl ::core::marker::Copy for ACCESS_MODE {}
+impl ::core::clone::Clone for ACCESS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ACCESS_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACCESS_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACCESS_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_ALLOWED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_ACCESS_DENIED: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_AUDIT_SUCCESS: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ACTRL_AUDIT_FAILURE: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS = ACTRL_ACCESS_ENTRY_ACCESS_FLAGS(8u32);
+impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {}
+impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_ACCESS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTRL_ACCESS_ENTRY_ACCESS_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUDIT_PARAM_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_None: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_String: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Ulong: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Pointer: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Sid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_LogonId: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_ObjectTypeList: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Luid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Guid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Time: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_Int64: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_IpAddress: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const APT_LogonIdWithSid: AUDIT_PARAM_TYPE = AUDIT_PARAM_TYPE(13i32);
+impl ::core::marker::Copy for AUDIT_PARAM_TYPE {}
+impl ::core::clone::Clone for AUDIT_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUDIT_PARAM_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_PARAM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIT_PARAM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIT_PARAM_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_ACCESS_CHECK_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_ACCESS_CHECK_NO_DEEP_COPY_SD: AUTHZ_ACCESS_CHECK_FLAGS = AUTHZ_ACCESS_CHECK_FLAGS(1u32);
+impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_ACCESS_CHECK_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_CHECK_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_ACCESS_CHECK_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoFlags: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoOperationType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoObjectType: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoObjectName: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzAuditEventInfoAdditionalInfo: AUTHZ_AUDIT_EVENT_INFORMATION_CLASS = AUTHZ_AUDIT_EVENT_INFORMATION_CLASS(5i32);
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_AUDIT_EVENT_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_CONTEXT_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoUserSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoGroupsSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoRestrictedSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoPrivileges: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoExpirationTime: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoServerContext: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoIdentifier: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoSource: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoAll: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(9i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoAuthenticationId: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(10i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoSecurityAttributes: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(11i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoDeviceSids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(12i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoUserClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(13i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoDeviceClaims: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(14i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoAppContainerSid: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(15i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AuthzContextInfoCapabilitySids: AUTHZ_CONTEXT_INFORMATION_CLASS = AUTHZ_CONTEXT_INFORMATION_CLASS(16i32);
+impl ::core::marker::Copy for AUTHZ_CONTEXT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for AUTHZ_CONTEXT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_CONTEXT_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_CONTEXT_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_CONTEXT_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_CONTEXT_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_GENERATE_RESULTS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_GENERATE_SUCCESS_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_GENERATE_FAILURE_AUDIT: AUTHZ_GENERATE_RESULTS = AUTHZ_GENERATE_RESULTS(2u32);
+impl ::core::marker::Copy for AUTHZ_GENERATE_RESULTS {}
+impl ::core::clone::Clone for AUTHZ_GENERATE_RESULTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_GENERATE_RESULTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_GENERATE_RESULTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_GENERATE_RESULTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_GENERATE_RESULTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_NO_SUCCESS_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_NO_FAILURE_AUDIT: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_NO_ALLOC_STRINGS: AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS = AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS(4u32);
+impl ::core::marker::Copy for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_INITIALIZE_OBJECT_ACCESS_AUDIT_EVENT_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_RESOURCE_MANAGER_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RM_FLAG_NO_AUDIT: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: AUTHZ_RESOURCE_MANAGER_FLAGS = AUTHZ_RESOURCE_MANAGER_FLAGS(4u32);
+impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_RESOURCE_MANAGER_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AUTHZ_RESOURCE_MANAGER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: AUTHZ_SECURITY_ATTRIBUTE_FLAGS = AUTHZ_SECURITY_ATTRIBUTE_FLAGS(2u32);
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_SECURITY_ATTRIBUTE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AUTHZ_SECURITY_ATTRIBUTE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_OPERATION(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_NONE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE_ALL: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_ADD: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_DELETE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SECURITY_ATTRIBUTE_OPERATION_REPLACE: AUTHZ_SECURITY_ATTRIBUTE_OPERATION = AUTHZ_SECURITY_ATTRIBUTE_OPERATION(4i32);
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_SECURITY_ATTRIBUTE_OPERATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_SID_OPERATION(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_NONE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_REPLACE_ALL: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_ADD: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_DELETE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AUTHZ_SID_OPERATION_REPLACE: AUTHZ_SID_OPERATION = AUTHZ_SID_OPERATION(4i32);
+impl ::core::marker::Copy for AUTHZ_SID_OPERATION {}
+impl ::core::clone::Clone for AUTHZ_SID_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AUTHZ_SID_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SID_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHZ_SID_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_SID_OPERATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AZ_PROP_CONSTANTS(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_DESCRIPTION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_DATA: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CHILD_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_APPLICATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_OPERATION_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_SCOPE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_ROLE_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_NAME_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_DESCRIPTION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1024i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_APPLICATION_DATA_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_SUBMIT_FLAG_ABORT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_SUBMIT_FLAG_FLUSH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_POLICY_URL_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_CREATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_MANAGE_STORE_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_BATCH_UPDATE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_AUDIT_IS_CRITICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(8i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FORCE_APPLICATION_CLOSE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(16i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_NT6_FUNCTION_LEVEL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_FLAG_MANAGE_ONLY_PASSIVE_SUBMIT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(32768i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(100i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_DEFAULT_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(15000i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(101i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_MIN_DOMAIN_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_MIN_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(5000i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_DEFAULT_SCRIPT_ENGINE_TIMEOUT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(45000i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(102i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_AZSTORE_DEFAULT_MAX_SCRIPT_ENGINES: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(120i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_MAJOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(103i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_MINOR_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(104i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZSTORE_TARGET_MACHINE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(105i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_AZTORE_IS_ADAM_INSTANCE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(106i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_OPERATION_ID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(200i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(300i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(301i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(302i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(303i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(304i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_TASK_IS_ROLE_DEFINITION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(305i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_TASK_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_BIZRULE_STRING: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_TYPE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(400i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_GROUPTYPE_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_GROUPTYPE_BASIC: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_GROUPTYPE_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(401i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_APP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(402i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(403i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_LDAP_QUERY_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(4096i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(404i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_NON_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(405i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(406i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_NON_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(407i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_BIZRULE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(408i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_BIZRULE_LANGUAGE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(409i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GROUP_BIZRULE_IMPORTED_PATH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(410i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_BIZRULE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(65536i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_BIZRULE_LANGUAGE_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(64i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_GROUP_BIZRULE_IMPORTED_PATH_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_APP_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(500i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_MEMBERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(501i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_OPERATIONS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(502i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_TASKS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(504i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_ROLE_MEMBERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(505i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_SCOPE_BIZRULES_WRITABLE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(600i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_SCOPE_CAN_BE_DELEGATED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(601i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(700i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(701i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_DISPLAY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(702i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_GUID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(703i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_CANONICAL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(704i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_UPN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(705i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_USER_DNS_SAM_COMPAT: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(707i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_ROLE_FOR_ACCESS_CHECK: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(708i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_CLIENT_CONTEXT_LDAP_QUERY_DN: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(709i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_AUTHZ_INTERFACE_CLSID: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(800i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_VERSION: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(801i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_MAX_APPLICATION_VERSION_LENGTH: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(512i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(802i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLICATION_BIZRULE_ENABLED: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(803i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_APPLY_STORE_SACL: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(900i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_GENERATE_AUDITS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(901i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_ADMINS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(902i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_READERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(903i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_DELEGATED_POLICY_USERS: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(904i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_ADMINS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(905i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_POLICY_READERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(906i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_PROP_DELEGATED_POLICY_USERS_NAME: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(907i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_SKIP_GROUP: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_SKIP_LDAP_QUERY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_GET_GROUP_RECURSIVE: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const AZ_CLIENT_CONTEXT_GET_GROUPS_STORE_LEVEL_ONLY: AZ_PROP_CONSTANTS = AZ_PROP_CONSTANTS(2i32);
+impl ::core::marker::Copy for AZ_PROP_CONSTANTS {}
+impl ::core::clone::Clone for AZ_PROP_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AZ_PROP_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AZ_PROP_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AZ_PROP_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AZ_PROP_CONSTANTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MULTIPLE_TRUSTEE_OPERATION(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const NO_MULTIPLE_TRUSTEE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_IMPERSONATE: MULTIPLE_TRUSTEE_OPERATION = MULTIPLE_TRUSTEE_OPERATION(1i32);
+impl ::core::marker::Copy for MULTIPLE_TRUSTEE_OPERATION {}
+impl ::core::clone::Clone for MULTIPLE_TRUSTEE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MULTIPLE_TRUSTEE_OPERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MULTIPLE_TRUSTEE_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MULTIPLE_TRUSTEE_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MULTIPLE_TRUSTEE_OPERATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PROG_INVOKE_SETTING(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokeNever: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokeEveryObject: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokeOnError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressCancelOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressRetryOperation: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const ProgressInvokePrePostError: PROG_INVOKE_SETTING = PROG_INVOKE_SETTING(6i32);
+impl ::core::marker::Copy for PROG_INVOKE_SETTING {}
+impl ::core::clone::Clone for PROG_INVOKE_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PROG_INVOKE_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PROG_INVOKE_SETTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROG_INVOKE_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROG_INVOKE_SETTING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SE_OBJECT_TYPE(pub i32);
@@ -14176,69 +12630,6 @@ impl ::core::fmt::Debug for SE_OBJECT_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[inline]
-pub unsafe fn SetEntriesInAclA(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_A]>, oldacl: ::core::option::Option<&super::ACL>, newacl: &mut *mut super::ACL) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetEntriesInAclA(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_A, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
-    }
-    SetEntriesInAclA(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl), ::core::mem::transmute(newacl))
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[inline]
-pub unsafe fn SetEntriesInAclW(plistofexplicitentries: ::core::option::Option<&[EXPLICIT_ACCESS_W]>, oldacl: ::core::option::Option<&super::ACL>, newacl: &mut *mut super::ACL) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetEntriesInAclW(ccountofexplicitentries: u32, plistofexplicitentries: *const EXPLICIT_ACCESS_W, oldacl: *const super::ACL, newacl: *mut *mut super::ACL) -> u32;
-    }
-    SetEntriesInAclW(plistofexplicitentries.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(plistofexplicitentries.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(oldacl), ::core::mem::transmute(newacl))
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
-    }
-    SetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: super::OBJECT_SECURITY_INFORMATION, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
-    }
-    SetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetSecurityInfo<'a, P0, P1, P2>(handle: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: P1, psidgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetSecurityInfo(handle: super::super::Foundation::HANDLE, objecttype: SE_OBJECT_TYPE, securityinfo: u32, psidowner: super::super::Foundation::PSID, psidgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL) -> u32;
-    }
-    SetSecurityInfo(handle.into(), objecttype, securityinfo, psidowner.into(), psidgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl))
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct TREE_SEC_INFO(pub u32);
@@ -14265,6 +12656,1746 @@ unsafe impl ::windows::core::Abi for TREE_SEC_INFO {
 impl ::core::fmt::Debug for TREE_SEC_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TREE_SEC_INFO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRUSTEE_FORM(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_SID: TRUSTEE_FORM = TRUSTEE_FORM(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_NAME: TRUSTEE_FORM = TRUSTEE_FORM(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = TRUSTEE_FORM(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_OBJECTS_AND_SID: TRUSTEE_FORM = TRUSTEE_FORM(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_OBJECTS_AND_NAME: TRUSTEE_FORM = TRUSTEE_FORM(4i32);
+impl ::core::marker::Copy for TRUSTEE_FORM {}
+impl ::core::clone::Clone for TRUSTEE_FORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRUSTEE_FORM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRUSTEE_FORM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRUSTEE_FORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRUSTEE_FORM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TRUSTEE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = TRUSTEE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = TRUSTEE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_DOMAIN: TRUSTEE_TYPE = TRUSTEE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_ALIAS: TRUSTEE_TYPE = TRUSTEE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_DELETED: TRUSTEE_TYPE = TRUSTEE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_INVALID: TRUSTEE_TYPE = TRUSTEE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub const TRUSTEE_IS_COMPUTER: TRUSTEE_TYPE = TRUSTEE_TYPE(8i32);
+impl ::core::marker::Copy for TRUSTEE_TYPE {}
+impl ::core::clone::Clone for TRUSTEE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TRUSTEE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TRUSTEE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRUSTEE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRUSTEE_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESSA {
+    pub cEntries: u32,
+    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYA,
+}
+impl ::core::marker::Copy for ACTRL_ACCESSA {}
+impl ::core::clone::Clone for ACTRL_ACCESSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESSA").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESSA {}
+impl ::core::default::Default for ACTRL_ACCESSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESSW {
+    pub cEntries: u32,
+    pub pPropertyAccessList: *mut ACTRL_PROPERTY_ENTRYW,
+}
+impl ::core::marker::Copy for ACTRL_ACCESSW {}
+impl ::core::clone::Clone for ACTRL_ACCESSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESSW").field("cEntries", &self.cEntries).field("pPropertyAccessList", &self.pPropertyAccessList).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESSW {}
+impl ::core::default::Default for ACTRL_ACCESSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESS_ENTRYA {
+    pub Trustee: TRUSTEE_A,
+    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
+    pub Access: u32,
+    pub ProvSpecificAccess: u32,
+    pub Inheritance: super::ACE_FLAGS,
+    pub lpInheritProperty: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for ACTRL_ACCESS_ENTRYA {}
+impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRYA").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRYA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRYA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRYA {}
+impl ::core::default::Default for ACTRL_ACCESS_ENTRYA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESS_ENTRYW {
+    pub Trustee: TRUSTEE_W,
+    pub fAccessFlags: ACTRL_ACCESS_ENTRY_ACCESS_FLAGS,
+    pub Access: u32,
+    pub ProvSpecificAccess: u32,
+    pub Inheritance: super::ACE_FLAGS,
+    pub lpInheritProperty: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ACTRL_ACCESS_ENTRYW {}
+impl ::core::clone::Clone for ACTRL_ACCESS_ENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRYW").field("Trustee", &self.Trustee).field("fAccessFlags", &self.fAccessFlags).field("Access", &self.Access).field("ProvSpecificAccess", &self.ProvSpecificAccess).field("Inheritance", &self.Inheritance).field("lpInheritProperty", &self.lpInheritProperty).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRYW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRYW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRYW {}
+impl ::core::default::Default for ACTRL_ACCESS_ENTRYW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESS_ENTRY_LISTA {
+    pub cEntries: u32,
+    pub pAccessList: *mut ACTRL_ACCESS_ENTRYA,
+}
+impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_LISTA {}
+impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTA").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_LISTA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRY_LISTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRY_LISTA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRY_LISTA {}
+impl ::core::default::Default for ACTRL_ACCESS_ENTRY_LISTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESS_ENTRY_LISTW {
+    pub cEntries: u32,
+    pub pAccessList: *mut ACTRL_ACCESS_ENTRYW,
+}
+impl ::core::marker::Copy for ACTRL_ACCESS_ENTRY_LISTW {}
+impl ::core::clone::Clone for ACTRL_ACCESS_ENTRY_LISTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_ENTRY_LISTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_ENTRY_LISTW").field("cEntries", &self.cEntries).field("pAccessList", &self.pAccessList).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_ENTRY_LISTW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESS_ENTRY_LISTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_ENTRY_LISTW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESS_ENTRY_LISTW {}
+impl ::core::default::Default for ACTRL_ACCESS_ENTRY_LISTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESS_INFOA {
+    pub fAccessPermission: u32,
+    pub lpAccessPermissionName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for ACTRL_ACCESS_INFOA {}
+impl ::core::clone::Clone for ACTRL_ACCESS_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_INFOA").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_INFOA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESS_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_INFOA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESS_INFOA {}
+impl ::core::default::Default for ACTRL_ACCESS_INFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_ACCESS_INFOW {
+    pub fAccessPermission: u32,
+    pub lpAccessPermissionName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ACTRL_ACCESS_INFOW {}
+impl ::core::clone::Clone for ACTRL_ACCESS_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_ACCESS_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_ACCESS_INFOW").field("fAccessPermission", &self.fAccessPermission).field("lpAccessPermissionName", &self.lpAccessPermissionName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_ACCESS_INFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_ACCESS_INFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_ACCESS_INFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_ACCESS_INFOW {}
+impl ::core::default::Default for ACTRL_ACCESS_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_CONTROL_INFOA {
+    pub lpControlId: ::windows::core::PSTR,
+    pub lpControlName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for ACTRL_CONTROL_INFOA {}
+impl ::core::clone::Clone for ACTRL_CONTROL_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_CONTROL_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_CONTROL_INFOA").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_CONTROL_INFOA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_CONTROL_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_CONTROL_INFOA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_CONTROL_INFOA {}
+impl ::core::default::Default for ACTRL_CONTROL_INFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_CONTROL_INFOW {
+    pub lpControlId: ::windows::core::PWSTR,
+    pub lpControlName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ACTRL_CONTROL_INFOW {}
+impl ::core::clone::Clone for ACTRL_CONTROL_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_CONTROL_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_CONTROL_INFOW").field("lpControlId", &self.lpControlId).field("lpControlName", &self.lpControlName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_CONTROL_INFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_CONTROL_INFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_CONTROL_INFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_CONTROL_INFOW {}
+impl ::core::default::Default for ACTRL_CONTROL_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ACTRL_OVERLAPPED {
+    pub Anonymous: ACTRL_OVERLAPPED_0,
+    pub Reserved2: u32,
+    pub hEvent: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACTRL_OVERLAPPED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACTRL_OVERLAPPED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ACTRL_OVERLAPPED {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ACTRL_OVERLAPPED {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_OVERLAPPED>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ACTRL_OVERLAPPED {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ACTRL_OVERLAPPED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union ACTRL_OVERLAPPED_0 {
+    pub Provider: *mut ::core::ffi::c_void,
+    pub Reserved1: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACTRL_OVERLAPPED_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ACTRL_OVERLAPPED_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ACTRL_OVERLAPPED_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_OVERLAPPED_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ACTRL_OVERLAPPED_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_PROPERTY_ENTRYA {
+    pub lpProperty: ::windows::core::PSTR,
+    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTA,
+    pub fListFlags: u32,
+}
+impl ::core::marker::Copy for ACTRL_PROPERTY_ENTRYA {}
+impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_PROPERTY_ENTRYA").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_PROPERTY_ENTRYA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_PROPERTY_ENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_PROPERTY_ENTRYA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_PROPERTY_ENTRYA {}
+impl ::core::default::Default for ACTRL_PROPERTY_ENTRYA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct ACTRL_PROPERTY_ENTRYW {
+    pub lpProperty: ::windows::core::PWSTR,
+    pub pAccessEntryList: *mut ACTRL_ACCESS_ENTRY_LISTW,
+    pub fListFlags: u32,
+}
+impl ::core::marker::Copy for ACTRL_PROPERTY_ENTRYW {}
+impl ::core::clone::Clone for ACTRL_PROPERTY_ENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTRL_PROPERTY_ENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTRL_PROPERTY_ENTRYW").field("lpProperty", &self.lpProperty).field("pAccessEntryList", &self.pAccessEntryList).field("fListFlags", &self.fListFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTRL_PROPERTY_ENTRYW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTRL_PROPERTY_ENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_PROPERTY_ENTRYW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTRL_PROPERTY_ENTRYW {}
+impl ::core::default::Default for ACTRL_PROPERTY_ENTRYW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUDIT_IP_ADDRESS {
+    pub pIpAddress: [u8; 128],
+}
+impl ::core::marker::Copy for AUDIT_IP_ADDRESS {}
+impl ::core::clone::Clone for AUDIT_IP_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_IP_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_IP_ADDRESS").field("pIpAddress", &self.pIpAddress).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_IP_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_IP_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_IP_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_IP_ADDRESS {}
+impl ::core::default::Default for AUDIT_IP_ADDRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUDIT_OBJECT_TYPE {
+    pub ObjectType: ::windows::core::GUID,
+    pub Flags: u16,
+    pub Level: u16,
+    pub AccessMask: u32,
+}
+impl ::core::marker::Copy for AUDIT_OBJECT_TYPE {}
+impl ::core::clone::Clone for AUDIT_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_OBJECT_TYPE").field("ObjectType", &self.ObjectType).field("Flags", &self.Flags).field("Level", &self.Level).field("AccessMask", &self.AccessMask).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_OBJECT_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_OBJECT_TYPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_OBJECT_TYPE {}
+impl ::core::default::Default for AUDIT_OBJECT_TYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUDIT_OBJECT_TYPES {
+    pub Count: u16,
+    pub Flags: u16,
+    pub pObjectTypes: *mut AUDIT_OBJECT_TYPE,
+}
+impl ::core::marker::Copy for AUDIT_OBJECT_TYPES {}
+impl ::core::clone::Clone for AUDIT_OBJECT_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_OBJECT_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_OBJECT_TYPES").field("Count", &self.Count).field("Flags", &self.Flags).field("pObjectTypes", &self.pObjectTypes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_OBJECT_TYPES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_OBJECT_TYPES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_OBJECT_TYPES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_OBJECT_TYPES {}
+impl ::core::default::Default for AUDIT_OBJECT_TYPES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUDIT_PARAM {
+    pub Type: AUDIT_PARAM_TYPE,
+    pub Length: u32,
+    pub Flags: u32,
+    pub Anonymous1: AUDIT_PARAM_0,
+    pub Anonymous2: AUDIT_PARAM_1,
+}
+impl ::core::marker::Copy for AUDIT_PARAM {}
+impl ::core::clone::Clone for AUDIT_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_PARAM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_PARAM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_PARAM {}
+impl ::core::default::Default for AUDIT_PARAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub union AUDIT_PARAM_0 {
+    pub Data0: usize,
+    pub String: ::windows::core::PWSTR,
+    pub u: usize,
+    pub psid: *mut super::SID,
+    pub pguid: *mut ::windows::core::GUID,
+    pub LogonId_LowPart: u32,
+    pub pObjectTypes: *mut AUDIT_OBJECT_TYPES,
+    pub pIpAddress: *mut AUDIT_IP_ADDRESS,
+}
+impl ::core::marker::Copy for AUDIT_PARAM_0 {}
+impl ::core::clone::Clone for AUDIT_PARAM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_PARAM_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_PARAM_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_PARAM_0 {}
+impl ::core::default::Default for AUDIT_PARAM_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub union AUDIT_PARAM_1 {
+    pub Data1: usize,
+    pub LogonId_HighPart: i32,
+}
+impl ::core::marker::Copy for AUDIT_PARAM_1 {}
+impl ::core::clone::Clone for AUDIT_PARAM_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_PARAM_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_PARAM_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_PARAM_1 {}
+impl ::core::default::Default for AUDIT_PARAM_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUDIT_PARAMS {
+    pub Length: u32,
+    pub Flags: u32,
+    pub Count: u16,
+    pub Parameters: *mut AUDIT_PARAM,
+}
+impl ::core::marker::Copy for AUDIT_PARAMS {}
+impl ::core::clone::Clone for AUDIT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUDIT_PARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUDIT_PARAMS").field("Length", &self.Length).field("Flags", &self.Flags).field("Count", &self.Count).field("Parameters", &self.Parameters).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIT_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIT_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIT_PARAMS {}
+impl ::core::default::Default for AUDIT_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_ACCESS_CHECK_RESULTS_HANDLE(pub isize);
+impl AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_ACCESS_CHECK_RESULTS_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>> for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    fn from(optional: ::core::option::Option<AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_ACCESS_REPLY {
+    pub ResultListLength: u32,
+    pub GrantedAccessMask: *mut u32,
+    pub SaclEvaluationResults: *mut AUTHZ_GENERATE_RESULTS,
+    pub Error: *mut u32,
+}
+impl ::core::marker::Copy for AUTHZ_ACCESS_REPLY {}
+impl ::core::clone::Clone for AUTHZ_ACCESS_REPLY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_ACCESS_REPLY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_ACCESS_REPLY").field("ResultListLength", &self.ResultListLength).field("GrantedAccessMask", &self.GrantedAccessMask).field("SaclEvaluationResults", &self.SaclEvaluationResults).field("Error", &self.Error).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_REPLY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_ACCESS_REPLY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_ACCESS_REPLY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_ACCESS_REPLY {}
+impl ::core::default::Default for AUTHZ_ACCESS_REPLY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUTHZ_ACCESS_REQUEST {
+    pub DesiredAccess: u32,
+    pub PrincipalSelfSid: super::super::Foundation::PSID,
+    pub ObjectTypeList: *mut super::OBJECT_TYPE_LIST,
+    pub ObjectTypeListLength: u32,
+    pub OptionalArguments: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_ACCESS_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTHZ_ACCESS_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_ACCESS_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_ACCESS_REQUEST").field("DesiredAccess", &self.DesiredAccess).field("PrincipalSelfSid", &self.PrincipalSelfSid).field("ObjectTypeList", &self.ObjectTypeList).field("ObjectTypeListLength", &self.ObjectTypeListLength).field("OptionalArguments", &self.OptionalArguments).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AUTHZ_ACCESS_REQUEST {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AUTHZ_ACCESS_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_ACCESS_REQUEST>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AUTHZ_ACCESS_REQUEST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AUTHZ_ACCESS_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_AUDIT_EVENT_HANDLE(pub isize);
+impl AUTHZ_AUDIT_EVENT_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_AUDIT_EVENT_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<AUTHZ_AUDIT_EVENT_HANDLE>> for AUTHZ_AUDIT_EVENT_HANDLE {
+    fn from(optional: ::core::option::Option<AUTHZ_AUDIT_EVENT_HANDLE>) -> AUTHZ_AUDIT_EVENT_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_HANDLE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_AUDIT_EVENT_TYPE_HANDLE(pub isize);
+impl AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_AUDIT_EVENT_TYPE_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>> for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    fn from(optional: ::core::option::Option<AUTHZ_AUDIT_EVENT_TYPE_HANDLE>) -> AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    pub CategoryId: u16,
+    pub AuditId: u16,
+    pub ParameterCount: u16,
+}
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_AUDIT_EVENT_TYPE_LEGACY").field("CategoryId", &self.CategoryId).field("AuditId", &self.AuditId).field("ParameterCount", &self.ParameterCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_AUDIT_EVENT_TYPE_LEGACY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    pub Version: u32,
+    pub dwFlags: u32,
+    pub RefCount: i32,
+    pub hAudit: usize,
+    pub LinkId: super::super::Foundation::LUID,
+    pub u: AUTHZ_AUDIT_EVENT_TYPE_UNION,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_AUDIT_EVENT_TYPE_OLD>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_OLD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_OLD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub union AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    pub Legacy: AUTHZ_AUDIT_EVENT_TYPE_LEGACY,
+}
+impl ::core::marker::Copy for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
+impl ::core::clone::Clone for AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_AUDIT_EVENT_TYPE_UNION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_AUDIT_EVENT_TYPE_UNION {}
+impl ::core::default::Default for AUTHZ_AUDIT_EVENT_TYPE_UNION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {}
+impl ::core::clone::Clone for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {}
+impl ::core::default::Default for AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_CLIENT_CONTEXT_HANDLE(pub isize);
+impl AUTHZ_CLIENT_CONTEXT_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_CLIENT_CONTEXT_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_CLIENT_CONTEXT_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<AUTHZ_CLIENT_CONTEXT_HANDLE>> for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    fn from(optional: ::core::option::Option<AUTHZ_CLIENT_CONTEXT_HANDLE>) -> AUTHZ_CLIENT_CONTEXT_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_CLIENT_CONTEXT_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AUTHZ_INIT_INFO {
+    pub version: u16,
+    pub szResourceManagerName: ::windows::core::PCWSTR,
+    pub pfnDynamicAccessCheck: PFN_AUTHZ_DYNAMIC_ACCESS_CHECK,
+    pub pfnComputeDynamicGroups: PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS,
+    pub pfnFreeDynamicGroups: PFN_AUTHZ_FREE_DYNAMIC_GROUPS,
+    pub pfnGetCentralAccessPolicy: PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY,
+    pub pfnFreeCentralAccessPolicy: PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AUTHZ_INIT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AUTHZ_INIT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AUTHZ_INIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_INIT_INFO")
+            .field("version", &self.version)
+            .field("szResourceManagerName", &self.szResourceManagerName)
+            .field("pfnDynamicAccessCheck", &self.pfnDynamicAccessCheck.map(|f| f as usize))
+            .field("pfnComputeDynamicGroups", &self.pfnComputeDynamicGroups.map(|f| f as usize))
+            .field("pfnFreeDynamicGroups", &self.pfnFreeDynamicGroups.map(|f| f as usize))
+            .field("pfnGetCentralAccessPolicy", &self.pfnGetCentralAccessPolicy.map(|f| f as usize))
+            .field("pfnFreeCentralAccessPolicy", &self.pfnFreeCentralAccessPolicy.map(|f| f as usize))
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AUTHZ_INIT_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AUTHZ_INIT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_INIT_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AUTHZ_INIT_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AUTHZ_INIT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    pub szObjectTypeName: ::windows::core::PWSTR,
+    pub dwOffset: u32,
+}
+impl ::core::marker::Copy for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
+impl ::core::clone::Clone for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET").field("szObjectTypeName", &self.szObjectTypeName).field("dwOffset", &self.dwOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {}
+impl ::core::default::Default for AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_RESOURCE_MANAGER_HANDLE(pub isize);
+impl AUTHZ_RESOURCE_MANAGER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_RESOURCE_MANAGER_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_RESOURCE_MANAGER_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<AUTHZ_RESOURCE_MANAGER_HANDLE>> for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    fn from(optional: ::core::option::Option<AUTHZ_RESOURCE_MANAGER_HANDLE>) -> AUTHZ_RESOURCE_MANAGER_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_RESOURCE_MANAGER_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
+    pub version: u16,
+    pub ObjectUuid: ::windows::core::PWSTR,
+    pub ProtSeq: ::windows::core::PWSTR,
+    pub NetworkAddr: ::windows::core::PWSTR,
+    pub Endpoint: ::windows::core::PWSTR,
+    pub Options: ::windows::core::PWSTR,
+    pub ServerSpn: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for AUTHZ_RPC_INIT_INFO_CLIENT {}
+impl ::core::clone::Clone for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_RPC_INIT_INFO_CLIENT").field("version", &self.version).field("ObjectUuid", &self.ObjectUuid).field("ProtSeq", &self.ProtSeq).field("NetworkAddr", &self.NetworkAddr).field("Endpoint", &self.Endpoint).field("Options", &self.Options).field("ServerSpn", &self.ServerSpn).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_RPC_INIT_INFO_CLIENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_RPC_INIT_INFO_CLIENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_RPC_INIT_INFO_CLIENT {}
+impl ::core::default::Default for AUTHZ_RPC_INIT_INFO_CLIENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    pub Version: u16,
+    pub Reserved: u16,
+    pub AttributeCount: u32,
+    pub Attribute: AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0,
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTES_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub union AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    pub pAttributeV1: *mut AUTHZ_SECURITY_ATTRIBUTE_V1,
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    pub Version: u64,
+    pub pName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE").field("Version", &self.Version).field("pName", &self.pName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    pub pValue: *mut ::core::ffi::c_void,
+    pub ValueLength: u32,
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE").field("pValue", &self.pValue).field("ValueLength", &self.ValueLength).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    pub pName: ::windows::core::PWSTR,
+    pub ValueType: u16,
+    pub Reserved: u16,
+    pub Flags: AUTHZ_SECURITY_ATTRIBUTE_FLAGS,
+    pub ValueCount: u32,
+    pub Values: AUTHZ_SECURITY_ATTRIBUTE_V1_0,
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_V1 {}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub union AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    pub pInt64: *mut i64,
+    pub pUint64: *mut u64,
+    pub ppString: *mut ::windows::core::PWSTR,
+    pub pFqbn: *mut AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE,
+    pub pOctetString: *mut AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE,
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
+impl ::core::clone::Clone for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SECURITY_ATTRIBUTE_V1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {}
+impl ::core::default::Default for AUTHZ_SECURITY_ATTRIBUTE_V1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE(pub isize);
+impl AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {}
+impl ::core::fmt::Debug for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>> for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    fn from(optional: ::core::option::Option<AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE>) -> AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    pub dwFlags: u32,
+    pub szEventSourceName: ::windows::core::PWSTR,
+    pub szEventMessageFile: ::windows::core::PWSTR,
+    pub szEventSourceXmlSchemaFile: ::windows::core::PWSTR,
+    pub szEventAccessStringsFile: ::windows::core::PWSTR,
+    pub szExecutableImagePath: ::windows::core::PWSTR,
+    pub Anonymous: AUTHZ_SOURCE_SCHEMA_REGISTRATION_0,
+    pub dwObjectTypeNameCount: u32,
+    pub ObjectTypeNames: [AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET; 1],
+}
+impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
+impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SOURCE_SCHEMA_REGISTRATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION {}
+impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    pub pReserved: *mut ::core::ffi::c_void,
+    pub pProviderGuid: *mut ::windows::core::GUID,
+}
+impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SOURCE_SCHEMA_REGISTRATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct EXPLICIT_ACCESS_A {
+    pub grfAccessPermissions: u32,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::ACE_FLAGS,
+    pub Trustee: TRUSTEE_A,
+}
+impl ::core::marker::Copy for EXPLICIT_ACCESS_A {}
+impl ::core::clone::Clone for EXPLICIT_ACCESS_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for EXPLICIT_ACCESS_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXPLICIT_ACCESS_A").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EXPLICIT_ACCESS_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXPLICIT_ACCESS_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EXPLICIT_ACCESS_A {}
+impl ::core::default::Default for EXPLICIT_ACCESS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct EXPLICIT_ACCESS_W {
+    pub grfAccessPermissions: u32,
+    pub grfAccessMode: ACCESS_MODE,
+    pub grfInheritance: super::ACE_FLAGS,
+    pub Trustee: TRUSTEE_W,
+}
+impl ::core::marker::Copy for EXPLICIT_ACCESS_W {}
+impl ::core::clone::Clone for EXPLICIT_ACCESS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for EXPLICIT_ACCESS_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXPLICIT_ACCESS_W").field("grfAccessPermissions", &self.grfAccessPermissions).field("grfAccessMode", &self.grfAccessMode).field("grfInheritance", &self.grfInheritance).field("Trustee", &self.Trustee).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for EXPLICIT_ACCESS_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EXPLICIT_ACCESS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EXPLICIT_ACCESS_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EXPLICIT_ACCESS_W {}
+impl ::core::default::Default for EXPLICIT_ACCESS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct FN_OBJECT_MGR_FUNCTIONS {
+    pub Placeholder: u32,
+}
+impl ::core::marker::Copy for FN_OBJECT_MGR_FUNCTIONS {}
+impl ::core::clone::Clone for FN_OBJECT_MGR_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FN_OBJECT_MGR_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FN_OBJECT_MGR_FUNCTIONS").field("Placeholder", &self.Placeholder).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FN_OBJECT_MGR_FUNCTIONS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FN_OBJECT_MGR_FUNCTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FN_OBJECT_MGR_FUNCTIONS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FN_OBJECT_MGR_FUNCTIONS {}
+impl ::core::default::Default for FN_OBJECT_MGR_FUNCTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct INHERITED_FROMA {
+    pub GenerationGap: i32,
+    pub AncestorName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for INHERITED_FROMA {}
+impl ::core::clone::Clone for INHERITED_FROMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for INHERITED_FROMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INHERITED_FROMA").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for INHERITED_FROMA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INHERITED_FROMA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INHERITED_FROMA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INHERITED_FROMA {}
+impl ::core::default::Default for INHERITED_FROMA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct INHERITED_FROMW {
+    pub GenerationGap: i32,
+    pub AncestorName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for INHERITED_FROMW {}
+impl ::core::clone::Clone for INHERITED_FROMW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for INHERITED_FROMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INHERITED_FROMW").field("GenerationGap", &self.GenerationGap).field("AncestorName", &self.AncestorName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for INHERITED_FROMW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INHERITED_FROMW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INHERITED_FROMW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INHERITED_FROMW {}
+impl ::core::default::Default for INHERITED_FROMW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct OBJECTS_AND_NAME_A {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: SE_OBJECT_TYPE,
+    pub ObjectTypeName: ::windows::core::PSTR,
+    pub InheritedObjectTypeName: ::windows::core::PSTR,
+    pub ptstrName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for OBJECTS_AND_NAME_A {}
+impl ::core::clone::Clone for OBJECTS_AND_NAME_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OBJECTS_AND_NAME_A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_NAME_A").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_A {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OBJECTS_AND_NAME_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTS_AND_NAME_A>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OBJECTS_AND_NAME_A {}
+impl ::core::default::Default for OBJECTS_AND_NAME_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct OBJECTS_AND_NAME_W {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectType: SE_OBJECT_TYPE,
+    pub ObjectTypeName: ::windows::core::PWSTR,
+    pub InheritedObjectTypeName: ::windows::core::PWSTR,
+    pub ptstrName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for OBJECTS_AND_NAME_W {}
+impl ::core::clone::Clone for OBJECTS_AND_NAME_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OBJECTS_AND_NAME_W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_NAME_W").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectType", &self.ObjectType).field("ObjectTypeName", &self.ObjectTypeName).field("InheritedObjectTypeName", &self.InheritedObjectTypeName).field("ptstrName", &self.ptstrName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OBJECTS_AND_NAME_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OBJECTS_AND_NAME_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTS_AND_NAME_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OBJECTS_AND_NAME_W {}
+impl ::core::default::Default for OBJECTS_AND_NAME_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
+pub struct OBJECTS_AND_SID {
+    pub ObjectsPresent: super::SYSTEM_AUDIT_OBJECT_ACE_FLAGS,
+    pub ObjectTypeGuid: ::windows::core::GUID,
+    pub InheritedObjectTypeGuid: ::windows::core::GUID,
+    pub pSid: *mut super::SID,
+}
+impl ::core::marker::Copy for OBJECTS_AND_SID {}
+impl ::core::clone::Clone for OBJECTS_AND_SID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OBJECTS_AND_SID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OBJECTS_AND_SID").field("ObjectsPresent", &self.ObjectsPresent).field("ObjectTypeGuid", &self.ObjectTypeGuid).field("InheritedObjectTypeGuid", &self.InheritedObjectTypeGuid).field("pSid", &self.pSid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OBJECTS_AND_SID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OBJECTS_AND_SID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OBJECTS_AND_SID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OBJECTS_AND_SID {}
+impl ::core::default::Default for OBJECTS_AND_SID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -14367,90 +14498,6 @@ impl ::core::default::Default for TRUSTEE_ACCESSW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_ACCESS_ALL: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_ACCESS_ALLOWED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_ACCESS_EXPLICIT: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_ACCESS_READ: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_ACCESS_WRITE: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TRUSTEE_FORM(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_SID: TRUSTEE_FORM = TRUSTEE_FORM(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_NAME: TRUSTEE_FORM = TRUSTEE_FORM(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_BAD_FORM: TRUSTEE_FORM = TRUSTEE_FORM(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_OBJECTS_AND_SID: TRUSTEE_FORM = TRUSTEE_FORM(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_OBJECTS_AND_NAME: TRUSTEE_FORM = TRUSTEE_FORM(4i32);
-impl ::core::marker::Copy for TRUSTEE_FORM {}
-impl ::core::clone::Clone for TRUSTEE_FORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRUSTEE_FORM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TRUSTEE_FORM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TRUSTEE_FORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TRUSTEE_FORM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TRUSTEE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_UNKNOWN: TRUSTEE_TYPE = TRUSTEE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_USER: TRUSTEE_TYPE = TRUSTEE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_DOMAIN: TRUSTEE_TYPE = TRUSTEE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_ALIAS: TRUSTEE_TYPE = TRUSTEE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_WELL_KNOWN_GROUP: TRUSTEE_TYPE = TRUSTEE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_DELETED: TRUSTEE_TYPE = TRUSTEE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_INVALID: TRUSTEE_TYPE = TRUSTEE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const TRUSTEE_IS_COMPUTER: TRUSTEE_TYPE = TRUSTEE_TYPE(8i32);
-impl ::core::marker::Copy for TRUSTEE_TYPE {}
-impl ::core::clone::Clone for TRUSTEE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TRUSTEE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TRUSTEE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TRUSTEE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TRUSTEE_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
 pub struct TRUSTEE_W {
@@ -14487,67 +14534,20 @@ impl ::core::default::Default for TRUSTEE_W {
 }
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TreeResetNamedSecurityInfoA<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TreeResetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
-    }
-    TreeResetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
-}
+pub type FN_PROGRESS = ::core::option::Option<unsafe extern "system" fn(pobjectname: ::windows::core::PCWSTR, status: u32, pinvokesetting: *mut PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void, securityset: super::super::Foundation::BOOL)>;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TreeResetNamedSecurityInfoW<'a, P0, P1, P2, P3>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, keepexplicit: P3, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TreeResetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, keepexplicit: super::super::Foundation::BOOL, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
-    }
-    TreeResetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), keepexplicit.into(), ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
-}
+pub type PFN_AUTHZ_COMPUTE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, args: *const ::core::ffi::c_void, psidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, psidcount: *mut u32, prestrictedsidattrarray: *mut *mut super::SID_AND_ATTRIBUTES, prestrictedsidcount: *mut u32) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TreeSetNamedSecurityInfoA<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TreeSetNamedSecurityInfoA(pobjectname: ::windows::core::PCSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
-    }
-    TreeSetNamedSecurityInfoA(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
-}
-#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TreeSetNamedSecurityInfoW<'a, P0, P1, P2>(pobjectname: P0, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: P1, pgroup: P2, pdacl: ::core::option::Option<&super::ACL>, psacl: ::core::option::Option<&super::ACL>, dwaction: TREE_SEC_INFO, fnprogress: FN_PROGRESS, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::PSID>,
-    P2: ::std::convert::Into<super::super::Foundation::PSID>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TreeSetNamedSecurityInfoW(pobjectname: ::windows::core::PCWSTR, objecttype: SE_OBJECT_TYPE, securityinfo: u32, powner: super::super::Foundation::PSID, pgroup: super::super::Foundation::PSID, pdacl: *const super::ACL, psacl: *const super::ACL, dwaction: TREE_SEC_INFO, fnprogress: *mut ::core::ffi::c_void, progressinvokesetting: PROG_INVOKE_SETTING, args: *const ::core::ffi::c_void) -> u32;
-    }
-    TreeSetNamedSecurityInfoW(pobjectname.into(), objecttype, securityinfo, powner.into(), pgroup.into(), ::core::mem::transmute(pdacl), ::core::mem::transmute(psacl), dwaction, ::core::mem::transmute(fnprogress), progressinvokesetting, ::core::mem::transmute(args))
-}
+pub type PFN_AUTHZ_DYNAMIC_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pace: *const super::ACE_HEADER, pargs: *const ::core::ffi::c_void, pbaceapplicable: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Security_Authorization\"`*"]
-pub const _AUTHZ_SS_MAXSIZE: u32 = 128u32;
+pub type PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(pcentralaccesspolicy: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHZ_FREE_DYNAMIC_GROUPS = ::core::option::Option<unsafe extern "system" fn(psidattrarray: *const super::SID_AND_ATTRIBUTES)>;
+#[doc = "*Required features: `\"Win32_Security_Authorization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PFN_AUTHZ_GET_CENTRAL_ACCESS_POLICY = ::core::option::Option<unsafe extern "system" fn(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, capid: super::super::Foundation::PSID, pargs: *const ::core::ffi::c_void, pcentralaccesspolicyapplicable: *mut super::super::Foundation::BOOL, ppcentralaccesspolicy: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

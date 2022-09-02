@@ -1,5 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const AUTO_WIDTH: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -72,221 +70,6 @@ unsafe impl ::windows::core::Interface for AppEvents {
 #[doc(hidden)]
 pub struct AppEvents_Vtbl {
     pub base__: super::Com::IDispatch_Vtbl,
-}
-pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
-pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
-impl ::core::marker::Copy for CCM_COMMANDID_MASK_CONSTANTS {}
-impl ::core::clone::Clone for CCM_COMMANDID_MASK_CONSTANTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_COMMANDID_MASK_CONSTANTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CCM_COMMANDID_MASK_CONSTANTS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CCM_COMMANDID_MASK_CONSTANTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CCM_COMMANDID_MASK_CONSTANTS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CCM_INSERTIONALLOWED(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(4i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(8i32);
-impl ::core::marker::Copy for CCM_INSERTIONALLOWED {}
-impl ::core::clone::Clone for CCM_INSERTIONALLOWED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_INSERTIONALLOWED {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CCM_INSERTIONALLOWED {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CCM_INSERTIONALLOWED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CCM_INSERTIONALLOWED").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CCM_INSERTIONPOINTID(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-65536i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_SHARED: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(1073741824i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(536870912i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(268435456i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_RESERVED: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(268369920i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(31i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612736i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612735i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612734i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612733i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612732i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048191i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048190i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
-impl ::core::marker::Copy for CCM_INSERTIONPOINTID {}
-impl ::core::clone::Clone for CCM_INSERTIONPOINTID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_INSERTIONPOINTID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CCM_INSERTIONPOINTID {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CCM_INSERTIONPOINTID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CCM_INSERTIONPOINTID").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CCM_SPECIAL(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = CCM_SPECIAL(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = CCM_SPECIAL(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = CCM_SPECIAL(4i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = CCM_SPECIAL(8i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = CCM_SPECIAL(16i32);
-impl ::core::marker::Copy for CCM_SPECIAL {}
-impl ::core::clone::Clone for CCM_SPECIAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CCM_SPECIAL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CCM_SPECIAL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CCM_SPECIAL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CCM_SPECIAL").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct CONTEXTMENUITEM {
-    pub strName: ::windows::core::PWSTR,
-    pub strStatusBarText: ::windows::core::PWSTR,
-    pub lCommandID: i32,
-    pub lInsertionPointID: i32,
-    pub fFlags: i32,
-    pub fSpecialFlags: i32,
-}
-impl ::core::marker::Copy for CONTEXTMENUITEM {}
-impl ::core::clone::Clone for CONTEXTMENUITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONTEXTMENUITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTEXTMENUITEM").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONTEXTMENUITEM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONTEXTMENUITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXTMENUITEM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONTEXTMENUITEM {}
-impl ::core::default::Default for CONTEXTMENUITEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct CONTEXTMENUITEM2 {
-    pub strName: ::windows::core::PWSTR,
-    pub strStatusBarText: ::windows::core::PWSTR,
-    pub lCommandID: i32,
-    pub lInsertionPointID: i32,
-    pub fFlags: i32,
-    pub fSpecialFlags: i32,
-    pub strLanguageIndependentName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for CONTEXTMENUITEM2 {}
-impl ::core::clone::Clone for CONTEXTMENUITEM2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CONTEXTMENUITEM2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONTEXTMENUITEM2").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).field("strLanguageIndependentName", &self.strLanguageIndependentName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONTEXTMENUITEM2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CONTEXTMENUITEM2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXTMENUITEM2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CONTEXTMENUITEM2 {}
-impl ::core::default::Default for CONTEXTMENUITEM2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -520,7 +303,6 @@ pub struct Columns_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
     pub _NewEnum: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-pub const ConsolePower: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -617,37 +399,6 @@ pub struct ContextMenu_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))]
     get_Item: usize,
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DATA_OBJECT_TYPES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCT_SCOPE: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32768i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCT_RESULT: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32769i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32770i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
-impl ::core::marker::Copy for DATA_OBJECT_TYPES {}
-impl ::core::clone::Clone for DATA_OBJECT_TYPES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DATA_OBJECT_TYPES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DATA_OBJECT_TYPES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DATA_OBJECT_TYPES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DATA_OBJECT_TYPES").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -1206,10 +957,6 @@ pub struct Frame_Vtbl {
     pub Right: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: *mut i32) -> ::windows::core::HRESULT,
     pub SetRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const HDI_HIDDEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const HIDE_COLUMN: i32 = -4i32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
 pub struct IColumnData(::windows::core::IUnknown);
@@ -3577,10 +3324,6 @@ pub struct IImageList_Vtbl {
     ImageListSetStrip: usize,
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
 pub struct IMMCVersionInfo(::windows::core::IUnknown);
 impl IMMCVersionInfo {
@@ -5063,1210 +4806,6 @@ pub struct IViewExtensionCallback_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     AddView: usize,
 }
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IconIdentifier(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_None: IconIdentifier = IconIdentifier(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_Error: IconIdentifier = IconIdentifier(32513i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_Question: IconIdentifier = IconIdentifier(32514i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_Warning: IconIdentifier = IconIdentifier(32515i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_Information: IconIdentifier = IconIdentifier(32516i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_First: IconIdentifier = IconIdentifier(32513i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const Icon_Last: IconIdentifier = IconIdentifier(32516i32);
-impl ::core::marker::Copy for IconIdentifier {}
-impl ::core::clone::Clone for IconIdentifier {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IconIdentifier {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IconIdentifier {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IconIdentifier {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IconIdentifier").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MENUBUTTONDATA {
-    pub idCommand: i32,
-    pub x: i32,
-    pub y: i32,
-}
-impl ::core::marker::Copy for MENUBUTTONDATA {}
-impl ::core::clone::Clone for MENUBUTTONDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MENUBUTTONDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MENUBUTTONDATA").field("idCommand", &self.idCommand).field("x", &self.x).field("y", &self.y).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MENUBUTTONDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MENUBUTTONDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUBUTTONDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MENUBUTTONDATA {}
-impl ::core::default::Default for MENUBUTTONDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMCBUTTON {
-    pub nBitmap: i32,
-    pub idCommand: i32,
-    pub fsState: u8,
-    pub fsType: u8,
-    pub lpButtonText: ::windows::core::PWSTR,
-    pub lpTooltipText: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MMCBUTTON {}
-impl ::core::clone::Clone for MMCBUTTON {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMCBUTTON {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMCBUTTON").field("nBitmap", &self.nBitmap).field("idCommand", &self.idCommand).field("fsState", &self.fsState).field("fsType", &self.fsType).field("lpButtonText", &self.lpButtonText).field("lpTooltipText", &self.lpTooltipText).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMCBUTTON {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMCBUTTON {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMCBUTTON>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMCBUTTON {}
-impl ::core::default::Default for MMCBUTTON {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_AUTO: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_NOICON: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_NOPARAM: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_NOPTR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_UPDATE_NOINVALIDATEALL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_UPDATE_NOSCROLL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_VIEWSTYLE_FILTERED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
-pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_ACTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ACTION_ID: MMC_ACTION_TYPE = MMC_ACTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = MMC_ACTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = MMC_ACTION_TYPE(2i32);
-impl ::core::marker::Copy for MMC_ACTION_TYPE {}
-impl ::core::clone::Clone for MMC_ACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_ACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_ACTION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_ACTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_ACTION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_BUTTON_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const ENABLED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const HIDDEN: MMC_BUTTON_STATE = MMC_BUTTON_STATE(4i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const INDETERMINATE: MMC_BUTTON_STATE = MMC_BUTTON_STATE(8i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const BUTTONPRESSED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(16i32);
-impl ::core::marker::Copy for MMC_BUTTON_STATE {}
-impl ::core::clone::Clone for MMC_BUTTON_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_BUTTON_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_BUTTON_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_BUTTON_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_BUTTON_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_COLUMN_DATA {
-    pub nColIndex: i32,
-    pub dwFlags: u32,
-    pub nWidth: i32,
-    pub ulReserved: usize,
-}
-impl ::core::marker::Copy for MMC_COLUMN_DATA {}
-impl ::core::clone::Clone for MMC_COLUMN_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_COLUMN_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_COLUMN_DATA").field("nColIndex", &self.nColIndex).field("dwFlags", &self.dwFlags).field("nWidth", &self.nWidth).field("ulReserved", &self.ulReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_COLUMN_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_COLUMN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_COLUMN_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_COLUMN_DATA {}
-impl ::core::default::Default for MMC_COLUMN_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_COLUMN_SET_DATA {
-    pub cbSize: i32,
-    pub nNumCols: i32,
-    pub pColData: *mut MMC_COLUMN_DATA,
-}
-impl ::core::marker::Copy for MMC_COLUMN_SET_DATA {}
-impl ::core::clone::Clone for MMC_COLUMN_SET_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_COLUMN_SET_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_COLUMN_SET_DATA").field("cbSize", &self.cbSize).field("nNumCols", &self.nNumCols).field("pColData", &self.pColData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_COLUMN_SET_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_COLUMN_SET_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_COLUMN_SET_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_COLUMN_SET_DATA {}
-impl ::core::default::Default for MMC_COLUMN_SET_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_CONSOLE_VERB(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_OPEN: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_COPY: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32769i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_PASTE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32770i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_DELETE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32771i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_PROPERTIES: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32772i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_RENAME: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32773i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_REFRESH: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32774i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_PRINT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32775i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32777i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
-impl ::core::marker::Copy for MMC_CONSOLE_VERB {}
-impl ::core::clone::Clone for MMC_CONSOLE_VERB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_CONSOLE_VERB {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_CONSOLE_VERB {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_CONSOLE_VERB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_CONSOLE_VERB").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_CONTROL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const TOOLBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MENUBUTTON: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
-impl ::core::marker::Copy for MMC_CONTROL_TYPE {}
-impl ::core::clone::Clone for MMC_CONTROL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_CONTROL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_CONTROL_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_CONTROL_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_CONTROL_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MMC_EXPANDSYNC_STRUCT {
-    pub bHandled: super::super::Foundation::BOOL,
-    pub bExpanding: super::super::Foundation::BOOL,
-    pub hItem: isize,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MMC_EXPANDSYNC_STRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MMC_EXPANDSYNC_STRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MMC_EXPANDSYNC_STRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_EXPANDSYNC_STRUCT").field("bHandled", &self.bHandled).field("bExpanding", &self.bExpanding).field("hItem", &self.hItem).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MMC_EXPANDSYNC_STRUCT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MMC_EXPANDSYNC_STRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_EXPANDSYNC_STRUCT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MMC_EXPANDSYNC_STRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MMC_EXPANDSYNC_STRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MMC_EXT_VIEW_DATA {
-    pub viewID: ::windows::core::GUID,
-    pub pszURL: ::windows::core::PCWSTR,
-    pub pszViewTitle: ::windows::core::PCWSTR,
-    pub pszTooltipText: ::windows::core::PCWSTR,
-    pub bReplacesDefaultView: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for MMC_EXT_VIEW_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for MMC_EXT_VIEW_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MMC_EXT_VIEW_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_EXT_VIEW_DATA").field("viewID", &self.viewID).field("pszURL", &self.pszURL).field("pszViewTitle", &self.pszViewTitle).field("pszTooltipText", &self.pszTooltipText).field("bReplacesDefaultView", &self.bReplacesDefaultView).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MMC_EXT_VIEW_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MMC_EXT_VIEW_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_EXT_VIEW_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MMC_EXT_VIEW_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MMC_EXT_VIEW_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_FILTERDATA {
-    pub pszText: ::windows::core::PWSTR,
-    pub cchTextMax: i32,
-    pub lValue: i32,
-}
-impl ::core::marker::Copy for MMC_FILTERDATA {}
-impl ::core::clone::Clone for MMC_FILTERDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_FILTERDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_FILTERDATA").field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("lValue", &self.lValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_FILTERDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_FILTERDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_FILTERDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_FILTERDATA {}
-impl ::core::default::Default for MMC_FILTERDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_FILTER_CHANGE_CODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
-impl ::core::marker::Copy for MMC_FILTER_CHANGE_CODE {}
-impl ::core::clone::Clone for MMC_FILTER_CHANGE_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_FILTER_CHANGE_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_FILTER_CHANGE_CODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_FILTER_CHANGE_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_FILTER_CHANGE_CODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_FILTER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_INT_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = MMC_FILTER_TYPE(32768i32);
-impl ::core::marker::Copy for MMC_FILTER_TYPE {}
-impl ::core::clone::Clone for MMC_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_FILTER_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_FILTER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_FILTER_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_IMAGECALLBACK: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_LISTPAD_INFO {
-    pub szTitle: ::windows::core::PWSTR,
-    pub szButtonText: ::windows::core::PWSTR,
-    pub nCommandID: isize,
-}
-impl ::core::marker::Copy for MMC_LISTPAD_INFO {}
-impl ::core::clone::Clone for MMC_LISTPAD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_LISTPAD_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_LISTPAD_INFO").field("szTitle", &self.szTitle).field("szButtonText", &self.szButtonText).field("nCommandID", &self.nCommandID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_LISTPAD_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_LISTPAD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_LISTPAD_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_LISTPAD_INFO {}
-impl ::core::default::Default for MMC_LISTPAD_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_MENU_COMMAND_IDS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
-impl ::core::marker::Copy for MMC_MENU_COMMAND_IDS {}
-impl ::core::clone::Clone for MMC_MENU_COMMAND_IDS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_MENU_COMMAND_IDS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_MENU_COMMAND_IDS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_MENU_COMMAND_IDS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_MENU_COMMAND_IDS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_NOTIFY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32769i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_ADD_IMAGES: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32770i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_BTN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32771i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32772i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_COLUMN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32773i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_CONTEXTMENU: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32774i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_CUTORMOVE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32775i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_DBLCLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32776i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_DELETE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32777i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_DESELECT_ALL: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32778i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_EXPAND: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32779i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_HELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32780i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_MENU_BTNCLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32781i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_MINIMIZED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32782i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_PASTE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32783i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_PROPERTY_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32784i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_QUERY_PASTE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32785i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_REFRESH: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32786i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_REMOVE_CHILDREN: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32787i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_RENAME: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32788i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_SELECT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32789i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_SHOW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32790i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32791i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32792i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_CONTEXTHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32793i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_INITOCX: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32794i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_FILTER_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32795i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_FILTERBTN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32796i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_RESTORE_VIEW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32797i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_PRINT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32798i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_PRELOAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32799i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32800i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32801i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32802i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32803i32);
-impl ::core::marker::Copy for MMC_NOTIFY_TYPE {}
-impl ::core::clone::Clone for MMC_NOTIFY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_NOTIFY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_NOTIFY_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_NOTIFY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_NOTIFY_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_NOPERSIST: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_NOSCOPEPANE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_PROPERTY_ACTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(3i32);
-impl ::core::marker::Copy for MMC_PROPERTY_ACTION {}
-impl ::core::clone::Clone for MMC_PROPERTY_ACTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_PROPERTY_ACTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_PROPERTY_ACTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_PROPERTY_ACTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_PROPERTY_ACTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROP_PERSIST: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PROP_REMOVABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PSO_HASHELP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_RESTORE_VIEW {
-    pub dwSize: u32,
-    pub cookie: isize,
-    pub pViewType: ::windows::core::PWSTR,
-    pub lViewOptions: i32,
-}
-impl ::core::marker::Copy for MMC_RESTORE_VIEW {}
-impl ::core::clone::Clone for MMC_RESTORE_VIEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_RESTORE_VIEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_RESTORE_VIEW").field("dwSize", &self.dwSize).field("cookie", &self.cookie).field("pViewType", &self.pViewType).field("lViewOptions", &self.lViewOptions).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_RESTORE_VIEW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_RESTORE_VIEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_RESTORE_VIEW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_RESTORE_VIEW {}
-impl ::core::default::Default for MMC_RESTORE_VIEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_RESULT_VIEW_STYLE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(4i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(8i32);
-impl ::core::marker::Copy for MMC_RESULT_VIEW_STYLE {}
-impl ::core::clone::Clone for MMC_RESULT_VIEW_STYLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_RESULT_VIEW_STYLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_RESULT_VIEW_STYLE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_RESULT_VIEW_STYLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_RESULT_VIEW_STYLE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_SCOPE_ITEM_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(3i32);
-impl ::core::marker::Copy for MMC_SCOPE_ITEM_STATE {}
-impl ::core::clone::Clone for MMC_SCOPE_ITEM_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_SCOPE_ITEM_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_SCOPE_ITEM_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_SCOPE_ITEM_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_SCOPE_ITEM_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct MMC_SNAPIN_PROPERTY {
-    pub pszPropName: ::windows::core::PCWSTR,
-    pub varValue: super::Com::VARIANT,
-    pub eAction: MMC_PROPERTY_ACTION,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
-    fn clone(&self) -> Self {
-        Self { pszPropName: self.pszPropName, varValue: self.varValue.clone(), eAction: self.eAction }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for MMC_SNAPIN_PROPERTY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for MMC_SNAPIN_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pszPropName == other.pszPropName && self.varValue == other.varValue && self.eAction == other.eAction
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for MMC_SNAPIN_PROPERTY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for MMC_SNAPIN_PROPERTY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_SORT_DATA {
-    pub nColIndex: i32,
-    pub dwSortOptions: u32,
-    pub ulReserved: usize,
-}
-impl ::core::marker::Copy for MMC_SORT_DATA {}
-impl ::core::clone::Clone for MMC_SORT_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_SORT_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_SORT_DATA").field("nColIndex", &self.nColIndex).field("dwSortOptions", &self.dwSortOptions).field("ulReserved", &self.ulReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_SORT_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_SORT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SORT_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_SORT_DATA {}
-impl ::core::default::Default for MMC_SORT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_SORT_SET_DATA {
-    pub cbSize: i32,
-    pub nNumItems: i32,
-    pub pSortData: *mut MMC_SORT_DATA,
-}
-impl ::core::marker::Copy for MMC_SORT_SET_DATA {}
-impl ::core::clone::Clone for MMC_SORT_SET_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_SORT_SET_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_SORT_SET_DATA").field("cbSize", &self.cbSize).field("nNumItems", &self.nNumItems).field("pSortData", &self.pSortData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_SORT_SET_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_SORT_SET_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SORT_SET_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_SORT_SET_DATA {}
-impl ::core::default::Default for MMC_SORT_SET_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_TASK {
-    pub sDisplayObject: MMC_TASK_DISPLAY_OBJECT,
-    pub szText: ::windows::core::PWSTR,
-    pub szHelpString: ::windows::core::PWSTR,
-    pub eActionType: MMC_ACTION_TYPE,
-    pub Anonymous: MMC_TASK_0,
-}
-impl ::core::marker::Copy for MMC_TASK {}
-impl ::core::clone::Clone for MMC_TASK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_TASK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK {}
-impl ::core::default::Default for MMC_TASK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub union MMC_TASK_0 {
-    pub nCommandID: isize,
-    pub szActionURL: ::windows::core::PWSTR,
-    pub szScript: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MMC_TASK_0 {}
-impl ::core::clone::Clone for MMC_TASK_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_TASK_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_0 {}
-impl ::core::default::Default for MMC_TASK_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_TASK_DISPLAY_BITMAP {
-    pub szMouseOverBitmap: ::windows::core::PWSTR,
-    pub szMouseOffBitmap: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MMC_TASK_DISPLAY_BITMAP {}
-impl ::core::clone::Clone for MMC_TASK_DISPLAY_BITMAP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_TASK_DISPLAY_BITMAP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_TASK_DISPLAY_BITMAP").field("szMouseOverBitmap", &self.szMouseOverBitmap).field("szMouseOffBitmap", &self.szMouseOffBitmap).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_BITMAP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_BITMAP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_BITMAP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_DISPLAY_BITMAP {}
-impl ::core::default::Default for MMC_TASK_DISPLAY_BITMAP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_TASK_DISPLAY_OBJECT {
-    pub eDisplayType: MMC_TASK_DISPLAY_TYPE,
-    pub Anonymous: MMC_TASK_DISPLAY_OBJECT_0,
-}
-impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT {}
-impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_OBJECT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_OBJECT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_DISPLAY_OBJECT {}
-impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub union MMC_TASK_DISPLAY_OBJECT_0 {
-    pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
-    pub uSymbol: MMC_TASK_DISPLAY_SYMBOL,
-}
-impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT_0 {}
-impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_OBJECT_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_OBJECT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_OBJECT_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_DISPLAY_OBJECT_0 {}
-impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_TASK_DISPLAY_SYMBOL {
-    pub szFontFamilyName: ::windows::core::PWSTR,
-    pub szURLtoEOT: ::windows::core::PWSTR,
-    pub szSymbolString: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MMC_TASK_DISPLAY_SYMBOL {}
-impl ::core::clone::Clone for MMC_TASK_DISPLAY_SYMBOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_TASK_DISPLAY_SYMBOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_TASK_DISPLAY_SYMBOL").field("szFontFamilyName", &self.szFontFamilyName).field("szURLtoEOT", &self.szURLtoEOT).field("szSymbolString", &self.szSymbolString).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_SYMBOL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_SYMBOL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_SYMBOL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_TASK_DISPLAY_SYMBOL {}
-impl ::core::default::Default for MMC_TASK_DISPLAY_SYMBOL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(4i32);
-impl ::core::marker::Copy for MMC_TASK_DISPLAY_TYPE {}
-impl ::core::clone::Clone for MMC_TASK_DISPLAY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_TASK_DISPLAY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_TASK_DISPLAY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_TASK_DISPLAY_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VER: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_FILTERED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_LEXICAL_SORT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_MULTISELECT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_NOLISTVIEWS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MMC_VIEW_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = MMC_VIEW_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = MMC_VIEW_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = MMC_VIEW_TYPE(2i32);
-impl ::core::marker::Copy for MMC_VIEW_TYPE {}
-impl ::core::clone::Clone for MMC_VIEW_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MMC_VIEW_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_VIEW_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MMC_VIEW_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MMC_VIEW_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct MMC_VISIBLE_COLUMNS {
-    pub nVisibleColumns: i32,
-    pub rgVisibleCols: [i32; 1],
-}
-impl ::core::marker::Copy for MMC_VISIBLE_COLUMNS {}
-impl ::core::clone::Clone for MMC_VISIBLE_COLUMNS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MMC_VISIBLE_COLUMNS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MMC_VISIBLE_COLUMNS").field("nVisibleColumns", &self.nVisibleColumns).field("rgVisibleCols", &self.rgVisibleCols).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MMC_VISIBLE_COLUMNS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MMC_VISIBLE_COLUMNS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_VISIBLE_COLUMNS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MMC_VISIBLE_COLUMNS {}
-impl ::core::default::Default for MMC_VISIBLE_COLUMNS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const MMC_WINDOW_COOKIE: i32 = -3i32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -6791,574 +5330,6 @@ pub struct Property_Vtbl {
     SetValue: usize,
     pub Name: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: *mut *mut u16) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDCI_ScopeItem: u32 = 2147483648u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct RDCOMPARE {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub nColumn: i32,
-    pub lUserParam: super::super::Foundation::LPARAM,
-    pub prdch1: *mut RDITEMHDR,
-    pub prdch2: *mut RDITEMHDR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RDCOMPARE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RDCOMPARE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RDCOMPARE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RDCOMPARE").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("nColumn", &self.nColumn).field("lUserParam", &self.lUserParam).field("prdch1", &self.prdch1).field("prdch2", &self.prdch2).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RDCOMPARE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RDCOMPARE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDCOMPARE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RDCOMPARE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RDCOMPARE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct RDITEMHDR {
-    pub dwFlags: u32,
-    pub cookie: isize,
-    pub lpReserved: super::super::Foundation::LPARAM,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RDITEMHDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RDITEMHDR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RDITEMHDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RDITEMHDR").field("dwFlags", &self.dwFlags).field("cookie", &self.cookie).field("lpReserved", &self.lpReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RDITEMHDR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RDITEMHDR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDITEMHDR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RDITEMHDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RDITEMHDR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDI_IMAGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDI_INDENT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDI_INDEX: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDI_PARAM: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDI_STATE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RDI_STR: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct RESULTDATAITEM {
-    pub mask: u32,
-    pub bScopeItem: super::super::Foundation::BOOL,
-    pub itemID: isize,
-    pub nIndex: i32,
-    pub nCol: i32,
-    pub str: ::windows::core::PWSTR,
-    pub nImage: i32,
-    pub nState: u32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub iIndent: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for RESULTDATAITEM {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for RESULTDATAITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RESULTDATAITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESULTDATAITEM").field("mask", &self.mask).field("bScopeItem", &self.bScopeItem).field("itemID", &self.itemID).field("nIndex", &self.nIndex).field("nCol", &self.nCol).field("str", &self.str).field("nImage", &self.nImage).field("nState", &self.nState).field("lParam", &self.lParam).field("iIndent", &self.iIndent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RESULTDATAITEM {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for RESULTDATAITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULTDATAITEM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for RESULTDATAITEM {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RESULTDATAITEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct RESULTFINDINFO {
-    pub psz: ::windows::core::PWSTR,
-    pub nStart: i32,
-    pub dwOptions: u32,
-}
-impl ::core::marker::Copy for RESULTFINDINFO {}
-impl ::core::clone::Clone for RESULTFINDINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RESULTFINDINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESULTFINDINFO").field("psz", &self.psz).field("nStart", &self.nStart).field("dwOptions", &self.dwOptions).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RESULTFINDINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RESULTFINDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULTFINDINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RESULTFINDINFO {}
-impl ::core::default::Default for RESULTFINDINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct RESULT_VIEW_TYPE_INFO {
-    pub pstrPersistableViewDescription: ::windows::core::PWSTR,
-    pub eViewType: MMC_VIEW_TYPE,
-    pub dwMiscOptions: u32,
-    pub Anonymous: RESULT_VIEW_TYPE_INFO_0,
-}
-impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
-    fn clone(&self) -> Self {
-        Self {
-            pstrPersistableViewDescription: self.pstrPersistableViewDescription,
-            eViewType: self.eViewType,
-            dwMiscOptions: self.dwMiscOptions,
-            Anonymous: self.Anonymous.clone(),
-        }
-    }
-}
-unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pstrPersistableViewDescription == other.pstrPersistableViewDescription && self.eViewType == other.eViewType && self.dwMiscOptions == other.dwMiscOptions && self.Anonymous == other.Anonymous
-    }
-}
-impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO {}
-impl ::core::default::Default for RESULT_VIEW_TYPE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub union RESULT_VIEW_TYPE_INFO_0 {
-    pub dwListOptions: u32,
-    pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
-    pub Anonymous2: ::core::mem::ManuallyDrop<RESULT_VIEW_TYPE_INFO_0_1>,
-}
-impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
-    fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
-    }
-}
-unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0 {}
-impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct RESULT_VIEW_TYPE_INFO_0_0 {
-    pub dwHTMLOptions: u32,
-    pub pstrURL: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0_0 {}
-impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_0").field("dwHTMLOptions", &self.dwHTMLOptions).field("pstrURL", &self.pstrURL).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_0 {}
-impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct RESULT_VIEW_TYPE_INFO_0_1 {
-    pub dwOCXOptions: u32,
-    pub pUnkControl: ::core::option::Option<::windows::core::IUnknown>,
-}
-impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
-    fn clone(&self) -> Self {
-        Self { dwOCXOptions: self.dwOCXOptions, pUnkControl: self.pUnkControl.clone() }
-    }
-}
-impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_1").field("dwOCXOptions", &self.dwOCXOptions).field("pUnkControl", &self.pUnkControl).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwOCXOptions == other.dwOCXOptions && self.pUnkControl == other.pUnkControl
-    }
-}
-impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_1 {}
-impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RFI_PARTIAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RFI_WRAP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RSI_DESCENDING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RSI_NOSORTICON: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_HTML_OPTIONS_NOLISTVIEW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_HTML_OPTIONS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_ALLOWPASTE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_FILTERED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_LEXICAL_SORT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_MULTISELECT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_OWNERDATALIST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_LIST_OPTIONS_USEFONTLINKING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_MISC_OPTIONS_NOLISTVIEWS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SCOPEDATAITEM {
-    pub mask: u32,
-    pub displayname: ::windows::core::PWSTR,
-    pub nImage: i32,
-    pub nOpenImage: i32,
-    pub nState: u32,
-    pub cChildren: i32,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub relativeID: isize,
-    pub ID: isize,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for SCOPEDATAITEM {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for SCOPEDATAITEM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SCOPEDATAITEM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCOPEDATAITEM").field("mask", &self.mask).field("displayname", &self.displayname).field("nImage", &self.nImage).field("nOpenImage", &self.nOpenImage).field("nState", &self.nState).field("cChildren", &self.cChildren).field("lParam", &self.lParam).field("relativeID", &self.relativeID).field("ID", &self.ID).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SCOPEDATAITEM {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SCOPEDATAITEM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPEDATAITEM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SCOPEDATAITEM {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SCOPEDATAITEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct SColumnSetID {
-    pub dwFlags: u32,
-    pub cBytes: u32,
-    pub id: [u8; 1],
-}
-impl ::core::marker::Copy for SColumnSetID {}
-impl ::core::clone::Clone for SColumnSetID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SColumnSetID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SColumnSetID").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SColumnSetID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SColumnSetID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SColumnSetID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SColumnSetID {}
-impl ::core::default::Default for SColumnSetID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_CHILDREN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_FIRST: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_IMAGE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_NEXT: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_OPENIMAGE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_PARAM: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_PARENT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_PREVIOUS: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_STATE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SDI_STR: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub struct SMMCDataObjects {
-    pub count: u32,
-    pub lpDataObject: [::core::option::Option<super::Com::IDataObject>; 1],
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for SMMCDataObjects {
-    fn clone(&self) -> Self {
-        Self { count: self.count, lpDataObject: self.lpDataObject.clone() }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for SMMCDataObjects {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SMMCDataObjects").field("count", &self.count).field("lpDataObject", &self.lpDataObject).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for SMMCDataObjects {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for SMMCDataObjects {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.lpDataObject == other.lpDataObject
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for SMMCDataObjects {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for SMMCDataObjects {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct SMMCObjectTypes {
-    pub count: u32,
-    pub guid: [::windows::core::GUID; 1],
-}
-impl ::core::marker::Copy for SMMCObjectTypes {}
-impl ::core::clone::Clone for SMMCObjectTypes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SMMCObjectTypes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SMMCObjectTypes").field("count", &self.count).field("guid", &self.guid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SMMCObjectTypes {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SMMCObjectTypes {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMMCObjectTypes>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SMMCObjectTypes {}
-impl ::core::default::Default for SMMCObjectTypes {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct SNodeID {
-    pub cBytes: u32,
-    pub id: [u8; 1],
-}
-impl ::core::marker::Copy for SNodeID {}
-impl ::core::clone::Clone for SNodeID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SNodeID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SNodeID").field("cBytes", &self.cBytes).field("id", &self.id).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SNodeID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SNodeID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SNodeID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SNodeID {}
-impl ::core::default::Default for SNodeID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub struct SNodeID2 {
-    pub dwFlags: u32,
-    pub cBytes: u32,
-    pub id: [u8; 1],
-}
-impl ::core::marker::Copy for SNodeID2 {}
-impl ::core::clone::Clone for SNodeID2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SNodeID2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SNodeID2").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SNodeID2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SNodeID2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SNodeID2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SNodeID2 {}
-impl ::core::default::Default for SNodeID2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SPECIAL_DOBJ_MIN: i32 = -10i32;
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -8708,64 +6679,6 @@ pub struct _Application_Vtbl {
     pub VersionMajor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionmajor: *mut i32) -> ::windows::core::HRESULT,
     pub VersionMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionminor: *mut i32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _ColumnSortOrder(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SortOrder_Ascending: _ColumnSortOrder = _ColumnSortOrder(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const SortOrder_Descending: _ColumnSortOrder = _ColumnSortOrder(1i32);
-impl ::core::marker::Copy for _ColumnSortOrder {}
-impl ::core::clone::Clone for _ColumnSortOrder {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _ColumnSortOrder {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _ColumnSortOrder {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _ColumnSortOrder {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_ColumnSortOrder").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct _DocumentMode(pub i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const DocumentMode_Author: _DocumentMode = _DocumentMode(0i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const DocumentMode_User: _DocumentMode = _DocumentMode(1i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const DocumentMode_User_MDI: _DocumentMode = _DocumentMode(2i32);
-#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
-pub const DocumentMode_User_SDI: _DocumentMode = _DocumentMode(3i32);
-impl ::core::marker::Copy for _DocumentMode {}
-impl ::core::clone::Clone for _DocumentMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for _DocumentMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for _DocumentMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for _DocumentMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("_DocumentMode").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -8855,6 +6768,923 @@ pub struct _EventConnector_Vtbl {
     #[cfg(not(feature = "Win32_System_Com"))]
     ConnectTo: usize,
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const AUTO_WIDTH: i32 = -1i32;
+pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
+pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
+pub const ConsolePower: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0285374_dff1_11d3_b433_00c04f8ecd78);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const HDI_HIDDEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const HIDE_COLUMN: i32 = -4i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const ILSIF_LEAVE_LARGE_ICON: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const ILSIF_LEAVE_SMALL_ICON: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_AUTO: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_NOICON: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_NOPARAM: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_NOPTR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_UPDATE_NOINVALIDATEALL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_UPDATE_NOSCROLL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_VIEWSTYLE_FILTERED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_VIEWSTYLE_ICON: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_VIEWSTYLE_LIST: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
+pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_IMAGECALLBACK: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ITEM_OVERLAY_STATE_MASK: u32 = 3840u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ITEM_OVERLAY_STATE_SHIFT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ITEM_STATE_MASK: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_NOACTIONPANE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_NOPERSIST: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_NOSCOPEPANE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROP_MODIFIABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROP_PERSIST: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROP_REMOVABLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PSO_HASHELP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PSO_NEWWIZARDTYPE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PSO_NOAPPLYNOW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PSO_NO_PROPTITLE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VER: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_CREATENEW: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_FILTERED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_LEXICAL_SORT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_MULTISELECT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_NOLISTVIEWS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_WINDOW_COOKIE: i32 = -3i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDCI_ScopeItem: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDI_IMAGE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDI_INDENT: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDI_INDEX: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDI_PARAM: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDI_STATE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RDI_STR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RFI_PARTIAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RFI_WRAP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RSI_DESCENDING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RSI_NOSORTICON: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_HTML_OPTIONS_NOLISTVIEW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_HTML_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_ALLOWPASTE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_FILTERED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_LEXICAL_SORT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_MULTISELECT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_OWNERDATALIST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_LIST_OPTIONS_USEFONTLINKING: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_MISC_OPTIONS_NOLISTVIEWS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_OCX_OPTIONS_CACHE_OCX: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_OCX_OPTIONS_NOLISTVIEW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const RVTI_OCX_OPTIONS_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_CHILDREN: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_FIRST: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_IMAGE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_NEXT: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_OPENIMAGE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_PARAM: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_PARENT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_PREVIOUS: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_STATE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SDI_STR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SPECIAL_COOKIE_MAX: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SPECIAL_COOKIE_MIN: i32 = -10i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SPECIAL_DOBJ_MAX: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SPECIAL_DOBJ_MIN: i32 = -10i32;
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
+impl ::core::marker::Copy for CCM_COMMANDID_MASK_CONSTANTS {}
+impl ::core::clone::Clone for CCM_COMMANDID_MASK_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CCM_COMMANDID_MASK_CONSTANTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_COMMANDID_MASK_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_COMMANDID_MASK_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_COMMANDID_MASK_CONSTANTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CCM_INSERTIONALLOWED(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(4i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(8i32);
+impl ::core::marker::Copy for CCM_INSERTIONALLOWED {}
+impl ::core::clone::Clone for CCM_INSERTIONALLOWED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CCM_INSERTIONALLOWED {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_INSERTIONALLOWED {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_INSERTIONALLOWED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_INSERTIONALLOWED").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CCM_INSERTIONPOINTID(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-65536i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_SHARED: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(1073741824i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(536870912i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(268435456i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_RESERVED: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(268369920i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(31i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612736i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612735i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612734i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612733i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612732i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048191i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048190i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
+impl ::core::marker::Copy for CCM_INSERTIONPOINTID {}
+impl ::core::clone::Clone for CCM_INSERTIONPOINTID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CCM_INSERTIONPOINTID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_INSERTIONPOINTID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_INSERTIONPOINTID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_INSERTIONPOINTID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CCM_SPECIAL(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = CCM_SPECIAL(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = CCM_SPECIAL(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = CCM_SPECIAL(4i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = CCM_SPECIAL(8i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = CCM_SPECIAL(16i32);
+impl ::core::marker::Copy for CCM_SPECIAL {}
+impl ::core::clone::Clone for CCM_SPECIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CCM_SPECIAL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_SPECIAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_SPECIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_SPECIAL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DATA_OBJECT_TYPES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCT_SCOPE: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32768i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCT_RESULT: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32769i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32770i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
+impl ::core::marker::Copy for DATA_OBJECT_TYPES {}
+impl ::core::clone::Clone for DATA_OBJECT_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DATA_OBJECT_TYPES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DATA_OBJECT_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DATA_OBJECT_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DATA_OBJECT_TYPES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IconIdentifier(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_None: IconIdentifier = IconIdentifier(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_Error: IconIdentifier = IconIdentifier(32513i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_Question: IconIdentifier = IconIdentifier(32514i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_Warning: IconIdentifier = IconIdentifier(32515i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_Information: IconIdentifier = IconIdentifier(32516i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_First: IconIdentifier = IconIdentifier(32513i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const Icon_Last: IconIdentifier = IconIdentifier(32516i32);
+impl ::core::marker::Copy for IconIdentifier {}
+impl ::core::clone::Clone for IconIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IconIdentifier {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IconIdentifier {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IconIdentifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IconIdentifier").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_ACTION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ACTION_ID: MMC_ACTION_TYPE = MMC_ACTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = MMC_ACTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = MMC_ACTION_TYPE(2i32);
+impl ::core::marker::Copy for MMC_ACTION_TYPE {}
+impl ::core::clone::Clone for MMC_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_ACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_ACTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_ACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_ACTION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_BUTTON_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const ENABLED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const HIDDEN: MMC_BUTTON_STATE = MMC_BUTTON_STATE(4i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const INDETERMINATE: MMC_BUTTON_STATE = MMC_BUTTON_STATE(8i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const BUTTONPRESSED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(16i32);
+impl ::core::marker::Copy for MMC_BUTTON_STATE {}
+impl ::core::clone::Clone for MMC_BUTTON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_BUTTON_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_BUTTON_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_BUTTON_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_BUTTON_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_CONSOLE_VERB(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_OPEN: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_COPY: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32769i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_PASTE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32770i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_DELETE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32771i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_PROPERTIES: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32772i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_RENAME: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32773i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_REFRESH: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32774i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_PRINT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32775i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32777i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
+impl ::core::marker::Copy for MMC_CONSOLE_VERB {}
+impl ::core::clone::Clone for MMC_CONSOLE_VERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_CONSOLE_VERB {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_CONSOLE_VERB {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_CONSOLE_VERB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_CONSOLE_VERB").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_CONTROL_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const TOOLBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MENUBUTTON: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
+impl ::core::marker::Copy for MMC_CONTROL_TYPE {}
+impl ::core::clone::Clone for MMC_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_CONTROL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_CONTROL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_CONTROL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_CONTROL_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_FILTER_CHANGE_CODE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
+impl ::core::marker::Copy for MMC_FILTER_CHANGE_CODE {}
+impl ::core::clone::Clone for MMC_FILTER_CHANGE_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_FILTER_CHANGE_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_FILTER_CHANGE_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_FILTER_CHANGE_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_FILTER_CHANGE_CODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_FILTER_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_INT_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = MMC_FILTER_TYPE(32768i32);
+impl ::core::marker::Copy for MMC_FILTER_TYPE {}
+impl ::core::clone::Clone for MMC_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_FILTER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_FILTER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_FILTER_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_MENU_COMMAND_IDS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
+impl ::core::marker::Copy for MMC_MENU_COMMAND_IDS {}
+impl ::core::clone::Clone for MMC_MENU_COMMAND_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_MENU_COMMAND_IDS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_MENU_COMMAND_IDS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_MENU_COMMAND_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_MENU_COMMAND_IDS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_NOTIFY_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32769i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_ADD_IMAGES: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32770i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_BTN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32771i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32772i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_COLUMN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32773i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_CONTEXTMENU: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32774i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_CUTORMOVE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32775i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_DBLCLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32776i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_DELETE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32777i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_DESELECT_ALL: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32778i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_EXPAND: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32779i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_HELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32780i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_MENU_BTNCLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32781i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_MINIMIZED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32782i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_PASTE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32783i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_PROPERTY_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32784i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_QUERY_PASTE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32785i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_REFRESH: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32786i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_REMOVE_CHILDREN: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32787i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_RENAME: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32788i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_SELECT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32789i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_SHOW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32790i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32791i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32792i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_CONTEXTHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32793i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_INITOCX: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32794i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_FILTER_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32795i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_FILTERBTN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32796i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_RESTORE_VIEW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32797i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_PRINT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32798i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_PRELOAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32799i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32800i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32801i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32802i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32803i32);
+impl ::core::marker::Copy for MMC_NOTIFY_TYPE {}
+impl ::core::clone::Clone for MMC_NOTIFY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_NOTIFY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_NOTIFY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_NOTIFY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_NOTIFY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_PROPERTY_ACTION(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(3i32);
+impl ::core::marker::Copy for MMC_PROPERTY_ACTION {}
+impl ::core::clone::Clone for MMC_PROPERTY_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_PROPERTY_ACTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_PROPERTY_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_PROPERTY_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_PROPERTY_ACTION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_RESULT_VIEW_STYLE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(4i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(8i32);
+impl ::core::marker::Copy for MMC_RESULT_VIEW_STYLE {}
+impl ::core::clone::Clone for MMC_RESULT_VIEW_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_RESULT_VIEW_STYLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_RESULT_VIEW_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_RESULT_VIEW_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_RESULT_VIEW_STYLE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_SCOPE_ITEM_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(3i32);
+impl ::core::marker::Copy for MMC_SCOPE_ITEM_STATE {}
+impl ::core::clone::Clone for MMC_SCOPE_ITEM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_SCOPE_ITEM_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_SCOPE_ITEM_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_SCOPE_ITEM_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_SCOPE_ITEM_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(4i32);
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_TYPE {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_TASK_DISPLAY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_TASK_DISPLAY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MMC_VIEW_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = MMC_VIEW_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = MMC_VIEW_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = MMC_VIEW_TYPE(2i32);
+impl ::core::marker::Copy for MMC_VIEW_TYPE {}
+impl ::core::clone::Clone for MMC_VIEW_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MMC_VIEW_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_VIEW_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_VIEW_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_VIEW_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct _ColumnSortOrder(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SortOrder_Ascending: _ColumnSortOrder = _ColumnSortOrder(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const SortOrder_Descending: _ColumnSortOrder = _ColumnSortOrder(1i32);
+impl ::core::marker::Copy for _ColumnSortOrder {}
+impl ::core::clone::Clone for _ColumnSortOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for _ColumnSortOrder {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for _ColumnSortOrder {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _ColumnSortOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ColumnSortOrder").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct _DocumentMode(pub i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const DocumentMode_Author: _DocumentMode = _DocumentMode(0i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const DocumentMode_User: _DocumentMode = _DocumentMode(1i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const DocumentMode_User_MDI: _DocumentMode = _DocumentMode(2i32);
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub const DocumentMode_User_SDI: _DocumentMode = _DocumentMode(3i32);
+impl ::core::marker::Copy for _DocumentMode {}
+impl ::core::clone::Clone for _DocumentMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for _DocumentMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for _DocumentMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DocumentMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DocumentMode").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
 #[repr(transparent)]
@@ -8951,6 +7781,1176 @@ unsafe impl ::windows::core::Abi for _ViewOptions {
 impl ::core::fmt::Debug for _ViewOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("_ViewOptions").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct CONTEXTMENUITEM {
+    pub strName: ::windows::core::PWSTR,
+    pub strStatusBarText: ::windows::core::PWSTR,
+    pub lCommandID: i32,
+    pub lInsertionPointID: i32,
+    pub fFlags: i32,
+    pub fSpecialFlags: i32,
+}
+impl ::core::marker::Copy for CONTEXTMENUITEM {}
+impl ::core::clone::Clone for CONTEXTMENUITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONTEXTMENUITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTEXTMENUITEM").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONTEXTMENUITEM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONTEXTMENUITEM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXTMENUITEM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONTEXTMENUITEM {}
+impl ::core::default::Default for CONTEXTMENUITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct CONTEXTMENUITEM2 {
+    pub strName: ::windows::core::PWSTR,
+    pub strStatusBarText: ::windows::core::PWSTR,
+    pub lCommandID: i32,
+    pub lInsertionPointID: i32,
+    pub fFlags: i32,
+    pub fSpecialFlags: i32,
+    pub strLanguageIndependentName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for CONTEXTMENUITEM2 {}
+impl ::core::clone::Clone for CONTEXTMENUITEM2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CONTEXTMENUITEM2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONTEXTMENUITEM2").field("strName", &self.strName).field("strStatusBarText", &self.strStatusBarText).field("lCommandID", &self.lCommandID).field("lInsertionPointID", &self.lInsertionPointID).field("fFlags", &self.fFlags).field("fSpecialFlags", &self.fSpecialFlags).field("strLanguageIndependentName", &self.strLanguageIndependentName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONTEXTMENUITEM2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONTEXTMENUITEM2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXTMENUITEM2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONTEXTMENUITEM2 {}
+impl ::core::default::Default for CONTEXTMENUITEM2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MENUBUTTONDATA {
+    pub idCommand: i32,
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for MENUBUTTONDATA {}
+impl ::core::clone::Clone for MENUBUTTONDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MENUBUTTONDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MENUBUTTONDATA").field("idCommand", &self.idCommand).field("x", &self.x).field("y", &self.y).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MENUBUTTONDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MENUBUTTONDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUBUTTONDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MENUBUTTONDATA {}
+impl ::core::default::Default for MENUBUTTONDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMCBUTTON {
+    pub nBitmap: i32,
+    pub idCommand: i32,
+    pub fsState: u8,
+    pub fsType: u8,
+    pub lpButtonText: ::windows::core::PWSTR,
+    pub lpTooltipText: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MMCBUTTON {}
+impl ::core::clone::Clone for MMCBUTTON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMCBUTTON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMCBUTTON").field("nBitmap", &self.nBitmap).field("idCommand", &self.idCommand).field("fsState", &self.fsState).field("fsType", &self.fsType).field("lpButtonText", &self.lpButtonText).field("lpTooltipText", &self.lpTooltipText).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMCBUTTON {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMCBUTTON {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMCBUTTON>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMCBUTTON {}
+impl ::core::default::Default for MMCBUTTON {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_COLUMN_DATA {
+    pub nColIndex: i32,
+    pub dwFlags: u32,
+    pub nWidth: i32,
+    pub ulReserved: usize,
+}
+impl ::core::marker::Copy for MMC_COLUMN_DATA {}
+impl ::core::clone::Clone for MMC_COLUMN_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_COLUMN_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_COLUMN_DATA").field("nColIndex", &self.nColIndex).field("dwFlags", &self.dwFlags).field("nWidth", &self.nWidth).field("ulReserved", &self.ulReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_COLUMN_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_COLUMN_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_COLUMN_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_COLUMN_DATA {}
+impl ::core::default::Default for MMC_COLUMN_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_COLUMN_SET_DATA {
+    pub cbSize: i32,
+    pub nNumCols: i32,
+    pub pColData: *mut MMC_COLUMN_DATA,
+}
+impl ::core::marker::Copy for MMC_COLUMN_SET_DATA {}
+impl ::core::clone::Clone for MMC_COLUMN_SET_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_COLUMN_SET_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_COLUMN_SET_DATA").field("cbSize", &self.cbSize).field("nNumCols", &self.nNumCols).field("pColData", &self.pColData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_COLUMN_SET_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_COLUMN_SET_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_COLUMN_SET_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_COLUMN_SET_DATA {}
+impl ::core::default::Default for MMC_COLUMN_SET_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_EXPANDSYNC_STRUCT {
+    pub bHandled: super::super::Foundation::BOOL,
+    pub bExpanding: super::super::Foundation::BOOL,
+    pub hItem: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_EXPANDSYNC_STRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_EXPANDSYNC_STRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_EXPANDSYNC_STRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_EXPANDSYNC_STRUCT").field("bHandled", &self.bHandled).field("bExpanding", &self.bExpanding).field("hItem", &self.hItem).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MMC_EXPANDSYNC_STRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MMC_EXPANDSYNC_STRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_EXPANDSYNC_STRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MMC_EXPANDSYNC_STRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MMC_EXPANDSYNC_STRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct MMC_EXT_VIEW_DATA {
+    pub viewID: ::windows::core::GUID,
+    pub pszURL: ::windows::core::PCWSTR,
+    pub pszViewTitle: ::windows::core::PCWSTR,
+    pub pszTooltipText: ::windows::core::PCWSTR,
+    pub bReplacesDefaultView: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for MMC_EXT_VIEW_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MMC_EXT_VIEW_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for MMC_EXT_VIEW_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_EXT_VIEW_DATA").field("viewID", &self.viewID).field("pszURL", &self.pszURL).field("pszViewTitle", &self.pszViewTitle).field("pszTooltipText", &self.pszTooltipText).field("bReplacesDefaultView", &self.bReplacesDefaultView).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MMC_EXT_VIEW_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MMC_EXT_VIEW_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_EXT_VIEW_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MMC_EXT_VIEW_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for MMC_EXT_VIEW_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_FILTERDATA {
+    pub pszText: ::windows::core::PWSTR,
+    pub cchTextMax: i32,
+    pub lValue: i32,
+}
+impl ::core::marker::Copy for MMC_FILTERDATA {}
+impl ::core::clone::Clone for MMC_FILTERDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_FILTERDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_FILTERDATA").field("pszText", &self.pszText).field("cchTextMax", &self.cchTextMax).field("lValue", &self.lValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_FILTERDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_FILTERDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_FILTERDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_FILTERDATA {}
+impl ::core::default::Default for MMC_FILTERDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_LISTPAD_INFO {
+    pub szTitle: ::windows::core::PWSTR,
+    pub szButtonText: ::windows::core::PWSTR,
+    pub nCommandID: isize,
+}
+impl ::core::marker::Copy for MMC_LISTPAD_INFO {}
+impl ::core::clone::Clone for MMC_LISTPAD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_LISTPAD_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_LISTPAD_INFO").field("szTitle", &self.szTitle).field("szButtonText", &self.szButtonText).field("nCommandID", &self.nCommandID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_LISTPAD_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_LISTPAD_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_LISTPAD_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_LISTPAD_INFO {}
+impl ::core::default::Default for MMC_LISTPAD_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_RESTORE_VIEW {
+    pub dwSize: u32,
+    pub cookie: isize,
+    pub pViewType: ::windows::core::PWSTR,
+    pub lViewOptions: i32,
+}
+impl ::core::marker::Copy for MMC_RESTORE_VIEW {}
+impl ::core::clone::Clone for MMC_RESTORE_VIEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_RESTORE_VIEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_RESTORE_VIEW").field("dwSize", &self.dwSize).field("cookie", &self.cookie).field("pViewType", &self.pViewType).field("lViewOptions", &self.lViewOptions).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_RESTORE_VIEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_RESTORE_VIEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_RESTORE_VIEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_RESTORE_VIEW {}
+impl ::core::default::Default for MMC_RESTORE_VIEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct MMC_SNAPIN_PROPERTY {
+    pub pszPropName: ::windows::core::PCWSTR,
+    pub varValue: super::Com::VARIANT,
+    pub eAction: MMC_PROPERTY_ACTION,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for MMC_SNAPIN_PROPERTY {
+    fn clone(&self) -> Self {
+        Self { pszPropName: self.pszPropName, varValue: self.varValue.clone(), eAction: self.eAction }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for MMC_SNAPIN_PROPERTY {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for MMC_SNAPIN_PROPERTY {
+    fn eq(&self, other: &Self) -> bool {
+        self.pszPropName == other.pszPropName && self.varValue == other.varValue && self.eAction == other.eAction
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for MMC_SNAPIN_PROPERTY {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for MMC_SNAPIN_PROPERTY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_SORT_DATA {
+    pub nColIndex: i32,
+    pub dwSortOptions: u32,
+    pub ulReserved: usize,
+}
+impl ::core::marker::Copy for MMC_SORT_DATA {}
+impl ::core::clone::Clone for MMC_SORT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_SORT_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SORT_DATA").field("nColIndex", &self.nColIndex).field("dwSortOptions", &self.dwSortOptions).field("ulReserved", &self.ulReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_SORT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_SORT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SORT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_SORT_DATA {}
+impl ::core::default::Default for MMC_SORT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_SORT_SET_DATA {
+    pub cbSize: i32,
+    pub nNumItems: i32,
+    pub pSortData: *mut MMC_SORT_DATA,
+}
+impl ::core::marker::Copy for MMC_SORT_SET_DATA {}
+impl ::core::clone::Clone for MMC_SORT_SET_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_SORT_SET_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_SORT_SET_DATA").field("cbSize", &self.cbSize).field("nNumItems", &self.nNumItems).field("pSortData", &self.pSortData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_SORT_SET_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_SORT_SET_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_SORT_SET_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_SORT_SET_DATA {}
+impl ::core::default::Default for MMC_SORT_SET_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_TASK {
+    pub sDisplayObject: MMC_TASK_DISPLAY_OBJECT,
+    pub szText: ::windows::core::PWSTR,
+    pub szHelpString: ::windows::core::PWSTR,
+    pub eActionType: MMC_ACTION_TYPE,
+    pub Anonymous: MMC_TASK_0,
+}
+impl ::core::marker::Copy for MMC_TASK {}
+impl ::core::clone::Clone for MMC_TASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_TASK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_TASK {}
+impl ::core::default::Default for MMC_TASK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub union MMC_TASK_0 {
+    pub nCommandID: isize,
+    pub szActionURL: ::windows::core::PWSTR,
+    pub szScript: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MMC_TASK_0 {}
+impl ::core::clone::Clone for MMC_TASK_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_TASK_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_TASK_0 {}
+impl ::core::default::Default for MMC_TASK_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_TASK_DISPLAY_BITMAP {
+    pub szMouseOverBitmap: ::windows::core::PWSTR,
+    pub szMouseOffBitmap: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_BITMAP {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_BITMAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_BITMAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_BITMAP").field("szMouseOverBitmap", &self.szMouseOverBitmap).field("szMouseOffBitmap", &self.szMouseOffBitmap).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_BITMAP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_BITMAP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_BITMAP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_TASK_DISPLAY_BITMAP {}
+impl ::core::default::Default for MMC_TASK_DISPLAY_BITMAP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_TASK_DISPLAY_OBJECT {
+    pub eDisplayType: MMC_TASK_DISPLAY_TYPE,
+    pub Anonymous: MMC_TASK_DISPLAY_OBJECT_0,
+}
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_OBJECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_OBJECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_OBJECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_TASK_DISPLAY_OBJECT {}
+impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub union MMC_TASK_DISPLAY_OBJECT_0 {
+    pub uBitmap: MMC_TASK_DISPLAY_BITMAP,
+    pub uSymbol: MMC_TASK_DISPLAY_SYMBOL,
+}
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_OBJECT_0 {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_OBJECT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_OBJECT_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_OBJECT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_OBJECT_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_TASK_DISPLAY_OBJECT_0 {}
+impl ::core::default::Default for MMC_TASK_DISPLAY_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_TASK_DISPLAY_SYMBOL {
+    pub szFontFamilyName: ::windows::core::PWSTR,
+    pub szURLtoEOT: ::windows::core::PWSTR,
+    pub szSymbolString: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_SYMBOL {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_SYMBOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_SYMBOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_TASK_DISPLAY_SYMBOL").field("szFontFamilyName", &self.szFontFamilyName).field("szURLtoEOT", &self.szURLtoEOT).field("szSymbolString", &self.szSymbolString).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_SYMBOL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_TASK_DISPLAY_SYMBOL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_TASK_DISPLAY_SYMBOL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_TASK_DISPLAY_SYMBOL {}
+impl ::core::default::Default for MMC_TASK_DISPLAY_SYMBOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct MMC_VISIBLE_COLUMNS {
+    pub nVisibleColumns: i32,
+    pub rgVisibleCols: [i32; 1],
+}
+impl ::core::marker::Copy for MMC_VISIBLE_COLUMNS {}
+impl ::core::clone::Clone for MMC_VISIBLE_COLUMNS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MMC_VISIBLE_COLUMNS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MMC_VISIBLE_COLUMNS").field("nVisibleColumns", &self.nVisibleColumns).field("rgVisibleCols", &self.rgVisibleCols).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_VISIBLE_COLUMNS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MMC_VISIBLE_COLUMNS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MMC_VISIBLE_COLUMNS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MMC_VISIBLE_COLUMNS {}
+impl ::core::default::Default for MMC_VISIBLE_COLUMNS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RDCOMPARE {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub nColumn: i32,
+    pub lUserParam: super::super::Foundation::LPARAM,
+    pub prdch1: *mut RDITEMHDR,
+    pub prdch2: *mut RDITEMHDR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RDCOMPARE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RDCOMPARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RDCOMPARE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDCOMPARE").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("nColumn", &self.nColumn).field("lUserParam", &self.lUserParam).field("prdch1", &self.prdch1).field("prdch2", &self.prdch2).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RDCOMPARE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RDCOMPARE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDCOMPARE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RDCOMPARE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RDCOMPARE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RDITEMHDR {
+    pub dwFlags: u32,
+    pub cookie: isize,
+    pub lpReserved: super::super::Foundation::LPARAM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RDITEMHDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RDITEMHDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RDITEMHDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RDITEMHDR").field("dwFlags", &self.dwFlags).field("cookie", &self.cookie).field("lpReserved", &self.lpReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RDITEMHDR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RDITEMHDR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RDITEMHDR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RDITEMHDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RDITEMHDR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct RESULTDATAITEM {
+    pub mask: u32,
+    pub bScopeItem: super::super::Foundation::BOOL,
+    pub itemID: isize,
+    pub nIndex: i32,
+    pub nCol: i32,
+    pub str: ::windows::core::PWSTR,
+    pub nImage: i32,
+    pub nState: u32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub iIndent: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for RESULTDATAITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for RESULTDATAITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for RESULTDATAITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULTDATAITEM").field("mask", &self.mask).field("bScopeItem", &self.bScopeItem).field("itemID", &self.itemID).field("nIndex", &self.nIndex).field("nCol", &self.nCol).field("str", &self.str).field("nImage", &self.nImage).field("nState", &self.nState).field("lParam", &self.lParam).field("iIndent", &self.iIndent).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for RESULTDATAITEM {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for RESULTDATAITEM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULTDATAITEM>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for RESULTDATAITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for RESULTDATAITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct RESULTFINDINFO {
+    pub psz: ::windows::core::PWSTR,
+    pub nStart: i32,
+    pub dwOptions: u32,
+}
+impl ::core::marker::Copy for RESULTFINDINFO {}
+impl ::core::clone::Clone for RESULTFINDINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RESULTFINDINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULTFINDINFO").field("psz", &self.psz).field("nStart", &self.nStart).field("dwOptions", &self.dwOptions).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RESULTFINDINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RESULTFINDINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULTFINDINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RESULTFINDINFO {}
+impl ::core::default::Default for RESULTFINDINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct RESULT_VIEW_TYPE_INFO {
+    pub pstrPersistableViewDescription: ::windows::core::PWSTR,
+    pub eViewType: MMC_VIEW_TYPE,
+    pub dwMiscOptions: u32,
+    pub Anonymous: RESULT_VIEW_TYPE_INFO_0,
+}
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO {
+    fn clone(&self) -> Self {
+        Self {
+            pstrPersistableViewDescription: self.pstrPersistableViewDescription,
+            eViewType: self.eViewType,
+            dwMiscOptions: self.dwMiscOptions,
+            Anonymous: self.Anonymous.clone(),
+        }
+    }
+}
+unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.pstrPersistableViewDescription == other.pstrPersistableViewDescription && self.eViewType == other.eViewType && self.dwMiscOptions == other.dwMiscOptions && self.Anonymous == other.Anonymous
+    }
+}
+impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO {}
+impl ::core::default::Default for RESULT_VIEW_TYPE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub union RESULT_VIEW_TYPE_INFO_0 {
+    pub dwListOptions: u32,
+    pub Anonymous1: RESULT_VIEW_TYPE_INFO_0_0,
+    pub Anonymous2: ::core::mem::ManuallyDrop<RESULT_VIEW_TYPE_INFO_0_1>,
+}
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0 {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0 {}
+impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct RESULT_VIEW_TYPE_INFO_0_0 {
+    pub dwHTMLOptions: u32,
+    pub pstrURL: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0_0 {}
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_0").field("dwHTMLOptions", &self.dwHTMLOptions).field("pstrURL", &self.pstrURL).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RESULT_VIEW_TYPE_INFO_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_0 {}
+impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct RESULT_VIEW_TYPE_INFO_0_1 {
+    pub dwOCXOptions: u32,
+    pub pUnkControl: ::core::option::Option<::windows::core::IUnknown>,
+}
+impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn clone(&self) -> Self {
+        Self { dwOCXOptions: self.dwOCXOptions, pUnkControl: self.pUnkControl.clone() }
+    }
+}
+impl ::core::fmt::Debug for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RESULT_VIEW_TYPE_INFO_0_1").field("dwOCXOptions", &self.dwOCXOptions).field("pUnkControl", &self.pUnkControl).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_1 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwOCXOptions == other.dwOCXOptions && self.pUnkControl == other.pUnkControl
+    }
+}
+impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_1 {}
+impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct SCOPEDATAITEM {
+    pub mask: u32,
+    pub displayname: ::windows::core::PWSTR,
+    pub nImage: i32,
+    pub nOpenImage: i32,
+    pub nState: u32,
+    pub cChildren: i32,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub relativeID: isize,
+    pub ID: isize,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for SCOPEDATAITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCOPEDATAITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for SCOPEDATAITEM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCOPEDATAITEM").field("mask", &self.mask).field("displayname", &self.displayname).field("nImage", &self.nImage).field("nOpenImage", &self.nOpenImage).field("nState", &self.nState).field("cChildren", &self.cChildren).field("lParam", &self.lParam).field("relativeID", &self.relativeID).field("ID", &self.ID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SCOPEDATAITEM {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SCOPEDATAITEM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCOPEDATAITEM>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SCOPEDATAITEM {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for SCOPEDATAITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct SColumnSetID {
+    pub dwFlags: u32,
+    pub cBytes: u32,
+    pub id: [u8; 1],
+}
+impl ::core::marker::Copy for SColumnSetID {}
+impl ::core::clone::Clone for SColumnSetID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SColumnSetID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SColumnSetID").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SColumnSetID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SColumnSetID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SColumnSetID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SColumnSetID {}
+impl ::core::default::Default for SColumnSetID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub struct SMMCDataObjects {
+    pub count: u32,
+    pub lpDataObject: [::core::option::Option<super::Com::IDataObject>; 1],
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for SMMCDataObjects {
+    fn clone(&self) -> Self {
+        Self { count: self.count, lpDataObject: self.lpDataObject.clone() }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for SMMCDataObjects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMMCDataObjects").field("count", &self.count).field("lpDataObject", &self.lpDataObject).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for SMMCDataObjects {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for SMMCDataObjects {
+    fn eq(&self, other: &Self) -> bool {
+        self.count == other.count && self.lpDataObject == other.lpDataObject
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for SMMCDataObjects {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::default::Default for SMMCDataObjects {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct SMMCObjectTypes {
+    pub count: u32,
+    pub guid: [::windows::core::GUID; 1],
+}
+impl ::core::marker::Copy for SMMCObjectTypes {}
+impl ::core::clone::Clone for SMMCObjectTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SMMCObjectTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SMMCObjectTypes").field("count", &self.count).field("guid", &self.guid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SMMCObjectTypes {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SMMCObjectTypes {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SMMCObjectTypes>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SMMCObjectTypes {}
+impl ::core::default::Default for SMMCObjectTypes {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct SNodeID {
+    pub cBytes: u32,
+    pub id: [u8; 1],
+}
+impl ::core::marker::Copy for SNodeID {}
+impl ::core::clone::Clone for SNodeID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SNodeID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNodeID").field("cBytes", &self.cBytes).field("id", &self.id).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SNodeID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SNodeID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SNodeID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SNodeID {}
+impl ::core::default::Default for SNodeID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Mmc\"`*"]
+pub struct SNodeID2 {
+    pub dwFlags: u32,
+    pub cBytes: u32,
+    pub id: [u8; 1],
+}
+impl ::core::marker::Copy for SNodeID2 {}
+impl ::core::clone::Clone for SNodeID2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SNodeID2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SNodeID2").field("dwFlags", &self.dwFlags).field("cBytes", &self.cBytes).field("id", &self.id).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SNodeID2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SNodeID2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SNodeID2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SNodeID2 {}
+impl ::core::default::Default for SNodeID2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

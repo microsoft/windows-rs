@@ -1,1773 +1,34 @@
-pub const AppDomainHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ApplicationProcessRecycleInfo {
-    pub IsRecyclable: super::super::Foundation::BOOL,
-    pub IsRecycled: super::super::Foundation::BOOL,
-    pub TimeRecycled: super::super::Foundation::FILETIME,
-    pub TimeToTerminate: super::super::Foundation::FILETIME,
-    pub RecycleReasonCode: i32,
-    pub IsPendingRecycle: super::super::Foundation::BOOL,
-    pub HasAutomaticLifetimeRecycling: super::super::Foundation::BOOL,
-    pub TimeForAutomaticRecycling: super::super::Foundation::FILETIME,
-    pub MemoryLimitInKB: u32,
-    pub MemoryUsageInKBLastCheck: u32,
-    pub ActivationLimit: u32,
-    pub NumActivationsLastReported: u32,
-    pub CallLimit: u32,
-    pub NumCallsLastReported: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ApplicationProcessRecycleInfo {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ApplicationProcessRecycleInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ApplicationProcessRecycleInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ApplicationProcessRecycleInfo")
-            .field("IsRecyclable", &self.IsRecyclable)
-            .field("IsRecycled", &self.IsRecycled)
-            .field("TimeRecycled", &self.TimeRecycled)
-            .field("TimeToTerminate", &self.TimeToTerminate)
-            .field("RecycleReasonCode", &self.RecycleReasonCode)
-            .field("IsPendingRecycle", &self.IsPendingRecycle)
-            .field("HasAutomaticLifetimeRecycling", &self.HasAutomaticLifetimeRecycling)
-            .field("TimeForAutomaticRecycling", &self.TimeForAutomaticRecycling)
-            .field("MemoryLimitInKB", &self.MemoryLimitInKB)
-            .field("MemoryUsageInKBLastCheck", &self.MemoryUsageInKBLastCheck)
-            .field("ActivationLimit", &self.ActivationLimit)
-            .field("NumActivationsLastReported", &self.NumActivationsLastReported)
-            .field("CallLimit", &self.CallLimit)
-            .field("NumCallsLastReported", &self.NumCallsLastReported)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ApplicationProcessRecycleInfo {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ApplicationProcessRecycleInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationProcessRecycleInfo>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ApplicationProcessRecycleInfo {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ApplicationProcessRecycleInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct ApplicationProcessStatistics {
-    pub NumCallsOutstanding: u32,
-    pub NumTrackedComponents: u32,
-    pub NumComponentInstances: u32,
-    pub AvgCallsPerSecond: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: u32,
-    pub Reserved4: u32,
-}
-impl ::core::marker::Copy for ApplicationProcessStatistics {}
-impl ::core::clone::Clone for ApplicationProcessStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ApplicationProcessStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ApplicationProcessStatistics").field("NumCallsOutstanding", &self.NumCallsOutstanding).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).field("AvgCallsPerSecond", &self.AvgCallsPerSecond).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationProcessStatistics {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ApplicationProcessStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationProcessStatistics>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ApplicationProcessStatistics {}
-impl ::core::default::Default for ApplicationProcessStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ApplicationProcessSummary {
-    pub PartitionIdPrimaryApplication: ::windows::core::GUID,
-    pub ApplicationIdPrimaryApplication: ::windows::core::GUID,
-    pub ApplicationInstanceId: ::windows::core::GUID,
-    pub ProcessId: u32,
-    pub Type: COMPLUS_APPTYPE,
-    pub ProcessExeName: ::windows::core::PWSTR,
-    pub IsService: super::super::Foundation::BOOL,
-    pub IsPaused: super::super::Foundation::BOOL,
-    pub IsRecycled: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ApplicationProcessSummary {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ApplicationProcessSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ApplicationProcessSummary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ApplicationProcessSummary")
-            .field("PartitionIdPrimaryApplication", &self.PartitionIdPrimaryApplication)
-            .field("ApplicationIdPrimaryApplication", &self.ApplicationIdPrimaryApplication)
-            .field("ApplicationInstanceId", &self.ApplicationInstanceId)
-            .field("ProcessId", &self.ProcessId)
-            .field("Type", &self.Type)
-            .field("ProcessExeName", &self.ProcessExeName)
-            .field("IsService", &self.IsService)
-            .field("IsPaused", &self.IsPaused)
-            .field("IsRecycled", &self.IsRecycled)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ApplicationProcessSummary {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ApplicationProcessSummary {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationProcessSummary>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ApplicationProcessSummary {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ApplicationProcessSummary {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct ApplicationSummary {
-    pub ApplicationInstanceId: ::windows::core::GUID,
-    pub PartitionId: ::windows::core::GUID,
-    pub ApplicationId: ::windows::core::GUID,
-    pub Type: COMPLUS_APPTYPE,
-    pub ApplicationName: ::windows::core::PWSTR,
-    pub NumTrackedComponents: u32,
-    pub NumComponentInstances: u32,
-}
-impl ::core::marker::Copy for ApplicationSummary {}
-impl ::core::clone::Clone for ApplicationSummary {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ApplicationSummary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ApplicationSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Type", &self.Type).field("ApplicationName", &self.ApplicationName).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationSummary {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ApplicationSummary {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationSummary>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ApplicationSummary {}
-impl ::core::default::Default for ApplicationSummary {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutoSvcs_Error_Constants(pub u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxAborting: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803139u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxNoContext: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803140u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803141u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803142u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxOldReference: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803143u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxRoleNotFound: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803148u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803149u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803150u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const mtsErrCtxTMNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803151u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599296u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599297u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599298u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599299u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599300u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrOutParam: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599301u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599302u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrPSLoad: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599303u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599304u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599376u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599377u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599378u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599379u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
-impl ::core::marker::Copy for AutoSvcs_Error_Constants {}
-impl ::core::clone::Clone for AutoSvcs_Error_Constants {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutoSvcs_Error_Constants {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AutoSvcs_Error_Constants {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AutoSvcs_Error_Constants {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoSvcs_Error_Constants").field(&self.0).finish()
-    }
-}
-pub const ByotServerEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CAppData {
-    pub m_idApp: u32,
-    pub m_szAppGuid: [u16; 40],
-    pub m_dwAppProcessId: u32,
-    pub m_AppStatistics: CAppStatistics,
-}
-impl ::core::marker::Copy for CAppData {}
-impl ::core::clone::Clone for CAppData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAppData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAppData").field("m_idApp", &self.m_idApp).field("m_szAppGuid", &self.m_szAppGuid).field("m_dwAppProcessId", &self.m_dwAppProcessId).field("m_AppStatistics", &self.m_AppStatistics).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAppData {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAppData {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAppData>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAppData {}
-impl ::core::default::Default for CAppData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CAppStatistics {
-    pub m_cTotalCalls: u32,
-    pub m_cTotalInstances: u32,
-    pub m_cTotalClasses: u32,
-    pub m_cCallsPerSecond: u32,
-}
-impl ::core::marker::Copy for CAppStatistics {}
-impl ::core::clone::Clone for CAppStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CAppStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CAppStatistics").field("m_cTotalCalls", &self.m_cTotalCalls).field("m_cTotalInstances", &self.m_cTotalInstances).field("m_cTotalClasses", &self.m_cTotalClasses).field("m_cCallsPerSecond", &self.m_cCallsPerSecond).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CAppStatistics {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CAppStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAppStatistics>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CAppStatistics {}
-impl ::core::default::Default for CAppStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CCLSIDData {
-    pub m_clsid: ::windows::core::GUID,
-    pub m_cReferences: u32,
-    pub m_cBound: u32,
-    pub m_cPooled: u32,
-    pub m_cInCall: u32,
-    pub m_dwRespTime: u32,
-    pub m_cCallsCompleted: u32,
-    pub m_cCallsFailed: u32,
-}
-impl ::core::marker::Copy for CCLSIDData {}
-impl ::core::clone::Clone for CCLSIDData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CCLSIDData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CCLSIDData").field("m_clsid", &self.m_clsid).field("m_cReferences", &self.m_cReferences).field("m_cBound", &self.m_cBound).field("m_cPooled", &self.m_cPooled).field("m_cInCall", &self.m_cInCall).field("m_dwRespTime", &self.m_dwRespTime).field("m_cCallsCompleted", &self.m_cCallsCompleted).field("m_cCallsFailed", &self.m_cCallsFailed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CCLSIDData {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CCLSIDData {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCLSIDData>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CCLSIDData {}
-impl ::core::default::Default for CCLSIDData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct CCLSIDData2 {
-    pub m_clsid: ::windows::core::GUID,
-    pub m_appid: ::windows::core::GUID,
-    pub m_partid: ::windows::core::GUID,
-    pub m_pwszAppName: ::windows::core::PWSTR,
-    pub m_pwszCtxName: ::windows::core::PWSTR,
-    pub m_eAppType: COMPLUS_APPTYPE,
-    pub m_cReferences: u32,
-    pub m_cBound: u32,
-    pub m_cPooled: u32,
-    pub m_cInCall: u32,
-    pub m_dwRespTime: u32,
-    pub m_cCallsCompleted: u32,
-    pub m_cCallsFailed: u32,
-}
-impl ::core::marker::Copy for CCLSIDData2 {}
-impl ::core::clone::Clone for CCLSIDData2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CCLSIDData2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CCLSIDData2")
-            .field("m_clsid", &self.m_clsid)
-            .field("m_appid", &self.m_appid)
-            .field("m_partid", &self.m_partid)
-            .field("m_pwszAppName", &self.m_pwszAppName)
-            .field("m_pwszCtxName", &self.m_pwszCtxName)
-            .field("m_eAppType", &self.m_eAppType)
-            .field("m_cReferences", &self.m_cReferences)
-            .field("m_cBound", &self.m_cBound)
-            .field("m_cPooled", &self.m_cPooled)
-            .field("m_cInCall", &self.m_cInCall)
-            .field("m_dwRespTime", &self.m_dwRespTime)
-            .field("m_cCallsCompleted", &self.m_cCallsCompleted)
-            .field("m_cCallsFailed", &self.m_cCallsFailed)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CCLSIDData2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CCLSIDData2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCLSIDData2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CCLSIDData2 {}
-impl ::core::default::Default for CCLSIDData2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminAccessChecksLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
-impl ::core::marker::Copy for COMAdminAccessChecksLevelOptions {}
-impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminAccessChecksLevelOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminAccessChecksLevelOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminAccessChecksLevelOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminAccessChecksLevelOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminActivationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
-impl ::core::marker::Copy for COMAdminActivationOptions {}
-impl ::core::clone::Clone for COMAdminActivationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminActivationOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminActivationOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminActivationOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminActivationOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminApplicationExportOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
-impl ::core::marker::Copy for COMAdminApplicationExportOptions {}
-impl ::core::clone::Clone for COMAdminApplicationExportOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminApplicationExportOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminApplicationExportOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminApplicationExportOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminApplicationExportOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminApplicationInstallOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
-impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
-impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminApplicationInstallOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminApplicationInstallOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminApplicationInstallOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminApplicationInstallOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
-impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
-impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminAuthenticationCapabilitiesOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminAuthenticationCapabilitiesOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminAuthenticationCapabilitiesOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminAuthenticationCapabilitiesOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminAuthenticationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
-impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
-impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminAuthenticationLevelOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminAuthenticationLevelOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminAuthenticationLevelOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminAuthenticationLevelOptions").field(&self.0).finish()
-    }
-}
-pub const COMAdminCatalog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
-pub const COMAdminCatalogCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
-pub const COMAdminCatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminComponentFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = COMAdminComponentFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponentFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
-impl ::core::marker::Copy for COMAdminComponentFlags {}
-impl ::core::clone::Clone for COMAdminComponentFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminComponentFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminComponentFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminComponentFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminComponentFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminComponentType(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
-impl ::core::marker::Copy for COMAdminComponentType {}
-impl ::core::clone::Clone for COMAdminComponentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminComponentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminComponentType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminComponentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminComponentType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminErrorCodes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368510i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrKeyMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146368509i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368508i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368505i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368504i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = COMAdminErrorCodes(-2146368503i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBadPath: COMAdminErrorCodes = COMAdminErrorCodes(-2146368502i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrApplicationExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368501i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRoleExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368500i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = COMAdminErrorCodes(-2146368499i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNoUser: COMAdminErrorCodes = COMAdminErrorCodes(-2146368497i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = COMAdminErrorCodes(-2146368496i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368495i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368494i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = COMAdminErrorCodes(-2146368493i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368492i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368488i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = COMAdminErrorCodes(-2146368487i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = COMAdminErrorCodes(-2146368486i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNoServerShare: COMAdminErrorCodes = COMAdminErrorCodes(-2146368485i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368483i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368482i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368481i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368477i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368476i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368475i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = COMAdminErrorCodes(-2146368474i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368473i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368472i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368471i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNotChangeable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368470i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNotDeletable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368469i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrSession: COMAdminErrorCodes = COMAdminErrorCodes(-2146368468i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = COMAdminErrorCodes(-2146368467i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146368466i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368464i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368461i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = COMAdminErrorCodes(-2146368460i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368459i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368458i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368457i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368456i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrComponentExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368455i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = COMAdminErrorCodes(-2146368453i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = COMAdminErrorCodes(-2146368452i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = COMAdminErrorCodes(-2146368450i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368449i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368442i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368441i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = COMAdminErrorCodes(-2146368440i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = COMAdminErrorCodes(-2146368439i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = COMAdminErrorCodes(-2146367998i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146367480i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146367479i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = COMAdminErrorCodes(-2146368438i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368437i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368436i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = COMAdminErrorCodes(-2146368435i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146367478i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = COMAdminErrorCodes(-2146368434i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = COMAdminErrorCodes(-2146368433i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146368432i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = COMAdminErrorCodes(-2146368425i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = COMAdminErrorCodes(-2146368423i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368421i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = COMAdminErrorCodes(-2146368398i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = COMAdminErrorCodes(-2146368397i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = COMAdminErrorCodes(-2146368396i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146368395i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368384i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368383i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368382i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368381i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368380i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368379i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCatServerFault: COMAdminErrorCodes = COMAdminErrorCodes(-2146368378i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367473i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367471i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367470i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367469i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = COMAdminErrorCodes(-2146367477i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146367463i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368431i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-2146367460i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
-impl ::core::marker::Copy for COMAdminErrorCodes {}
-impl ::core::clone::Clone for COMAdminErrorCodes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminErrorCodes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminErrorCodes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminErrorCodes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminErrorCodes").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminFileFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagCOM: COMAdminFileFlags = COMAdminFileFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = COMAdminFileFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = COMAdminFileFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = COMAdminFileFlags(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = COMAdminFileFlags(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = COMAdminFileFlags(64i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = COMAdminFileFlags(128i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = COMAdminFileFlags(256i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = COMAdminFileFlags(512i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = COMAdminFileFlags(1024i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = COMAdminFileFlags(2048i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = COMAdminFileFlags(4096i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = COMAdminFileFlags(8192i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = COMAdminFileFlags(16384i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags(32768i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
-impl ::core::marker::Copy for COMAdminFileFlags {}
-impl ::core::clone::Clone for COMAdminFileFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminFileFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminFileFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminFileFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminFileFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminImpersonationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
-impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
-impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminImpersonationLevelOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminImpersonationLevelOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminImpersonationLevelOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminImpersonationLevelOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminInUse(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByCatalog: COMAdminInUse = COMAdminInUse(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
-impl ::core::marker::Copy for COMAdminInUse {}
-impl ::core::clone::Clone for COMAdminInUse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminInUse {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminInUse {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminInUse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminInUse").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminOS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows3_1: COMAdminOS = COMAdminOS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows9x: COMAdminOS = COMAdminOS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows2000: COMAdminOS = COMAdminOS(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = COMAdminOS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows2000Unknown: COMAdminOS = COMAdminOS(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSUnknown: COMAdminOS = COMAdminOS(6i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsXPPersonal: COMAdminOS = COMAdminOS(11i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsXPProfessional: COMAdminOS = COMAdminOS(12i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = COMAdminOS(13i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = COMAdminOS(14i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = COMAdminOS(15i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsNETWebServer: COMAdminOS = COMAdminOS(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = COMAdminOS(17i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = COMAdminOS(18i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = COMAdminOS(19i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = COMAdminOS(20i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = COMAdminOS(21i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = COMAdminOS(22i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7Personal: COMAdminOS = COMAdminOS(23i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7Professional: COMAdminOS = COMAdminOS(24i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7StandardServer: COMAdminOS = COMAdminOS(25i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = COMAdminOS(26i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = COMAdminOS(27i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows7WebServer: COMAdminOS = COMAdminOS(28i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8Personal: COMAdminOS = COMAdminOS(29i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8Professional: COMAdminOS = COMAdminOS(30i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8StandardServer: COMAdminOS = COMAdminOS(31i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = COMAdminOS(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = COMAdminOS(33i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindows8WebServer: COMAdminOS = COMAdminOS(34i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBluePersonal: COMAdminOS = COMAdminOS(35i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = COMAdminOS(36i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
-impl ::core::marker::Copy for COMAdminOS {}
-impl ::core::clone::Clone for COMAdminOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminOS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminOS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminOS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminOS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
-impl ::core::marker::Copy for COMAdminQCMessageAuthenticateOptions {}
-impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminQCMessageAuthenticateOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminQCMessageAuthenticateOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminQCMessageAuthenticateOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminQCMessageAuthenticateOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminServiceOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
-impl ::core::marker::Copy for COMAdminServiceOptions {}
-impl ::core::clone::Clone for COMAdminServiceOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminServiceOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminServiceOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminServiceOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminServiceOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminServiceStatusOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
-impl ::core::marker::Copy for COMAdminServiceStatusOptions {}
-impl ::core::clone::Clone for COMAdminServiceStatusOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminServiceStatusOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminServiceStatusOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminServiceStatusOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminServiceStatusOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminSynchronizationOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
-impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
-impl ::core::clone::Clone for COMAdminSynchronizationOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminSynchronizationOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminSynchronizationOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminSynchronizationOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminSynchronizationOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminThreadingModels(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelFree: COMAdminThreadingModels = COMAdminThreadingModels(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadingModels(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
-impl ::core::marker::Copy for COMAdminThreadingModels {}
-impl ::core::clone::Clone for COMAdminThreadingModels {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminThreadingModels {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminThreadingModels {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminThreadingModels {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminThreadingModels").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminTransactionOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransactionOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
-impl ::core::marker::Copy for COMAdminTransactionOptions {}
-impl ::core::clone::Clone for COMAdminTransactionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminTransactionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminTransactionOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminTransactionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminTransactionOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMAdminTxIsolationLevelOptions(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
-impl ::core::marker::Copy for COMAdminTxIsolationLevelOptions {}
-impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMAdminTxIsolationLevelOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMAdminTxIsolationLevelOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMAdminTxIsolationLevelOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMAdminTxIsolationLevelOptions").field(&self.0).finish()
-    }
-}
-pub const COMEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMPLUS_APPTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
-impl ::core::marker::Copy for COMPLUS_APPTYPE {}
-impl ::core::clone::Clone for COMPLUS_APPTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPLUS_APPTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMPLUS_APPTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPLUS_APPTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPLUS_APPTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct COMSVCSEVENTINFO {
-    pub cbSize: u32,
-    pub dwPid: u32,
-    pub lTime: i64,
-    pub lMicroTime: i32,
-    pub perfCount: i64,
-    pub guidApp: ::windows::core::GUID,
-    pub sMachineName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for COMSVCSEVENTINFO {}
-impl ::core::clone::Clone for COMSVCSEVENTINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COMSVCSEVENTINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMSVCSEVENTINFO").field("cbSize", &self.cbSize).field("dwPid", &self.dwPid).field("lTime", &self.lTime).field("lMicroTime", &self.lMicroTime).field("perfCount", &self.perfCount).field("guidApp", &self.guidApp).field("sMachineName", &self.sMachineName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COMSVCSEVENTINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COMSVCSEVENTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMSVCSEVENTINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COMSVCSEVENTINFO {}
-impl ::core::default::Default for COMSVCSEVENTINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const CRMClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CRMFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = CRMFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = CRMFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
-impl ::core::marker::Copy for CRMFLAGS {}
-impl ::core::clone::Clone for CRMFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRMFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CRMFLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CRMFLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRMFLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CRMREGFLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
-impl ::core::marker::Copy for CRMREGFLAGS {}
-impl ::core::clone::Clone for CRMREGFLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CRMREGFLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CRMREGFLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CRMREGFLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CRMREGFLAGS").field(&self.0).finish()
-    }
-}
-pub const CRMRecoveryClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_Binding(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
-impl ::core::marker::Copy for CSC_Binding {}
-impl ::core::clone::Clone for CSC_Binding {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_Binding {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_Binding {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_Binding {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_Binding").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_COMTIIntrinsicsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
-impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
-impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_COMTIIntrinsicsConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_COMTIIntrinsicsConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_COMTIIntrinsicsConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_COMTIIntrinsicsConfig").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_IISIntrinsicsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
-impl ::core::marker::Copy for CSC_IISIntrinsicsConfig {}
-impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_IISIntrinsicsConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_IISIntrinsicsConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_IISIntrinsicsConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_IISIntrinsicsConfig").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_InheritanceConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
-impl ::core::marker::Copy for CSC_InheritanceConfig {}
-impl ::core::clone::Clone for CSC_InheritanceConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_InheritanceConfig {
-    fn default() -> Self {
-        Self(0)
+#[inline]
+pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn GetDispenserManager(param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    GetDispenserManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispenserManager>(result__)
 }
-unsafe impl ::windows::core::Abi for CSC_InheritanceConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_InheritanceConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_InheritanceConfig").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_PartitionConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
-impl ::core::marker::Copy for CSC_PartitionConfig {}
-impl ::core::clone::Clone for CSC_PartitionConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_PartitionConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_PartitionConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_PartitionConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_PartitionConfig").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_SxsConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
-impl ::core::marker::Copy for CSC_SxsConfig {}
-impl ::core::clone::Clone for CSC_SxsConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_SxsConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_SxsConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_SxsConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_SxsConfig").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_SynchronizationConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
-impl ::core::marker::Copy for CSC_SynchronizationConfig {}
-impl ::core::clone::Clone for CSC_SynchronizationConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_SynchronizationConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_SynchronizationConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_SynchronizationConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_SynchronizationConfig").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_ThreadPool(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
-impl ::core::marker::Copy for CSC_ThreadPool {}
-impl ::core::clone::Clone for CSC_ThreadPool {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_ThreadPool {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_ThreadPool {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_ThreadPool {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_ThreadPool").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_TrackerConfig(pub i32);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
-impl ::core::marker::Copy for CSC_TrackerConfig {}
-impl ::core::clone::Clone for CSC_TrackerConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_TrackerConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_TrackerConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_TrackerConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_TrackerConfig").field(&self.0).finish()
+#[inline]
+pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::HRESULT;
     }
+    RecycleSurrogate(lreasoncode).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CSC_TransactionConfig(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
-impl ::core::marker::Copy for CSC_TransactionConfig {}
-impl ::core::clone::Clone for CSC_TransactionConfig {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CSC_TransactionConfig {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CSC_TransactionConfig {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CSC_TransactionConfig {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CSC_TransactionConfig").field(&self.0).finish()
+#[inline]
+pub unsafe fn SafeRef<'a, P0>(rid: &::windows::core::GUID, punk: P0) -> *mut ::core::ffi::c_void
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn SafeRef(rid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
     }
+    SafeRef(::core::mem::transmute(rid), punk.into().abi())
 }
-pub const CServiceConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
-pub const ClrAssemblyLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[inline]
 pub unsafe fn CoCreateActivity<'a, P0>(piunknown: P0, riid: &::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -1814,139 +75,23 @@ where
     }
     CoLeaveServiceDomain(punkstatus.into().abi())
 }
-pub const CoMTSLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ac_7f19_11d2_978e_0000f8757e2a);
-pub const ComServiceEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
-pub const ComSystemAppEventData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ComponentHangMonitorInfo {
-    pub IsMonitored: super::super::Foundation::BOOL,
-    pub TerminateOnHang: super::super::Foundation::BOOL,
-    pub AvgCallThresholdInMs: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ComponentHangMonitorInfo {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ComponentHangMonitorInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ComponentHangMonitorInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ComponentHangMonitorInfo").field("IsMonitored", &self.IsMonitored).field("TerminateOnHang", &self.TerminateOnHang).field("AvgCallThresholdInMs", &self.AvgCallThresholdInMs).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ComponentHangMonitorInfo {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ComponentHangMonitorInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComponentHangMonitorInfo>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ComponentHangMonitorInfo {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ComponentHangMonitorInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct ComponentStatistics {
-    pub NumInstances: u32,
-    pub NumBoundReferences: u32,
-    pub NumPooledObjects: u32,
-    pub NumObjectsInCall: u32,
-    pub AvgResponseTimeInMs: u32,
-    pub NumCallsCompletedRecent: u32,
-    pub NumCallsFailedRecent: u32,
-    pub NumCallsCompletedTotal: u32,
-    pub NumCallsFailedTotal: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: u32,
-    pub Reserved4: u32,
-}
-impl ::core::marker::Copy for ComponentStatistics {}
-impl ::core::clone::Clone for ComponentStatistics {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn GetManagedExtensions(dwexts: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::HRESULT;
     }
+    GetManagedExtensions(::core::mem::transmute(dwexts)).ok()
 }
-impl ::core::fmt::Debug for ComponentStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ComponentStatistics")
-            .field("NumInstances", &self.NumInstances)
-            .field("NumBoundReferences", &self.NumBoundReferences)
-            .field("NumPooledObjects", &self.NumPooledObjects)
-            .field("NumObjectsInCall", &self.NumObjectsInCall)
-            .field("AvgResponseTimeInMs", &self.AvgResponseTimeInMs)
-            .field("NumCallsCompletedRecent", &self.NumCallsCompletedRecent)
-            .field("NumCallsFailedRecent", &self.NumCallsFailedRecent)
-            .field("NumCallsCompletedTotal", &self.NumCallsCompletedTotal)
-            .field("NumCallsFailedTotal", &self.NumCallsFailedTotal)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Reserved4", &self.Reserved4)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ComponentStatistics {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ComponentStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComponentStatistics>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ComponentStatistics {}
-impl ::core::default::Default for ComponentStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct ComponentSummary {
-    pub ApplicationInstanceId: ::windows::core::GUID,
-    pub PartitionId: ::windows::core::GUID,
-    pub ApplicationId: ::windows::core::GUID,
-    pub Clsid: ::windows::core::GUID,
-    pub ClassName: ::windows::core::PWSTR,
-    pub ApplicationName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ComponentSummary {}
-impl ::core::clone::Clone for ComponentSummary {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn MTSCreateActivity(riid: &::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
-}
-impl ::core::fmt::Debug for ComponentSummary {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ComponentSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Clsid", &self.Clsid).field("ClassName", &self.ClassName).field("ApplicationName", &self.ApplicationName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ComponentSummary {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ComponentSummary {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComponentSummary>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ComponentSummary {}
-impl ::core::default::Default for ComponentSummary {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    MTSCreateActivity(::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -2209,209 +354,6 @@ pub struct ContextInfo2_Vtbl {
     pub GetApplicationInstanceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__contextinfo20002: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetApplicationInstanceId: usize,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-pub struct CrmLogRecordRead {
-    pub dwCrmFlags: u32,
-    pub dwSequenceNumber: u32,
-    pub blobUserData: super::Com::BLOB,
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::marker::Copy for CrmLogRecordRead {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::clone::Clone for CrmLogRecordRead {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::fmt::Debug for CrmLogRecordRead {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CrmLogRecordRead").field("dwCrmFlags", &self.dwCrmFlags).field("dwSequenceNumber", &self.dwSequenceNumber).field("blobUserData", &self.blobUserData).finish()
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-unsafe impl ::windows::core::Abi for CrmLogRecordRead {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::PartialEq for CrmLogRecordRead {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CrmLogRecordRead>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::cmp::Eq for CrmLogRecordRead {}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::default::Default for CrmLogRecordRead {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CrmTransactionState(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
-impl ::core::marker::Copy for CrmTransactionState {}
-impl ::core::clone::Clone for CrmTransactionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CrmTransactionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CrmTransactionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CrmTransactionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CrmTransactionState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DUMPTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
-impl ::core::marker::Copy for DUMPTYPE {}
-impl ::core::clone::Clone for DUMPTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DUMPTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DUMPTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DUMPTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DUMPTYPE").field(&self.0).finish()
-    }
-}
-pub const DispenserManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
-pub const Dummy30040732: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
-pub const EventServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GUID_STRING_SIZE: u32 = 40u32;
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GetAppTrackerDataFlags(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataFlags(2i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
-impl ::core::marker::Copy for GetAppTrackerDataFlags {}
-impl ::core::clone::Clone for GetAppTrackerDataFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GetAppTrackerDataFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GetAppTrackerDataFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GetAppTrackerDataFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GetAppTrackerDataFlags").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
-pub unsafe fn GetDispenserManager() -> ::windows::core::Result<IDispenserManager> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetDispenserManager(param0: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    GetDispenserManager(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IDispenserManager>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
-pub unsafe fn GetManagedExtensions(dwexts: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetManagedExtensions(dwexts: *mut u32) -> ::windows::core::HRESULT;
-    }
-    GetManagedExtensions(::core::mem::transmute(dwexts)).ok()
-}
-pub const GetSecurityCallContextAppObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct HANG_INFO {
-    pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
-    pub fTerminateOnHang: super::super::Foundation::BOOL,
-    pub DumpType: DUMPTYPE,
-    pub dwHangTimeout: u32,
-    pub dwDumpCount: u32,
-    pub dwInfoMsgCount: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HANG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HANG_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HANG_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HANG_INFO").field("fAppHangMonitorEnabled", &self.fAppHangMonitorEnabled).field("fTerminateOnHang", &self.fTerminateOnHang).field("DumpType", &self.DumpType).field("dwHangTimeout", &self.dwHangTimeout).field("dwDumpCount", &self.dwDumpCount).field("dwInfoMsgCount", &self.dwInfoMsgCount).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HANG_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HANG_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HANG_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HANG_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HANG_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
@@ -12290,47 +10232,6 @@ pub struct ITxProxyHolder_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub GetIdentifier: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidltx: *mut ::windows::core::GUID),
 }
-pub const LBEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LockModes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const LockSetGet: LockModes = LockModes(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const LockMethod: LockModes = LockModes(1i32);
-impl ::core::marker::Copy for LockModes {}
-impl ::core::clone::Clone for LockModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LockModes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LockModes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LockModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LockModes").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
-pub unsafe fn MTSCreateActivity(riid: &::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MTSCreateActivity(riid: *const ::windows::core::GUID, ppobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    MTSCreateActivity(::core::mem::transmute(riid), ::core::mem::transmute(ppobj)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
-pub const MessageMover: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
-pub const MtsGrp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -12557,92 +10458,6 @@ pub struct ObjectControl_Vtbl {
     pub Deactivate: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub CanBePooled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbpoolable: *mut i16) -> ::windows::core::HRESULT,
 }
-pub const PoolMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub struct RECYCLE_INFO {
-    pub guidCombaseProcessIdentifier: ::windows::core::GUID,
-    pub ProcessStartTime: i64,
-    pub dwRecycleLifetimeLimit: u32,
-    pub dwRecycleMemoryLimit: u32,
-    pub dwRecycleExpirationTimeout: u32,
-}
-impl ::core::marker::Copy for RECYCLE_INFO {}
-impl ::core::clone::Clone for RECYCLE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RECYCLE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RECYCLE_INFO").field("guidCombaseProcessIdentifier", &self.guidCombaseProcessIdentifier).field("ProcessStartTime", &self.ProcessStartTime).field("dwRecycleLifetimeLimit", &self.dwRecycleLifetimeLimit).field("dwRecycleMemoryLimit", &self.dwRecycleMemoryLimit).field("dwRecycleExpirationTimeout", &self.dwRecycleExpirationTimeout).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RECYCLE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RECYCLE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECYCLE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RECYCLE_INFO {}
-impl ::core::default::Default for RECYCLE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
-pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RecycleSurrogate(lreasoncode: i32) -> ::windows::core::HRESULT;
-    }
-    RecycleSurrogate(lreasoncode).ok()
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ReleaseModes(pub i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const Standard: ReleaseModes = ReleaseModes(0i32);
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-pub const Process: ReleaseModes = ReleaseModes(1i32);
-impl ::core::marker::Copy for ReleaseModes {}
-impl ::core::clone::Clone for ReleaseModes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ReleaseModes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ReleaseModes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ReleaseModes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ReleaseModes").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
-#[inline]
-pub unsafe fn SafeRef<'a, P0>(rid: &::windows::core::GUID, punk: P0) -> *mut ::core::ffi::c_void
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SafeRef(rid: *const ::windows::core::GUID, punk: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void;
-    }
-    SafeRef(::core::mem::transmute(rid), punk.into().abi())
-}
-pub const SecurityCallContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
-pub const SecurityCallers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
-pub const SecurityIdentity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -12757,6 +10572,48 @@ pub struct SecurityProperty_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     GetOriginalCreatorName: usize,
 }
+pub const AppDomainHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef24f689_14f8_4d92_b4af_d7b1f0e70fd4);
+pub const ByotServerEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0aa_7f19_11d2_978e_0000f8757e2a);
+pub const COMAdminCatalog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c514_dfb8_11d1_a2cf_00805fc79235);
+pub const COMAdminCatalogCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c516_dfb8_11d1_a2cf_00805fc79235);
+pub const COMAdminCatalogObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf618c515_dfb8_11d1_a2cf_00805fc79235);
+pub const COMEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ab_7f19_11d2_978e_0000f8757e2a);
+pub const CRMClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bd_7f19_11d2_978e_0000f8757e2a);
+pub const CRMRecoveryClerk: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0be_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRR_ACTIVATION_LIMIT: u32 = 4294967294u32;
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRR_CALL_LIMIT: u32 = 4294967293u32;
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRR_LIFETIME_LIMIT: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRR_MEMORY_LIMIT: u32 = 4294967292u32;
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRR_NO_REASON_SUPPLIED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRR_RECYCLED_FROM_UI: u32 = 4294967291u32;
+pub const CServiceConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c8_7f19_11d2_978e_0000f8757e2a);
+pub const ClrAssemblyLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x458aa3b5_265a_4b75_bc05_9bea4630cf18);
+pub const CoMTSLocator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ac_7f19_11d2_978e_0000f8757e2a);
+pub const ComServiceEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c3_7f19_11d2_978e_0000f8757e2a);
+pub const ComSystemAppEventData: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c6_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DATA_NOT_AVAILABLE: u32 = 4294967295u32;
+pub const DispenserManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c0_7f19_11d2_978e_0000f8757e2a);
+pub const Dummy30040732: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a9_7f19_11d2_978e_0000f8757e2a);
+pub const EventServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafbc_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GUID_STRING_SIZE: u32 = 40u32;
+pub const GetSecurityCallContextAppObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a8_7f19_11d2_978e_0000f8757e2a);
+pub const LBEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c1_7f19_11d2_978e_0000f8757e2a);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const MTXDM_E_ENLISTRESOURCEFAILED: u32 = 2147803392u32;
+pub const MessageMover: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0bf_7f19_11d2_978e_0000f8757e2a);
+pub const MtsGrp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b2e958d_0393_11d1_b1ab_00aa00ba3258);
+pub const PoolMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb5_7f19_11d2_978e_0000f8757e2a);
+pub const SecurityCallContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a7_7f19_11d2_978e_0000f8757e2a);
+pub const SecurityCallers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a6_7f19_11d2_978e_0000f8757e2a);
+pub const SecurityIdentity: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0a5_7f19_11d2_978e_0000f8757e2a);
 pub const ServicePool: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0c9_7f19_11d2_978e_0000f8757e2a);
 pub const ServicePoolConfig: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabb0ca_7f19_11d2_978e_0000f8757e2a);
 pub const SharedProperty: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a005c05_a5de_11cf_9e66_00aa00a3f464);
@@ -12766,6 +10623,1514 @@ pub const SharedPropertyGroupManager: ::windows::core::GUID = ::windows::core::G
 pub const TRACKER_INIT_EVENT: &str = "Global\\COM+ Tracker Init Event";
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 pub const TRACKER_STARTSTOP_EVENT: &str = "Global\\COM+ Tracker Push Event";
+pub const TrackerServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
+pub const TransactionContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7999fc25_d3c6_11cf_acab_00a024a55aef);
+pub const TransactionContextEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutoSvcs_Error_Constants(pub u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxAborted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803138u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxAborting: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803139u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxNoContext: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803140u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxNotRegistered: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803141u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxSynchTimeout: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803142u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxOldReference: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803143u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxRoleNotFound: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803148u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxNoSecurity: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803149u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxWrongThread: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803150u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const mtsErrCtxTMNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2147803151u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrApplicationNotQueued: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599296u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrNoQueueableInterfaces: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599297u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrQueuingServiceNotAvailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599298u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comQCErrQueueTransactMismatch: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599299u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrRecorderMarshalled: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599300u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrOutParam: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599301u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrRecorderNotTrusted: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599302u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrPSLoad: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599303u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMarshaledObjSameTxn: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599304u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrInvalidMessage: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599376u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsmqSidUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599377u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrWrongMsgExtension: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599378u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsmqServiceUnavailable: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599379u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsgNotAuthenticated: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599380u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrMsmqConnectorUsed: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599381u32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const comqcErrBadMarshaledObject: AutoSvcs_Error_Constants = AutoSvcs_Error_Constants(2148599382u32);
+impl ::core::marker::Copy for AutoSvcs_Error_Constants {}
+impl ::core::clone::Clone for AutoSvcs_Error_Constants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AutoSvcs_Error_Constants {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AutoSvcs_Error_Constants {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutoSvcs_Error_Constants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoSvcs_Error_Constants").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminAccessChecksLevelOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAccessChecksApplicationLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAccessChecksApplicationComponentLevel: COMAdminAccessChecksLevelOptions = COMAdminAccessChecksLevelOptions(1i32);
+impl ::core::marker::Copy for COMAdminAccessChecksLevelOptions {}
+impl ::core::clone::Clone for COMAdminAccessChecksLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminAccessChecksLevelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminAccessChecksLevelOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminAccessChecksLevelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminAccessChecksLevelOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminActivationOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminActivationInproc: COMAdminActivationOptions = COMAdminActivationOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminActivationLocal: COMAdminActivationOptions = COMAdminActivationOptions(1i32);
+impl ::core::marker::Copy for COMAdminActivationOptions {}
+impl ::core::clone::Clone for COMAdminActivationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminActivationOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminActivationOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminActivationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminActivationOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminApplicationExportOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportNoUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportUsers: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportApplicationProxy: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportForceOverwriteOfFiles: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminExportIn10Format: COMAdminApplicationExportOptions = COMAdminApplicationExportOptions(16i32);
+impl ::core::marker::Copy for COMAdminApplicationExportOptions {}
+impl ::core::clone::Clone for COMAdminApplicationExportOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminApplicationExportOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminApplicationExportOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminApplicationExportOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminApplicationExportOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminApplicationInstallOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInstallNoUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInstallUsers: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInstallForceOverwriteOfFiles: COMAdminApplicationInstallOptions = COMAdminApplicationInstallOptions(2i32);
+impl ::core::marker::Copy for COMAdminApplicationInstallOptions {}
+impl ::core::clone::Clone for COMAdminApplicationInstallOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminApplicationInstallOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminApplicationInstallOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminApplicationInstallOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminApplicationInstallOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminAuthenticationCapabilitiesOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesNone: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesSecureReference: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesStaticCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCapabilitiesDynamicCloaking: COMAdminAuthenticationCapabilitiesOptions = COMAdminAuthenticationCapabilitiesOptions(64i32);
+impl ::core::marker::Copy for COMAdminAuthenticationCapabilitiesOptions {}
+impl ::core::clone::Clone for COMAdminAuthenticationCapabilitiesOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminAuthenticationCapabilitiesOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminAuthenticationCapabilitiesOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminAuthenticationCapabilitiesOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminAuthenticationCapabilitiesOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminAuthenticationLevelOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationDefault: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationNone: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationConnect: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationCall: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationPacket: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationIntegrity: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminAuthenticationPrivacy: COMAdminAuthenticationLevelOptions = COMAdminAuthenticationLevelOptions(6i32);
+impl ::core::marker::Copy for COMAdminAuthenticationLevelOptions {}
+impl ::core::clone::Clone for COMAdminAuthenticationLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminAuthenticationLevelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminAuthenticationLevelOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminAuthenticationLevelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminAuthenticationLevelOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminComponentFlags(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagTypeInfoFound: COMAdminComponentFlags = COMAdminComponentFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagCOMPlusPropertiesFound: COMAdminComponentFlags = COMAdminComponentFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagProxyFound: COMAdminComponentFlags = COMAdminComponentFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagInterfacesFound: COMAdminComponentFlags = COMAdminComponentFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagAlreadyInstalled: COMAdminComponentFlags = COMAdminComponentFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminCompFlagNotInApplication: COMAdminComponentFlags = COMAdminComponentFlags(32i32);
+impl ::core::marker::Copy for COMAdminComponentFlags {}
+impl ::core::clone::Clone for COMAdminComponentFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminComponentFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminComponentFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminComponentFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminComponentFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminComponentType(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdmin32BitComponent: COMAdminComponentType = COMAdminComponentType(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdmin64BitComponent: COMAdminComponentType = COMAdminComponentType(2i32);
+impl ::core::marker::Copy for COMAdminComponentType {}
+impl ::core::clone::Clone for COMAdminComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminComponentType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminComponentType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminComponentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminComponentType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminErrorCodes(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectErrors: COMAdminErrorCodes = COMAdminErrorCodes(-2146368511i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectInvalid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368510i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrKeyMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146368509i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAlreadyInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368508i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppFileWriteFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368505i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppFileReadFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368504i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppFileVersion: COMAdminErrorCodes = COMAdminErrorCodes(-2146368503i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBadPath: COMAdminErrorCodes = COMAdminErrorCodes(-2146368502i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrApplicationExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368501i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRoleExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368500i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCantCopyFile: COMAdminErrorCodes = COMAdminErrorCodes(-2146368499i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNoUser: COMAdminErrorCodes = COMAdminErrorCodes(-2146368497i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrInvalidUserids: COMAdminErrorCodes = COMAdminErrorCodes(-2146368496i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNoRegistryCLSID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368495i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBadRegistryProgID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368494i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAuthenticationLevel: COMAdminErrorCodes = COMAdminErrorCodes(-2146368493i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrUserPasswdNotValid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368492i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCLSIDOrIIDMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368488i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRemoteInterface: COMAdminErrorCodes = COMAdminErrorCodes(-2146368487i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrDllRegisterServer: COMAdminErrorCodes = COMAdminErrorCodes(-2146368486i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNoServerShare: COMAdminErrorCodes = COMAdminErrorCodes(-2146368485i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrDllLoadFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368483i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBadRegistryLibID: COMAdminErrorCodes = COMAdminErrorCodes(-2146368482i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppDirNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368481i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegistrarFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368477i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368476i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileLoadDLLFail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368475i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileGetClassObj: COMAdminErrorCodes = COMAdminErrorCodes(-2146368474i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileClassNotAvail: COMAdminErrorCodes = COMAdminErrorCodes(-2146368473i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileBadTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368472i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileNotInstallable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368471i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNotChangeable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368470i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNotDeletable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368469i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrSession: COMAdminErrorCodes = COMAdminErrorCodes(-2146368468i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveLocked: COMAdminErrorCodes = COMAdminErrorCodes(-2146368467i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveBadDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146368466i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegisterTLB: COMAdminErrorCodes = COMAdminErrorCodes(-2146368464i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368461i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompFileNoRegistrar: COMAdminErrorCodes = COMAdminErrorCodes(-2146368460i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCoReqCompInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368459i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrServiceNotInstalled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368458i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPropertySaveFailed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368457i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368456i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrComponentExists: COMAdminErrorCodes = COMAdminErrorCodes(-2146368455i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegFileCorrupt: COMAdminErrorCodes = COMAdminErrorCodes(-2146368453i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPropertyOverflow: COMAdminErrorCodes = COMAdminErrorCodes(-2146368452i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrNotInRegistry: COMAdminErrorCodes = COMAdminErrorCodes(-2146368450i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectNotPoolable: COMAdminErrorCodes = COMAdminErrorCodes(-2146368449i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrApplidMatchesClsid: COMAdminErrorCodes = COMAdminErrorCodes(-2146368442i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRoleDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146368441i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrStartAppNeedsComponents: COMAdminErrorCodes = COMAdminErrorCodes(-2146368440i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRequiresDifferentPlatform: COMAdminErrorCodes = COMAdminErrorCodes(-2146368439i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrQueuingServiceNotAvailable: COMAdminErrorCodes = COMAdminErrorCodes(-2146367998i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectParentMissing: COMAdminErrorCodes = COMAdminErrorCodes(-2146367480i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrObjectDoesNotExist: COMAdminErrorCodes = COMAdminErrorCodes(-2146367479i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotExportAppProxy: COMAdminErrorCodes = COMAdminErrorCodes(-2146368438i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotStartApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368437i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotExportSystemApp: COMAdminErrorCodes = COMAdminErrorCodes(-2146368436i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCanNotSubscribeToComponent: COMAdminErrorCodes = COMAdminErrorCodes(-2146368435i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrAppNotRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146367478i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrEventClassCannotBeSubscriber: COMAdminErrorCodes = COMAdminErrorCodes(-2146368434i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrLibAppProxyIncompatible: COMAdminErrorCodes = COMAdminErrorCodes(-2146368433i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrBasePartitionOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146368432i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrDuplicatePartitionName: COMAdminErrorCodes = COMAdminErrorCodes(-2146368425i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPartitionInUse: COMAdminErrorCodes = COMAdminErrorCodes(-2146368423i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrImportedComponentsNotAllowed: COMAdminErrorCodes = COMAdminErrorCodes(-2146368421i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbNotInitialized: COMAdminErrorCodes = COMAdminErrorCodes(-2146368398i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbNotOpen: COMAdminErrorCodes = COMAdminErrorCodes(-2146368397i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbSystemErr: COMAdminErrorCodes = COMAdminErrorCodes(-2146368396i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrRegdbAlreadyRunning: COMAdminErrorCodes = COMAdminErrorCodes(-2146368395i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrMigVersionNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368384i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrMigSchemaNotFound: COMAdminErrorCodes = COMAdminErrorCodes(-2146368383i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatBitnessMismatch: COMAdminErrorCodes = COMAdminErrorCodes(-2146368382i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatUnacceptableBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368381i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatWrongAppBitnessBitness: COMAdminErrorCodes = COMAdminErrorCodes(-2146368380i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatPauseResumeNotSupported: COMAdminErrorCodes = COMAdminErrorCodes(-2146368379i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCatServerFault: COMAdminErrorCodes = COMAdminErrorCodes(-2146368378i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCantRecycleLibraryApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367473i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCantRecycleServiceApps: COMAdminErrorCodes = COMAdminErrorCodes(-2146367471i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrProcessAlreadyRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367470i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPausedProcessMayNotBeRecycled: COMAdminErrorCodes = COMAdminErrorCodes(-2146367469i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrInvalidPartition: COMAdminErrorCodes = COMAdminErrorCodes(-2146367477i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrPartitionMsiOnly: COMAdminErrorCodes = COMAdminErrorCodes(-2146367463i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrStartAppDisabled: COMAdminErrorCodes = COMAdminErrorCodes(-2146368431i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveSource: COMAdminErrorCodes = COMAdminErrorCodes(-2146367460i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMoveDest: COMAdminErrorCodes = COMAdminErrorCodes(-2146367459i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCompMovePrivate: COMAdminErrorCodes = COMAdminErrorCodes(-2146367458i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminErrCannotCopyEventClass: COMAdminErrorCodes = COMAdminErrorCodes(-2146367456i32);
+impl ::core::marker::Copy for COMAdminErrorCodes {}
+impl ::core::clone::Clone for COMAdminErrorCodes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminErrorCodes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminErrorCodes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminErrorCodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminErrorCodes").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminFileFlags(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagLoadable: COMAdminFileFlags = COMAdminFileFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagCOM: COMAdminFileFlags = COMAdminFileFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagContainsPS: COMAdminFileFlags = COMAdminFileFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagContainsComp: COMAdminFileFlags = COMAdminFileFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagContainsTLB: COMAdminFileFlags = COMAdminFileFlags(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagSelfReg: COMAdminFileFlags = COMAdminFileFlags(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagSelfUnReg: COMAdminFileFlags = COMAdminFileFlags(64i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagUnloadableDLL: COMAdminFileFlags = COMAdminFileFlags(128i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagDoesNotExist: COMAdminFileFlags = COMAdminFileFlags(256i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagAlreadyInstalled: COMAdminFileFlags = COMAdminFileFlags(512i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagBadTLB: COMAdminFileFlags = COMAdminFileFlags(1024i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagGetClassObjFailed: COMAdminFileFlags = COMAdminFileFlags(2048i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagClassNotAvailable: COMAdminFileFlags = COMAdminFileFlags(4096i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagRegistrar: COMAdminFileFlags = COMAdminFileFlags(8192i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagNoRegistrar: COMAdminFileFlags = COMAdminFileFlags(16384i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagDLLRegsvrFailed: COMAdminFileFlags = COMAdminFileFlags(32768i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagRegTLBFailed: COMAdminFileFlags = COMAdminFileFlags(65536i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagRegistrarFailed: COMAdminFileFlags = COMAdminFileFlags(131072i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminFileFlagError: COMAdminFileFlags = COMAdminFileFlags(262144i32);
+impl ::core::marker::Copy for COMAdminFileFlags {}
+impl ::core::clone::Clone for COMAdminFileFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminFileFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminFileFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminFileFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminFileFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminImpersonationLevelOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationAnonymous: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationIdentify: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationImpersonate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminImpersonationDelegate: COMAdminImpersonationLevelOptions = COMAdminImpersonationLevelOptions(4i32);
+impl ::core::marker::Copy for COMAdminImpersonationLevelOptions {}
+impl ::core::clone::Clone for COMAdminImpersonationLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminImpersonationLevelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminImpersonationLevelOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminImpersonationLevelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminImpersonationLevelOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminInUse(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminNotInUse: COMAdminInUse = COMAdminInUse(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByCatalog: COMAdminInUse = COMAdminInUse(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryUnknown: COMAdminInUse = COMAdminInUse(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryProxyStub: COMAdminInUse = COMAdminInUse(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryTypeLib: COMAdminInUse = COMAdminInUse(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminInUseByRegistryClsid: COMAdminInUse = COMAdminInUse(5i32);
+impl ::core::marker::Copy for COMAdminInUse {}
+impl ::core::clone::Clone for COMAdminInUse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminInUse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminInUse {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminInUse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminInUse").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminOS(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSNotInitialized: COMAdminOS = COMAdminOS(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows3_1: COMAdminOS = COMAdminOS(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows9x: COMAdminOS = COMAdminOS(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows2000: COMAdminOS = COMAdminOS(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows2000AdvancedServer: COMAdminOS = COMAdminOS(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows2000Unknown: COMAdminOS = COMAdminOS(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSUnknown: COMAdminOS = COMAdminOS(6i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsXPPersonal: COMAdminOS = COMAdminOS(11i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsXPProfessional: COMAdminOS = COMAdminOS(12i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETStandardServer: COMAdminOS = COMAdminOS(13i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETEnterpriseServer: COMAdminOS = COMAdminOS(14i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETDatacenterServer: COMAdminOS = COMAdminOS(15i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsNETWebServer: COMAdminOS = COMAdminOS(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornPersonal: COMAdminOS = COMAdminOS(17i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornProfessional: COMAdminOS = COMAdminOS(18i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornStandardServer: COMAdminOS = COMAdminOS(19i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornEnterpriseServer: COMAdminOS = COMAdminOS(20i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornDatacenterServer: COMAdminOS = COMAdminOS(21i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsLonghornWebServer: COMAdminOS = COMAdminOS(22i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7Personal: COMAdminOS = COMAdminOS(23i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7Professional: COMAdminOS = COMAdminOS(24i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7StandardServer: COMAdminOS = COMAdminOS(25i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7EnterpriseServer: COMAdminOS = COMAdminOS(26i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7DatacenterServer: COMAdminOS = COMAdminOS(27i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows7WebServer: COMAdminOS = COMAdminOS(28i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8Personal: COMAdminOS = COMAdminOS(29i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8Professional: COMAdminOS = COMAdminOS(30i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8StandardServer: COMAdminOS = COMAdminOS(31i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8EnterpriseServer: COMAdminOS = COMAdminOS(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8DatacenterServer: COMAdminOS = COMAdminOS(33i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindows8WebServer: COMAdminOS = COMAdminOS(34i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBluePersonal: COMAdminOS = COMAdminOS(35i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueProfessional: COMAdminOS = COMAdminOS(36i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueStandardServer: COMAdminOS = COMAdminOS(37i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueEnterpriseServer: COMAdminOS = COMAdminOS(38i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueDatacenterServer: COMAdminOS = COMAdminOS(39i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminOSWindowsBlueWebServer: COMAdminOS = COMAdminOS(40i32);
+impl ::core::marker::Copy for COMAdminOS {}
+impl ::core::clone::Clone for COMAdminOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminOS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminOS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminOS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminOS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminQCMessageAuthenticateOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminQCMessageAuthenticateSecureApps: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminQCMessageAuthenticateOff: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminQCMessageAuthenticateOn: COMAdminQCMessageAuthenticateOptions = COMAdminQCMessageAuthenticateOptions(2i32);
+impl ::core::marker::Copy for COMAdminQCMessageAuthenticateOptions {}
+impl ::core::clone::Clone for COMAdminQCMessageAuthenticateOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminQCMessageAuthenticateOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminQCMessageAuthenticateOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminQCMessageAuthenticateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminQCMessageAuthenticateOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminServiceOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceLoadBalanceRouter: COMAdminServiceOptions = COMAdminServiceOptions(1i32);
+impl ::core::marker::Copy for COMAdminServiceOptions {}
+impl ::core::clone::Clone for COMAdminServiceOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminServiceOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminServiceOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminServiceOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminServiceOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminServiceStatusOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceStopped: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceStartPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceStopPending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceRunning: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceContinuePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServicePausePending: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(5i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServicePaused: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(6i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminServiceUnknownState: COMAdminServiceStatusOptions = COMAdminServiceStatusOptions(7i32);
+impl ::core::marker::Copy for COMAdminServiceStatusOptions {}
+impl ::core::clone::Clone for COMAdminServiceStatusOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminServiceStatusOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminServiceStatusOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminServiceStatusOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminServiceStatusOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminSynchronizationOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationIgnored: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationNone: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationSupported: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationRequired: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminSynchronizationRequiresNew: COMAdminSynchronizationOptions = COMAdminSynchronizationOptions(4i32);
+impl ::core::marker::Copy for COMAdminSynchronizationOptions {}
+impl ::core::clone::Clone for COMAdminSynchronizationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminSynchronizationOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminSynchronizationOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminSynchronizationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminSynchronizationOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminThreadingModels(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelApartment: COMAdminThreadingModels = COMAdminThreadingModels(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelFree: COMAdminThreadingModels = COMAdminThreadingModels(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelMain: COMAdminThreadingModels = COMAdminThreadingModels(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelBoth: COMAdminThreadingModels = COMAdminThreadingModels(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelNeutral: COMAdminThreadingModels = COMAdminThreadingModels(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminThreadingModelNotSpecified: COMAdminThreadingModels = COMAdminThreadingModels(5i32);
+impl ::core::marker::Copy for COMAdminThreadingModels {}
+impl ::core::clone::Clone for COMAdminThreadingModels {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminThreadingModels {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminThreadingModels {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminThreadingModels {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminThreadingModels").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminTransactionOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionIgnored: COMAdminTransactionOptions = COMAdminTransactionOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionNone: COMAdminTransactionOptions = COMAdminTransactionOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionSupported: COMAdminTransactionOptions = COMAdminTransactionOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionRequired: COMAdminTransactionOptions = COMAdminTransactionOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTransactionRequiresNew: COMAdminTransactionOptions = COMAdminTransactionOptions(4i32);
+impl ::core::marker::Copy for COMAdminTransactionOptions {}
+impl ::core::clone::Clone for COMAdminTransactionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminTransactionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminTransactionOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminTransactionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminTransactionOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMAdminTxIsolationLevelOptions(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelAny: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelReadUnCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelReadCommitted: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelRepeatableRead: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(3i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const COMAdminTxIsolationLevelSerializable: COMAdminTxIsolationLevelOptions = COMAdminTxIsolationLevelOptions(4i32);
+impl ::core::marker::Copy for COMAdminTxIsolationLevelOptions {}
+impl ::core::clone::Clone for COMAdminTxIsolationLevelOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMAdminTxIsolationLevelOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMAdminTxIsolationLevelOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMAdminTxIsolationLevelOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMAdminTxIsolationLevelOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPLUS_APPTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_UNKNOWN: COMPLUS_APPTYPE = COMPLUS_APPTYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_SERVER: COMPLUS_APPTYPE = COMPLUS_APPTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_LIBRARY: COMPLUS_APPTYPE = COMPLUS_APPTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const APPTYPE_SWC: COMPLUS_APPTYPE = COMPLUS_APPTYPE(2i32);
+impl ::core::marker::Copy for COMPLUS_APPTYPE {}
+impl ::core::clone::Clone for COMPLUS_APPTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMPLUS_APPTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMPLUS_APPTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPLUS_APPTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPLUS_APPTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CRMFLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_FORGETTARGET: CRMFLAGS = CRMFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGPREPARE: CRMFLAGS = CRMFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGCOMMIT: CRMFLAGS = CRMFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGABORT: CRMFLAGS = CRMFLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGRECOVERY: CRMFLAGS = CRMFLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_WRITTENDURINGREPLAY: CRMFLAGS = CRMFLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMFLAG_REPLAYINPROGRESS: CRMFLAGS = CRMFLAGS(64i32);
+impl ::core::marker::Copy for CRMFLAGS {}
+impl ::core::clone::Clone for CRMFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRMFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRMFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRMFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRMFLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CRMREGFLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_PREPAREPHASE: CRMREGFLAGS = CRMREGFLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_COMMITPHASE: CRMREGFLAGS = CRMREGFLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_ABORTPHASE: CRMREGFLAGS = CRMREGFLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_ALLPHASES: CRMREGFLAGS = CRMREGFLAGS(7i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CRMREGFLAG_FAILIFINDOUBTSREMAIN: CRMREGFLAGS = CRMREGFLAGS(16i32);
+impl ::core::marker::Copy for CRMREGFLAGS {}
+impl ::core::clone::Clone for CRMREGFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CRMREGFLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CRMREGFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRMREGFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRMREGFLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_Binding(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoBinding: CSC_Binding = CSC_Binding(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_BindToPoolThread: CSC_Binding = CSC_Binding(1i32);
+impl ::core::marker::Copy for CSC_Binding {}
+impl ::core::clone::Clone for CSC_Binding {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_Binding {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_Binding {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_Binding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_Binding").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_COMTIIntrinsicsConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritCOMTIIntrinsics: CSC_COMTIIntrinsicsConfig = CSC_COMTIIntrinsicsConfig(1i32);
+impl ::core::marker::Copy for CSC_COMTIIntrinsicsConfig {}
+impl ::core::clone::Clone for CSC_COMTIIntrinsicsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_COMTIIntrinsicsConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_COMTIIntrinsicsConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_COMTIIntrinsicsConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_COMTIIntrinsicsConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_IISIntrinsicsConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritIISIntrinsics: CSC_IISIntrinsicsConfig = CSC_IISIntrinsicsConfig(1i32);
+impl ::core::marker::Copy for CSC_IISIntrinsicsConfig {}
+impl ::core::clone::Clone for CSC_IISIntrinsicsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_IISIntrinsicsConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_IISIntrinsicsConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_IISIntrinsicsConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_IISIntrinsicsConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_InheritanceConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_Inherit: CSC_InheritanceConfig = CSC_InheritanceConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_Ignore: CSC_InheritanceConfig = CSC_InheritanceConfig(1i32);
+impl ::core::marker::Copy for CSC_InheritanceConfig {}
+impl ::core::clone::Clone for CSC_InheritanceConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_InheritanceConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_InheritanceConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_InheritanceConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_InheritanceConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_PartitionConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoPartition: CSC_PartitionConfig = CSC_PartitionConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritPartition: CSC_PartitionConfig = CSC_PartitionConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewPartition: CSC_PartitionConfig = CSC_PartitionConfig(2i32);
+impl ::core::marker::Copy for CSC_PartitionConfig {}
+impl ::core::clone::Clone for CSC_PartitionConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_PartitionConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_PartitionConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_PartitionConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_PartitionConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_SxsConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoSxs: CSC_SxsConfig = CSC_SxsConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_InheritSxs: CSC_SxsConfig = CSC_SxsConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewSxs: CSC_SxsConfig = CSC_SxsConfig(2i32);
+impl ::core::marker::Copy for CSC_SxsConfig {}
+impl ::core::clone::Clone for CSC_SxsConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_SxsConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_SxsConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_SxsConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_SxsConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_SynchronizationConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_IfContainerIsSynchronized: CSC_SynchronizationConfig = CSC_SynchronizationConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewSynchronizationIfNecessary: CSC_SynchronizationConfig = CSC_SynchronizationConfig(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewSynchronization: CSC_SynchronizationConfig = CSC_SynchronizationConfig(3i32);
+impl ::core::marker::Copy for CSC_SynchronizationConfig {}
+impl ::core::clone::Clone for CSC_SynchronizationConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_SynchronizationConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_SynchronizationConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_SynchronizationConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_SynchronizationConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_ThreadPool(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_ThreadPoolNone: CSC_ThreadPool = CSC_ThreadPool(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_ThreadPoolInherit: CSC_ThreadPool = CSC_ThreadPool(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_STAThreadPool: CSC_ThreadPool = CSC_ThreadPool(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_MTAThreadPool: CSC_ThreadPool = CSC_ThreadPool(3i32);
+impl ::core::marker::Copy for CSC_ThreadPool {}
+impl ::core::clone::Clone for CSC_ThreadPool {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_ThreadPool {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_ThreadPool {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_ThreadPool {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_ThreadPool").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_TrackerConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_DontUseTracker: CSC_TrackerConfig = CSC_TrackerConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_UseTracker: CSC_TrackerConfig = CSC_TrackerConfig(1i32);
+impl ::core::marker::Copy for CSC_TrackerConfig {}
+impl ::core::clone::Clone for CSC_TrackerConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_TrackerConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_TrackerConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_TrackerConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_TrackerConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CSC_TransactionConfig(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NoTransaction: CSC_TransactionConfig = CSC_TransactionConfig(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_IfContainerIsTransactional: CSC_TransactionConfig = CSC_TransactionConfig(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_CreateTransactionIfNecessary: CSC_TransactionConfig = CSC_TransactionConfig(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const CSC_NewTransaction: CSC_TransactionConfig = CSC_TransactionConfig(3i32);
+impl ::core::marker::Copy for CSC_TransactionConfig {}
+impl ::core::clone::Clone for CSC_TransactionConfig {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CSC_TransactionConfig {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CSC_TransactionConfig {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CSC_TransactionConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CSC_TransactionConfig").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CrmTransactionState(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Active: CrmTransactionState = CrmTransactionState(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Committed: CrmTransactionState = CrmTransactionState(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Aborted: CrmTransactionState = CrmTransactionState(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const TxState_Indoubt: CrmTransactionState = CrmTransactionState(3i32);
+impl ::core::marker::Copy for CrmTransactionState {}
+impl ::core::clone::Clone for CrmTransactionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CrmTransactionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CrmTransactionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CrmTransactionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CrmTransactionState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DUMPTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DUMPTYPE_FULL: DUMPTYPE = DUMPTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DUMPTYPE_MINI: DUMPTYPE = DUMPTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const DUMPTYPE_NONE: DUMPTYPE = DUMPTYPE(2i32);
+impl ::core::marker::Copy for DUMPTYPE {}
+impl ::core::clone::Clone for DUMPTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DUMPTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DUMPTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DUMPTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DUMPTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GetAppTrackerDataFlags(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_PROCESS_EXE_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(1i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_LIBRARY_APPS: GetAppTrackerDataFlags = GetAppTrackerDataFlags(2i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_SWC: GetAppTrackerDataFlags = GetAppTrackerDataFlags(4i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_CLASS_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(8i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const GATD_INCLUDE_APPLICATION_NAME: GetAppTrackerDataFlags = GetAppTrackerDataFlags(16i32);
+impl ::core::marker::Copy for GetAppTrackerDataFlags {}
+impl ::core::clone::Clone for GetAppTrackerDataFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GetAppTrackerDataFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GetAppTrackerDataFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GetAppTrackerDataFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetAppTrackerDataFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LockModes(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const LockSetGet: LockModes = LockModes(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const LockMethod: LockModes = LockModes(1i32);
+impl ::core::marker::Copy for LockModes {}
+impl ::core::clone::Clone for LockModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LockModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LockModes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LockModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LockModes").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ReleaseModes(pub i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const Standard: ReleaseModes = ReleaseModes(0i32);
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub const Process: ReleaseModes = ReleaseModes(1i32);
+impl ::core::marker::Copy for ReleaseModes {}
+impl ::core::clone::Clone for ReleaseModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ReleaseModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ReleaseModes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ReleaseModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReleaseModes").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12795,9 +12160,6 @@ impl ::core::fmt::Debug for TRACKING_COLL_TYPE {
         f.debug_tuple("TRACKING_COLL_TYPE").field(&self.0).finish()
     }
 }
-pub const TrackerServer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecabafb9_7f19_11d2_978e_0000f8757e2a);
-pub const TransactionContext: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7999fc25_d3c6_11cf_acab_00a024a55aef);
-pub const TransactionContextEx: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cb66670_d3d4_11cf_acab_00a024a55aef);
 #[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12823,6 +12185,644 @@ unsafe impl ::windows::core::Abi for TransactionVote {
 impl ::core::fmt::Debug for TransactionVote {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TransactionVote").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ApplicationProcessRecycleInfo {
+    pub IsRecyclable: super::super::Foundation::BOOL,
+    pub IsRecycled: super::super::Foundation::BOOL,
+    pub TimeRecycled: super::super::Foundation::FILETIME,
+    pub TimeToTerminate: super::super::Foundation::FILETIME,
+    pub RecycleReasonCode: i32,
+    pub IsPendingRecycle: super::super::Foundation::BOOL,
+    pub HasAutomaticLifetimeRecycling: super::super::Foundation::BOOL,
+    pub TimeForAutomaticRecycling: super::super::Foundation::FILETIME,
+    pub MemoryLimitInKB: u32,
+    pub MemoryUsageInKBLastCheck: u32,
+    pub ActivationLimit: u32,
+    pub NumActivationsLastReported: u32,
+    pub CallLimit: u32,
+    pub NumCallsLastReported: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ApplicationProcessRecycleInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ApplicationProcessRecycleInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ApplicationProcessRecycleInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationProcessRecycleInfo")
+            .field("IsRecyclable", &self.IsRecyclable)
+            .field("IsRecycled", &self.IsRecycled)
+            .field("TimeRecycled", &self.TimeRecycled)
+            .field("TimeToTerminate", &self.TimeToTerminate)
+            .field("RecycleReasonCode", &self.RecycleReasonCode)
+            .field("IsPendingRecycle", &self.IsPendingRecycle)
+            .field("HasAutomaticLifetimeRecycling", &self.HasAutomaticLifetimeRecycling)
+            .field("TimeForAutomaticRecycling", &self.TimeForAutomaticRecycling)
+            .field("MemoryLimitInKB", &self.MemoryLimitInKB)
+            .field("MemoryUsageInKBLastCheck", &self.MemoryUsageInKBLastCheck)
+            .field("ActivationLimit", &self.ActivationLimit)
+            .field("NumActivationsLastReported", &self.NumActivationsLastReported)
+            .field("CallLimit", &self.CallLimit)
+            .field("NumCallsLastReported", &self.NumCallsLastReported)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ApplicationProcessRecycleInfo {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ApplicationProcessRecycleInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationProcessRecycleInfo>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ApplicationProcessRecycleInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ApplicationProcessRecycleInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct ApplicationProcessStatistics {
+    pub NumCallsOutstanding: u32,
+    pub NumTrackedComponents: u32,
+    pub NumComponentInstances: u32,
+    pub AvgCallsPerSecond: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: u32,
+    pub Reserved4: u32,
+}
+impl ::core::marker::Copy for ApplicationProcessStatistics {}
+impl ::core::clone::Clone for ApplicationProcessStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationProcessStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationProcessStatistics").field("NumCallsOutstanding", &self.NumCallsOutstanding).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).field("AvgCallsPerSecond", &self.AvgCallsPerSecond).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationProcessStatistics {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ApplicationProcessStatistics {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationProcessStatistics>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ApplicationProcessStatistics {}
+impl ::core::default::Default for ApplicationProcessStatistics {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ApplicationProcessSummary {
+    pub PartitionIdPrimaryApplication: ::windows::core::GUID,
+    pub ApplicationIdPrimaryApplication: ::windows::core::GUID,
+    pub ApplicationInstanceId: ::windows::core::GUID,
+    pub ProcessId: u32,
+    pub Type: COMPLUS_APPTYPE,
+    pub ProcessExeName: ::windows::core::PWSTR,
+    pub IsService: super::super::Foundation::BOOL,
+    pub IsPaused: super::super::Foundation::BOOL,
+    pub IsRecycled: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ApplicationProcessSummary {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ApplicationProcessSummary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ApplicationProcessSummary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationProcessSummary")
+            .field("PartitionIdPrimaryApplication", &self.PartitionIdPrimaryApplication)
+            .field("ApplicationIdPrimaryApplication", &self.ApplicationIdPrimaryApplication)
+            .field("ApplicationInstanceId", &self.ApplicationInstanceId)
+            .field("ProcessId", &self.ProcessId)
+            .field("Type", &self.Type)
+            .field("ProcessExeName", &self.ProcessExeName)
+            .field("IsService", &self.IsService)
+            .field("IsPaused", &self.IsPaused)
+            .field("IsRecycled", &self.IsRecycled)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ApplicationProcessSummary {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ApplicationProcessSummary {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationProcessSummary>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ApplicationProcessSummary {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ApplicationProcessSummary {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct ApplicationSummary {
+    pub ApplicationInstanceId: ::windows::core::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub ApplicationId: ::windows::core::GUID,
+    pub Type: COMPLUS_APPTYPE,
+    pub ApplicationName: ::windows::core::PWSTR,
+    pub NumTrackedComponents: u32,
+    pub NumComponentInstances: u32,
+}
+impl ::core::marker::Copy for ApplicationSummary {}
+impl ::core::clone::Clone for ApplicationSummary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ApplicationSummary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ApplicationSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Type", &self.Type).field("ApplicationName", &self.ApplicationName).field("NumTrackedComponents", &self.NumTrackedComponents).field("NumComponentInstances", &self.NumComponentInstances).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationSummary {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ApplicationSummary {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ApplicationSummary>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ApplicationSummary {}
+impl ::core::default::Default for ApplicationSummary {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct CAppData {
+    pub m_idApp: u32,
+    pub m_szAppGuid: [u16; 40],
+    pub m_dwAppProcessId: u32,
+    pub m_AppStatistics: CAppStatistics,
+}
+impl ::core::marker::Copy for CAppData {}
+impl ::core::clone::Clone for CAppData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAppData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAppData").field("m_idApp", &self.m_idApp).field("m_szAppGuid", &self.m_szAppGuid).field("m_dwAppProcessId", &self.m_dwAppProcessId).field("m_AppStatistics", &self.m_AppStatistics).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAppData {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAppData {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAppData>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAppData {}
+impl ::core::default::Default for CAppData {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct CAppStatistics {
+    pub m_cTotalCalls: u32,
+    pub m_cTotalInstances: u32,
+    pub m_cTotalClasses: u32,
+    pub m_cCallsPerSecond: u32,
+}
+impl ::core::marker::Copy for CAppStatistics {}
+impl ::core::clone::Clone for CAppStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CAppStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CAppStatistics").field("m_cTotalCalls", &self.m_cTotalCalls).field("m_cTotalInstances", &self.m_cTotalInstances).field("m_cTotalClasses", &self.m_cTotalClasses).field("m_cCallsPerSecond", &self.m_cCallsPerSecond).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CAppStatistics {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CAppStatistics {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CAppStatistics>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CAppStatistics {}
+impl ::core::default::Default for CAppStatistics {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct CCLSIDData {
+    pub m_clsid: ::windows::core::GUID,
+    pub m_cReferences: u32,
+    pub m_cBound: u32,
+    pub m_cPooled: u32,
+    pub m_cInCall: u32,
+    pub m_dwRespTime: u32,
+    pub m_cCallsCompleted: u32,
+    pub m_cCallsFailed: u32,
+}
+impl ::core::marker::Copy for CCLSIDData {}
+impl ::core::clone::Clone for CCLSIDData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CCLSIDData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CCLSIDData").field("m_clsid", &self.m_clsid).field("m_cReferences", &self.m_cReferences).field("m_cBound", &self.m_cBound).field("m_cPooled", &self.m_cPooled).field("m_cInCall", &self.m_cInCall).field("m_dwRespTime", &self.m_dwRespTime).field("m_cCallsCompleted", &self.m_cCallsCompleted).field("m_cCallsFailed", &self.m_cCallsFailed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CCLSIDData {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CCLSIDData {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCLSIDData>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CCLSIDData {}
+impl ::core::default::Default for CCLSIDData {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct CCLSIDData2 {
+    pub m_clsid: ::windows::core::GUID,
+    pub m_appid: ::windows::core::GUID,
+    pub m_partid: ::windows::core::GUID,
+    pub m_pwszAppName: ::windows::core::PWSTR,
+    pub m_pwszCtxName: ::windows::core::PWSTR,
+    pub m_eAppType: COMPLUS_APPTYPE,
+    pub m_cReferences: u32,
+    pub m_cBound: u32,
+    pub m_cPooled: u32,
+    pub m_cInCall: u32,
+    pub m_dwRespTime: u32,
+    pub m_cCallsCompleted: u32,
+    pub m_cCallsFailed: u32,
+}
+impl ::core::marker::Copy for CCLSIDData2 {}
+impl ::core::clone::Clone for CCLSIDData2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CCLSIDData2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CCLSIDData2")
+            .field("m_clsid", &self.m_clsid)
+            .field("m_appid", &self.m_appid)
+            .field("m_partid", &self.m_partid)
+            .field("m_pwszAppName", &self.m_pwszAppName)
+            .field("m_pwszCtxName", &self.m_pwszCtxName)
+            .field("m_eAppType", &self.m_eAppType)
+            .field("m_cReferences", &self.m_cReferences)
+            .field("m_cBound", &self.m_cBound)
+            .field("m_cPooled", &self.m_cPooled)
+            .field("m_cInCall", &self.m_cInCall)
+            .field("m_dwRespTime", &self.m_dwRespTime)
+            .field("m_cCallsCompleted", &self.m_cCallsCompleted)
+            .field("m_cCallsFailed", &self.m_cCallsFailed)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CCLSIDData2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CCLSIDData2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CCLSIDData2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CCLSIDData2 {}
+impl ::core::default::Default for CCLSIDData2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct COMSVCSEVENTINFO {
+    pub cbSize: u32,
+    pub dwPid: u32,
+    pub lTime: i64,
+    pub lMicroTime: i32,
+    pub perfCount: i64,
+    pub guidApp: ::windows::core::GUID,
+    pub sMachineName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for COMSVCSEVENTINFO {}
+impl ::core::clone::Clone for COMSVCSEVENTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COMSVCSEVENTINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMSVCSEVENTINFO").field("cbSize", &self.cbSize).field("dwPid", &self.dwPid).field("lTime", &self.lTime).field("lMicroTime", &self.lMicroTime).field("perfCount", &self.perfCount).field("guidApp", &self.guidApp).field("sMachineName", &self.sMachineName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COMSVCSEVENTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMSVCSEVENTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMSVCSEVENTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMSVCSEVENTINFO {}
+impl ::core::default::Default for COMSVCSEVENTINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ComponentHangMonitorInfo {
+    pub IsMonitored: super::super::Foundation::BOOL,
+    pub TerminateOnHang: super::super::Foundation::BOOL,
+    pub AvgCallThresholdInMs: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ComponentHangMonitorInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ComponentHangMonitorInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ComponentHangMonitorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComponentHangMonitorInfo").field("IsMonitored", &self.IsMonitored).field("TerminateOnHang", &self.TerminateOnHang).field("AvgCallThresholdInMs", &self.AvgCallThresholdInMs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ComponentHangMonitorInfo {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ComponentHangMonitorInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComponentHangMonitorInfo>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ComponentHangMonitorInfo {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ComponentHangMonitorInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct ComponentStatistics {
+    pub NumInstances: u32,
+    pub NumBoundReferences: u32,
+    pub NumPooledObjects: u32,
+    pub NumObjectsInCall: u32,
+    pub AvgResponseTimeInMs: u32,
+    pub NumCallsCompletedRecent: u32,
+    pub NumCallsFailedRecent: u32,
+    pub NumCallsCompletedTotal: u32,
+    pub NumCallsFailedTotal: u32,
+    pub Reserved1: u32,
+    pub Reserved2: u32,
+    pub Reserved3: u32,
+    pub Reserved4: u32,
+}
+impl ::core::marker::Copy for ComponentStatistics {}
+impl ::core::clone::Clone for ComponentStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ComponentStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComponentStatistics")
+            .field("NumInstances", &self.NumInstances)
+            .field("NumBoundReferences", &self.NumBoundReferences)
+            .field("NumPooledObjects", &self.NumPooledObjects)
+            .field("NumObjectsInCall", &self.NumObjectsInCall)
+            .field("AvgResponseTimeInMs", &self.AvgResponseTimeInMs)
+            .field("NumCallsCompletedRecent", &self.NumCallsCompletedRecent)
+            .field("NumCallsFailedRecent", &self.NumCallsFailedRecent)
+            .field("NumCallsCompletedTotal", &self.NumCallsCompletedTotal)
+            .field("NumCallsFailedTotal", &self.NumCallsFailedTotal)
+            .field("Reserved1", &self.Reserved1)
+            .field("Reserved2", &self.Reserved2)
+            .field("Reserved3", &self.Reserved3)
+            .field("Reserved4", &self.Reserved4)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ComponentStatistics {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ComponentStatistics {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComponentStatistics>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ComponentStatistics {}
+impl ::core::default::Default for ComponentStatistics {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct ComponentSummary {
+    pub ApplicationInstanceId: ::windows::core::GUID,
+    pub PartitionId: ::windows::core::GUID,
+    pub ApplicationId: ::windows::core::GUID,
+    pub Clsid: ::windows::core::GUID,
+    pub ClassName: ::windows::core::PWSTR,
+    pub ApplicationName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ComponentSummary {}
+impl ::core::clone::Clone for ComponentSummary {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ComponentSummary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComponentSummary").field("ApplicationInstanceId", &self.ApplicationInstanceId).field("PartitionId", &self.PartitionId).field("ApplicationId", &self.ApplicationId).field("Clsid", &self.Clsid).field("ClassName", &self.ClassName).field("ApplicationName", &self.ApplicationName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ComponentSummary {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ComponentSummary {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComponentSummary>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ComponentSummary {}
+impl ::core::default::Default for ComponentSummary {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+pub struct CrmLogRecordRead {
+    pub dwCrmFlags: u32,
+    pub dwSequenceNumber: u32,
+    pub blobUserData: super::Com::BLOB,
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::marker::Copy for CrmLogRecordRead {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::clone::Clone for CrmLogRecordRead {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::fmt::Debug for CrmLogRecordRead {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CrmLogRecordRead").field("dwCrmFlags", &self.dwCrmFlags).field("dwSequenceNumber", &self.dwSequenceNumber).field("blobUserData", &self.blobUserData).finish()
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+unsafe impl ::windows::core::Abi for CrmLogRecordRead {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::PartialEq for CrmLogRecordRead {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CrmLogRecordRead>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::cmp::Eq for CrmLogRecordRead {}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::default::Default for CrmLogRecordRead {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HANG_INFO {
+    pub fAppHangMonitorEnabled: super::super::Foundation::BOOL,
+    pub fTerminateOnHang: super::super::Foundation::BOOL,
+    pub DumpType: DUMPTYPE,
+    pub dwHangTimeout: u32,
+    pub dwDumpCount: u32,
+    pub dwInfoMsgCount: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HANG_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HANG_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HANG_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HANG_INFO").field("fAppHangMonitorEnabled", &self.fAppHangMonitorEnabled).field("fTerminateOnHang", &self.fTerminateOnHang).field("DumpType", &self.DumpType).field("dwHangTimeout", &self.dwHangTimeout).field("dwDumpCount", &self.dwDumpCount).field("dwInfoMsgCount", &self.dwInfoMsgCount).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HANG_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HANG_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HANG_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HANG_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HANG_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_ComponentServices\"`*"]
+pub struct RECYCLE_INFO {
+    pub guidCombaseProcessIdentifier: ::windows::core::GUID,
+    pub ProcessStartTime: i64,
+    pub dwRecycleLifetimeLimit: u32,
+    pub dwRecycleMemoryLimit: u32,
+    pub dwRecycleExpirationTimeout: u32,
+}
+impl ::core::marker::Copy for RECYCLE_INFO {}
+impl ::core::clone::Clone for RECYCLE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RECYCLE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECYCLE_INFO").field("guidCombaseProcessIdentifier", &self.guidCombaseProcessIdentifier).field("ProcessStartTime", &self.ProcessStartTime).field("dwRecycleLifetimeLimit", &self.dwRecycleLifetimeLimit).field("dwRecycleMemoryLimit", &self.dwRecycleMemoryLimit).field("dwRecycleExpirationTimeout", &self.dwRecycleExpirationTimeout).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RECYCLE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RECYCLE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECYCLE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RECYCLE_INFO {}
+impl ::core::default::Default for RECYCLE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

@@ -447,148 +447,6 @@ pub struct IPhotoImportVideoSegment_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportAccessMode(pub i32);
-impl PhotoImportAccessMode {
-    pub const ReadWrite: Self = Self(0i32);
-    pub const ReadOnly: Self = Self(1i32);
-    pub const ReadAndDelete: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoImportAccessMode {}
-impl ::core::clone::Clone for PhotoImportAccessMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportAccessMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportAccessMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportAccessMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportConnectionTransport(pub i32);
-impl PhotoImportConnectionTransport {
-    pub const Unknown: Self = Self(0i32);
-    pub const Usb: Self = Self(1i32);
-    pub const IP: Self = Self(2i32);
-    pub const Bluetooth: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhotoImportConnectionTransport {}
-impl ::core::clone::Clone for PhotoImportConnectionTransport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportConnectionTransport {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportConnectionTransport {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportConnectionTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportContentType(pub i32);
-impl PhotoImportContentType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Image: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoImportContentType {}
-impl ::core::clone::Clone for PhotoImportContentType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportContentType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportContentType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportContentType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportContentTypeFilter(pub i32);
-impl PhotoImportContentTypeFilter {
-    pub const OnlyImages: Self = Self(0i32);
-    pub const OnlyVideos: Self = Self(1i32);
-    pub const ImagesAndVideos: Self = Self(2i32);
-    pub const ImagesAndVideosFromCameraRoll: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhotoImportContentTypeFilter {}
-impl ::core::clone::Clone for PhotoImportContentTypeFilter {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportContentTypeFilter {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportContentTypeFilter {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(::windows::core::IUnknown);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
     pub fn Session(&self) -> ::windows::core::Result<PhotoImportSession> {
@@ -1227,42 +1085,6 @@ unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportImportMode(pub i32);
-impl PhotoImportImportMode {
-    pub const ImportEverything: Self = Self(0i32);
-    pub const IgnoreSidecars: Self = Self(1i32);
-    pub const IgnoreSiblings: Self = Self(2i32);
-    pub const IgnoreSidecarsAndSiblings: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhotoImportImportMode {}
-impl ::core::clone::Clone for PhotoImportImportMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportImportMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportImportMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportImportMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportImportMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
 pub struct PhotoImportItem(::windows::core::IUnknown);
 impl PhotoImportItem {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1510,41 +1332,6 @@ impl ::core::convert::From<&PhotoImportItemImportedEventArgs> for &::windows::co
 unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportItemSelectionMode(pub i32);
-impl PhotoImportItemSelectionMode {
-    pub const SelectAll: Self = Self(0i32);
-    pub const SelectNone: Self = Self(1i32);
-    pub const SelectNew: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoImportItemSelectionMode {}
-impl ::core::clone::Clone for PhotoImportItemSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportItemSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportItemSelectionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
 pub struct PhotoImportManager;
 impl PhotoImportManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1688,82 +1475,6 @@ impl ::core::convert::From<&PhotoImportOperation> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportPowerSource(pub i32);
-impl PhotoImportPowerSource {
-    pub const Unknown: Self = Self(0i32);
-    pub const Battery: Self = Self(1i32);
-    pub const External: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoImportPowerSource {}
-impl ::core::clone::Clone for PhotoImportPowerSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportPowerSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportPowerSource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportPowerSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportPowerSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Media_Import\"`*"]
-pub struct PhotoImportProgress {
-    pub ItemsImported: u32,
-    pub TotalItemsToImport: u32,
-    pub BytesImported: u64,
-    pub TotalBytesToImport: u64,
-    pub ImportProgress: f64,
-}
-impl ::core::marker::Copy for PhotoImportProgress {}
-impl ::core::clone::Clone for PhotoImportProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for PhotoImportProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PhotoImportProgress").field("ItemsImported", &self.ItemsImported).field("TotalItemsToImport", &self.TotalItemsToImport).field("BytesImported", &self.BytesImported).field("TotalBytesToImport", &self.TotalBytesToImport).field("ImportProgress", &self.ImportProgress).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportProgress {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for PhotoImportProgress {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PhotoImportProgress>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PhotoImportProgress {}
-impl ::core::default::Default for PhotoImportProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
 pub struct PhotoImportSelectionChangedEventArgs(::windows::core::IUnknown);
@@ -2343,81 +2054,6 @@ unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportSourceType(pub i32);
-impl PhotoImportSourceType {
-    pub const Generic: Self = Self(0i32);
-    pub const Camera: Self = Self(1i32);
-    pub const MediaPlayer: Self = Self(2i32);
-    pub const Phone: Self = Self(3i32);
-    pub const Video: Self = Self(4i32);
-    pub const PersonalInfoManager: Self = Self(5i32);
-    pub const AudioRecorder: Self = Self(6i32);
-}
-impl ::core::marker::Copy for PhotoImportSourceType {}
-impl ::core::clone::Clone for PhotoImportSourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportSourceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportSourceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportSourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportStage(pub i32);
-impl PhotoImportStage {
-    pub const NotStarted: Self = Self(0i32);
-    pub const FindingItems: Self = Self(1i32);
-    pub const ImportingItems: Self = Self(2i32);
-    pub const DeletingImportedItemsFromSource: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhotoImportStage {}
-impl ::core::clone::Clone for PhotoImportStage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportStage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportStage {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportStage").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
 pub struct PhotoImportStorageMedium(::windows::core::IUnknown);
 impl PhotoImportStorageMedium {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2538,112 +2174,6 @@ unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
 #[doc = "*Required features: `\"Media_Import\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportStorageMediumType(pub i32);
-impl PhotoImportStorageMediumType {
-    pub const Undefined: Self = Self(0i32);
-    pub const Fixed: Self = Self(1i32);
-    pub const Removable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoImportStorageMediumType {}
-impl ::core::clone::Clone for PhotoImportStorageMediumType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportStorageMediumType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportStorageMediumType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportStorageMediumType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportSubfolderCreationMode(pub i32);
-impl PhotoImportSubfolderCreationMode {
-    pub const DoNotCreateSubfolders: Self = Self(0i32);
-    pub const CreateSubfoldersFromFileDate: Self = Self(1i32);
-    pub const CreateSubfoldersFromExifDate: Self = Self(2i32);
-    pub const KeepOriginalFolderStructure: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhotoImportSubfolderCreationMode {}
-impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportSubfolderCreationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportSubfolderCreationMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhotoImportSubfolderDateFormat(pub i32);
-impl PhotoImportSubfolderDateFormat {
-    pub const Year: Self = Self(0i32);
-    pub const YearMonth: Self = Self(1i32);
-    pub const YearMonthDay: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhotoImportSubfolderDateFormat {}
-impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhotoImportSubfolderDateFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhotoImportSubfolderDateFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Import\"`*"]
-#[repr(transparent)]
 pub struct PhotoImportVideoSegment(::windows::core::IUnknown);
 impl PhotoImportVideoSegment {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2748,5 +2278,475 @@ impl ::core::convert::From<&PhotoImportVideoSegment> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for PhotoImportVideoSegment {}
 unsafe impl ::core::marker::Sync for PhotoImportVideoSegment {}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportAccessMode(pub i32);
+impl PhotoImportAccessMode {
+    pub const ReadWrite: Self = Self(0i32);
+    pub const ReadOnly: Self = Self(1i32);
+    pub const ReadAndDelete: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoImportAccessMode {}
+impl ::core::clone::Clone for PhotoImportAccessMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportAccessMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportAccessMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportAccessMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportAccessMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportConnectionTransport(pub i32);
+impl PhotoImportConnectionTransport {
+    pub const Unknown: Self = Self(0i32);
+    pub const Usb: Self = Self(1i32);
+    pub const IP: Self = Self(2i32);
+    pub const Bluetooth: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhotoImportConnectionTransport {}
+impl ::core::clone::Clone for PhotoImportConnectionTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportConnectionTransport {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportConnectionTransport {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportConnectionTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportConnectionTransport {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportConnectionTransport;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportContentType(pub i32);
+impl PhotoImportContentType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Image: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoImportContentType {}
+impl ::core::clone::Clone for PhotoImportContentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportContentType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportContentType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportContentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportContentType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportContentTypeFilter(pub i32);
+impl PhotoImportContentTypeFilter {
+    pub const OnlyImages: Self = Self(0i32);
+    pub const OnlyVideos: Self = Self(1i32);
+    pub const ImagesAndVideos: Self = Self(2i32);
+    pub const ImagesAndVideosFromCameraRoll: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhotoImportContentTypeFilter {}
+impl ::core::clone::Clone for PhotoImportContentTypeFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportContentTypeFilter {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportContentTypeFilter {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportContentTypeFilter {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportContentTypeFilter;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportImportMode(pub i32);
+impl PhotoImportImportMode {
+    pub const ImportEverything: Self = Self(0i32);
+    pub const IgnoreSidecars: Self = Self(1i32);
+    pub const IgnoreSiblings: Self = Self(2i32);
+    pub const IgnoreSidecarsAndSiblings: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhotoImportImportMode {}
+impl ::core::clone::Clone for PhotoImportImportMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportImportMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportImportMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportImportMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportImportMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportImportMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportItemSelectionMode(pub i32);
+impl PhotoImportItemSelectionMode {
+    pub const SelectAll: Self = Self(0i32);
+    pub const SelectNone: Self = Self(1i32);
+    pub const SelectNew: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoImportItemSelectionMode {}
+impl ::core::clone::Clone for PhotoImportItemSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportItemSelectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportItemSelectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportItemSelectionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportPowerSource(pub i32);
+impl PhotoImportPowerSource {
+    pub const Unknown: Self = Self(0i32);
+    pub const Battery: Self = Self(1i32);
+    pub const External: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoImportPowerSource {}
+impl ::core::clone::Clone for PhotoImportPowerSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportPowerSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportPowerSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportPowerSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportPowerSource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportPowerSource;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportSourceType(pub i32);
+impl PhotoImportSourceType {
+    pub const Generic: Self = Self(0i32);
+    pub const Camera: Self = Self(1i32);
+    pub const MediaPlayer: Self = Self(2i32);
+    pub const Phone: Self = Self(3i32);
+    pub const Video: Self = Self(4i32);
+    pub const PersonalInfoManager: Self = Self(5i32);
+    pub const AudioRecorder: Self = Self(6i32);
+}
+impl ::core::marker::Copy for PhotoImportSourceType {}
+impl ::core::clone::Clone for PhotoImportSourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportSourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportSourceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportSourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportSourceType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSourceType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportStage(pub i32);
+impl PhotoImportStage {
+    pub const NotStarted: Self = Self(0i32);
+    pub const FindingItems: Self = Self(1i32);
+    pub const ImportingItems: Self = Self(2i32);
+    pub const DeletingImportedItemsFromSource: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhotoImportStage {}
+impl ::core::clone::Clone for PhotoImportStage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportStage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportStage {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStage").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportStage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStage;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportStorageMediumType(pub i32);
+impl PhotoImportStorageMediumType {
+    pub const Undefined: Self = Self(0i32);
+    pub const Fixed: Self = Self(1i32);
+    pub const Removable: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoImportStorageMediumType {}
+impl ::core::clone::Clone for PhotoImportStorageMediumType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportStorageMediumType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportStorageMediumType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportStorageMediumType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMediumType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportStorageMediumType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportSubfolderCreationMode(pub i32);
+impl PhotoImportSubfolderCreationMode {
+    pub const DoNotCreateSubfolders: Self = Self(0i32);
+    pub const CreateSubfoldersFromFileDate: Self = Self(1i32);
+    pub const CreateSubfoldersFromExifDate: Self = Self(2i32);
+    pub const KeepOriginalFolderStructure: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhotoImportSubfolderCreationMode {}
+impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportSubfolderCreationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportSubfolderCreationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderCreationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderCreationMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Import\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhotoImportSubfolderDateFormat(pub i32);
+impl PhotoImportSubfolderDateFormat {
+    pub const Year: Self = Self(0i32);
+    pub const YearMonth: Self = Self(1i32);
+    pub const YearMonthDay: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhotoImportSubfolderDateFormat {}
+impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhotoImportSubfolderDateFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportSubfolderDateFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportSubfolderDateFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Import.PhotoImportSubfolderDateFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Media_Import\"`*"]
+pub struct PhotoImportProgress {
+    pub ItemsImported: u32,
+    pub TotalItemsToImport: u32,
+    pub BytesImported: u64,
+    pub TotalBytesToImport: u64,
+    pub ImportProgress: f64,
+}
+impl ::core::marker::Copy for PhotoImportProgress {}
+impl ::core::clone::Clone for PhotoImportProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PhotoImportProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PhotoImportProgress").field("ItemsImported", &self.ItemsImported).field("TotalItemsToImport", &self.TotalItemsToImport).field("BytesImported", &self.BytesImported).field("TotalBytesToImport", &self.TotalBytesToImport).field("ImportProgress", &self.ImportProgress).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PhotoImportProgress {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for PhotoImportProgress {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Media.Import.PhotoImportProgress;u4;u4;u8;u8;f8)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for PhotoImportProgress {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PhotoImportProgress>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PhotoImportProgress {}
+impl ::core::default::Default for PhotoImportProgress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

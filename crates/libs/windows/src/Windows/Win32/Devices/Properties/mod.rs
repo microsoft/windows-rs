@@ -388,6 +388,99 @@ pub const DEVPKEY_DrvPkg_Model: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows::core
 pub const DEVPKEY_DrvPkg_VendorWebSite: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3u32 };
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub const DEVPKEY_NAME: DEVPROPKEY = DEVPROPKEY { fmtid: ::windows::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10u32 };
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPEMOD_LIST: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_BOOLEAN: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_BYTE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_CURRENCY: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DATE: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DECIMAL: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DEVPROPKEY: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DEVPROPTYPE: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_DOUBLE: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_EMPTY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_ERROR: u32 = 23u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_FILETIME: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_FLOAT: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_GUID: u32 = 13u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_INT16: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_INT32: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_INT64: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_NTSTATUS: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_NULL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_SBYTE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_STRING: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_STRING_INDIRECT: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_UINT16: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_UINT32: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_TYPE_UINT64: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const MAX_DEVPROP_TYPE: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DEVPROPSTORE(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
+pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
+impl ::core::marker::Copy for DEVPROPSTORE {}
+impl ::core::clone::Clone for DEVPROPSTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DEVPROPSTORE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DEVPROPSTORE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVPROPSTORE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROPSTORE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub struct DEVPROPCOMPKEY {
@@ -453,8 +546,6 @@ impl ::core::default::Default for DEVPROPERTY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
 pub struct DEVPROPKEY {
@@ -486,96 +577,5 @@ impl ::core::default::Default for DEVPROPKEY {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DEVPROPSTORE(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
-impl ::core::marker::Copy for DEVPROPSTORE {}
-impl ::core::clone::Clone for DEVPROPSTORE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DEVPROPSTORE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVPROPSTORE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DEVPROPSTORE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DEVPROPSTORE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPEMOD_LIST: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_BOOLEAN: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_BYTE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_CURRENCY: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DATE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DECIMAL: u32 = 12u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DEVPROPKEY: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DEVPROPTYPE: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_DOUBLE: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_EMPTY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_ERROR: u32 = 23u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_FILETIME: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_FLOAT: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_GUID: u32 = 13u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_INT16: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_INT32: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_INT64: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_NTSTATUS: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_NULL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_SBYTE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_SECURITY_DESCRIPTOR_STRING: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_STRING: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_STRING_INDIRECT: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_UINT16: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_UINT32: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const DEVPROP_TYPE_UINT64: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const MAX_DEVPROP_TYPE: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_Devices_Properties\"`*"]
-pub const MAX_DEVPROP_TYPEMOD: u32 = 8192u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

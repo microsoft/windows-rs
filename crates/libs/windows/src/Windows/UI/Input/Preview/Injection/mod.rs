@@ -207,49 +207,6 @@ pub struct IInputInjectorStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputButtonChangeKind(pub i32);
-impl InjectedInputButtonChangeKind {
-    pub const None: Self = Self(0i32);
-    pub const FirstButtonDown: Self = Self(1i32);
-    pub const FirstButtonUp: Self = Self(2i32);
-    pub const SecondButtonDown: Self = Self(3i32);
-    pub const SecondButtonUp: Self = Self(4i32);
-    pub const ThirdButtonDown: Self = Self(5i32);
-    pub const ThirdButtonUp: Self = Self(6i32);
-    pub const FourthButtonDown: Self = Self(7i32);
-    pub const FourthButtonUp: Self = Self(8i32);
-    pub const FifthButtonDown: Self = Self(9i32);
-    pub const FifthButtonUp: Self = Self(10i32);
-}
-impl ::core::marker::Copy for InjectedInputButtonChangeKind {}
-impl ::core::clone::Clone for InjectedInputButtonChangeKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputButtonChangeKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputButtonChangeKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
 pub struct InjectedInputGamepadInfo(::windows::core::IUnknown);
 impl InjectedInputGamepadInfo {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -412,71 +369,6 @@ impl ::core::convert::From<&InjectedInputGamepadInfo> for ::windows::core::IInsp
 impl ::core::convert::From<&InjectedInputGamepadInfo> for &::windows::core::IInspectable {
     fn from(value: &InjectedInputGamepadInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputKeyOptions(pub u32);
-impl InjectedInputKeyOptions {
-    pub const None: Self = Self(0u32);
-    pub const ExtendedKey: Self = Self(1u32);
-    pub const KeyUp: Self = Self(2u32);
-    pub const ScanCode: Self = Self(8u32);
-    pub const Unicode: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InjectedInputKeyOptions {}
-impl ::core::clone::Clone for InjectedInputKeyOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputKeyOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputKeyOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputKeyOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InjectedInputKeyOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InjectedInputKeyOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InjectedInputKeyOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InjectedInputKeyOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InjectedInputKeyOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -713,145 +605,6 @@ impl ::core::convert::From<&InjectedInputMouseInfo> for &::windows::core::IInspe
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputMouseOptions(pub u32);
-impl InjectedInputMouseOptions {
-    pub const None: Self = Self(0u32);
-    pub const Move: Self = Self(1u32);
-    pub const LeftDown: Self = Self(2u32);
-    pub const LeftUp: Self = Self(4u32);
-    pub const RightDown: Self = Self(8u32);
-    pub const RightUp: Self = Self(16u32);
-    pub const MiddleDown: Self = Self(32u32);
-    pub const MiddleUp: Self = Self(64u32);
-    pub const XDown: Self = Self(128u32);
-    pub const XUp: Self = Self(256u32);
-    pub const Wheel: Self = Self(2048u32);
-    pub const HWheel: Self = Self(4096u32);
-    pub const MoveNoCoalesce: Self = Self(8192u32);
-    pub const VirtualDesk: Self = Self(16384u32);
-    pub const Absolute: Self = Self(32768u32);
-}
-impl ::core::marker::Copy for InjectedInputMouseOptions {}
-impl ::core::clone::Clone for InjectedInputMouseOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputMouseOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputMouseOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputMouseOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InjectedInputMouseOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InjectedInputMouseOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InjectedInputMouseOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InjectedInputMouseOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InjectedInputMouseOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputPenButtons(pub u32);
-impl InjectedInputPenButtons {
-    pub const None: Self = Self(0u32);
-    pub const Barrel: Self = Self(1u32);
-    pub const Inverted: Self = Self(2u32);
-    pub const Eraser: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InjectedInputPenButtons {}
-impl ::core::clone::Clone for InjectedInputPenButtons {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputPenButtons {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputPenButtons {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InjectedInputPenButtons {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InjectedInputPenButtons {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InjectedInputPenButtons {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InjectedInputPenButtons {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InjectedInputPenButtons {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
 pub struct InjectedInputPenInfo(::windows::core::IUnknown);
 impl InjectedInputPenInfo {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1001,298 +754,6 @@ impl ::core::convert::From<&InjectedInputPenInfo> for &::windows::core::IInspect
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputPenParameters(pub u32);
-impl InjectedInputPenParameters {
-    pub const None: Self = Self(0u32);
-    pub const Pressure: Self = Self(1u32);
-    pub const Rotation: Self = Self(2u32);
-    pub const TiltX: Self = Self(4u32);
-    pub const TiltY: Self = Self(8u32);
-}
-impl ::core::marker::Copy for InjectedInputPenParameters {}
-impl ::core::clone::Clone for InjectedInputPenParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputPenParameters {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputPenParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InjectedInputPenParameters {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InjectedInputPenParameters {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InjectedInputPenParameters {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InjectedInputPenParameters {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InjectedInputPenParameters {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputPenParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-pub struct InjectedInputPoint {
-    pub PositionX: i32,
-    pub PositionY: i32,
-}
-impl ::core::marker::Copy for InjectedInputPoint {}
-impl ::core::clone::Clone for InjectedInputPoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for InjectedInputPoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("InjectedInputPoint").field("PositionX", &self.PositionX).field("PositionY", &self.PositionY).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputPoint {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputPoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for InjectedInputPoint {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputPoint>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for InjectedInputPoint {}
-impl ::core::default::Default for InjectedInputPoint {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-pub struct InjectedInputPointerInfo {
-    pub PointerId: u32,
-    pub PointerOptions: InjectedInputPointerOptions,
-    pub PixelLocation: InjectedInputPoint,
-    pub TimeOffsetInMilliseconds: u32,
-    pub PerformanceCount: u64,
-}
-impl ::core::marker::Copy for InjectedInputPointerInfo {}
-impl ::core::clone::Clone for InjectedInputPointerInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for InjectedInputPointerInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("InjectedInputPointerInfo").field("PointerId", &self.PointerId).field("PointerOptions", &self.PointerOptions).field("PixelLocation", &self.PixelLocation).field("TimeOffsetInMilliseconds", &self.TimeOffsetInMilliseconds).field("PerformanceCount", &self.PerformanceCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputPointerInfo {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputPointerInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for InjectedInputPointerInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputPointerInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for InjectedInputPointerInfo {}
-impl ::core::default::Default for InjectedInputPointerInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputPointerOptions(pub u32);
-impl InjectedInputPointerOptions {
-    pub const None: Self = Self(0u32);
-    pub const New: Self = Self(1u32);
-    pub const InRange: Self = Self(2u32);
-    pub const InContact: Self = Self(4u32);
-    pub const FirstButton: Self = Self(16u32);
-    pub const SecondButton: Self = Self(32u32);
-    pub const Primary: Self = Self(8192u32);
-    pub const Confidence: Self = Self(16384u32);
-    pub const Canceled: Self = Self(32768u32);
-    pub const PointerDown: Self = Self(65536u32);
-    pub const Update: Self = Self(131072u32);
-    pub const PointerUp: Self = Self(262144u32);
-    pub const CaptureChanged: Self = Self(2097152u32);
-}
-impl ::core::marker::Copy for InjectedInputPointerOptions {}
-impl ::core::clone::Clone for InjectedInputPointerOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputPointerOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputPointerOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InjectedInputPointerOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InjectedInputPointerOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InjectedInputPointerOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InjectedInputPointerOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InjectedInputPointerOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-pub struct InjectedInputRectangle {
-    pub Left: i32,
-    pub Top: i32,
-    pub Bottom: i32,
-    pub Right: i32,
-}
-impl ::core::marker::Copy for InjectedInputRectangle {}
-impl ::core::clone::Clone for InjectedInputRectangle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for InjectedInputRectangle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("InjectedInputRectangle").field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).field("Right", &self.Right).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputRectangle {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputRectangle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for InjectedInputRectangle {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputRectangle>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for InjectedInputRectangle {}
-impl ::core::default::Default for InjectedInputRectangle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputShortcut(pub i32);
-impl InjectedInputShortcut {
-    pub const Back: Self = Self(0i32);
-    pub const Start: Self = Self(1i32);
-    pub const Search: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InjectedInputShortcut {}
-impl ::core::clone::Clone for InjectedInputShortcut {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputShortcut {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputShortcut {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputShortcut {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
 pub struct InjectedInputTouchInfo(::windows::core::IUnknown);
 impl InjectedInputTouchInfo {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1416,105 +877,6 @@ impl ::core::convert::From<&InjectedInputTouchInfo> for ::windows::core::IInspec
 impl ::core::convert::From<&InjectedInputTouchInfo> for &::windows::core::IInspectable {
     fn from(value: &InjectedInputTouchInfo) -> Self {
         unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputTouchParameters(pub u32);
-impl InjectedInputTouchParameters {
-    pub const None: Self = Self(0u32);
-    pub const Contact: Self = Self(1u32);
-    pub const Orientation: Self = Self(2u32);
-    pub const Pressure: Self = Self(4u32);
-}
-impl ::core::marker::Copy for InjectedInputTouchParameters {}
-impl ::core::clone::Clone for InjectedInputTouchParameters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputTouchParameters {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputTouchParameters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for InjectedInputTouchParameters {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InjectedInputTouchParameters {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InjectedInputTouchParameters {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InjectedInputTouchParameters {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InjectedInputTouchParameters {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InjectedInputVisualizationMode(pub i32);
-impl InjectedInputVisualizationMode {
-    pub const None: Self = Self(0i32);
-    pub const Default: Self = Self(1i32);
-    pub const Indirect: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InjectedInputVisualizationMode {}
-impl ::core::clone::Clone for InjectedInputVisualizationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InjectedInputVisualizationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InjectedInputVisualizationMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InjectedInputVisualizationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1674,6 +1036,644 @@ impl ::core::convert::From<&InputInjector> for ::windows::core::IInspectable {
 impl ::core::convert::From<&InputInjector> for &::windows::core::IInspectable {
     fn from(value: &InputInjector) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputButtonChangeKind(pub i32);
+impl InjectedInputButtonChangeKind {
+    pub const None: Self = Self(0i32);
+    pub const FirstButtonDown: Self = Self(1i32);
+    pub const FirstButtonUp: Self = Self(2i32);
+    pub const SecondButtonDown: Self = Self(3i32);
+    pub const SecondButtonUp: Self = Self(4i32);
+    pub const ThirdButtonDown: Self = Self(5i32);
+    pub const ThirdButtonUp: Self = Self(6i32);
+    pub const FourthButtonDown: Self = Self(7i32);
+    pub const FourthButtonUp: Self = Self(8i32);
+    pub const FifthButtonDown: Self = Self(9i32);
+    pub const FifthButtonUp: Self = Self(10i32);
+}
+impl ::core::marker::Copy for InjectedInputButtonChangeKind {}
+impl ::core::clone::Clone for InjectedInputButtonChangeKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputButtonChangeKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputButtonChangeKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputButtonChangeKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputButtonChangeKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputKeyOptions(pub u32);
+impl InjectedInputKeyOptions {
+    pub const None: Self = Self(0u32);
+    pub const ExtendedKey: Self = Self(1u32);
+    pub const KeyUp: Self = Self(2u32);
+    pub const ScanCode: Self = Self(8u32);
+    pub const Unicode: Self = Self(4u32);
+}
+impl ::core::marker::Copy for InjectedInputKeyOptions {}
+impl ::core::clone::Clone for InjectedInputKeyOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputKeyOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputKeyOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputKeyOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InjectedInputKeyOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InjectedInputKeyOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InjectedInputKeyOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InjectedInputKeyOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InjectedInputKeyOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputKeyOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputKeyOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputMouseOptions(pub u32);
+impl InjectedInputMouseOptions {
+    pub const None: Self = Self(0u32);
+    pub const Move: Self = Self(1u32);
+    pub const LeftDown: Self = Self(2u32);
+    pub const LeftUp: Self = Self(4u32);
+    pub const RightDown: Self = Self(8u32);
+    pub const RightUp: Self = Self(16u32);
+    pub const MiddleDown: Self = Self(32u32);
+    pub const MiddleUp: Self = Self(64u32);
+    pub const XDown: Self = Self(128u32);
+    pub const XUp: Self = Self(256u32);
+    pub const Wheel: Self = Self(2048u32);
+    pub const HWheel: Self = Self(4096u32);
+    pub const MoveNoCoalesce: Self = Self(8192u32);
+    pub const VirtualDesk: Self = Self(16384u32);
+    pub const Absolute: Self = Self(32768u32);
+}
+impl ::core::marker::Copy for InjectedInputMouseOptions {}
+impl ::core::clone::Clone for InjectedInputMouseOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputMouseOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputMouseOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputMouseOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InjectedInputMouseOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InjectedInputMouseOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InjectedInputMouseOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InjectedInputMouseOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InjectedInputMouseOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputMouseOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputMouseOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputPenButtons(pub u32);
+impl InjectedInputPenButtons {
+    pub const None: Self = Self(0u32);
+    pub const Barrel: Self = Self(1u32);
+    pub const Inverted: Self = Self(2u32);
+    pub const Eraser: Self = Self(4u32);
+}
+impl ::core::marker::Copy for InjectedInputPenButtons {}
+impl ::core::clone::Clone for InjectedInputPenButtons {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputPenButtons {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputPenButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InjectedInputPenButtons {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InjectedInputPenButtons {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InjectedInputPenButtons {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InjectedInputPenButtons {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InjectedInputPenButtons {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputPenButtons {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenButtons;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputPenParameters(pub u32);
+impl InjectedInputPenParameters {
+    pub const None: Self = Self(0u32);
+    pub const Pressure: Self = Self(1u32);
+    pub const Rotation: Self = Self(2u32);
+    pub const TiltX: Self = Self(4u32);
+    pub const TiltY: Self = Self(8u32);
+}
+impl ::core::marker::Copy for InjectedInputPenParameters {}
+impl ::core::clone::Clone for InjectedInputPenParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputPenParameters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputPenParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InjectedInputPenParameters {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InjectedInputPenParameters {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InjectedInputPenParameters {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InjectedInputPenParameters {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InjectedInputPenParameters {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputPenParameters {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPenParameters;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputPointerOptions(pub u32);
+impl InjectedInputPointerOptions {
+    pub const None: Self = Self(0u32);
+    pub const New: Self = Self(1u32);
+    pub const InRange: Self = Self(2u32);
+    pub const InContact: Self = Self(4u32);
+    pub const FirstButton: Self = Self(16u32);
+    pub const SecondButton: Self = Self(32u32);
+    pub const Primary: Self = Self(8192u32);
+    pub const Confidence: Self = Self(16384u32);
+    pub const Canceled: Self = Self(32768u32);
+    pub const PointerDown: Self = Self(65536u32);
+    pub const Update: Self = Self(131072u32);
+    pub const PointerUp: Self = Self(262144u32);
+    pub const CaptureChanged: Self = Self(2097152u32);
+}
+impl ::core::marker::Copy for InjectedInputPointerOptions {}
+impl ::core::clone::Clone for InjectedInputPointerOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputPointerOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputPointerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InjectedInputPointerOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InjectedInputPointerOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InjectedInputPointerOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InjectedInputPointerOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InjectedInputPointerOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputPointerOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputShortcut(pub i32);
+impl InjectedInputShortcut {
+    pub const Back: Self = Self(0i32);
+    pub const Start: Self = Self(1i32);
+    pub const Search: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InjectedInputShortcut {}
+impl ::core::clone::Clone for InjectedInputShortcut {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputShortcut {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputShortcut {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputShortcut {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputShortcut {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputShortcut;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputTouchParameters(pub u32);
+impl InjectedInputTouchParameters {
+    pub const None: Self = Self(0u32);
+    pub const Contact: Self = Self(1u32);
+    pub const Orientation: Self = Self(2u32);
+    pub const Pressure: Self = Self(4u32);
+}
+impl ::core::marker::Copy for InjectedInputTouchParameters {}
+impl ::core::clone::Clone for InjectedInputTouchParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputTouchParameters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputTouchParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InjectedInputTouchParameters {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InjectedInputTouchParameters {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InjectedInputTouchParameters {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InjectedInputTouchParameters {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InjectedInputTouchParameters {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputTouchParameters {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputTouchParameters;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InjectedInputVisualizationMode(pub i32);
+impl InjectedInputVisualizationMode {
+    pub const None: Self = Self(0i32);
+    pub const Default: Self = Self(1i32);
+    pub const Indirect: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InjectedInputVisualizationMode {}
+impl ::core::clone::Clone for InjectedInputVisualizationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InjectedInputVisualizationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputVisualizationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InjectedInputVisualizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputVisualizationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Input.Preview.Injection.InjectedInputVisualizationMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+pub struct InjectedInputPoint {
+    pub PositionX: i32,
+    pub PositionY: i32,
+}
+impl ::core::marker::Copy for InjectedInputPoint {}
+impl ::core::clone::Clone for InjectedInputPoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputPoint").field("PositionX", &self.PositionX).field("PositionY", &self.PositionY).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputPoint {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputPoint {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for InjectedInputPoint {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputPoint>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for InjectedInputPoint {}
+impl ::core::default::Default for InjectedInputPoint {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+pub struct InjectedInputPointerInfo {
+    pub PointerId: u32,
+    pub PointerOptions: InjectedInputPointerOptions,
+    pub PixelLocation: InjectedInputPoint,
+    pub TimeOffsetInMilliseconds: u32,
+    pub PerformanceCount: u64,
+}
+impl ::core::marker::Copy for InjectedInputPointerInfo {}
+impl ::core::clone::Clone for InjectedInputPointerInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputPointerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputPointerInfo").field("PointerId", &self.PointerId).field("PointerOptions", &self.PointerOptions).field("PixelLocation", &self.PixelLocation).field("TimeOffsetInMilliseconds", &self.TimeOffsetInMilliseconds).field("PerformanceCount", &self.PerformanceCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputPointerInfo {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputPointerInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputPointerInfo;u4;enum(Windows.UI.Input.Preview.Injection.InjectedInputPointerOptions;u4);struct(Windows.UI.Input.Preview.Injection.InjectedInputPoint;i4;i4);u4;u8)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for InjectedInputPointerInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputPointerInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for InjectedInputPointerInfo {}
+impl ::core::default::Default for InjectedInputPointerInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
+pub struct InjectedInputRectangle {
+    pub Left: i32,
+    pub Top: i32,
+    pub Bottom: i32,
+    pub Right: i32,
+}
+impl ::core::marker::Copy for InjectedInputRectangle {}
+impl ::core::clone::Clone for InjectedInputRectangle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for InjectedInputRectangle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("InjectedInputRectangle").field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).field("Right", &self.Right).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for InjectedInputRectangle {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for InjectedInputRectangle {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Input.Preview.Injection.InjectedInputRectangle;i4;i4;i4;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for InjectedInputRectangle {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<InjectedInputRectangle>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for InjectedInputRectangle {}
+impl ::core::default::Default for InjectedInputRectangle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

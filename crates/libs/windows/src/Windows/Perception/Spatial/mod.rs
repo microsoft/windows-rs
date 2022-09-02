@@ -778,40 +778,6 @@ unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpatialAnchorExportPurpose(pub i32);
-impl SpatialAnchorExportPurpose {
-    pub const Relocalization: Self = Self(0i32);
-    pub const Sharing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialAnchorExportPurpose {}
-impl ::core::clone::Clone for SpatialAnchorExportPurpose {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialAnchorExportPurpose {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Perception_Spatial\"`*"]
-#[repr(transparent)]
 pub struct SpatialAnchorExportSufficiency(::windows::core::IUnknown);
 impl SpatialAnchorExportSufficiency {
     pub fn IsMinimallySufficient(&self) -> ::windows::core::Result<bool> {
@@ -1249,199 +1215,6 @@ impl SpatialAnchorTransferManager {
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SpatialAnchorTransferManager {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorTransferManager";
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
-#[cfg(feature = "Foundation_Numerics")]
-pub struct SpatialBoundingBox {
-    pub Center: super::super::Foundation::Numerics::Vector3,
-    pub Extents: super::super::Foundation::Numerics::Vector3,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::marker::Copy for SpatialBoundingBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::clone::Clone for SpatialBoundingBox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingBox").field("Center", &self.Center).field("Extents", &self.Extents).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::Abi for SpatialBoundingBox {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::RuntimeType for SpatialBoundingBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingBox {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingBox>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingBox {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
-#[cfg(feature = "Foundation_Numerics")]
-pub struct SpatialBoundingFrustum {
-    pub Near: super::super::Foundation::Numerics::Plane,
-    pub Far: super::super::Foundation::Numerics::Plane,
-    pub Right: super::super::Foundation::Numerics::Plane,
-    pub Left: super::super::Foundation::Numerics::Plane,
-    pub Top: super::super::Foundation::Numerics::Plane,
-    pub Bottom: super::super::Foundation::Numerics::Plane,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::marker::Copy for SpatialBoundingFrustum {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::clone::Clone for SpatialBoundingFrustum {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingFrustum {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingFrustum").field("Near", &self.Near).field("Far", &self.Far).field("Right", &self.Right).field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::Abi for SpatialBoundingFrustum {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::RuntimeType for SpatialBoundingFrustum {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingFrustum {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingFrustum>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingFrustum {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingFrustum {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
-#[cfg(feature = "Foundation_Numerics")]
-pub struct SpatialBoundingOrientedBox {
-    pub Center: super::super::Foundation::Numerics::Vector3,
-    pub Extents: super::super::Foundation::Numerics::Vector3,
-    pub Orientation: super::super::Foundation::Numerics::Quaternion,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::marker::Copy for SpatialBoundingOrientedBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::clone::Clone for SpatialBoundingOrientedBox {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingOrientedBox {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingOrientedBox").field("Center", &self.Center).field("Extents", &self.Extents).field("Orientation", &self.Orientation).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::Abi for SpatialBoundingOrientedBox {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::RuntimeType for SpatialBoundingOrientedBox {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingOrientedBox {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingOrientedBox>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingOrientedBox {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingOrientedBox {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
-#[cfg(feature = "Foundation_Numerics")]
-pub struct SpatialBoundingSphere {
-    pub Center: super::super::Foundation::Numerics::Vector3,
-    pub Radius: f32,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::marker::Copy for SpatialBoundingSphere {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::clone::Clone for SpatialBoundingSphere {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialBoundingSphere {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialBoundingSphere").field("Center", &self.Center).field("Radius", &self.Radius).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::Abi for SpatialBoundingSphere {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::RuntimeType for SpatialBoundingSphere {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialBoundingSphere {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingSphere>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialBoundingSphere {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialBoundingSphere {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
@@ -2252,81 +2025,6 @@ unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpatialEntityWatcherStatus(pub i32);
-impl SpatialEntityWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-    pub const Aborted: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SpatialEntityWatcherStatus {}
-impl ::core::clone::Clone for SpatialEntityWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialEntityWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Perception_Spatial\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpatialLocatability(pub i32);
-impl SpatialLocatability {
-    pub const Unavailable: Self = Self(0i32);
-    pub const OrientationOnly: Self = Self(1i32);
-    pub const PositionalTrackingActivating: Self = Self(2i32);
-    pub const PositionalTrackingActive: Self = Self(3i32);
-    pub const PositionalTrackingInhibited: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SpatialLocatability {}
-impl ::core::clone::Clone for SpatialLocatability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialLocatability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpatialLocatability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialLocatability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLocatability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpatialLocatability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Perception_Spatial\"`*"]
-#[repr(transparent)]
 pub struct SpatialLocation(::windows::core::IUnknown);
 impl SpatialLocation {
     #[doc = "*Required features: `\"Foundation_Numerics\"`*"]
@@ -2867,157 +2565,6 @@ unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatin
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpatialLookDirectionRange(pub i32);
-impl SpatialLookDirectionRange {
-    pub const ForwardOnly: Self = Self(0i32);
-    pub const Omnidirectional: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialLookDirectionRange {}
-impl ::core::clone::Clone for SpatialLookDirectionRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialLookDirectionRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialLookDirectionRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Perception_Spatial\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpatialMovementRange(pub i32);
-impl SpatialMovementRange {
-    pub const NoMovement: Self = Self(0i32);
-    pub const Bounded: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpatialMovementRange {}
-impl ::core::clone::Clone for SpatialMovementRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialMovementRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpatialMovementRange {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialMovementRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Perception_Spatial\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpatialPerceptionAccessStatus(pub i32);
-impl SpatialPerceptionAccessStatus {
-    pub const Unspecified: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-    pub const DeniedByUser: Self = Self(2i32);
-    pub const DeniedBySystem: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SpatialPerceptionAccessStatus {}
-impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpatialPerceptionAccessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpatialPerceptionAccessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
-#[cfg(feature = "Foundation_Numerics")]
-pub struct SpatialRay {
-    pub Origin: super::super::Foundation::Numerics::Vector3,
-    pub Direction: super::super::Foundation::Numerics::Vector3,
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::marker::Copy for SpatialRay {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::clone::Clone for SpatialRay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::fmt::Debug for SpatialRay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpatialRay").field("Origin", &self.Origin).field("Direction", &self.Direction).finish()
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::Abi for SpatialRay {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation_Numerics")]
-unsafe impl ::windows::core::RuntimeType for SpatialRay {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialRay;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::PartialEq for SpatialRay {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialRay>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::cmp::Eq for SpatialRay {}
-#[cfg(feature = "Foundation_Numerics")]
-impl ::core::default::Default for SpatialRay {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Perception_Spatial\"`*"]
-#[repr(transparent)]
 pub struct SpatialStageFrameOfReference(::windows::core::IUnknown);
 impl SpatialStageFrameOfReference {
     pub fn CoordinateSystem(&self) -> ::windows::core::Result<SpatialCoordinateSystem> {
@@ -3235,5 +2782,458 @@ impl ::core::convert::From<&SpatialStationaryFrameOfReference> for &::windows::c
 }
 unsafe impl ::core::marker::Send for SpatialStationaryFrameOfReference {}
 unsafe impl ::core::marker::Sync for SpatialStationaryFrameOfReference {}
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpatialAnchorExportPurpose(pub i32);
+impl SpatialAnchorExportPurpose {
+    pub const Relocalization: Self = Self(0i32);
+    pub const Sharing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpatialAnchorExportPurpose {}
+impl ::core::clone::Clone for SpatialAnchorExportPurpose {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpatialAnchorExportPurpose {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportPurpose {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialAnchorExportPurpose;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpatialEntityWatcherStatus(pub i32);
+impl SpatialEntityWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+    pub const Aborted: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SpatialEntityWatcherStatus {}
+impl ::core::clone::Clone for SpatialEntityWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpatialEntityWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialEntityWatcherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpatialLocatability(pub i32);
+impl SpatialLocatability {
+    pub const Unavailable: Self = Self(0i32);
+    pub const OrientationOnly: Self = Self(1i32);
+    pub const PositionalTrackingActivating: Self = Self(2i32);
+    pub const PositionalTrackingActive: Self = Self(3i32);
+    pub const PositionalTrackingInhibited: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SpatialLocatability {}
+impl ::core::clone::Clone for SpatialLocatability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpatialLocatability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialLocatability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialLocatability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocatability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpatialLocatability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLocatability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpatialLookDirectionRange(pub i32);
+impl SpatialLookDirectionRange {
+    pub const ForwardOnly: Self = Self(0i32);
+    pub const Omnidirectional: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpatialLookDirectionRange {}
+impl ::core::clone::Clone for SpatialLookDirectionRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpatialLookDirectionRange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialLookDirectionRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpatialLookDirectionRange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialLookDirectionRange;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpatialMovementRange(pub i32);
+impl SpatialMovementRange {
+    pub const NoMovement: Self = Self(0i32);
+    pub const Bounded: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpatialMovementRange {}
+impl ::core::clone::Clone for SpatialMovementRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpatialMovementRange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialMovementRange {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialMovementRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpatialMovementRange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialMovementRange;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Perception_Spatial\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpatialPerceptionAccessStatus(pub i32);
+impl SpatialPerceptionAccessStatus {
+    pub const Unspecified: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+    pub const DeniedByUser: Self = Self(2i32);
+    pub const DeniedBySystem: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SpatialPerceptionAccessStatus {}
+impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpatialPerceptionAccessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpatialPerceptionAccessStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Perception.Spatial.SpatialPerceptionAccessStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingBox {
+    pub Center: super::super::Foundation::Numerics::Vector3,
+    pub Extents: super::super::Foundation::Numerics::Vector3,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingBox {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingBox {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingBox").field("Center", &self.Center).field("Extents", &self.Extents).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::Abi for SpatialBoundingBox {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::RuntimeType for SpatialBoundingBox {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for SpatialBoundingBox {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingBox>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::Eq for SpatialBoundingBox {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::default::Default for SpatialBoundingBox {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingFrustum {
+    pub Near: super::super::Foundation::Numerics::Plane,
+    pub Far: super::super::Foundation::Numerics::Plane,
+    pub Right: super::super::Foundation::Numerics::Plane,
+    pub Left: super::super::Foundation::Numerics::Plane,
+    pub Top: super::super::Foundation::Numerics::Plane,
+    pub Bottom: super::super::Foundation::Numerics::Plane,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingFrustum {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingFrustum {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingFrustum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingFrustum").field("Near", &self.Near).field("Far", &self.Far).field("Right", &self.Right).field("Left", &self.Left).field("Top", &self.Top).field("Bottom", &self.Bottom).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::Abi for SpatialBoundingFrustum {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::RuntimeType for SpatialBoundingFrustum {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingFrustum;struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4);struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for SpatialBoundingFrustum {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingFrustum>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::Eq for SpatialBoundingFrustum {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::default::Default for SpatialBoundingFrustum {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingOrientedBox {
+    pub Center: super::super::Foundation::Numerics::Vector3,
+    pub Extents: super::super::Foundation::Numerics::Vector3,
+    pub Orientation: super::super::Foundation::Numerics::Quaternion,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingOrientedBox {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingOrientedBox {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingOrientedBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingOrientedBox").field("Center", &self.Center).field("Extents", &self.Extents).field("Orientation", &self.Orientation).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::Abi for SpatialBoundingOrientedBox {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::RuntimeType for SpatialBoundingOrientedBox {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingOrientedBox;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for SpatialBoundingOrientedBox {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingOrientedBox>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::Eq for SpatialBoundingOrientedBox {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::default::Default for SpatialBoundingOrientedBox {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialBoundingSphere {
+    pub Center: super::super::Foundation::Numerics::Vector3,
+    pub Radius: f32,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialBoundingSphere {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialBoundingSphere {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialBoundingSphere {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialBoundingSphere").field("Center", &self.Center).field("Radius", &self.Radius).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::Abi for SpatialBoundingSphere {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::RuntimeType for SpatialBoundingSphere {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialBoundingSphere;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for SpatialBoundingSphere {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialBoundingSphere>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::Eq for SpatialBoundingSphere {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::default::Default for SpatialBoundingSphere {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Numerics\"`*"]
+#[cfg(feature = "Foundation_Numerics")]
+pub struct SpatialRay {
+    pub Origin: super::super::Foundation::Numerics::Vector3,
+    pub Direction: super::super::Foundation::Numerics::Vector3,
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::marker::Copy for SpatialRay {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::clone::Clone for SpatialRay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::fmt::Debug for SpatialRay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SpatialRay").field("Origin", &self.Origin).field("Direction", &self.Direction).finish()
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::Abi for SpatialRay {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation_Numerics")]
+unsafe impl ::windows::core::RuntimeType for SpatialRay {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Perception.Spatial.SpatialRay;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::PartialEq for SpatialRay {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SpatialRay>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::cmp::Eq for SpatialRay {}
+#[cfg(feature = "Foundation_Numerics")]
+impl ::core::default::Default for SpatialRay {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

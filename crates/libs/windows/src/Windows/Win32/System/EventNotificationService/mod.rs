@@ -1,5 +1,39 @@
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
-pub const CONNECTION_AOL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsDestinationReachableA<'a, P0>(lpszdestination: P0, lpqocinfo: &mut QOCINFO) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsDestinationReachableA(lpszdestination: ::windows::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
+    }
+    IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
+}
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsDestinationReachableW<'a, P0>(lpszdestination: P0, lpqocinfo: &mut QOCINFO) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsDestinationReachableW(lpszdestination: ::windows::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
+    }
+    IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
+}
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsNetworkAlive(lpdwflags: &mut u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    IsNetworkAlive(::core::mem::transmute(lpdwflags))
+}
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -514,42 +548,8 @@ pub struct ISensOnNow_Vtbl {
     pub OnBatteryPower: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbatterylifepercent: u32) -> ::windows::core::HRESULT,
     pub BatteryLow: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwbatterylifepercent: u32) -> ::windows::core::HRESULT,
 }
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsDestinationReachableA<'a, P0>(lpszdestination: P0, lpqocinfo: &mut QOCINFO) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsDestinationReachableA(lpszdestination: ::windows::core::PCSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
-    }
-    IsDestinationReachableA(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
-}
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsDestinationReachableW<'a, P0>(lpszdestination: P0, lpqocinfo: &mut QOCINFO) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsDestinationReachableW(lpszdestination: ::windows::core::PCWSTR, lpqocinfo: *mut QOCINFO) -> super::super::Foundation::BOOL;
-    }
-    IsDestinationReachableW(lpszdestination.into(), ::core::mem::transmute(lpqocinfo))
-}
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsNetworkAlive(lpdwflags: &mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsNetworkAlive(lpdwflags: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    IsNetworkAlive(::core::mem::transmute(lpdwflags))
-}
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
+pub const CONNECTION_AOL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_AOL: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
@@ -558,39 +558,6 @@ pub const NETWORK_ALIVE_INTERNET: u32 = 8u32;
 pub const NETWORK_ALIVE_LAN: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
 pub const NETWORK_ALIVE_WAN: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
-pub struct QOCINFO {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwInSpeed: u32,
-    pub dwOutSpeed: u32,
-}
-impl ::core::marker::Copy for QOCINFO {}
-impl ::core::clone::Clone for QOCINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for QOCINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for QOCINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QOCINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QOCINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for QOCINFO {}
-impl ::core::default::Default for QOCINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const SENS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd597cafe_5b9f_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_EVENTCLASS_LOGON: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5978630_5b9f_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_EVENTCLASS_LOGON2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5978650_5b9f_11d1_8dd2_00aa004abd5e);
@@ -624,6 +591,39 @@ unsafe impl ::windows::core::Abi for SENS_CONNECTION_TYPE {
 impl ::core::fmt::Debug for SENS_CONNECTION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SENS_CONNECTION_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_EventNotificationService\"`*"]
+pub struct QOCINFO {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwInSpeed: u32,
+    pub dwOutSpeed: u32,
+}
+impl ::core::marker::Copy for QOCINFO {}
+impl ::core::clone::Clone for QOCINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for QOCINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QOCINFO").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwInSpeed", &self.dwInSpeed).field("dwOutSpeed", &self.dwOutSpeed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for QOCINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for QOCINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QOCINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for QOCINFO {}
+impl ::core::default::Default for QOCINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

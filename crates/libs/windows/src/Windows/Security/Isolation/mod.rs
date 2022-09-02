@@ -1,107 +1,3 @@
-#[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-pub struct HostMessageReceivedCallback(pub ::windows::core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl HostMessageReceivedCallback {
-    pub fn new<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-struct HostMessageReceivedCallbackBox<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const HostMessageReceivedCallback_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> HostMessageReceivedCallbackBox<F> {
-    const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<HostMessageReceivedCallback as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&receiverid), ::core::mem::transmute(&message)).into()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for HostMessageReceivedCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for HostMessageReceivedCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for HostMessageReceivedCallback {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for HostMessageReceivedCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HostMessageReceivedCallback").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for HostMessageReceivedCallback {
-    type Vtable = HostMessageReceivedCallback_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::RuntimeType for HostMessageReceivedCallback {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faf26ffa-8ce1-4cc1-b278-322d31a5e4a3}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct HostMessageReceivedCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Invoke: usize,
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IIsolatedWindowsEnvironment(::windows::core::IUnknown);
@@ -843,269 +739,6 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentActivator(pub i32);
-impl IsolatedWindowsEnvironmentActivator {
-    pub const System: Self = Self(0i32);
-    pub const User: Self = Self(1i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentActivator {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentActivator {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
-impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    pub const None: Self = Self(0u32);
-    pub const Text: Self = Self(1u32);
-    pub const Image: Self = Self(2u32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentAllowedClipboardFormats {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
-impl IsolatedWindowsEnvironmentAvailablePrinters {
-    pub const None: Self = Self(0u32);
-    pub const Local: Self = Self(1u32);
-    pub const Network: Self = Self(2u32);
-    pub const SystemPrintToPdf: Self = Self(4u32);
-    pub const SystemPrintToXps: Self = Self(8u32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentAvailablePrinters {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for IsolatedWindowsEnvironmentAvailablePrinters {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IsolatedWindowsEnvironmentAvailablePrinters {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
-impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    pub const None: Self = Self(0u32);
-    pub const HostToIsolatedWindowsEnvironment: Self = Self(1u32);
-    pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-pub struct IsolatedWindowsEnvironmentCreateProgress {
-    pub State: IsolatedWindowsEnvironmentProgressState,
-    pub PercentComplete: u32,
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateProgress {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IsolatedWindowsEnvironmentCreateProgress").field("State", &self.State).field("PercentComplete", &self.PercentComplete).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateProgress {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateProgress {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IsolatedWindowsEnvironmentCreateProgress>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentCreateProgress {}
-impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentCreateResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentCreateResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentCreateStatus> {
@@ -1192,41 +825,6 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentCreateResult> for &::windo
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
-impl IsolatedWindowsEnvironmentCreateStatus {
-    pub const Success: Self = Self(0i32);
-    pub const FailureByPolicy: Self = Self(1i32);
-    pub const UnknownFailure: Self = Self(2i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentCreateStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentFile(::windows::core::IUnknown);
@@ -1354,43 +952,6 @@ impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentHost {
 }
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentHostError(pub i32);
-impl IsolatedWindowsEnvironmentHostError {
-    pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
-    pub const FeatureNotInstalled: Self = Self(1i32);
-    pub const HardwareRequirementsNotMet: Self = Self(2i32);
-    pub const RebootRequired: Self = Self(3i32);
-    pub const UnknownError: Self = Self(4i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentHostError {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentHostError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentLaunchFileResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentLaunchFileResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentLaunchFileStatus> {
@@ -1477,44 +1038,6 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentLaunchFileResult> for &::w
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
-impl IsolatedWindowsEnvironmentLaunchFileStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FileNotFound: Self = Self(3i32);
-    pub const TimedOut: Self = Self(4i32);
-    pub const AlreadySharedWithConflictingOptions: Self = Self(5i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentLaunchFileStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentLaunchFileStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentOptions(::windows::core::IUnknown);
@@ -1912,43 +1435,6 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistration
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
-impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidArgument: Self = Self(1i32);
-    pub const AccessDenied: Self = Self(2i32);
-    pub const InsufficientMemory: Self = Self(3i32);
-    pub const UnknownFailure: Self = Self(4i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentOwnerRegistrationStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentPostMessageResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentPostMessageResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentPostMessageStatus> {
@@ -2028,41 +1514,6 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentPostMessageResult> for &::
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
-impl IsolatedWindowsEnvironmentPostMessageStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentPostMessageStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentPostMessageStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentProcess(::windows::core::IUnknown);
@@ -2161,76 +1612,6 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentProcess> for &::windows::c
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
-impl IsolatedWindowsEnvironmentProcessState {
-    pub const Running: Self = Self(1i32);
-    pub const Aborted: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentProcessState {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentProcessState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
-impl IsolatedWindowsEnvironmentProgressState {
-    pub const Queued: Self = Self(0i32);
-    pub const Processing: Self = Self(1i32);
-    pub const Completed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentProgressState {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentProgressState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFileRequestOptions(::windows::core::IUnknown);
@@ -2406,44 +1787,6 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
-impl IsolatedWindowsEnvironmentShareFileStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const AlreadySharedWithConflictingOptions: Self = Self(3i32);
-    pub const FileNotFound: Self = Self(4i32);
-    pub const AccessDenied: Self = Self(5i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentShareFileStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentShareFileStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentShareFolderRequestOptions(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentShareFolderRequestOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2610,43 +1953,6 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
-impl IsolatedWindowsEnvironmentShareFolderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FolderNotFound: Self = Self(3i32);
-    pub const AccessDenied: Self = Self(4i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentShareFolderStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentShareFolderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentStartProcessResult(::windows::core::IUnknown);
 impl IsolatedWindowsEnvironmentStartProcessResult {
     pub fn Status(&self) -> ::windows::core::Result<IsolatedWindowsEnvironmentStartProcessStatus> {
@@ -2733,43 +2039,6 @@ impl ::core::convert::From<&IsolatedWindowsEnvironmentStartProcessResult> for &:
 }
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
-#[doc = "*Required features: `\"Security_Isolation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
-impl IsolatedWindowsEnvironmentStartProcessStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const EnvironmentUnavailable: Self = Self(2i32);
-    pub const FileNotFound: Self = Self(3i32);
-    pub const AppNotRegistered: Self = Self(4i32);
-}
-impl ::core::marker::Copy for IsolatedWindowsEnvironmentStartProcessStatus {}
-impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IsolatedWindowsEnvironmentStartProcessStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
 #[repr(transparent)]
 pub struct IsolatedWindowsEnvironmentTelemetryParameters(::windows::core::IUnknown);
@@ -2987,6 +2256,737 @@ impl IsolatedWindowsHostMessenger {
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsHostMessenger {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsHostMessenger";
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentActivator(pub i32);
+impl IsolatedWindowsEnvironmentActivator {
+    pub const System: Self = Self(0i32);
+    pub const User: Self = Self(1i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentActivator {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentActivator {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentActivator {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentActivator;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
+impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    pub const None: Self = Self(0u32);
+    pub const Text: Self = Self(1u32);
+    pub const Image: Self = Self(2u32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentAllowedClipboardFormats {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAllowedClipboardFormats {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAllowedClipboardFormats;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
+impl IsolatedWindowsEnvironmentAvailablePrinters {
+    pub const None: Self = Self(0u32);
+    pub const Local: Self = Self(1u32);
+    pub const Network: Self = Self(2u32);
+    pub const SystemPrintToPdf: Self = Self(4u32);
+    pub const SystemPrintToXps: Self = Self(8u32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentAvailablePrinters {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IsolatedWindowsEnvironmentAvailablePrinters {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IsolatedWindowsEnvironmentAvailablePrinters {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentAvailablePrinters {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentAvailablePrinters;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
+impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    pub const None: Self = Self(0u32);
+    pub const HostToIsolatedWindowsEnvironment: Self = Self(1u32);
+    pub const IsolatedWindowsEnvironmentToHost: Self = Self(2u32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentClipboardCopyPasteDirections;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
+impl IsolatedWindowsEnvironmentCreateStatus {
+    pub const Success: Self = Self(0i32);
+    pub const FailureByPolicy: Self = Self(1i32);
+    pub const UnknownFailure: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentCreateStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentHostError(pub i32);
+impl IsolatedWindowsEnvironmentHostError {
+    pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
+    pub const FeatureNotInstalled: Self = Self(1i32);
+    pub const HardwareRequirementsNotMet: Self = Self(2i32);
+    pub const RebootRequired: Self = Self(3i32);
+    pub const UnknownError: Self = Self(4i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentHostError {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentHostError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentHostError {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentHostError;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
+impl IsolatedWindowsEnvironmentLaunchFileStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const FileNotFound: Self = Self(3i32);
+    pub const TimedOut: Self = Self(4i32);
+    pub const AlreadySharedWithConflictingOptions: Self = Self(5i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentLaunchFileStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFileStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
+impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const InvalidArgument: Self = Self(1i32);
+    pub const AccessDenied: Self = Self(2i32);
+    pub const InsufficientMemory: Self = Self(3i32);
+    pub const UnknownFailure: Self = Self(4i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentOwnerRegistrationStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
+impl IsolatedWindowsEnvironmentPostMessageStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentPostMessageStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessageStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
+impl IsolatedWindowsEnvironmentProcessState {
+    pub const Running: Self = Self(1i32);
+    pub const Aborted: Self = Self(2i32);
+    pub const Completed: Self = Self(3i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentProcessState {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentProcessState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcessState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProcessState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
+impl IsolatedWindowsEnvironmentProgressState {
+    pub const Queued: Self = Self(0i32);
+    pub const Processing: Self = Self(1i32);
+    pub const Completed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentProgressState {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentProgressState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProgressState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
+impl IsolatedWindowsEnvironmentShareFileStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const AlreadySharedWithConflictingOptions: Self = Self(3i32);
+    pub const FileNotFound: Self = Self(4i32);
+    pub const AccessDenied: Self = Self(5i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentShareFileStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentShareFileStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFileStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
+impl IsolatedWindowsEnvironmentShareFolderStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const FolderNotFound: Self = Self(3i32);
+    pub const AccessDenied: Self = Self(4i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentShareFolderStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFolderStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
+impl IsolatedWindowsEnvironmentStartProcessStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const EnvironmentUnavailable: Self = Self(2i32);
+    pub const FileNotFound: Self = Self(3i32);
+    pub const AppNotRegistered: Self = Self(4i32);
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentStartProcessStatus {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProcessStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Security_Isolation\"`*"]
+pub struct IsolatedWindowsEnvironmentCreateProgress {
+    pub State: IsolatedWindowsEnvironmentProgressState,
+    pub PercentComplete: u32,
+}
+impl ::core::marker::Copy for IsolatedWindowsEnvironmentCreateProgress {}
+impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IsolatedWindowsEnvironmentCreateProgress").field("State", &self.State).field("PercentComplete", &self.PercentComplete).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateProgress {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateProgress {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateProgress;enum(Windows.Security.Isolation.IsolatedWindowsEnvironmentProgressState;i4);u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateProgress {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IsolatedWindowsEnvironmentCreateProgress>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IsolatedWindowsEnvironmentCreateProgress {}
+impl ::core::default::Default for IsolatedWindowsEnvironmentCreateProgress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+pub struct HostMessageReceivedCallback(pub ::windows::core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+impl HostMessageReceivedCallback {
+    pub fn new<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = HostMessageReceivedCallbackBox::<F> { vtable: &HostMessageReceivedCallbackBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Invoke<'a, P0, E0>(&self, receiverid: ::windows::core::GUID, message: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), receiverid, message.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+struct HostMessageReceivedCallbackBox<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const HostMessageReceivedCallback_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<F: FnMut(&::windows::core::GUID, &::core::option::Option<super::super::Foundation::Collections::IVectorView<::windows::core::IInspectable>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> HostMessageReceivedCallbackBox<F> {
+    const VTABLE: HostMessageReceivedCallback_Vtbl = HostMessageReceivedCallback_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<HostMessageReceivedCallback as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&receiverid), ::core::mem::transmute(&message)).into()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::clone::Clone for HostMessageReceivedCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::PartialEq for HostMessageReceivedCallback {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::Eq for HostMessageReceivedCallback {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for HostMessageReceivedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HostMessageReceivedCallback").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::Interface for HostMessageReceivedCallback {
+    type Vtable = HostMessageReceivedCallback_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf26ffa_8ce1_4cc1_b278_322d31a5e4a3);
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::RuntimeType for HostMessageReceivedCallback {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faf26ffa-8ce1-4cc1-b278-322d31a5e4a3}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct HostMessageReceivedCallback_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, receiverid: ::windows::core::GUID, message: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Invoke: usize,
 }
 #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]

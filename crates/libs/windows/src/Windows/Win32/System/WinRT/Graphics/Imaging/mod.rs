@@ -1,4 +1,3 @@
-pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
 #[doc = "*Required features: `\"Win32_System_WinRT_Graphics_Imaging\"`*"]
 #[repr(transparent)]
 pub struct ISoftwareBitmapNative(::windows::core::IUnknown);
@@ -157,5 +156,6 @@ pub struct ISoftwareBitmapNativeFactory_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     CreateFromMF2DBuffer2: usize,
 }
+pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

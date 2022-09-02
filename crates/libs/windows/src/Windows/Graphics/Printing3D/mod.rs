@@ -1125,82 +1125,6 @@ unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Print3DTaskCompletion(pub i32);
-impl Print3DTaskCompletion {
-    pub const Abandoned: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Slicing: Self = Self(3i32);
-    pub const Submitted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for Print3DTaskCompletion {}
-impl ::core::clone::Clone for Print3DTaskCompletion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DTaskCompletion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DTaskCompletion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Print3DTaskDetail(pub i32);
-impl Print3DTaskDetail {
-    pub const Unknown: Self = Self(0i32);
-    pub const ModelExceedsPrintBed: Self = Self(1i32);
-    pub const UploadFailed: Self = Self(2i32);
-    pub const InvalidMaterialSelection: Self = Self(3i32);
-    pub const InvalidModel: Self = Self(4i32);
-    pub const ModelNotManifold: Self = Self(5i32);
-    pub const InvalidPrintTicket: Self = Self(6i32);
-}
-impl ::core::marker::Copy for Print3DTaskDetail {}
-impl ::core::clone::Clone for Print3DTaskDetail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DTaskDetail {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Print3DTaskDetail {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DTaskDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
 pub struct Print3DTaskRequest(::windows::core::IUnknown);
 impl Print3DTaskRequest {
     pub fn CreateTask<'a, P0>(&self, title: &::windows::core::HSTRING, printerid: &::windows::core::HSTRING, handler: P0) -> ::windows::core::Result<Print3DTask>
@@ -1498,93 +1422,6 @@ impl ::core::convert::From<&Print3DTaskSourceRequestedArgs> for &::windows::core
 }
 unsafe impl ::core::marker::Send for Print3DTaskSourceRequestedArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskSourceRequestedArgs {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
-pub struct Print3DTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
-impl Print3DTaskSourceRequestedHandler {
-    pub fn new<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0>(&self, args: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, Print3DTaskSourceRequestedArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct Print3DTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const Print3DTaskSourceRequestedHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
-    const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<Print3DTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&args)).into()
-    }
-}
-impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskSourceRequestedHandler {}
-impl ::core::fmt::Debug for Print3DTaskSourceRequestedHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DTaskSourceRequestedHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedHandler {
-    type Vtable = Print3DTaskSourceRequestedHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
-}
-unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9175e70-c917-46de-bb51-d9a94db3711f}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct Print3DTaskSourceRequestedHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 pub struct Printing3D3MFPackage(::windows::core::IUnknown);
@@ -1992,83 +1829,6 @@ impl ::core::convert::From<&Printing3DBaseMaterialGroup> for &::windows::core::I
 }
 unsafe impl ::core::marker::Send for Printing3DBaseMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DBaseMaterialGroup {}
-#[repr(C)]
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-pub struct Printing3DBufferDescription {
-    pub Format: Printing3DBufferFormat,
-    pub Stride: u32,
-}
-impl ::core::marker::Copy for Printing3DBufferDescription {}
-impl ::core::clone::Clone for Printing3DBufferDescription {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for Printing3DBufferDescription {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DBufferDescription {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DBufferDescription {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for Printing3DBufferDescription {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Printing3DBufferDescription>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Printing3DBufferDescription {}
-impl ::core::default::Default for Printing3DBufferDescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Printing3DBufferFormat(pub i32);
-impl Printing3DBufferFormat {
-    pub const Unknown: Self = Self(0i32);
-    pub const R32G32B32A32Float: Self = Self(2i32);
-    pub const R32G32B32A32UInt: Self = Self(3i32);
-    pub const R32G32B32Float: Self = Self(6i32);
-    pub const R32G32B32UInt: Self = Self(7i32);
-    pub const Printing3DDouble: Self = Self(500i32);
-    pub const Printing3DUInt: Self = Self(501i32);
-}
-impl ::core::marker::Copy for Printing3DBufferFormat {}
-impl ::core::clone::Clone for Printing3DBufferFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DBufferFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DBufferFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 pub struct Printing3DColorMaterial(::windows::core::IUnknown);
@@ -3157,40 +2917,6 @@ unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Printing3DMeshVerificationMode(pub i32);
-impl Printing3DMeshVerificationMode {
-    pub const FindFirstError: Self = Self(0i32);
-    pub const FindAllErrors: Self = Self(1i32);
-}
-impl ::core::marker::Copy for Printing3DMeshVerificationMode {}
-impl ::core::clone::Clone for Printing3DMeshVerificationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DMeshVerificationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
 pub struct Printing3DMeshVerificationResult(::windows::core::IUnknown);
 impl Printing3DMeshVerificationResult {
     pub fn IsValid(&self) -> ::windows::core::Result<bool> {
@@ -3638,44 +3364,6 @@ unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Printing3DModelUnit(pub i32);
-impl Printing3DModelUnit {
-    pub const Meter: Self = Self(0i32);
-    pub const Micron: Self = Self(1i32);
-    pub const Millimeter: Self = Self(2i32);
-    pub const Centimeter: Self = Self(3i32);
-    pub const Inch: Self = Self(4i32);
-    pub const Foot: Self = Self(5i32);
-}
-impl ::core::marker::Copy for Printing3DModelUnit {}
-impl ::core::clone::Clone for Printing3DModelUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DModelUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DModelUnit {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DModelUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
 pub struct Printing3DMultiplePropertyMaterial(::windows::core::IUnknown);
 impl Printing3DMultiplePropertyMaterial {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -3860,76 +3548,6 @@ impl ::core::convert::From<&Printing3DMultiplePropertyMaterialGroup> for &::wind
 }
 unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Printing3DObjectType(pub i32);
-impl Printing3DObjectType {
-    pub const Model: Self = Self(0i32);
-    pub const Support: Self = Self(1i32);
-    pub const Others: Self = Self(2i32);
-}
-impl ::core::marker::Copy for Printing3DObjectType {}
-impl ::core::clone::Clone for Printing3DObjectType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DObjectType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DObjectType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DObjectType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Printing3DPackageCompression(pub i32);
-impl Printing3DPackageCompression {
-    pub const Low: Self = Self(0i32);
-    pub const Medium: Self = Self(1i32);
-    pub const High: Self = Self(2i32);
-}
-impl ::core::marker::Copy for Printing3DPackageCompression {}
-impl ::core::clone::Clone for Printing3DPackageCompression {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DPackageCompression {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DPackageCompression {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
 pub struct Printing3DTexture2CoordMaterial(::windows::core::IUnknown);
@@ -4150,42 +3768,6 @@ unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Printing3DTextureEdgeBehavior(pub i32);
-impl Printing3DTextureEdgeBehavior {
-    pub const None: Self = Self(0i32);
-    pub const Wrap: Self = Self(1i32);
-    pub const Mirror: Self = Self(2i32);
-    pub const Clamp: Self = Self(3i32);
-}
-impl ::core::marker::Copy for Printing3DTextureEdgeBehavior {}
-impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Printing3DTextureEdgeBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
-#[repr(transparent)]
 pub struct Printing3DTextureResource(::windows::core::IUnknown);
 impl Printing3DTextureResource {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -4288,5 +3870,423 @@ impl ::core::convert::From<&Printing3DTextureResource> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for Printing3DTextureResource {}
 unsafe impl ::core::marker::Sync for Printing3DTextureResource {}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Print3DTaskCompletion(pub i32);
+impl Print3DTaskCompletion {
+    pub const Abandoned: Self = Self(0i32);
+    pub const Canceled: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
+    pub const Slicing: Self = Self(3i32);
+    pub const Submitted: Self = Self(4i32);
+}
+impl ::core::marker::Copy for Print3DTaskCompletion {}
+impl ::core::clone::Clone for Print3DTaskCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Print3DTaskCompletion {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Print3DTaskCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletion {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskCompletion;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Print3DTaskDetail(pub i32);
+impl Print3DTaskDetail {
+    pub const Unknown: Self = Self(0i32);
+    pub const ModelExceedsPrintBed: Self = Self(1i32);
+    pub const UploadFailed: Self = Self(2i32);
+    pub const InvalidMaterialSelection: Self = Self(3i32);
+    pub const InvalidModel: Self = Self(4i32);
+    pub const ModelNotManifold: Self = Self(5i32);
+    pub const InvalidPrintTicket: Self = Self(6i32);
+}
+impl ::core::marker::Copy for Print3DTaskDetail {}
+impl ::core::clone::Clone for Print3DTaskDetail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Print3DTaskDetail {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Print3DTaskDetail {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Print3DTaskDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Print3DTaskDetail {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Print3DTaskDetail;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Printing3DBufferFormat(pub i32);
+impl Printing3DBufferFormat {
+    pub const Unknown: Self = Self(0i32);
+    pub const R32G32B32A32Float: Self = Self(2i32);
+    pub const R32G32B32A32UInt: Self = Self(3i32);
+    pub const R32G32B32Float: Self = Self(6i32);
+    pub const R32G32B32UInt: Self = Self(7i32);
+    pub const Printing3DDouble: Self = Self(500i32);
+    pub const Printing3DUInt: Self = Self(501i32);
+}
+impl ::core::marker::Copy for Printing3DBufferFormat {}
+impl ::core::clone::Clone for Printing3DBufferFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Printing3DBufferFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Printing3DBufferFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DBufferFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Printing3DMeshVerificationMode(pub i32);
+impl Printing3DMeshVerificationMode {
+    pub const FindFirstError: Self = Self(0i32);
+    pub const FindAllErrors: Self = Self(1i32);
+}
+impl ::core::marker::Copy for Printing3DMeshVerificationMode {}
+impl ::core::clone::Clone for Printing3DMeshVerificationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Printing3DMeshVerificationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DMeshVerificationMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Printing3DModelUnit(pub i32);
+impl Printing3DModelUnit {
+    pub const Meter: Self = Self(0i32);
+    pub const Micron: Self = Self(1i32);
+    pub const Millimeter: Self = Self(2i32);
+    pub const Centimeter: Self = Self(3i32);
+    pub const Inch: Self = Self(4i32);
+    pub const Foot: Self = Self(5i32);
+}
+impl ::core::marker::Copy for Printing3DModelUnit {}
+impl ::core::clone::Clone for Printing3DModelUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Printing3DModelUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DModelUnit {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Printing3DModelUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DModelUnit {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DModelUnit;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Printing3DObjectType(pub i32);
+impl Printing3DObjectType {
+    pub const Model: Self = Self(0i32);
+    pub const Support: Self = Self(1i32);
+    pub const Others: Self = Self(2i32);
+}
+impl ::core::marker::Copy for Printing3DObjectType {}
+impl ::core::clone::Clone for Printing3DObjectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Printing3DObjectType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DObjectType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Printing3DObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DObjectType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DObjectType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Printing3DPackageCompression(pub i32);
+impl Printing3DPackageCompression {
+    pub const Low: Self = Self(0i32);
+    pub const Medium: Self = Self(1i32);
+    pub const High: Self = Self(2i32);
+}
+impl ::core::marker::Copy for Printing3DPackageCompression {}
+impl ::core::clone::Clone for Printing3DPackageCompression {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Printing3DPackageCompression {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Printing3DPackageCompression {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DPackageCompression {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DPackageCompression;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Printing3DTextureEdgeBehavior(pub i32);
+impl Printing3DTextureEdgeBehavior {
+    pub const None: Self = Self(0i32);
+    pub const Wrap: Self = Self(1i32);
+    pub const Mirror: Self = Self(2i32);
+    pub const Clamp: Self = Self(3i32);
+}
+impl ::core::marker::Copy for Printing3DTextureEdgeBehavior {}
+impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Printing3DTextureEdgeBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DTextureEdgeBehavior {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing3D.Printing3DTextureEdgeBehavior;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+pub struct Printing3DBufferDescription {
+    pub Format: Printing3DBufferFormat,
+    pub Stride: u32,
+}
+impl ::core::marker::Copy for Printing3DBufferDescription {}
+impl ::core::clone::Clone for Printing3DBufferDescription {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for Printing3DBufferDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("Printing3DBufferDescription").field("Format", &self.Format).field("Stride", &self.Stride).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for Printing3DBufferDescription {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for Printing3DBufferDescription {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Graphics.Printing3D.Printing3DBufferDescription;enum(Windows.Graphics.Printing3D.Printing3DBufferFormat;i4);u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for Printing3DBufferDescription {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Printing3DBufferDescription>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Printing3DBufferDescription {}
+impl ::core::default::Default for Printing3DBufferDescription {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing3D\"`*"]
+#[repr(transparent)]
+pub struct Print3DTaskSourceRequestedHandler(pub ::windows::core::IUnknown);
+impl Print3DTaskSourceRequestedHandler {
+    pub fn new<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = Print3DTaskSourceRequestedHandlerBox::<F> { vtable: &Print3DTaskSourceRequestedHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0>(&self, args: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, Print3DTaskSourceRequestedArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), args.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct Print3DTaskSourceRequestedHandlerBox<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const Print3DTaskSourceRequestedHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<Print3DTaskSourceRequestedArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> Print3DTaskSourceRequestedHandlerBox<F> {
+    const VTABLE: Print3DTaskSourceRequestedHandler_Vtbl = Print3DTaskSourceRequestedHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<Print3DTaskSourceRequestedHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&args)).into()
+    }
+}
+impl ::core::clone::Clone for Print3DTaskSourceRequestedHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Print3DTaskSourceRequestedHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Print3DTaskSourceRequestedHandler {}
+impl ::core::fmt::Debug for Print3DTaskSourceRequestedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DTaskSourceRequestedHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedHandler {
+    type Vtable = Print3DTaskSourceRequestedHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9175e70_c917_46de_bb51_d9a94db3711f);
+}
+unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e9175e70-c917-46de-bb51-d9a94db3711f}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct Print3DTaskSourceRequestedHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

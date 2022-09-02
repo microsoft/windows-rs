@@ -4,242 +4,6 @@ pub mod DevicePortal;
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
 pub mod TraceReporting;
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
-#[repr(transparent)]
-pub struct DiagnosticActionResult(::windows::core::IUnknown);
-impl DiagnosticActionResult {
-    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Results(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Results)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DiagnosticActionResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DiagnosticActionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticActionResult {}
-impl ::core::fmt::Debug for DiagnosticActionResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticActionResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DiagnosticActionResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DiagnosticActionResult {
-    type Vtable = IDiagnosticActionResult_Vtbl;
-    const IID: ::windows::core::GUID = <IDiagnosticActionResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DiagnosticActionResult {
-    const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
-}
-impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IUnknown {
-    fn from(value: DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IUnknown {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IUnknown {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IInspectable {
-    fn from(value: DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IInspectable {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IInspectable {
-    fn from(value: &DiagnosticActionResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DiagnosticActionResult {}
-unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DiagnosticActionState(pub i32);
-impl DiagnosticActionState {
-    pub const Initializing: Self = Self(0i32);
-    pub const Downloading: Self = Self(1i32);
-    pub const VerifyingTrust: Self = Self(2i32);
-    pub const Detecting: Self = Self(3i32);
-    pub const Resolving: Self = Self(4i32);
-    pub const VerifyingResolution: Self = Self(5i32);
-    pub const Executing: Self = Self(6i32);
-}
-impl ::core::marker::Copy for DiagnosticActionState {}
-impl ::core::clone::Clone for DiagnosticActionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DiagnosticActionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DiagnosticActionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DiagnosticActionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticActionState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"System_Diagnostics\"`*"]
-#[repr(transparent)]
-pub struct DiagnosticInvoker(::windows::core::IUnknown);
-impl DiagnosticInvoker {
-    #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
-    #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
-    pub fn RunDiagnosticActionAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Json::JsonObject>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RunDiagnosticActionFromStringAsync(&self, context: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
-        let this = &::windows::core::Interface::cast::<IDiagnosticInvoker2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(context), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
-        }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<DiagnosticInvoker> {
-        Self::IDiagnosticInvokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
-        })
-    }
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<DiagnosticInvoker>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
-    {
-        Self::IDiagnosticInvokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
-        })
-    }
-    pub fn IsSupported() -> ::windows::core::Result<bool> {
-        Self::IDiagnosticInvokerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DiagnosticInvoker, IDiagnosticInvokerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for DiagnosticInvoker {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DiagnosticInvoker {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticInvoker {}
-impl ::core::fmt::Debug for DiagnosticInvoker {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DiagnosticInvoker").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DiagnosticInvoker {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DiagnosticInvoker {
-    type Vtable = IDiagnosticInvoker_Vtbl;
-    const IID: ::windows::core::GUID = <IDiagnosticInvoker as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DiagnosticInvoker {
-    const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
-}
-impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IUnknown {
-    fn from(value: DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IUnknown {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IUnknown {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IInspectable {
-    fn from(value: DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IInspectable {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IInspectable {
-    fn from(value: &DiagnosticInvoker) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DiagnosticInvoker {}
-unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDiagnosticActionResult(::windows::core::IUnknown);
@@ -580,6 +344,203 @@ pub struct ISystemMemoryUsageReport_Vtbl {
     pub AvailableSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     pub CommittedSizeInBytes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"System_Diagnostics\"`*"]
+#[repr(transparent)]
+pub struct DiagnosticActionResult(::windows::core::IUnknown);
+impl DiagnosticActionResult {
+    pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Results(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Results)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DiagnosticActionResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DiagnosticActionResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DiagnosticActionResult {}
+impl ::core::fmt::Debug for DiagnosticActionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticActionResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DiagnosticActionResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticActionResult;{c265a296-e73b-4097-b28f-3442f03dd831})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DiagnosticActionResult {
+    type Vtable = IDiagnosticActionResult_Vtbl;
+    const IID: ::windows::core::GUID = <IDiagnosticActionResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DiagnosticActionResult {
+    const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticActionResult";
+}
+impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IUnknown {
+    fn from(value: DiagnosticActionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IUnknown {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IUnknown {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DiagnosticActionResult> for ::windows::core::IInspectable {
+    fn from(value: DiagnosticActionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DiagnosticActionResult> for ::windows::core::IInspectable {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DiagnosticActionResult> for &::windows::core::IInspectable {
+    fn from(value: &DiagnosticActionResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DiagnosticActionResult {}
+unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
+#[doc = "*Required features: `\"System_Diagnostics\"`*"]
+#[repr(transparent)]
+pub struct DiagnosticInvoker(::windows::core::IUnknown);
+impl DiagnosticInvoker {
+    #[doc = "*Required features: `\"Data_Json\"`, `\"Foundation\"`*"]
+    #[cfg(all(feature = "Data_Json", feature = "Foundation"))]
+    pub fn RunDiagnosticActionAsync<'a, P0>(&self, context: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Json::JsonObject>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RunDiagnosticActionAsync)(::windows::core::Interface::as_raw(this), context.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RunDiagnosticActionFromStringAsync(&self, context: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+        let this = &::windows::core::Interface::cast::<IDiagnosticInvoker2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(context), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>(result__)
+        }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<DiagnosticInvoker> {
+        Self::IDiagnosticInvokerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
+        })
+    }
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<DiagnosticInvoker>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::User>>,
+    {
+        Self::IDiagnosticInvokerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<DiagnosticInvoker>(result__)
+        })
+    }
+    pub fn IsSupported() -> ::windows::core::Result<bool> {
+        Self::IDiagnosticInvokerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DiagnosticInvoker, IDiagnosticInvokerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for DiagnosticInvoker {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DiagnosticInvoker {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DiagnosticInvoker {}
+impl ::core::fmt::Debug for DiagnosticInvoker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticInvoker").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DiagnosticInvoker {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DiagnosticInvoker;{187b270a-02e3-4f86-84fc-fdd892b5940f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DiagnosticInvoker {
+    type Vtable = IDiagnosticInvoker_Vtbl;
+    const IID: ::windows::core::GUID = <IDiagnosticInvoker as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DiagnosticInvoker {
+    const NAME: &'static str = "Windows.System.Diagnostics.DiagnosticInvoker";
+}
+impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IUnknown {
+    fn from(value: DiagnosticInvoker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IUnknown {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IUnknown {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DiagnosticInvoker> for ::windows::core::IInspectable {
+    fn from(value: DiagnosticInvoker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DiagnosticInvoker> for ::windows::core::IInspectable {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DiagnosticInvoker> for &::windows::core::IInspectable {
+    fn from(value: &DiagnosticInvoker) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DiagnosticInvoker {}
+unsafe impl ::core::marker::Sync for DiagnosticInvoker {}
 #[doc = "*Required features: `\"System_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct ProcessCpuUsage(::windows::core::IUnknown);
@@ -1750,5 +1711,44 @@ impl ::core::convert::From<&SystemMemoryUsageReport> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for SystemMemoryUsageReport {}
 unsafe impl ::core::marker::Sync for SystemMemoryUsageReport {}
+#[doc = "*Required features: `\"System_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DiagnosticActionState(pub i32);
+impl DiagnosticActionState {
+    pub const Initializing: Self = Self(0i32);
+    pub const Downloading: Self = Self(1i32);
+    pub const VerifyingTrust: Self = Self(2i32);
+    pub const Detecting: Self = Self(3i32);
+    pub const Resolving: Self = Self(4i32);
+    pub const VerifyingResolution: Self = Self(5i32);
+    pub const Executing: Self = Self(6i32);
+}
+impl ::core::marker::Copy for DiagnosticActionState {}
+impl ::core::clone::Clone for DiagnosticActionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DiagnosticActionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DiagnosticActionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DiagnosticActionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticActionState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DiagnosticActionState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Diagnostics.DiagnosticActionState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

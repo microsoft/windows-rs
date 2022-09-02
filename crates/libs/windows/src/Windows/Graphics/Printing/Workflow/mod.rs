@@ -1106,40 +1106,6 @@ unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventA
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintWorkflowJobAbortReason(pub i32);
-impl PrintWorkflowJobAbortReason {
-    pub const JobFailed: Self = Self(0i32);
-    pub const UserCanceled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PrintWorkflowJobAbortReason {}
-impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowJobAbortReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-#[repr(transparent)]
 pub struct PrintWorkflowJobActivatedEventArgs(::windows::core::IUnknown);
 impl PrintWorkflowJobActivatedEventArgs {
     #[doc = "*Required features: `\"ApplicationModel_Activation\"`*"]
@@ -1932,41 +1898,6 @@ unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintWorkflowPdlConversionType(pub i32);
-impl PrintWorkflowPdlConversionType {
-    pub const XpsToPdf: Self = Self(0i32);
-    pub const XpsToPwgr: Self = Self(1i32);
-    pub const XpsToPclm: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintWorkflowPdlConversionType {}
-impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowPdlConversionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-#[repr(transparent)]
 pub struct PrintWorkflowPdlConverter(::windows::core::IUnknown);
 impl PrintWorkflowPdlConverter {
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`, `\"Storage_Streams\"`*"]
@@ -2614,79 +2545,6 @@ unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintWorkflowPrinterJobStatus(pub i32);
-impl PrintWorkflowPrinterJobStatus {
-    pub const Error: Self = Self(0i32);
-    pub const Aborted: Self = Self(1i32);
-    pub const InProgress: Self = Self(2i32);
-    pub const Completed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintWorkflowPrinterJobStatus {}
-impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowPrinterJobStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintWorkflowSessionStatus(pub i32);
-impl PrintWorkflowSessionStatus {
-    pub const Started: Self = Self(0i32);
-    pub const Completed: Self = Self(1i32);
-    pub const Aborted: Self = Self(2i32);
-    pub const Closed: Self = Self(3i32);
-    pub const PdlDataAvailableForModification: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PrintWorkflowSessionStatus {}
-impl ::core::clone::Clone for PrintWorkflowSessionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowSessionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-#[repr(transparent)]
 pub struct PrintWorkflowSourceContent(::windows::core::IUnknown);
 impl PrintWorkflowSourceContent {
     #[doc = "*Required features: `\"Foundation\"`, `\"Graphics_Printing_PrintTicket\"`*"]
@@ -3109,41 +2967,6 @@ unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintWorkflowSubmittedStatus(pub i32);
-impl PrintWorkflowSubmittedStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PrintWorkflowSubmittedStatus {}
-impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowSubmittedStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-#[repr(transparent)]
 pub struct PrintWorkflowTarget(::windows::core::IUnknown);
 impl PrintWorkflowTarget {
     pub fn TargetAsStream(&self) -> ::windows::core::Result<PrintWorkflowStreamTarget> {
@@ -3453,42 +3276,6 @@ unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
 #[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PrintWorkflowUICompletionStatus(pub i32);
-impl PrintWorkflowUICompletionStatus {
-    pub const Completed: Self = Self(0i32);
-    pub const LaunchFailed: Self = Self(1i32);
-    pub const JobFailed: Self = Self(2i32);
-    pub const UserCanceled: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PrintWorkflowUICompletionStatus {}
-impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PrintWorkflowUICompletionStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
-#[repr(transparent)]
 pub struct PrintWorkflowUILauncher(::windows::core::IUnknown);
 impl PrintWorkflowUILauncher {
     pub fn IsUILaunchEnabled(&self) -> ::windows::core::Result<bool> {
@@ -3653,5 +3440,218 @@ impl ::core::convert::From<&PrintWorkflowXpsDataAvailableEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for PrintWorkflowXpsDataAvailableEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowXpsDataAvailableEventArgs {}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowJobAbortReason(pub i32);
+impl PrintWorkflowJobAbortReason {
+    pub const JobFailed: Self = Self(0i32);
+    pub const UserCanceled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PrintWorkflowJobAbortReason {}
+impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowJobAbortReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowJobAbortReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowJobAbortReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowPdlConversionType(pub i32);
+impl PrintWorkflowPdlConversionType {
+    pub const XpsToPdf: Self = Self(0i32);
+    pub const XpsToPwgr: Self = Self(1i32);
+    pub const XpsToPclm: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintWorkflowPdlConversionType {}
+impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowPdlConversionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowPdlConversionType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConversionType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowPrinterJobStatus(pub i32);
+impl PrintWorkflowPrinterJobStatus {
+    pub const Error: Self = Self(0i32);
+    pub const Aborted: Self = Self(1i32);
+    pub const InProgress: Self = Self(2i32);
+    pub const Completed: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PrintWorkflowPrinterJobStatus {}
+impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowPrinterJobStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowPrinterJobStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowSessionStatus(pub i32);
+impl PrintWorkflowSessionStatus {
+    pub const Started: Self = Self(0i32);
+    pub const Completed: Self = Self(1i32);
+    pub const Aborted: Self = Self(2i32);
+    pub const Closed: Self = Self(3i32);
+    pub const PdlDataAvailableForModification: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PrintWorkflowSessionStatus {}
+impl ::core::clone::Clone for PrintWorkflowSessionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowSessionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowSessionStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSessionStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowSubmittedStatus(pub i32);
+impl PrintWorkflowSubmittedStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Canceled: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PrintWorkflowSubmittedStatus {}
+impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowSubmittedStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowSubmittedStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Graphics_Printing_Workflow\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PrintWorkflowUICompletionStatus(pub i32);
+impl PrintWorkflowUICompletionStatus {
+    pub const Completed: Self = Self(0i32);
+    pub const LaunchFailed: Self = Self(1i32);
+    pub const JobFailed: Self = Self(2i32);
+    pub const UserCanceled: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PrintWorkflowUICompletionStatus {}
+impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PrintWorkflowUICompletionStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PrintWorkflowUICompletionStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.Workflow.PrintWorkflowUICompletionStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

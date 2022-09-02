@@ -993,75 +993,6 @@ impl ::core::convert::From<&WebViewControlAcceleratorKeyPressedEventArgs> for &:
 }
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
-impl WebViewControlAcceleratorKeyRoutingStage {
-    pub const Tunneling: Self = Self(0i32);
-    pub const Bubbling: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebViewControlAcceleratorKeyRoutingStage {}
-impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlAcceleratorKeyRoutingStage {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebViewControlAcceleratorKeyRoutingStage {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlAcceleratorKeyRoutingStage").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_UI_Interop\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebViewControlMoveFocusReason(pub i32);
-impl WebViewControlMoveFocusReason {
-    pub const Programmatic: Self = Self(0i32);
-    pub const Next: Self = Self(1i32);
-    pub const Previous: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WebViewControlMoveFocusReason {}
-impl ::core::clone::Clone for WebViewControlMoveFocusReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlMoveFocusReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebViewControlMoveFocusReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlMoveFocusReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_UI_Interop\"`*"]
-#[repr(transparent)]
 pub struct WebViewControlMoveFocusRequestedEventArgs(::windows::core::IUnknown);
 impl WebViewControlMoveFocusRequestedEventArgs {
     pub fn Reason(&self) -> ::windows::core::Result<WebViewControlMoveFocusReason> {
@@ -1281,41 +1212,6 @@ impl ::core::convert::From<&WebViewControlProcess> for &::windows::core::IInspec
 }
 #[doc = "*Required features: `\"Web_UI_Interop\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebViewControlProcessCapabilityState(pub i32);
-impl WebViewControlProcessCapabilityState {
-    pub const Default: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for WebViewControlProcessCapabilityState {}
-impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebViewControlProcessCapabilityState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebViewControlProcessCapabilityState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebViewControlProcessCapabilityState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Web_UI_Interop\"`*"]
-#[repr(transparent)]
 pub struct WebViewControlProcessOptions(::windows::core::IUnknown);
 impl WebViewControlProcessOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1406,6 +1302,110 @@ impl ::core::convert::From<&WebViewControlProcessOptions> for ::windows::core::I
 impl ::core::convert::From<&WebViewControlProcessOptions> for &::windows::core::IInspectable {
     fn from(value: &WebViewControlProcessOptions) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Web_UI_Interop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
+impl WebViewControlAcceleratorKeyRoutingStage {
+    pub const Tunneling: Self = Self(0i32);
+    pub const Bubbling: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WebViewControlAcceleratorKeyRoutingStage {}
+impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebViewControlAcceleratorKeyRoutingStage {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebViewControlAcceleratorKeyRoutingStage {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlAcceleratorKeyRoutingStage").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyRoutingStage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyRoutingStage;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_UI_Interop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebViewControlMoveFocusReason(pub i32);
+impl WebViewControlMoveFocusReason {
+    pub const Programmatic: Self = Self(0i32);
+    pub const Next: Self = Self(1i32);
+    pub const Previous: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WebViewControlMoveFocusReason {}
+impl ::core::clone::Clone for WebViewControlMoveFocusReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebViewControlMoveFocusReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebViewControlMoveFocusReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlMoveFocusReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlMoveFocusReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Web_UI_Interop\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebViewControlProcessCapabilityState(pub i32);
+impl WebViewControlProcessCapabilityState {
+    pub const Default: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for WebViewControlProcessCapabilityState {}
+impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebViewControlProcessCapabilityState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebViewControlProcessCapabilityState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlProcessCapabilityState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebViewControlProcessCapabilityState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Web.UI.Interop.WebViewControlProcessCapabilityState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

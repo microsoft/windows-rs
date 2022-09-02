@@ -1,3 +1,45 @@
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OfflineFilesEnable<'a, P0>(benable: P0, pbrebootrequired: &mut super::super::Foundation::BOOL) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
+    }
+    OfflineFilesEnable(benable.into(), ::core::mem::transmute(pbrebootrequired))
+}
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OfflineFilesQueryStatus(pbactive: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
+    }
+    OfflineFilesQueryStatus(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled))
+}
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OfflineFilesQueryStatusEx(pbactive: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbavailable: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
+    }
+    OfflineFilesQueryStatusEx(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled), ::core::mem::transmute(pbavailable))
+}
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+#[inline]
+pub unsafe fn OfflineFilesStart() -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OfflineFilesStart() -> u32;
+    }
+    OfflineFilesStart()
+}
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 pub struct IEnumOfflineFilesItems(::windows::core::IUnknown);
@@ -3620,6 +3662,204 @@ pub struct IOfflineFilesTransparentCacheInfo_Vtbl {
     IsTransparentlyCached: usize,
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_LOCAL_ATTRIBUTES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_LOCAL_SIZE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_LOCAL_TIME: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_REMOTE_ATTRIBUTES: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_REMOTE_SIZE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_CHANGES_REMOTE_TIME: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_DELETE_FLAG_ADMIN: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_DELETE_FLAG_DELMODIFIED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_DELETE_FLAG_NOAUTOCACHED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_DELETE_FLAG_NOPINNED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_BACKGROUND: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_CONSOLE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_INTERACTIVE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENUM_FLAT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ENUM_FLAT_FILESONLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_CREATED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_DELETED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_DIRECTORY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_DIRTY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_FILE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_GHOST: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_ANYACCESS: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_READ: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_WRITE: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED_ATTRIBUTES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED_DATA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_OFFLINE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_ONLINE: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_ANYACCESS: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_READ: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_WRITE: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_COMPUTER: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_OTHERS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_USER: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_SPARSE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_SUSPENDED: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_USER_ANYACCESS: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_USER_READ: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_FILTER_FLAG_USER_WRITE: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_ADMIN: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_ATTEMPT_TRANSITIONONLINE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_CONNECTIONSTATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_INCLUDETRANSPARENTCACHE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_LOCALDIRTYBYTECOUNT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_REMOTEDIRTYBYTECOUNT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_ITEM_QUERY_REMOTEINFO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PINLINKTARGETS_ALWAYS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PINLINKTARGETS_EXPLICIT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PINLINKTARGETS_NEVER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_BACKGROUND: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_CONSOLE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_FILL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORALL: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORREDIR: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORUSER: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORUSER_POLICY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_INTERACTIVE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_PIN_CONTROL_FLAG_PINLINKTARGETS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SETTING_PinLinkTargets: &str = "LinkTargetCaching";
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SETTING_SCOPE_COMPUTER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SETTING_SCOPE_USER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_CR_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_CR_KEEPLATEST: u32 = 805306368u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_CR_KEEPLOCAL: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_CR_KEEPREMOTE: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_CR_MASK: u32 = 4026531840u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_BACKGROUND: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_CONSOLE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_FILLSPARSE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_INTERACTIVE: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_NONEWFILESOUT: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORALL: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORREDIR: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORUSER: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORUSER_POLICY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINLINKTARGETS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINNEWFILES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_SKIPSUSPENDEDDIRS: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_SYNCIN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_CONTROL_FLAG_SYNCOUT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_ITEM_CHANGE_ATTRIBUTES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_ITEM_CHANGE_CHANGETIME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_ITEM_CHANGE_FILESIZE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_ITEM_CHANGE_NONE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_ITEM_CHANGE_WRITETIME: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
+pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
+pub const OfflineFilesCache: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
+pub const OfflineFilesSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
+#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_CACHING_MODE(pub i32);
@@ -3652,20 +3892,6 @@ impl ::core::fmt::Debug for OFFLINEFILES_CACHING_MODE {
         f.debug_tuple("OFFLINEFILES_CACHING_MODE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_LOCAL_ATTRIBUTES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_LOCAL_SIZE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_LOCAL_TIME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_REMOTE_ATTRIBUTES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_REMOTE_SIZE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_CHANGES_REMOTE_TIME: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3734,28 +3960,6 @@ impl ::core::fmt::Debug for OFFLINEFILES_CONNECT_STATE {
         f.debug_tuple("OFFLINEFILES_CONNECT_STATE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_DELETE_FLAG_ADMIN: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_DELETE_FLAG_DELMODIFIED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_DELETE_FLAG_NOAUTOCACHED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_DELETE_FLAG_NOPINNED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_BACKGROUND: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_CONSOLE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_INTERACTIVE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENCRYPTION_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENUM_FLAT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ENUM_FLAT_FILESONLY: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -3888,72 +4092,6 @@ impl ::core::fmt::Debug for OFFLINEFILES_ITEM_COPY {
         f.debug_tuple("OFFLINEFILES_ITEM_COPY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_CREATED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_DELETED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_DIRECTORY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_DIRTY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_FILE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_GHOST: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_ANYACCESS: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_READ: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_GUEST_WRITE: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED_ATTRIBUTES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_MODIFIED_DATA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_OFFLINE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_ONLINE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_ANYACCESS: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_READ: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_OTHER_WRITE: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_COMPUTER: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_OTHERS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_PINNED_USER: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_SPARSE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_SUSPENDED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_USER_ANYACCESS: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_USER_READ: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_FILTER_FLAG_USER_WRITE: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_ADMIN: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_ATTEMPT_TRANSITIONONLINE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_CONNECTIONSTATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_INCLUDETRANSPARENTCACHE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_LOCALDIRTYBYTECOUNT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_REMOTEDIRTYBYTECOUNT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_ITEM_QUERY_REMOTEINFO: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4114,40 +4252,6 @@ impl ::core::fmt::Debug for OFFLINEFILES_PATHFILTER_MATCH {
     }
 }
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PINLINKTARGETS_ALWAYS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PINLINKTARGETS_EXPLICIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PINLINKTARGETS_NEVER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_BACKGROUND: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_CONSOLE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_FILL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORALL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORREDIR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORUSER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_FORUSER_POLICY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_INTERACTIVE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_PIN_CONTROL_FLAG_PINLINKTARGETS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SETTING_PinLinkTargets: &str = "LinkTargetCaching";
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SETTING_SCOPE_COMPUTER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SETTING_SCOPE_USER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct OFFLINEFILES_SETTING_VALUE_TYPE(pub i32);
@@ -4221,58 +4325,6 @@ impl ::core::fmt::Debug for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
         f.debug_tuple("OFFLINEFILES_SYNC_CONFLICT_RESOLVE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_CR_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_CR_KEEPLATEST: u32 = 805306368u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_CR_KEEPLOCAL: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_CR_KEEPREMOTE: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_CR_MASK: u32 = 4026531840u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_ASYNCPROGRESS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_BACKGROUND: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_CONSOLE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_FILLSPARSE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_INTERACTIVE: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_LOWPRIORITY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_NONEWFILESOUT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORALL: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORREDIR: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORUSER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINFORUSER_POLICY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINLINKTARGETS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_PINNEWFILES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_SKIPSUSPENDEDDIRS: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_SYNCIN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_CONTROL_FLAG_SYNCOUT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_ITEM_CHANGE_ATTRIBUTES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_ITEM_CHANGE_CHANGETIME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_ITEM_CHANGE_FILESIZE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_ITEM_CHANGE_NONE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_ITEM_CHANGE_WRITETIME: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -4444,58 +4496,6 @@ impl ::core::fmt::Debug for OFFLINEFILES_SYNC_STATE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OFFLINEFILES_SYNC_STATE").field(&self.0).finish()
     }
-}
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_SYNC_STATE_REMOTE_KNOWN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_TRANSITION_FLAG_CONSOLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-pub const OFFLINEFILES_TRANSITION_FLAG_INTERACTIVE: u32 = 1u32;
-pub const OfflineFilesCache: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48c6be7c_3871_43cc_b46f_1449a1bb2ff3);
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OfflineFilesEnable<'a, P0>(benable: P0, pbrebootrequired: &mut super::super::Foundation::BOOL) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesEnable(benable: super::super::Foundation::BOOL, pbrebootrequired: *mut super::super::Foundation::BOOL) -> u32;
-    }
-    OfflineFilesEnable(benable.into(), ::core::mem::transmute(pbrebootrequired))
-}
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OfflineFilesQueryStatus(pbactive: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesQueryStatus(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL) -> u32;
-    }
-    OfflineFilesQueryStatus(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled))
-}
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OfflineFilesQueryStatusEx(pbactive: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbenabled: ::core::option::Option<&mut super::super::Foundation::BOOL>, pbavailable: ::core::option::Option<&mut super::super::Foundation::BOOL>) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesQueryStatusEx(pbactive: *mut super::super::Foundation::BOOL, pbenabled: *mut super::super::Foundation::BOOL, pbavailable: *mut super::super::Foundation::BOOL) -> u32;
-    }
-    OfflineFilesQueryStatusEx(::core::mem::transmute(pbactive), ::core::mem::transmute(pbenabled), ::core::mem::transmute(pbavailable))
-}
-pub const OfflineFilesSetting: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3659e9_a920_4123_ad64_7fc76c7aacdf);
-#[doc = "*Required features: `\"Win32_Storage_OfflineFiles\"`*"]
-#[inline]
-pub unsafe fn OfflineFilesStart() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OfflineFilesStart() -> u32;
-    }
-    OfflineFilesStart()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

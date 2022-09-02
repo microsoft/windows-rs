@@ -1,3 +1,17 @@
+#[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Graphics_Dxgi\"`*"]
+#[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
+pub unsafe fn PdfCreateRenderer<'a, P0>(pdevice: P0) -> ::windows::core::Result<IPdfRendererNative>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PdfCreateRenderer(pdevice: *mut ::core::ffi::c_void, pprenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    PdfCreateRenderer(pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPdfRendererNative>(result__)
+}
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`*"]
 #[repr(transparent)]
 pub struct IPdfRendererNative(::windows::core::IUnknown);
@@ -114,19 +128,5 @@ impl ::core::default::Default for PDF_RENDER_PARAMS {
 #[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Graphics_Dxgi\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 pub type PFN_PDF_CREATE_RENDERER = ::core::option::Option<unsafe extern "system" fn(param0: ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGIDevice>, param1: *mut ::core::option::Option<IPdfRendererNative>) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WinRT_Pdf\"`, `\"Win32_Graphics_Dxgi\"`*"]
-#[cfg(feature = "Win32_Graphics_Dxgi")]
-#[inline]
-pub unsafe fn PdfCreateRenderer<'a, P0>(pdevice: P0) -> ::windows::core::Result<IPdfRendererNative>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PdfCreateRenderer(pdevice: *mut ::core::ffi::c_void, pprenderer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    PdfCreateRenderer(pdevice.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPdfRendererNative>(result__)
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

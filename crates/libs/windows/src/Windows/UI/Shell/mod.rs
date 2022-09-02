@@ -1,22 +1,4 @@
 #[doc = "*Required features: `\"UI_Shell\"`*"]
-pub struct AdaptiveCardBuilder;
-impl AdaptiveCardBuilder {
-    pub fn CreateAdaptiveCardFromJson(value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard> {
-        Self::IAdaptiveCardBuilderStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdaptiveCardBuilder, IAdaptiveCardBuilderStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for AdaptiveCardBuilder {
-    const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
-}
-#[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct IAdaptiveCard(::windows::core::IUnknown);
 impl IAdaptiveCard {
@@ -314,37 +296,22 @@ pub struct ITaskbarManagerStatics_Vtbl {
     pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SecurityAppKind(pub i32);
-impl SecurityAppKind {
-    pub const WebProtection: Self = Self(0i32);
-}
-impl ::core::marker::Copy for SecurityAppKind {}
-impl ::core::clone::Clone for SecurityAppKind {
-    fn clone(&self) -> Self {
-        *self
+pub struct AdaptiveCardBuilder;
+impl AdaptiveCardBuilder {
+    pub fn CreateAdaptiveCardFromJson(value: &::windows::core::HSTRING) -> ::windows::core::Result<IAdaptiveCard> {
+        Self::IAdaptiveCardBuilderStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateAdaptiveCardFromJson)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value), result__.as_mut_ptr()).from_abi::<IAdaptiveCard>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AdaptiveCardBuilder, IAdaptiveCardBuilderStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
     }
 }
-impl ::core::default::Default for SecurityAppKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SecurityAppKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SecurityAppKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SecurityAppKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
+impl ::windows::core::RuntimeName for AdaptiveCardBuilder {
+    const NAME: &'static str = "Windows.UI.Shell.AdaptiveCardBuilder";
 }
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
@@ -445,111 +412,6 @@ impl ::core::convert::From<&SecurityAppManager> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for SecurityAppManager {}
 unsafe impl ::core::marker::Sync for SecurityAppManager {}
-#[doc = "*Required features: `\"UI_Shell\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SecurityAppState(pub i32);
-impl SecurityAppState {
-    pub const Disabled: Self = Self(0i32);
-    pub const Enabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SecurityAppState {}
-impl ::core::clone::Clone for SecurityAppState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SecurityAppState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SecurityAppState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SecurityAppState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SecurityAppState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Shell\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SecurityAppSubstatus(pub i32);
-impl SecurityAppSubstatus {
-    pub const Undetermined: Self = Self(0i32);
-    pub const NoActionNeeded: Self = Self(1i32);
-    pub const ActionRecommended: Self = Self(2i32);
-    pub const ActionNeeded: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SecurityAppSubstatus {}
-impl ::core::clone::Clone for SecurityAppSubstatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SecurityAppSubstatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SecurityAppSubstatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Shell\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ShareWindowCommand(pub i32);
-impl ShareWindowCommand {
-    pub const None: Self = Self(0i32);
-    pub const StartSharing: Self = Self(1i32);
-    pub const StopSharing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ShareWindowCommand {}
-impl ::core::clone::Clone for ShareWindowCommand {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ShareWindowCommand {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ShareWindowCommand {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ShareWindowCommand {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ShareWindowCommand").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Shell\"`*"]
 #[repr(transparent)]
 pub struct ShareWindowCommandEventArgs(::windows::core::IUnknown);
@@ -925,5 +787,143 @@ impl ::core::convert::From<&TaskbarManager> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for TaskbarManager {}
 unsafe impl ::core::marker::Sync for TaskbarManager {}
+#[doc = "*Required features: `\"UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SecurityAppKind(pub i32);
+impl SecurityAppKind {
+    pub const WebProtection: Self = Self(0i32);
+}
+impl ::core::marker::Copy for SecurityAppKind {}
+impl ::core::clone::Clone for SecurityAppKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SecurityAppKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SecurityAppKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SecurityAppKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SecurityAppKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SecurityAppState(pub i32);
+impl SecurityAppState {
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SecurityAppState {}
+impl ::core::clone::Clone for SecurityAppState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SecurityAppState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SecurityAppState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SecurityAppState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SecurityAppState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SecurityAppSubstatus(pub i32);
+impl SecurityAppSubstatus {
+    pub const Undetermined: Self = Self(0i32);
+    pub const NoActionNeeded: Self = Self(1i32);
+    pub const ActionRecommended: Self = Self(2i32);
+    pub const ActionNeeded: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SecurityAppSubstatus {}
+impl ::core::clone::Clone for SecurityAppSubstatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SecurityAppSubstatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SecurityAppSubstatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SecurityAppSubstatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.SecurityAppSubstatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Shell\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ShareWindowCommand(pub i32);
+impl ShareWindowCommand {
+    pub const None: Self = Self(0i32);
+    pub const StartSharing: Self = Self(1i32);
+    pub const StopSharing: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ShareWindowCommand {}
+impl ::core::clone::Clone for ShareWindowCommand {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ShareWindowCommand {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ShareWindowCommand {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ShareWindowCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareWindowCommand").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ShareWindowCommand {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Shell.ShareWindowCommand;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

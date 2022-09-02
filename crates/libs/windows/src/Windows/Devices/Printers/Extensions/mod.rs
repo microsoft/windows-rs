@@ -295,45 +295,6 @@ unsafe impl ::core::marker::Send for Print3DWorkflow {}
 unsafe impl ::core::marker::Sync for Print3DWorkflow {}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Print3DWorkflowDetail(pub i32);
-impl Print3DWorkflowDetail {
-    pub const Unknown: Self = Self(0i32);
-    pub const ModelExceedsPrintBed: Self = Self(1i32);
-    pub const UploadFailed: Self = Self(2i32);
-    pub const InvalidMaterialSelection: Self = Self(3i32);
-    pub const InvalidModel: Self = Self(4i32);
-    pub const ModelNotManifold: Self = Self(5i32);
-    pub const InvalidPrintTicket: Self = Self(6i32);
-}
-impl ::core::marker::Copy for Print3DWorkflowDetail {}
-impl ::core::clone::Clone for Print3DWorkflowDetail {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DWorkflowDetail {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Print3DWorkflowDetail {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DWorkflowDetail {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
-#[repr(transparent)]
 pub struct Print3DWorkflowPrintRequestedEventArgs(::windows::core::IUnknown);
 impl Print3DWorkflowPrintRequestedEventArgs {
     pub fn Status(&self) -> ::windows::core::Result<Print3DWorkflowStatus> {
@@ -495,43 +456,6 @@ impl ::core::convert::From<&Print3DWorkflowPrinterChangedEventArgs> for &::windo
 }
 unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct Print3DWorkflowStatus(pub i32);
-impl Print3DWorkflowStatus {
-    pub const Abandoned: Self = Self(0i32);
-    pub const Canceled: Self = Self(1i32);
-    pub const Failed: Self = Self(2i32);
-    pub const Slicing: Self = Self(3i32);
-    pub const Submitted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for Print3DWorkflowStatus {}
-impl ::core::clone::Clone for Print3DWorkflowStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for Print3DWorkflowStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for Print3DWorkflowStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for Print3DWorkflowStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
 pub struct PrintExtensionContext;
 impl PrintExtensionContext {
@@ -956,6 +880,82 @@ impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedEventArgs> for ::
 impl ::core::convert::From<&PrintTaskConfigurationSaveRequestedEventArgs> for &::windows::core::IInspectable {
     fn from(value: &PrintTaskConfigurationSaveRequestedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Print3DWorkflowDetail(pub i32);
+impl Print3DWorkflowDetail {
+    pub const Unknown: Self = Self(0i32);
+    pub const ModelExceedsPrintBed: Self = Self(1i32);
+    pub const UploadFailed: Self = Self(2i32);
+    pub const InvalidMaterialSelection: Self = Self(3i32);
+    pub const InvalidModel: Self = Self(4i32);
+    pub const ModelNotManifold: Self = Self(5i32);
+    pub const InvalidPrintTicket: Self = Self(6i32);
+}
+impl ::core::marker::Copy for Print3DWorkflowDetail {}
+impl ::core::clone::Clone for Print3DWorkflowDetail {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Print3DWorkflowDetail {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Print3DWorkflowDetail {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Print3DWorkflowDetail {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Print3DWorkflowDetail {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowDetail;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct Print3DWorkflowStatus(pub i32);
+impl Print3DWorkflowStatus {
+    pub const Abandoned: Self = Self(0i32);
+    pub const Canceled: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
+    pub const Slicing: Self = Self(3i32);
+    pub const Submitted: Self = Self(4i32);
+}
+impl ::core::marker::Copy for Print3DWorkflowStatus {}
+impl ::core::clone::Clone for Print3DWorkflowStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for Print3DWorkflowStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for Print3DWorkflowStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Print3DWorkflowStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.Extensions.Print3DWorkflowStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

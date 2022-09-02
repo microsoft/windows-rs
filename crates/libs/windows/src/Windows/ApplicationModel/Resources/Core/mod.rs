@@ -536,41 +536,6 @@ impl ::core::convert::From<&ResourceCandidate> for &::windows::core::IInspectabl
 }
 unsafe impl ::core::marker::Send for ResourceCandidate {}
 unsafe impl ::core::marker::Sync for ResourceCandidate {}
-#[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ResourceCandidateKind(pub i32);
-impl ResourceCandidateKind {
-    pub const String: Self = Self(0i32);
-    pub const File: Self = Self(1i32);
-    pub const EmbeddedData: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ResourceCandidateKind {}
-impl ::core::clone::Clone for ResourceCandidateKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResourceCandidateKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ResourceCandidateKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ResourceCandidateKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceCandidateKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ResourceCandidateKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
@@ -1158,47 +1123,6 @@ impl<'a> ::core::convert::TryFrom<&ResourceContextLanguagesVectorView> for ::win
 unsafe impl ::core::marker::Send for ResourceContextLanguagesVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceContextLanguagesVectorView {}
-#[repr(C)]
-#[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
-pub struct ResourceLayoutInfo {
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub ResourceSubtreeCount: u32,
-    pub NamedResourceCount: u32,
-    pub Checksum: i32,
-}
-impl ::core::marker::Copy for ResourceLayoutInfo {}
-impl ::core::clone::Clone for ResourceLayoutInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ResourceLayoutInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ResourceLayoutInfo").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ResourceSubtreeCount", &self.ResourceSubtreeCount).field("NamedResourceCount", &self.NamedResourceCount).field("Checksum", &self.Checksum).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ResourceLayoutInfo {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for ResourceLayoutInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for ResourceLayoutInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ResourceLayoutInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ResourceLayoutInfo {}
-impl ::core::default::Default for ResourceLayoutInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
 #[repr(transparent)]
 pub struct ResourceManager(::windows::core::IUnknown);
@@ -2554,40 +2478,6 @@ impl<'a> ::core::convert::TryFrom<&ResourceQualifierObservableMap> for ::windows
 unsafe impl ::core::marker::Send for ResourceQualifierObservableMap {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceQualifierObservableMap {}
-#[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ResourceQualifierPersistence(pub i32);
-impl ResourceQualifierPersistence {
-    pub const None: Self = Self(0i32);
-    pub const LocalMachine: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ResourceQualifierPersistence {}
-impl ::core::clone::Clone for ResourceQualifierPersistence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ResourceQualifierPersistence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ResourceQualifierPersistence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ResourceQualifierPersistence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ResourceQualifierPersistence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ResourceQualifierPersistence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
@@ -2780,5 +2670,115 @@ impl<'a> ::core::convert::TryFrom<&ResourceQualifierVectorView> for ::windows::c
 unsafe impl ::core::marker::Send for ResourceQualifierVectorView {}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::core::marker::Sync for ResourceQualifierVectorView {}
+#[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ResourceCandidateKind(pub i32);
+impl ResourceCandidateKind {
+    pub const String: Self = Self(0i32);
+    pub const File: Self = Self(1i32);
+    pub const EmbeddedData: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ResourceCandidateKind {}
+impl ::core::clone::Clone for ResourceCandidateKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ResourceCandidateKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ResourceCandidateKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ResourceCandidateKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourceCandidateKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ResourceCandidateKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceCandidateKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ResourceQualifierPersistence(pub i32);
+impl ResourceQualifierPersistence {
+    pub const None: Self = Self(0i32);
+    pub const LocalMachine: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ResourceQualifierPersistence {}
+impl ::core::clone::Clone for ResourceQualifierPersistence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ResourceQualifierPersistence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ResourceQualifierPersistence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ResourceQualifierPersistence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourceQualifierPersistence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ResourceQualifierPersistence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Resources.Core.ResourceQualifierPersistence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"ApplicationModel_Resources_Core\"`*"]
+pub struct ResourceLayoutInfo {
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub ResourceSubtreeCount: u32,
+    pub NamedResourceCount: u32,
+    pub Checksum: i32,
+}
+impl ::core::marker::Copy for ResourceLayoutInfo {}
+impl ::core::clone::Clone for ResourceLayoutInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ResourceLayoutInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ResourceLayoutInfo").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ResourceSubtreeCount", &self.ResourceSubtreeCount).field("NamedResourceCount", &self.NamedResourceCount).field("Checksum", &self.Checksum).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ResourceLayoutInfo {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for ResourceLayoutInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.ApplicationModel.Resources.Core.ResourceLayoutInfo;u4;u4;u4;u4;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for ResourceLayoutInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ResourceLayoutInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ResourceLayoutInfo {}
+impl ::core::default::Default for ResourceLayoutInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

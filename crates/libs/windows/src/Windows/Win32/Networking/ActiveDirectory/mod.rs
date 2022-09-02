@@ -1,2244 +1,3 @@
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_LIST: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_OPEN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_READ_PROP: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_SELF: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_NAMING_STRING: &str = "naming";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_NAMING_STRING_W: &str = "naming";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_SCHEMA_STRING: &str = "schema";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: &str = "schema";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_STRING: &str = "fsmo:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_FSMO_STRING_W: &str = "fsmo:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_INSTANCE_NAME_STRING: &str = "instance:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_INSTANCE_NAME_STRING_W: &str = "instance:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_PARTITION_STRING: &str = "partition:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_PARTITION_STRING_W: &str = "partition:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_SITE_NAME_STRING: &str = "site:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADAM_SCP_SITE_NAME_STRING_W: &str = "site:";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADSI_DIALECT_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(1i32);
-impl ::core::marker::Copy for ADSI_DIALECT_ENUM {}
-impl ::core::clone::Clone for ADSI_DIALECT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADSI_DIALECT_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADSI_DIALECT_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADSI_DIALECT_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADSI_DIALECT_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADSPROPERROR {
-    pub hwndPage: super::super::Foundation::HWND,
-    pub pszPageTitle: ::windows::core::PWSTR,
-    pub pszObjPath: ::windows::core::PWSTR,
-    pub pszObjClass: ::windows::core::PWSTR,
-    pub hr: ::windows::core::HRESULT,
-    pub pszError: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADSPROPERROR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADSPROPERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADSPROPERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADSPROPERROR").field("hwndPage", &self.hwndPage).field("pszPageTitle", &self.pszPageTitle).field("pszObjPath", &self.pszObjPath).field("pszObjClass", &self.pszObjClass).field("hr", &self.hr).field("pszError", &self.pszError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADSPROPERROR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADSPROPERROR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSPROPERROR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADSPROPERROR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADSPROPERROR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADSPROPINITPARAMS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub hr: ::windows::core::HRESULT,
-    pub pDsObj: ::core::option::Option<IDirectoryObject>,
-    pub pwzCN: ::windows::core::PWSTR,
-    pub pWritableAttrs: *mut ADS_ATTR_INFO,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADSPROPINITPARAMS {
-    fn clone(&self) -> Self {
-        Self { dwSize: self.dwSize, dwFlags: self.dwFlags, hr: self.hr, pDsObj: self.pDsObj.clone(), pwzCN: self.pwzCN, pWritableAttrs: self.pWritableAttrs }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADSPROPINITPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADSPROPINITPARAMS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hr", &self.hr).field("pDsObj", &self.pDsObj).field("pwzCN", &self.pwzCN).field("pWritableAttrs", &self.pWritableAttrs).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADSPROPINITPARAMS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADSPROPINITPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.hr == other.hr && self.pDsObj == other.pDsObj && self.pwzCN == other.pwzCN && self.pWritableAttrs == other.pWritableAttrs
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADSPROPINITPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADSPROPINITPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADSTYPEENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_INVALID: ADSTYPEENUM = ADSTYPEENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_STRING: ADSTYPEENUM = ADSTYPEENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPEENUM = ADSTYPEENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPEENUM = ADSTYPEENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PRINTABLE_STRING: ADSTYPEENUM = ADSTYPEENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NUMERIC_STRING: ADSTYPEENUM = ADSTYPEENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_BOOLEAN: ADSTYPEENUM = ADSTYPEENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_INTEGER: ADSTYPEENUM = ADSTYPEENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OCTET_STRING: ADSTYPEENUM = ADSTYPEENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = ADSTYPEENUM(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_LARGE_INTEGER: ADSTYPEENUM = ADSTYPEENUM(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PROV_SPECIFIC: ADSTYPEENUM = ADSTYPEENUM(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OBJECT_CLASS: ADSTYPEENUM = ADSTYPEENUM(12i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPEENUM = ADSTYPEENUM(13i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_OCTET_LIST: ADSTYPEENUM = ADSTYPEENUM(14i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_PATH: ADSTYPEENUM = ADSTYPEENUM(15i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_POSTALADDRESS: ADSTYPEENUM = ADSTYPEENUM(16i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_TIMESTAMP: ADSTYPEENUM = ADSTYPEENUM(17i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_BACKLINK: ADSTYPEENUM = ADSTYPEENUM(18i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = ADSTYPEENUM(19i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_HOLD: ADSTYPEENUM = ADSTYPEENUM(20i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NETADDRESS: ADSTYPEENUM = ADSTYPEENUM(21i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_REPLICAPOINTER: ADSTYPEENUM = ADSTYPEENUM(22i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_FAXNUMBER: ADSTYPEENUM = ADSTYPEENUM(23i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_EMAIL: ADSTYPEENUM = ADSTYPEENUM(24i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPEENUM = ADSTYPEENUM(25i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = ADSTYPEENUM(26i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_WITH_BINARY: ADSTYPEENUM = ADSTYPEENUM(27i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSTYPE_DN_WITH_STRING: ADSTYPEENUM = ADSTYPEENUM(28i32);
-impl ::core::marker::Copy for ADSTYPEENUM {}
-impl ::core::clone::Clone for ADSTYPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADSTYPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADSTYPEENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADSTYPEENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADSTYPEENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADSVALUE {
-    pub dwType: ADSTYPEENUM,
-    pub Anonymous: ADSVALUE_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADSVALUE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADSVALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADSVALUE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADSVALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSVALUE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADSVALUE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADSVALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union ADSVALUE_0 {
-    pub DNString: *mut u16,
-    pub CaseExactString: *mut u16,
-    pub CaseIgnoreString: *mut u16,
-    pub PrintableString: *mut u16,
-    pub NumericString: *mut u16,
-    pub Boolean: u32,
-    pub Integer: u32,
-    pub OctetString: ADS_OCTET_STRING,
-    pub UTCTime: super::super::Foundation::SYSTEMTIME,
-    pub LargeInteger: i64,
-    pub ClassName: *mut u16,
-    pub ProviderSpecific: ADS_PROV_SPECIFIC,
-    pub pCaseIgnoreList: *mut ADS_CASEIGNORE_LIST,
-    pub pOctetList: *mut ADS_OCTET_LIST,
-    pub pPath: *mut ADS_PATH,
-    pub pPostalAddress: *mut ADS_POSTALADDRESS,
-    pub Timestamp: ADS_TIMESTAMP,
-    pub BackLink: ADS_BACKLINK,
-    pub pTypedName: *mut ADS_TYPEDNAME,
-    pub Hold: ADS_HOLD,
-    pub pNetAddress: *mut ADS_NETADDRESS,
-    pub pReplicaPointer: *mut ADS_REPLICAPOINTER,
-    pub pFaxNumber: *mut ADS_FAXNUMBER,
-    pub Email: ADS_EMAIL,
-    pub SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
-    pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
-    pub pDNWithString: *mut ADS_DN_WITH_STRING,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADSVALUE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADSVALUE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADSVALUE_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADSVALUE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSVALUE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADSVALUE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADSVALUE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_ACEFLAG_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_INHERIT_ONLY_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(16i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(31i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(64i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(128i32);
-impl ::core::marker::Copy for ADS_ACEFLAG_ENUM {}
-impl ::core::clone::Clone for ADS_ACEFLAG_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_ACEFLAG_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_ACEFLAG_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_ACEFLAG_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_ACEFLAG_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_ACETYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_DENIED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_ALLOWED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_DENIED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_ALARM_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(12i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(13i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(14i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(15i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(16i32);
-impl ::core::marker::Copy for ADS_ACETYPE_ENUM {}
-impl ::core::clone::Clone for ADS_ACETYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_ACETYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_ACETYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_ACETYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_ACETYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ATTR_APPEND: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ATTR_CLEAR: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADS_ATTR_DEF {
-    pub pszAttrName: ::windows::core::PWSTR,
-    pub dwADsType: ADSTYPEENUM,
-    pub dwMinRange: u32,
-    pub dwMaxRange: u32,
-    pub fMultiValued: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADS_ATTR_DEF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADS_ATTR_DEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADS_ATTR_DEF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_ATTR_DEF").field("pszAttrName", &self.pszAttrName).field("dwADsType", &self.dwADsType).field("dwMinRange", &self.dwMinRange).field("dwMaxRange", &self.dwMaxRange).field("fMultiValued", &self.fMultiValued).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADS_ATTR_DEF {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADS_ATTR_DEF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_ATTR_DEF>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADS_ATTR_DEF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADS_ATTR_DEF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ATTR_DELETE: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADS_ATTR_INFO {
-    pub pszAttrName: ::windows::core::PWSTR,
-    pub dwControlCode: u32,
-    pub dwADsType: ADSTYPEENUM,
-    pub pADsValues: *mut ADSVALUE,
-    pub dwNumValues: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADS_ATTR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADS_ATTR_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADS_ATTR_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_ATTR_INFO").field("pszAttrName", &self.pszAttrName).field("dwControlCode", &self.dwControlCode).field("dwADsType", &self.dwADsType).field("pADsValues", &self.pADsValues).field("dwNumValues", &self.dwNumValues).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADS_ATTR_INFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADS_ATTR_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_ATTR_INFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADS_ATTR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADS_ATTR_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ATTR_UPDATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_AUTHENTICATION_ENUM(pub u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(4u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(8u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(16u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(32u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(64u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(128u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(256u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(512u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2147483648u32);
-impl ::core::marker::Copy for ADS_AUTHENTICATION_ENUM {}
-impl ::core::clone::Clone for ADS_AUTHENTICATION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_AUTHENTICATION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_AUTHENTICATION_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_AUTHENTICATION_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_AUTHENTICATION_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_BACKLINK {
-    pub RemoteID: u32,
-    pub ObjectName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ADS_BACKLINK {}
-impl ::core::clone::Clone for ADS_BACKLINK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_BACKLINK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_BACKLINK").field("RemoteID", &self.RemoteID).field("ObjectName", &self.ObjectName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_BACKLINK {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_BACKLINK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_BACKLINK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_BACKLINK {}
-impl ::core::default::Default for ADS_BACKLINK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_CASEIGNORE_LIST {
-    pub Next: *mut ADS_CASEIGNORE_LIST,
-    pub String: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ADS_CASEIGNORE_LIST {}
-impl ::core::clone::Clone for ADS_CASEIGNORE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_CASEIGNORE_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_CASEIGNORE_LIST").field("Next", &self.Next).field("String", &self.String).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_CASEIGNORE_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_CASEIGNORE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_CASEIGNORE_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_CASEIGNORE_LIST {}
-impl ::core::default::Default for ADS_CASEIGNORE_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(32i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(64i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
-impl ::core::marker::Copy for ADS_CHASE_REFERRALS_ENUM {}
-impl ::core::clone::Clone for ADS_CHASE_REFERRALS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_CHASE_REFERRALS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_CHASE_REFERRALS_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_CHASE_REFERRALS_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_CHASE_REFERRALS_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADS_CLASS_DEF {
-    pub pszClassName: ::windows::core::PWSTR,
-    pub dwMandatoryAttrs: u32,
-    pub ppszMandatoryAttrs: *mut ::windows::core::PWSTR,
-    pub optionalAttrs: u32,
-    pub ppszOptionalAttrs: *mut *mut ::windows::core::PWSTR,
-    pub dwNamingAttrs: u32,
-    pub ppszNamingAttrs: *mut *mut ::windows::core::PWSTR,
-    pub dwSuperClasses: u32,
-    pub ppszSuperClasses: *mut *mut ::windows::core::PWSTR,
-    pub fIsContainer: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADS_CLASS_DEF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADS_CLASS_DEF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADS_CLASS_DEF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_CLASS_DEF")
-            .field("pszClassName", &self.pszClassName)
-            .field("dwMandatoryAttrs", &self.dwMandatoryAttrs)
-            .field("ppszMandatoryAttrs", &self.ppszMandatoryAttrs)
-            .field("optionalAttrs", &self.optionalAttrs)
-            .field("ppszOptionalAttrs", &self.ppszOptionalAttrs)
-            .field("dwNamingAttrs", &self.dwNamingAttrs)
-            .field("ppszNamingAttrs", &self.ppszNamingAttrs)
-            .field("dwSuperClasses", &self.dwSuperClasses)
-            .field("ppszSuperClasses", &self.ppszSuperClasses)
-            .field("fIsContainer", &self.fIsContainer)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADS_CLASS_DEF {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADS_CLASS_DEF {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_CLASS_DEF>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADS_CLASS_DEF {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADS_CLASS_DEF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_DEREFENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_DEREF_NEVER: ADS_DEREFENUM = ADS_DEREFENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = ADS_DEREFENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_DEREF_FINDING: ADS_DEREFENUM = ADS_DEREFENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = ADS_DEREFENUM(3i32);
-impl ::core::marker::Copy for ADS_DEREFENUM {}
-impl ::core::clone::Clone for ADS_DEREFENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_DEREFENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_DEREFENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_DEREFENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_DEREFENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_DISPLAY_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(2i32);
-impl ::core::marker::Copy for ADS_DISPLAY_ENUM {}
-impl ::core::clone::Clone for ADS_DISPLAY_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_DISPLAY_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_DISPLAY_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_DISPLAY_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_DISPLAY_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_DN_WITH_BINARY {
-    pub dwLength: u32,
-    pub lpBinaryValue: *mut u8,
-    pub pszDNString: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ADS_DN_WITH_BINARY {}
-impl ::core::clone::Clone for ADS_DN_WITH_BINARY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_DN_WITH_BINARY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_DN_WITH_BINARY").field("dwLength", &self.dwLength).field("lpBinaryValue", &self.lpBinaryValue).field("pszDNString", &self.pszDNString).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_DN_WITH_BINARY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_DN_WITH_BINARY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_DN_WITH_BINARY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_DN_WITH_BINARY {}
-impl ::core::default::Default for ADS_DN_WITH_BINARY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_DN_WITH_STRING {
-    pub pszStringValue: ::windows::core::PWSTR,
-    pub pszDNString: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ADS_DN_WITH_STRING {}
-impl ::core::clone::Clone for ADS_DN_WITH_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_DN_WITH_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_DN_WITH_STRING").field("pszStringValue", &self.pszStringValue).field("pszDNString", &self.pszDNString).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_DN_WITH_STRING {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_DN_WITH_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_DN_WITH_STRING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_DN_WITH_STRING {}
-impl ::core::default::Default for ADS_DN_WITH_STRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_EMAIL {
-    pub Address: ::windows::core::PWSTR,
-    pub Type: u32,
-}
-impl ::core::marker::Copy for ADS_EMAIL {}
-impl ::core::clone::Clone for ADS_EMAIL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_EMAIL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_EMAIL").field("Address", &self.Address).field("Type", &self.Type).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_EMAIL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_EMAIL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_EMAIL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_EMAIL {}
-impl ::core::default::Default for ADS_EMAIL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(4i32);
-impl ::core::marker::Copy for ADS_ESCAPE_MODE_ENUM {}
-impl ::core::clone::Clone for ADS_ESCAPE_MODE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_ESCAPE_MODE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_ESCAPE_MODE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_ESCAPE_MODE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_ESCAPE_MODE_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_FAXNUMBER {
-    pub TelephoneNumber: ::windows::core::PWSTR,
-    pub NumberOfBits: u32,
-    pub Parameters: *mut u8,
-}
-impl ::core::marker::Copy for ADS_FAXNUMBER {}
-impl ::core::clone::Clone for ADS_FAXNUMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_FAXNUMBER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_FAXNUMBER").field("TelephoneNumber", &self.TelephoneNumber).field("NumberOfBits", &self.NumberOfBits).field("Parameters", &self.Parameters).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_FAXNUMBER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_FAXNUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_FAXNUMBER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_FAXNUMBER {}
-impl ::core::default::Default for ADS_FAXNUMBER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_FLAGTYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(2i32);
-impl ::core::marker::Copy for ADS_FLAGTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_FLAGTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_FLAGTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_FLAGTYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_FLAGTYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_FLAGTYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_FORMAT_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_WINDOWS_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_WINDOWS_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_WINDOWS_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_X500: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_X500_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_X500_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(11i32);
-impl ::core::marker::Copy for ADS_FORMAT_ENUM {}
-impl ::core::clone::Clone for ADS_FORMAT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_FORMAT_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_FORMAT_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_FORMAT_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_FORMAT_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_GROUP_TYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(-2147483648i32);
-impl ::core::marker::Copy for ADS_GROUP_TYPE_ENUM {}
-impl ::core::clone::Clone for ADS_GROUP_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_GROUP_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_GROUP_TYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_GROUP_TYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_GROUP_TYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_HOLD {
-    pub ObjectName: ::windows::core::PWSTR,
-    pub Amount: u32,
-}
-impl ::core::marker::Copy for ADS_HOLD {}
-impl ::core::clone::Clone for ADS_HOLD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_HOLD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_HOLD").field("ObjectName", &self.ObjectName).field("Amount", &self.Amount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_HOLD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_HOLD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_HOLD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_HOLD {}
-impl ::core::default::Default for ADS_HOLD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(3i32);
-impl ::core::marker::Copy for ADS_NAME_INITTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_NAME_INITTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_NAME_INITTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_NAME_INITTYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_NAME_INITTYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_NAME_INITTYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_NAME_TYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_CANONICAL: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_NT4: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_DISPLAY: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_DOMAIN_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_ENTERPRISE_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_GUID: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(12i32);
-impl ::core::marker::Copy for ADS_NAME_TYPE_ENUM {}
-impl ::core::clone::Clone for ADS_NAME_TYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_NAME_TYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_NAME_TYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_NAME_TYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_NAME_TYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_NETADDRESS {
-    pub AddressType: u32,
-    pub AddressLength: u32,
-    pub Address: *mut u8,
-}
-impl ::core::marker::Copy for ADS_NETADDRESS {}
-impl ::core::clone::Clone for ADS_NETADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_NETADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_NETADDRESS").field("AddressType", &self.AddressType).field("AddressLength", &self.AddressLength).field("Address", &self.Address).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_NETADDRESS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_NETADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_NETADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_NETADDRESS {}
-impl ::core::default::Default for ADS_NETADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_NT_SECURITY_DESCRIPTOR {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl ::core::marker::Copy for ADS_NT_SECURITY_DESCRIPTOR {}
-impl ::core::clone::Clone for ADS_NT_SECURITY_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_NT_SECURITY_DESCRIPTOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_NT_SECURITY_DESCRIPTOR").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_NT_SECURITY_DESCRIPTOR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_NT_SECURITY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_NT_SECURITY_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_NT_SECURITY_DESCRIPTOR {}
-impl ::core::default::Default for ADS_NT_SECURITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_OBJECT_INFO {
-    pub pszRDN: ::windows::core::PWSTR,
-    pub pszObjectDN: ::windows::core::PWSTR,
-    pub pszParentDN: ::windows::core::PWSTR,
-    pub pszSchemaDN: ::windows::core::PWSTR,
-    pub pszClassName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ADS_OBJECT_INFO {}
-impl ::core::clone::Clone for ADS_OBJECT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_OBJECT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_OBJECT_INFO").field("pszRDN", &self.pszRDN).field("pszObjectDN", &self.pszObjectDN).field("pszParentDN", &self.pszParentDN).field("pszSchemaDN", &self.pszSchemaDN).field("pszClassName", &self.pszClassName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_OBJECT_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_OBJECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_OBJECT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_OBJECT_INFO {}
-impl ::core::default::Default for ADS_OBJECT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_OCTET_LIST {
-    pub Next: *mut ADS_OCTET_LIST,
-    pub Length: u32,
-    pub Data: *mut u8,
-}
-impl ::core::marker::Copy for ADS_OCTET_LIST {}
-impl ::core::clone::Clone for ADS_OCTET_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_OCTET_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_OCTET_LIST").field("Next", &self.Next).field("Length", &self.Length).field("Data", &self.Data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_OCTET_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_OCTET_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_OCTET_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_OCTET_LIST {}
-impl ::core::default::Default for ADS_OCTET_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_OCTET_STRING {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl ::core::marker::Copy for ADS_OCTET_STRING {}
-impl ::core::clone::Clone for ADS_OCTET_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_OCTET_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_OCTET_STRING").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_OCTET_STRING {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_OCTET_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_OCTET_STRING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_OCTET_STRING {}
-impl ::core::default::Default for ADS_OCTET_STRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_OPTION_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = ADS_OPTION_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_REFERRALS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_PAGE_SIZE: ADS_OPTION_ENUM = ADS_OPTION_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_SECURITY_MASK: ADS_OPTION_ENUM = ADS_OPTION_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_MUTUAL_AUTH_STATUS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_QUOTA: ADS_OPTION_ENUM = ADS_OPTION_ENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = ADS_OPTION_ENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = ADS_OPTION_ENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = ADS_OPTION_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = ADS_OPTION_ENUM(9i32);
-impl ::core::marker::Copy for ADS_OPTION_ENUM {}
-impl ::core::clone::Clone for ADS_OPTION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_OPTION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_OPTION_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_OPTION_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_OPTION_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(1i32);
-impl ::core::marker::Copy for ADS_PASSWORD_ENCODING_ENUM {}
-impl ::core::clone::Clone for ADS_PASSWORD_ENCODING_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PASSWORD_ENCODING_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_PASSWORD_ENCODING_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_PASSWORD_ENCODING_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_PASSWORD_ENCODING_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_PATH {
-    pub Type: u32,
-    pub VolumeName: ::windows::core::PWSTR,
-    pub Path: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for ADS_PATH {}
-impl ::core::clone::Clone for ADS_PATH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_PATH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_PATH").field("Type", &self.Type).field("VolumeName", &self.VolumeName).field("Path", &self.Path).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_PATH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_PATH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_PATH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_PATH {}
-impl ::core::default::Default for ADS_PATH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_PATHTYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(3i32);
-impl ::core::marker::Copy for ADS_PATHTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_PATHTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PATHTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_PATHTYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_PATHTYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_PATHTYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_POSTALADDRESS {
-    pub PostalAddress: [::windows::core::PWSTR; 6],
-}
-impl ::core::marker::Copy for ADS_POSTALADDRESS {}
-impl ::core::clone::Clone for ADS_POSTALADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_POSTALADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_POSTALADDRESS").field("PostalAddress", &self.PostalAddress).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_POSTALADDRESS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_POSTALADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_POSTALADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_POSTALADDRESS {}
-impl ::core::default::Default for ADS_POSTALADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_PREFERENCES_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_DEREF_ALIASES: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_SIZE_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_ATTRIBTYPES_ONLY: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_SEARCH_SCOPE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_TIMEOUT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_PAGESIZE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_PAGED_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(12i32);
-impl ::core::marker::Copy for ADS_PREFERENCES_ENUM {}
-impl ::core::clone::Clone for ADS_PREFERENCES_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PREFERENCES_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_PREFERENCES_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_PREFERENCES_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_PREFERENCES_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(4i32);
-impl ::core::marker::Copy for ADS_PROPERTY_OPERATION_ENUM {}
-impl ::core::clone::Clone for ADS_PROPERTY_OPERATION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_PROPERTY_OPERATION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_PROPERTY_OPERATION_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_PROPERTY_OPERATION_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_PROPERTY_OPERATION_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_PROV_SPECIFIC {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl ::core::marker::Copy for ADS_PROV_SPECIFIC {}
-impl ::core::clone::Clone for ADS_PROV_SPECIFIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_PROV_SPECIFIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_PROV_SPECIFIC").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_PROV_SPECIFIC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_PROV_SPECIFIC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_PROV_SPECIFIC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_PROV_SPECIFIC {}
-impl ::core::default::Default for ADS_PROV_SPECIFIC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_REPLICAPOINTER {
-    pub ServerName: ::windows::core::PWSTR,
-    pub ReplicaType: u32,
-    pub ReplicaNumber: u32,
-    pub Count: u32,
-    pub ReplicaAddressHints: *mut ADS_NETADDRESS,
-}
-impl ::core::marker::Copy for ADS_REPLICAPOINTER {}
-impl ::core::clone::Clone for ADS_REPLICAPOINTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_REPLICAPOINTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_REPLICAPOINTER").field("ServerName", &self.ServerName).field("ReplicaType", &self.ReplicaType).field("ReplicaNumber", &self.ReplicaNumber).field("Count", &self.Count).field("ReplicaAddressHints", &self.ReplicaAddressHints).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_REPLICAPOINTER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_REPLICAPOINTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_REPLICAPOINTER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_REPLICAPOINTER {}
-impl ::core::default::Default for ADS_REPLICAPOINTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_RIGHTS_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(65536i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_READ_CONTROL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(131072i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_WRITE_DAC: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(262144i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_WRITE_OWNER: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(524288i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_SYNCHRONIZE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1048576i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16777216i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_GENERIC_READ: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_GENERIC_WRITE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1073741824i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_GENERIC_EXECUTE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(536870912i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_GENERIC_ALL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(268435456i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_CREATE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_DELETE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_ACTRL_DS_LIST: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_SELF: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_READ_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(32i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(64i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(128i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(256i32);
-impl ::core::marker::Copy for ADS_RIGHTS_ENUM {}
-impl ::core::clone::Clone for ADS_RIGHTS_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_RIGHTS_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_RIGHTS_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_RIGHTS_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_RIGHTS_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SCOPEENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = ADS_SCOPEENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = ADS_SCOPEENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = ADS_SCOPEENUM(2i32);
-impl ::core::marker::Copy for ADS_SCOPEENUM {}
-impl ::core::clone::Clone for ADS_SCOPEENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SCOPEENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SCOPEENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SCOPEENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SCOPEENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SD_CONTROL_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_GROUP_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_DACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_DACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_SACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(16i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_SACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(256i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(512i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1024i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2048i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4096i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8192i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32768i32);
-impl ::core::marker::Copy for ADS_SD_CONTROL_ENUM {}
-impl ::core::clone::Clone for ADS_SD_CONTROL_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SD_CONTROL_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SD_CONTROL_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SD_CONTROL_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SD_CONTROL_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SD_FORMAT_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(3i32);
-impl ::core::marker::Copy for ADS_SD_FORMAT_ENUM {}
-impl ::core::clone::Clone for ADS_SD_FORMAT_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SD_FORMAT_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SD_FORMAT_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SD_FORMAT_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SD_FORMAT_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SD_REVISION_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = ADS_SD_REVISION_ENUM(4i32);
-impl ::core::marker::Copy for ADS_SD_REVISION_ENUM {}
-impl ::core::clone::Clone for ADS_SD_REVISION_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SD_REVISION_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SD_REVISION_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SD_REVISION_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SD_REVISION_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SEARCHPREF_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_DEREF_ALIASES: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_SIZE_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_TIMEOUT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_CHASE_REFERRALS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_SORT_ON: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_CACHE_RESULTS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_DIRSYNC: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(12i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(13i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(14i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(15i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(16i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(17i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(18i32);
-impl ::core::marker::Copy for ADS_SEARCHPREF_ENUM {}
-impl ::core::clone::Clone for ADS_SEARCHPREF_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SEARCHPREF_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SEARCHPREF_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SEARCHPREF_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SEARCHPREF_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SEARCH_HANDLE(pub isize);
-impl ADS_SEARCH_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for ADS_SEARCH_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for ADS_SEARCH_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for ADS_SEARCH_HANDLE {}
-impl ::core::fmt::Debug for ADS_SEARCH_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SEARCH_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<ADS_SEARCH_HANDLE>> for ADS_SEARCH_HANDLE {
-    fn from(optional: ::core::option::Option<ADS_SEARCH_HANDLE>) -> ADS_SEARCH_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SEARCH_HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SECURITY_INFO_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(8i32);
-impl ::core::marker::Copy for ADS_SECURITY_INFO_ENUM {}
-impl ::core::clone::Clone for ADS_SECURITY_INFO_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SECURITY_INFO_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SECURITY_INFO_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SECURITY_INFO_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SECURITY_INFO_ENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SETTYPE_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(4i32);
-impl ::core::marker::Copy for ADS_SETTYPE_ENUM {}
-impl ::core::clone::Clone for ADS_SETTYPE_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SETTYPE_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SETTYPE_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SETTYPE_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SETTYPE_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ADS_SORTKEY {
-    pub pszAttrType: ::windows::core::PWSTR,
-    pub pszReserved: ::windows::core::PWSTR,
-    pub fReverseorder: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ADS_SORTKEY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ADS_SORTKEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ADS_SORTKEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_SORTKEY").field("pszAttrType", &self.pszAttrType).field("pszReserved", &self.pszReserved).field("fReverseorder", &self.fReverseorder).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ADS_SORTKEY {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ADS_SORTKEY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_SORTKEY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ADS_SORTKEY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ADS_SORTKEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_STATUSENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_STATUS_S_OK: ADS_STATUSENUM = ADS_STATUSENUM(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = ADS_STATUSENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = ADS_STATUSENUM(2i32);
-impl ::core::marker::Copy for ADS_STATUSENUM {}
-impl ::core::clone::Clone for ADS_STATUSENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_STATUSENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_STATUSENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_STATUSENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_STATUSENUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(-2147483648i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1073741824i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(536870912i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(268435456i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(134217728i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(67108864i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(4i32);
-impl ::core::marker::Copy for ADS_SYSTEMFLAG_ENUM {}
-impl ::core::clone::Clone for ADS_SYSTEMFLAG_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_SYSTEMFLAG_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_SYSTEMFLAG_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_SYSTEMFLAG_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_SYSTEMFLAG_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_TIMESTAMP {
-    pub WholeSeconds: u32,
-    pub EventID: u32,
-}
-impl ::core::marker::Copy for ADS_TIMESTAMP {}
-impl ::core::clone::Clone for ADS_TIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_TIMESTAMP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_TIMESTAMP").field("WholeSeconds", &self.WholeSeconds).field("EventID", &self.EventID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_TIMESTAMP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_TIMESTAMP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_TIMESTAMP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_TIMESTAMP {}
-impl ::core::default::Default for ADS_TIMESTAMP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_TYPEDNAME {
-    pub ObjectName: ::windows::core::PWSTR,
-    pub Level: u32,
-    pub Interval: u32,
-}
-impl ::core::marker::Copy for ADS_TYPEDNAME {}
-impl ::core::clone::Clone for ADS_TYPEDNAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_TYPEDNAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_TYPEDNAME").field("ObjectName", &self.ObjectName).field("Level", &self.Level).field("Interval", &self.Interval).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_TYPEDNAME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_TYPEDNAME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_TYPEDNAME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_TYPEDNAME {}
-impl ::core::default::Default for ADS_TYPEDNAME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADS_USER_FLAG_ENUM(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_HOMEDIR_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_LOCKOUT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_PASSWD_NOTREQD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(32i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_PASSWD_CANT_CHANGE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(64i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(128i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_TEMP_DUPLICATE_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(256i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_NORMAL_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(512i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_INTERDOMAIN_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2048i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_WORKSTATION_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4096i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_SERVER_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8192i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(65536i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_MNS_LOGON_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(131072i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_SMARTCARD_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(262144i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_TRUSTED_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(524288i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_NOT_DELEGATED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1048576i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2097152i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4194304i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8388608i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16777216i32);
-impl ::core::marker::Copy for ADS_USER_FLAG_ENUM {}
-impl ::core::clone::Clone for ADS_USER_FLAG_ENUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADS_USER_FLAG_ENUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_USER_FLAG_ENUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADS_USER_FLAG_ENUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADS_USER_FLAG_ENUM").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct ADS_VLV {
-    pub dwBeforeCount: u32,
-    pub dwAfterCount: u32,
-    pub dwOffset: u32,
-    pub dwContentCount: u32,
-    pub pszTarget: ::windows::core::PWSTR,
-    pub dwContextIDLength: u32,
-    pub lpContextID: *mut u8,
-}
-impl ::core::marker::Copy for ADS_VLV {}
-impl ::core::clone::Clone for ADS_VLV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ADS_VLV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ADS_VLV").field("dwBeforeCount", &self.dwBeforeCount).field("dwAfterCount", &self.dwAfterCount).field("dwOffset", &self.dwOffset).field("dwContentCount", &self.dwContentCount).field("pszTarget", &self.pszTarget).field("dwContextIDLength", &self.dwContextIDLength).field("lpContextID", &self.lpContextID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ADS_VLV {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ADS_VLV {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_VLV>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ADS_VLV {}
-impl ::core::default::Default for ADS_VLV {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const ADSystemInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -2450,7 +209,6 @@ where
     }
     ADsPropShowErrorDialog(hnotifyobj.into(), hpage.into())
 }
-pub const ADsSecurityUtility: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 #[inline]
 pub unsafe fn ADsSetLastError<'a, P0, P1>(dwerr: u32, pszerror: P0, pszprovider: P1)
@@ -2464,8 +222,6 @@ where
     }
     ADsSetLastError(dwerr, pszerror.into(), pszprovider.into())
 }
-pub const AccessControlEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
-pub const AccessControlList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2507,7 +263,6 @@ where
     }
     AllocADsStr(pstr.into())
 }
-pub const BackLink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -2524,4620 +279,6 @@ where
     }
     BinarySDToSecurityDescriptor(psecuritydescriptor.into(), ::core::mem::transmute(pvarsec), pszservername.into(), username.into(), password.into(), dwflags).ok()
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSDISPLAYSPECOPTIONS: &str = "DsDisplaySpecOptions";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSOBJECTNAMES: &str = "DsObjectNames";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSOP_DS_SELECTION_LIST: &str = "CFSTR_DSOP_DS_SELECTION_LIST";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSPROPERTYPAGEINFO: &str = "DsPropPageInfo";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSQUERYPARAMS: &str = "DsQueryParameters";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DSQUERYSCOPE: &str = "DsQueryScope";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: &str = "DsDisplaySpecOptions";
-pub const CLSID_CommonQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
-pub const CLSID_DsAdminCreateObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
-pub const CLSID_DsDisplaySpecifier: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
-pub const CLSID_DsDomainTreeBrowser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
-pub const CLSID_DsFindAdvanced: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindComputer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindContainer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindDomainController: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
-pub const CLSID_DsFindFrsMembers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
-pub const CLSID_DsFindObjects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindPeople: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
-pub const CLSID_DsFindPrinter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
-pub const CLSID_DsFindVolume: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
-pub const CLSID_DsFindWriteableDomainController: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
-pub const CLSID_DsFolderProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
-pub const CLSID_DsObjectPicker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
-pub const CLSID_DsPropertyPages: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
-pub const CLSID_DsQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
-pub const CLSID_MicrosoftDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQFF_ISOPTIONAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub struct CQFORM {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub clsid: ::windows::core::GUID,
-    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
-    pub pszTitle: ::windows::core::PCWSTR,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for CQFORM {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for CQFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for CQFORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CQFORM").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("clsid", &self.clsid).field("hIcon", &self.hIcon).field("pszTitle", &self.pszTitle).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for CQFORM {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for CQFORM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CQFORM>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for CQFORM {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::default::Default for CQFORM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub struct CQPAGE {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub pPageProc: LPCQPAGEPROC,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub idPageName: i32,
-    pub idPageTemplate: i32,
-    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
-    pub lParam: super::super::Foundation::LPARAM,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::marker::Copy for CQPAGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::clone::Clone for CQPAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::fmt::Debug for CQPAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CQPAGE").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pPageProc", &self.pPageProc.map(|f| f as usize)).field("hInstance", &self.hInstance).field("idPageName", &self.idPageName).field("idPageTemplate", &self.idPageTemplate).field("pDlgProc", &self.pDlgProc.map(|f| f as usize)).field("lParam", &self.lParam).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-unsafe impl ::windows::core::Abi for CQPAGE {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::PartialEq for CQPAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CQPAGE>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::cmp::Eq for CQPAGE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-impl ::core::default::Default for CQPAGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_CLEARFORM: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_ENABLE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_GETPARAMETERS: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_HELP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_INITIALIZE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_PERSIST: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_RELEASE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
-pub const CaseIgnoreList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DBDTF_RETURNFQDN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DBDTF_RETURNINBOUND: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
-pub const DNWithBinary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
-pub const DNWithString: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DOMAINDESC {
-    pub pszName: ::windows::core::PWSTR,
-    pub pszPath: ::windows::core::PWSTR,
-    pub pszNCName: ::windows::core::PWSTR,
-    pub pszTrustParent: ::windows::core::PWSTR,
-    pub pszObjectClass: ::windows::core::PWSTR,
-    pub ulFlags: u32,
-    pub fDownLevel: super::super::Foundation::BOOL,
-    pub pdChildList: *mut DOMAINDESC,
-    pub pdNextSibling: *mut DOMAINDESC,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOMAINDESC {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DOMAINDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DOMAINDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOMAINDESC").field("pszName", &self.pszName).field("pszPath", &self.pszPath).field("pszNCName", &self.pszNCName).field("pszTrustParent", &self.pszTrustParent).field("pszObjectClass", &self.pszObjectClass).field("ulFlags", &self.ulFlags).field("fDownLevel", &self.fDownLevel).field("pdChildList", &self.pdChildList).field("pdNextSibling", &self.pdNextSibling).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DOMAINDESC {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DOMAINDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAINDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DOMAINDESC {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DOMAINDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DOMAIN_CONTROLLER_INFOA {
-    pub DomainControllerName: ::windows::core::PSTR,
-    pub DomainControllerAddress: ::windows::core::PSTR,
-    pub DomainControllerAddressType: u32,
-    pub DomainGuid: ::windows::core::GUID,
-    pub DomainName: ::windows::core::PSTR,
-    pub DnsForestName: ::windows::core::PSTR,
-    pub Flags: u32,
-    pub DcSiteName: ::windows::core::PSTR,
-    pub ClientSiteName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for DOMAIN_CONTROLLER_INFOA {}
-impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DOMAIN_CONTROLLER_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOMAIN_CONTROLLER_INFOA").field("DomainControllerName", &self.DomainControllerName).field("DomainControllerAddress", &self.DomainControllerAddress).field("DomainControllerAddressType", &self.DomainControllerAddressType).field("DomainGuid", &self.DomainGuid).field("DomainName", &self.DomainName).field("DnsForestName", &self.DnsForestName).field("Flags", &self.Flags).field("DcSiteName", &self.DcSiteName).field("ClientSiteName", &self.ClientSiteName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DOMAIN_CONTROLLER_INFOA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DOMAIN_CONTROLLER_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_CONTROLLER_INFOA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DOMAIN_CONTROLLER_INFOA {}
-impl ::core::default::Default for DOMAIN_CONTROLLER_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DOMAIN_CONTROLLER_INFOW {
-    pub DomainControllerName: ::windows::core::PWSTR,
-    pub DomainControllerAddress: ::windows::core::PWSTR,
-    pub DomainControllerAddressType: u32,
-    pub DomainGuid: ::windows::core::GUID,
-    pub DomainName: ::windows::core::PWSTR,
-    pub DnsForestName: ::windows::core::PWSTR,
-    pub Flags: u32,
-    pub DcSiteName: ::windows::core::PWSTR,
-    pub ClientSiteName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DOMAIN_CONTROLLER_INFOW {}
-impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DOMAIN_CONTROLLER_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOMAIN_CONTROLLER_INFOW").field("DomainControllerName", &self.DomainControllerName).field("DomainControllerAddress", &self.DomainControllerAddress).field("DomainControllerAddressType", &self.DomainControllerAddressType).field("DomainGuid", &self.DomainGuid).field("DomainName", &self.DomainName).field("DnsForestName", &self.DnsForestName).field("Flags", &self.Flags).field("DcSiteName", &self.DcSiteName).field("ClientSiteName", &self.ClientSiteName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DOMAIN_CONTROLLER_INFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DOMAIN_CONTROLLER_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_CONTROLLER_INFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DOMAIN_CONTROLLER_INFOW {}
-impl ::core::default::Default for DOMAIN_CONTROLLER_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DOMAIN_TREE {
-    pub dsSize: u32,
-    pub dwCount: u32,
-    pub aDomains: [DOMAINDESC; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOMAIN_TREE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DOMAIN_TREE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DOMAIN_TREE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DOMAIN_TREE").field("dsSize", &self.dsSize).field("dwCount", &self.dwCount).field("aDomains", &self.aDomains).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DOMAIN_TREE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DOMAIN_TREE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_TREE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DOMAIN_TREE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DOMAIN_TREE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-pub struct DSA_NEWOBJ_DISPINFO {
-    pub dwSize: u32,
-    pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
-    pub lpszWizTitle: ::windows::core::PWSTR,
-    pub lpszContDisplayName: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::marker::Copy for DSA_NEWOBJ_DISPINFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::clone::Clone for DSA_NEWOBJ_DISPINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::fmt::Debug for DSA_NEWOBJ_DISPINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSA_NEWOBJ_DISPINFO").field("dwSize", &self.dwSize).field("hObjClassIcon", &self.hObjClassIcon).field("lpszWizTitle", &self.lpszWizTitle).field("lpszContDisplayName", &self.lpszContDisplayName).finish()
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-unsafe impl ::windows::core::Abi for DSA_NEWOBJ_DISPINFO {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::PartialEq for DSA_NEWOBJ_DISPINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSA_NEWOBJ_DISPINFO>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::cmp::Eq for DSA_NEWOBJ_DISPINFO {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-impl ::core::default::Default for DSA_NEWOBJ_DISPINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NOTIFY_DEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NOTIFY_MOV: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NOTIFY_PROP: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSA_NOTIFY_REN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBF_DISPLAYNAME: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBF_ICONLOCATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBF_STATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBID_BANNER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBID_CONTAINERLIST: u32 = 257u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSBITEMA {
-    pub cbStruct: u32,
-    pub pszADsPath: ::windows::core::PCWSTR,
-    pub pszClass: ::windows::core::PCWSTR,
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub dwStateMask: u32,
-    pub szDisplayName: [super::super::Foundation::CHAR; 64],
-    pub szIconLocation: [super::super::Foundation::CHAR; 260],
-    pub iIconResID: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSBITEMA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSBITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSBITEMA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBITEMA").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSBITEMA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSBITEMA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBITEMA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSBITEMA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSBITEMA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSBITEMW {
-    pub cbStruct: u32,
-    pub pszADsPath: ::windows::core::PCWSTR,
-    pub pszClass: ::windows::core::PCWSTR,
-    pub dwMask: u32,
-    pub dwState: u32,
-    pub dwStateMask: u32,
-    pub szDisplayName: [u16; 64],
-    pub szIconLocation: [u16; 260],
-    pub iIconResID: i32,
-}
-impl ::core::marker::Copy for DSBITEMW {}
-impl ::core::clone::Clone for DSBITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSBITEMW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBITEMW").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSBITEMW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSBITEMW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBITEMW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSBITEMW {}
-impl ::core::default::Default for DSBITEMW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_CHECKBOXES: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_NOBUTTONS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_NOLINES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_NOLINESATROOT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_NOROOT: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBM_CONTEXTMENU: u32 = 104u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBM_HELP: u32 = 103u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBM_QUERYINSERT: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBM_QUERYINSERTA: u32 = 101u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBM_QUERYINSERTW: u32 = 100u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-pub struct DSBROWSEINFOA {
-    pub cbStruct: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pszCaption: ::windows::core::PCSTR,
-    pub pszTitle: ::windows::core::PCSTR,
-    pub pszRoot: ::windows::core::PCWSTR,
-    pub pszPath: ::windows::core::PWSTR,
-    pub cchPath: u32,
-    pub dwFlags: u32,
-    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub dwReturnFormat: u32,
-    pub pUserName: ::windows::core::PCWSTR,
-    pub pPassword: ::windows::core::PCWSTR,
-    pub pszObjectClass: ::windows::core::PWSTR,
-    pub cchObjectClass: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::marker::Copy for DSBROWSEINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::clone::Clone for DSBROWSEINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::fmt::Debug for DSBROWSEINFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBROWSEINFOA")
-            .field("cbStruct", &self.cbStruct)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pszCaption", &self.pszCaption)
-            .field("pszTitle", &self.pszTitle)
-            .field("pszRoot", &self.pszRoot)
-            .field("pszPath", &self.pszPath)
-            .field("cchPath", &self.cchPath)
-            .field("dwFlags", &self.dwFlags)
-            .field("pfnCallback", &self.pfnCallback.map(|f| f as usize))
-            .field("lParam", &self.lParam)
-            .field("dwReturnFormat", &self.dwReturnFormat)
-            .field("pUserName", &self.pUserName)
-            .field("pPassword", &self.pPassword)
-            .field("pszObjectClass", &self.pszObjectClass)
-            .field("cchObjectClass", &self.cchObjectClass)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-unsafe impl ::windows::core::Abi for DSBROWSEINFOA {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::PartialEq for DSBROWSEINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBROWSEINFOA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::Eq for DSBROWSEINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::default::Default for DSBROWSEINFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-pub struct DSBROWSEINFOW {
-    pub cbStruct: u32,
-    pub hwndOwner: super::super::Foundation::HWND,
-    pub pszCaption: ::windows::core::PCWSTR,
-    pub pszTitle: ::windows::core::PCWSTR,
-    pub pszRoot: ::windows::core::PCWSTR,
-    pub pszPath: ::windows::core::PWSTR,
-    pub cchPath: u32,
-    pub dwFlags: u32,
-    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
-    pub lParam: super::super::Foundation::LPARAM,
-    pub dwReturnFormat: u32,
-    pub pUserName: ::windows::core::PCWSTR,
-    pub pPassword: ::windows::core::PCWSTR,
-    pub pszObjectClass: ::windows::core::PWSTR,
-    pub cchObjectClass: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::marker::Copy for DSBROWSEINFOW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::clone::Clone for DSBROWSEINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::fmt::Debug for DSBROWSEINFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBROWSEINFOW")
-            .field("cbStruct", &self.cbStruct)
-            .field("hwndOwner", &self.hwndOwner)
-            .field("pszCaption", &self.pszCaption)
-            .field("pszTitle", &self.pszTitle)
-            .field("pszRoot", &self.pszRoot)
-            .field("pszPath", &self.pszPath)
-            .field("cchPath", &self.cchPath)
-            .field("dwFlags", &self.dwFlags)
-            .field("pfnCallback", &self.pfnCallback.map(|f| f as usize))
-            .field("lParam", &self.lParam)
-            .field("dwReturnFormat", &self.dwReturnFormat)
-            .field("pUserName", &self.pUserName)
-            .field("pPassword", &self.pPassword)
-            .field("pszObjectClass", &self.pszObjectClass)
-            .field("cchObjectClass", &self.cchObjectClass)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-unsafe impl ::windows::core::Abi for DSBROWSEINFOW {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::PartialEq for DSBROWSEINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBROWSEINFOW>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::Eq for DSBROWSEINFOW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::default::Default for DSBROWSEINFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBS_CHECKED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBS_HIDDEN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSBS_ROOT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSCLASSCREATIONINFO {
-    pub dwFlags: u32,
-    pub clsidWizardDialog: ::windows::core::GUID,
-    pub clsidWizardPrimaryPage: ::windows::core::GUID,
-    pub cWizardExtensions: u32,
-    pub aWizardExtensions: [::windows::core::GUID; 1],
-}
-impl ::core::marker::Copy for DSCLASSCREATIONINFO {}
-impl ::core::clone::Clone for DSCLASSCREATIONINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCLASSCREATIONINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCLASSCREATIONINFO").field("dwFlags", &self.dwFlags).field("clsidWizardDialog", &self.clsidWizardDialog).field("clsidWizardPrimaryPage", &self.clsidWizardPrimaryPage).field("cWizardExtensions", &self.cWizardExtensions).field("aWizardExtensions", &self.aWizardExtensions).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCLASSCREATIONINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCLASSCREATIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCLASSCREATIONINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCLASSCREATIONINFO {}
-impl ::core::default::Default for DSCLASSCREATIONINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSCOLUMN {
-    pub dwFlags: u32,
-    pub fmt: i32,
-    pub cx: i32,
-    pub idsName: i32,
-    pub offsetProperty: i32,
-    pub dwReserved: u32,
-}
-impl ::core::marker::Copy for DSCOLUMN {}
-impl ::core::clone::Clone for DSCOLUMN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCOLUMN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCOLUMN").field("dwFlags", &self.dwFlags).field("fmt", &self.fmt).field("cx", &self.cx).field("idsName", &self.idsName).field("offsetProperty", &self.offsetProperty).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCOLUMN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCOLUMN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCOLUMN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCOLUMN {}
-impl ::core::default::Default for DSCOLUMN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSDISPLAYSPECOPTIONS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub offsetAttribPrefix: u32,
-    pub offsetUserName: u32,
-    pub offsetPassword: u32,
-    pub offsetServer: u32,
-    pub offsetServerConfigPath: u32,
-}
-impl ::core::marker::Copy for DSDISPLAYSPECOPTIONS {}
-impl ::core::clone::Clone for DSDISPLAYSPECOPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSDISPLAYSPECOPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSDISPLAYSPECOPTIONS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("offsetAttribPrefix", &self.offsetAttribPrefix).field("offsetUserName", &self.offsetUserName).field("offsetPassword", &self.offsetPassword).field("offsetServer", &self.offsetServer).field("offsetServerConfigPath", &self.offsetServerConfigPath).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSDISPLAYSPECOPTIONS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSDISPLAYSPECOPTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSDISPLAYSPECOPTIONS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSDISPLAYSPECOPTIONS {}
-impl ::core::default::Default for DSDISPLAYSPECOPTIONS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSECAF_NOTLISTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSGIF_ISDISABLED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSGIF_ISMASK: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSGIF_ISNORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSGIF_ISOPEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSOBJECT {
-    pub dwFlags: u32,
-    pub dwProviderFlags: u32,
-    pub offsetName: u32,
-    pub offsetClass: u32,
-}
-impl ::core::marker::Copy for DSOBJECT {}
-impl ::core::clone::Clone for DSOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSOBJECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSOBJECT").field("dwFlags", &self.dwFlags).field("dwProviderFlags", &self.dwProviderFlags).field("offsetName", &self.offsetName).field("offsetClass", &self.offsetClass).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSOBJECT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSOBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOBJECT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSOBJECT {}
-impl ::core::default::Default for DSOBJECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSOBJECTNAMES {
-    pub clsidNamespace: ::windows::core::GUID,
-    pub cItems: u32,
-    pub aObjects: [DSOBJECT; 1],
-}
-impl ::core::marker::Copy for DSOBJECTNAMES {}
-impl ::core::clone::Clone for DSOBJECTNAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSOBJECTNAMES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSOBJECTNAMES").field("clsidNamespace", &self.clsidNamespace).field("cItems", &self.cItems).field("aObjects", &self.aObjects).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSOBJECTNAMES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSOBJECTNAMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOBJECTNAMES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSOBJECTNAMES {}
-impl ::core::default::Default for DSOBJECTNAMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSOP_FILTER_FLAGS {
-    pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
-    pub flDownlevel: u32,
-}
-impl ::core::marker::Copy for DSOP_FILTER_FLAGS {}
-impl ::core::clone::Clone for DSOP_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSOP_FILTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSOP_FILTER_FLAGS").field("Uplevel", &self.Uplevel).field("flDownlevel", &self.flDownlevel).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSOP_FILTER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSOP_FILTER_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_FILTER_FLAGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSOP_FILTER_FLAGS {}
-impl ::core::default::Default for DSOP_FILTER_FLAGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_USERS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSOP_INIT_INFO {
-    pub cbSize: u32,
-    pub pwzTargetComputer: ::windows::core::PCWSTR,
-    pub cDsScopeInfos: u32,
-    pub aDsScopeInfos: *mut DSOP_SCOPE_INIT_INFO,
-    pub flOptions: u32,
-    pub cAttributesToFetch: u32,
-    pub apwzAttributeNames: *mut ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DSOP_INIT_INFO {}
-impl ::core::clone::Clone for DSOP_INIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSOP_INIT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSOP_INIT_INFO").field("cbSize", &self.cbSize).field("pwzTargetComputer", &self.pwzTargetComputer).field("cDsScopeInfos", &self.cDsScopeInfos).field("aDsScopeInfos", &self.aDsScopeInfos).field("flOptions", &self.flOptions).field("cAttributesToFetch", &self.cAttributesToFetch).field("apwzAttributeNames", &self.apwzAttributeNames).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSOP_INIT_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSOP_INIT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_INIT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSOP_INIT_INFO {}
-impl ::core::default::Default for DSOP_INIT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSOP_SCOPE_INIT_INFO {
-    pub cbSize: u32,
-    pub flType: u32,
-    pub flScope: u32,
-    pub FilterFlags: DSOP_FILTER_FLAGS,
-    pub pwzDcName: ::windows::core::PCWSTR,
-    pub pwzADsPath: ::windows::core::PCWSTR,
-    pub hr: ::windows::core::HRESULT,
-}
-impl ::core::marker::Copy for DSOP_SCOPE_INIT_INFO {}
-impl ::core::clone::Clone for DSOP_SCOPE_INIT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSOP_SCOPE_INIT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSOP_SCOPE_INIT_INFO").field("cbSize", &self.cbSize).field("flType", &self.flType).field("flScope", &self.flScope).field("FilterFlags", &self.FilterFlags).field("pwzDcName", &self.pwzDcName).field("pwzADsPath", &self.pwzADsPath).field("hr", &self.hr).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSOP_SCOPE_INIT_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSOP_SCOPE_INIT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_SCOPE_INIT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSOP_SCOPE_INIT_INFO {}
-impl ::core::default::Default for DSOP_SCOPE_INIT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSOP_UPLEVEL_FILTER_FLAGS {
-    pub flBothModes: u32,
-    pub flMixedModeOnly: u32,
-    pub flNativeModeOnly: u32,
-}
-impl ::core::marker::Copy for DSOP_UPLEVEL_FILTER_FLAGS {}
-impl ::core::clone::Clone for DSOP_UPLEVEL_FILTER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSOP_UPLEVEL_FILTER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSOP_UPLEVEL_FILTER_FLAGS").field("flBothModes", &self.flBothModes).field("flMixedModeOnly", &self.flMixedModeOnly).field("flNativeModeOnly", &self.flNativeModeOnly).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSOP_UPLEVEL_FILTER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSOP_UPLEVEL_FILTER_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_UPLEVEL_FILTER_FLAGS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSOP_UPLEVEL_FILTER_FLAGS {}
-impl ::core::default::Default for DSOP_UPLEVEL_FILTER_FLAGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSPROPERTYPAGEINFO {
-    pub offsetString: u32,
-}
-impl ::core::marker::Copy for DSPROPERTYPAGEINFO {}
-impl ::core::clone::Clone for DSPROPERTYPAGEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSPROPERTYPAGEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSPROPERTYPAGEINFO").field("offsetString", &self.offsetString).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSPROPERTYPAGEINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSPROPERTYPAGEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTYPAGEINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSPROPERTYPAGEINFO {}
-impl ::core::default::Default for DSPROPERTYPAGEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROP_ATTRCHANGED_MSG: &str = "DsPropAttrChanged";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROVIDER_ADVANCED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROVIDER_AD_LDS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_NOSAVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_SAVELOCATION: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSQUERYCLASSLIST {
-    pub cbStruct: u32,
-    pub cClasses: i32,
-    pub offsetClass: [u32; 1],
-}
-impl ::core::marker::Copy for DSQUERYCLASSLIST {}
-impl ::core::clone::Clone for DSQUERYCLASSLIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSQUERYCLASSLIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSQUERYCLASSLIST").field("cbStruct", &self.cbStruct).field("cClasses", &self.cClasses).field("offsetClass", &self.offsetClass).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSQUERYCLASSLIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSQUERYCLASSLIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSQUERYCLASSLIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSQUERYCLASSLIST {}
-impl ::core::default::Default for DSQUERYCLASSLIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSQUERYINITPARAMS {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub pDefaultScope: ::windows::core::PWSTR,
-    pub pDefaultSaveLocation: ::windows::core::PWSTR,
-    pub pUserName: ::windows::core::PWSTR,
-    pub pPassword: ::windows::core::PWSTR,
-    pub pServer: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DSQUERYINITPARAMS {}
-impl ::core::clone::Clone for DSQUERYINITPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSQUERYINITPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSQUERYINITPARAMS").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pDefaultScope", &self.pDefaultScope).field("pDefaultSaveLocation", &self.pDefaultSaveLocation).field("pUserName", &self.pUserName).field("pPassword", &self.pPassword).field("pServer", &self.pServer).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSQUERYINITPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSQUERYINITPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSQUERYINITPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSQUERYINITPARAMS {}
-impl ::core::default::Default for DSQUERYINITPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSQUERYPARAMS {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub hInstance: super::super::Foundation::HINSTANCE,
-    pub offsetQuery: i32,
-    pub iColumns: i32,
-    pub dwReserved: u32,
-    pub aColumns: [DSCOLUMN; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSQUERYPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSQUERYPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSQUERYPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSQUERYPARAMS").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hInstance", &self.hInstance).field("offsetQuery", &self.offsetQuery).field("iColumns", &self.iColumns).field("dwReserved", &self.dwReserved).field("aColumns", &self.aColumns).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSQUERYPARAMS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSQUERYPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSQUERYPARAMS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSQUERYPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSQUERYPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DSROLE_MACHINE_ROLE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRole_RoleMemberWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRole_RoleMemberServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRole_RoleBackupDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(5i32);
-impl ::core::marker::Copy for DSROLE_MACHINE_ROLE {}
-impl ::core::clone::Clone for DSROLE_MACHINE_ROLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_MACHINE_ROLE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_MACHINE_ROLE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DSROLE_MACHINE_ROLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DSROLE_MACHINE_ROLE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DSROLE_OPERATION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleOperationIdle: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleOperationNeedReboot: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(2i32);
-impl ::core::marker::Copy for DSROLE_OPERATION_STATE {}
-impl ::core::clone::Clone for DSROLE_OPERATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_OPERATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_OPERATION_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DSROLE_OPERATION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DSROLE_OPERATION_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSROLE_OPERATION_STATE_INFO {
-    pub OperationState: DSROLE_OPERATION_STATE,
-}
-impl ::core::marker::Copy for DSROLE_OPERATION_STATE_INFO {}
-impl ::core::clone::Clone for DSROLE_OPERATION_STATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSROLE_OPERATION_STATE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSROLE_OPERATION_STATE_INFO").field("OperationState", &self.OperationState).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_OPERATION_STATE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSROLE_OPERATION_STATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSROLE_OPERATION_STATE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSROLE_OPERATION_STATE_INFO {}
-impl ::core::default::Default for DSROLE_OPERATION_STATE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    pub MachineRole: DSROLE_MACHINE_ROLE,
-    pub Flags: u32,
-    pub DomainNameFlat: ::windows::core::PWSTR,
-    pub DomainNameDns: ::windows::core::PWSTR,
-    pub DomainForestName: ::windows::core::PWSTR,
-    pub DomainGuid: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {}
-impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSROLE_PRIMARY_DOMAIN_INFO_BASIC").field("MachineRole", &self.MachineRole).field("Flags", &self.Flags).field("DomainNameFlat", &self.DomainNameFlat).field("DomainNameDns", &self.DomainNameDns).field("DomainForestName", &self.DomainForestName).field("DomainGuid", &self.DomainGuid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSROLE_PRIMARY_DOMAIN_INFO_BASIC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {}
-impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleUpgradeStatus: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleOperationState: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(3i32);
-impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {}
-impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DSROLE_PRIMARY_DOMAIN_INFO_LEVEL").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DSROLE_SERVER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleServerUnknown: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DsRoleServerBackup: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(2i32);
-impl ::core::marker::Copy for DSROLE_SERVER_STATE {}
-impl ::core::clone::Clone for DSROLE_SERVER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DSROLE_SERVER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_SERVER_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DSROLE_SERVER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DSROLE_SERVER_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DSROLE_UPGRADE_STATUS_INFO {
-    pub OperationState: u32,
-    pub PreviousServerState: DSROLE_SERVER_STATE,
-}
-impl ::core::marker::Copy for DSROLE_UPGRADE_STATUS_INFO {}
-impl ::core::clone::Clone for DSROLE_UPGRADE_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSROLE_UPGRADE_STATUS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSROLE_UPGRADE_STATUS_INFO").field("OperationState", &self.OperationState).field("PreviousServerState", &self.PreviousServerState).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSROLE_UPGRADE_STATUS_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSROLE_UPGRADE_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSROLE_UPGRADE_STATUS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSROLE_UPGRADE_STATUS_INFO {}
-impl ::core::default::Default for DSROLE_UPGRADE_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_AVOID_SELF: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BACKGROUND_ONLY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_CLOSEST_FLAG: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
-    pub NetbiosName: ::windows::core::PSTR,
-    pub DnsHostName: ::windows::core::PSTR,
-    pub SiteName: ::windows::core::PSTR,
-    pub ComputerObjectName: ::windows::core::PSTR,
-    pub ServerObjectName: ::windows::core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_1A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_1A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1A").field("NetbiosName", &self.NetbiosName).field("DnsHostName", &self.DnsHostName).field("SiteName", &self.SiteName).field("ComputerObjectName", &self.ComputerObjectName).field("ServerObjectName", &self.ServerObjectName).field("fIsPdc", &self.fIsPdc).field("fDsEnabled", &self.fDsEnabled).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_1A {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_1A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_1A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_1A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
-    pub NetbiosName: ::windows::core::PWSTR,
-    pub DnsHostName: ::windows::core::PWSTR,
-    pub SiteName: ::windows::core::PWSTR,
-    pub ComputerObjectName: ::windows::core::PWSTR,
-    pub ServerObjectName: ::windows::core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_1W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_1W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1W").field("NetbiosName", &self.NetbiosName).field("DnsHostName", &self.DnsHostName).field("SiteName", &self.SiteName).field("ComputerObjectName", &self.ComputerObjectName).field("ServerObjectName", &self.ServerObjectName).field("fIsPdc", &self.fIsPdc).field("fDsEnabled", &self.fDsEnabled).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_1W {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_1W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_1W>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_1W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
-    pub NetbiosName: ::windows::core::PSTR,
-    pub DnsHostName: ::windows::core::PSTR,
-    pub SiteName: ::windows::core::PSTR,
-    pub SiteObjectName: ::windows::core::PSTR,
-    pub ComputerObjectName: ::windows::core::PSTR,
-    pub ServerObjectName: ::windows::core::PSTR,
-    pub NtdsDsaObjectName: ::windows::core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: ::windows::core::GUID,
-    pub ComputerObjectGuid: ::windows::core::GUID,
-    pub ServerObjectGuid: ::windows::core::GUID,
-    pub NtdsDsaObjectGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_2A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_2A")
-            .field("NetbiosName", &self.NetbiosName)
-            .field("DnsHostName", &self.DnsHostName)
-            .field("SiteName", &self.SiteName)
-            .field("SiteObjectName", &self.SiteObjectName)
-            .field("ComputerObjectName", &self.ComputerObjectName)
-            .field("ServerObjectName", &self.ServerObjectName)
-            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
-            .field("fIsPdc", &self.fIsPdc)
-            .field("fDsEnabled", &self.fDsEnabled)
-            .field("fIsGc", &self.fIsGc)
-            .field("SiteObjectGuid", &self.SiteObjectGuid)
-            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
-            .field("ServerObjectGuid", &self.ServerObjectGuid)
-            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_2A {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_2A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_2A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_2A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_2A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
-    pub NetbiosName: ::windows::core::PWSTR,
-    pub DnsHostName: ::windows::core::PWSTR,
-    pub SiteName: ::windows::core::PWSTR,
-    pub SiteObjectName: ::windows::core::PWSTR,
-    pub ComputerObjectName: ::windows::core::PWSTR,
-    pub ServerObjectName: ::windows::core::PWSTR,
-    pub NtdsDsaObjectName: ::windows::core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: ::windows::core::GUID,
-    pub ComputerObjectGuid: ::windows::core::GUID,
-    pub ServerObjectGuid: ::windows::core::GUID,
-    pub NtdsDsaObjectGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_2W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_2W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_2W")
-            .field("NetbiosName", &self.NetbiosName)
-            .field("DnsHostName", &self.DnsHostName)
-            .field("SiteName", &self.SiteName)
-            .field("SiteObjectName", &self.SiteObjectName)
-            .field("ComputerObjectName", &self.ComputerObjectName)
-            .field("ServerObjectName", &self.ServerObjectName)
-            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
-            .field("fIsPdc", &self.fIsPdc)
-            .field("fDsEnabled", &self.fDsEnabled)
-            .field("fIsGc", &self.fIsGc)
-            .field("SiteObjectGuid", &self.SiteObjectGuid)
-            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
-            .field("ServerObjectGuid", &self.ServerObjectGuid)
-            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_2W {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_2W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_2W>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_2W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_2W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
-    pub NetbiosName: ::windows::core::PSTR,
-    pub DnsHostName: ::windows::core::PSTR,
-    pub SiteName: ::windows::core::PSTR,
-    pub SiteObjectName: ::windows::core::PSTR,
-    pub ComputerObjectName: ::windows::core::PSTR,
-    pub ServerObjectName: ::windows::core::PSTR,
-    pub NtdsDsaObjectName: ::windows::core::PSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: ::windows::core::GUID,
-    pub ComputerObjectGuid: ::windows::core::GUID,
-    pub ServerObjectGuid: ::windows::core::GUID,
-    pub NtdsDsaObjectGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_3A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_3A {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_3A")
-            .field("NetbiosName", &self.NetbiosName)
-            .field("DnsHostName", &self.DnsHostName)
-            .field("SiteName", &self.SiteName)
-            .field("SiteObjectName", &self.SiteObjectName)
-            .field("ComputerObjectName", &self.ComputerObjectName)
-            .field("ServerObjectName", &self.ServerObjectName)
-            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
-            .field("fIsPdc", &self.fIsPdc)
-            .field("fDsEnabled", &self.fDsEnabled)
-            .field("fIsGc", &self.fIsGc)
-            .field("fIsRodc", &self.fIsRodc)
-            .field("SiteObjectGuid", &self.SiteObjectGuid)
-            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
-            .field("ServerObjectGuid", &self.ServerObjectGuid)
-            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_3A {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_3A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_3A>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_3A {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
-    pub NetbiosName: ::windows::core::PWSTR,
-    pub DnsHostName: ::windows::core::PWSTR,
-    pub SiteName: ::windows::core::PWSTR,
-    pub SiteObjectName: ::windows::core::PWSTR,
-    pub ComputerObjectName: ::windows::core::PWSTR,
-    pub ServerObjectName: ::windows::core::PWSTR,
-    pub NtdsDsaObjectName: ::windows::core::PWSTR,
-    pub fIsPdc: super::super::Foundation::BOOL,
-    pub fDsEnabled: super::super::Foundation::BOOL,
-    pub fIsGc: super::super::Foundation::BOOL,
-    pub fIsRodc: super::super::Foundation::BOOL,
-    pub SiteObjectGuid: ::windows::core::GUID,
-    pub ComputerObjectGuid: ::windows::core::GUID,
-    pub ServerObjectGuid: ::windows::core::GUID,
-    pub NtdsDsaObjectGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_3W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_3W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_3W")
-            .field("NetbiosName", &self.NetbiosName)
-            .field("DnsHostName", &self.DnsHostName)
-            .field("SiteName", &self.SiteName)
-            .field("SiteObjectName", &self.SiteObjectName)
-            .field("ComputerObjectName", &self.ComputerObjectName)
-            .field("ServerObjectName", &self.ServerObjectName)
-            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
-            .field("fIsPdc", &self.fIsPdc)
-            .field("fDsEnabled", &self.fDsEnabled)
-            .field("fIsGc", &self.fIsGc)
-            .field("fIsRodc", &self.fIsRodc)
-            .field("SiteObjectGuid", &self.SiteObjectGuid)
-            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
-            .field("ServerObjectGuid", &self.ServerObjectGuid)
-            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_3W {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_3W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_3W>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_3W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_TRUSTSA {
-    pub NetbiosDomainName: ::windows::core::PSTR,
-    pub DnsDomainName: ::windows::core::PSTR,
-    pub Flags: u32,
-    pub ParentIndex: u32,
-    pub TrustType: u32,
-    pub TrustAttributes: u32,
-    pub DomainSid: super::super::Foundation::PSID,
-    pub DomainGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_TRUSTSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_TRUSTSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_TRUSTSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_TRUSTSA").field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("Flags", &self.Flags).field("ParentIndex", &self.ParentIndex).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("DomainSid", &self.DomainSid).field("DomainGuid", &self.DomainGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_TRUSTSA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_TRUSTSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_TRUSTSA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_TRUSTSA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_TRUSTSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_DOMAIN_TRUSTSW {
-    pub NetbiosDomainName: ::windows::core::PWSTR,
-    pub DnsDomainName: ::windows::core::PWSTR,
-    pub Flags: u32,
-    pub ParentIndex: u32,
-    pub TrustType: u32,
-    pub TrustAttributes: u32,
-    pub DomainSid: super::super::Foundation::PSID,
-    pub DomainGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_DOMAIN_TRUSTSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_DOMAIN_TRUSTSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_DOMAIN_TRUSTSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_DOMAIN_TRUSTSW").field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("Flags", &self.Flags).field("ParentIndex", &self.ParentIndex).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("DomainSid", &self.DomainSid).field("DomainGuid", &self.DomainGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_DOMAIN_TRUSTSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_DOMAIN_TRUSTSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_TRUSTSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_DOMAIN_TRUSTSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_DOMAIN_TRUSTSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DS_10_FLAG: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DS_8_FLAG: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DS_9_FLAG: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DS_FLAG: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_GC_FLAG: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_IP_REQUIRED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_IS_DNS_NAME: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_IS_FLAT_NAME: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_KCC_TASKID(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = DS_KCC_TASKID(0i32);
-impl ::core::marker::Copy for DS_KCC_TASKID {}
-impl ::core::clone::Clone for DS_KCC_TASKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_KCC_TASKID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_KCC_TASKID {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_KCC_TASKID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_KCC_TASKID").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KDC_FLAG: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KDC_REQUIRED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_LDAP_FLAG: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_MANGLE_FOR(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = DS_MANGLE_FOR(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = DS_MANGLE_FOR(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = DS_MANGLE_FOR(2i32);
-impl ::core::marker::Copy for DS_MANGLE_FOR {}
-impl ::core::clone::Clone for DS_MANGLE_FOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_MANGLE_FOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_MANGLE_FOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_MANGLE_FOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_MANGLE_FOR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_NAME_ERROR(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = DS_NAME_ERROR(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_RESOLVING: DS_NAME_ERROR = DS_NAME_ERROR(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_NOT_FOUND: DS_NAME_ERROR = DS_NAME_ERROR(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_NOT_UNIQUE: DS_NAME_ERROR = DS_NAME_ERROR(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = DS_NAME_ERROR(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = DS_NAME_ERROR(7i32);
-impl ::core::marker::Copy for DS_NAME_ERROR {}
-impl ::core::clone::Clone for DS_NAME_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_NAME_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_ERROR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_NAME_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_NAME_ERROR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_NAME_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = DS_NAME_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = DS_NAME_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = DS_NAME_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = DS_NAME_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = DS_NAME_FLAGS(8i32);
-impl ::core::marker::Copy for DS_NAME_FLAGS {}
-impl ::core::clone::Clone for DS_NAME_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_NAME_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_NAME_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_NAME_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_NAME_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_UNKNOWN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_UNIQUE_ID_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_USER_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(12i32);
-impl ::core::marker::Copy for DS_NAME_FORMAT {}
-impl ::core::clone::Clone for DS_NAME_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_NAME_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_FORMAT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_NAME_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_NAME_FORMAT").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_NAME_RESULTA {
-    pub cItems: u32,
-    pub rItems: *mut DS_NAME_RESULT_ITEMA,
-}
-impl ::core::marker::Copy for DS_NAME_RESULTA {}
-impl ::core::clone::Clone for DS_NAME_RESULTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_NAME_RESULTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_NAME_RESULTA").field("cItems", &self.cItems).field("rItems", &self.rItems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_RESULTA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_NAME_RESULTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULTA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_NAME_RESULTA {}
-impl ::core::default::Default for DS_NAME_RESULTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_NAME_RESULTW {
-    pub cItems: u32,
-    pub rItems: *mut DS_NAME_RESULT_ITEMW,
-}
-impl ::core::marker::Copy for DS_NAME_RESULTW {}
-impl ::core::clone::Clone for DS_NAME_RESULTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_NAME_RESULTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_NAME_RESULTW").field("cItems", &self.cItems).field("rItems", &self.rItems).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_RESULTW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_NAME_RESULTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULTW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_NAME_RESULTW {}
-impl ::core::default::Default for DS_NAME_RESULTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_NAME_RESULT_ITEMA {
-    pub status: u32,
-    pub pDomain: ::windows::core::PSTR,
-    pub pName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for DS_NAME_RESULT_ITEMA {}
-impl ::core::clone::Clone for DS_NAME_RESULT_ITEMA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_NAME_RESULT_ITEMA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_NAME_RESULT_ITEMA").field("status", &self.status).field("pDomain", &self.pDomain).field("pName", &self.pName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_RESULT_ITEMA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_NAME_RESULT_ITEMA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULT_ITEMA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_NAME_RESULT_ITEMA {}
-impl ::core::default::Default for DS_NAME_RESULT_ITEMA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_NAME_RESULT_ITEMW {
-    pub status: u32,
-    pub pDomain: ::windows::core::PWSTR,
-    pub pName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DS_NAME_RESULT_ITEMW {}
-impl ::core::clone::Clone for DS_NAME_RESULT_ITEMW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_NAME_RESULT_ITEMW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_NAME_RESULT_ITEMW").field("status", &self.status).field("pDomain", &self.pDomain).field("pName", &self.pName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_NAME_RESULT_ITEMW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_NAME_RESULT_ITEMW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULT_ITEMW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_NAME_RESULT_ITEMW {}
-impl ::core::default::Default for DS_NAME_RESULT_ITEMW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NDNC_FLAG: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PDC_FLAG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PDC_REQUIRED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PING_FLAGS: u32 = 1048575u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PROP_ADMIN_PREFIX: &str = "admin";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_PROP_SHELL_PREFIX: &str = "shell";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_CRITICAL: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_INITIAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_PERIODIC: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPADD_WRITEABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_REF_OK: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_ATTR_META_DATA {
-    pub pszAttributeName: ::windows::core::PWSTR,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_ATTR_META_DATA").field("pszAttributeName", &self.pszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_ATTR_META_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_ATTR_META_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_META_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_ATTR_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_ATTR_META_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_ATTR_META_DATA_2 {
-    pub pszAttributeName: ::windows::core::PWSTR,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub pszLastOriginatingDsaDN: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_ATTR_META_DATA_2").field("pszAttributeName", &self.pszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_ATTR_META_DATA_2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_ATTR_META_DATA_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_META_DATA_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_ATTR_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_ATTR_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_ATTR_META_DATA_BLOB {
-    pub oszAttributeName: u32,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub oszLastOriginatingDsaDN: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_ATTR_META_DATA_BLOB").field("oszAttributeName", &self.oszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_ATTR_META_DATA_BLOB {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_ATTR_META_DATA_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_META_DATA_BLOB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_ATTR_META_DATA_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_ATTR_META_DATA_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_ATTR_VALUE_META_DATA {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
-    pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_ATTR_VALUE_META_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_ATTR_VALUE_META_DATA").field("cNumEntries", &self.cNumEntries).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgMetaData", &self.rgMetaData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_ATTR_VALUE_META_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_ATTR_VALUE_META_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_VALUE_META_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
-    pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_ATTR_VALUE_META_DATA_2").field("cNumEntries", &self.cNumEntries).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgMetaData", &self.rgMetaData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_VALUE_META_DATA_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    pub cNumEntries: u32,
-    pub dwEnumerationContext: u32,
-    pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA_EXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_ATTR_VALUE_META_DATA_EXT").field("cNumEntries", &self.cNumEntries).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgMetaData", &self.rgMetaData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_VALUE_META_DATA_EXT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA_EXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPL_CURSOR {
-    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
-    pub usnAttributeFilter: i64,
-}
-impl ::core::marker::Copy for DS_REPL_CURSOR {}
-impl ::core::clone::Clone for DS_REPL_CURSOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPL_CURSOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSOR").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPL_CURSOR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPL_CURSOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPL_CURSOR {}
-impl ::core::default::Default for DS_REPL_CURSOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPL_CURSORS {
-    pub cNumCursors: u32,
-    pub dwReserved: u32,
-    pub rgCursor: [DS_REPL_CURSOR; 1],
-}
-impl ::core::marker::Copy for DS_REPL_CURSORS {}
-impl ::core::clone::Clone for DS_REPL_CURSORS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPL_CURSORS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSORS").field("cNumCursors", &self.cNumCursors).field("dwReserved", &self.dwReserved).field("rgCursor", &self.rgCursor).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPL_CURSORS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPL_CURSORS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSORS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPL_CURSORS {}
-impl ::core::default::Default for DS_REPL_CURSORS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_CURSORS_2 {
-    pub cNumCursors: u32,
-    pub dwEnumerationContext: u32,
-    pub rgCursor: [DS_REPL_CURSOR_2; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_CURSORS_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_CURSORS_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_CURSORS_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSORS_2").field("cNumCursors", &self.cNumCursors).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgCursor", &self.rgCursor).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_CURSORS_2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_CURSORS_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSORS_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_CURSORS_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_CURSORS_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_CURSORS_3W {
-    pub cNumCursors: u32,
-    pub dwEnumerationContext: u32,
-    pub rgCursor: [DS_REPL_CURSOR_3W; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_CURSORS_3W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_CURSORS_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_CURSORS_3W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSORS_3W").field("cNumCursors", &self.cNumCursors).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgCursor", &self.rgCursor).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_CURSORS_3W {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_CURSORS_3W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSORS_3W>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_CURSORS_3W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_CURSORS_3W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_CURSOR_2 {
-    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_CURSOR_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_CURSOR_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_CURSOR_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSOR_2").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_CURSOR_2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_CURSOR_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_CURSOR_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_CURSOR_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_CURSOR_3W {
-    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub pszSourceDsaDN: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_CURSOR_3W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_CURSOR_3W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_CURSOR_3W {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSOR_3W").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess).field("pszSourceDsaDN", &self.pszSourceDsaDN).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_CURSOR_3W {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_CURSOR_3W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR_3W>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_CURSOR_3W {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_CURSOR_3W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_CURSOR_BLOB {
-    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub oszSourceDsaDN: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_CURSOR_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_CURSOR_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_CURSOR_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_CURSOR_BLOB").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess).field("oszSourceDsaDN", &self.oszSourceDsaDN).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_CURSOR_BLOB {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_CURSOR_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR_BLOB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_CURSOR_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_CURSOR_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_REPL_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_NEIGHBORS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_CURSORS_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_METADATA_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_KCC_DSA_LINK_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_METADATA_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(12i32);
-impl ::core::marker::Copy for DS_REPL_INFO_TYPE {}
-impl ::core::clone::Clone for DS_REPL_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPL_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPL_INFO_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_REPL_INFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_REPL_INFO_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_KCC_DSA_FAILURESW {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
-    pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILURESW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILURESW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_KCC_DSA_FAILURESW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_KCC_DSA_FAILURESW").field("cNumEntries", &self.cNumEntries).field("dwReserved", &self.dwReserved).field("rgDsaFailure", &self.rgDsaFailure).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_KCC_DSA_FAILURESW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_KCC_DSA_FAILURESW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_KCC_DSA_FAILURESW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_KCC_DSA_FAILURESW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_KCC_DSA_FAILURESW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_KCC_DSA_FAILUREW {
-    pub pszDsaDN: ::windows::core::PWSTR,
-    pub uuidDsaObjGuid: ::windows::core::GUID,
-    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
-    pub cNumFailures: u32,
-    pub dwLastResult: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILUREW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_KCC_DSA_FAILUREW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_KCC_DSA_FAILUREW").field("pszDsaDN", &self.pszDsaDN).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).field("ftimeFirstFailure", &self.ftimeFirstFailure).field("cNumFailures", &self.cNumFailures).field("dwLastResult", &self.dwLastResult).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_KCC_DSA_FAILUREW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_KCC_DSA_FAILUREW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_KCC_DSA_FAILUREW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_KCC_DSA_FAILUREW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    pub oszDsaDN: u32,
-    pub uuidDsaObjGuid: ::windows::core::GUID,
-    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
-    pub cNumFailures: u32,
-    pub dwLastResult: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILUREW_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_KCC_DSA_FAILUREW_BLOB").field("oszDsaDN", &self.oszDsaDN).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).field("ftimeFirstFailure", &self.ftimeFirstFailure).field("cNumFailures", &self.cNumFailures).field("dwLastResult", &self.dwLastResult).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_KCC_DSA_FAILUREW_BLOB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_KCC_DSA_FAILUREW_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_NEIGHBORSW {
-    pub cNumNeighbors: u32,
-    pub dwReserved: u32,
-    pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_NEIGHBORSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_NEIGHBORSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_NEIGHBORSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_NEIGHBORSW").field("cNumNeighbors", &self.cNumNeighbors).field("dwReserved", &self.dwReserved).field("rgNeighbor", &self.rgNeighbor).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_NEIGHBORSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_NEIGHBORSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_NEIGHBORSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_NEIGHBORSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_NEIGHBORSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_NEIGHBORW {
-    pub pszNamingContext: ::windows::core::PWSTR,
-    pub pszSourceDsaDN: ::windows::core::PWSTR,
-    pub pszSourceDsaAddress: ::windows::core::PWSTR,
-    pub pszAsyncIntersiteTransportDN: ::windows::core::PWSTR,
-    pub dwReplicaFlags: u32,
-    pub dwReserved: u32,
-    pub uuidNamingContextObjGuid: ::windows::core::GUID,
-    pub uuidSourceDsaObjGuid: ::windows::core::GUID,
-    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
-    pub uuidAsyncIntersiteTransportObjGuid: ::windows::core::GUID,
-    pub usnLastObjChangeSynced: i64,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
-    pub dwLastSyncResult: u32,
-    pub cNumConsecutiveSyncFailures: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_NEIGHBORW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_NEIGHBORW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_NEIGHBORW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_NEIGHBORW")
-            .field("pszNamingContext", &self.pszNamingContext)
-            .field("pszSourceDsaDN", &self.pszSourceDsaDN)
-            .field("pszSourceDsaAddress", &self.pszSourceDsaAddress)
-            .field("pszAsyncIntersiteTransportDN", &self.pszAsyncIntersiteTransportDN)
-            .field("dwReplicaFlags", &self.dwReplicaFlags)
-            .field("dwReserved", &self.dwReserved)
-            .field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid)
-            .field("uuidSourceDsaObjGuid", &self.uuidSourceDsaObjGuid)
-            .field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID)
-            .field("uuidAsyncIntersiteTransportObjGuid", &self.uuidAsyncIntersiteTransportObjGuid)
-            .field("usnLastObjChangeSynced", &self.usnLastObjChangeSynced)
-            .field("usnAttributeFilter", &self.usnAttributeFilter)
-            .field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess)
-            .field("ftimeLastSyncAttempt", &self.ftimeLastSyncAttempt)
-            .field("dwLastSyncResult", &self.dwLastSyncResult)
-            .field("cNumConsecutiveSyncFailures", &self.cNumConsecutiveSyncFailures)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_NEIGHBORW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_NEIGHBORW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_NEIGHBORW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_NEIGHBORW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_NEIGHBORW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_NEIGHBORW_BLOB {
-    pub oszNamingContext: u32,
-    pub oszSourceDsaDN: u32,
-    pub oszSourceDsaAddress: u32,
-    pub oszAsyncIntersiteTransportDN: u32,
-    pub dwReplicaFlags: u32,
-    pub dwReserved: u32,
-    pub uuidNamingContextObjGuid: ::windows::core::GUID,
-    pub uuidSourceDsaObjGuid: ::windows::core::GUID,
-    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
-    pub uuidAsyncIntersiteTransportObjGuid: ::windows::core::GUID,
-    pub usnLastObjChangeSynced: i64,
-    pub usnAttributeFilter: i64,
-    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
-    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
-    pub dwLastSyncResult: u32,
-    pub cNumConsecutiveSyncFailures: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_NEIGHBORW_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_NEIGHBORW_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_NEIGHBORW_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_NEIGHBORW_BLOB")
-            .field("oszNamingContext", &self.oszNamingContext)
-            .field("oszSourceDsaDN", &self.oszSourceDsaDN)
-            .field("oszSourceDsaAddress", &self.oszSourceDsaAddress)
-            .field("oszAsyncIntersiteTransportDN", &self.oszAsyncIntersiteTransportDN)
-            .field("dwReplicaFlags", &self.dwReplicaFlags)
-            .field("dwReserved", &self.dwReserved)
-            .field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid)
-            .field("uuidSourceDsaObjGuid", &self.uuidSourceDsaObjGuid)
-            .field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID)
-            .field("uuidAsyncIntersiteTransportObjGuid", &self.uuidAsyncIntersiteTransportObjGuid)
-            .field("usnLastObjChangeSynced", &self.usnLastObjChangeSynced)
-            .field("usnAttributeFilter", &self.usnAttributeFilter)
-            .field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess)
-            .field("ftimeLastSyncAttempt", &self.ftimeLastSyncAttempt)
-            .field("dwLastSyncResult", &self.dwLastSyncResult)
-            .field("cNumConsecutiveSyncFailures", &self.cNumConsecutiveSyncFailures)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_NEIGHBORW_BLOB {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_NEIGHBORW_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_NEIGHBORW_BLOB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_NEIGHBORW_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_NEIGHBORW_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_OBJ_META_DATA {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
-    pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_OBJ_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_OBJ_META_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_OBJ_META_DATA").field("cNumEntries", &self.cNumEntries).field("dwReserved", &self.dwReserved).field("rgMetaData", &self.rgMetaData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_OBJ_META_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_OBJ_META_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OBJ_META_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_OBJ_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_OBJ_META_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_OBJ_META_DATA_2 {
-    pub cNumEntries: u32,
-    pub dwReserved: u32,
-    pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_OBJ_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_OBJ_META_DATA_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_OBJ_META_DATA_2").field("cNumEntries", &self.cNumEntries).field("dwReserved", &self.dwReserved).field("rgMetaData", &self.rgMetaData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_OBJ_META_DATA_2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_OBJ_META_DATA_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OBJ_META_DATA_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_OBJ_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_OBJ_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_OPW {
-    pub ftimeEnqueued: super::super::Foundation::FILETIME,
-    pub ulSerialNumber: u32,
-    pub ulPriority: u32,
-    pub OpType: DS_REPL_OP_TYPE,
-    pub ulOptions: u32,
-    pub pszNamingContext: ::windows::core::PWSTR,
-    pub pszDsaDN: ::windows::core::PWSTR,
-    pub pszDsaAddress: ::windows::core::PWSTR,
-    pub uuidNamingContextObjGuid: ::windows::core::GUID,
-    pub uuidDsaObjGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_OPW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_OPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_OPW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_OPW").field("ftimeEnqueued", &self.ftimeEnqueued).field("ulSerialNumber", &self.ulSerialNumber).field("ulPriority", &self.ulPriority).field("OpType", &self.OpType).field("ulOptions", &self.ulOptions).field("pszNamingContext", &self.pszNamingContext).field("pszDsaDN", &self.pszDsaDN).field("pszDsaAddress", &self.pszDsaAddress).field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_OPW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_OPW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OPW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_OPW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_OPW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_OPW_BLOB {
-    pub ftimeEnqueued: super::super::Foundation::FILETIME,
-    pub ulSerialNumber: u32,
-    pub ulPriority: u32,
-    pub OpType: DS_REPL_OP_TYPE,
-    pub ulOptions: u32,
-    pub oszNamingContext: u32,
-    pub oszDsaDN: u32,
-    pub oszDsaAddress: u32,
-    pub uuidNamingContextObjGuid: ::windows::core::GUID,
-    pub uuidDsaObjGuid: ::windows::core::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_OPW_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_OPW_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_OPW_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_OPW_BLOB").field("ftimeEnqueued", &self.ftimeEnqueued).field("ulSerialNumber", &self.ulSerialNumber).field("ulPriority", &self.ulPriority).field("OpType", &self.OpType).field("ulOptions", &self.ulOptions).field("oszNamingContext", &self.oszNamingContext).field("oszDsaDN", &self.oszDsaDN).field("oszDsaAddress", &self.oszDsaAddress).field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_OPW_BLOB {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_OPW_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OPW_BLOB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_OPW_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_OPW_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_REPL_OP_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(4i32);
-impl ::core::marker::Copy for DS_REPL_OP_TYPE {}
-impl ::core::clone::Clone for DS_REPL_OP_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPL_OP_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPL_OP_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_REPL_OP_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_REPL_OP_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_PENDING_OPSW {
-    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
-    pub cNumPendingOps: u32,
-    pub rgPendingOp: [DS_REPL_OPW; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_PENDING_OPSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_PENDING_OPSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_PENDING_OPSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_PENDING_OPSW").field("ftimeCurrentOpStarted", &self.ftimeCurrentOpStarted).field("cNumPendingOps", &self.cNumPendingOps).field("rgPendingOp", &self.rgPendingOp).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_PENDING_OPSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_PENDING_OPSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_PENDING_OPSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_PENDING_OPSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_PENDING_OPSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_QUEUE_STATISTICSW {
-    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
-    pub cNumPendingOps: u32,
-    pub ftimeOldestSync: super::super::Foundation::FILETIME,
-    pub ftimeOldestAdd: super::super::Foundation::FILETIME,
-    pub ftimeOldestMod: super::super::Foundation::FILETIME,
-    pub ftimeOldestDel: super::super::Foundation::FILETIME,
-    pub ftimeOldestUpdRefs: super::super::Foundation::FILETIME,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_QUEUE_STATISTICSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_QUEUE_STATISTICSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_QUEUE_STATISTICSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_QUEUE_STATISTICSW").field("ftimeCurrentOpStarted", &self.ftimeCurrentOpStarted).field("cNumPendingOps", &self.cNumPendingOps).field("ftimeOldestSync", &self.ftimeOldestSync).field("ftimeOldestAdd", &self.ftimeOldestAdd).field("ftimeOldestMod", &self.ftimeOldestMod).field("ftimeOldestDel", &self.ftimeOldestDel).field("ftimeOldestUpdRefs", &self.ftimeOldestUpdRefs).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_QUEUE_STATISTICSW {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_QUEUE_STATISTICSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_QUEUE_STATISTICSW>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_QUEUE_STATISTICSW {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_QUEUE_STATISTICSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_VALUE_META_DATA {
-    pub pszAttributeName: ::windows::core::PWSTR,
-    pub pszObjectDn: ::windows::core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_VALUE_META_DATA")
-            .field("pszAttributeName", &self.pszAttributeName)
-            .field("pszObjectDn", &self.pszObjectDn)
-            .field("cbData", &self.cbData)
-            .field("pbData", &self.pbData)
-            .field("ftimeDeleted", &self.ftimeDeleted)
-            .field("ftimeCreated", &self.ftimeCreated)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_VALUE_META_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_VALUE_META_DATA_2 {
-    pub pszAttributeName: ::windows::core::PWSTR,
-    pub pszObjectDn: ::windows::core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub pszLastOriginatingDsaDN: ::windows::core::PWSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_VALUE_META_DATA_2")
-            .field("pszAttributeName", &self.pszAttributeName)
-            .field("pszObjectDn", &self.pszObjectDn)
-            .field("cbData", &self.cbData)
-            .field("pbData", &self.pbData)
-            .field("ftimeDeleted", &self.ftimeDeleted)
-            .field("ftimeCreated", &self.ftimeCreated)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_2 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_2>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_2 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_VALUE_META_DATA_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_VALUE_META_DATA_BLOB {
-    pub oszAttributeName: u32,
-    pub oszObjectDn: u32,
-    pub cbData: u32,
-    pub obData: u32,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub oszLastOriginatingDsaDN: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_VALUE_META_DATA_BLOB")
-            .field("oszAttributeName", &self.oszAttributeName)
-            .field("oszObjectDn", &self.oszObjectDn)
-            .field("cbData", &self.cbData)
-            .field("obData", &self.obData)
-            .field("ftimeDeleted", &self.ftimeDeleted)
-            .field("ftimeCreated", &self.ftimeCreated)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_BLOB {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_BLOB>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_BLOB {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_VALUE_META_DATA_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    pub oszAttributeName: u32,
-    pub oszObjectDn: u32,
-    pub cbData: u32,
-    pub obData: u32,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub oszLastOriginatingDsaDN: u32,
-    pub dwUserIdentifier: u32,
-    pub dwPriorLinkState: u32,
-    pub dwCurrentLinkState: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_BLOB_EXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_VALUE_META_DATA_BLOB_EXT")
-            .field("oszAttributeName", &self.oszAttributeName)
-            .field("oszObjectDn", &self.oszObjectDn)
-            .field("cbData", &self.cbData)
-            .field("obData", &self.obData)
-            .field("ftimeDeleted", &self.ftimeDeleted)
-            .field("ftimeCreated", &self.ftimeCreated)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN)
-            .field("dwUserIdentifier", &self.dwUserIdentifier)
-            .field("dwPriorLinkState", &self.dwPriorLinkState)
-            .field("dwCurrentLinkState", &self.dwCurrentLinkState)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_BLOB_EXT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_BLOB_EXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_VALUE_META_DATA_BLOB_EXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DS_REPL_VALUE_META_DATA_EXT {
-    pub pszAttributeName: ::windows::core::PWSTR,
-    pub pszObjectDn: ::windows::core::PWSTR,
-    pub cbData: u32,
-    pub pbData: *mut u8,
-    pub ftimeDeleted: super::super::Foundation::FILETIME,
-    pub ftimeCreated: super::super::Foundation::FILETIME,
-    pub dwVersion: u32,
-    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
-    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
-    pub usnOriginatingChange: i64,
-    pub usnLocalChange: i64,
-    pub pszLastOriginatingDsaDN: ::windows::core::PWSTR,
-    pub dwUserIdentifier: u32,
-    pub dwPriorLinkState: u32,
-    pub dwCurrentLinkState: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_EXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_EXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_EXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPL_VALUE_META_DATA_EXT")
-            .field("pszAttributeName", &self.pszAttributeName)
-            .field("pszObjectDn", &self.pszObjectDn)
-            .field("cbData", &self.cbData)
-            .field("pbData", &self.pbData)
-            .field("ftimeDeleted", &self.ftimeDeleted)
-            .field("ftimeCreated", &self.ftimeCreated)
-            .field("dwVersion", &self.dwVersion)
-            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
-            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
-            .field("usnOriginatingChange", &self.usnOriginatingChange)
-            .field("usnLocalChange", &self.usnLocalChange)
-            .field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN)
-            .field("dwUserIdentifier", &self.dwUserIdentifier)
-            .field("dwPriorLinkState", &self.dwPriorLinkState)
-            .field("dwCurrentLinkState", &self.dwCurrentLinkState)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_EXT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_EXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_EXT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_EXT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DS_REPL_VALUE_META_DATA_EXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPSYNCALL_ERRINFOA {
-    pub pszSvrId: ::windows::core::PSTR,
-    pub error: DS_REPSYNCALL_ERROR,
-    pub dwWin32Err: u32,
-    pub pszSrcId: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for DS_REPSYNCALL_ERRINFOA {}
-impl ::core::clone::Clone for DS_REPSYNCALL_ERRINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_ERRINFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPSYNCALL_ERRINFOA").field("pszSvrId", &self.pszSvrId).field("error", &self.error).field("dwWin32Err", &self.dwWin32Err).field("pszSrcId", &self.pszSrcId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERRINFOA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPSYNCALL_ERRINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_ERRINFOA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPSYNCALL_ERRINFOA {}
-impl ::core::default::Default for DS_REPSYNCALL_ERRINFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPSYNCALL_ERRINFOW {
-    pub pszSvrId: ::windows::core::PWSTR,
-    pub error: DS_REPSYNCALL_ERROR,
-    pub dwWin32Err: u32,
-    pub pszSrcId: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DS_REPSYNCALL_ERRINFOW {}
-impl ::core::clone::Clone for DS_REPSYNCALL_ERRINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_ERRINFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPSYNCALL_ERRINFOW").field("pszSvrId", &self.pszSvrId).field("error", &self.error).field("dwWin32Err", &self.dwWin32Err).field("pszSrcId", &self.pszSrcId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERRINFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPSYNCALL_ERRINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_ERRINFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPSYNCALL_ERRINFOW {}
-impl ::core::default::Default for DS_REPSYNCALL_ERRINFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_REPSYNCALL_ERROR(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(2i32);
-impl ::core::marker::Copy for DS_REPSYNCALL_ERROR {}
-impl ::core::clone::Clone for DS_REPSYNCALL_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPSYNCALL_ERROR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERROR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_REPSYNCALL_ERROR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_REPSYNCALL_EVENT(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(3i32);
-impl ::core::marker::Copy for DS_REPSYNCALL_EVENT {}
-impl ::core::clone::Clone for DS_REPSYNCALL_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_REPSYNCALL_EVENT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_EVENT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_REPSYNCALL_EVENT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPSYNCALL_SYNCA {
-    pub pszSrcId: ::windows::core::PSTR,
-    pub pszDstId: ::windows::core::PSTR,
-    pub pszNC: ::windows::core::PSTR,
-    pub pguidSrc: *mut ::windows::core::GUID,
-    pub pguidDst: *mut ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DS_REPSYNCALL_SYNCA {}
-impl ::core::clone::Clone for DS_REPSYNCALL_SYNCA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_SYNCA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPSYNCALL_SYNCA").field("pszSrcId", &self.pszSrcId).field("pszDstId", &self.pszDstId).field("pszNC", &self.pszNC).field("pguidSrc", &self.pguidSrc).field("pguidDst", &self.pguidDst).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_SYNCA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPSYNCALL_SYNCA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_SYNCA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPSYNCALL_SYNCA {}
-impl ::core::default::Default for DS_REPSYNCALL_SYNCA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPSYNCALL_SYNCW {
-    pub pszSrcId: ::windows::core::PWSTR,
-    pub pszDstId: ::windows::core::PWSTR,
-    pub pszNC: ::windows::core::PWSTR,
-    pub pguidSrc: *mut ::windows::core::GUID,
-    pub pguidDst: *mut ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DS_REPSYNCALL_SYNCW {}
-impl ::core::clone::Clone for DS_REPSYNCALL_SYNCW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_SYNCW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPSYNCALL_SYNCW").field("pszSrcId", &self.pszSrcId).field("pszDstId", &self.pszDstId).field("pszNC", &self.pszNC).field("pguidSrc", &self.pguidSrc).field("pguidDst", &self.pguidDst).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_SYNCW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPSYNCALL_SYNCW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_SYNCW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPSYNCALL_SYNCW {}
-impl ::core::default::Default for DS_REPSYNCALL_SYNCW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPSYNCALL_UPDATEA {
-    pub event: DS_REPSYNCALL_EVENT,
-    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
-    pub pSync: *mut DS_REPSYNCALL_SYNCA,
-}
-impl ::core::marker::Copy for DS_REPSYNCALL_UPDATEA {}
-impl ::core::clone::Clone for DS_REPSYNCALL_UPDATEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_UPDATEA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPSYNCALL_UPDATEA").field("event", &self.event).field("pErrInfo", &self.pErrInfo).field("pSync", &self.pSync).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_UPDATEA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPSYNCALL_UPDATEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_UPDATEA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPSYNCALL_UPDATEA {}
-impl ::core::default::Default for DS_REPSYNCALL_UPDATEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_REPSYNCALL_UPDATEW {
-    pub event: DS_REPSYNCALL_EVENT,
-    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
-    pub pSync: *mut DS_REPSYNCALL_SYNCW,
-}
-impl ::core::marker::Copy for DS_REPSYNCALL_UPDATEW {}
-impl ::core::clone::Clone for DS_REPSYNCALL_UPDATEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_REPSYNCALL_UPDATEW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_REPSYNCALL_UPDATEW").field("event", &self.event).field("pErrInfo", &self.pErrInfo).field("pSync", &self.pSync).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_REPSYNCALL_UPDATEW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_REPSYNCALL_UPDATEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_UPDATEW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_REPSYNCALL_UPDATEW {}
-impl ::core::default::Default for DS_REPSYNCALL_UPDATEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_CRITICAL: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_FORCE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_FULL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_INITIAL: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_NOTIFICATION: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_NO_DISCARD: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_PERIODIC: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_PREEMPTED: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_REQUEUE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_SELECT_SECRETS: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_TWO_WAY: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_URGENT: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_USE_COMPRESSION: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPSYNC_WRITEABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPUPD_ADD_REFERENCE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPUPD_DELETE_REFERENCE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPUPD_REFERENCE_GCSPN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_REPUPD_WRITEABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_RETURN_DNS_NAME: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_RETURN_FLAT_NAME: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ROLE_DOMAIN_OWNER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ROLE_PDC_OWNER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ROLE_RID_OWNER: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_ROLE_SCHEMA_OWNER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_SCHEMA_GUID_MAPA {
-    pub guid: ::windows::core::GUID,
-    pub guidType: u32,
-    pub pName: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for DS_SCHEMA_GUID_MAPA {}
-impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_SCHEMA_GUID_MAPA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_SCHEMA_GUID_MAPA").field("guid", &self.guid).field("guidType", &self.guidType).field("pName", &self.pName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_SCHEMA_GUID_MAPA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_SCHEMA_GUID_MAPA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SCHEMA_GUID_MAPA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_SCHEMA_GUID_MAPA {}
-impl ::core::default::Default for DS_SCHEMA_GUID_MAPA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_SCHEMA_GUID_MAPW {
-    pub guid: ::windows::core::GUID,
-    pub guidType: u32,
-    pub pName: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for DS_SCHEMA_GUID_MAPW {}
-impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_SCHEMA_GUID_MAPW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_SCHEMA_GUID_MAPW").field("guid", &self.guid).field("guidType", &self.guidType).field("pName", &self.pName).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_SCHEMA_GUID_MAPW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_SCHEMA_GUID_MAPW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SCHEMA_GUID_MAPW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_SCHEMA_GUID_MAPW {}
-impl ::core::default::Default for DS_SCHEMA_GUID_MAPW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct DS_SELECTION {
-    pub pwzName: ::windows::core::PWSTR,
-    pub pwzADsPath: ::windows::core::PWSTR,
-    pub pwzClass: ::windows::core::PWSTR,
-    pub pwzUPN: ::windows::core::PWSTR,
-    pub pvarFetchedAttributes: *mut super::super::System::Com::VARIANT,
-    pub flScopeType: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DS_SELECTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for DS_SELECTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DS_SELECTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_SELECTION").field("pwzName", &self.pwzName).field("pwzADsPath", &self.pwzADsPath).field("pwzClass", &self.pwzClass).field("pwzUPN", &self.pwzUPN).field("pvarFetchedAttributes", &self.pvarFetchedAttributes).field("flScopeType", &self.flScopeType).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for DS_SELECTION {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DS_SELECTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SELECTION>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DS_SELECTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for DS_SELECTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub struct DS_SELECTION_LIST {
-    pub cItems: u32,
-    pub cFetchedAttributes: u32,
-    pub aDsSelection: [DS_SELECTION; 1],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DS_SELECTION_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for DS_SELECTION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DS_SELECTION_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_SELECTION_LIST").field("cItems", &self.cItems).field("cFetchedAttributes", &self.cFetchedAttributes).field("aDsSelection", &self.aDsSelection).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for DS_SELECTION_LIST {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DS_SELECTION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SELECTION_LIST>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DS_SELECTION_LIST {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for DS_SELECTION_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct DS_SITE_COST_INFO {
-    pub errorCode: u32,
-    pub cost: u32,
-}
-impl ::core::marker::Copy for DS_SITE_COST_INFO {}
-impl ::core::clone::Clone for DS_SITE_COST_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DS_SITE_COST_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS_SITE_COST_INFO").field("errorCode", &self.errorCode).field("cost", &self.cost).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DS_SITE_COST_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DS_SITE_COST_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SITE_COST_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DS_SITE_COST_INFO {}
-impl ::core::default::Default for DS_SITE_COST_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_SPN_NAME_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_DNS_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_DN_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_NB_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_NB_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_SERVICE: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(5i32);
-impl ::core::marker::Copy for DS_SPN_NAME_TYPE {}
-impl ::core::clone::Clone for DS_SPN_NAME_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_SPN_NAME_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_SPN_NAME_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_SPN_NAME_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_SPN_NAME_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DS_SPN_WRITE_OP(pub i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(0i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(1i32);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(2i32);
-impl ::core::marker::Copy for DS_SPN_WRITE_OP {}
-impl ::core::clone::Clone for DS_SPN_WRITE_OP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DS_SPN_WRITE_OP {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DS_SPN_WRITE_OP {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DS_SPN_WRITE_OP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DS_SPN_WRITE_OP").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SYNCED_EVENT_NAME: &str = "NTDSInitialSyncsCompleted";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_SYNCED_EVENT_NAME_W: &str = "NTDSInitialSyncsCompleted";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_TIMESERV_FLAG: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_WRITABLE_FLAG: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const DS_WS_FLAG: u32 = 8192u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8803,26 +1944,6 @@ where
     }
     DsWriteAccountSpnW(hds.into(), operation, pszaccount.into(), rpszspn.len() as _, ::core::mem::transmute(rpszspn.as_ptr()))
 }
-pub const Email: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FACILITY_BACKUP: u32 = 2047u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FACILITY_NTDSB: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FACILITY_SYSTEM: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
-pub const FaxNumber: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8846,95 +1967,54 @@ where
     }
     FreeADsStr(pstr.into())
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_COMPUTRS_CONTAINER_A: &str = "aa312825768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_COMPUTRS_CONTAINER_W: &str = "aa312825768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DELETED_OBJECTS_CONTAINER_A: &str = "18e2ea80684f11d2b9aa00c04f79f805";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DELETED_OBJECTS_CONTAINER_W: &str = "18e2ea80684f11d2b9aa00c04f79f805";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: &str = "a361b2ffffd211d1aa4b00c04fd7d83a";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: &str = "a361b2ffffd211d1aa4b00c04fd7d83a";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: &str = "22b70c67d56e4efb91e9300fca3dc1aa";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: &str = "22b70c67d56e4efb91e9300fca3dc1aa";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_INFRASTRUCTURE_CONTAINER_A: &str = "2fbac1870ade11d297c400c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_INFRASTRUCTURE_CONTAINER_W: &str = "2fbac1870ade11d297c400c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_KEYS_CONTAINER_W: &str = "683A24E2E8164BD3AF86AC3C2CF3F981";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_LOSTANDFOUND_CONTAINER_A: &str = "ab8153b7768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_LOSTANDFOUND_CONTAINER_W: &str = "ab8153b7768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: &str = "1EB93889E40C45DF9F0C64D23BBB6237";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: &str = "f4be92a4c777485e878e9421d53087db";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: &str = "f4be92a4c777485e878e9421d53087db";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_NTDS_QUOTAS_CONTAINER_A: &str = "6227f0af1fc2410d8e3bb10615bb5b0f";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_NTDS_QUOTAS_CONTAINER_W: &str = "6227f0af1fc2410d8e3bb10615bb5b0f";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: &str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: &str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PROGRAM_DATA_CONTAINER_A: &str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_PROGRAM_DATA_CONTAINER_W: &str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: &str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: &str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_SYSTEMS_CONTAINER_A: &str = "ab1d30f3768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_SYSTEMS_CONTAINER_W: &str = "ab1d30f3768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_USERS_CONTAINER_A: &str = "a9d1ca15768811d1aded00c04fd8d5cd";
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub const GUID_USERS_CONTAINER_W: &str = "a9d1ca15768811d1aded00c04fd8d5cd";
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GetDcContextHandle(pub isize);
-impl GetDcContextHandle {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn PropVariantToAdsType(pvariant: &mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: &mut *mut ADSVALUE, pdwnumvalues: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
     }
+    PropVariantToAdsType(::core::mem::transmute(pvariant), dwnumvariant, ::core::mem::transmute(ppadsvalues), ::core::mem::transmute(pdwnumvalues)).ok()
 }
-impl ::core::default::Default for GetDcContextHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[inline]
+pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void;
     }
+    ReallocADsMem(::core::mem::transmute(poldmem), cbold, cbnew)
 }
-impl ::core::clone::Clone for GetDcContextHandle {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ReallocADsStr<'a, P0>(ppstr: &mut ::windows::core::PWSTR, pstr: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReallocADsStr(ppstr: *mut ::windows::core::PWSTR, pstr: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
     }
+    ReallocADsStr(::core::mem::transmute(ppstr), pstr.into())
 }
-impl ::core::marker::Copy for GetDcContextHandle {}
-impl ::core::fmt::Debug for GetDcContextHandle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GetDcContextHandle").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn SecurityDescriptorToBinarySD<'a, P0, P1, P2, P3>(vvarsecdes: P0, ppsecuritydescriptor: &mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: &mut u32, pszservername: P1, username: P2, password: P3, dwflags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SecurityDescriptorToBinarySD(vvarsecdes: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
     }
+    SecurityDescriptorToBinarySD(vvarsecdes.into().abi(), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(pdwsdlength), pszservername.into(), username.into(), password.into(), dwflags).ok()
 }
-impl ::core::convert::From<::core::option::Option<GetDcContextHandle>> for GetDcContextHandle {
-    fn from(optional: ::core::option::Option<GetDcContextHandle>) -> GetDcContextHandle {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for GetDcContextHandle {
-    type Abi = Self;
-}
-pub const Hold: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -22550,18 +15630,870 @@ pub struct IQueryForm_Vtbl {
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging")))]
     AddPages: usize,
 }
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQADDFORMSPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQADDPAGESPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::core::GUID, ppage: *mut CQPAGE) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_CONTROL_ACCESS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_CREATE_CHILD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_DELETE_CHILD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_DELETE_TREE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_LIST: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_LIST_OBJECT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_OPEN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_READ_PROP: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_SELF: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ACTRL_DS_WRITE_PROP: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_FSMO_NAMING_STRING: &str = "naming";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_FSMO_NAMING_STRING_W: &str = "naming";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_FSMO_SCHEMA_STRING: &str = "schema";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_FSMO_SCHEMA_STRING_W: &str = "schema";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_FSMO_STRING: &str = "fsmo:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_FSMO_STRING_W: &str = "fsmo:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_INSTANCE_NAME_STRING: &str = "instance:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_INSTANCE_NAME_STRING_W: &str = "instance:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_PARTITION_STRING: &str = "partition:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_PARTITION_STRING_W: &str = "partition:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_SITE_NAME_STRING: &str = "site:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADAM_SCP_SITE_NAME_STRING_W: &str = "site:";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ATTR_APPEND: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ATTR_CLEAR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ATTR_DELETE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ATTR_UPDATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_EXT_INITCREDENTIALS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_EXT_INITIALIZE_COMPLETE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_EXT_MAXEXTDISPID: u32 = 16777215u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_EXT_MINEXTDISPID: u32 = 1u32;
+pub const ADSystemInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b6327f_afd1_11d2_9cb9_0000f87a369e);
+pub const ADsSecurityUtility: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf270c64a_ffb8_4ae4_85fe_3a75e5347966);
+pub const AccessControlEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb75ac000_9bdd_11d0_852c_00c04fd8d503);
+pub const AccessControlList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb85ea052_9bdd_11d0_852c_00c04fd8d503);
+pub const BackLink: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbf906f_4080_11d1_a3ac_00c04fb950dc);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DSDISPLAYSPECOPTIONS: &str = "DsDisplaySpecOptions";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DSOBJECTNAMES: &str = "DsObjectNames";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DSOP_DS_SELECTION_LIST: &str = "CFSTR_DSOP_DS_SELECTION_LIST";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DSPROPERTYPAGEINFO: &str = "DsPropPageInfo";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DSQUERYPARAMS: &str = "DsQueryParameters";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DSQUERYSCOPE: &str = "DsQueryScope";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CFSTR_DS_DISPLAY_SPEC_OPTIONS: &str = "DsDisplaySpecOptions";
+pub const CLSID_CommonQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83bc5ec0_6f2a_11d0_a1c4_00aa00c16e65);
+pub const CLSID_DsAdminCreateObj: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe301a009_f901_11d2_82b9_00c04f68928b);
+pub const CLSID_DsDisplaySpecifier: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab4a8c0_6a0b_11d2_ad49_00c04fa31a86);
+pub const CLSID_DsDomainTreeBrowser: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1698790a_e2b4_11d0_b0b1_00c04fd8dca6);
+pub const CLSID_DsFindAdvanced: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe3_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindComputer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16006700_87ad_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindContainer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b3cbf2_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindDomainController: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x538c7b7e_d25e_11d0_9742_00a0c906af45);
+pub const CLSID_DsFindFrsMembers: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94ce4b18_b3d3_11d1_b9b4_00c04fd8d5b0);
+pub const CLSID_DsFindObjects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe1_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPeople: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ee3fe2_57d9_11d0_b932_00a024ab2dbb);
+pub const CLSID_DsFindPrinter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb577f070_7ee2_11d0_913f_00aa00c16e65);
+pub const CLSID_DsFindVolume: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b3cbf1_886a_11d0_9140_00aa00c16e65);
+pub const CLSID_DsFindWriteableDomainController: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cbef079_aa84_444b_bc70_68e41283eabc);
+pub const CLSID_DsFolderProperties: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e51e0d0_6e0f_11d2_9601_00c04fa31a86);
+pub const CLSID_DsObjectPicker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d6ccd8_3b7b_11d2_b9e0_00c04fd8dbf7);
+pub const CLSID_DsPropertyPages: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d45d530_764b_11d0_a1ca_00aa00c16e65);
+pub const CLSID_DsQuery: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a23e65e_31c2_11d0_891c_00a024ab2dbb);
+pub const CLSID_MicrosoftDS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe1290f0_cfbd_11cf_a330_00aa00c16e65);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQFF_ISOPTIONAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQFF_NOGLOBALPAGES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_CLEARFORM: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_ENABLE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_GETPARAMETERS: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_HANDLERSPECIFIC: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_HELP: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_INITIALIZE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_PERSIST: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_RELEASE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const CQPM_SETDEFAULTPARAMETERS: u32 = 9u32;
+pub const CaseIgnoreList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15f88a55_4680_11d1_a3b4_00c04fb950dc);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DBDTF_RETURNEXTERNAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DBDTF_RETURNFQDN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DBDTF_RETURNINBOUND: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DBDTF_RETURNINOUTBOUND: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DBDTF_RETURNMIXEDDOMAINS: u32 = 2u32;
+pub const DNWithBinary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e99c0a3_f935_11d2_ba96_00c04fb6d0d1);
+pub const DNWithString: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334857cc_f934_11d2_ba96_00c04fb6d0d1);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NEWOBJ_CTX_CLEANUP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NEWOBJ_CTX_COMMIT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NEWOBJ_CTX_POSTCOMMIT: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NEWOBJ_CTX_PRECOMMIT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NOTIFY_DEL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NOTIFY_FLAG_ADDITIONAL_DATA: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NOTIFY_MOV: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NOTIFY_PROP: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSA_NOTIFY_REN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBF_DISPLAYNAME: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBF_ICONLOCATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBF_STATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBID_BANNER: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBID_CONTAINERLIST: u32 = 257u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_CHECKBOXES: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_DONTSIGNSEAL: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_ENTIREDIRECTORY: u32 = 589824u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_EXPANDONOPEN: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_HASCREDENTIALS: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_IGNORETREATASLEAF: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_INCLUDEHIDDEN: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_NOBUTTONS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_NOLINES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_NOLINESATROOT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_NOROOT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_RETURNOBJECTCLASS: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_RETURN_FORMAT: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBI_SIMPLEAUTHENTICATE: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBM_CHANGEIMAGESTATE: u32 = 102u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBM_CONTEXTMENU: u32 = 104u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBM_HELP: u32 = 103u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBM_QUERYINSERT: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBM_QUERYINSERTA: u32 = 101u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBM_QUERYINSERTW: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBS_CHECKED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBS_HIDDEN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSBS_ROOT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSB_MAX_DISPLAYNAME_CHARS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSCCIF_HASWIZARDDIALOG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSCCIF_HASWIZARDPRIMARYPAGE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSDSOF_DONTSIGNSEAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSDSOF_DSAVAILABLE: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSDSOF_HASUSERANDSERVERINFO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSDSOF_SIMPLEAUTHENTICATE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSECAF_NOTLISTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSGIF_DEFAULTISCONTAINER: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSGIF_GETDEFAULTICON: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSGIF_ISDISABLED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSGIF_ISMASK: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSGIF_ISNORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSGIF_ISOPEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSICCF_IGNORETREATASLEAF: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOBJECT_ISCONTAINER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOBJECT_READONLYPAGES: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES: u32 = 2281701376u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS: u32 = 2147614720u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_ANONYMOUS: u32 = 2147483712u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER: u32 = 2147483680u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_BATCH: u32 = 2147483776u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_COMPUTERS: u32 = 2147483656u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP: u32 = 2147484160u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER: u32 = 2147483904u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_DIALUP: u32 = 2147484672u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS: u32 = 2147516416u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS: u32 = 2147483652u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL: u32 = 2214592512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_INTERACTIVE: u32 = 2147485696u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_INTERNET_USER: u32 = 2149580800u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS: u32 = 2415919104u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS: u32 = 2147483650u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON: u32 = 2164260864u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE: u32 = 2147745792u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_NETWORK: u32 = 2147487744u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE: u32 = 2148007936u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS: u32 = 2151677952u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON: u32 = 2148532224u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_SERVICE: u32 = 2147491840u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_SERVICES: u32 = 2155872256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_SYSTEM: u32 = 2147500032u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER: u32 = 2147549184u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT: u32 = 2181038080u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_USERS: u32 = 2147483649u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_DOWNLEVEL_FILTER_WORLD: u32 = 2147483664u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_BUILTIN_GROUPS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_COMPUTERS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_CONTACTS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_GLOBAL_GROUPS_DL: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_GLOBAL_GROUPS_SE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_INCLUDE_ADVANCED_VIEW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_SERVICE_ACCOUNTS: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_UNIVERSAL_GROUPS_DL: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_UNIVERSAL_GROUPS_SE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_USERS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FILTER_WELL_KNOWN_PRINCIPALS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FLAG_MULTISELECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_STARTING_SCOPE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_GC: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_FLAG_WANT_SID_PATH: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_GLOBAL_CATALOG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_TARGET_COMPUTER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSOP_SCOPE_TYPE_WORKGROUP: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROP_ATTRCHANGED_MSG: &str = "DsPropAttrChanged";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROVIDER_ADVANCED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROVIDER_AD_LDS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROVIDER_UNUSED_0: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROVIDER_UNUSED_1: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROVIDER_UNUSED_2: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSPROVIDER_UNUSED_3: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_ENABLEADMINFEATURES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_ENABLEADVANCEDFEATURES: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_HASCREDENTIALS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_NOCHOOSECOLUMNS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_NOSAVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_SAVELOCATION: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPF_SHOWHIDDENOBJECTS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPM_GETCLASSLIST: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSQPM_HELPTOPICS: u32 = 268435457u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSROLE_PRIMARY_DS_MIXED_MODE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSROLE_PRIMARY_DS_READONLY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSSSF_DONTSIGNSEAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSSSF_DSAVAILABLE: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DSSSF_SIMPLEAUTHENTICATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_AVOID_SELF: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BACKGROUND_ONLY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_LONGHORN: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2000: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2003: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2008: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2008R2: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2012: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2012R2: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN2016: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN7: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WIN8: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WINBLUE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_BEHAVIOR_WINTHRESHOLD: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_CLOSEST_FLAG: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DIRECTORY_SERVICE_10_REQUIRED: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DIRECTORY_SERVICE_6_REQUIRED: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DIRECTORY_SERVICE_8_REQUIRED: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DIRECTORY_SERVICE_9_REQUIRED: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DIRECTORY_SERVICE_PREFERRED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DIRECTORY_SERVICE_REQUIRED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DNS_CONTROLLER_FLAG: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DNS_DOMAIN_FLAG: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DNS_FOREST_FLAG: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DOMAIN_DIRECT_INBOUND: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DOMAIN_DIRECT_OUTBOUND: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DOMAIN_IN_FOREST: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DOMAIN_NATIVE_MODE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DOMAIN_PRIMARY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DOMAIN_TREE_ROOT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DS_10_FLAG: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DS_8_FLAG: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DS_9_FLAG: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DS_FLAG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_EXIST_ADVISORY_MODE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_FORCE_REDISCOVERY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_FULL_SECRET_DOMAIN_6_FLAG: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_GC_FLAG: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_GC_SERVER_REQUIRED: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_GFTI_UPDATE_TDO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_GFTI_VALID_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_GOOD_TIMESERV_FLAG: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_GOOD_TIMESERV_PREFERRED: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_INSTANCETYPE_IS_NC_HEAD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_INSTANCETYPE_NC_COMING: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_INSTANCETYPE_NC_GOING: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_INSTANCETYPE_NC_IS_WRITEABLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_IP_REQUIRED: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_IS_DNS_NAME: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_IS_FLAT_NAME: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KCC_FLAG_ASYNC_OP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KCC_FLAG_DAMPED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KDC_FLAG: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KDC_REQUIRED: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KEY_LIST_FLAG: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KEY_LIST_SUPPORT_REQUIRED: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_LDAP_FLAG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_LIST_ACCOUNT_OBJECT_FOR_SERVER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_LIST_DNS_HOST_NAME_FOR_SERVER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_LIST_DSA_OBJECT_FOR_SERVER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NDNC_FLAG: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NOTIFY_AFTER_SITE_RECORDS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ONLY_DO_SITE_NAME: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ONLY_LDAP_NEEDED: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_PDC_FLAG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_PDC_REQUIRED: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_PING_FLAGS: u32 = 1048575u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_PROP_ADMIN_PREFIX: &str = "admin";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_PROP_SHELL_PREFIX: &str = "shell";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_ASYNCHRONOUS_REPLICA: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_CRITICAL: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_DISABLE_NOTIFICATION: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_DISABLE_PERIODIC: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_INITIAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_INTERSITE_MESSAGING: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_NEVER_NOTIFY: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_NONGC_RO_REPLICA: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_PERIODIC: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_SELECT_SECRETS: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_TWO_WAY: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_USE_COMPRESSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPADD_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_IGNORE_ERRORS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_INTERSITE_MESSAGING: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_LOCAL_ONLY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_NO_SOURCE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_REF_OK: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPDEL_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_COMPRESS_CHANGES: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_DISABLE_SCHEDULED_SYNC: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_DO_SCHEDULED_SYNCS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_FULL_SYNC_IN_PROGRESS: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_FULL_SYNC_NEXT_PACKET: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_GCSPN: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_NEVER_SYNCED: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_NONGC_RO_REPLICA: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_PREEMPTED: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_RETURN_OBJECT_PARENTS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_SELECT_SECRETS: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_SYNC_ON_STARTUP: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_TWO_WAY_SYNC: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_NBR_WRITEABLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_UPDATE_ADDRESS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_UPDATE_FLAGS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_UPDATE_INSTANCE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_UPDATE_RESULT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_UPDATE_SCHEDULE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_UPDATE_TRANSPORT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPMOD_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_CROSS_SITE_BOUNDARIES: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_DO_NOT_SYNC: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_ID_SERVERS_BY_DN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_NO_OPTIONS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_PUSH_CHANGES_OUTWARD: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_SKIP_INITIAL_CHECK: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_ABANDONED: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_ADD_REFERENCE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_ASYNCHRONOUS_REPLICA: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_CRITICAL: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_FORCE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_FULL: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_FULL_IN_PROGRESS: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_INITIAL: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_INITIAL_IN_PROGRESS: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_INTERSITE_MESSAGING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_NEVER_COMPLETED: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_NEVER_NOTIFY: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_NONGC_RO_REPLICA: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_NOTIFICATION: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_NO_DISCARD: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_PARTIAL_ATTRIBUTE_SET: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_PERIODIC: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_PREEMPTED: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_REQUEUE: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_SELECT_SECRETS: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_TWO_WAY: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_URGENT: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_USE_COMPRESSION: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNC_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPUPD_ADD_REFERENCE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPUPD_ASYNCHRONOUS_OPERATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPUPD_DELETE_REFERENCE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPUPD_REFERENCE_GCSPN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPUPD_WRITEABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_RETURN_DNS_NAME: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_RETURN_FLAT_NAME: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ROLE_DOMAIN_OWNER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ROLE_INFRASTRUCTURE_OWNER: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ROLE_PDC_OWNER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ROLE_RID_OWNER: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_ROLE_SCHEMA_OWNER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SCHEMA_GUID_ATTR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SCHEMA_GUID_ATTR_SET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SCHEMA_GUID_CLASS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SCHEMA_GUID_CONTROL_RIGHT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SCHEMA_GUID_NOT_FOUND: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SELECT_SECRET_DOMAIN_6_FLAG: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SYNCED_EVENT_NAME: &str = "NTDSInitialSyncsCompleted";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SYNCED_EVENT_NAME_W: &str = "NTDSInitialSyncsCompleted";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_TIMESERV_FLAG: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_TIMESERV_REQUIRED: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_TRY_NEXTCLOSEST_SITE: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_WEB_SERVICE_REQUIRED: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_WRITABLE_FLAG: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_WRITABLE_REQUIRED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_WS_FLAG: u32 = 8192u32;
+pub const Email: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f92a857_478e_11d1_a3b4_00c04fb950dc);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FACILITY_BACKUP: u32 = 2047u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FACILITY_NTDSB: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FACILITY_SYSTEM: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FLAG_DISABLABLE_OPTIONAL_FEATURE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FLAG_DOMAIN_OPTIONAL_FEATURE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FLAG_FOREST_OPTIONAL_FEATURE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FLAG_SERVER_OPTIONAL_FEATURE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FRSCONN_MAX_PRIORITY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const FRSCONN_PRIORITY_MASK: u32 = 1879048192u32;
+pub const FaxNumber: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5062215_4681_11d1_a3b4_00c04fb950dc);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_COMPUTRS_CONTAINER_A: &str = "aa312825768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_COMPUTRS_CONTAINER_W: &str = "aa312825768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_DELETED_OBJECTS_CONTAINER_A: &str = "18e2ea80684f11d2b9aa00c04f79f805";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_DELETED_OBJECTS_CONTAINER_W: &str = "18e2ea80684f11d2b9aa00c04f79f805";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_A: &str = "a361b2ffffd211d1aa4b00c04fd7d83a";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_DOMAIN_CONTROLLERS_CONTAINER_W: &str = "a361b2ffffd211d1aa4b00c04fd7d83a";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_A: &str = "22b70c67d56e4efb91e9300fca3dc1aa";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_FOREIGNSECURITYPRINCIPALS_CONTAINER_W: &str = "22b70c67d56e4efb91e9300fca3dc1aa";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_INFRASTRUCTURE_CONTAINER_A: &str = "2fbac1870ade11d297c400c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_INFRASTRUCTURE_CONTAINER_W: &str = "2fbac1870ade11d297c400c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_KEYS_CONTAINER_W: &str = "683A24E2E8164BD3AF86AC3C2CF3F981";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_LOSTANDFOUND_CONTAINER_A: &str = "ab8153b7768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_LOSTANDFOUND_CONTAINER_W: &str = "ab8153b7768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_MANAGED_SERVICE_ACCOUNTS_CONTAINER_W: &str = "1EB93889E40C45DF9F0C64D23BBB6237";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_A: &str = "f4be92a4c777485e878e9421d53087db";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_MICROSOFT_PROGRAM_DATA_CONTAINER_W: &str = "f4be92a4c777485e878e9421d53087db";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_NTDS_QUOTAS_CONTAINER_A: &str = "6227f0af1fc2410d8e3bb10615bb5b0f";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_NTDS_QUOTAS_CONTAINER_W: &str = "6227f0af1fc2410d8e3bb10615bb5b0f";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_A: &str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_PRIVILEGED_ACCESS_MANAGEMENT_OPTIONAL_FEATURE_W: &str = "73e843ece8cc4046b4ab07ffe4ab5bcd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_PROGRAM_DATA_CONTAINER_A: &str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_PROGRAM_DATA_CONTAINER_W: &str = "09460c08ae1e4a4ea0f64aee7daa1e5a";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_A: &str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_RECYCLE_BIN_OPTIONAL_FEATURE_W: &str = "d8dc6d76d0ac5e44f3b9a7f9b6744f2a";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_SYSTEMS_CONTAINER_A: &str = "ab1d30f3768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_SYSTEMS_CONTAINER_W: &str = "ab1d30f3768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_USERS_CONTAINER_A: &str = "a9d1ca15768811d1aded00c04fd8d5cd";
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const GUID_USERS_CONTAINER_W: &str = "a9d1ca15768811d1aded00c04fd8d5cd";
+pub const Hold: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3ad3e13_4080_11d1_a3ac_00c04fb950dc);
 pub const LargeInteger: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x927971f5_0939_11d1_8be1_00c04fd8d503);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const NTDSAPI_BIND_ALLOW_DELEGATION: u32 = 1u32;
@@ -22667,81 +16599,6 @@ pub const NTDSTRANSPORT_OPT_BRIDGES_REQUIRED: u32 = 2u32;
 pub const NTDSTRANSPORT_OPT_IGNORE_SCHEDULES: u32 = 1u32;
 pub const NameTranslate: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x274fae1f_3626_11d1_a3a4_00c04fb950dc);
 pub const NetAddress: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0b71247_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub struct OPENQUERYWINDOW {
-    pub cbStruct: u32,
-    pub dwFlags: u32,
-    pub clsidHandler: ::windows::core::GUID,
-    pub pHandlerParameters: *mut ::core::ffi::c_void,
-    pub clsidDefaultForm: ::windows::core::GUID,
-    pub pPersistQuery: ::core::option::Option<IPersistQuery>,
-    pub Anonymous: OPENQUERYWINDOW_0,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for OPENQUERYWINDOW {
-    fn clone(&self) -> Self {
-        Self {
-            cbStruct: self.cbStruct,
-            dwFlags: self.dwFlags,
-            clsidHandler: self.clsidHandler,
-            pHandlerParameters: self.pHandlerParameters,
-            clsidDefaultForm: self.clsidDefaultForm,
-            pPersistQuery: self.pPersistQuery.clone(),
-            Anonymous: self.Anonymous.clone(),
-        }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-unsafe impl ::windows::core::Abi for OPENQUERYWINDOW {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for OPENQUERYWINDOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.clsidHandler == other.clsidHandler && self.pHandlerParameters == other.pHandlerParameters && self.clsidDefaultForm == other.clsidDefaultForm && self.pPersistQuery == other.pPersistQuery && self.Anonymous == other.Anonymous
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for OPENQUERYWINDOW {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::default::Default for OPENQUERYWINDOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-pub union OPENQUERYWINDOW_0 {
-    pub pFormParameters: *mut ::core::ffi::c_void,
-    pub ppbFormParameters: ::core::mem::ManuallyDrop<::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag>>,
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::clone::Clone for OPENQUERYWINDOW_0 {
-    fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-unsafe impl ::windows::core::Abi for OPENQUERYWINDOW_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::PartialEq for OPENQUERYWINDOW_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENQUERYWINDOW_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::cmp::Eq for OPENQUERYWINDOW_0 {}
-#[cfg(feature = "Win32_System_Com_StructuredStorage")]
-impl ::core::default::Default for OPENQUERYWINDOW_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const OQWF_DEFAULTFORM: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -22770,111 +16627,15 @@ pub const OctetList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x
 pub const Path: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2538919_4080_11d1_a3ac_00c04fb950dc);
 pub const Pathname: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x080d0d78_f421_11d0_a36e_00c04fb950dc);
 pub const PostalAddress: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a75afcd_4680_11d1_a3b4_00c04fb950dc);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn PropVariantToAdsType(pvariant: &mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: &mut *mut ADSVALUE, pdwnumvalues: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PropVariantToAdsType(pvariant: *mut super::super::System::Com::VARIANT, dwnumvariant: u32, ppadsvalues: *mut *mut ADSVALUE, pdwnumvalues: *mut u32) -> ::windows::core::HRESULT;
-    }
-    PropVariantToAdsType(::core::mem::transmute(pvariant), dwnumvariant, ::core::mem::transmute(ppadsvalues), ::core::mem::transmute(pdwnumvalues)).ok()
-}
 pub const PropertyEntry: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d3edc2_a4c4_11d0_8533_00c04fd8d503);
 pub const PropertyValue: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b9e38b0_a97c_11d0_8534_00c04fd8d503);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const QUERYFORM_CHANGESFORMLIST: u64 = 1u64;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const QUERYFORM_CHANGESOPTFORMLIST: u64 = 2u64;
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-#[inline]
-pub unsafe fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReallocADsMem(poldmem: *mut ::core::ffi::c_void, cbold: u32, cbnew: u32) -> *mut ::core::ffi::c_void;
-    }
-    ReallocADsMem(::core::mem::transmute(poldmem), cbold, cbnew)
-}
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReallocADsStr<'a, P0>(ppstr: &mut ::windows::core::PWSTR, pstr: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReallocADsStr(ppstr: *mut ::windows::core::PWSTR, pstr: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    ReallocADsStr(::core::mem::transmute(ppstr), pstr.into())
-}
 pub const ReplicaPointer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5d1badf_4080_11d1_a3ac_00c04fb950dc);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct SCHEDULE {
-    pub Size: u32,
-    pub Bandwidth: u32,
-    pub NumberOfSchedules: u32,
-    pub Schedules: [SCHEDULE_HEADER; 1],
-}
-impl ::core::marker::Copy for SCHEDULE {}
-impl ::core::clone::Clone for SCHEDULE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SCHEDULE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCHEDULE").field("Size", &self.Size).field("Bandwidth", &self.Bandwidth).field("NumberOfSchedules", &self.NumberOfSchedules).field("Schedules", &self.Schedules).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SCHEDULE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCHEDULE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHEDULE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SCHEDULE {}
-impl ::core::default::Default for SCHEDULE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const SCHEDULE_BANDWIDTH: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
-pub struct SCHEDULE_HEADER {
-    pub Type: u32,
-    pub Offset: u32,
-}
-impl ::core::marker::Copy for SCHEDULE_HEADER {}
-impl ::core::clone::Clone for SCHEDULE_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SCHEDULE_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SCHEDULE_HEADER").field("Type", &self.Type).field("Offset", &self.Offset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SCHEDULE_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SCHEDULE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHEDULE_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SCHEDULE_HEADER {}
-impl ::core::default::Default for SCHEDULE_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const SCHEDULE_INTERVAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -22888,22 +16649,6 @@ pub const STATUS_SEVERITY_SUCCESS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const STATUS_SEVERITY_WARNING: u32 = 2u32;
 pub const SecurityDescriptor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb958f73c_9bdd_11d0_852c_00c04fd8d503);
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn SecurityDescriptorToBinarySD<'a, P0, P1, P2, P3>(vvarsecdes: P0, ppsecuritydescriptor: &mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: &mut u32, pszservername: P1, username: P2, password: P3, dwflags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SecurityDescriptorToBinarySD(vvarsecdes: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppsecuritydescriptor: *mut super::super::Security::PSECURITY_DESCRIPTOR, pdwsdlength: *mut u32, pszservername: ::windows::core::PCWSTR, username: ::windows::core::PCWSTR, password: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    SecurityDescriptorToBinarySD(vvarsecdes.into().abi(), ::core::mem::transmute(ppsecuritydescriptor), ::core::mem::transmute(pdwsdlength), pszservername.into(), username.into(), password.into(), dwflags).ok()
-}
 pub const Timestamp: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2bed2eb_4080_11d1_a3ac_00c04fb950dc);
 pub const TypedName: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb33143cb_4080_11d1_a3ac_00c04fb950dc);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -22923,82 +16668,6 @@ pub const WM_ADSPROP_NOTIFY_PAGEINIT: u32 = 2125u32;
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const WM_ADSPROP_NOTIFY_SETFOCUS: u32 = 2129u32;
 pub const WinNTSystemInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66182ec4_afd1_11d2_9cb9_0000f87a369e);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ads_search_column {
-    pub pszAttrName: ::windows::core::PWSTR,
-    pub dwADsType: ADSTYPEENUM,
-    pub pADsValues: *mut ADSVALUE,
-    pub dwNumValues: u32,
-    pub hReserved: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_search_column {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ads_search_column {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ads_search_column {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ads_search_column").field("pszAttrName", &self.pszAttrName).field("dwADsType", &self.dwADsType).field("pADsValues", &self.pADsValues).field("dwNumValues", &self.dwNumValues).field("hReserved", &self.hReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ads_search_column {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ads_search_column {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ads_search_column>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ads_search_column {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ads_search_column {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ads_searchpref_info {
-    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
-    pub vValue: ADSVALUE,
-    pub dwStatus: ADS_STATUSENUM,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ads_searchpref_info {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ads_searchpref_info {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ads_searchpref_info {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ads_searchpref_info {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ads_searchpref_info>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ads_searchpref_info {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ads_searchpref_info {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const hrAccessDenied: ::windows::core::HRESULT = ::windows::core::HRESULT(-939522189i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
@@ -23371,5 +17040,6336 @@ pub const hrWriteConflict: ::windows::core::HRESULT = ::windows::core::HRESULT(-
 pub const hrerrDataHasChanged: ::windows::core::HRESULT = ::windows::core::HRESULT(-939522485i32);
 #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
 pub const hrwrnDataHasChanged: ::windows::core::HRESULT = ::windows::core::HRESULT(-2013264310i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADSI_DIALECT_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSI_DIALECT_LDAP: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSI_DIALECT_SQL: ADSI_DIALECT_ENUM = ADSI_DIALECT_ENUM(1i32);
+impl ::core::marker::Copy for ADSI_DIALECT_ENUM {}
+impl ::core::clone::Clone for ADSI_DIALECT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADSI_DIALECT_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADSI_DIALECT_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADSI_DIALECT_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADSI_DIALECT_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADSTYPEENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_INVALID: ADSTYPEENUM = ADSTYPEENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_DN_STRING: ADSTYPEENUM = ADSTYPEENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_CASE_EXACT_STRING: ADSTYPEENUM = ADSTYPEENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_CASE_IGNORE_STRING: ADSTYPEENUM = ADSTYPEENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_PRINTABLE_STRING: ADSTYPEENUM = ADSTYPEENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_NUMERIC_STRING: ADSTYPEENUM = ADSTYPEENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_BOOLEAN: ADSTYPEENUM = ADSTYPEENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_INTEGER: ADSTYPEENUM = ADSTYPEENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_OCTET_STRING: ADSTYPEENUM = ADSTYPEENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_UTC_TIME: ADSTYPEENUM = ADSTYPEENUM(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_LARGE_INTEGER: ADSTYPEENUM = ADSTYPEENUM(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_PROV_SPECIFIC: ADSTYPEENUM = ADSTYPEENUM(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_OBJECT_CLASS: ADSTYPEENUM = ADSTYPEENUM(12i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_CASEIGNORE_LIST: ADSTYPEENUM = ADSTYPEENUM(13i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_OCTET_LIST: ADSTYPEENUM = ADSTYPEENUM(14i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_PATH: ADSTYPEENUM = ADSTYPEENUM(15i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_POSTALADDRESS: ADSTYPEENUM = ADSTYPEENUM(16i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_TIMESTAMP: ADSTYPEENUM = ADSTYPEENUM(17i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_BACKLINK: ADSTYPEENUM = ADSTYPEENUM(18i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_TYPEDNAME: ADSTYPEENUM = ADSTYPEENUM(19i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_HOLD: ADSTYPEENUM = ADSTYPEENUM(20i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_NETADDRESS: ADSTYPEENUM = ADSTYPEENUM(21i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_REPLICAPOINTER: ADSTYPEENUM = ADSTYPEENUM(22i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_FAXNUMBER: ADSTYPEENUM = ADSTYPEENUM(23i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_EMAIL: ADSTYPEENUM = ADSTYPEENUM(24i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_NT_SECURITY_DESCRIPTOR: ADSTYPEENUM = ADSTYPEENUM(25i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_UNKNOWN: ADSTYPEENUM = ADSTYPEENUM(26i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_DN_WITH_BINARY: ADSTYPEENUM = ADSTYPEENUM(27i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSTYPE_DN_WITH_STRING: ADSTYPEENUM = ADSTYPEENUM(28i32);
+impl ::core::marker::Copy for ADSTYPEENUM {}
+impl ::core::clone::Clone for ADSTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADSTYPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADSTYPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADSTYPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADSTYPEENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_ACEFLAG_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_NO_PROPAGATE_INHERIT_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_INHERIT_ONLY_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_INHERITED_ACE: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(16i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_VALID_INHERIT_FLAGS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(31i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_SUCCESSFUL_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(64i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACEFLAG_FAILED_ACCESS: ADS_ACEFLAG_ENUM = ADS_ACEFLAG_ENUM(128i32);
+impl ::core::marker::Copy for ADS_ACEFLAG_ENUM {}
+impl ::core::clone::Clone for ADS_ACEFLAG_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_ACEFLAG_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_ACEFLAG_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_ACEFLAG_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_ACEFLAG_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_ACETYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_ALLOWED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_DENIED: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_AUDIT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_ALLOWED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_DENIED_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_AUDIT_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_ALARM_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_ALLOWED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_ACCESS_DENIED_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(12i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(13i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(14i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_AUDIT_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(15i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ACETYPE_SYSTEM_ALARM_CALLBACK_OBJECT: ADS_ACETYPE_ENUM = ADS_ACETYPE_ENUM(16i32);
+impl ::core::marker::Copy for ADS_ACETYPE_ENUM {}
+impl ::core::clone::Clone for ADS_ACETYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_ACETYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_ACETYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_ACETYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_ACETYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_AUTHENTICATION_ENUM(pub u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SECURE_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_USE_ENCRYPTION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_USE_SSL: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_READONLY_SERVER: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(4u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PROMPT_CREDENTIALS: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(8u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NO_AUTHENTICATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(16u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FAST_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(32u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_USE_SIGNING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(64u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_USE_SEALING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(128u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_USE_DELEGATION: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(256u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SERVER_BIND: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(512u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NO_REFERRAL_CHASING: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(1024u32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_AUTH_RESERVED: ADS_AUTHENTICATION_ENUM = ADS_AUTHENTICATION_ENUM(2147483648u32);
+impl ::core::marker::Copy for ADS_AUTHENTICATION_ENUM {}
+impl ::core::clone::Clone for ADS_AUTHENTICATION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_AUTHENTICATION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_AUTHENTICATION_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_AUTHENTICATION_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_AUTHENTICATION_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_CHASE_REFERRALS_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_CHASE_REFERRALS_NEVER: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_CHASE_REFERRALS_SUBORDINATE: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(32i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_CHASE_REFERRALS_EXTERNAL: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(64i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_CHASE_REFERRALS_ALWAYS: ADS_CHASE_REFERRALS_ENUM = ADS_CHASE_REFERRALS_ENUM(96i32);
+impl ::core::marker::Copy for ADS_CHASE_REFERRALS_ENUM {}
+impl ::core::clone::Clone for ADS_CHASE_REFERRALS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_CHASE_REFERRALS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_CHASE_REFERRALS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_CHASE_REFERRALS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_CHASE_REFERRALS_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_DEREFENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_DEREF_NEVER: ADS_DEREFENUM = ADS_DEREFENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_DEREF_SEARCHING: ADS_DEREFENUM = ADS_DEREFENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_DEREF_FINDING: ADS_DEREFENUM = ADS_DEREFENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_DEREF_ALWAYS: ADS_DEREFENUM = ADS_DEREFENUM(3i32);
+impl ::core::marker::Copy for ADS_DEREFENUM {}
+impl ::core::clone::Clone for ADS_DEREFENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_DEREFENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_DEREFENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_DEREFENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_DEREFENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_DISPLAY_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_DISPLAY_FULL: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_DISPLAY_VALUE_ONLY: ADS_DISPLAY_ENUM = ADS_DISPLAY_ENUM(2i32);
+impl ::core::marker::Copy for ADS_DISPLAY_ENUM {}
+impl ::core::clone::Clone for ADS_DISPLAY_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_DISPLAY_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_DISPLAY_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_DISPLAY_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_DISPLAY_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_ESCAPE_MODE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ESCAPEDMODE_DEFAULT: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ESCAPEDMODE_ON: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ESCAPEDMODE_OFF: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_ESCAPEDMODE_OFF_EX: ADS_ESCAPE_MODE_ENUM = ADS_ESCAPE_MODE_ENUM(4i32);
+impl ::core::marker::Copy for ADS_ESCAPE_MODE_ENUM {}
+impl ::core::clone::Clone for ADS_ESCAPE_MODE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_ESCAPE_MODE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_ESCAPE_MODE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_ESCAPE_MODE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_ESCAPE_MODE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_FLAGTYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FLAG_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FLAG_INHERITED_OBJECT_TYPE_PRESENT: ADS_FLAGTYPE_ENUM = ADS_FLAGTYPE_ENUM(2i32);
+impl ::core::marker::Copy for ADS_FLAGTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_FLAGTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_FLAGTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_FLAGTYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_FLAGTYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_FLAGTYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_FORMAT_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_WINDOWS: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_WINDOWS_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_WINDOWS_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_WINDOWS_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_X500: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_X500_NO_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_X500_DN: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_X500_PARENT: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_SERVER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_PROVIDER: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_FORMAT_LEAF: ADS_FORMAT_ENUM = ADS_FORMAT_ENUM(11i32);
+impl ::core::marker::Copy for ADS_FORMAT_ENUM {}
+impl ::core::clone::Clone for ADS_FORMAT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_FORMAT_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_FORMAT_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_FORMAT_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_FORMAT_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_GROUP_TYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_GROUP_TYPE_GLOBAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_GROUP_TYPE_DOMAIN_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_GROUP_TYPE_LOCAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_GROUP_TYPE_UNIVERSAL_GROUP: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_GROUP_TYPE_SECURITY_ENABLED: ADS_GROUP_TYPE_ENUM = ADS_GROUP_TYPE_ENUM(-2147483648i32);
+impl ::core::marker::Copy for ADS_GROUP_TYPE_ENUM {}
+impl ::core::clone::Clone for ADS_GROUP_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_GROUP_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_GROUP_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_GROUP_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_GROUP_TYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_NAME_INITTYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_INITTYPE_DOMAIN: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_INITTYPE_SERVER: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_INITTYPE_GC: ADS_NAME_INITTYPE_ENUM = ADS_NAME_INITTYPE_ENUM(3i32);
+impl ::core::marker::Copy for ADS_NAME_INITTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_NAME_INITTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_NAME_INITTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_NAME_INITTYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_NAME_INITTYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_NAME_INITTYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_NAME_TYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_1779: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_CANONICAL: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_NT4: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_DISPLAY: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_DOMAIN_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_ENTERPRISE_SIMPLE: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_GUID: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_UNKNOWN: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_USER_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_CANONICAL_EX: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_SERVICE_PRINCIPAL_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_NAME_TYPE_SID_OR_SID_HISTORY_NAME: ADS_NAME_TYPE_ENUM = ADS_NAME_TYPE_ENUM(12i32);
+impl ::core::marker::Copy for ADS_NAME_TYPE_ENUM {}
+impl ::core::clone::Clone for ADS_NAME_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_NAME_TYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_NAME_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_NAME_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_NAME_TYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_OPTION_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_SERVERNAME: ADS_OPTION_ENUM = ADS_OPTION_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_REFERRALS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_PAGE_SIZE: ADS_OPTION_ENUM = ADS_OPTION_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_SECURITY_MASK: ADS_OPTION_ENUM = ADS_OPTION_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_MUTUAL_AUTH_STATUS: ADS_OPTION_ENUM = ADS_OPTION_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_QUOTA: ADS_OPTION_ENUM = ADS_OPTION_ENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_PASSWORD_PORTNUMBER: ADS_OPTION_ENUM = ADS_OPTION_ENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_PASSWORD_METHOD: ADS_OPTION_ENUM = ADS_OPTION_ENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_ACCUMULATIVE_MODIFICATION: ADS_OPTION_ENUM = ADS_OPTION_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_OPTION_SKIP_SID_LOOKUP: ADS_OPTION_ENUM = ADS_OPTION_ENUM(9i32);
+impl ::core::marker::Copy for ADS_OPTION_ENUM {}
+impl ::core::clone::Clone for ADS_OPTION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_OPTION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_OPTION_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_OPTION_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_OPTION_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_PASSWORD_ENCODING_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PASSWORD_ENCODE_REQUIRE_SSL: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PASSWORD_ENCODE_CLEAR: ADS_PASSWORD_ENCODING_ENUM = ADS_PASSWORD_ENCODING_ENUM(1i32);
+impl ::core::marker::Copy for ADS_PASSWORD_ENCODING_ENUM {}
+impl ::core::clone::Clone for ADS_PASSWORD_ENCODING_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_PASSWORD_ENCODING_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_PASSWORD_ENCODING_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_PASSWORD_ENCODING_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_PASSWORD_ENCODING_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_PATHTYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PATH_FILE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PATH_FILESHARE: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PATH_REGISTRY: ADS_PATHTYPE_ENUM = ADS_PATHTYPE_ENUM(3i32);
+impl ::core::marker::Copy for ADS_PATHTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_PATHTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_PATHTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_PATHTYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_PATHTYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_PATHTYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_PREFERENCES_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_ASYNCHRONOUS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_DEREF_ALIASES: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_SIZE_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_ATTRIBTYPES_ONLY: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_SEARCH_SCOPE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_TIMEOUT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_PAGESIZE: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_PAGED_TIME_LIMIT: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_CHASE_REFERRALS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_SORT_ON: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_CACHE_RESULTS: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADSIPROP_ADSIFLAG: ADS_PREFERENCES_ENUM = ADS_PREFERENCES_ENUM(12i32);
+impl ::core::marker::Copy for ADS_PREFERENCES_ENUM {}
+impl ::core::clone::Clone for ADS_PREFERENCES_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_PREFERENCES_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_PREFERENCES_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_PREFERENCES_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_PREFERENCES_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_PROPERTY_OPERATION_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PROPERTY_CLEAR: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PROPERTY_UPDATE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PROPERTY_APPEND: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_PROPERTY_DELETE: ADS_PROPERTY_OPERATION_ENUM = ADS_PROPERTY_OPERATION_ENUM(4i32);
+impl ::core::marker::Copy for ADS_PROPERTY_OPERATION_ENUM {}
+impl ::core::clone::Clone for ADS_PROPERTY_OPERATION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_PROPERTY_OPERATION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_PROPERTY_OPERATION_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_PROPERTY_OPERATION_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_PROPERTY_OPERATION_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_RIGHTS_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DELETE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(65536i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_READ_CONTROL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(131072i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_WRITE_DAC: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(262144i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_WRITE_OWNER: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(524288i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_SYNCHRONIZE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1048576i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_ACCESS_SYSTEM_SECURITY: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16777216i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_GENERIC_READ: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_GENERIC_WRITE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1073741824i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_GENERIC_EXECUTE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(536870912i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_GENERIC_ALL: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(268435456i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_CREATE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_DELETE_CHILD: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_ACTRL_DS_LIST: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_SELF: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_READ_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(16i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_WRITE_PROP: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(32i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_DELETE_TREE: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(64i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_LIST_OBJECT: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(128i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_RIGHT_DS_CONTROL_ACCESS: ADS_RIGHTS_ENUM = ADS_RIGHTS_ENUM(256i32);
+impl ::core::marker::Copy for ADS_RIGHTS_ENUM {}
+impl ::core::clone::Clone for ADS_RIGHTS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_RIGHTS_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_RIGHTS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_RIGHTS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_RIGHTS_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SCOPEENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SCOPE_BASE: ADS_SCOPEENUM = ADS_SCOPEENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SCOPE_ONELEVEL: ADS_SCOPEENUM = ADS_SCOPEENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SCOPE_SUBTREE: ADS_SCOPEENUM = ADS_SCOPEENUM(2i32);
+impl ::core::marker::Copy for ADS_SCOPEENUM {}
+impl ::core::clone::Clone for ADS_SCOPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SCOPEENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SCOPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SCOPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SCOPEENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SD_CONTROL_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_OWNER_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_GROUP_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_DACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_DACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_SACL_PRESENT: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(16i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_SACL_DEFAULTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(256i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERIT_REQ: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(512i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_DACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(1024i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_SACL_AUTO_INHERITED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(2048i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_DACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(4096i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_SACL_PROTECTED: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(8192i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_CONTROL_SE_SELF_RELATIVE: ADS_SD_CONTROL_ENUM = ADS_SD_CONTROL_ENUM(32768i32);
+impl ::core::marker::Copy for ADS_SD_CONTROL_ENUM {}
+impl ::core::clone::Clone for ADS_SD_CONTROL_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SD_CONTROL_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SD_CONTROL_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SD_CONTROL_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SD_CONTROL_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SD_FORMAT_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_FORMAT_IID: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_FORMAT_RAW: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_FORMAT_HEXSTRING: ADS_SD_FORMAT_ENUM = ADS_SD_FORMAT_ENUM(3i32);
+impl ::core::marker::Copy for ADS_SD_FORMAT_ENUM {}
+impl ::core::clone::Clone for ADS_SD_FORMAT_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SD_FORMAT_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SD_FORMAT_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SD_FORMAT_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SD_FORMAT_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SD_REVISION_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SD_REVISION_DS: ADS_SD_REVISION_ENUM = ADS_SD_REVISION_ENUM(4i32);
+impl ::core::marker::Copy for ADS_SD_REVISION_ENUM {}
+impl ::core::clone::Clone for ADS_SD_REVISION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SD_REVISION_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SD_REVISION_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SD_REVISION_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SD_REVISION_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SEARCHPREF_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_ASYNCHRONOUS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_DEREF_ALIASES: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_SIZE_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_ATTRIBTYPES_ONLY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_SEARCH_SCOPE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_TIMEOUT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_PAGESIZE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_PAGED_TIME_LIMIT: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_CHASE_REFERRALS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_SORT_ON: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_CACHE_RESULTS: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_DIRSYNC: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(12i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_TOMBSTONE: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(13i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_VLV: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(14i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_ATTRIBUTE_QUERY: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(15i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_SECURITY_MASK: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(16i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_DIRSYNC_FLAG: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(17i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SEARCHPREF_EXTENDED_DN: ADS_SEARCHPREF_ENUM = ADS_SEARCHPREF_ENUM(18i32);
+impl ::core::marker::Copy for ADS_SEARCHPREF_ENUM {}
+impl ::core::clone::Clone for ADS_SEARCHPREF_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SEARCHPREF_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SEARCHPREF_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SEARCHPREF_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SEARCHPREF_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SECURITY_INFO_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SECURITY_INFO_OWNER: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SECURITY_INFO_GROUP: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SECURITY_INFO_DACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SECURITY_INFO_SACL: ADS_SECURITY_INFO_ENUM = ADS_SECURITY_INFO_ENUM(8i32);
+impl ::core::marker::Copy for ADS_SECURITY_INFO_ENUM {}
+impl ::core::clone::Clone for ADS_SECURITY_INFO_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SECURITY_INFO_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SECURITY_INFO_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SECURITY_INFO_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SECURITY_INFO_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SETTYPE_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SETTYPE_FULL: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SETTYPE_PROVIDER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SETTYPE_SERVER: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SETTYPE_DN: ADS_SETTYPE_ENUM = ADS_SETTYPE_ENUM(4i32);
+impl ::core::marker::Copy for ADS_SETTYPE_ENUM {}
+impl ::core::clone::Clone for ADS_SETTYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SETTYPE_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SETTYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SETTYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SETTYPE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_STATUSENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_STATUS_S_OK: ADS_STATUSENUM = ADS_STATUSENUM(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_STATUS_INVALID_SEARCHPREF: ADS_STATUSENUM = ADS_STATUSENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_STATUS_INVALID_SEARCHPREFVALUE: ADS_STATUSENUM = ADS_STATUSENUM(2i32);
+impl ::core::marker::Copy for ADS_STATUSENUM {}
+impl ::core::clone::Clone for ADS_STATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_STATUSENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_STATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_STATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_STATUSENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SYSTEMFLAG_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_DISALLOW_DELETE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(-2147483648i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1073741824i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(536870912i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_CONFIG_ALLOW_LIMITED_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(268435456i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_RENAME: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(134217728i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_DOMAIN_DISALLOW_MOVE: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(67108864i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_CR_NTDS_NC: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_CR_NTDS_DOMAIN: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_ATTR_NOT_REPLICATED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_SYSTEMFLAG_ATTR_IS_CONSTRUCTED: ADS_SYSTEMFLAG_ENUM = ADS_SYSTEMFLAG_ENUM(4i32);
+impl ::core::marker::Copy for ADS_SYSTEMFLAG_ENUM {}
+impl ::core::clone::Clone for ADS_SYSTEMFLAG_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_SYSTEMFLAG_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SYSTEMFLAG_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_SYSTEMFLAG_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SYSTEMFLAG_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_USER_FLAG_ENUM(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_SCRIPT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_ACCOUNTDISABLE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_HOMEDIR_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_LOCKOUT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_PASSWD_NOTREQD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(32i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_PASSWD_CANT_CHANGE: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(64i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_ENCRYPTED_TEXT_PASSWORD_ALLOWED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(128i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_TEMP_DUPLICATE_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(256i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_NORMAL_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(512i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_INTERDOMAIN_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2048i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_WORKSTATION_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4096i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_SERVER_TRUST_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8192i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_DONT_EXPIRE_PASSWD: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(65536i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_MNS_LOGON_ACCOUNT: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(131072i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_SMARTCARD_REQUIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(262144i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_TRUSTED_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(524288i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_NOT_DELEGATED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(1048576i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_USE_DES_KEY_ONLY: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(2097152i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_DONT_REQUIRE_PREAUTH: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(4194304i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_PASSWORD_EXPIRED: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(8388608i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const ADS_UF_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION: ADS_USER_FLAG_ENUM = ADS_USER_FLAG_ENUM(16777216i32);
+impl ::core::marker::Copy for ADS_USER_FLAG_ENUM {}
+impl ::core::clone::Clone for ADS_USER_FLAG_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADS_USER_FLAG_ENUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_USER_FLAG_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADS_USER_FLAG_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_USER_FLAG_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DSROLE_MACHINE_ROLE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRole_RoleStandaloneWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRole_RoleMemberWorkstation: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRole_RoleStandaloneServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRole_RoleMemberServer: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRole_RoleBackupDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRole_RolePrimaryDomainController: DSROLE_MACHINE_ROLE = DSROLE_MACHINE_ROLE(5i32);
+impl ::core::marker::Copy for DSROLE_MACHINE_ROLE {}
+impl ::core::clone::Clone for DSROLE_MACHINE_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DSROLE_MACHINE_ROLE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_MACHINE_ROLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSROLE_MACHINE_ROLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSROLE_MACHINE_ROLE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DSROLE_OPERATION_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleOperationIdle: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleOperationActive: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleOperationNeedReboot: DSROLE_OPERATION_STATE = DSROLE_OPERATION_STATE(2i32);
+impl ::core::marker::Copy for DSROLE_OPERATION_STATE {}
+impl ::core::clone::Clone for DSROLE_OPERATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DSROLE_OPERATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_OPERATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSROLE_OPERATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSROLE_OPERATION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRolePrimaryDomainInfoBasic: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleUpgradeStatus: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleOperationState: DSROLE_PRIMARY_DOMAIN_INFO_LEVEL = DSROLE_PRIMARY_DOMAIN_INFO_LEVEL(3i32);
+impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {}
+impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSROLE_PRIMARY_DOMAIN_INFO_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSROLE_PRIMARY_DOMAIN_INFO_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DSROLE_SERVER_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleServerUnknown: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleServerPrimary: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DsRoleServerBackup: DSROLE_SERVER_STATE = DSROLE_SERVER_STATE(2i32);
+impl ::core::marker::Copy for DSROLE_SERVER_STATE {}
+impl ::core::clone::Clone for DSROLE_SERVER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DSROLE_SERVER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_SERVER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSROLE_SERVER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSROLE_SERVER_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_KCC_TASKID(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_KCC_TASKID_UPDATE_TOPOLOGY: DS_KCC_TASKID = DS_KCC_TASKID(0i32);
+impl ::core::marker::Copy for DS_KCC_TASKID {}
+impl ::core::clone::Clone for DS_KCC_TASKID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_KCC_TASKID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_KCC_TASKID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_KCC_TASKID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_KCC_TASKID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_MANGLE_FOR(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_MANGLE_UNKNOWN: DS_MANGLE_FOR = DS_MANGLE_FOR(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = DS_MANGLE_FOR(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_MANGLE_OBJECT_RDN_FOR_NAME_CONFLICT: DS_MANGLE_FOR = DS_MANGLE_FOR(2i32);
+impl ::core::marker::Copy for DS_MANGLE_FOR {}
+impl ::core::clone::Clone for DS_MANGLE_FOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_MANGLE_FOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_MANGLE_FOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_MANGLE_FOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_MANGLE_FOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_NAME_ERROR(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_NO_ERROR: DS_NAME_ERROR = DS_NAME_ERROR(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_RESOLVING: DS_NAME_ERROR = DS_NAME_ERROR(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_NOT_FOUND: DS_NAME_ERROR = DS_NAME_ERROR(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_NOT_UNIQUE: DS_NAME_ERROR = DS_NAME_ERROR(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_NO_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_DOMAIN_ONLY: DS_NAME_ERROR = DS_NAME_ERROR(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_NO_SYNTACTICAL_MAPPING: DS_NAME_ERROR = DS_NAME_ERROR(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_ERROR_TRUST_REFERRAL: DS_NAME_ERROR = DS_NAME_ERROR(7i32);
+impl ::core::marker::Copy for DS_NAME_ERROR {}
+impl ::core::clone::Clone for DS_NAME_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_NAME_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_NAME_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_NAME_ERROR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_NAME_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_NO_FLAGS: DS_NAME_FLAGS = DS_NAME_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_FLAG_SYNTACTICAL_ONLY: DS_NAME_FLAGS = DS_NAME_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_FLAG_EVAL_AT_DC: DS_NAME_FLAGS = DS_NAME_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_FLAG_GCVERIFY: DS_NAME_FLAGS = DS_NAME_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NAME_FLAG_TRUST_REFERRAL: DS_NAME_FLAGS = DS_NAME_FLAGS(8i32);
+impl ::core::marker::Copy for DS_NAME_FLAGS {}
+impl ::core::clone::Clone for DS_NAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_NAME_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_NAME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_NAME_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_NAME_FORMAT(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_UNKNOWN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_FQDN_1779_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_NT4_ACCOUNT_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DISPLAY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_UNIQUE_ID_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_CANONICAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_USER_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_CANONICAL_NAME_EX: DS_NAME_FORMAT = DS_NAME_FORMAT(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SERVICE_PRINCIPAL_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SID_OR_SID_HISTORY_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_DNS_DOMAIN_NAME: DS_NAME_FORMAT = DS_NAME_FORMAT(12i32);
+impl ::core::marker::Copy for DS_NAME_FORMAT {}
+impl ::core::clone::Clone for DS_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_NAME_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_NAME_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_NAME_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_REPL_INFO_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_NEIGHBORS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_CURSORS_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_METADATA_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_KCC_DSA_CONNECT_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_KCC_DSA_LINK_FAILURES: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_PENDING_OPS: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_METADATA_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_CURSORS_2_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_CURSORS_3_FOR_NC: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_METADATA_2_FOR_OBJ: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_METADATA_2_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_METADATA_EXT_FOR_ATTR_VALUE: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_INFO_TYPE_MAX: DS_REPL_INFO_TYPE = DS_REPL_INFO_TYPE(12i32);
+impl ::core::marker::Copy for DS_REPL_INFO_TYPE {}
+impl ::core::clone::Clone for DS_REPL_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_REPL_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPL_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_REPL_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_REPL_INFO_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_REPL_OP_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_OP_TYPE_SYNC: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_OP_TYPE_ADD: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_OP_TYPE_DELETE: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_OP_TYPE_MODIFY: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPL_OP_TYPE_UPDATE_REFS: DS_REPL_OP_TYPE = DS_REPL_OP_TYPE(4i32);
+impl ::core::marker::Copy for DS_REPL_OP_TYPE {}
+impl ::core::clone::Clone for DS_REPL_OP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_REPL_OP_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPL_OP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_REPL_OP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_REPL_OP_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_REPSYNCALL_ERROR(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_WIN32_ERROR_CONTACTING_SERVER: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_WIN32_ERROR_REPLICATING: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_SERVER_UNREACHABLE: DS_REPSYNCALL_ERROR = DS_REPSYNCALL_ERROR(2i32);
+impl ::core::marker::Copy for DS_REPSYNCALL_ERROR {}
+impl ::core::clone::Clone for DS_REPSYNCALL_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_REPSYNCALL_ERROR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_REPSYNCALL_ERROR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_REPSYNCALL_EVENT(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_EVENT_ERROR: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_EVENT_SYNC_STARTED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_EVENT_SYNC_COMPLETED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_REPSYNCALL_EVENT_FINISHED: DS_REPSYNCALL_EVENT = DS_REPSYNCALL_EVENT(3i32);
+impl ::core::marker::Copy for DS_REPSYNCALL_EVENT {}
+impl ::core::clone::Clone for DS_REPSYNCALL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_REPSYNCALL_EVENT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_EVENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_REPSYNCALL_EVENT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_SPN_NAME_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_DNS_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_DN_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_NB_HOST: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_NB_DOMAIN: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_SERVICE: DS_SPN_NAME_TYPE = DS_SPN_NAME_TYPE(5i32);
+impl ::core::marker::Copy for DS_SPN_NAME_TYPE {}
+impl ::core::clone::Clone for DS_SPN_NAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_SPN_NAME_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_SPN_NAME_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_SPN_NAME_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_SPN_NAME_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DS_SPN_WRITE_OP(pub i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_ADD_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(0i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_REPLACE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(1i32);
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub const DS_SPN_DELETE_SPN_OP: DS_SPN_WRITE_OP = DS_SPN_WRITE_OP(2i32);
+impl ::core::marker::Copy for DS_SPN_WRITE_OP {}
+impl ::core::clone::Clone for DS_SPN_WRITE_OP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DS_SPN_WRITE_OP {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DS_SPN_WRITE_OP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DS_SPN_WRITE_OP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DS_SPN_WRITE_OP").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADSPROPERROR {
+    pub hwndPage: super::super::Foundation::HWND,
+    pub pszPageTitle: ::windows::core::PWSTR,
+    pub pszObjPath: ::windows::core::PWSTR,
+    pub pszObjClass: ::windows::core::PWSTR,
+    pub hr: ::windows::core::HRESULT,
+    pub pszError: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADSPROPERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSPROPERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADSPROPERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADSPROPERROR").field("hwndPage", &self.hwndPage).field("pszPageTitle", &self.pszPageTitle).field("pszObjPath", &self.pszObjPath).field("pszObjClass", &self.pszObjClass).field("hr", &self.hr).field("pszError", &self.pszError).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADSPROPERROR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADSPROPERROR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSPROPERROR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADSPROPERROR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADSPROPERROR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADSPROPINITPARAMS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub hr: ::windows::core::HRESULT,
+    pub pDsObj: ::core::option::Option<IDirectoryObject>,
+    pub pwzCN: ::windows::core::PWSTR,
+    pub pWritableAttrs: *mut ADS_ATTR_INFO,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSPROPINITPARAMS {
+    fn clone(&self) -> Self {
+        Self { dwSize: self.dwSize, dwFlags: self.dwFlags, hr: self.hr, pDsObj: self.pDsObj.clone(), pwzCN: self.pwzCN, pWritableAttrs: self.pWritableAttrs }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADSPROPINITPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADSPROPINITPARAMS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("hr", &self.hr).field("pDsObj", &self.pDsObj).field("pwzCN", &self.pwzCN).field("pWritableAttrs", &self.pWritableAttrs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADSPROPINITPARAMS {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADSPROPINITPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.hr == other.hr && self.pDsObj == other.pDsObj && self.pwzCN == other.pwzCN && self.pWritableAttrs == other.pWritableAttrs
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADSPROPINITPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADSPROPINITPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADSVALUE {
+    pub dwType: ADSTYPEENUM,
+    pub Anonymous: ADSVALUE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADSVALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSVALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADSVALUE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADSVALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSVALUE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADSVALUE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADSVALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union ADSVALUE_0 {
+    pub DNString: *mut u16,
+    pub CaseExactString: *mut u16,
+    pub CaseIgnoreString: *mut u16,
+    pub PrintableString: *mut u16,
+    pub NumericString: *mut u16,
+    pub Boolean: u32,
+    pub Integer: u32,
+    pub OctetString: ADS_OCTET_STRING,
+    pub UTCTime: super::super::Foundation::SYSTEMTIME,
+    pub LargeInteger: i64,
+    pub ClassName: *mut u16,
+    pub ProviderSpecific: ADS_PROV_SPECIFIC,
+    pub pCaseIgnoreList: *mut ADS_CASEIGNORE_LIST,
+    pub pOctetList: *mut ADS_OCTET_LIST,
+    pub pPath: *mut ADS_PATH,
+    pub pPostalAddress: *mut ADS_POSTALADDRESS,
+    pub Timestamp: ADS_TIMESTAMP,
+    pub BackLink: ADS_BACKLINK,
+    pub pTypedName: *mut ADS_TYPEDNAME,
+    pub Hold: ADS_HOLD,
+    pub pNetAddress: *mut ADS_NETADDRESS,
+    pub pReplicaPointer: *mut ADS_REPLICAPOINTER,
+    pub pFaxNumber: *mut ADS_FAXNUMBER,
+    pub Email: ADS_EMAIL,
+    pub SecurityDescriptor: ADS_NT_SECURITY_DESCRIPTOR,
+    pub pDNWithBinary: *mut ADS_DN_WITH_BINARY,
+    pub pDNWithString: *mut ADS_DN_WITH_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADSVALUE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADSVALUE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADSVALUE_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADSVALUE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADSVALUE_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADSVALUE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADSVALUE_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_ATTR_DEF {
+    pub pszAttrName: ::windows::core::PWSTR,
+    pub dwADsType: ADSTYPEENUM,
+    pub dwMinRange: u32,
+    pub dwMaxRange: u32,
+    pub fMultiValued: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_ATTR_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_ATTR_DEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADS_ATTR_DEF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_ATTR_DEF").field("pszAttrName", &self.pszAttrName).field("dwADsType", &self.dwADsType).field("dwMinRange", &self.dwMinRange).field("dwMaxRange", &self.dwMaxRange).field("fMultiValued", &self.fMultiValued).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADS_ATTR_DEF {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADS_ATTR_DEF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_ATTR_DEF>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADS_ATTR_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADS_ATTR_DEF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_ATTR_INFO {
+    pub pszAttrName: ::windows::core::PWSTR,
+    pub dwControlCode: u32,
+    pub dwADsType: ADSTYPEENUM,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_ATTR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_ATTR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADS_ATTR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_ATTR_INFO").field("pszAttrName", &self.pszAttrName).field("dwControlCode", &self.dwControlCode).field("dwADsType", &self.dwADsType).field("pADsValues", &self.pADsValues).field("dwNumValues", &self.dwNumValues).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADS_ATTR_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADS_ATTR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_ATTR_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADS_ATTR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADS_ATTR_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_BACKLINK {
+    pub RemoteID: u32,
+    pub ObjectName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ADS_BACKLINK {}
+impl ::core::clone::Clone for ADS_BACKLINK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_BACKLINK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_BACKLINK").field("RemoteID", &self.RemoteID).field("ObjectName", &self.ObjectName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_BACKLINK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_BACKLINK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_BACKLINK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_BACKLINK {}
+impl ::core::default::Default for ADS_BACKLINK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_CASEIGNORE_LIST {
+    pub Next: *mut ADS_CASEIGNORE_LIST,
+    pub String: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ADS_CASEIGNORE_LIST {}
+impl ::core::clone::Clone for ADS_CASEIGNORE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_CASEIGNORE_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_CASEIGNORE_LIST").field("Next", &self.Next).field("String", &self.String).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_CASEIGNORE_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_CASEIGNORE_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_CASEIGNORE_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_CASEIGNORE_LIST {}
+impl ::core::default::Default for ADS_CASEIGNORE_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_CLASS_DEF {
+    pub pszClassName: ::windows::core::PWSTR,
+    pub dwMandatoryAttrs: u32,
+    pub ppszMandatoryAttrs: *mut ::windows::core::PWSTR,
+    pub optionalAttrs: u32,
+    pub ppszOptionalAttrs: *mut *mut ::windows::core::PWSTR,
+    pub dwNamingAttrs: u32,
+    pub ppszNamingAttrs: *mut *mut ::windows::core::PWSTR,
+    pub dwSuperClasses: u32,
+    pub ppszSuperClasses: *mut *mut ::windows::core::PWSTR,
+    pub fIsContainer: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_CLASS_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_CLASS_DEF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADS_CLASS_DEF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_CLASS_DEF")
+            .field("pszClassName", &self.pszClassName)
+            .field("dwMandatoryAttrs", &self.dwMandatoryAttrs)
+            .field("ppszMandatoryAttrs", &self.ppszMandatoryAttrs)
+            .field("optionalAttrs", &self.optionalAttrs)
+            .field("ppszOptionalAttrs", &self.ppszOptionalAttrs)
+            .field("dwNamingAttrs", &self.dwNamingAttrs)
+            .field("ppszNamingAttrs", &self.ppszNamingAttrs)
+            .field("dwSuperClasses", &self.dwSuperClasses)
+            .field("ppszSuperClasses", &self.ppszSuperClasses)
+            .field("fIsContainer", &self.fIsContainer)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADS_CLASS_DEF {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADS_CLASS_DEF {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_CLASS_DEF>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADS_CLASS_DEF {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADS_CLASS_DEF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_DN_WITH_BINARY {
+    pub dwLength: u32,
+    pub lpBinaryValue: *mut u8,
+    pub pszDNString: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ADS_DN_WITH_BINARY {}
+impl ::core::clone::Clone for ADS_DN_WITH_BINARY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_DN_WITH_BINARY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_DN_WITH_BINARY").field("dwLength", &self.dwLength).field("lpBinaryValue", &self.lpBinaryValue).field("pszDNString", &self.pszDNString).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_DN_WITH_BINARY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_DN_WITH_BINARY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_DN_WITH_BINARY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_DN_WITH_BINARY {}
+impl ::core::default::Default for ADS_DN_WITH_BINARY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_DN_WITH_STRING {
+    pub pszStringValue: ::windows::core::PWSTR,
+    pub pszDNString: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ADS_DN_WITH_STRING {}
+impl ::core::clone::Clone for ADS_DN_WITH_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_DN_WITH_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_DN_WITH_STRING").field("pszStringValue", &self.pszStringValue).field("pszDNString", &self.pszDNString).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_DN_WITH_STRING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_DN_WITH_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_DN_WITH_STRING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_DN_WITH_STRING {}
+impl ::core::default::Default for ADS_DN_WITH_STRING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_EMAIL {
+    pub Address: ::windows::core::PWSTR,
+    pub Type: u32,
+}
+impl ::core::marker::Copy for ADS_EMAIL {}
+impl ::core::clone::Clone for ADS_EMAIL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_EMAIL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_EMAIL").field("Address", &self.Address).field("Type", &self.Type).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_EMAIL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_EMAIL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_EMAIL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_EMAIL {}
+impl ::core::default::Default for ADS_EMAIL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_FAXNUMBER {
+    pub TelephoneNumber: ::windows::core::PWSTR,
+    pub NumberOfBits: u32,
+    pub Parameters: *mut u8,
+}
+impl ::core::marker::Copy for ADS_FAXNUMBER {}
+impl ::core::clone::Clone for ADS_FAXNUMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_FAXNUMBER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_FAXNUMBER").field("TelephoneNumber", &self.TelephoneNumber).field("NumberOfBits", &self.NumberOfBits).field("Parameters", &self.Parameters).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_FAXNUMBER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_FAXNUMBER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_FAXNUMBER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_FAXNUMBER {}
+impl ::core::default::Default for ADS_FAXNUMBER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_HOLD {
+    pub ObjectName: ::windows::core::PWSTR,
+    pub Amount: u32,
+}
+impl ::core::marker::Copy for ADS_HOLD {}
+impl ::core::clone::Clone for ADS_HOLD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_HOLD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_HOLD").field("ObjectName", &self.ObjectName).field("Amount", &self.Amount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_HOLD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_HOLD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_HOLD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_HOLD {}
+impl ::core::default::Default for ADS_HOLD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_NETADDRESS {
+    pub AddressType: u32,
+    pub AddressLength: u32,
+    pub Address: *mut u8,
+}
+impl ::core::marker::Copy for ADS_NETADDRESS {}
+impl ::core::clone::Clone for ADS_NETADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_NETADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_NETADDRESS").field("AddressType", &self.AddressType).field("AddressLength", &self.AddressLength).field("Address", &self.Address).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_NETADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_NETADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_NETADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_NETADDRESS {}
+impl ::core::default::Default for ADS_NETADDRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_NT_SECURITY_DESCRIPTOR {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for ADS_NT_SECURITY_DESCRIPTOR {}
+impl ::core::clone::Clone for ADS_NT_SECURITY_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_NT_SECURITY_DESCRIPTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_NT_SECURITY_DESCRIPTOR").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_NT_SECURITY_DESCRIPTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_NT_SECURITY_DESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_NT_SECURITY_DESCRIPTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_NT_SECURITY_DESCRIPTOR {}
+impl ::core::default::Default for ADS_NT_SECURITY_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_OBJECT_INFO {
+    pub pszRDN: ::windows::core::PWSTR,
+    pub pszObjectDN: ::windows::core::PWSTR,
+    pub pszParentDN: ::windows::core::PWSTR,
+    pub pszSchemaDN: ::windows::core::PWSTR,
+    pub pszClassName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ADS_OBJECT_INFO {}
+impl ::core::clone::Clone for ADS_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_OBJECT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_OBJECT_INFO").field("pszRDN", &self.pszRDN).field("pszObjectDN", &self.pszObjectDN).field("pszParentDN", &self.pszParentDN).field("pszSchemaDN", &self.pszSchemaDN).field("pszClassName", &self.pszClassName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_OBJECT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_OBJECT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_OBJECT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_OBJECT_INFO {}
+impl ::core::default::Default for ADS_OBJECT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_OCTET_LIST {
+    pub Next: *mut ADS_OCTET_LIST,
+    pub Length: u32,
+    pub Data: *mut u8,
+}
+impl ::core::marker::Copy for ADS_OCTET_LIST {}
+impl ::core::clone::Clone for ADS_OCTET_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_OCTET_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_OCTET_LIST").field("Next", &self.Next).field("Length", &self.Length).field("Data", &self.Data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_OCTET_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_OCTET_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_OCTET_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_OCTET_LIST {}
+impl ::core::default::Default for ADS_OCTET_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_OCTET_STRING {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for ADS_OCTET_STRING {}
+impl ::core::clone::Clone for ADS_OCTET_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_OCTET_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_OCTET_STRING").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_OCTET_STRING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_OCTET_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_OCTET_STRING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_OCTET_STRING {}
+impl ::core::default::Default for ADS_OCTET_STRING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_PATH {
+    pub Type: u32,
+    pub VolumeName: ::windows::core::PWSTR,
+    pub Path: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for ADS_PATH {}
+impl ::core::clone::Clone for ADS_PATH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_PATH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_PATH").field("Type", &self.Type).field("VolumeName", &self.VolumeName).field("Path", &self.Path).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_PATH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_PATH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_PATH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_PATH {}
+impl ::core::default::Default for ADS_PATH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_POSTALADDRESS {
+    pub PostalAddress: [::windows::core::PWSTR; 6],
+}
+impl ::core::marker::Copy for ADS_POSTALADDRESS {}
+impl ::core::clone::Clone for ADS_POSTALADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_POSTALADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_POSTALADDRESS").field("PostalAddress", &self.PostalAddress).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_POSTALADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_POSTALADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_POSTALADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_POSTALADDRESS {}
+impl ::core::default::Default for ADS_POSTALADDRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_PROV_SPECIFIC {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for ADS_PROV_SPECIFIC {}
+impl ::core::clone::Clone for ADS_PROV_SPECIFIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_PROV_SPECIFIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_PROV_SPECIFIC").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_PROV_SPECIFIC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_PROV_SPECIFIC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_PROV_SPECIFIC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_PROV_SPECIFIC {}
+impl ::core::default::Default for ADS_PROV_SPECIFIC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_REPLICAPOINTER {
+    pub ServerName: ::windows::core::PWSTR,
+    pub ReplicaType: u32,
+    pub ReplicaNumber: u32,
+    pub Count: u32,
+    pub ReplicaAddressHints: *mut ADS_NETADDRESS,
+}
+impl ::core::marker::Copy for ADS_REPLICAPOINTER {}
+impl ::core::clone::Clone for ADS_REPLICAPOINTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_REPLICAPOINTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_REPLICAPOINTER").field("ServerName", &self.ServerName).field("ReplicaType", &self.ReplicaType).field("ReplicaNumber", &self.ReplicaNumber).field("Count", &self.Count).field("ReplicaAddressHints", &self.ReplicaAddressHints).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_REPLICAPOINTER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_REPLICAPOINTER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_REPLICAPOINTER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_REPLICAPOINTER {}
+impl ::core::default::Default for ADS_REPLICAPOINTER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADS_SEARCH_HANDLE(pub isize);
+impl ADS_SEARCH_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for ADS_SEARCH_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for ADS_SEARCH_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for ADS_SEARCH_HANDLE {}
+impl ::core::fmt::Debug for ADS_SEARCH_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADS_SEARCH_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<ADS_SEARCH_HANDLE>> for ADS_SEARCH_HANDLE {
+    fn from(optional: ::core::option::Option<ADS_SEARCH_HANDLE>) -> ADS_SEARCH_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_SEARCH_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ADS_SORTKEY {
+    pub pszAttrType: ::windows::core::PWSTR,
+    pub pszReserved: ::windows::core::PWSTR,
+    pub fReverseorder: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ADS_SORTKEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ADS_SORTKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ADS_SORTKEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_SORTKEY").field("pszAttrType", &self.pszAttrType).field("pszReserved", &self.pszReserved).field("fReverseorder", &self.fReverseorder).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ADS_SORTKEY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ADS_SORTKEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_SORTKEY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ADS_SORTKEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ADS_SORTKEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_TIMESTAMP {
+    pub WholeSeconds: u32,
+    pub EventID: u32,
+}
+impl ::core::marker::Copy for ADS_TIMESTAMP {}
+impl ::core::clone::Clone for ADS_TIMESTAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_TIMESTAMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_TIMESTAMP").field("WholeSeconds", &self.WholeSeconds).field("EventID", &self.EventID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_TIMESTAMP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_TIMESTAMP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_TIMESTAMP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_TIMESTAMP {}
+impl ::core::default::Default for ADS_TIMESTAMP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_TYPEDNAME {
+    pub ObjectName: ::windows::core::PWSTR,
+    pub Level: u32,
+    pub Interval: u32,
+}
+impl ::core::marker::Copy for ADS_TYPEDNAME {}
+impl ::core::clone::Clone for ADS_TYPEDNAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_TYPEDNAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_TYPEDNAME").field("ObjectName", &self.ObjectName).field("Level", &self.Level).field("Interval", &self.Interval).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_TYPEDNAME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_TYPEDNAME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_TYPEDNAME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_TYPEDNAME {}
+impl ::core::default::Default for ADS_TYPEDNAME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct ADS_VLV {
+    pub dwBeforeCount: u32,
+    pub dwAfterCount: u32,
+    pub dwOffset: u32,
+    pub dwContentCount: u32,
+    pub pszTarget: ::windows::core::PWSTR,
+    pub dwContextIDLength: u32,
+    pub lpContextID: *mut u8,
+}
+impl ::core::marker::Copy for ADS_VLV {}
+impl ::core::clone::Clone for ADS_VLV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ADS_VLV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ADS_VLV").field("dwBeforeCount", &self.dwBeforeCount).field("dwAfterCount", &self.dwAfterCount).field("dwOffset", &self.dwOffset).field("dwContentCount", &self.dwContentCount).field("pszTarget", &self.pszTarget).field("dwContextIDLength", &self.dwContextIDLength).field("lpContextID", &self.lpContextID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ADS_VLV {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADS_VLV {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADS_VLV>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADS_VLV {}
+impl ::core::default::Default for ADS_VLV {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub struct CQFORM {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsid: ::windows::core::GUID,
+    pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub pszTitle: ::windows::core::PCWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for CQFORM {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::clone::Clone for CQFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::fmt::Debug for CQFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CQFORM").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("clsid", &self.clsid).field("hIcon", &self.hIcon).field("pszTitle", &self.pszTitle).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+unsafe impl ::windows::core::Abi for CQFORM {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::cmp::PartialEq for CQFORM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CQFORM>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::cmp::Eq for CQFORM {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::default::Default for CQFORM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub struct CQPAGE {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub pPageProc: LPCQPAGEPROC,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub idPageName: i32,
+    pub idPageTemplate: i32,
+    pub pDlgProc: super::super::UI::WindowsAndMessaging::DLGPROC,
+    pub lParam: super::super::Foundation::LPARAM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::marker::Copy for CQPAGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::clone::Clone for CQPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::fmt::Debug for CQPAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CQPAGE").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pPageProc", &self.pPageProc.map(|f| f as usize)).field("hInstance", &self.hInstance).field("idPageName", &self.idPageName).field("idPageTemplate", &self.idPageTemplate).field("pDlgProc", &self.pDlgProc.map(|f| f as usize)).field("lParam", &self.lParam).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+unsafe impl ::windows::core::Abi for CQPAGE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::PartialEq for CQPAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CQPAGE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::cmp::Eq for CQPAGE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+impl ::core::default::Default for CQPAGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOMAINDESC {
+    pub pszName: ::windows::core::PWSTR,
+    pub pszPath: ::windows::core::PWSTR,
+    pub pszNCName: ::windows::core::PWSTR,
+    pub pszTrustParent: ::windows::core::PWSTR,
+    pub pszObjectClass: ::windows::core::PWSTR,
+    pub ulFlags: u32,
+    pub fDownLevel: super::super::Foundation::BOOL,
+    pub pdChildList: *mut DOMAINDESC,
+    pub pdNextSibling: *mut DOMAINDESC,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOMAINDESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOMAINDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOMAINDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOMAINDESC").field("pszName", &self.pszName).field("pszPath", &self.pszPath).field("pszNCName", &self.pszNCName).field("pszTrustParent", &self.pszTrustParent).field("pszObjectClass", &self.pszObjectClass).field("ulFlags", &self.ulFlags).field("fDownLevel", &self.fDownLevel).field("pdChildList", &self.pdChildList).field("pdNextSibling", &self.pdNextSibling).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DOMAINDESC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DOMAINDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAINDESC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DOMAINDESC {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DOMAINDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DOMAIN_CONTROLLER_INFOA {
+    pub DomainControllerName: ::windows::core::PSTR,
+    pub DomainControllerAddress: ::windows::core::PSTR,
+    pub DomainControllerAddressType: u32,
+    pub DomainGuid: ::windows::core::GUID,
+    pub DomainName: ::windows::core::PSTR,
+    pub DnsForestName: ::windows::core::PSTR,
+    pub Flags: u32,
+    pub DcSiteName: ::windows::core::PSTR,
+    pub ClientSiteName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for DOMAIN_CONTROLLER_INFOA {}
+impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DOMAIN_CONTROLLER_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOMAIN_CONTROLLER_INFOA").field("DomainControllerName", &self.DomainControllerName).field("DomainControllerAddress", &self.DomainControllerAddress).field("DomainControllerAddressType", &self.DomainControllerAddressType).field("DomainGuid", &self.DomainGuid).field("DomainName", &self.DomainName).field("DnsForestName", &self.DnsForestName).field("Flags", &self.Flags).field("DcSiteName", &self.DcSiteName).field("ClientSiteName", &self.ClientSiteName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DOMAIN_CONTROLLER_INFOA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DOMAIN_CONTROLLER_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_CONTROLLER_INFOA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DOMAIN_CONTROLLER_INFOA {}
+impl ::core::default::Default for DOMAIN_CONTROLLER_INFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DOMAIN_CONTROLLER_INFOW {
+    pub DomainControllerName: ::windows::core::PWSTR,
+    pub DomainControllerAddress: ::windows::core::PWSTR,
+    pub DomainControllerAddressType: u32,
+    pub DomainGuid: ::windows::core::GUID,
+    pub DomainName: ::windows::core::PWSTR,
+    pub DnsForestName: ::windows::core::PWSTR,
+    pub Flags: u32,
+    pub DcSiteName: ::windows::core::PWSTR,
+    pub ClientSiteName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DOMAIN_CONTROLLER_INFOW {}
+impl ::core::clone::Clone for DOMAIN_CONTROLLER_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DOMAIN_CONTROLLER_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOMAIN_CONTROLLER_INFOW").field("DomainControllerName", &self.DomainControllerName).field("DomainControllerAddress", &self.DomainControllerAddress).field("DomainControllerAddressType", &self.DomainControllerAddressType).field("DomainGuid", &self.DomainGuid).field("DomainName", &self.DomainName).field("DnsForestName", &self.DnsForestName).field("Flags", &self.Flags).field("DcSiteName", &self.DcSiteName).field("ClientSiteName", &self.ClientSiteName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DOMAIN_CONTROLLER_INFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DOMAIN_CONTROLLER_INFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_CONTROLLER_INFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DOMAIN_CONTROLLER_INFOW {}
+impl ::core::default::Default for DOMAIN_CONTROLLER_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOMAIN_TREE {
+    pub dsSize: u32,
+    pub dwCount: u32,
+    pub aDomains: [DOMAINDESC; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOMAIN_TREE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOMAIN_TREE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DOMAIN_TREE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DOMAIN_TREE").field("dsSize", &self.dsSize).field("dwCount", &self.dwCount).field("aDomains", &self.aDomains).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DOMAIN_TREE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DOMAIN_TREE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DOMAIN_TREE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DOMAIN_TREE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DOMAIN_TREE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+pub struct DSA_NEWOBJ_DISPINFO {
+    pub dwSize: u32,
+    pub hObjClassIcon: super::super::UI::WindowsAndMessaging::HICON,
+    pub lpszWizTitle: ::windows::core::PWSTR,
+    pub lpszContDisplayName: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::marker::Copy for DSA_NEWOBJ_DISPINFO {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::clone::Clone for DSA_NEWOBJ_DISPINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::fmt::Debug for DSA_NEWOBJ_DISPINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSA_NEWOBJ_DISPINFO").field("dwSize", &self.dwSize).field("hObjClassIcon", &self.hObjClassIcon).field("lpszWizTitle", &self.lpszWizTitle).field("lpszContDisplayName", &self.lpszContDisplayName).finish()
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+unsafe impl ::windows::core::Abi for DSA_NEWOBJ_DISPINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::cmp::PartialEq for DSA_NEWOBJ_DISPINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSA_NEWOBJ_DISPINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::cmp::Eq for DSA_NEWOBJ_DISPINFO {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+impl ::core::default::Default for DSA_NEWOBJ_DISPINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSBITEMA {
+    pub cbStruct: u32,
+    pub pszADsPath: ::windows::core::PCWSTR,
+    pub pszClass: ::windows::core::PCWSTR,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szDisplayName: [super::super::Foundation::CHAR; 64],
+    pub szIconLocation: [super::super::Foundation::CHAR; 260],
+    pub iIconResID: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSBITEMA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSBITEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSBITEMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBITEMA").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSBITEMA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSBITEMA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBITEMA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSBITEMA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSBITEMA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSBITEMW {
+    pub cbStruct: u32,
+    pub pszADsPath: ::windows::core::PCWSTR,
+    pub pszClass: ::windows::core::PCWSTR,
+    pub dwMask: u32,
+    pub dwState: u32,
+    pub dwStateMask: u32,
+    pub szDisplayName: [u16; 64],
+    pub szIconLocation: [u16; 260],
+    pub iIconResID: i32,
+}
+impl ::core::marker::Copy for DSBITEMW {}
+impl ::core::clone::Clone for DSBITEMW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSBITEMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBITEMW").field("cbStruct", &self.cbStruct).field("pszADsPath", &self.pszADsPath).field("pszClass", &self.pszClass).field("dwMask", &self.dwMask).field("dwState", &self.dwState).field("dwStateMask", &self.dwStateMask).field("szDisplayName", &self.szDisplayName).field("szIconLocation", &self.szIconLocation).field("iIconResID", &self.iIconResID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSBITEMW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSBITEMW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBITEMW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSBITEMW {}
+impl ::core::default::Default for DSBITEMW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+pub struct DSBROWSEINFOA {
+    pub cbStruct: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pszCaption: ::windows::core::PCSTR,
+    pub pszTitle: ::windows::core::PCSTR,
+    pub pszRoot: ::windows::core::PCWSTR,
+    pub pszPath: ::windows::core::PWSTR,
+    pub cchPath: u32,
+    pub dwFlags: u32,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReturnFormat: u32,
+    pub pUserName: ::windows::core::PCWSTR,
+    pub pPassword: ::windows::core::PCWSTR,
+    pub pszObjectClass: ::windows::core::PWSTR,
+    pub cchObjectClass: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::marker::Copy for DSBROWSEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::clone::Clone for DSBROWSEINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::fmt::Debug for DSBROWSEINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBROWSEINFOA")
+            .field("cbStruct", &self.cbStruct)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("pszCaption", &self.pszCaption)
+            .field("pszTitle", &self.pszTitle)
+            .field("pszRoot", &self.pszRoot)
+            .field("pszPath", &self.pszPath)
+            .field("cchPath", &self.cchPath)
+            .field("dwFlags", &self.dwFlags)
+            .field("pfnCallback", &self.pfnCallback.map(|f| f as usize))
+            .field("lParam", &self.lParam)
+            .field("dwReturnFormat", &self.dwReturnFormat)
+            .field("pUserName", &self.pUserName)
+            .field("pPassword", &self.pPassword)
+            .field("pszObjectClass", &self.pszObjectClass)
+            .field("cchObjectClass", &self.cchObjectClass)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+unsafe impl ::windows::core::Abi for DSBROWSEINFOA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::PartialEq for DSBROWSEINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBROWSEINFOA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::Eq for DSBROWSEINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::default::Default for DSBROWSEINFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+pub struct DSBROWSEINFOW {
+    pub cbStruct: u32,
+    pub hwndOwner: super::super::Foundation::HWND,
+    pub pszCaption: ::windows::core::PCWSTR,
+    pub pszTitle: ::windows::core::PCWSTR,
+    pub pszRoot: ::windows::core::PCWSTR,
+    pub pszPath: ::windows::core::PWSTR,
+    pub cchPath: u32,
+    pub dwFlags: u32,
+    pub pfnCallback: super::super::UI::Shell::BFFCALLBACK,
+    pub lParam: super::super::Foundation::LPARAM,
+    pub dwReturnFormat: u32,
+    pub pUserName: ::windows::core::PCWSTR,
+    pub pPassword: ::windows::core::PCWSTR,
+    pub pszObjectClass: ::windows::core::PWSTR,
+    pub cchObjectClass: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::marker::Copy for DSBROWSEINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::clone::Clone for DSBROWSEINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::fmt::Debug for DSBROWSEINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBROWSEINFOW")
+            .field("cbStruct", &self.cbStruct)
+            .field("hwndOwner", &self.hwndOwner)
+            .field("pszCaption", &self.pszCaption)
+            .field("pszTitle", &self.pszTitle)
+            .field("pszRoot", &self.pszRoot)
+            .field("pszPath", &self.pszPath)
+            .field("cchPath", &self.cchPath)
+            .field("dwFlags", &self.dwFlags)
+            .field("pfnCallback", &self.pfnCallback.map(|f| f as usize))
+            .field("lParam", &self.lParam)
+            .field("dwReturnFormat", &self.dwReturnFormat)
+            .field("pUserName", &self.pUserName)
+            .field("pPassword", &self.pPassword)
+            .field("pszObjectClass", &self.pszObjectClass)
+            .field("cchObjectClass", &self.cchObjectClass)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+unsafe impl ::windows::core::Abi for DSBROWSEINFOW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::PartialEq for DSBROWSEINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBROWSEINFOW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::Eq for DSBROWSEINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::default::Default for DSBROWSEINFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSCLASSCREATIONINFO {
+    pub dwFlags: u32,
+    pub clsidWizardDialog: ::windows::core::GUID,
+    pub clsidWizardPrimaryPage: ::windows::core::GUID,
+    pub cWizardExtensions: u32,
+    pub aWizardExtensions: [::windows::core::GUID; 1],
+}
+impl ::core::marker::Copy for DSCLASSCREATIONINFO {}
+impl ::core::clone::Clone for DSCLASSCREATIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCLASSCREATIONINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCLASSCREATIONINFO").field("dwFlags", &self.dwFlags).field("clsidWizardDialog", &self.clsidWizardDialog).field("clsidWizardPrimaryPage", &self.clsidWizardPrimaryPage).field("cWizardExtensions", &self.cWizardExtensions).field("aWizardExtensions", &self.aWizardExtensions).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCLASSCREATIONINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCLASSCREATIONINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCLASSCREATIONINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCLASSCREATIONINFO {}
+impl ::core::default::Default for DSCLASSCREATIONINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSCOLUMN {
+    pub dwFlags: u32,
+    pub fmt: i32,
+    pub cx: i32,
+    pub idsName: i32,
+    pub offsetProperty: i32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DSCOLUMN {}
+impl ::core::clone::Clone for DSCOLUMN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCOLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCOLUMN").field("dwFlags", &self.dwFlags).field("fmt", &self.fmt).field("cx", &self.cx).field("idsName", &self.idsName).field("offsetProperty", &self.offsetProperty).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCOLUMN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCOLUMN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCOLUMN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCOLUMN {}
+impl ::core::default::Default for DSCOLUMN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSDISPLAYSPECOPTIONS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub offsetAttribPrefix: u32,
+    pub offsetUserName: u32,
+    pub offsetPassword: u32,
+    pub offsetServer: u32,
+    pub offsetServerConfigPath: u32,
+}
+impl ::core::marker::Copy for DSDISPLAYSPECOPTIONS {}
+impl ::core::clone::Clone for DSDISPLAYSPECOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSDISPLAYSPECOPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSDISPLAYSPECOPTIONS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("offsetAttribPrefix", &self.offsetAttribPrefix).field("offsetUserName", &self.offsetUserName).field("offsetPassword", &self.offsetPassword).field("offsetServer", &self.offsetServer).field("offsetServerConfigPath", &self.offsetServerConfigPath).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSDISPLAYSPECOPTIONS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSDISPLAYSPECOPTIONS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSDISPLAYSPECOPTIONS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSDISPLAYSPECOPTIONS {}
+impl ::core::default::Default for DSDISPLAYSPECOPTIONS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSOBJECT {
+    pub dwFlags: u32,
+    pub dwProviderFlags: u32,
+    pub offsetName: u32,
+    pub offsetClass: u32,
+}
+impl ::core::marker::Copy for DSOBJECT {}
+impl ::core::clone::Clone for DSOBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSOBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSOBJECT").field("dwFlags", &self.dwFlags).field("dwProviderFlags", &self.dwProviderFlags).field("offsetName", &self.offsetName).field("offsetClass", &self.offsetClass).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSOBJECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSOBJECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOBJECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSOBJECT {}
+impl ::core::default::Default for DSOBJECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSOBJECTNAMES {
+    pub clsidNamespace: ::windows::core::GUID,
+    pub cItems: u32,
+    pub aObjects: [DSOBJECT; 1],
+}
+impl ::core::marker::Copy for DSOBJECTNAMES {}
+impl ::core::clone::Clone for DSOBJECTNAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSOBJECTNAMES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSOBJECTNAMES").field("clsidNamespace", &self.clsidNamespace).field("cItems", &self.cItems).field("aObjects", &self.aObjects).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSOBJECTNAMES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSOBJECTNAMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOBJECTNAMES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSOBJECTNAMES {}
+impl ::core::default::Default for DSOBJECTNAMES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSOP_FILTER_FLAGS {
+    pub Uplevel: DSOP_UPLEVEL_FILTER_FLAGS,
+    pub flDownlevel: u32,
+}
+impl ::core::marker::Copy for DSOP_FILTER_FLAGS {}
+impl ::core::clone::Clone for DSOP_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSOP_FILTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSOP_FILTER_FLAGS").field("Uplevel", &self.Uplevel).field("flDownlevel", &self.flDownlevel).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSOP_FILTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSOP_FILTER_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_FILTER_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSOP_FILTER_FLAGS {}
+impl ::core::default::Default for DSOP_FILTER_FLAGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSOP_INIT_INFO {
+    pub cbSize: u32,
+    pub pwzTargetComputer: ::windows::core::PCWSTR,
+    pub cDsScopeInfos: u32,
+    pub aDsScopeInfos: *mut DSOP_SCOPE_INIT_INFO,
+    pub flOptions: u32,
+    pub cAttributesToFetch: u32,
+    pub apwzAttributeNames: *mut ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DSOP_INIT_INFO {}
+impl ::core::clone::Clone for DSOP_INIT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSOP_INIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSOP_INIT_INFO").field("cbSize", &self.cbSize).field("pwzTargetComputer", &self.pwzTargetComputer).field("cDsScopeInfos", &self.cDsScopeInfos).field("aDsScopeInfos", &self.aDsScopeInfos).field("flOptions", &self.flOptions).field("cAttributesToFetch", &self.cAttributesToFetch).field("apwzAttributeNames", &self.apwzAttributeNames).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSOP_INIT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSOP_INIT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_INIT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSOP_INIT_INFO {}
+impl ::core::default::Default for DSOP_INIT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSOP_SCOPE_INIT_INFO {
+    pub cbSize: u32,
+    pub flType: u32,
+    pub flScope: u32,
+    pub FilterFlags: DSOP_FILTER_FLAGS,
+    pub pwzDcName: ::windows::core::PCWSTR,
+    pub pwzADsPath: ::windows::core::PCWSTR,
+    pub hr: ::windows::core::HRESULT,
+}
+impl ::core::marker::Copy for DSOP_SCOPE_INIT_INFO {}
+impl ::core::clone::Clone for DSOP_SCOPE_INIT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSOP_SCOPE_INIT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSOP_SCOPE_INIT_INFO").field("cbSize", &self.cbSize).field("flType", &self.flType).field("flScope", &self.flScope).field("FilterFlags", &self.FilterFlags).field("pwzDcName", &self.pwzDcName).field("pwzADsPath", &self.pwzADsPath).field("hr", &self.hr).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSOP_SCOPE_INIT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSOP_SCOPE_INIT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_SCOPE_INIT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSOP_SCOPE_INIT_INFO {}
+impl ::core::default::Default for DSOP_SCOPE_INIT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSOP_UPLEVEL_FILTER_FLAGS {
+    pub flBothModes: u32,
+    pub flMixedModeOnly: u32,
+    pub flNativeModeOnly: u32,
+}
+impl ::core::marker::Copy for DSOP_UPLEVEL_FILTER_FLAGS {}
+impl ::core::clone::Clone for DSOP_UPLEVEL_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSOP_UPLEVEL_FILTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSOP_UPLEVEL_FILTER_FLAGS").field("flBothModes", &self.flBothModes).field("flMixedModeOnly", &self.flMixedModeOnly).field("flNativeModeOnly", &self.flNativeModeOnly).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSOP_UPLEVEL_FILTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSOP_UPLEVEL_FILTER_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSOP_UPLEVEL_FILTER_FLAGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSOP_UPLEVEL_FILTER_FLAGS {}
+impl ::core::default::Default for DSOP_UPLEVEL_FILTER_FLAGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSPROPERTYPAGEINFO {
+    pub offsetString: u32,
+}
+impl ::core::marker::Copy for DSPROPERTYPAGEINFO {}
+impl ::core::clone::Clone for DSPROPERTYPAGEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSPROPERTYPAGEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSPROPERTYPAGEINFO").field("offsetString", &self.offsetString).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSPROPERTYPAGEINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSPROPERTYPAGEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSPROPERTYPAGEINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSPROPERTYPAGEINFO {}
+impl ::core::default::Default for DSPROPERTYPAGEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSQUERYCLASSLIST {
+    pub cbStruct: u32,
+    pub cClasses: i32,
+    pub offsetClass: [u32; 1],
+}
+impl ::core::marker::Copy for DSQUERYCLASSLIST {}
+impl ::core::clone::Clone for DSQUERYCLASSLIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSQUERYCLASSLIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSQUERYCLASSLIST").field("cbStruct", &self.cbStruct).field("cClasses", &self.cClasses).field("offsetClass", &self.offsetClass).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSQUERYCLASSLIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSQUERYCLASSLIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSQUERYCLASSLIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSQUERYCLASSLIST {}
+impl ::core::default::Default for DSQUERYCLASSLIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSQUERYINITPARAMS {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub pDefaultScope: ::windows::core::PWSTR,
+    pub pDefaultSaveLocation: ::windows::core::PWSTR,
+    pub pUserName: ::windows::core::PWSTR,
+    pub pPassword: ::windows::core::PWSTR,
+    pub pServer: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DSQUERYINITPARAMS {}
+impl ::core::clone::Clone for DSQUERYINITPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSQUERYINITPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSQUERYINITPARAMS").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("pDefaultScope", &self.pDefaultScope).field("pDefaultSaveLocation", &self.pDefaultSaveLocation).field("pUserName", &self.pUserName).field("pPassword", &self.pPassword).field("pServer", &self.pServer).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSQUERYINITPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSQUERYINITPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSQUERYINITPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSQUERYINITPARAMS {}
+impl ::core::default::Default for DSQUERYINITPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSQUERYPARAMS {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub hInstance: super::super::Foundation::HINSTANCE,
+    pub offsetQuery: i32,
+    pub iColumns: i32,
+    pub dwReserved: u32,
+    pub aColumns: [DSCOLUMN; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSQUERYPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSQUERYPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSQUERYPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSQUERYPARAMS").field("cbStruct", &self.cbStruct).field("dwFlags", &self.dwFlags).field("hInstance", &self.hInstance).field("offsetQuery", &self.offsetQuery).field("iColumns", &self.iColumns).field("dwReserved", &self.dwReserved).field("aColumns", &self.aColumns).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSQUERYPARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSQUERYPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSQUERYPARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSQUERYPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSQUERYPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSROLE_OPERATION_STATE_INFO {
+    pub OperationState: DSROLE_OPERATION_STATE,
+}
+impl ::core::marker::Copy for DSROLE_OPERATION_STATE_INFO {}
+impl ::core::clone::Clone for DSROLE_OPERATION_STATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSROLE_OPERATION_STATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSROLE_OPERATION_STATE_INFO").field("OperationState", &self.OperationState).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_OPERATION_STATE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSROLE_OPERATION_STATE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSROLE_OPERATION_STATE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSROLE_OPERATION_STATE_INFO {}
+impl ::core::default::Default for DSROLE_OPERATION_STATE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    pub MachineRole: DSROLE_MACHINE_ROLE,
+    pub Flags: u32,
+    pub DomainNameFlat: ::windows::core::PWSTR,
+    pub DomainNameDns: ::windows::core::PWSTR,
+    pub DomainForestName: ::windows::core::PWSTR,
+    pub DomainGuid: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {}
+impl ::core::clone::Clone for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSROLE_PRIMARY_DOMAIN_INFO_BASIC").field("MachineRole", &self.MachineRole).field("Flags", &self.Flags).field("DomainNameFlat", &self.DomainNameFlat).field("DomainNameDns", &self.DomainNameDns).field("DomainForestName", &self.DomainForestName).field("DomainGuid", &self.DomainGuid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSROLE_PRIMARY_DOMAIN_INFO_BASIC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {}
+impl ::core::default::Default for DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DSROLE_UPGRADE_STATUS_INFO {
+    pub OperationState: u32,
+    pub PreviousServerState: DSROLE_SERVER_STATE,
+}
+impl ::core::marker::Copy for DSROLE_UPGRADE_STATUS_INFO {}
+impl ::core::clone::Clone for DSROLE_UPGRADE_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSROLE_UPGRADE_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSROLE_UPGRADE_STATUS_INFO").field("OperationState", &self.OperationState).field("PreviousServerState", &self.PreviousServerState).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSROLE_UPGRADE_STATUS_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSROLE_UPGRADE_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSROLE_UPGRADE_STATUS_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSROLE_UPGRADE_STATUS_INFO {}
+impl ::core::default::Default for DSROLE_UPGRADE_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_1A {
+    pub NetbiosName: ::windows::core::PSTR,
+    pub DnsHostName: ::windows::core::PSTR,
+    pub SiteName: ::windows::core::PSTR,
+    pub ComputerObjectName: ::windows::core::PSTR,
+    pub ServerObjectName: ::windows::core::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1A").field("NetbiosName", &self.NetbiosName).field("DnsHostName", &self.DnsHostName).field("SiteName", &self.SiteName).field("ComputerObjectName", &self.ComputerObjectName).field("ServerObjectName", &self.ServerObjectName).field("fIsPdc", &self.fIsPdc).field("fDsEnabled", &self.fDsEnabled).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_1A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_1A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_1A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_1W {
+    pub NetbiosName: ::windows::core::PWSTR,
+    pub DnsHostName: ::windows::core::PWSTR,
+    pub SiteName: ::windows::core::PWSTR,
+    pub ComputerObjectName: ::windows::core::PWSTR,
+    pub ServerObjectName: ::windows::core::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_1W").field("NetbiosName", &self.NetbiosName).field("DnsHostName", &self.DnsHostName).field("SiteName", &self.SiteName).field("ComputerObjectName", &self.ComputerObjectName).field("ServerObjectName", &self.ServerObjectName).field("fIsPdc", &self.fIsPdc).field("fDsEnabled", &self.fDsEnabled).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_1W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_1W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_1W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_1W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_2A {
+    pub NetbiosName: ::windows::core::PSTR,
+    pub DnsHostName: ::windows::core::PSTR,
+    pub SiteName: ::windows::core::PSTR,
+    pub SiteObjectName: ::windows::core::PSTR,
+    pub ComputerObjectName: ::windows::core::PSTR,
+    pub ServerObjectName: ::windows::core::PSTR,
+    pub NtdsDsaObjectName: ::windows::core::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows::core::GUID,
+    pub ComputerObjectGuid: ::windows::core::GUID,
+    pub ServerObjectGuid: ::windows::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_2A")
+            .field("NetbiosName", &self.NetbiosName)
+            .field("DnsHostName", &self.DnsHostName)
+            .field("SiteName", &self.SiteName)
+            .field("SiteObjectName", &self.SiteObjectName)
+            .field("ComputerObjectName", &self.ComputerObjectName)
+            .field("ServerObjectName", &self.ServerObjectName)
+            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
+            .field("fIsPdc", &self.fIsPdc)
+            .field("fDsEnabled", &self.fDsEnabled)
+            .field("fIsGc", &self.fIsGc)
+            .field("SiteObjectGuid", &self.SiteObjectGuid)
+            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
+            .field("ServerObjectGuid", &self.ServerObjectGuid)
+            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_2A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_2A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_2A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_2W {
+    pub NetbiosName: ::windows::core::PWSTR,
+    pub DnsHostName: ::windows::core::PWSTR,
+    pub SiteName: ::windows::core::PWSTR,
+    pub SiteObjectName: ::windows::core::PWSTR,
+    pub ComputerObjectName: ::windows::core::PWSTR,
+    pub ServerObjectName: ::windows::core::PWSTR,
+    pub NtdsDsaObjectName: ::windows::core::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows::core::GUID,
+    pub ComputerObjectGuid: ::windows::core::GUID,
+    pub ServerObjectGuid: ::windows::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_2W")
+            .field("NetbiosName", &self.NetbiosName)
+            .field("DnsHostName", &self.DnsHostName)
+            .field("SiteName", &self.SiteName)
+            .field("SiteObjectName", &self.SiteObjectName)
+            .field("ComputerObjectName", &self.ComputerObjectName)
+            .field("ServerObjectName", &self.ServerObjectName)
+            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
+            .field("fIsPdc", &self.fIsPdc)
+            .field("fDsEnabled", &self.fDsEnabled)
+            .field("fIsGc", &self.fIsGc)
+            .field("SiteObjectGuid", &self.SiteObjectGuid)
+            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
+            .field("ServerObjectGuid", &self.ServerObjectGuid)
+            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_2W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_2W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_2W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_3A {
+    pub NetbiosName: ::windows::core::PSTR,
+    pub DnsHostName: ::windows::core::PSTR,
+    pub SiteName: ::windows::core::PSTR,
+    pub SiteObjectName: ::windows::core::PSTR,
+    pub ComputerObjectName: ::windows::core::PSTR,
+    pub ServerObjectName: ::windows::core::PSTR,
+    pub NtdsDsaObjectName: ::windows::core::PSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsRodc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows::core::GUID,
+    pub ComputerObjectGuid: ::windows::core::GUID,
+    pub ServerObjectGuid: ::windows::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_3A")
+            .field("NetbiosName", &self.NetbiosName)
+            .field("DnsHostName", &self.DnsHostName)
+            .field("SiteName", &self.SiteName)
+            .field("SiteObjectName", &self.SiteObjectName)
+            .field("ComputerObjectName", &self.ComputerObjectName)
+            .field("ServerObjectName", &self.ServerObjectName)
+            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
+            .field("fIsPdc", &self.fIsPdc)
+            .field("fDsEnabled", &self.fDsEnabled)
+            .field("fIsGc", &self.fIsGc)
+            .field("fIsRodc", &self.fIsRodc)
+            .field("SiteObjectGuid", &self.SiteObjectGuid)
+            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
+            .field("ServerObjectGuid", &self.ServerObjectGuid)
+            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_3A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_3A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_3A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_CONTROLLER_INFO_3W {
+    pub NetbiosName: ::windows::core::PWSTR,
+    pub DnsHostName: ::windows::core::PWSTR,
+    pub SiteName: ::windows::core::PWSTR,
+    pub SiteObjectName: ::windows::core::PWSTR,
+    pub ComputerObjectName: ::windows::core::PWSTR,
+    pub ServerObjectName: ::windows::core::PWSTR,
+    pub NtdsDsaObjectName: ::windows::core::PWSTR,
+    pub fIsPdc: super::super::Foundation::BOOL,
+    pub fDsEnabled: super::super::Foundation::BOOL,
+    pub fIsGc: super::super::Foundation::BOOL,
+    pub fIsRodc: super::super::Foundation::BOOL,
+    pub SiteObjectGuid: ::windows::core::GUID,
+    pub ComputerObjectGuid: ::windows::core::GUID,
+    pub ServerObjectGuid: ::windows::core::GUID,
+    pub NtdsDsaObjectGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_CONTROLLER_INFO_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_CONTROLLER_INFO_3W")
+            .field("NetbiosName", &self.NetbiosName)
+            .field("DnsHostName", &self.DnsHostName)
+            .field("SiteName", &self.SiteName)
+            .field("SiteObjectName", &self.SiteObjectName)
+            .field("ComputerObjectName", &self.ComputerObjectName)
+            .field("ServerObjectName", &self.ServerObjectName)
+            .field("NtdsDsaObjectName", &self.NtdsDsaObjectName)
+            .field("fIsPdc", &self.fIsPdc)
+            .field("fDsEnabled", &self.fDsEnabled)
+            .field("fIsGc", &self.fIsGc)
+            .field("fIsRodc", &self.fIsRodc)
+            .field("SiteObjectGuid", &self.SiteObjectGuid)
+            .field("ComputerObjectGuid", &self.ComputerObjectGuid)
+            .field("ServerObjectGuid", &self.ServerObjectGuid)
+            .field("NtdsDsaObjectGuid", &self.NtdsDsaObjectGuid)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_CONTROLLER_INFO_3W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_CONTROLLER_INFO_3W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_CONTROLLER_INFO_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_CONTROLLER_INFO_3W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_TRUSTSA {
+    pub NetbiosDomainName: ::windows::core::PSTR,
+    pub DnsDomainName: ::windows::core::PSTR,
+    pub Flags: u32,
+    pub ParentIndex: u32,
+    pub TrustType: u32,
+    pub TrustAttributes: u32,
+    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_TRUSTSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_TRUSTSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_TRUSTSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_TRUSTSA").field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("Flags", &self.Flags).field("ParentIndex", &self.ParentIndex).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("DomainSid", &self.DomainSid).field("DomainGuid", &self.DomainGuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_TRUSTSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_TRUSTSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_TRUSTSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_TRUSTSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_TRUSTSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_DOMAIN_TRUSTSW {
+    pub NetbiosDomainName: ::windows::core::PWSTR,
+    pub DnsDomainName: ::windows::core::PWSTR,
+    pub Flags: u32,
+    pub ParentIndex: u32,
+    pub TrustType: u32,
+    pub TrustAttributes: u32,
+    pub DomainSid: super::super::Foundation::PSID,
+    pub DomainGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_DOMAIN_TRUSTSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_DOMAIN_TRUSTSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_DOMAIN_TRUSTSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_DOMAIN_TRUSTSW").field("NetbiosDomainName", &self.NetbiosDomainName).field("DnsDomainName", &self.DnsDomainName).field("Flags", &self.Flags).field("ParentIndex", &self.ParentIndex).field("TrustType", &self.TrustType).field("TrustAttributes", &self.TrustAttributes).field("DomainSid", &self.DomainSid).field("DomainGuid", &self.DomainGuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_DOMAIN_TRUSTSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_DOMAIN_TRUSTSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_DOMAIN_TRUSTSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_DOMAIN_TRUSTSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_DOMAIN_TRUSTSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_NAME_RESULTA {
+    pub cItems: u32,
+    pub rItems: *mut DS_NAME_RESULT_ITEMA,
+}
+impl ::core::marker::Copy for DS_NAME_RESULTA {}
+impl ::core::clone::Clone for DS_NAME_RESULTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_NAME_RESULTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_NAME_RESULTA").field("cItems", &self.cItems).field("rItems", &self.rItems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_RESULTA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_NAME_RESULTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULTA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_NAME_RESULTA {}
+impl ::core::default::Default for DS_NAME_RESULTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_NAME_RESULTW {
+    pub cItems: u32,
+    pub rItems: *mut DS_NAME_RESULT_ITEMW,
+}
+impl ::core::marker::Copy for DS_NAME_RESULTW {}
+impl ::core::clone::Clone for DS_NAME_RESULTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_NAME_RESULTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_NAME_RESULTW").field("cItems", &self.cItems).field("rItems", &self.rItems).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_RESULTW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_NAME_RESULTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULTW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_NAME_RESULTW {}
+impl ::core::default::Default for DS_NAME_RESULTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_NAME_RESULT_ITEMA {
+    pub status: u32,
+    pub pDomain: ::windows::core::PSTR,
+    pub pName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for DS_NAME_RESULT_ITEMA {}
+impl ::core::clone::Clone for DS_NAME_RESULT_ITEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_NAME_RESULT_ITEMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_NAME_RESULT_ITEMA").field("status", &self.status).field("pDomain", &self.pDomain).field("pName", &self.pName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_RESULT_ITEMA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_NAME_RESULT_ITEMA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULT_ITEMA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_NAME_RESULT_ITEMA {}
+impl ::core::default::Default for DS_NAME_RESULT_ITEMA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_NAME_RESULT_ITEMW {
+    pub status: u32,
+    pub pDomain: ::windows::core::PWSTR,
+    pub pName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DS_NAME_RESULT_ITEMW {}
+impl ::core::clone::Clone for DS_NAME_RESULT_ITEMW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_NAME_RESULT_ITEMW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_NAME_RESULT_ITEMW").field("status", &self.status).field("pDomain", &self.pDomain).field("pName", &self.pName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_NAME_RESULT_ITEMW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_NAME_RESULT_ITEMW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_NAME_RESULT_ITEMW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_NAME_RESULT_ITEMW {}
+impl ::core::default::Default for DS_NAME_RESULT_ITEMW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_META_DATA {
+    pub pszAttributeName: ::windows::core::PWSTR,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_ATTR_META_DATA").field("pszAttributeName", &self.pszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_ATTR_META_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_ATTR_META_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_META_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_ATTR_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_ATTR_META_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_META_DATA_2 {
+    pub pszAttributeName: ::windows::core::PWSTR,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_ATTR_META_DATA_2").field("pszAttributeName", &self.pszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_ATTR_META_DATA_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_ATTR_META_DATA_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_META_DATA_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_ATTR_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_ATTR_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_META_DATA_BLOB {
+    pub oszAttributeName: u32,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_META_DATA_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_META_DATA_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_ATTR_META_DATA_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_ATTR_META_DATA_BLOB").field("oszAttributeName", &self.oszAttributeName).field("dwVersion", &self.dwVersion).field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange).field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID).field("usnOriginatingChange", &self.usnOriginatingChange).field("usnLocalChange", &self.usnLocalChange).field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_ATTR_META_DATA_BLOB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_ATTR_META_DATA_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_META_DATA_BLOB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_ATTR_META_DATA_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_ATTR_META_DATA_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_VALUE_META_DATA {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_ATTR_VALUE_META_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_ATTR_VALUE_META_DATA").field("cNumEntries", &self.cNumEntries).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgMetaData", &self.rgMetaData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_ATTR_VALUE_META_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_ATTR_VALUE_META_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_VALUE_META_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_VALUE_META_DATA_2 {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_ATTR_VALUE_META_DATA_2").field("cNumEntries", &self.cNumEntries).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgMetaData", &self.rgMetaData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_VALUE_META_DATA_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    pub cNumEntries: u32,
+    pub dwEnumerationContext: u32,
+    pub rgMetaData: [DS_REPL_VALUE_META_DATA_EXT; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_ATTR_VALUE_META_DATA_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_ATTR_VALUE_META_DATA_EXT").field("cNumEntries", &self.cNumEntries).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgMetaData", &self.rgMetaData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_ATTR_VALUE_META_DATA_EXT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_ATTR_VALUE_META_DATA_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_ATTR_VALUE_META_DATA_EXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPL_CURSOR {
+    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
+    pub usnAttributeFilter: i64,
+}
+impl ::core::marker::Copy for DS_REPL_CURSOR {}
+impl ::core::clone::Clone for DS_REPL_CURSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPL_CURSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSOR").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPL_CURSOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPL_CURSOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPL_CURSOR {}
+impl ::core::default::Default for DS_REPL_CURSOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPL_CURSORS {
+    pub cNumCursors: u32,
+    pub dwReserved: u32,
+    pub rgCursor: [DS_REPL_CURSOR; 1],
+}
+impl ::core::marker::Copy for DS_REPL_CURSORS {}
+impl ::core::clone::Clone for DS_REPL_CURSORS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPL_CURSORS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSORS").field("cNumCursors", &self.cNumCursors).field("dwReserved", &self.dwReserved).field("rgCursor", &self.rgCursor).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPL_CURSORS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPL_CURSORS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSORS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPL_CURSORS {}
+impl ::core::default::Default for DS_REPL_CURSORS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSORS_2 {
+    pub cNumCursors: u32,
+    pub dwEnumerationContext: u32,
+    pub rgCursor: [DS_REPL_CURSOR_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSORS_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSORS_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_CURSORS_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSORS_2").field("cNumCursors", &self.cNumCursors).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgCursor", &self.rgCursor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_CURSORS_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_CURSORS_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSORS_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_CURSORS_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_CURSORS_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSORS_3W {
+    pub cNumCursors: u32,
+    pub dwEnumerationContext: u32,
+    pub rgCursor: [DS_REPL_CURSOR_3W; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSORS_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSORS_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_CURSORS_3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSORS_3W").field("cNumCursors", &self.cNumCursors).field("dwEnumerationContext", &self.dwEnumerationContext).field("rgCursor", &self.rgCursor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_CURSORS_3W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_CURSORS_3W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSORS_3W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_CURSORS_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_CURSORS_3W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSOR_2 {
+    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSOR_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSOR_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_CURSOR_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSOR_2").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_CURSOR_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_CURSOR_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_CURSOR_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_CURSOR_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSOR_3W {
+    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub pszSourceDsaDN: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSOR_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSOR_3W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_CURSOR_3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSOR_3W").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess).field("pszSourceDsaDN", &self.pszSourceDsaDN).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_CURSOR_3W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_CURSOR_3W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR_3W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_CURSOR_3W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_CURSOR_3W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_CURSOR_BLOB {
+    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub oszSourceDsaDN: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_CURSOR_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_CURSOR_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_CURSOR_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_CURSOR_BLOB").field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID).field("usnAttributeFilter", &self.usnAttributeFilter).field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess).field("oszSourceDsaDN", &self.oszSourceDsaDN).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_CURSOR_BLOB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_CURSOR_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_CURSOR_BLOB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_CURSOR_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_CURSOR_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_KCC_DSA_FAILURESW {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgDsaFailure: [DS_REPL_KCC_DSA_FAILUREW; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILURESW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILURESW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_KCC_DSA_FAILURESW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_KCC_DSA_FAILURESW").field("cNumEntries", &self.cNumEntries).field("dwReserved", &self.dwReserved).field("rgDsaFailure", &self.rgDsaFailure).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_KCC_DSA_FAILURESW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_KCC_DSA_FAILURESW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_KCC_DSA_FAILURESW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_KCC_DSA_FAILURESW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_KCC_DSA_FAILURESW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_KCC_DSA_FAILUREW {
+    pub pszDsaDN: ::windows::core::PWSTR,
+    pub uuidDsaObjGuid: ::windows::core::GUID,
+    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
+    pub cNumFailures: u32,
+    pub dwLastResult: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILUREW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_KCC_DSA_FAILUREW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_KCC_DSA_FAILUREW").field("pszDsaDN", &self.pszDsaDN).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).field("ftimeFirstFailure", &self.ftimeFirstFailure).field("cNumFailures", &self.cNumFailures).field("dwLastResult", &self.dwLastResult).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_KCC_DSA_FAILUREW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_KCC_DSA_FAILUREW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_KCC_DSA_FAILUREW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_KCC_DSA_FAILUREW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    pub oszDsaDN: u32,
+    pub uuidDsaObjGuid: ::windows::core::GUID,
+    pub ftimeFirstFailure: super::super::Foundation::FILETIME,
+    pub cNumFailures: u32,
+    pub dwLastResult: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_KCC_DSA_FAILUREW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_KCC_DSA_FAILUREW_BLOB").field("oszDsaDN", &self.oszDsaDN).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).field("ftimeFirstFailure", &self.ftimeFirstFailure).field("cNumFailures", &self.cNumFailures).field("dwLastResult", &self.dwLastResult).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_KCC_DSA_FAILUREW_BLOB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_KCC_DSA_FAILUREW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_KCC_DSA_FAILUREW_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_NEIGHBORSW {
+    pub cNumNeighbors: u32,
+    pub dwReserved: u32,
+    pub rgNeighbor: [DS_REPL_NEIGHBORW; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_NEIGHBORSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_NEIGHBORSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_NEIGHBORSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_NEIGHBORSW").field("cNumNeighbors", &self.cNumNeighbors).field("dwReserved", &self.dwReserved).field("rgNeighbor", &self.rgNeighbor).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_NEIGHBORSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_NEIGHBORSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_NEIGHBORSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_NEIGHBORSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_NEIGHBORSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_NEIGHBORW {
+    pub pszNamingContext: ::windows::core::PWSTR,
+    pub pszSourceDsaDN: ::windows::core::PWSTR,
+    pub pszSourceDsaAddress: ::windows::core::PWSTR,
+    pub pszAsyncIntersiteTransportDN: ::windows::core::PWSTR,
+    pub dwReplicaFlags: u32,
+    pub dwReserved: u32,
+    pub uuidNamingContextObjGuid: ::windows::core::GUID,
+    pub uuidSourceDsaObjGuid: ::windows::core::GUID,
+    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
+    pub uuidAsyncIntersiteTransportObjGuid: ::windows::core::GUID,
+    pub usnLastObjChangeSynced: i64,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
+    pub dwLastSyncResult: u32,
+    pub cNumConsecutiveSyncFailures: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_NEIGHBORW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_NEIGHBORW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_NEIGHBORW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_NEIGHBORW")
+            .field("pszNamingContext", &self.pszNamingContext)
+            .field("pszSourceDsaDN", &self.pszSourceDsaDN)
+            .field("pszSourceDsaAddress", &self.pszSourceDsaAddress)
+            .field("pszAsyncIntersiteTransportDN", &self.pszAsyncIntersiteTransportDN)
+            .field("dwReplicaFlags", &self.dwReplicaFlags)
+            .field("dwReserved", &self.dwReserved)
+            .field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid)
+            .field("uuidSourceDsaObjGuid", &self.uuidSourceDsaObjGuid)
+            .field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID)
+            .field("uuidAsyncIntersiteTransportObjGuid", &self.uuidAsyncIntersiteTransportObjGuid)
+            .field("usnLastObjChangeSynced", &self.usnLastObjChangeSynced)
+            .field("usnAttributeFilter", &self.usnAttributeFilter)
+            .field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess)
+            .field("ftimeLastSyncAttempt", &self.ftimeLastSyncAttempt)
+            .field("dwLastSyncResult", &self.dwLastSyncResult)
+            .field("cNumConsecutiveSyncFailures", &self.cNumConsecutiveSyncFailures)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_NEIGHBORW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_NEIGHBORW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_NEIGHBORW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_NEIGHBORW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_NEIGHBORW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_NEIGHBORW_BLOB {
+    pub oszNamingContext: u32,
+    pub oszSourceDsaDN: u32,
+    pub oszSourceDsaAddress: u32,
+    pub oszAsyncIntersiteTransportDN: u32,
+    pub dwReplicaFlags: u32,
+    pub dwReserved: u32,
+    pub uuidNamingContextObjGuid: ::windows::core::GUID,
+    pub uuidSourceDsaObjGuid: ::windows::core::GUID,
+    pub uuidSourceDsaInvocationID: ::windows::core::GUID,
+    pub uuidAsyncIntersiteTransportObjGuid: ::windows::core::GUID,
+    pub usnLastObjChangeSynced: i64,
+    pub usnAttributeFilter: i64,
+    pub ftimeLastSyncSuccess: super::super::Foundation::FILETIME,
+    pub ftimeLastSyncAttempt: super::super::Foundation::FILETIME,
+    pub dwLastSyncResult: u32,
+    pub cNumConsecutiveSyncFailures: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_NEIGHBORW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_NEIGHBORW_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_NEIGHBORW_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_NEIGHBORW_BLOB")
+            .field("oszNamingContext", &self.oszNamingContext)
+            .field("oszSourceDsaDN", &self.oszSourceDsaDN)
+            .field("oszSourceDsaAddress", &self.oszSourceDsaAddress)
+            .field("oszAsyncIntersiteTransportDN", &self.oszAsyncIntersiteTransportDN)
+            .field("dwReplicaFlags", &self.dwReplicaFlags)
+            .field("dwReserved", &self.dwReserved)
+            .field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid)
+            .field("uuidSourceDsaObjGuid", &self.uuidSourceDsaObjGuid)
+            .field("uuidSourceDsaInvocationID", &self.uuidSourceDsaInvocationID)
+            .field("uuidAsyncIntersiteTransportObjGuid", &self.uuidAsyncIntersiteTransportObjGuid)
+            .field("usnLastObjChangeSynced", &self.usnLastObjChangeSynced)
+            .field("usnAttributeFilter", &self.usnAttributeFilter)
+            .field("ftimeLastSyncSuccess", &self.ftimeLastSyncSuccess)
+            .field("ftimeLastSyncAttempt", &self.ftimeLastSyncAttempt)
+            .field("dwLastSyncResult", &self.dwLastSyncResult)
+            .field("cNumConsecutiveSyncFailures", &self.cNumConsecutiveSyncFailures)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_NEIGHBORW_BLOB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_NEIGHBORW_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_NEIGHBORW_BLOB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_NEIGHBORW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_NEIGHBORW_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OBJ_META_DATA {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgMetaData: [DS_REPL_ATTR_META_DATA; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OBJ_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_OBJ_META_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_OBJ_META_DATA").field("cNumEntries", &self.cNumEntries).field("dwReserved", &self.dwReserved).field("rgMetaData", &self.rgMetaData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_OBJ_META_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_OBJ_META_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OBJ_META_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_OBJ_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_OBJ_META_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OBJ_META_DATA_2 {
+    pub cNumEntries: u32,
+    pub dwReserved: u32,
+    pub rgMetaData: [DS_REPL_ATTR_META_DATA_2; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OBJ_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OBJ_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_OBJ_META_DATA_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_OBJ_META_DATA_2").field("cNumEntries", &self.cNumEntries).field("dwReserved", &self.dwReserved).field("rgMetaData", &self.rgMetaData).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_OBJ_META_DATA_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_OBJ_META_DATA_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OBJ_META_DATA_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_OBJ_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_OBJ_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OPW {
+    pub ftimeEnqueued: super::super::Foundation::FILETIME,
+    pub ulSerialNumber: u32,
+    pub ulPriority: u32,
+    pub OpType: DS_REPL_OP_TYPE,
+    pub ulOptions: u32,
+    pub pszNamingContext: ::windows::core::PWSTR,
+    pub pszDsaDN: ::windows::core::PWSTR,
+    pub pszDsaAddress: ::windows::core::PWSTR,
+    pub uuidNamingContextObjGuid: ::windows::core::GUID,
+    pub uuidDsaObjGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OPW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_OPW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_OPW").field("ftimeEnqueued", &self.ftimeEnqueued).field("ulSerialNumber", &self.ulSerialNumber).field("ulPriority", &self.ulPriority).field("OpType", &self.OpType).field("ulOptions", &self.ulOptions).field("pszNamingContext", &self.pszNamingContext).field("pszDsaDN", &self.pszDsaDN).field("pszDsaAddress", &self.pszDsaAddress).field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_OPW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_OPW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OPW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_OPW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_OPW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_OPW_BLOB {
+    pub ftimeEnqueued: super::super::Foundation::FILETIME,
+    pub ulSerialNumber: u32,
+    pub ulPriority: u32,
+    pub OpType: DS_REPL_OP_TYPE,
+    pub ulOptions: u32,
+    pub oszNamingContext: u32,
+    pub oszDsaDN: u32,
+    pub oszDsaAddress: u32,
+    pub uuidNamingContextObjGuid: ::windows::core::GUID,
+    pub uuidDsaObjGuid: ::windows::core::GUID,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_OPW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_OPW_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_OPW_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_OPW_BLOB").field("ftimeEnqueued", &self.ftimeEnqueued).field("ulSerialNumber", &self.ulSerialNumber).field("ulPriority", &self.ulPriority).field("OpType", &self.OpType).field("ulOptions", &self.ulOptions).field("oszNamingContext", &self.oszNamingContext).field("oszDsaDN", &self.oszDsaDN).field("oszDsaAddress", &self.oszDsaAddress).field("uuidNamingContextObjGuid", &self.uuidNamingContextObjGuid).field("uuidDsaObjGuid", &self.uuidDsaObjGuid).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_OPW_BLOB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_OPW_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_OPW_BLOB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_OPW_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_OPW_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_PENDING_OPSW {
+    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
+    pub cNumPendingOps: u32,
+    pub rgPendingOp: [DS_REPL_OPW; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_PENDING_OPSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_PENDING_OPSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_PENDING_OPSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_PENDING_OPSW").field("ftimeCurrentOpStarted", &self.ftimeCurrentOpStarted).field("cNumPendingOps", &self.cNumPendingOps).field("rgPendingOp", &self.rgPendingOp).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_PENDING_OPSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_PENDING_OPSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_PENDING_OPSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_PENDING_OPSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_PENDING_OPSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_QUEUE_STATISTICSW {
+    pub ftimeCurrentOpStarted: super::super::Foundation::FILETIME,
+    pub cNumPendingOps: u32,
+    pub ftimeOldestSync: super::super::Foundation::FILETIME,
+    pub ftimeOldestAdd: super::super::Foundation::FILETIME,
+    pub ftimeOldestMod: super::super::Foundation::FILETIME,
+    pub ftimeOldestDel: super::super::Foundation::FILETIME,
+    pub ftimeOldestUpdRefs: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_QUEUE_STATISTICSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_QUEUE_STATISTICSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_QUEUE_STATISTICSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_QUEUE_STATISTICSW").field("ftimeCurrentOpStarted", &self.ftimeCurrentOpStarted).field("cNumPendingOps", &self.cNumPendingOps).field("ftimeOldestSync", &self.ftimeOldestSync).field("ftimeOldestAdd", &self.ftimeOldestAdd).field("ftimeOldestMod", &self.ftimeOldestMod).field("ftimeOldestDel", &self.ftimeOldestDel).field("ftimeOldestUpdRefs", &self.ftimeOldestUpdRefs).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_QUEUE_STATISTICSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_QUEUE_STATISTICSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_QUEUE_STATISTICSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_QUEUE_STATISTICSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_QUEUE_STATISTICSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA {
+    pub pszAttributeName: ::windows::core::PWSTR,
+    pub pszObjectDn: ::windows::core::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_VALUE_META_DATA")
+            .field("pszAttributeName", &self.pszAttributeName)
+            .field("pszObjectDn", &self.pszObjectDn)
+            .field("cbData", &self.cbData)
+            .field("pbData", &self.pbData)
+            .field("ftimeDeleted", &self.ftimeDeleted)
+            .field("ftimeCreated", &self.ftimeCreated)
+            .field("dwVersion", &self.dwVersion)
+            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
+            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
+            .field("usnOriginatingChange", &self.usnOriginatingChange)
+            .field("usnLocalChange", &self.usnLocalChange)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_VALUE_META_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_2 {
+    pub pszAttributeName: ::windows::core::PWSTR,
+    pub pszObjectDn: ::windows::core::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: ::windows::core::PWSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_VALUE_META_DATA_2")
+            .field("pszAttributeName", &self.pszAttributeName)
+            .field("pszObjectDn", &self.pszObjectDn)
+            .field("cbData", &self.cbData)
+            .field("pbData", &self.pbData)
+            .field("ftimeDeleted", &self.ftimeDeleted)
+            .field("ftimeCreated", &self.ftimeCreated)
+            .field("dwVersion", &self.dwVersion)
+            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
+            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
+            .field("usnOriginatingChange", &self.usnOriginatingChange)
+            .field("usnLocalChange", &self.usnLocalChange)
+            .field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_VALUE_META_DATA_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_BLOB {
+    pub oszAttributeName: u32,
+    pub oszObjectDn: u32,
+    pub cbData: u32,
+    pub obData: u32,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_VALUE_META_DATA_BLOB")
+            .field("oszAttributeName", &self.oszAttributeName)
+            .field("oszObjectDn", &self.oszObjectDn)
+            .field("cbData", &self.cbData)
+            .field("obData", &self.obData)
+            .field("ftimeDeleted", &self.ftimeDeleted)
+            .field("ftimeCreated", &self.ftimeCreated)
+            .field("dwVersion", &self.dwVersion)
+            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
+            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
+            .field("usnOriginatingChange", &self.usnOriginatingChange)
+            .field("usnLocalChange", &self.usnLocalChange)
+            .field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_BLOB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_BLOB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_BLOB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_VALUE_META_DATA_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    pub oszAttributeName: u32,
+    pub oszObjectDn: u32,
+    pub cbData: u32,
+    pub obData: u32,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub oszLastOriginatingDsaDN: u32,
+    pub dwUserIdentifier: u32,
+    pub dwPriorLinkState: u32,
+    pub dwCurrentLinkState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_BLOB_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_VALUE_META_DATA_BLOB_EXT")
+            .field("oszAttributeName", &self.oszAttributeName)
+            .field("oszObjectDn", &self.oszObjectDn)
+            .field("cbData", &self.cbData)
+            .field("obData", &self.obData)
+            .field("ftimeDeleted", &self.ftimeDeleted)
+            .field("ftimeCreated", &self.ftimeCreated)
+            .field("dwVersion", &self.dwVersion)
+            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
+            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
+            .field("usnOriginatingChange", &self.usnOriginatingChange)
+            .field("usnLocalChange", &self.usnLocalChange)
+            .field("oszLastOriginatingDsaDN", &self.oszLastOriginatingDsaDN)
+            .field("dwUserIdentifier", &self.dwUserIdentifier)
+            .field("dwPriorLinkState", &self.dwPriorLinkState)
+            .field("dwCurrentLinkState", &self.dwCurrentLinkState)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_BLOB_EXT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_BLOB_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_VALUE_META_DATA_BLOB_EXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DS_REPL_VALUE_META_DATA_EXT {
+    pub pszAttributeName: ::windows::core::PWSTR,
+    pub pszObjectDn: ::windows::core::PWSTR,
+    pub cbData: u32,
+    pub pbData: *mut u8,
+    pub ftimeDeleted: super::super::Foundation::FILETIME,
+    pub ftimeCreated: super::super::Foundation::FILETIME,
+    pub dwVersion: u32,
+    pub ftimeLastOriginatingChange: super::super::Foundation::FILETIME,
+    pub uuidLastOriginatingDsaInvocationID: ::windows::core::GUID,
+    pub usnOriginatingChange: i64,
+    pub usnLocalChange: i64,
+    pub pszLastOriginatingDsaDN: ::windows::core::PWSTR,
+    pub dwUserIdentifier: u32,
+    pub dwPriorLinkState: u32,
+    pub dwCurrentLinkState: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DS_REPL_VALUE_META_DATA_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DS_REPL_VALUE_META_DATA_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DS_REPL_VALUE_META_DATA_EXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPL_VALUE_META_DATA_EXT")
+            .field("pszAttributeName", &self.pszAttributeName)
+            .field("pszObjectDn", &self.pszObjectDn)
+            .field("cbData", &self.cbData)
+            .field("pbData", &self.pbData)
+            .field("ftimeDeleted", &self.ftimeDeleted)
+            .field("ftimeCreated", &self.ftimeCreated)
+            .field("dwVersion", &self.dwVersion)
+            .field("ftimeLastOriginatingChange", &self.ftimeLastOriginatingChange)
+            .field("uuidLastOriginatingDsaInvocationID", &self.uuidLastOriginatingDsaInvocationID)
+            .field("usnOriginatingChange", &self.usnOriginatingChange)
+            .field("usnLocalChange", &self.usnLocalChange)
+            .field("pszLastOriginatingDsaDN", &self.pszLastOriginatingDsaDN)
+            .field("dwUserIdentifier", &self.dwUserIdentifier)
+            .field("dwPriorLinkState", &self.dwPriorLinkState)
+            .field("dwCurrentLinkState", &self.dwCurrentLinkState)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DS_REPL_VALUE_META_DATA_EXT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DS_REPL_VALUE_META_DATA_EXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPL_VALUE_META_DATA_EXT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DS_REPL_VALUE_META_DATA_EXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DS_REPL_VALUE_META_DATA_EXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPSYNCALL_ERRINFOA {
+    pub pszSvrId: ::windows::core::PSTR,
+    pub error: DS_REPSYNCALL_ERROR,
+    pub dwWin32Err: u32,
+    pub pszSrcId: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for DS_REPSYNCALL_ERRINFOA {}
+impl ::core::clone::Clone for DS_REPSYNCALL_ERRINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_ERRINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPSYNCALL_ERRINFOA").field("pszSvrId", &self.pszSvrId).field("error", &self.error).field("dwWin32Err", &self.dwWin32Err).field("pszSrcId", &self.pszSrcId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERRINFOA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPSYNCALL_ERRINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_ERRINFOA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPSYNCALL_ERRINFOA {}
+impl ::core::default::Default for DS_REPSYNCALL_ERRINFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPSYNCALL_ERRINFOW {
+    pub pszSvrId: ::windows::core::PWSTR,
+    pub error: DS_REPSYNCALL_ERROR,
+    pub dwWin32Err: u32,
+    pub pszSrcId: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DS_REPSYNCALL_ERRINFOW {}
+impl ::core::clone::Clone for DS_REPSYNCALL_ERRINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_ERRINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPSYNCALL_ERRINFOW").field("pszSvrId", &self.pszSvrId).field("error", &self.error).field("dwWin32Err", &self.dwWin32Err).field("pszSrcId", &self.pszSrcId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_ERRINFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPSYNCALL_ERRINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_ERRINFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPSYNCALL_ERRINFOW {}
+impl ::core::default::Default for DS_REPSYNCALL_ERRINFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPSYNCALL_SYNCA {
+    pub pszSrcId: ::windows::core::PSTR,
+    pub pszDstId: ::windows::core::PSTR,
+    pub pszNC: ::windows::core::PSTR,
+    pub pguidSrc: *mut ::windows::core::GUID,
+    pub pguidDst: *mut ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DS_REPSYNCALL_SYNCA {}
+impl ::core::clone::Clone for DS_REPSYNCALL_SYNCA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_SYNCA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPSYNCALL_SYNCA").field("pszSrcId", &self.pszSrcId).field("pszDstId", &self.pszDstId).field("pszNC", &self.pszNC).field("pguidSrc", &self.pguidSrc).field("pguidDst", &self.pguidDst).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_SYNCA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPSYNCALL_SYNCA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_SYNCA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPSYNCALL_SYNCA {}
+impl ::core::default::Default for DS_REPSYNCALL_SYNCA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPSYNCALL_SYNCW {
+    pub pszSrcId: ::windows::core::PWSTR,
+    pub pszDstId: ::windows::core::PWSTR,
+    pub pszNC: ::windows::core::PWSTR,
+    pub pguidSrc: *mut ::windows::core::GUID,
+    pub pguidDst: *mut ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DS_REPSYNCALL_SYNCW {}
+impl ::core::clone::Clone for DS_REPSYNCALL_SYNCW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_SYNCW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPSYNCALL_SYNCW").field("pszSrcId", &self.pszSrcId).field("pszDstId", &self.pszDstId).field("pszNC", &self.pszNC).field("pguidSrc", &self.pguidSrc).field("pguidDst", &self.pguidDst).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_SYNCW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPSYNCALL_SYNCW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_SYNCW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPSYNCALL_SYNCW {}
+impl ::core::default::Default for DS_REPSYNCALL_SYNCW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPSYNCALL_UPDATEA {
+    pub event: DS_REPSYNCALL_EVENT,
+    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOA,
+    pub pSync: *mut DS_REPSYNCALL_SYNCA,
+}
+impl ::core::marker::Copy for DS_REPSYNCALL_UPDATEA {}
+impl ::core::clone::Clone for DS_REPSYNCALL_UPDATEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_UPDATEA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPSYNCALL_UPDATEA").field("event", &self.event).field("pErrInfo", &self.pErrInfo).field("pSync", &self.pSync).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_UPDATEA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPSYNCALL_UPDATEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_UPDATEA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPSYNCALL_UPDATEA {}
+impl ::core::default::Default for DS_REPSYNCALL_UPDATEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_REPSYNCALL_UPDATEW {
+    pub event: DS_REPSYNCALL_EVENT,
+    pub pErrInfo: *mut DS_REPSYNCALL_ERRINFOW,
+    pub pSync: *mut DS_REPSYNCALL_SYNCW,
+}
+impl ::core::marker::Copy for DS_REPSYNCALL_UPDATEW {}
+impl ::core::clone::Clone for DS_REPSYNCALL_UPDATEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_REPSYNCALL_UPDATEW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_REPSYNCALL_UPDATEW").field("event", &self.event).field("pErrInfo", &self.pErrInfo).field("pSync", &self.pSync).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_REPSYNCALL_UPDATEW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_REPSYNCALL_UPDATEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_REPSYNCALL_UPDATEW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_REPSYNCALL_UPDATEW {}
+impl ::core::default::Default for DS_REPSYNCALL_UPDATEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_SCHEMA_GUID_MAPA {
+    pub guid: ::windows::core::GUID,
+    pub guidType: u32,
+    pub pName: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for DS_SCHEMA_GUID_MAPA {}
+impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_SCHEMA_GUID_MAPA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_SCHEMA_GUID_MAPA").field("guid", &self.guid).field("guidType", &self.guidType).field("pName", &self.pName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_SCHEMA_GUID_MAPA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_SCHEMA_GUID_MAPA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SCHEMA_GUID_MAPA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_SCHEMA_GUID_MAPA {}
+impl ::core::default::Default for DS_SCHEMA_GUID_MAPA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_SCHEMA_GUID_MAPW {
+    pub guid: ::windows::core::GUID,
+    pub guidType: u32,
+    pub pName: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for DS_SCHEMA_GUID_MAPW {}
+impl ::core::clone::Clone for DS_SCHEMA_GUID_MAPW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_SCHEMA_GUID_MAPW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_SCHEMA_GUID_MAPW").field("guid", &self.guid).field("guidType", &self.guidType).field("pName", &self.pName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_SCHEMA_GUID_MAPW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_SCHEMA_GUID_MAPW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SCHEMA_GUID_MAPW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_SCHEMA_GUID_MAPW {}
+impl ::core::default::Default for DS_SCHEMA_GUID_MAPW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct DS_SELECTION {
+    pub pwzName: ::windows::core::PWSTR,
+    pub pwzADsPath: ::windows::core::PWSTR,
+    pub pwzClass: ::windows::core::PWSTR,
+    pub pwzUPN: ::windows::core::PWSTR,
+    pub pvarFetchedAttributes: *mut super::super::System::Com::VARIANT,
+    pub flScopeType: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for DS_SELECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for DS_SELECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for DS_SELECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_SELECTION").field("pwzName", &self.pwzName).field("pwzADsPath", &self.pwzADsPath).field("pwzClass", &self.pwzClass).field("pwzUPN", &self.pwzUPN).field("pvarFetchedAttributes", &self.pvarFetchedAttributes).field("flScopeType", &self.flScopeType).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for DS_SELECTION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for DS_SELECTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SELECTION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for DS_SELECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for DS_SELECTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub struct DS_SELECTION_LIST {
+    pub cItems: u32,
+    pub cFetchedAttributes: u32,
+    pub aDsSelection: [DS_SELECTION; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for DS_SELECTION_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for DS_SELECTION_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for DS_SELECTION_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_SELECTION_LIST").field("cItems", &self.cItems).field("cFetchedAttributes", &self.cFetchedAttributes).field("aDsSelection", &self.aDsSelection).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for DS_SELECTION_LIST {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for DS_SELECTION_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SELECTION_LIST>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for DS_SELECTION_LIST {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for DS_SELECTION_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct DS_SITE_COST_INFO {
+    pub errorCode: u32,
+    pub cost: u32,
+}
+impl ::core::marker::Copy for DS_SITE_COST_INFO {}
+impl ::core::clone::Clone for DS_SITE_COST_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DS_SITE_COST_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS_SITE_COST_INFO").field("errorCode", &self.errorCode).field("cost", &self.cost).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DS_SITE_COST_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DS_SITE_COST_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS_SITE_COST_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DS_SITE_COST_INFO {}
+impl ::core::default::Default for DS_SITE_COST_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GetDcContextHandle(pub isize);
+impl GetDcContextHandle {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for GetDcContextHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for GetDcContextHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for GetDcContextHandle {}
+impl ::core::fmt::Debug for GetDcContextHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetDcContextHandle").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<GetDcContextHandle>> for GetDcContextHandle {
+    fn from(optional: ::core::option::Option<GetDcContextHandle>) -> GetDcContextHandle {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for GetDcContextHandle {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+pub struct OPENQUERYWINDOW {
+    pub cbStruct: u32,
+    pub dwFlags: u32,
+    pub clsidHandler: ::windows::core::GUID,
+    pub pHandlerParameters: *mut ::core::ffi::c_void,
+    pub clsidDefaultForm: ::windows::core::GUID,
+    pub pPersistQuery: ::core::option::Option<IPersistQuery>,
+    pub Anonymous: OPENQUERYWINDOW_0,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::clone::Clone for OPENQUERYWINDOW {
+    fn clone(&self) -> Self {
+        Self {
+            cbStruct: self.cbStruct,
+            dwFlags: self.dwFlags,
+            clsidHandler: self.clsidHandler,
+            pHandlerParameters: self.pHandlerParameters,
+            clsidDefaultForm: self.clsidDefaultForm,
+            pPersistQuery: self.pPersistQuery.clone(),
+            Anonymous: self.Anonymous.clone(),
+        }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+unsafe impl ::windows::core::Abi for OPENQUERYWINDOW {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::cmp::PartialEq for OPENQUERYWINDOW {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbStruct == other.cbStruct && self.dwFlags == other.dwFlags && self.clsidHandler == other.clsidHandler && self.pHandlerParameters == other.pHandlerParameters && self.clsidDefaultForm == other.clsidDefaultForm && self.pPersistQuery == other.pPersistQuery && self.Anonymous == other.Anonymous
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::cmp::Eq for OPENQUERYWINDOW {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::default::Default for OPENQUERYWINDOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+pub union OPENQUERYWINDOW_0 {
+    pub pFormParameters: *mut ::core::ffi::c_void,
+    pub ppbFormParameters: ::core::mem::ManuallyDrop<::core::option::Option<super::super::System::Com::StructuredStorage::IPropertyBag>>,
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::clone::Clone for OPENQUERYWINDOW_0 {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+unsafe impl ::windows::core::Abi for OPENQUERYWINDOW_0 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::cmp::PartialEq for OPENQUERYWINDOW_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENQUERYWINDOW_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::cmp::Eq for OPENQUERYWINDOW_0 {}
+#[cfg(feature = "Win32_System_Com_StructuredStorage")]
+impl ::core::default::Default for OPENQUERYWINDOW_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct SCHEDULE {
+    pub Size: u32,
+    pub Bandwidth: u32,
+    pub NumberOfSchedules: u32,
+    pub Schedules: [SCHEDULE_HEADER; 1],
+}
+impl ::core::marker::Copy for SCHEDULE {}
+impl ::core::clone::Clone for SCHEDULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SCHEDULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCHEDULE").field("Size", &self.Size).field("Bandwidth", &self.Bandwidth).field("NumberOfSchedules", &self.NumberOfSchedules).field("Schedules", &self.Schedules).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEDULE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCHEDULE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHEDULE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCHEDULE {}
+impl ::core::default::Default for SCHEDULE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
+pub struct SCHEDULE_HEADER {
+    pub Type: u32,
+    pub Offset: u32,
+}
+impl ::core::marker::Copy for SCHEDULE_HEADER {}
+impl ::core::clone::Clone for SCHEDULE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SCHEDULE_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SCHEDULE_HEADER").field("Type", &self.Type).field("Offset", &self.Offset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEDULE_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCHEDULE_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCHEDULE_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCHEDULE_HEADER {}
+impl ::core::default::Default for SCHEDULE_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ads_search_column {
+    pub pszAttrName: ::windows::core::PWSTR,
+    pub dwADsType: ADSTYPEENUM,
+    pub pADsValues: *mut ADSVALUE,
+    pub dwNumValues: u32,
+    pub hReserved: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ads_search_column {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ads_search_column {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ads_search_column {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ads_search_column").field("pszAttrName", &self.pszAttrName).field("dwADsType", &self.dwADsType).field("pADsValues", &self.pADsValues).field("dwNumValues", &self.dwNumValues).field("hReserved", &self.hReserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ads_search_column {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ads_search_column {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ads_search_column>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ads_search_column {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ads_search_column {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ads_searchpref_info {
+    pub dwSearchPref: ADS_SEARCHPREF_ENUM,
+    pub vValue: ADSVALUE,
+    pub dwStatus: ADS_STATUSENUM,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ads_searchpref_info {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ads_searchpref_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ads_searchpref_info {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ads_searchpref_info {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ads_searchpref_info>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ads_searchpref_info {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ads_searchpref_info {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPCQADDFORMSPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pform: *mut CQFORM) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPCQADDPAGESPROC = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, clsidform: *const ::windows::core::GUID, ppage: *mut CQPAGE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+pub type LPCQPAGEPROC = ::core::option::Option<unsafe extern "system" fn(ppage: *mut CQPAGE, hwnd: super::super::Foundation::HWND, umsg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPDSENUMATTRIBUTES = ::core::option::Option<unsafe extern "system" fn(lparam: super::super::Foundation::LPARAM, pszattributename: ::windows::core::PCWSTR, pszdisplayname: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

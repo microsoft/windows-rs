@@ -1,3 +1,29 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICompositorController(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICompositorController {
+    type Vtable = ICompositorController_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICompositorController_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Compositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub EnsurePreviousCommitCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    EnsurePreviousCommitCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub CommitNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CommitNeeded: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveCommitNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveCommitNeeded: usize,
+}
 #[doc = "*Required features: `\"UI_Composition_Core\"`*"]
 #[repr(transparent)]
 pub struct CompositorController(::windows::core::IUnknown);
@@ -138,31 +164,5 @@ impl<'a> ::core::convert::TryFrom<&CompositorController> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for CompositorController {}
 unsafe impl ::core::marker::Sync for CompositorController {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICompositorController(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICompositorController {
-    type Vtable = ICompositorController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICompositorController_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Compositor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Commit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub EnsurePreviousCommitCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    EnsurePreviousCommitCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub CommitNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CommitNeeded: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveCommitNeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCommitNeeded: usize,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

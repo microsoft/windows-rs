@@ -1,3 +1,41 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBattery(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBattery {
+    type Vtable = IBattery_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBattery_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub RemainingChargePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub RemainingDischargeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemainingDischargeTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemainingChargePercentChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveRemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveRemainingChargePercentChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBatteryStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBatteryStatics {
+    type Vtable = IBatteryStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBatteryStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Phone_Devices_Power\"`*"]
 #[repr(transparent)]
 pub struct Battery(::windows::core::IUnknown);
@@ -110,43 +148,5 @@ impl ::core::convert::From<&Battery> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Battery {}
 unsafe impl ::core::marker::Sync for Battery {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBattery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBattery {
-    type Vtable = IBattery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBattery_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub RemainingChargePercent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub RemainingDischargeTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemainingDischargeTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changehandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemainingChargePercentChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveRemainingChargePercentChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveRemainingChargePercentChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBatteryStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBatteryStatics {
-    type Vtable = IBatteryStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf5bc70_6369_11e1_b86c_0800200c9a66);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBatteryStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

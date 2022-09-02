@@ -1,151 +1,3 @@
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-pub struct CardAddedEventArgs(::windows::core::IUnknown);
-impl CardAddedEventArgs {
-    pub fn SmartCard(&self) -> ::windows::core::Result<SmartCard> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SmartCard)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SmartCard>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CardAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CardAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CardAddedEventArgs {}
-impl ::core::fmt::Debug for CardAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CardAddedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CardAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CardAddedEventArgs {
-    type Vtable = ICardAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICardAddedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CardAddedEventArgs {
-    const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
-}
-impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CardAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CardAddedEventArgs {}
-unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-pub struct CardRemovedEventArgs(::windows::core::IUnknown);
-impl CardRemovedEventArgs {
-    pub fn SmartCard(&self) -> ::windows::core::Result<SmartCard> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SmartCard)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SmartCard>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CardRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CardRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CardRemovedEventArgs {}
-impl ::core::fmt::Debug for CardRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CardRemovedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CardRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardRemovedEventArgs;{15331aaf-22d7-4945-afc9-03b46f42a6cd})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
-    type Vtable = ICardRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICardRemovedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CardRemovedEventArgs {
-    const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
-}
-impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CardRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
-unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICardAddedEventArgs(::windows::core::IUnknown);
@@ -1294,6 +1146,154 @@ pub struct ISmartCardTriggerDetails3_Vtbl {
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+pub struct CardAddedEventArgs(::windows::core::IUnknown);
+impl CardAddedEventArgs {
+    pub fn SmartCard(&self) -> ::windows::core::Result<SmartCard> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SmartCard)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SmartCard>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CardAddedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CardAddedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CardAddedEventArgs {}
+impl ::core::fmt::Debug for CardAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CardAddedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CardAddedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardAddedEventArgs;{18bbef98-f18b-4dd3-b118-dfb2c8e23cc6})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CardAddedEventArgs {
+    type Vtable = ICardAddedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICardAddedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CardAddedEventArgs {
+    const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
+}
+impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CardAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CardAddedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CardAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CardAddedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CardAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CardAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CardAddedEventArgs {}
+unsafe impl ::core::marker::Sync for CardAddedEventArgs {}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+pub struct CardRemovedEventArgs(::windows::core::IUnknown);
+impl CardRemovedEventArgs {
+    pub fn SmartCard(&self) -> ::windows::core::Result<SmartCard> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SmartCard)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SmartCard>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CardRemovedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CardRemovedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CardRemovedEventArgs {}
+impl ::core::fmt::Debug for CardRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CardRemovedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CardRemovedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SmartCards.CardRemovedEventArgs;{15331aaf-22d7-4945-afc9-03b46f42a6cd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
+    type Vtable = ICardRemovedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICardRemovedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CardRemovedEventArgs {
+    const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
+}
+impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CardRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CardRemovedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CardRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CardRemovedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CardRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CardRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CardRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for CardRemovedEventArgs {}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 pub struct KnownSmartCardAppletIds;
 impl KnownSmartCardAppletIds {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -1422,40 +1422,6 @@ impl ::core::convert::From<&SmartCard> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardActivationPolicyChangeResult(pub i32);
-impl SmartCardActivationPolicyChangeResult {
-    pub const Denied: Self = Self(0i32);
-    pub const Allowed: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardActivationPolicyChangeResult {}
-impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardActivationPolicyChangeResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardActivationPolicyChangeResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardActivationPolicyChangeResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroup(::windows::core::IUnknown);
@@ -1661,41 +1627,6 @@ impl ::core::convert::From<&SmartCardAppletIdGroup> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
-impl SmartCardAppletIdGroupActivationPolicy {
-    pub const Disabled: Self = Self(0i32);
-    pub const ForegroundOverride: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SmartCardAppletIdGroupActivationPolicy {}
-impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardAppletIdGroupActivationPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardAppletIdGroupActivationPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAppletIdGroupActivationPolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardAppletIdGroupRegistration(::windows::core::IUnknown);
@@ -2049,41 +1980,6 @@ unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardAutomaticResponseStatus(pub i32);
-impl SmartCardAutomaticResponseStatus {
-    pub const None: Self = Self(0i32);
-    pub const Success: Self = Self(1i32);
-    pub const UnknownError: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SmartCardAutomaticResponseStatus {}
-impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardAutomaticResponseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardAutomaticResponseStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardAutomaticResponseStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
 pub struct SmartCardChallengeContext(::windows::core::IUnknown);
 impl SmartCardChallengeContext {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2350,47 +2246,6 @@ unsafe impl ::core::marker::Send for SmartCardConnection {}
 unsafe impl ::core::marker::Sync for SmartCardConnection {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramAlgorithm(pub i32);
-impl SmartCardCryptogramAlgorithm {
-    pub const None: Self = Self(0i32);
-    pub const CbcMac: Self = Self(1i32);
-    pub const Cvc3Umd: Self = Self(2i32);
-    pub const DecimalizedMsd: Self = Self(3i32);
-    pub const Cvc3MD: Self = Self(4i32);
-    pub const Sha1: Self = Self(5i32);
-    pub const SignedDynamicApplicationData: Self = Self(6i32);
-    pub const RsaPkcs1: Self = Self(7i32);
-    pub const Sha256Hmac: Self = Self(8i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramAlgorithm {}
-impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramAlgorithm {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramAlgorithm").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
 pub struct SmartCardCryptogramGenerator(::windows::core::IUnknown);
 impl SmartCardCryptogramGenerator {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -2647,52 +2502,6 @@ impl ::core::convert::From<&SmartCardCryptogramGenerator> for &::windows::core::
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
-impl SmartCardCryptogramGeneratorOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const AuthorizationFailed: Self = Self(1i32);
-    pub const AuthorizationCanceled: Self = Self(2i32);
-    pub const AuthorizationRequired: Self = Self(3i32);
-    pub const CryptogramMaterialPackageStorageKeyExists: Self = Self(4i32);
-    pub const NoCryptogramMaterialPackageStorageKey: Self = Self(5i32);
-    pub const NoCryptogramMaterialPackage: Self = Self(6i32);
-    pub const UnsupportedCryptogramMaterialPackage: Self = Self(7i32);
-    pub const UnknownCryptogramMaterialName: Self = Self(8i32);
-    pub const InvalidCryptogramMaterialUsage: Self = Self(9i32);
-    pub const ApduResponseNotSent: Self = Self(10i32);
-    pub const OtherError: Self = Self(11i32);
-    pub const ValidationFailed: Self = Self(12i32);
-    pub const NotSupported: Self = Self(13i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramGeneratorOperationStatus {}
-impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramGeneratorOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramGeneratorOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramGeneratorOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult(::windows::core::IUnknown);
@@ -3205,74 +3014,6 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacter
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
-impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    pub const None: Self = Self(0i32);
-    pub const VisaHmac: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {}
-impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialPackageConfirmationResponseFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
-impl SmartCardCryptogramMaterialPackageFormat {
-    pub const None: Self = Self(0i32);
-    pub const JweRsaPki: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageFormat {}
-impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramMaterialPackageFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialPackageFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
 pub struct SmartCardCryptogramMaterialPossessionProof(::windows::core::IUnknown);
 impl SmartCardCryptogramMaterialPossessionProof {
     pub fn OperationStatus(&self) -> ::windows::core::Result<SmartCardCryptogramGeneratorOperationStatus> {
@@ -3354,140 +3095,6 @@ impl ::core::convert::From<&SmartCardCryptogramMaterialPossessionProof> for &::w
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
-impl SmartCardCryptogramMaterialProtectionMethod {
-    pub const None: Self = Self(0i32);
-    pub const WhiteBoxing: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramMaterialProtectionMethod {}
-impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramMaterialProtectionMethod {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialProtectionMethod {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialProtectionMethod").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramMaterialType(pub i32);
-impl SmartCardCryptogramMaterialType {
-    pub const None: Self = Self(0i32);
-    pub const StaticDataAuthentication: Self = Self(1i32);
-    pub const TripleDes112: Self = Self(2i32);
-    pub const Aes: Self = Self(3i32);
-    pub const RsaPkcs1: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramMaterialType {}
-impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramMaterialType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramMaterialType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramPlacementOptions(pub u32);
-impl SmartCardCryptogramPlacementOptions {
-    pub const None: Self = Self(0u32);
-    pub const UnitsAreInNibbles: Self = Self(1u32);
-    pub const ChainOutput: Self = Self(2u32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramPlacementOptions {}
-impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramPlacementOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramPlacementOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramPlacementOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramPlacementOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SmartCardCryptogramPlacementOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SmartCardCryptogramPlacementOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SmartCardCryptogramPlacementOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SmartCardCryptogramPlacementOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SmartCardCryptogramPlacementOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramPlacementStep(::windows::core::IUnknown);
@@ -3672,103 +3279,6 @@ impl ::core::convert::From<&SmartCardCryptogramPlacementStep> for &::windows::co
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
-impl SmartCardCryptogramStorageKeyAlgorithm {
-    pub const None: Self = Self(0i32);
-    pub const Rsa2048: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramStorageKeyAlgorithm {}
-impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramStorageKeyAlgorithm {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyAlgorithm {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramStorageKeyAlgorithm").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
-impl SmartCardCryptogramStorageKeyCapabilities {
-    pub const None: Self = Self(0u32);
-    pub const HardwareProtection: Self = Self(1u32);
-    pub const UnlockPrompt: Self = Self(2u32);
-}
-impl ::core::marker::Copy for SmartCardCryptogramStorageKeyCapabilities {}
-impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptogramStorageKeyCapabilities {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCapabilities {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptogramStorageKeyCapabilities").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SmartCardCryptogramStorageKeyCapabilities {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SmartCardCryptogramStorageKeyCapabilities {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SmartCardCryptogramStorageKeyCapabilities {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SmartCardCryptogramStorageKeyCapabilities {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardCryptogramStorageKeyCharacteristics(::windows::core::IUnknown);
@@ -4004,115 +3514,6 @@ impl ::core::convert::From<&SmartCardCryptogramStorageKeyInfo> for &::windows::c
 }
 unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
-impl SmartCardCryptographicKeyAttestationStatus {
-    pub const NoAttestation: Self = Self(0i32);
-    pub const SoftwareKeyWithoutTpm: Self = Self(1i32);
-    pub const SoftwareKeyWithTpm: Self = Self(2i32);
-    pub const TpmKeyUnknownAttestationStatus: Self = Self(3i32);
-    pub const TpmKeyWithoutAttestationCapability: Self = Self(4i32);
-    pub const TpmKeyWithTemporaryAttestationFailure: Self = Self(5i32);
-    pub const TpmKeyWithLongTermAttestationFailure: Self = Self(6i32);
-    pub const TpmKeyWithAttestation: Self = Self(7i32);
-}
-impl ::core::marker::Copy for SmartCardCryptographicKeyAttestationStatus {}
-impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardCryptographicKeyAttestationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardCryptographicKeyAttestationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardCryptographicKeyAttestationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardEmulationCategory(pub i32);
-impl SmartCardEmulationCategory {
-    pub const Other: Self = Self(0i32);
-    pub const Payment: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardEmulationCategory {}
-impl ::core::clone::Clone for SmartCardEmulationCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardEmulationCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardEmulationCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulationCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulationCategory").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardEmulationType(pub i32);
-impl SmartCardEmulationType {
-    pub const Host: Self = Self(0i32);
-    pub const Uicc: Self = Self(1i32);
-    pub const EmbeddedSE: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SmartCardEmulationType {}
-impl ::core::clone::Clone for SmartCardEmulationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardEmulationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardEmulationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulationType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardEmulationType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardEmulator(::windows::core::IUnknown);
@@ -4539,40 +3940,6 @@ unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEvent
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
-impl SmartCardEmulatorConnectionDeactivatedReason {
-    pub const ConnectionLost: Self = Self(0i32);
-    pub const ConnectionRedirected: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardEmulatorConnectionDeactivatedReason {}
-impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardEmulatorConnectionDeactivatedReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionDeactivatedReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorConnectionDeactivatedReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
 pub struct SmartCardEmulatorConnectionProperties(::windows::core::IUnknown);
 impl SmartCardEmulatorConnectionProperties {
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -4652,145 +4019,6 @@ impl ::core::convert::From<&SmartCardEmulatorConnectionProperties> for &::window
 }
 unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardEmulatorConnectionSource(pub i32);
-impl SmartCardEmulatorConnectionSource {
-    pub const Unknown: Self = Self(0i32);
-    pub const NfcReader: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardEmulatorConnectionSource {}
-impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardEmulatorConnectionSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionSource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorConnectionSource").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardEmulatorEnablementPolicy(pub i32);
-impl SmartCardEmulatorEnablementPolicy {
-    pub const Never: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-    pub const ScreenOn: Self = Self(2i32);
-    pub const ScreenUnlocked: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SmartCardEmulatorEnablementPolicy {}
-impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardEmulatorEnablementPolicy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardEmulatorEnablementPolicy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardEmulatorEnablementPolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardLaunchBehavior(pub i32);
-impl SmartCardLaunchBehavior {
-    pub const Default: Self = Self(0i32);
-    pub const AboveLock: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SmartCardLaunchBehavior {}
-impl ::core::clone::Clone for SmartCardLaunchBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardLaunchBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardLaunchBehavior {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardLaunchBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardLaunchBehavior").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardPinCharacterPolicyOption(pub i32);
-impl SmartCardPinCharacterPolicyOption {
-    pub const Allow: Self = Self(0i32);
-    pub const RequireAtLeastOne: Self = Self(1i32);
-    pub const Disallow: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SmartCardPinCharacterPolicyOption {}
-impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardPinCharacterPolicyOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardPinCharacterPolicyOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinCharacterPolicyOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardPinPolicy(::windows::core::IUnknown);
@@ -5002,94 +4230,6 @@ impl ::core::convert::From<&SmartCardPinResetDeferral> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for SmartCardPinResetDeferral {}
 unsafe impl ::core::marker::Sync for SmartCardPinResetDeferral {}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-pub struct SmartCardPinResetHandler(pub ::windows::core::IUnknown);
-impl SmartCardPinResetHandler {
-    pub fn new<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = SmartCardPinResetHandlerBox::<F> { vtable: &SmartCardPinResetHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, request: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardProvisioning>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinResetRequest>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), request.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct SmartCardPinResetHandlerBox<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const SmartCardPinResetHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SmartCardPinResetHandlerBox<F> {
-    const VTABLE: SmartCardPinResetHandler_Vtbl = SmartCardPinResetHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<SmartCardPinResetHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&request)).into()
-    }
-}
-impl ::core::clone::Clone for SmartCardPinResetHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SmartCardPinResetHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardPinResetHandler {}
-impl ::core::fmt::Debug for SmartCardPinResetHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardPinResetHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for SmartCardPinResetHandler {
-    type Vtable = SmartCardPinResetHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{138d5e40-f3bc-4a5c-b41d-4b4ef684e237}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct SmartCardPinResetHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 pub struct SmartCardPinResetRequest(::windows::core::IUnknown);
@@ -5576,116 +4716,6 @@ unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardReaderKind(pub i32);
-impl SmartCardReaderKind {
-    pub const Any: Self = Self(0i32);
-    pub const Generic: Self = Self(1i32);
-    pub const Tpm: Self = Self(2i32);
-    pub const Nfc: Self = Self(3i32);
-    pub const Uicc: Self = Self(4i32);
-    pub const EmbeddedSE: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SmartCardReaderKind {}
-impl ::core::clone::Clone for SmartCardReaderKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardReaderKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardReaderKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardReaderKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardReaderKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardReaderKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardReaderStatus(pub i32);
-impl SmartCardReaderStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const Exclusive: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SmartCardReaderStatus {}
-impl ::core::clone::Clone for SmartCardReaderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardReaderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardReaderStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardReaderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardReaderStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardReaderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SmartCardStatus(pub i32);
-impl SmartCardStatus {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Ready: Self = Self(1i32);
-    pub const Shared: Self = Self(2i32);
-    pub const Exclusive: Self = Self(3i32);
-    pub const Unresponsive: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SmartCardStatus {}
-impl ::core::clone::Clone for SmartCardStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SmartCardStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SmartCardStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SmartCardStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SmartCardStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SmartCardStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-#[repr(transparent)]
 pub struct SmartCardTriggerDetails(::windows::core::IUnknown);
 impl SmartCardTriggerDetails {
     pub fn TriggerType(&self) -> ::windows::core::Result<SmartCardTriggerType> {
@@ -5811,6 +4841,888 @@ unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardActivationPolicyChangeResult(pub i32);
+impl SmartCardActivationPolicyChangeResult {
+    pub const Denied: Self = Self(0i32);
+    pub const Allowed: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardActivationPolicyChangeResult {}
+impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardActivationPolicyChangeResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardActivationPolicyChangeResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardActivationPolicyChangeResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardActivationPolicyChangeResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardActivationPolicyChangeResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
+impl SmartCardAppletIdGroupActivationPolicy {
+    pub const Disabled: Self = Self(0i32);
+    pub const ForegroundOverride: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardAppletIdGroupActivationPolicy {}
+impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardAppletIdGroupActivationPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardAppletIdGroupActivationPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardAppletIdGroupActivationPolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupActivationPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAppletIdGroupActivationPolicy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardAutomaticResponseStatus(pub i32);
+impl SmartCardAutomaticResponseStatus {
+    pub const None: Self = Self(0i32);
+    pub const Success: Self = Self(1i32);
+    pub const UnknownError: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardAutomaticResponseStatus {}
+impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardAutomaticResponseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardAutomaticResponseStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardAutomaticResponseStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardAutomaticResponseStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramAlgorithm(pub i32);
+impl SmartCardCryptogramAlgorithm {
+    pub const None: Self = Self(0i32);
+    pub const CbcMac: Self = Self(1i32);
+    pub const Cvc3Umd: Self = Self(2i32);
+    pub const DecimalizedMsd: Self = Self(3i32);
+    pub const Cvc3MD: Self = Self(4i32);
+    pub const Sha1: Self = Self(5i32);
+    pub const SignedDynamicApplicationData: Self = Self(6i32);
+    pub const RsaPkcs1: Self = Self(7i32);
+    pub const Sha256Hmac: Self = Self(8i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramAlgorithm {}
+impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramAlgorithm").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramAlgorithm {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramAlgorithm;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
+impl SmartCardCryptogramGeneratorOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const AuthorizationFailed: Self = Self(1i32);
+    pub const AuthorizationCanceled: Self = Self(2i32);
+    pub const AuthorizationRequired: Self = Self(3i32);
+    pub const CryptogramMaterialPackageStorageKeyExists: Self = Self(4i32);
+    pub const NoCryptogramMaterialPackageStorageKey: Self = Self(5i32);
+    pub const NoCryptogramMaterialPackage: Self = Self(6i32);
+    pub const UnsupportedCryptogramMaterialPackage: Self = Self(7i32);
+    pub const UnknownCryptogramMaterialName: Self = Self(8i32);
+    pub const InvalidCryptogramMaterialUsage: Self = Self(9i32);
+    pub const ApduResponseNotSent: Self = Self(10i32);
+    pub const OtherError: Self = Self(11i32);
+    pub const ValidationFailed: Self = Self(12i32);
+    pub const NotSupported: Self = Self(13i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramGeneratorOperationStatus {}
+impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramGeneratorOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramGeneratorOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramGeneratorOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGeneratorOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramGeneratorOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
+impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    pub const None: Self = Self(0i32);
+    pub const VisaHmac: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialPackageConfirmationResponseFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageConfirmationResponseFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
+impl SmartCardCryptogramMaterialPackageFormat {
+    pub const None: Self = Self(0i32);
+    pub const JweRsaPki: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramMaterialPackageFormat {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramMaterialPackageFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialPackageFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
+impl SmartCardCryptogramMaterialProtectionMethod {
+    pub const None: Self = Self(0i32);
+    pub const WhiteBoxing: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramMaterialProtectionMethod {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramMaterialProtectionMethod {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialProtectionMethod {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialProtectionMethod").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialProtectionMethod {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialProtectionMethod;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramMaterialType(pub i32);
+impl SmartCardCryptogramMaterialType {
+    pub const None: Self = Self(0i32);
+    pub const StaticDataAuthentication: Self = Self(1i32);
+    pub const TripleDes112: Self = Self(2i32);
+    pub const Aes: Self = Self(3i32);
+    pub const RsaPkcs1: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramMaterialType {}
+impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramMaterialType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramMaterialType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramMaterialType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramPlacementOptions(pub u32);
+impl SmartCardCryptogramPlacementOptions {
+    pub const None: Self = Self(0u32);
+    pub const UnitsAreInNibbles: Self = Self(1u32);
+    pub const ChainOutput: Self = Self(2u32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramPlacementOptions {}
+impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramPlacementOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramPlacementOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramPlacementOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramPlacementOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SmartCardCryptogramPlacementOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SmartCardCryptogramPlacementOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SmartCardCryptogramPlacementOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SmartCardCryptogramPlacementOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SmartCardCryptogramPlacementOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramPlacementOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
+impl SmartCardCryptogramStorageKeyAlgorithm {
+    pub const None: Self = Self(0i32);
+    pub const Rsa2048: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramStorageKeyAlgorithm {}
+impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramStorageKeyAlgorithm {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramStorageKeyAlgorithm").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyAlgorithm {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyAlgorithm;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
+impl SmartCardCryptogramStorageKeyCapabilities {
+    pub const None: Self = Self(0u32);
+    pub const HardwareProtection: Self = Self(1u32);
+    pub const UnlockPrompt: Self = Self(2u32);
+}
+impl ::core::marker::Copy for SmartCardCryptogramStorageKeyCapabilities {}
+impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptogramStorageKeyCapabilities {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptogramStorageKeyCapabilities").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SmartCardCryptogramStorageKeyCapabilities {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SmartCardCryptogramStorageKeyCapabilities {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SmartCardCryptogramStorageKeyCapabilities {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SmartCardCryptogramStorageKeyCapabilities {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SmartCardCryptogramStorageKeyCapabilities {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCapabilities {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCapabilities;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
+impl SmartCardCryptographicKeyAttestationStatus {
+    pub const NoAttestation: Self = Self(0i32);
+    pub const SoftwareKeyWithoutTpm: Self = Self(1i32);
+    pub const SoftwareKeyWithTpm: Self = Self(2i32);
+    pub const TpmKeyUnknownAttestationStatus: Self = Self(3i32);
+    pub const TpmKeyWithoutAttestationCapability: Self = Self(4i32);
+    pub const TpmKeyWithTemporaryAttestationFailure: Self = Self(5i32);
+    pub const TpmKeyWithLongTermAttestationFailure: Self = Self(6i32);
+    pub const TpmKeyWithAttestation: Self = Self(7i32);
+}
+impl ::core::marker::Copy for SmartCardCryptographicKeyAttestationStatus {}
+impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardCryptographicKeyAttestationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardCryptographicKeyAttestationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardCryptographicKeyAttestationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardCryptographicKeyAttestationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardCryptographicKeyAttestationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardEmulationCategory(pub i32);
+impl SmartCardEmulationCategory {
+    pub const Other: Self = Self(0i32);
+    pub const Payment: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardEmulationCategory {}
+impl ::core::clone::Clone for SmartCardEmulationCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulationCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardEmulationCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardEmulationCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulationCategory").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardEmulationCategory {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationCategory;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardEmulationType(pub i32);
+impl SmartCardEmulationType {
+    pub const Host: Self = Self(0i32);
+    pub const Uicc: Self = Self(1i32);
+    pub const EmbeddedSE: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardEmulationType {}
+impl ::core::clone::Clone for SmartCardEmulationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardEmulationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardEmulationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulationType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardEmulationType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulationType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
+impl SmartCardEmulatorConnectionDeactivatedReason {
+    pub const ConnectionLost: Self = Self(0i32);
+    pub const ConnectionRedirected: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardEmulatorConnectionDeactivatedReason {}
+impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulatorConnectionDeactivatedReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionDeactivatedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulatorConnectionDeactivatedReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactivatedReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardEmulatorConnectionSource(pub i32);
+impl SmartCardEmulatorConnectionSource {
+    pub const Unknown: Self = Self(0i32);
+    pub const NfcReader: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardEmulatorConnectionSource {}
+impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulatorConnectionSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulatorConnectionSource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionSource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorConnectionSource;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardEmulatorEnablementPolicy(pub i32);
+impl SmartCardEmulatorEnablementPolicy {
+    pub const Never: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+    pub const ScreenOn: Self = Self(2i32);
+    pub const ScreenUnlocked: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SmartCardEmulatorEnablementPolicy {}
+impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardEmulatorEnablementPolicy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardEmulatorEnablementPolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardEmulatorEnablementPolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorEnablementPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardEmulatorEnablementPolicy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardLaunchBehavior(pub i32);
+impl SmartCardLaunchBehavior {
+    pub const Default: Self = Self(0i32);
+    pub const AboveLock: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SmartCardLaunchBehavior {}
+impl ::core::clone::Clone for SmartCardLaunchBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardLaunchBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardLaunchBehavior {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardLaunchBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardLaunchBehavior").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardLaunchBehavior {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardLaunchBehavior;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardPinCharacterPolicyOption(pub i32);
+impl SmartCardPinCharacterPolicyOption {
+    pub const Allow: Self = Self(0i32);
+    pub const RequireAtLeastOne: Self = Self(1i32);
+    pub const Disallow: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardPinCharacterPolicyOption {}
+impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardPinCharacterPolicyOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardPinCharacterPolicyOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardPinCharacterPolicyOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardPinCharacterPolicyOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardPinCharacterPolicyOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardReaderKind(pub i32);
+impl SmartCardReaderKind {
+    pub const Any: Self = Self(0i32);
+    pub const Generic: Self = Self(1i32);
+    pub const Tpm: Self = Self(2i32);
+    pub const Nfc: Self = Self(3i32);
+    pub const Uicc: Self = Self(4i32);
+    pub const EmbeddedSE: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SmartCardReaderKind {}
+impl ::core::clone::Clone for SmartCardReaderKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardReaderKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardReaderKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardReaderKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardReaderKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardReaderKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardReaderStatus(pub i32);
+impl SmartCardReaderStatus {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Ready: Self = Self(1i32);
+    pub const Exclusive: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SmartCardReaderStatus {}
+impl ::core::clone::Clone for SmartCardReaderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardReaderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardReaderStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardReaderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardReaderStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardReaderStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardReaderStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SmartCardStatus(pub i32);
+impl SmartCardStatus {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Ready: Self = Self(1i32);
+    pub const Shared: Self = Self(2i32);
+    pub const Exclusive: Self = Self(3i32);
+    pub const Unresponsive: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SmartCardStatus {}
+impl ::core::clone::Clone for SmartCardStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SmartCardStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SmartCardStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SmartCardStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.SmartCards.SmartCardStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
     pub const EmulatorTransaction: Self = Self(0i32);
@@ -5880,6 +5792,94 @@ unsafe impl ::windows::core::RuntimeType for SmartCardUnlockPromptingBehavior {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
+}
+#[doc = "*Required features: `\"Devices_SmartCards\"`*"]
+#[repr(transparent)]
+pub struct SmartCardPinResetHandler(pub ::windows::core::IUnknown);
+impl SmartCardPinResetHandler {
+    pub fn new<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = SmartCardPinResetHandlerBox::<F> { vtable: &SmartCardPinResetHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, request: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SmartCardProvisioning>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, SmartCardPinResetRequest>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), request.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct SmartCardPinResetHandlerBox<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const SmartCardPinResetHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<SmartCardProvisioning>, &::core::option::Option<SmartCardPinResetRequest>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SmartCardPinResetHandlerBox<F> {
+    const VTABLE: SmartCardPinResetHandler_Vtbl = SmartCardPinResetHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<SmartCardPinResetHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&request)).into()
+    }
+}
+impl ::core::clone::Clone for SmartCardPinResetHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SmartCardPinResetHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for SmartCardPinResetHandler {}
+impl ::core::fmt::Debug for SmartCardPinResetHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardPinResetHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for SmartCardPinResetHandler {
+    type Vtable = SmartCardPinResetHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x138d5e40_f3bc_4a5c_b41d_4b4ef684e237);
+}
+unsafe impl ::windows::core::RuntimeType for SmartCardPinResetHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{138d5e40-f3bc-4a5c-b41d-4b4ef684e237}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct SmartCardPinResetHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, request: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

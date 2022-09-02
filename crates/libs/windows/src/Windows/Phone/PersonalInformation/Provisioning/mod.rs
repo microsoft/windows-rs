@@ -1,54 +1,3 @@
-#[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
-pub struct ContactPartnerProvisioningManager;
-impl ContactPartnerProvisioningManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AssociateNetworkAccountAsync<'a, P0>(store: P0, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ContactStore>>,
-    {
-        Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn ImportVcardToSystemAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ImportVcardToSystemAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AssociateSocialNetworkAccountAsync<'a, P0>(store: P0, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ContactStore>>,
-    {
-        Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IContactPartnerProvisioningManagerStatics<R, F: FnOnce(&IContactPartnerProvisioningManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactPartnerProvisioningManager, IContactPartnerProvisioningManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IContactPartnerProvisioningManagerStatics2<R, F: FnOnce(&IContactPartnerProvisioningManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContactPartnerProvisioningManager, IContactPartnerProvisioningManagerStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for ContactPartnerProvisioningManager {
-    const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.ContactPartnerProvisioningManager";
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContactPartnerProvisioningManagerStatics(::windows::core::IUnknown);
@@ -104,6 +53,57 @@ pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     pub ImportMmsToSystemAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, incoming: bool, read: bool, subject: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, sender: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, recipients: *mut ::core::ffi::c_void, deliverytime: super::super::super::Foundation::DateTime, attachments: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))]
     ImportMmsToSystemAsync: usize,
+}
+#[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
+pub struct ContactPartnerProvisioningManager;
+impl ContactPartnerProvisioningManager {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AssociateNetworkAccountAsync<'a, P0>(store: P0, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ContactStore>>,
+    {
+        Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AssociateNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn ImportVcardToSystemAsync<'a, P0, E0>(stream: P0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::super::Storage::Streams::IInputStream>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        Self::IContactPartnerProvisioningManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ImportVcardToSystemAsync)(::windows::core::Interface::as_raw(this), stream.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AssociateSocialNetworkAccountAsync<'a, P0>(store: P0, networkname: &::windows::core::HSTRING, networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ContactStore>>,
+    {
+        Self::IContactPartnerProvisioningManagerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AssociateSocialNetworkAccountAsync)(::windows::core::Interface::as_raw(this), store.into().abi(), ::core::mem::transmute_copy(networkname), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IContactPartnerProvisioningManagerStatics<R, F: FnOnce(&IContactPartnerProvisioningManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ContactPartnerProvisioningManager, IContactPartnerProvisioningManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IContactPartnerProvisioningManagerStatics2<R, F: FnOnce(&IContactPartnerProvisioningManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ContactPartnerProvisioningManager, IContactPartnerProvisioningManagerStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for ContactPartnerProvisioningManager {
+    const NAME: &'static str = "Windows.Phone.PersonalInformation.Provisioning.ContactPartnerProvisioningManager";
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
 pub struct MessagePartnerProvisioningManager;

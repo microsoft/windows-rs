@@ -1,478 +1,3 @@
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CommonFileQuery(pub i32);
-impl CommonFileQuery {
-    pub const DefaultQuery: Self = Self(0i32);
-    pub const OrderByName: Self = Self(1i32);
-    pub const OrderByTitle: Self = Self(2i32);
-    pub const OrderByMusicProperties: Self = Self(3i32);
-    pub const OrderBySearchRank: Self = Self(4i32);
-    pub const OrderByDate: Self = Self(5i32);
-}
-impl ::core::marker::Copy for CommonFileQuery {}
-impl ::core::clone::Clone for CommonFileQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CommonFileQuery {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CommonFileQuery {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CommonFileQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommonFileQuery").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CommonFileQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CommonFolderQuery(pub i32);
-impl CommonFolderQuery {
-    pub const DefaultQuery: Self = Self(0i32);
-    pub const GroupByYear: Self = Self(100i32);
-    pub const GroupByMonth: Self = Self(101i32);
-    pub const GroupByArtist: Self = Self(102i32);
-    pub const GroupByAlbum: Self = Self(103i32);
-    pub const GroupByAlbumArtist: Self = Self(104i32);
-    pub const GroupByComposer: Self = Self(105i32);
-    pub const GroupByGenre: Self = Self(106i32);
-    pub const GroupByPublishedYear: Self = Self(107i32);
-    pub const GroupByRating: Self = Self(108i32);
-    pub const GroupByTag: Self = Self(109i32);
-    pub const GroupByAuthor: Self = Self(110i32);
-    pub const GroupByType: Self = Self(111i32);
-}
-impl ::core::marker::Copy for CommonFolderQuery {}
-impl ::core::clone::Clone for CommonFolderQuery {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CommonFolderQuery {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CommonFolderQuery {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CommonFolderQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CommonFolderQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-pub struct ContentIndexer(::windows::core::IUnknown);
-impl ContentIndexer {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AddAsync<'a, P0, E0>(&self, indexablecontent: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IIndexableContent>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AddAsync)(::windows::core::Interface::as_raw(this), indexablecontent.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn UpdateAsync<'a, P0, E0>(&self, indexablecontent: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IIndexableContent>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateAsync)(::windows::core::Interface::as_raw(this), indexablecontent.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DeleteAsync(&self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn DeleteMultipleAsync<'a, P0, E0>(&self, contentids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteMultipleAsync)(::windows::core::Interface::as_raw(this), contentids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DeleteAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, contentid: &::windows::core::HSTRING, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RetrievePropertiesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentid), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
-        }
-    }
-    pub fn Revision(&self) -> ::windows::core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Revision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQueryWithSortOrderAndLanguage<'a, P0, E0, P1, E1>(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: P0, sortorder: P1, searchfilterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexerQuery>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateQueryWithSortOrderAndLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchfilter), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), sortorder.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(searchfilterlanguage), result__.as_mut_ptr()).from_abi::<ContentIndexerQuery>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQueryWithSortOrder<'a, P0, E0, P1, E1>(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: P0, sortorder: P1) -> ::windows::core::Result<ContentIndexerQuery>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateQueryWithSortOrder)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchfilter), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), sortorder.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<ContentIndexerQuery>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateQuery<'a, P0, E0>(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: P0) -> ::windows::core::Result<ContentIndexerQuery>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateQuery)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchfilter), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<ContentIndexerQuery>(result__)
-        }
-    }
-    pub fn GetIndexerWithName(indexname: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexer> {
-        Self::IContentIndexerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetIndexerWithName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(indexname), result__.as_mut_ptr()).from_abi::<ContentIndexer>(result__)
-        })
-    }
-    pub fn GetIndexer() -> ::windows::core::Result<ContentIndexer> {
-        Self::IContentIndexerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetIndexer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContentIndexer>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IContentIndexerStatics<R, F: FnOnce(&IContentIndexerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ContentIndexer, IContentIndexerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ContentIndexer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContentIndexer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentIndexer {}
-impl ::core::fmt::Debug for ContentIndexer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentIndexer").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContentIndexer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContentIndexer {
-    type Vtable = IContentIndexer_Vtbl;
-    const IID: ::windows::core::GUID = <IContentIndexer as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContentIndexer {
-    const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
-}
-impl ::core::convert::From<ContentIndexer> for ::windows::core::IUnknown {
-    fn from(value: ContentIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentIndexer> for ::windows::core::IUnknown {
-    fn from(value: &ContentIndexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentIndexer> for &::windows::core::IUnknown {
-    fn from(value: &ContentIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContentIndexer> for ::windows::core::IInspectable {
-    fn from(value: ContentIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentIndexer> for ::windows::core::IInspectable {
-    fn from(value: &ContentIndexer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentIndexer> for &::windows::core::IInspectable {
-    fn from(value: &ContentIndexer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ContentIndexer {}
-unsafe impl ::core::marker::Sync for ContentIndexer {}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-pub struct ContentIndexerQuery(::windows::core::IUnknown);
-impl ContentIndexerQuery {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCountAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPropertiesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetPropertiesRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPropertiesRangeAsync)(::windows::core::Interface::as_raw(this), startindex, maxitems, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetRangeAsync)(::windows::core::Interface::as_raw(this), startindex, maxitems, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>(result__)
-        }
-    }
-    pub fn QueryFolder(&self) -> ::windows::core::Result<super::StorageFolder> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).QueryFolder)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::StorageFolder>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ContentIndexerQuery {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ContentIndexerQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentIndexerQuery {}
-impl ::core::fmt::Debug for ContentIndexerQuery {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ContentIndexerQuery").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ContentIndexerQuery {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ContentIndexerQuery {
-    type Vtable = IContentIndexerQuery_Vtbl;
-    const IID: ::windows::core::GUID = <IContentIndexerQuery as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ContentIndexerQuery {
-    const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
-}
-impl ::core::convert::From<ContentIndexerQuery> for ::windows::core::IUnknown {
-    fn from(value: ContentIndexerQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentIndexerQuery> for ::windows::core::IUnknown {
-    fn from(value: &ContentIndexerQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentIndexerQuery> for &::windows::core::IUnknown {
-    fn from(value: &ContentIndexerQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ContentIndexerQuery> for ::windows::core::IInspectable {
-    fn from(value: ContentIndexerQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ContentIndexerQuery> for ::windows::core::IInspectable {
-    fn from(value: &ContentIndexerQuery) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ContentIndexerQuery> for &::windows::core::IInspectable {
-    fn from(value: &ContentIndexerQuery) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ContentIndexerQuery {}
-unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DateStackOption(pub i32);
-impl DateStackOption {
-    pub const None: Self = Self(0i32);
-    pub const Year: Self = Self(1i32);
-    pub const Month: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DateStackOption {}
-impl ::core::clone::Clone for DateStackOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DateStackOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DateStackOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DateStackOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DateStackOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DateStackOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FolderDepth(pub i32);
-impl FolderDepth {
-    pub const Shallow: Self = Self(0i32);
-    pub const Deep: Self = Self(1i32);
-}
-impl ::core::marker::Copy for FolderDepth {}
-impl ::core::clone::Clone for FolderDepth {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FolderDepth {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FolderDepth {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FolderDepth {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FolderDepth").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FolderDepth {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IContentIndexer(::windows::core::IUnknown);
@@ -1331,6 +856,329 @@ pub struct IValueAndLanguage_Vtbl {
 }
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
+pub struct ContentIndexer(::windows::core::IUnknown);
+impl ContentIndexer {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AddAsync<'a, P0, E0>(&self, indexablecontent: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IIndexableContent>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AddAsync)(::windows::core::Interface::as_raw(this), indexablecontent.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn UpdateAsync<'a, P0, E0>(&self, indexablecontent: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, IIndexableContent>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UpdateAsync)(::windows::core::Interface::as_raw(this), indexablecontent.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DeleteAsync(&self, contentid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn DeleteMultipleAsync<'a, P0, E0>(&self, contentids: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeleteMultipleAsync)(::windows::core::Interface::as_raw(this), contentids.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DeleteAllAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeleteAllAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn RetrievePropertiesAsync<'a, P0, E0>(&self, contentid: &::windows::core::HSTRING, propertiestoretrieve: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RetrievePropertiesAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contentid), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
+        }
+    }
+    pub fn Revision(&self) -> ::windows::core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Revision)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateQueryWithSortOrderAndLanguage<'a, P0, E0, P1, E1>(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: P0, sortorder: P1, searchfilterlanguage: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexerQuery>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateQueryWithSortOrderAndLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchfilter), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), sortorder.try_into().map_err(|e| e.into())?.abi(), ::core::mem::transmute_copy(searchfilterlanguage), result__.as_mut_ptr()).from_abi::<ContentIndexerQuery>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateQueryWithSortOrder<'a, P0, E0, P1, E1>(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: P0, sortorder: P1) -> ::windows::core::Result<ContentIndexerQuery>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SortEntry>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateQueryWithSortOrder)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchfilter), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), sortorder.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<ContentIndexerQuery>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn CreateQuery<'a, P0, E0>(&self, searchfilter: &::windows::core::HSTRING, propertiestoretrieve: P0) -> ::windows::core::Result<ContentIndexerQuery>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IContentIndexerQueryOperations>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateQuery)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(searchfilter), propertiestoretrieve.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<ContentIndexerQuery>(result__)
+        }
+    }
+    pub fn GetIndexerWithName(indexname: &::windows::core::HSTRING) -> ::windows::core::Result<ContentIndexer> {
+        Self::IContentIndexerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetIndexerWithName)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(indexname), result__.as_mut_ptr()).from_abi::<ContentIndexer>(result__)
+        })
+    }
+    pub fn GetIndexer() -> ::windows::core::Result<ContentIndexer> {
+        Self::IContentIndexerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetIndexer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ContentIndexer>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IContentIndexerStatics<R, F: FnOnce(&IContentIndexerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ContentIndexer, IContentIndexerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ContentIndexer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContentIndexer {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContentIndexer {}
+impl ::core::fmt::Debug for ContentIndexer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentIndexer").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContentIndexer {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContentIndexer {
+    type Vtable = IContentIndexer_Vtbl;
+    const IID: ::windows::core::GUID = <IContentIndexer as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContentIndexer {
+    const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
+}
+impl ::core::convert::From<ContentIndexer> for ::windows::core::IUnknown {
+    fn from(value: ContentIndexer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContentIndexer> for ::windows::core::IUnknown {
+    fn from(value: &ContentIndexer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContentIndexer> for &::windows::core::IUnknown {
+    fn from(value: &ContentIndexer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContentIndexer> for ::windows::core::IInspectable {
+    fn from(value: ContentIndexer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContentIndexer> for ::windows::core::IInspectable {
+    fn from(value: &ContentIndexer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContentIndexer> for &::windows::core::IInspectable {
+    fn from(value: &ContentIndexer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ContentIndexer {}
+unsafe impl ::core::marker::Sync for ContentIndexer {}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+pub struct ContentIndexerQuery(::windows::core::IUnknown);
+impl ContentIndexerQuery {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetCountAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCountAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetPropertiesAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetPropertiesRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetPropertiesRangeAsync)(::windows::core::Interface::as_raw(this), startindex, maxitems, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetRangeAsync(&self, startindex: u32, maxitems: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetRangeAsync)(::windows::core::Interface::as_raw(this), startindex, maxitems, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IIndexableContent>>>(result__)
+        }
+    }
+    pub fn QueryFolder(&self) -> ::windows::core::Result<super::StorageFolder> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).QueryFolder)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::StorageFolder>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ContentIndexerQuery {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ContentIndexerQuery {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ContentIndexerQuery {}
+impl ::core::fmt::Debug for ContentIndexerQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentIndexerQuery").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ContentIndexerQuery {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ContentIndexerQuery {
+    type Vtable = IContentIndexerQuery_Vtbl;
+    const IID: ::windows::core::GUID = <IContentIndexerQuery as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ContentIndexerQuery {
+    const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
+}
+impl ::core::convert::From<ContentIndexerQuery> for ::windows::core::IUnknown {
+    fn from(value: ContentIndexerQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContentIndexerQuery> for ::windows::core::IUnknown {
+    fn from(value: &ContentIndexerQuery) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContentIndexerQuery> for &::windows::core::IUnknown {
+    fn from(value: &ContentIndexerQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ContentIndexerQuery> for ::windows::core::IInspectable {
+    fn from(value: ContentIndexerQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ContentIndexerQuery> for ::windows::core::IInspectable {
+    fn from(value: &ContentIndexerQuery) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ContentIndexerQuery> for &::windows::core::IInspectable {
+    fn from(value: &ContentIndexerQuery) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ContentIndexerQuery {}
+unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
 pub struct IndexableContent(::windows::core::IUnknown);
 impl IndexableContent {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1472,78 +1320,6 @@ impl<'a> ::core::convert::TryFrom<&IndexableContent> for ::windows::core::InPara
 }
 unsafe impl ::core::marker::Send for IndexableContent {}
 unsafe impl ::core::marker::Sync for IndexableContent {}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IndexedState(pub i32);
-impl IndexedState {
-    pub const Unknown: Self = Self(0i32);
-    pub const NotIndexed: Self = Self(1i32);
-    pub const PartiallyIndexed: Self = Self(2i32);
-    pub const FullyIndexed: Self = Self(3i32);
-}
-impl ::core::marker::Copy for IndexedState {}
-impl ::core::clone::Clone for IndexedState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IndexedState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IndexedState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IndexedState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexedState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IndexedState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IndexerOption(pub i32);
-impl IndexerOption {
-    pub const UseIndexerWhenAvailable: Self = Self(0i32);
-    pub const OnlyUseIndexer: Self = Self(1i32);
-    pub const DoNotUseIndexer: Self = Self(2i32);
-    pub const OnlyUseIndexerAndOptimizeForIndexedProperties: Self = Self(3i32);
-}
-impl ::core::marker::Copy for IndexerOption {}
-impl ::core::clone::Clone for IndexerOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IndexerOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IndexerOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IndexerOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IndexerOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IndexerOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Storage_Search\"`*"]
 #[repr(transparent)]
 pub struct QueryOptions(::windows::core::IUnknown);
@@ -1764,43 +1540,6 @@ impl ::core::convert::From<&QueryOptions> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for QueryOptions {}
 unsafe impl ::core::marker::Sync for QueryOptions {}
-#[repr(C)]
-#[doc = "*Required features: `\"Storage_Search\"`*"]
-pub struct SortEntry {
-    pub PropertyName: ::windows::core::HSTRING,
-    pub AscendingOrder: bool,
-}
-impl ::core::clone::Clone for SortEntry {
-    fn clone(&self) -> Self {
-        Self { PropertyName: self.PropertyName.clone(), AscendingOrder: self.AscendingOrder }
-    }
-}
-impl ::core::fmt::Debug for SortEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SortEntry").field("PropertyName", &self.PropertyName).field("AscendingOrder", &self.AscendingOrder).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SortEntry {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-unsafe impl ::windows::core::RuntimeType for SortEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
-    }
-}
-impl ::core::cmp::PartialEq for SortEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropertyName == other.PropertyName && self.AscendingOrder == other.AscendingOrder
-    }
-}
-impl ::core::cmp::Eq for SortEntry {}
-impl ::core::default::Default for SortEntry {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Storage_Search\"`, `\"Foundation_Collections\"`*"]
 #[cfg(feature = "Foundation_Collections")]
 #[repr(transparent)]
@@ -2860,5 +2599,266 @@ impl ::core::convert::From<&ValueAndLanguage> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for ValueAndLanguage {}
 unsafe impl ::core::marker::Sync for ValueAndLanguage {}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CommonFileQuery(pub i32);
+impl CommonFileQuery {
+    pub const DefaultQuery: Self = Self(0i32);
+    pub const OrderByName: Self = Self(1i32);
+    pub const OrderByTitle: Self = Self(2i32);
+    pub const OrderByMusicProperties: Self = Self(3i32);
+    pub const OrderBySearchRank: Self = Self(4i32);
+    pub const OrderByDate: Self = Self(5i32);
+}
+impl ::core::marker::Copy for CommonFileQuery {}
+impl ::core::clone::Clone for CommonFileQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CommonFileQuery {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CommonFileQuery {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CommonFileQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonFileQuery").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CommonFileQuery {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFileQuery;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CommonFolderQuery(pub i32);
+impl CommonFolderQuery {
+    pub const DefaultQuery: Self = Self(0i32);
+    pub const GroupByYear: Self = Self(100i32);
+    pub const GroupByMonth: Self = Self(101i32);
+    pub const GroupByArtist: Self = Self(102i32);
+    pub const GroupByAlbum: Self = Self(103i32);
+    pub const GroupByAlbumArtist: Self = Self(104i32);
+    pub const GroupByComposer: Self = Self(105i32);
+    pub const GroupByGenre: Self = Self(106i32);
+    pub const GroupByPublishedYear: Self = Self(107i32);
+    pub const GroupByRating: Self = Self(108i32);
+    pub const GroupByTag: Self = Self(109i32);
+    pub const GroupByAuthor: Self = Self(110i32);
+    pub const GroupByType: Self = Self(111i32);
+}
+impl ::core::marker::Copy for CommonFolderQuery {}
+impl ::core::clone::Clone for CommonFolderQuery {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CommonFolderQuery {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CommonFolderQuery {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CommonFolderQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CommonFolderQuery {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.CommonFolderQuery;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DateStackOption(pub i32);
+impl DateStackOption {
+    pub const None: Self = Self(0i32);
+    pub const Year: Self = Self(1i32);
+    pub const Month: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DateStackOption {}
+impl ::core::clone::Clone for DateStackOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DateStackOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DateStackOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DateStackOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DateStackOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DateStackOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.DateStackOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FolderDepth(pub i32);
+impl FolderDepth {
+    pub const Shallow: Self = Self(0i32);
+    pub const Deep: Self = Self(1i32);
+}
+impl ::core::marker::Copy for FolderDepth {}
+impl ::core::clone::Clone for FolderDepth {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FolderDepth {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FolderDepth {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FolderDepth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderDepth").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FolderDepth {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.FolderDepth;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IndexedState(pub i32);
+impl IndexedState {
+    pub const Unknown: Self = Self(0i32);
+    pub const NotIndexed: Self = Self(1i32);
+    pub const PartiallyIndexed: Self = Self(2i32);
+    pub const FullyIndexed: Self = Self(3i32);
+}
+impl ::core::marker::Copy for IndexedState {}
+impl ::core::clone::Clone for IndexedState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IndexedState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IndexedState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IndexedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexedState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IndexedState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexedState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IndexerOption(pub i32);
+impl IndexerOption {
+    pub const UseIndexerWhenAvailable: Self = Self(0i32);
+    pub const OnlyUseIndexer: Self = Self(1i32);
+    pub const DoNotUseIndexer: Self = Self(2i32);
+    pub const OnlyUseIndexerAndOptimizeForIndexedProperties: Self = Self(3i32);
+}
+impl ::core::marker::Copy for IndexerOption {}
+impl ::core::clone::Clone for IndexerOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IndexerOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IndexerOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IndexerOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexerOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IndexerOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.Search.IndexerOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Storage_Search\"`*"]
+pub struct SortEntry {
+    pub PropertyName: ::windows::core::HSTRING,
+    pub AscendingOrder: bool,
+}
+impl ::core::clone::Clone for SortEntry {
+    fn clone(&self) -> Self {
+        Self { PropertyName: self.PropertyName.clone(), AscendingOrder: self.AscendingOrder }
+    }
+}
+impl ::core::fmt::Debug for SortEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SortEntry").field("PropertyName", &self.PropertyName).field("AscendingOrder", &self.AscendingOrder).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SortEntry {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+unsafe impl ::windows::core::RuntimeType for SortEntry {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.Search.SortEntry;string;b1)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
+}
+impl ::core::cmp::PartialEq for SortEntry {
+    fn eq(&self, other: &Self) -> bool {
+        self.PropertyName == other.PropertyName && self.AscendingOrder == other.AscendingOrder
+    }
+}
+impl ::core::cmp::Eq for SortEntry {}
+impl ::core::default::Default for SortEntry {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

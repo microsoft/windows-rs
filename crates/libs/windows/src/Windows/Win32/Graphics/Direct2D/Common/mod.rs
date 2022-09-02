@@ -1,5 +1,80 @@
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
 #[repr(transparent)]
+pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
+impl ID2D1SimplifiedGeometrySink {
+    pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
+        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), fillmode)
+    }
+    pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
+        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), vertexflags)
+    }
+    pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
+        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), figurebegin)
+    }
+    pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
+        (::windows::core::Interface::vtable(self).AddLines)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(points.as_ptr()), points.len() as _)
+    }
+    pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
+        (::windows::core::Interface::vtable(self).AddBeziers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len() as _)
+    }
+    pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
+        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), figureend)
+    }
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
+    }
+}
+impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
+    fn from(value: ID2D1SimplifiedGeometrySink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a ID2D1SimplifiedGeometrySink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a ID2D1SimplifiedGeometrySink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
+    fn from(value: &ID2D1SimplifiedGeometrySink) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ID2D1SimplifiedGeometrySink {}
+impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SimplifiedGeometrySink").field(&self.0).finish()
+    }
+}
+unsafe impl ::core::marker::Send for ID2D1SimplifiedGeometrySink {}
+unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
+unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
+    type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ID2D1SimplifiedGeometrySink_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub SetFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE),
+    pub SetSegmentFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT),
+    pub BeginFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
+    pub AddLines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32),
+    pub AddBeziers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
+    pub EndFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END),
+    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+#[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
@@ -66,38 +141,6 @@ unsafe impl ::windows::core::Abi for D2D1_ALPHA_MODE {
 impl ::core::fmt::Debug for D2D1_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_ALPHA_MODE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub struct D2D1_BEZIER_SEGMENT {
-    pub point1: D2D_POINT_2F,
-    pub point2: D2D_POINT_2F,
-    pub point3: D2D_POINT_2F,
-}
-impl ::core::marker::Copy for D2D1_BEZIER_SEGMENT {}
-impl ::core::clone::Clone for D2D1_BEZIER_SEGMENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D2D1_BEZIER_SEGMENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D1_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for D2D1_BEZIER_SEGMENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BEZIER_SEGMENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D1_BEZIER_SEGMENT {}
-impl ::core::default::Default for D2D1_BEZIER_SEGMENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
@@ -233,39 +276,6 @@ unsafe impl ::windows::core::Abi for D2D1_COLORMATRIX_ALPHA_MODE {
 impl ::core::fmt::Debug for D2D1_COLORMATRIX_ALPHA_MODE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("D2D1_COLORMATRIX_ALPHA_MODE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub struct D2D1_COLOR_F {
-    pub r: f32,
-    pub g: f32,
-    pub b: f32,
-    pub a: f32,
-}
-impl ::core::marker::Copy for D2D1_COLOR_F {}
-impl ::core::clone::Clone for D2D1_COLOR_F {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for D2D1_COLOR_F {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("D2D1_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for D2D1_COLOR_F {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_COLOR_F>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for D2D1_COLOR_F {}
-impl ::core::default::Default for D2D1_COLOR_F {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
@@ -465,6 +475,100 @@ impl ::core::ops::Not for D2D1_PATH_SEGMENT {
         Self(self.0.not())
     }
 }
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct D2D1_TURBULENCE_NOISE(pub u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+pub const D2D1_TURBULENCE_NOISE_FRACTAL_SUM: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(0u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+pub const D2D1_TURBULENCE_NOISE_TURBULENCE: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(1u32);
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+pub const D2D1_TURBULENCE_NOISE_FORCE_DWORD: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(4294967295u32);
+impl ::core::marker::Copy for D2D1_TURBULENCE_NOISE {}
+impl ::core::clone::Clone for D2D1_TURBULENCE_NOISE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for D2D1_TURBULENCE_NOISE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_NOISE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TURBULENCE_NOISE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TURBULENCE_NOISE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+pub struct D2D1_BEZIER_SEGMENT {
+    pub point1: D2D_POINT_2F,
+    pub point2: D2D_POINT_2F,
+    pub point3: D2D_POINT_2F,
+}
+impl ::core::marker::Copy for D2D1_BEZIER_SEGMENT {}
+impl ::core::clone::Clone for D2D1_BEZIER_SEGMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_BEZIER_SEGMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_BEZIER_SEGMENT").field("point1", &self.point1).field("point2", &self.point2).field("point3", &self.point3).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BEZIER_SEGMENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for D2D1_BEZIER_SEGMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_BEZIER_SEGMENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for D2D1_BEZIER_SEGMENT {}
+impl ::core::default::Default for D2D1_BEZIER_SEGMENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
+pub struct D2D1_COLOR_F {
+    pub r: f32,
+    pub g: f32,
+    pub b: f32,
+    pub a: f32,
+}
+impl ::core::marker::Copy for D2D1_COLOR_F {}
+impl ::core::clone::Clone for D2D1_COLOR_F {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for D2D1_COLOR_F {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("D2D1_COLOR_F").field("r", &self.r).field("g", &self.g).field("b", &self.b).field("a", &self.a).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLOR_F {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for D2D1_COLOR_F {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D2D1_COLOR_F>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for D2D1_COLOR_F {}
+impl ::core::default::Default for D2D1_COLOR_F {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -502,35 +606,6 @@ impl ::core::cmp::Eq for D2D1_PIXEL_FORMAT {}
 impl ::core::default::Default for D2D1_PIXEL_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct D2D1_TURBULENCE_NOISE(pub u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_TURBULENCE_NOISE_FRACTAL_SUM: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(0u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_TURBULENCE_NOISE_TURBULENCE: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(1u32);
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-pub const D2D1_TURBULENCE_NOISE_FORCE_DWORD: D2D1_TURBULENCE_NOISE = D2D1_TURBULENCE_NOISE(4294967295u32);
-impl ::core::marker::Copy for D2D1_TURBULENCE_NOISE {}
-impl ::core::clone::Clone for D2D1_TURBULENCE_NOISE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for D2D1_TURBULENCE_NOISE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_NOISE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for D2D1_TURBULENCE_NOISE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("D2D1_TURBULENCE_NOISE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -1282,81 +1357,6 @@ impl ::core::default::Default for D2D_VECTOR_4F {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_Graphics_Direct2D_Common\"`*"]
-#[repr(transparent)]
-pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
-impl ID2D1SimplifiedGeometrySink {
-    pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
-        (::windows::core::Interface::vtable(self).SetFillMode)(::windows::core::Interface::as_raw(self), fillmode)
-    }
-    pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
-        (::windows::core::Interface::vtable(self).SetSegmentFlags)(::windows::core::Interface::as_raw(self), vertexflags)
-    }
-    pub unsafe fn BeginFigure(&self, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN) {
-        (::windows::core::Interface::vtable(self).BeginFigure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(startpoint), figurebegin)
-    }
-    pub unsafe fn AddLines(&self, points: &[D2D_POINT_2F]) {
-        (::windows::core::Interface::vtable(self).AddLines)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(points.as_ptr()), points.len() as _)
-    }
-    pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
-        (::windows::core::Interface::vtable(self).AddBeziers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(beziers.as_ptr()), beziers.len() as _)
-    }
-    pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
-        (::windows::core::Interface::vtable(self).EndFigure)(::windows::core::Interface::as_raw(self), figureend)
-    }
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::windows::core::Interface::as_raw(self)).ok()
-    }
-}
-impl ::core::convert::From<ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
-    fn from(value: ID2D1SimplifiedGeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a ID2D1SimplifiedGeometrySink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a ID2D1SimplifiedGeometrySink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID2D1SimplifiedGeometrySink> for ::windows::core::IUnknown {
-    fn from(value: &ID2D1SimplifiedGeometrySink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for ID2D1SimplifiedGeometrySink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ID2D1SimplifiedGeometrySink {}
-impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ID2D1SimplifiedGeometrySink").field(&self.0).finish()
-    }
-}
-unsafe impl ::core::marker::Send for ID2D1SimplifiedGeometrySink {}
-unsafe impl ::core::marker::Sync for ID2D1SimplifiedGeometrySink {}
-unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
-    type Vtable = ID2D1SimplifiedGeometrySink_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ID2D1SimplifiedGeometrySink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub SetFillMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fillmode: D2D1_FILL_MODE),
-    pub SetSegmentFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vertexflags: D2D1_PATH_SEGMENT),
-    pub BeginFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startpoint: D2D_POINT_2F, figurebegin: D2D1_FIGURE_BEGIN),
-    pub AddLines: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, points: *const D2D_POINT_2F, pointscount: u32),
-    pub AddBeziers: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32),
-    pub EndFigure: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, figureend: D2D1_FIGURE_END),
-    pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

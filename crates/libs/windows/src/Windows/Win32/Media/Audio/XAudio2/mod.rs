@@ -1,5 +1,12 @@
-pub const AudioReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
-pub const AudioVolumeMeter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+#[inline]
+pub unsafe fn CreateFX(clsid: &::windows::core::GUID, peffect: &mut ::core::option::Option<::windows::core::IUnknown>, pinitdat: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut *mut ::core::ffi::c_void, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::HRESULT;
+    }
+    CreateFX(::core::mem::transmute(clsid), ::core::mem::transmute(peffect), ::core::mem::transmute(pinitdat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinitdat.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+}
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
 pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IUnknown> {
@@ -22,15 +29,6 @@ pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::cor
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[inline]
-pub unsafe fn CreateFX(clsid: &::windows::core::GUID, peffect: &mut ::core::option::Option<::windows::core::IUnknown>, pinitdat: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn CreateFX(clsid: *const ::windows::core::GUID, peffect: *mut *mut ::core::ffi::c_void, pinitdat: *const ::core::ffi::c_void, initdatabytesize: u32) -> ::windows::core::HRESULT;
-    }
-    CreateFX(::core::mem::transmute(clsid), ::core::mem::transmute(peffect), ::core::mem::transmute(pinitdat.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pinitdat.as_deref().map_or(0, |slice| slice.len() as _)).ok()
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[inline]
 pub unsafe fn CreateHrtfApo(init: &HrtfApoInit) -> ::windows::core::Result<IXAPO> {
     #[cfg_attr(windows, link(name = "windows"))]
     extern "system" {
@@ -40,542 +38,13 @@ pub unsafe fn CreateHrtfApo(init: &HrtfApoInit) -> ::windows::core::Result<IXAPO
     CreateHrtfApo(::core::mem::transmute(init), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXAPO>(result__)
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FACILITY_XAPO: u32 = 2199u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FACILITY_XAUDIO2: u32 = 2198u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_DEFAULT_FEEDBACK: f32 = 0.5f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_DEFAULT_WETDRYMIX: f32 = 0.5f32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct FXECHO_INITDATA {
-    pub MaxDelay: f32,
-}
-impl ::core::marker::Copy for FXECHO_INITDATA {}
-impl ::core::clone::Clone for FXECHO_INITDATA {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: &mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut *mut ::core::ffi::c_void, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::HRESULT;
     }
-}
-unsafe impl ::windows::core::Abi for FXECHO_INITDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FXECHO_INITDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXECHO_INITDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FXECHO_INITDATA {}
-impl ::core::default::Default for FXECHO_INITDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_MAX_DELAY: f32 = 2000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_MAX_FEEDBACK: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_MAX_WETDRYMIX: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_MIN_DELAY: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct FXECHO_PARAMETERS {
-    pub WetDryMix: f32,
-    pub Feedback: f32,
-    pub Delay: f32,
-}
-impl ::core::marker::Copy for FXECHO_PARAMETERS {}
-impl ::core::clone::Clone for FXECHO_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for FXECHO_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FXECHO_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXECHO_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FXECHO_PARAMETERS {}
-impl ::core::default::Default for FXECHO_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const FXEQ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_2: f32 = 2000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_DEFAULT_FREQUENCY_CENTER_3: f32 = 10000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_DEFAULT_GAIN: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MAX_BANDWIDTH: f32 = 2f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MAX_FRAMERATE: u32 = 48000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MAX_FREQUENCY_CENTER: f32 = 20000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MAX_GAIN: f32 = 7.94f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MIN_BANDWIDTH: f32 = 0.1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct FXEQ_PARAMETERS {
-    pub FrequencyCenter0: f32,
-    pub Gain0: f32,
-    pub Bandwidth0: f32,
-    pub FrequencyCenter1: f32,
-    pub Gain1: f32,
-    pub Bandwidth1: f32,
-    pub FrequencyCenter2: f32,
-    pub Gain2: f32,
-    pub Bandwidth2: f32,
-    pub FrequencyCenter3: f32,
-    pub Gain3: f32,
-    pub Bandwidth3: f32,
-}
-impl ::core::marker::Copy for FXEQ_PARAMETERS {}
-impl ::core::clone::Clone for FXEQ_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for FXEQ_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FXEQ_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXEQ_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FXEQ_PARAMETERS {}
-impl ::core::default::Default for FXEQ_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const FXEcho: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXMASTERINGLIMITER_DEFAULT_RELEASE: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXMASTERINGLIMITER_MAX_LOUDNESS: u32 = 1800u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct FXMASTERINGLIMITER_PARAMETERS {
-    pub Release: u32,
-    pub Loudness: u32,
-}
-impl ::core::marker::Copy for FXMASTERINGLIMITER_PARAMETERS {}
-impl ::core::clone::Clone for FXMASTERINGLIMITER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for FXMASTERINGLIMITER_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FXMASTERINGLIMITER_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXMASTERINGLIMITER_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FXMASTERINGLIMITER_PARAMETERS {}
-impl ::core::default::Default for FXMASTERINGLIMITER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const FXMasteringLimiter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct FXREVERB_PARAMETERS {
-    pub Diffusion: f32,
-    pub RoomSize: f32,
-}
-impl ::core::marker::Copy for FXREVERB_PARAMETERS {}
-impl ::core::clone::Clone for FXREVERB_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for FXREVERB_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FXREVERB_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXREVERB_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FXREVERB_PARAMETERS {}
-impl ::core::default::Default for FXREVERB_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const FXReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HRTF_MIN_UNITY_GAIN_DISTANCE: f32 = 0.05f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfApoInit {
-    pub distanceDecay: *mut HrtfDistanceDecay,
-    pub directivity: *mut HrtfDirectivity,
-}
-impl ::core::marker::Copy for HrtfApoInit {}
-impl ::core::clone::Clone for HrtfApoInit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfApoInit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfApoInit").field("distanceDecay", &self.distanceDecay).field("directivity", &self.directivity).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfApoInit {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfApoInit {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfApoInit>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfApoInit {}
-impl ::core::default::Default for HrtfApoInit {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfDirectivity {
-    pub r#type: HrtfDirectivityType,
-    pub scaling: f32,
-}
-impl ::core::marker::Copy for HrtfDirectivity {}
-impl ::core::clone::Clone for HrtfDirectivity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfDirectivity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfDirectivity").field("type", &self.r#type).field("scaling", &self.scaling).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfDirectivity {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfDirectivity {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDirectivity>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfDirectivity {}
-impl ::core::default::Default for HrtfDirectivity {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfDirectivityCardioid {
-    pub directivity: HrtfDirectivity,
-    pub order: f32,
-}
-impl ::core::marker::Copy for HrtfDirectivityCardioid {}
-impl ::core::clone::Clone for HrtfDirectivityCardioid {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfDirectivityCardioid {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfDirectivityCardioid").field("directivity", &self.directivity).field("order", &self.order).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfDirectivityCardioid {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfDirectivityCardioid {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDirectivityCardioid>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfDirectivityCardioid {}
-impl ::core::default::Default for HrtfDirectivityCardioid {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfDirectivityCone {
-    pub directivity: HrtfDirectivity,
-    pub innerAngle: f32,
-    pub outerAngle: f32,
-}
-impl ::core::marker::Copy for HrtfDirectivityCone {}
-impl ::core::clone::Clone for HrtfDirectivityCone {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfDirectivityCone {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfDirectivityCone").field("directivity", &self.directivity).field("innerAngle", &self.innerAngle).field("outerAngle", &self.outerAngle).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfDirectivityCone {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfDirectivityCone {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDirectivityCone>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfDirectivityCone {}
-impl ::core::default::Default for HrtfDirectivityCone {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HrtfDirectivityType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
-impl ::core::marker::Copy for HrtfDirectivityType {}
-impl ::core::clone::Clone for HrtfDirectivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HrtfDirectivityType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfDirectivityType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HrtfDirectivityType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HrtfDirectivityType").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfDistanceDecay {
-    pub r#type: HrtfDistanceDecayType,
-    pub maxGain: f32,
-    pub minGain: f32,
-    pub unityGainDistance: f32,
-    pub cutoffDistance: f32,
-}
-impl ::core::marker::Copy for HrtfDistanceDecay {}
-impl ::core::clone::Clone for HrtfDistanceDecay {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfDistanceDecay {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfDistanceDecay").field("type", &self.r#type).field("maxGain", &self.maxGain).field("minGain", &self.minGain).field("unityGainDistance", &self.unityGainDistance).field("cutoffDistance", &self.cutoffDistance).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfDistanceDecay {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfDistanceDecay {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDistanceDecay>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfDistanceDecay {}
-impl ::core::default::Default for HrtfDistanceDecay {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HrtfDistanceDecayType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
-impl ::core::marker::Copy for HrtfDistanceDecayType {}
-impl ::core::clone::Clone for HrtfDistanceDecayType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HrtfDistanceDecayType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfDistanceDecayType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HrtfDistanceDecayType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HrtfDistanceDecayType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HrtfEnvironment(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
-impl ::core::marker::Copy for HrtfEnvironment {}
-impl ::core::clone::Clone for HrtfEnvironment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HrtfEnvironment {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfEnvironment {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HrtfEnvironment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HrtfEnvironment").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfOrientation {
-    pub element: [f32; 9],
-}
-impl ::core::marker::Copy for HrtfOrientation {}
-impl ::core::clone::Clone for HrtfOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfOrientation").field("element", &self.element).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfOrientation {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfOrientation>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfOrientation {}
-impl ::core::default::Default for HrtfOrientation {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct HrtfPosition {
-    pub x: f32,
-    pub y: f32,
-    pub z: f32,
-}
-impl ::core::marker::Copy for HrtfPosition {}
-impl ::core::clone::Clone for HrtfPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HrtfPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HrtfPosition").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HrtfPosition {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HrtfPosition {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfPosition>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HrtfPosition {}
-impl ::core::default::Default for HrtfPosition {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 #[repr(transparent)]
@@ -1581,6 +1050,98 @@ pub struct IXAudio2VoiceCallback_Vtbl {
     pub OnLoopEnd: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void),
     pub OnVoiceError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbuffercontext: *mut ::core::ffi::c_void, error: ::windows::core::HRESULT),
 }
+pub const AudioReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2633b16_471b_4498_b8c5_4f0959e2ec09);
+pub const AudioVolumeMeter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fc3b166_972a_40cf_bc37_7db03db2fba3);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FACILITY_XAPO: u32 = 2199u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FACILITY_XAUDIO2: u32 = 2198u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_DEFAULT_DELAY: f32 = 500f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_DEFAULT_FEEDBACK: f32 = 0.5f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_DEFAULT_WETDRYMIX: f32 = 0.5f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_MAX_DELAY: f32 = 2000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_MAX_FEEDBACK: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_MAX_WETDRYMIX: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_MIN_DELAY: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_MIN_FEEDBACK: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXECHO_MIN_WETDRYMIX: f32 = 0f32;
+pub const FXEQ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5e01117_d6c4_485a_a3f5_695196f3dbfa);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_DEFAULT_BANDWIDTH: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_0: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_1: f32 = 800f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_2: f32 = 2000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_DEFAULT_FREQUENCY_CENTER_3: f32 = 10000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_DEFAULT_GAIN: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MAX_BANDWIDTH: f32 = 2f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MAX_FRAMERATE: u32 = 48000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MAX_FREQUENCY_CENTER: f32 = 20000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MAX_GAIN: f32 = 7.94f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MIN_BANDWIDTH: f32 = 0.1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MIN_FRAMERATE: u32 = 22000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MIN_FREQUENCY_CENTER: f32 = 20f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXEQ_MIN_GAIN: f32 = 0.126f32;
+pub const FXEcho: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5039d740_f736_449a_84d3_a56202557b87);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXLOUDNESS_DEFAULT_MOMENTARY_MS: u32 = 400u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXLOUDNESS_DEFAULT_SHORTTERM_MS: u32 = 3000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXMASTERINGLIMITER_DEFAULT_LOUDNESS: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXMASTERINGLIMITER_DEFAULT_RELEASE: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXMASTERINGLIMITER_MAX_LOUDNESS: u32 = 1800u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXMASTERINGLIMITER_MAX_RELEASE: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXMASTERINGLIMITER_MIN_LOUDNESS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXMASTERINGLIMITER_MIN_RELEASE: u32 = 1u32;
+pub const FXMasteringLimiter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4137916_2be1_46fd_8599_441536f49856);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXREVERB_DEFAULT_DIFFUSION: f32 = 0.9f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXREVERB_DEFAULT_ROOMSIZE: f32 = 0.6f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXREVERB_MAX_DIFFUSION: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXREVERB_MAX_ROOMSIZE: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXREVERB_MIN_DIFFUSION: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const FXREVERB_MIN_ROOMSIZE: f32 = 0.0001f32;
+pub const FXReverb: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9aca56_cb68_4807_b632_b137352e8596);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HRTF_DEFAULT_UNITY_GAIN_DISTANCE: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HRTF_MAX_GAIN_LIMIT: f32 = 12f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HRTF_MIN_GAIN_LIMIT: f32 = -96f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HRTF_MIN_UNITY_GAIN_DISTANCE: f32 = 0.05f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const Processor1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1674,33 +1235,6 @@ pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XAPO_BUFFER_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
-impl ::core::marker::Copy for XAPO_BUFFER_FLAGS {}
-impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XAPO_BUFFER_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XAPO_BUFFER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XAPO_BUFFER_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XAPO_BUFFER_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003369983i32);
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_FLAG_BITSPERSAMPLE_MUST_MATCH: u32 = 4u32;
@@ -1714,32 +1248,6 @@ pub const XAPO_FLAG_FRAMERATE_MUST_MATCH: u32 = 2u32;
 pub const XAPO_FLAG_INPLACE_REQUIRED: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_FLAG_INPLACE_SUPPORTED: u32 = 16u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
-    pub pFormat: *const super::WAVEFORMATEX,
-    pub MaxFrameCount: u32,
-}
-impl ::core::marker::Copy for XAPO_LOCKFORPROCESS_PARAMETERS {}
-impl ::core::clone::Clone for XAPO_LOCKFORPROCESS_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for XAPO_LOCKFORPROCESS_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for XAPO_LOCKFORPROCESS_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAPO_LOCKFORPROCESS_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for XAPO_LOCKFORPROCESS_PARAMETERS {}
-impl ::core::default::Default for XAPO_LOCKFORPROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_MAX_CHANNELS: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1748,67 +1256,6 @@ pub const XAPO_MAX_FRAMERATE: u32 = 200000u32;
 pub const XAPO_MIN_CHANNELS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_MIN_FRAMERATE: u32 = 1000u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct XAPO_PROCESS_BUFFER_PARAMETERS {
-    pub pBuffer: *mut ::core::ffi::c_void,
-    pub BufferFlags: XAPO_BUFFER_FLAGS,
-    pub ValidFrameCount: u32,
-}
-impl ::core::marker::Copy for XAPO_PROCESS_BUFFER_PARAMETERS {}
-impl ::core::clone::Clone for XAPO_PROCESS_BUFFER_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for XAPO_PROCESS_BUFFER_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for XAPO_PROCESS_BUFFER_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAPO_PROCESS_BUFFER_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for XAPO_PROCESS_BUFFER_PARAMETERS {}
-impl ::core::default::Default for XAPO_PROCESS_BUFFER_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct XAPO_REGISTRATION_PROPERTIES {
-    pub clsid: ::windows::core::GUID,
-    pub FriendlyName: [u16; 256],
-    pub CopyrightInfo: [u16; 256],
-    pub MajorVersion: u32,
-    pub MinorVersion: u32,
-    pub Flags: u32,
-    pub MinInputBufferCount: u32,
-    pub MaxInputBufferCount: u32,
-    pub MinOutputBufferCount: u32,
-    pub MaxOutputBufferCount: u32,
-}
-impl ::core::marker::Copy for XAPO_REGISTRATION_PROPERTIES {}
-impl ::core::clone::Clone for XAPO_REGISTRATION_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for XAPO_REGISTRATION_PROPERTIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for XAPO_REGISTRATION_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAPO_REGISTRATION_PROPERTIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for XAPO_REGISTRATION_PROPERTIES {}
-impl ::core::default::Default for XAPO_REGISTRATION_PROPERTIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAPO_REGISTRATION_STRING_LENGTH: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1863,43 +1310,6 @@ pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_FILTER_MAIN: f32 = 0f32;
 pub const XAUDIO2FX_REVERB_DEFAULT_ROOM_SIZE: f32 = 100f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAUDIO2FX_REVERB_DEFAULT_WET_DRY_MIX: f32 = 100f32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    pub WetDryMix: f32,
-    pub Room: i32,
-    pub RoomHF: i32,
-    pub RoomRolloffFactor: f32,
-    pub DecayTime: f32,
-    pub DecayHFRatio: f32,
-    pub Reflections: i32,
-    pub ReflectionsDelay: f32,
-    pub Reverb: i32,
-    pub ReverbDelay: f32,
-    pub Diffusion: f32,
-    pub Density: f32,
-    pub HFReference: f32,
-}
-impl ::core::marker::Copy for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
-impl ::core::clone::Clone for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAUDIO2FX_REVERB_I3DL2_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
-impl ::core::default::Default for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAUDIO2FX_REVERB_MAX_7POINT1_REAR_DELAY: u32 = 20u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
@@ -1982,6 +1392,752 @@ pub const XAUDIO2FX_REVERB_MIN_ROOM_FILTER_MAIN: f32 = -100f32;
 pub const XAUDIO2FX_REVERB_MIN_ROOM_SIZE: f32 = 0f32;
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub const XAUDIO2FX_REVERB_MIN_WET_DRY_MIX: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_1024_QUANTUM: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DLL: &str = "xaudio2_9.dll";
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DLL_A: &str = "xaudio2_9.dll";
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_DLL_W: &str = "xaudio2_9.dll";
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_E_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435516i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_E_INVALID_CALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435519i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_E_XAPO_CREATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435517i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_E_XMA_DECODER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435518i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_DETAIL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_ERRORS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_FUNC_CALLS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_INFO: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_LOCKS: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_MEMORY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_STREAMING: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_TIMING: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOG_WARNINGS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_LOOP_INFINITE: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_AUDIO_CHANNELS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_BUFFERS_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_BUFFER_BYTES: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_FILTER_FREQUENCY: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_FILTER_ONEOVERQ: f32 = 1.5f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_FREQ_RATIO: f32 = 1024f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_INSTANCES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_LOOP_COUNT: u32 = 254u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_QUEUED_BUFFERS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: u32 = 600000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: u32 = 300000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_SAMPLE_RATE: u32 = 200000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_NO_LOOP_REGION: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_USE_DEFAULT_PROCESSOR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HrtfDirectivityType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
+impl ::core::marker::Copy for HrtfDirectivityType {}
+impl ::core::clone::Clone for HrtfDirectivityType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HrtfDirectivityType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDirectivityType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HrtfDirectivityType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HrtfDirectivityType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HrtfDistanceDecayType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
+impl ::core::marker::Copy for HrtfDistanceDecayType {}
+impl ::core::clone::Clone for HrtfDistanceDecayType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HrtfDistanceDecayType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDistanceDecayType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HrtfDistanceDecayType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HrtfDistanceDecayType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HrtfEnvironment(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
+impl ::core::marker::Copy for HrtfEnvironment {}
+impl ::core::clone::Clone for HrtfEnvironment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HrtfEnvironment {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfEnvironment {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HrtfEnvironment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HrtfEnvironment").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XAPO_BUFFER_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
+impl ::core::marker::Copy for XAPO_BUFFER_FLAGS {}
+impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XAPO_BUFFER_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XAPO_BUFFER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XAPO_BUFFER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XAPO_BUFFER_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct XAUDIO2_FILTER_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
+impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
+impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for XAUDIO2_FILTER_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for XAUDIO2_FILTER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XAUDIO2_FILTER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XAUDIO2_FILTER_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct FXECHO_INITDATA {
+    pub MaxDelay: f32,
+}
+impl ::core::marker::Copy for FXECHO_INITDATA {}
+impl ::core::clone::Clone for FXECHO_INITDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FXECHO_INITDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FXECHO_INITDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXECHO_INITDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FXECHO_INITDATA {}
+impl ::core::default::Default for FXECHO_INITDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct FXECHO_PARAMETERS {
+    pub WetDryMix: f32,
+    pub Feedback: f32,
+    pub Delay: f32,
+}
+impl ::core::marker::Copy for FXECHO_PARAMETERS {}
+impl ::core::clone::Clone for FXECHO_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FXECHO_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FXECHO_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXECHO_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FXECHO_PARAMETERS {}
+impl ::core::default::Default for FXECHO_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct FXEQ_PARAMETERS {
+    pub FrequencyCenter0: f32,
+    pub Gain0: f32,
+    pub Bandwidth0: f32,
+    pub FrequencyCenter1: f32,
+    pub Gain1: f32,
+    pub Bandwidth1: f32,
+    pub FrequencyCenter2: f32,
+    pub Gain2: f32,
+    pub Bandwidth2: f32,
+    pub FrequencyCenter3: f32,
+    pub Gain3: f32,
+    pub Bandwidth3: f32,
+}
+impl ::core::marker::Copy for FXEQ_PARAMETERS {}
+impl ::core::clone::Clone for FXEQ_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FXEQ_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FXEQ_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXEQ_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FXEQ_PARAMETERS {}
+impl ::core::default::Default for FXEQ_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct FXMASTERINGLIMITER_PARAMETERS {
+    pub Release: u32,
+    pub Loudness: u32,
+}
+impl ::core::marker::Copy for FXMASTERINGLIMITER_PARAMETERS {}
+impl ::core::clone::Clone for FXMASTERINGLIMITER_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FXMASTERINGLIMITER_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FXMASTERINGLIMITER_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXMASTERINGLIMITER_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FXMASTERINGLIMITER_PARAMETERS {}
+impl ::core::default::Default for FXMASTERINGLIMITER_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct FXREVERB_PARAMETERS {
+    pub Diffusion: f32,
+    pub RoomSize: f32,
+}
+impl ::core::marker::Copy for FXREVERB_PARAMETERS {}
+impl ::core::clone::Clone for FXREVERB_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FXREVERB_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FXREVERB_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FXREVERB_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FXREVERB_PARAMETERS {}
+impl ::core::default::Default for FXREVERB_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfApoInit {
+    pub distanceDecay: *mut HrtfDistanceDecay,
+    pub directivity: *mut HrtfDirectivity,
+}
+impl ::core::marker::Copy for HrtfApoInit {}
+impl ::core::clone::Clone for HrtfApoInit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfApoInit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfApoInit").field("distanceDecay", &self.distanceDecay).field("directivity", &self.directivity).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfApoInit {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfApoInit {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfApoInit>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfApoInit {}
+impl ::core::default::Default for HrtfApoInit {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfDirectivity {
+    pub r#type: HrtfDirectivityType,
+    pub scaling: f32,
+}
+impl ::core::marker::Copy for HrtfDirectivity {}
+impl ::core::clone::Clone for HrtfDirectivity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfDirectivity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfDirectivity").field("type", &self.r#type).field("scaling", &self.scaling).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDirectivity {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfDirectivity {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDirectivity>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfDirectivity {}
+impl ::core::default::Default for HrtfDirectivity {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfDirectivityCardioid {
+    pub directivity: HrtfDirectivity,
+    pub order: f32,
+}
+impl ::core::marker::Copy for HrtfDirectivityCardioid {}
+impl ::core::clone::Clone for HrtfDirectivityCardioid {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfDirectivityCardioid {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfDirectivityCardioid").field("directivity", &self.directivity).field("order", &self.order).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDirectivityCardioid {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfDirectivityCardioid {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDirectivityCardioid>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfDirectivityCardioid {}
+impl ::core::default::Default for HrtfDirectivityCardioid {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfDirectivityCone {
+    pub directivity: HrtfDirectivity,
+    pub innerAngle: f32,
+    pub outerAngle: f32,
+}
+impl ::core::marker::Copy for HrtfDirectivityCone {}
+impl ::core::clone::Clone for HrtfDirectivityCone {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfDirectivityCone {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfDirectivityCone").field("directivity", &self.directivity).field("innerAngle", &self.innerAngle).field("outerAngle", &self.outerAngle).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDirectivityCone {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfDirectivityCone {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDirectivityCone>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfDirectivityCone {}
+impl ::core::default::Default for HrtfDirectivityCone {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfDistanceDecay {
+    pub r#type: HrtfDistanceDecayType,
+    pub maxGain: f32,
+    pub minGain: f32,
+    pub unityGainDistance: f32,
+    pub cutoffDistance: f32,
+}
+impl ::core::marker::Copy for HrtfDistanceDecay {}
+impl ::core::clone::Clone for HrtfDistanceDecay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfDistanceDecay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfDistanceDecay").field("type", &self.r#type).field("maxGain", &self.maxGain).field("minGain", &self.minGain).field("unityGainDistance", &self.unityGainDistance).field("cutoffDistance", &self.cutoffDistance).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDistanceDecay {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfDistanceDecay {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfDistanceDecay>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfDistanceDecay {}
+impl ::core::default::Default for HrtfDistanceDecay {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfOrientation {
+    pub element: [f32; 9],
+}
+impl ::core::marker::Copy for HrtfOrientation {}
+impl ::core::clone::Clone for HrtfOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfOrientation").field("element", &self.element).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfOrientation {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfOrientation {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfOrientation>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfOrientation {}
+impl ::core::default::Default for HrtfOrientation {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct HrtfPosition {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
+}
+impl ::core::marker::Copy for HrtfPosition {}
+impl ::core::clone::Clone for HrtfPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HrtfPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HrtfPosition").field("x", &self.x).field("y", &self.y).field("z", &self.z).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfPosition {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HrtfPosition {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HrtfPosition>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HrtfPosition {}
+impl ::core::default::Default for HrtfPosition {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct XAPO_LOCKFORPROCESS_PARAMETERS {
+    pub pFormat: *const super::WAVEFORMATEX,
+    pub MaxFrameCount: u32,
+}
+impl ::core::marker::Copy for XAPO_LOCKFORPROCESS_PARAMETERS {}
+impl ::core::clone::Clone for XAPO_LOCKFORPROCESS_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XAPO_LOCKFORPROCESS_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for XAPO_LOCKFORPROCESS_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAPO_LOCKFORPROCESS_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for XAPO_LOCKFORPROCESS_PARAMETERS {}
+impl ::core::default::Default for XAPO_LOCKFORPROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct XAPO_PROCESS_BUFFER_PARAMETERS {
+    pub pBuffer: *mut ::core::ffi::c_void,
+    pub BufferFlags: XAPO_BUFFER_FLAGS,
+    pub ValidFrameCount: u32,
+}
+impl ::core::marker::Copy for XAPO_PROCESS_BUFFER_PARAMETERS {}
+impl ::core::clone::Clone for XAPO_PROCESS_BUFFER_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XAPO_PROCESS_BUFFER_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for XAPO_PROCESS_BUFFER_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAPO_PROCESS_BUFFER_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for XAPO_PROCESS_BUFFER_PARAMETERS {}
+impl ::core::default::Default for XAPO_PROCESS_BUFFER_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct XAPO_REGISTRATION_PROPERTIES {
+    pub clsid: ::windows::core::GUID,
+    pub FriendlyName: [u16; 256],
+    pub CopyrightInfo: [u16; 256],
+    pub MajorVersion: u32,
+    pub MinorVersion: u32,
+    pub Flags: u32,
+    pub MinInputBufferCount: u32,
+    pub MaxInputBufferCount: u32,
+    pub MinOutputBufferCount: u32,
+    pub MaxOutputBufferCount: u32,
+}
+impl ::core::marker::Copy for XAPO_REGISTRATION_PROPERTIES {}
+impl ::core::clone::Clone for XAPO_REGISTRATION_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XAPO_REGISTRATION_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for XAPO_REGISTRATION_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAPO_REGISTRATION_PROPERTIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for XAPO_REGISTRATION_PROPERTIES {}
+impl ::core::default::Default for XAPO_REGISTRATION_PROPERTIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
+pub struct XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
+    pub WetDryMix: f32,
+    pub Room: i32,
+    pub RoomHF: i32,
+    pub RoomRolloffFactor: f32,
+    pub DecayTime: f32,
+    pub DecayHFRatio: f32,
+    pub Reflections: i32,
+    pub ReflectionsDelay: f32,
+    pub Reverb: i32,
+    pub ReverbDelay: f32,
+    pub Diffusion: f32,
+    pub Density: f32,
+    pub HFReference: f32,
+}
+impl ::core::marker::Copy for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
+impl ::core::clone::Clone for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XAUDIO2FX_REVERB_I3DL2_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {}
+impl ::core::default::Default for XAUDIO2FX_REVERB_I3DL2_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2064,10 +2220,6 @@ impl ::core::default::Default for XAUDIO2FX_VOLUMEMETER_LEVELS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_1024_QUANTUM: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_ANY_PROCESSOR: u32 = 4294967295u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_BUFFER {
@@ -2127,10 +2279,6 @@ impl ::core::default::Default for XAUDIO2_BUFFER_WMA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_COMMIT_ALL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_COMMIT_NOW: u32 = 0u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2168,26 +2316,6 @@ impl ::core::default::Default for XAUDIO2_DEBUG_CONFIGURATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEBUG_ENGINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEFAULT_CHANNELS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEFAULT_FILTER_FREQUENCY: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEFAULT_FILTER_ONEOVERQ: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEFAULT_FREQ_RATIO: f32 = 2f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEFAULT_PROCESSOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DEFAULT_SAMPLERATE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DLL: &str = "xaudio2_9.dll";
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DLL_A: &str = "xaudio2_9.dll";
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_DLL_W: &str = "xaudio2_9.dll";
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2247,16 +2375,6 @@ impl ::core::default::Default for XAUDIO2_EFFECT_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_END_OF_STREAM: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_E_DEVICE_INVALIDATED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435516i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_E_INVALID_CALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435519i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_E_XAPO_CREATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435517i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_E_XMA_DECODER_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003435518i32);
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_FILTER_PARAMETERS {
@@ -2284,95 +2402,6 @@ impl ::core::default::Default for XAUDIO2_FILTER_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct XAUDIO2_FILTER_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
-impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
-impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for XAUDIO2_FILTER_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for XAUDIO2_FILTER_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for XAUDIO2_FILTER_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("XAUDIO2_FILTER_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_DETAIL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_ERRORS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_FUNC_CALLS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_INFO: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_LOCKS: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_MEMORY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_STREAMING: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_TIMING: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOG_WARNINGS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_LOOP_INFINITE: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_AUDIO_CHANNELS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_BUFFERS_SYSTEM: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_BUFFER_BYTES: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_FILTER_FREQUENCY: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_FILTER_ONEOVERQ: f32 = 1.5f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_FREQ_RATIO: f32 = 1024f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_INSTANCES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_LOOP_COUNT: u32 = 254u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_QUEUED_BUFFERS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MONO: u32 = 600000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_RATIO_TIMES_RATE_XMA_MULTICHANNEL: u32 = 300000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_SAMPLE_RATE: u32 = 200000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MAX_VOLUME_LEVEL: f32 = 16777216f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_MIN_SAMPLE_RATE: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_NO_LOOP_REGION: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_NO_VIRTUAL_AUDIO_CLIENT: u32 = 65536u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_PERFORMANCE_DATA {
@@ -2411,12 +2440,6 @@ impl ::core::default::Default for XAUDIO2_PERFORMANCE_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_PLAY_TAILS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_QUANTUM_DENOMINATOR: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_QUANTUM_NUMERATOR: u32 = 1u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_SEND_DESCRIPTOR {
@@ -2437,12 +2460,6 @@ impl ::core::default::Default for XAUDIO2_SEND_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_SEND_USEFILTER: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_STOP_ENGINE_WHEN_IDLE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_USE_DEFAULT_PROCESSOR: u32 = 0u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_VOICE_DETAILS {
@@ -2471,12 +2488,6 @@ impl ::core::default::Default for XAUDIO2_VOICE_DETAILS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_VOICE_NOPITCH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_VOICE_NOSAMPLESPLAYED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_VOICE_NOSRC: u32 = 4u32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
 pub struct XAUDIO2_VOICE_SENDS {
@@ -2529,17 +2540,6 @@ impl ::core::default::Default for XAUDIO2_VOICE_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-pub const XAUDIO2_VOICE_USEFILTER: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
-#[inline]
-pub unsafe fn XAudio2CreateWithVersionInfo(ppxaudio2: &mut ::core::option::Option<IXAudio2>, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn XAudio2CreateWithVersionInfo(ppxaudio2: *mut *mut ::core::ffi::c_void, flags: u32, xaudio2processor: u32, ntddiversion: u32) -> ::windows::core::HRESULT;
-    }
-    XAudio2CreateWithVersionInfo(::core::mem::transmute(ppxaudio2), flags, xaudio2processor, ntddiversion).ok()
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

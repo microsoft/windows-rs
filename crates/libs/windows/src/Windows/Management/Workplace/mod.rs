@@ -88,6 +88,24 @@ impl ::windows::core::RuntimeName for MdmPolicy {
     const NAME: &'static str = "Windows.Management.Workplace.MdmPolicy";
 }
 #[doc = "*Required features: `\"Management_Workplace\"`*"]
+pub struct WorkplaceSettings;
+impl WorkplaceSettings {
+    pub fn IsMicrosoftAccountOptional() -> ::windows::core::Result<bool> {
+        Self::IWorkplaceSettingsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsMicrosoftAccountOptional)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<WorkplaceSettings, IWorkplaceSettingsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for WorkplaceSettings {
+    const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
+}
+#[doc = "*Required features: `\"Management_Workplace\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct MessagingSyncPolicy(pub i32);
@@ -121,24 +139,6 @@ unsafe impl ::windows::core::RuntimeType for MessagingSyncPolicy {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc = "*Required features: `\"Management_Workplace\"`*"]
-pub struct WorkplaceSettings;
-impl WorkplaceSettings {
-    pub fn IsMicrosoftAccountOptional() -> ::windows::core::Result<bool> {
-        Self::IWorkplaceSettingsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsMicrosoftAccountOptional)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WorkplaceSettings, IWorkplaceSettingsStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for WorkplaceSettings {
-    const NAME: &'static str = "Windows.Management.Workplace.WorkplaceSettings";
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

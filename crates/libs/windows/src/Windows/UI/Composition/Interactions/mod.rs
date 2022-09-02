@@ -1,573 +1,3 @@
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-#[repr(transparent)]
-pub struct CompositionConditionalValue(::windows::core::IUnknown);
-impl CompositionConditionalValue {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
-        let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Condition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ExpressionAnimation>(result__)
-        }
-    }
-    pub fn SetCondition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    pub fn Value(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ExpressionAnimation>(result__)
-        }
-    }
-    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<CompositionConditionalValue>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
-    {
-        Self::ICompositionConditionalValueStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<CompositionConditionalValue>(result__)
-        })
-    }
-    pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::CompositionPropertySet>(result__)
-        }
-    }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
-    }
-    pub fn StopAnimation(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname)).ok() }
-    }
-    pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
-        }
-    }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::DispatcherQueue>(result__)
-        }
-    }
-    pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
-        }
-    }
-    #[doc(hidden)]
-    pub fn ICompositionConditionalValueStatics<R, F: FnOnce(&ICompositionConditionalValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CompositionConditionalValue, ICompositionConditionalValueStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for CompositionConditionalValue {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionConditionalValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionConditionalValue {}
-impl ::core::fmt::Debug for CompositionConditionalValue {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionConditionalValue").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CompositionConditionalValue {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CompositionConditionalValue {
-    type Vtable = ICompositionConditionalValue_Vtbl;
-    const IID: ::windows::core::GUID = <ICompositionConditionalValue as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CompositionConditionalValue {
-    const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
-}
-impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IUnknown {
-    fn from(value: CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IUnknown {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IUnknown {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IInspectable {
-    fn from(value: CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IInspectable {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IInspectable {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<CompositionConditionalValue> for super::IAnimationObject {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CompositionConditionalValue) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::IAnimationObject {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::IAnimationObject> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<CompositionConditionalValue> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CompositionConditionalValue) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::From<CompositionConditionalValue> for super::CompositionObject {
-    fn from(value: CompositionConditionalValue) -> Self {
-        ::core::convert::From::from(&value)
-    }
-}
-impl ::core::convert::From<&CompositionConditionalValue> for super::CompositionObject {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::windows::core::Interface::cast(value).unwrap()
-    }
-}
-impl<'a> ::core::convert::From<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::CompositionObject> {
-    fn from(value: &CompositionConditionalValue) -> Self {
-        ::windows::core::InParam::owned(value.into())
-    }
-}
-unsafe impl ::core::marker::Send for CompositionConditionalValue {}
-unsafe impl ::core::marker::Sync for CompositionConditionalValue {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-#[repr(transparent)]
-pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
-impl CompositionInteractionSourceCollection {
-    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
-    {
-        let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Count(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Count)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn Add<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn Remove<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn RemoveAll(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAll)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"UI_Core\"`*"]
-    #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CoreDispatcher>(result__)
-        }
-    }
-    pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::CompositionPropertySet>(result__)
-        }
-    }
-    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
-    }
-    pub fn StopAnimation(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname)).ok() }
-    }
-    pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
-        }
-    }
-    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
-    }
-    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::DispatcherQueue>(result__)
-        }
-    }
-    pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
-        let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>> {
-        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CompositionInteractionSourceCollection {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompositionInteractionSourceCollection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionInteractionSourceCollection {}
-impl ::core::fmt::Debug for CompositionInteractionSourceCollection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionInteractionSourceCollection").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection;{1b468e4b-a5bf-47d8-a547-3894155a158c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CompositionInteractionSourceCollection {
-    type Vtable = ICompositionInteractionSourceCollection_Vtbl;
-    const IID: ::windows::core::GUID = <ICompositionInteractionSourceCollection as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CompositionInteractionSourceCollection {
-    const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::iter::IntoIterator for CompositionInteractionSourceCollection {
-    type Item = ICompositionInteractionSource;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        ::core::iter::IntoIterator::into_iter(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::iter::IntoIterator for &CompositionInteractionSourceCollection {
-    type Item = ICompositionInteractionSource;
-    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        self.First().unwrap()
-    }
-}
-impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IUnknown {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::IUnknown {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IUnknown {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IInspectable {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::IAnimationObject {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super::IAnimationObject {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::IAnimationObject> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super::super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::From<CompositionInteractionSourceCollection> for super::CompositionObject {
-    fn from(value: CompositionInteractionSourceCollection) -> Self {
-        ::core::convert::From::from(&value)
-    }
-}
-impl ::core::convert::From<&CompositionInteractionSourceCollection> for super::CompositionObject {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::windows::core::Interface::cast(value).unwrap()
-    }
-}
-impl<'a> ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::CompositionObject> {
-    fn from(value: &CompositionInteractionSourceCollection) -> Self {
-        ::windows::core::InParam::owned(value.into())
-    }
-}
-unsafe impl ::core::marker::Send for CompositionInteractionSourceCollection {}
-unsafe impl ::core::marker::Sync for CompositionInteractionSourceCollection {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICompositionConditionalValue(::windows::core::IUnknown);
@@ -1489,103 +919,574 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InteractionBindingAxisModes(pub u32);
-impl InteractionBindingAxisModes {
-    pub const None: Self = Self(0u32);
-    pub const PositionX: Self = Self(1u32);
-    pub const PositionY: Self = Self(2u32);
-    pub const Scale: Self = Self(4u32);
+pub struct CompositionConditionalValue(::windows::core::IUnknown);
+impl CompositionConditionalValue {
+    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Condition(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Condition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ExpressionAnimation>(result__)
+        }
+    }
+    pub fn SetCondition<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetCondition)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    pub fn Value(&self) -> ::windows::core::Result<super::ExpressionAnimation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ExpressionAnimation>(result__)
+        }
+    }
+    pub fn SetValue<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ExpressionAnimation>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    pub fn Create<'a, P0>(compositor: P0) -> ::windows::core::Result<CompositionConditionalValue>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Compositor>>,
+    {
+        Self::ICompositionConditionalValueStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), compositor.into().abi(), result__.as_mut_ptr()).from_abi::<CompositionConditionalValue>(result__)
+        })
+    }
+    pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"UI_Core\"`*"]
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CoreDispatcher>(result__)
+        }
+    }
+    pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::CompositionPropertySet>(result__)
+        }
+    }
+    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
+        }
+    }
+    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::DispatcherQueue>(result__)
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+        }
+    }
+    #[doc(hidden)]
+    pub fn ICompositionConditionalValueStatics<R, F: FnOnce(&ICompositionConditionalValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<CompositionConditionalValue, ICompositionConditionalValueStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
 }
-impl ::core::marker::Copy for InteractionBindingAxisModes {}
-impl ::core::clone::Clone for InteractionBindingAxisModes {
+impl ::core::clone::Clone for CompositionConditionalValue {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::default::Default for InteractionBindingAxisModes {
-    fn default() -> Self {
-        Self(0)
+impl ::core::cmp::PartialEq for CompositionConditionalValue {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
     }
 }
-unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionBindingAxisModes {
+impl ::core::cmp::Eq for CompositionConditionalValue {}
+impl ::core::fmt::Debug for CompositionConditionalValue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
+        f.debug_tuple("CompositionConditionalValue").field(&self.0).finish()
     }
 }
-impl ::core::ops::BitOr for InteractionBindingAxisModes {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for InteractionBindingAxisModes {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for InteractionBindingAxisModes {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for InteractionBindingAxisModes {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for InteractionBindingAxisModes {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
-    type DefaultType = Self;
+unsafe impl ::windows::core::RuntimeType for CompositionConditionalValue {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
+    type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
+unsafe impl ::windows::core::Interface for CompositionConditionalValue {
+    type Vtable = ICompositionConditionalValue_Vtbl;
+    const IID: ::windows::core::GUID = <ICompositionConditionalValue as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CompositionConditionalValue {
+    const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
+}
+impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IUnknown {
+    fn from(value: CompositionConditionalValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IUnknown {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IUnknown {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CompositionConditionalValue> for ::windows::core::IInspectable {
+    fn from(value: CompositionConditionalValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompositionConditionalValue> for ::windows::core::IInspectable {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompositionConditionalValue> for &::windows::core::IInspectable {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<CompositionConditionalValue> for super::IAnimationObject {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::IAnimationObject {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<CompositionConditionalValue> for super::super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&CompositionConditionalValue> for super::super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionConditionalValue) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::From<CompositionConditionalValue> for super::CompositionObject {
+    fn from(value: CompositionConditionalValue) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionConditionalValue> for super::CompositionObject {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::core::convert::From<&CompositionConditionalValue> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &CompositionConditionalValue) -> Self {
+        ::windows::core::InParam::owned(value.into())
+    }
+}
+unsafe impl ::core::marker::Send for CompositionConditionalValue {}
+unsafe impl ::core::marker::Sync for CompositionConditionalValue {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InteractionChainingMode(pub i32);
-impl InteractionChainingMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Always: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
+pub struct CompositionInteractionSourceCollection(::windows::core::IUnknown);
+impl CompositionInteractionSourceCollection {
+    pub fn PopulatePropertyInfo<'a, P0>(&self, propertyname: &::windows::core::HSTRING, propertyinfo: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::AnimationPropertyInfo>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::IAnimationObject>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), propertyinfo.into().abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Count(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Count)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn Add<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn Remove<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ICompositionInteractionSource>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Remove)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn RemoveAll(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAll)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Compositor(&self) -> ::windows::core::Result<super::Compositor> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Compositor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Compositor>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"UI_Core\"`*"]
+    #[cfg(feature = "UI_Core")]
+    pub fn Dispatcher(&self) -> ::windows::core::Result<super::super::Core::CoreDispatcher> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Dispatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CoreDispatcher>(result__)
+        }
+    }
+    pub fn Properties(&self) -> ::windows::core::Result<super::CompositionPropertySet> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::CompositionPropertySet>(result__)
+        }
+    }
+    pub fn StartAnimation<'a, P0>(&self, propertyname: &::windows::core::HSTRING, animation: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::CompositionAnimation>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), animation.into().abi()).ok() }
+    }
+    pub fn StopAnimation(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimation)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname)).ok() }
+    }
+    pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Comment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetComment(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetComment)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn ImplicitAnimations(&self) -> ::windows::core::Result<super::ImplicitAnimationCollection> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ImplicitAnimations)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::ImplicitAnimationCollection>(result__)
+        }
+    }
+    pub fn SetImplicitAnimations<'a, P0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::ImplicitAnimationCollection>>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetImplicitAnimations)(::windows::core::Interface::as_raw(this), value.into().abi()).ok() }
+    }
+    pub fn StartAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StartAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn StopAnimationGroup<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::ICompositionAnimationBase>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).StopAnimationGroup)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::super::System::DispatcherQueue> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DispatcherQueue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::DispatcherQueue>(result__)
+        }
+    }
+    pub fn TryGetAnimationController(&self, propertyname: &::windows::core::HSTRING) -> ::windows::core::Result<super::AnimationController> {
+        let this = &::windows::core::Interface::cast::<super::ICompositionObject4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryGetAnimationController)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(propertyname), result__.as_mut_ptr()).from_abi::<super::AnimationController>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>> {
+        let this = &::windows::core::Interface::cast::<super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IIterator<ICompositionInteractionSource>>(result__)
+        }
+    }
 }
-impl ::core::marker::Copy for InteractionChainingMode {}
-impl ::core::clone::Clone for InteractionChainingMode {
+impl ::core::clone::Clone for CompositionInteractionSourceCollection {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::default::Default for InteractionChainingMode {
-    fn default() -> Self {
-        Self(0)
+impl ::core::cmp::PartialEq for CompositionInteractionSourceCollection {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
     }
 }
-unsafe impl ::windows::core::Abi for InteractionChainingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionChainingMode {
+impl ::core::cmp::Eq for CompositionInteractionSourceCollection {}
+impl ::core::fmt::Debug for CompositionInteractionSourceCollection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
+        f.debug_tuple("CompositionInteractionSourceCollection").field(&self.0).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
-    type DefaultType = Self;
+unsafe impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection;{1b468e4b-a5bf-47d8-a547-3894155a158c})");
+    type DefaultType = ::core::option::Option<Self>;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
     }
 }
+unsafe impl ::windows::core::Interface for CompositionInteractionSourceCollection {
+    type Vtable = ICompositionInteractionSourceCollection_Vtbl;
+    const IID: ::windows::core::GUID = <ICompositionInteractionSourceCollection as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CompositionInteractionSourceCollection {
+    const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::iter::IntoIterator for CompositionInteractionSourceCollection {
+    type Item = ICompositionInteractionSource;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        ::core::iter::IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::iter::IntoIterator for &CompositionInteractionSourceCollection {
+    type Item = ICompositionInteractionSource;
+    type IntoIter = super::super::super::Foundation::Collections::IIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        self.First().unwrap()
+    }
+}
+impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IUnknown {
+    fn from(value: CompositionInteractionSourceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::IUnknown {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IUnknown {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
+    fn from(value: CompositionInteractionSourceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::IInspectable {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for &::windows::core::IInspectable {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::IAnimationObject {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super::IAnimationObject {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::IAnimationObject> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super::super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::TryFrom<CompositionInteractionSourceCollection> for super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::core::convert::TryFrom<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &CompositionInteractionSourceCollection) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::From<CompositionInteractionSourceCollection> for super::CompositionObject {
+    fn from(value: CompositionInteractionSourceCollection) -> Self {
+        ::core::convert::From::from(&value)
+    }
+}
+impl ::core::convert::From<&CompositionInteractionSourceCollection> for super::CompositionObject {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        ::windows::core::Interface::cast(value).unwrap()
+    }
+}
+impl<'a> ::core::convert::From<&CompositionInteractionSourceCollection> for ::windows::core::InParam<'a, super::CompositionObject> {
+    fn from(value: &CompositionInteractionSourceCollection) -> Self {
+        ::windows::core::InParam::owned(value.into())
+    }
+}
+unsafe impl ::core::marker::Send for CompositionInteractionSourceCollection {}
+unsafe impl ::core::marker::Sync for CompositionInteractionSourceCollection {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionSourceConfiguration(::windows::core::IUnknown);
@@ -1846,75 +1747,6 @@ impl<'a> ::core::convert::From<&InteractionSourceConfiguration> for ::windows::c
 }
 unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
 unsafe impl ::core::marker::Sync for InteractionSourceConfiguration {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InteractionSourceMode(pub i32);
-impl InteractionSourceMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const EnabledWithInertia: Self = Self(1i32);
-    pub const EnabledWithoutInertia: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InteractionSourceMode {}
-impl ::core::clone::Clone for InteractionSourceMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionSourceMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InteractionSourceMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionSourceMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InteractionSourceRedirectionMode(pub i32);
-impl InteractionSourceRedirectionMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const Enabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InteractionSourceRedirectionMode {}
-impl ::core::clone::Clone for InteractionSourceRedirectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionSourceRedirectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTracker(::windows::core::IUnknown);
@@ -2517,40 +2349,6 @@ impl<'a> ::core::convert::From<&InteractionTracker> for ::windows::core::InParam
 }
 unsafe impl ::core::marker::Send for InteractionTracker {}
 unsafe impl ::core::marker::Sync for InteractionTracker {}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InteractionTrackerClampingOption(pub i32);
-impl InteractionTrackerClampingOption {
-    pub const Auto: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InteractionTrackerClampingOption {}
-impl ::core::clone::Clone for InteractionTrackerClampingOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionTrackerClampingOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionTrackerClampingOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 pub struct InteractionTrackerCustomAnimationStateEnteredArgs(::windows::core::IUnknown);
@@ -4013,40 +3811,6 @@ unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredAr
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InteractionTrackerPositionUpdateOption(pub i32);
-impl InteractionTrackerPositionUpdateOption {
-    pub const Default: Self = Self(0i32);
-    pub const AllowActiveCustomScaleAnimation: Self = Self(1i32);
-}
-impl ::core::marker::Copy for InteractionTrackerPositionUpdateOption {}
-impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InteractionTrackerPositionUpdateOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
-#[repr(transparent)]
 pub struct InteractionTrackerRequestIgnoredArgs(::windows::core::IUnknown);
 impl InteractionTrackerRequestIgnoredArgs {
     pub fn RequestId(&self) -> ::windows::core::Result<i32> {
@@ -5215,6 +4979,242 @@ impl<'a> ::core::convert::From<&VisualInteractionSource> for ::windows::core::In
 }
 unsafe impl ::core::marker::Send for VisualInteractionSource {}
 unsafe impl ::core::marker::Sync for VisualInteractionSource {}
+#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InteractionBindingAxisModes(pub u32);
+impl InteractionBindingAxisModes {
+    pub const None: Self = Self(0u32);
+    pub const PositionX: Self = Self(1u32);
+    pub const PositionY: Self = Self(2u32);
+    pub const Scale: Self = Self(4u32);
+}
+impl ::core::marker::Copy for InteractionBindingAxisModes {}
+impl ::core::clone::Clone for InteractionBindingAxisModes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InteractionBindingAxisModes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InteractionBindingAxisModes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for InteractionBindingAxisModes {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for InteractionBindingAxisModes {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for InteractionBindingAxisModes {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for InteractionBindingAxisModes {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for InteractionBindingAxisModes {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InteractionBindingAxisModes {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionBindingAxisModes;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InteractionChainingMode(pub i32);
+impl InteractionChainingMode {
+    pub const Auto: Self = Self(0i32);
+    pub const Always: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InteractionChainingMode {}
+impl ::core::clone::Clone for InteractionChainingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InteractionChainingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InteractionChainingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InteractionChainingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InteractionChainingMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionChainingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InteractionSourceMode(pub i32);
+impl InteractionSourceMode {
+    pub const Disabled: Self = Self(0i32);
+    pub const EnabledWithInertia: Self = Self(1i32);
+    pub const EnabledWithoutInertia: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InteractionSourceMode {}
+impl ::core::clone::Clone for InteractionSourceMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InteractionSourceMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InteractionSourceMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InteractionSourceMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InteractionSourceMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InteractionSourceRedirectionMode(pub i32);
+impl InteractionSourceRedirectionMode {
+    pub const Disabled: Self = Self(0i32);
+    pub const Enabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InteractionSourceRedirectionMode {}
+impl ::core::clone::Clone for InteractionSourceRedirectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InteractionSourceRedirectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InteractionSourceRedirectionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionSourceRedirectionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InteractionTrackerClampingOption(pub i32);
+impl InteractionTrackerClampingOption {
+    pub const Auto: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InteractionTrackerClampingOption {}
+impl ::core::clone::Clone for InteractionTrackerClampingOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InteractionTrackerClampingOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InteractionTrackerClampingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InteractionTrackerClampingOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerClampingOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InteractionTrackerPositionUpdateOption(pub i32);
+impl InteractionTrackerPositionUpdateOption {
+    pub const Default: Self = Self(0i32);
+    pub const AllowActiveCustomScaleAnimation: Self = Self(1i32);
+}
+impl ::core::marker::Copy for InteractionTrackerPositionUpdateOption {}
+impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InteractionTrackerPositionUpdateOption {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InteractionTrackerPositionUpdateOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Composition.Interactions.InteractionTrackerPositionUpdateOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"UI_Composition_Interactions\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

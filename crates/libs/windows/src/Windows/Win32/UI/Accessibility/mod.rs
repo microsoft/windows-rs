@@ -1,96 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct ACCESSTIMEOUT {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iTimeOutMSec: u32,
-}
-impl ::core::marker::Copy for ACCESSTIMEOUT {}
-impl ::core::clone::Clone for ACCESSTIMEOUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ACCESSTIMEOUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACCESSTIMEOUT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iTimeOutMSec", &self.iTimeOutMSec).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ACCESSTIMEOUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACCESSTIMEOUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESSTIMEOUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ACCESSTIMEOUT {}
-impl ::core::default::Default for ACCESSTIMEOUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ACC_UTILITY_STATE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANRUS_PRIORITY_AUDIO_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(8u32);
-impl ::core::marker::Copy for ACC_UTILITY_STATE_FLAGS {}
-impl ::core::clone::Clone for ACC_UTILITY_STATE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ACC_UTILITY_STATE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ACC_UTILITY_STATE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ACC_UTILITY_STATE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ACC_UTILITY_STATE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ACC_UTILITY_STATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ACC_UTILITY_STATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ACC_UTILITY_STATE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ACC_UTILITY_STATE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ACC_UTILITY_STATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -118,8 +25,6 @@ where
     }
     AccSetRunningUtilityState(hwndapp.into(), dwutilitystatemask, dwutilitystate).ok()
 }
-pub const AcceleratorKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514865df_2557_4cb9_aeed_6ced084ce52c);
-pub const AccessKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -169,527 +74,6 @@ where
     }
     AccessibleObjectFromWindow(hwnd.into(), dwid, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActiveEnd(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ActiveEnd_None: ActiveEnd = ActiveEnd(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ActiveEnd_Start: ActiveEnd = ActiveEnd(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ActiveEnd_End: ActiveEnd = ActiveEnd(2i32);
-impl ::core::marker::Copy for ActiveEnd {}
-impl ::core::clone::Clone for ActiveEnd {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActiveEnd {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActiveEnd {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActiveEnd {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActiveEnd").field(&self.0).finish()
-    }
-}
-pub const ActiveTextPositionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AnimationStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_None: AnimationStyle = AnimationStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_LasVegasLights: AnimationStyle = AnimationStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_BlinkingBackground: AnimationStyle = AnimationStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_SparkleText: AnimationStyle = AnimationStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = AnimationStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_MarchingRedAnts: AnimationStyle = AnimationStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_Shimmer: AnimationStyle = AnimationStyle(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnimationStyle_Other: AnimationStyle = AnimationStyle(-1i32);
-impl ::core::marker::Copy for AnimationStyle {}
-impl ::core::clone::Clone for AnimationStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnimationStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AnimationStyle {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AnimationStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnimationStyle").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AnnoScope(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANNO_THIS: AnnoScope = AnnoScope(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ANNO_CONTAINER: AnnoScope = AnnoScope(1i32);
-impl ::core::marker::Copy for AnnoScope {}
-impl ::core::clone::Clone for AnnoScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AnnoScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AnnoScope {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AnnoScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AnnoScope").field(&self.0).finish()
-    }
-}
-pub const AnnotationObjects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310910c8_7c6e_4f20_becd_4aaf6d191156);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Author: i32 = 60019i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_CircularReferenceError: i32 = 60022i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Comment: i32 = 60003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_ConflictingChange: i32 = 60018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_DataValidationError: i32 = 60021i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_DeletionChange: i32 = 60012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_EditingLockedChange: i32 = 60016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Endnote: i32 = 60009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_ExternalChange: i32 = 60017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Footer: i32 = 60007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Footnote: i32 = 60010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_FormatChange: i32 = 60014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_FormulaError: i32 = 60004i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_GrammarError: i32 = 60002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Header: i32 = 60006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Highlighted: i32 = 60008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_InsertionChange: i32 = 60011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Mathematics: i32 = 60023i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_MoveChange: i32 = 60013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Sensitive: i32 = 60024i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_SpellingError: i32 = 60001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_TrackChanges: i32 = 60005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_Unknown: i32 = 60000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AnnotationType_UnsyncedChange: i32 = 60015i32;
-pub const AnnotationTypes_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64b71f76_53c4_4696_a219_20e940c9a176);
-pub const Annotation_AdvancedProofingIssue_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdac7b72c_c0f2_4b84_b90d_5fafc0f0ef1c);
-pub const Annotation_AnnotationTypeId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae484f_69ef_4c48_8f5b_c4938b206ac7);
-pub const Annotation_AnnotationTypeName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b818892_5ac9_4af9_aa96_f58a77b058e3);
-pub const Annotation_Author_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf161d3a7_f81b_4128_b17f_71f690914520);
-pub const Annotation_Author_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a528462_9c5c_4a03_a974_8b307a9937f2);
-pub const Annotation_CircularReferenceError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25bd9cf4_1745_4659_ba67_727f0318c616);
-pub const Annotation_Comment_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd2fda30_26b3_4c06_8bc7_98f1532e46fd);
-pub const Annotation_ConflictingChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98af8802_517c_459f_af13_016d3fab877e);
-pub const Annotation_Custom_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec82750_3931_4952_85bc_1dbff78a43e3);
-pub const Annotation_DataValidationError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8649fa8_9775_437e_ad46_e709d93c2343);
-pub const Annotation_DateTime_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b5ca5d_1acf_414b_a4d0_6b350b047578);
-pub const Annotation_DeletionChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe3d5b05_951d_42e7_901d_adc8c2cf34d0);
-pub const Annotation_EditingLockedChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc31f3e1c_7423_4dac_8348_41f099ff6f64);
-pub const Annotation_Endnote_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7565725c_2d99_4839_960d_33d3b866aba5);
-pub const Annotation_ExternalChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a05b31_5f11_42fd_887d_dfa010db2392);
-pub const Annotation_Footer_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcceab046_1833_47aa_8080_701ed0b0c832);
-pub const Annotation_Footnote_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3de10e21_4125_42db_8620_be8083080624);
-pub const Annotation_FormatChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb247345_d4f1_41ce_8e52_f79b69635e48);
-pub const Annotation_FormulaError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95611982_0cab_46d5_a2f0_e30d1905f8bf);
-pub const Annotation_GrammarError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757a048d_4518_41c6_854c_dc009b7cfb53);
-pub const Annotation_Header_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x867b409b_b216_4472_a219_525e310681f8);
-pub const Annotation_Highlighted_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757c884e_8083_4081_8b9c_e87f5072f0e4);
-pub const Annotation_InsertionChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dbeb3a6_df15_4164_a3c0_e21a8ce931c4);
-pub const Annotation_Mathematics_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaab634b_26d0_40c1_8073_57ca1c633c9b);
-pub const Annotation_MoveChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da587eb_23e5_4490_b385_1a22ddc8b187);
-pub const Annotation_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6c72ad7_356c_4850_9291_316f608a8c84);
-pub const Annotation_Sensitive_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37f4c04f_0f12_4464_929c_828fd15292e3);
-pub const Annotation_SpellingError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae85567e_9ece_423f_81b7_96c43d53e50e);
-pub const Annotation_Target_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71b302d_2104_44ad_9c5c_092b4907d70f);
-pub const Annotation_TrackChanges_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21e6e888_dc14_4016_ac27_190553c8c470);
-pub const Annotation_UnsyncedChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1851116a_0e47_4b30_8cb5_d7dae4fbcd1b);
-pub const AppBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6114908d_cc02_4d37_875b_b530c7139554);
-pub const AriaProperties_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4213678c_e025_4922_beb5_e43ba08e6221);
-pub const AriaRole_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd207b95_be4a_4e0d_b727_63ace94b6916);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AsyncContentLoadedState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = AsyncContentLoadedState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = AsyncContentLoadedState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = AsyncContentLoadedState(2i32);
-impl ::core::marker::Copy for AsyncContentLoadedState {}
-impl ::core::clone::Clone for AsyncContentLoadedState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AsyncContentLoadedState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AsyncContentLoadedState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AsyncContentLoadedState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncContentLoadedState").field(&self.0).finish()
-    }
-}
-pub const AsyncContentLoaded_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdee11c_d2fa_4fb9_904e_5cbee894d5ef);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutomationElementMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationElementMode_None: AutomationElementMode = AutomationElementMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationElementMode_Full: AutomationElementMode = AutomationElementMode(1i32);
-impl ::core::marker::Copy for AutomationElementMode {}
-impl ::core::clone::Clone for AutomationElementMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomationElementMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AutomationElementMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AutomationElementMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationElementMode").field(&self.0).finish()
-    }
-}
-pub const AutomationFocusChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb68a1f17_f60d_41a7_a3cc_b05292155fe0);
-pub const AutomationId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc82c0500_b60e_4310_a267_303c531f8ee5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutomationIdentifierType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_Property: AutomationIdentifierType = AutomationIdentifierType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_Pattern: AutomationIdentifierType = AutomationIdentifierType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_Event: AutomationIdentifierType = AutomationIdentifierType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_ControlType: AutomationIdentifierType = AutomationIdentifierType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_TextAttribute: AutomationIdentifierType = AutomationIdentifierType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_LandmarkType: AutomationIdentifierType = AutomationIdentifierType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = AutomationIdentifierType(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_Changes: AutomationIdentifierType = AutomationIdentifierType(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const AutomationIdentifierType_Style: AutomationIdentifierType = AutomationIdentifierType(8i32);
-impl ::core::marker::Copy for AutomationIdentifierType {}
-impl ::core::clone::Clone for AutomationIdentifierType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutomationIdentifierType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AutomationIdentifierType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AutomationIdentifierType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutomationIdentifierType").field(&self.0).finish()
-    }
-}
-pub const AutomationPropertyChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2527fba1_8d7a_4630_a4cc_e66315942f52);
-pub const BoundingRectangle_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bbfe8b2_3bfc_48dd_b729_c794b846e9a1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BulletStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_None: BulletStyle = BulletStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_HollowRoundBullet: BulletStyle = BulletStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_FilledRoundBullet: BulletStyle = BulletStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_HollowSquareBullet: BulletStyle = BulletStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_FilledSquareBullet: BulletStyle = BulletStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_DashBullet: BulletStyle = BulletStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const BulletStyle_Other: BulletStyle = BulletStyle(-1i32);
-impl ::core::marker::Copy for BulletStyle {}
-impl ::core::clone::Clone for BulletStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BulletStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BulletStyle {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BulletStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BulletStyle").field(&self.0).finish()
-    }
-}
-pub const Button_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a78e369_c6a1_4f33_a9d7_79f20d0c788e);
-pub const CAccPropServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-pub const CLSID_AccPropServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
-pub const CUIAutomation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
-pub const CUIAutomation8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
-pub const CUIAutomationRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
-pub const Calendar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CapStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_None: CapStyle = CapStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_SmallCap: CapStyle = CapStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_AllCap: CapStyle = CapStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_AllPetiteCaps: CapStyle = CapStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_PetiteCaps: CapStyle = CapStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_Unicase: CapStyle = CapStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_Titling: CapStyle = CapStyle(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CapStyle_Other: CapStyle = CapStyle(-1i32);
-impl ::core::marker::Copy for CapStyle {}
-impl ::core::clone::Clone for CapStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CapStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CapStyle {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CapStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CapStyle").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CaretBidiMode(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CaretBidiMode_LTR: CaretBidiMode = CaretBidiMode(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CaretBidiMode_RTL: CaretBidiMode = CaretBidiMode(1i32);
-impl ::core::marker::Copy for CaretBidiMode {}
-impl ::core::clone::Clone for CaretBidiMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CaretBidiMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CaretBidiMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CaretBidiMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaretBidiMode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CaretPosition(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CaretPosition_Unknown: CaretPosition = CaretPosition(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CaretPosition_EndOfLine: CaretPosition = CaretPosition(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CaretPosition_BeginningOfLine: CaretPosition = CaretPosition(2i32);
-impl ::core::marker::Copy for CaretPosition {}
-impl ::core::clone::Clone for CaretPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CaretPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CaretPosition {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CaretPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaretPosition").field(&self.0).finish()
-    }
-}
-pub const CenterPoint_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cb00c08_540c_4edb_9445_26359ea69785);
-pub const Changes_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7df26714_614f_4e05_9488_716c5ba19436);
-pub const Changes_Summary_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x313d65a6_e60f_4d62_9861_55afd728d207);
-pub const CheckBox_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb50f922_a3db_49c0_8bc3_06dad55778e2);
-pub const ClassName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x157b7215_894f_4b65_84e2_aac0da08b16b);
-pub const ClickablePoint_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0196903b_b203_4818_a9f3_f08e675f2341);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CoalesceEventsOptions(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = CoalesceEventsOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = CoalesceEventsOptions(1i32);
-impl ::core::marker::Copy for CoalesceEventsOptions {}
-impl ::core::clone::Clone for CoalesceEventsOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CoalesceEventsOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CoalesceEventsOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CoalesceEventsOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CoalesceEventsOptions").field(&self.0).finish()
-    }
-}
-pub const ComboBox_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54cb426c_2f33_4fff_aaa1_aef60dac5deb);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConditionType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConditionType_True: ConditionType = ConditionType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConditionType_False: ConditionType = ConditionType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConditionType_Property: ConditionType = ConditionType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConditionType_And: ConditionType = ConditionType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConditionType_Or: ConditionType = ConditionType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConditionType_Not: ConditionType = ConditionType(5i32);
-impl ::core::marker::Copy for ConditionType {}
-impl ::core::clone::Clone for ConditionType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConditionType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConditionType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConditionType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConditionType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ConnectionRecoveryBehaviorOptions(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(1i32);
-impl ::core::marker::Copy for ConnectionRecoveryBehaviorOptions {}
-impl ::core::clone::Clone for ConnectionRecoveryBehaviorOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ConnectionRecoveryBehaviorOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ConnectionRecoveryBehaviorOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ConnectionRecoveryBehaviorOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ConnectionRecoveryBehaviorOptions").field(&self.0).finish()
-    }
-}
-pub const ControlType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca774fea_28ac_4bc2_94ca_acec6d6c10a3);
-pub const ControllerFor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51124c8a_a5d2_4f13_9be6_7fa8ba9d3a90);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -731,50 +115,6 @@ where
     }
     CreateStdAccessibleProxyW(hwnd.into(), pclassname.into(), idobject, ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
 }
-pub const Culture_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d74f27_3d79_4dc2_b88b_3044963a8afb);
-pub const CustomNavigation_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafea938a_621e_4054_bb2c_2f46114dac3f);
-pub const Custom_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf29ea0c3_adb7_430a_ba90_e52c7313e6ed);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_CHILD: i32 = -5002i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_CHILDCOUNT: i32 = -5001i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_DEFAULTACTION: i32 = -5013i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_DESCRIPTION: i32 = -5005i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_DODEFAULTACTION: i32 = -5018i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_FOCUS: i32 = -5011i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_HELP: i32 = -5008i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_HELPTOPIC: i32 = -5009i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_HITTEST: i32 = -5017i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_KEYBOARDSHORTCUT: i32 = -5010i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_LOCATION: i32 = -5015i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_NAME: i32 = -5003i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_NAVIGATE: i32 = -5016i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_PARENT: i32 = -5000i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_ROLE: i32 = -5006i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_SELECT: i32 = -5014i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_SELECTION: i32 = -5012i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_STATE: i32 = -5007i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DISPID_ACC_VALUE: i32 = -5004i32;
-pub const DataGrid_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b783af_d103_4b0a_8415_e73942410f4b);
-pub const DataItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0177842_d94f_42a5_814b_6068addc8da5);
-pub const DescribedBy_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5865b8_9992_40fd_8db0_6bf1d317f998);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition<'a, P0>(hobj: P0, dockposition: DockPosition) -> ::windows::core::Result<()>
@@ -786,102 +126,6 @@ where
         fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> ::windows::core::HRESULT;
     }
     DockPattern_SetDockPosition(hobj.into(), dockposition).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DockPosition(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DockPosition_Top: DockPosition = DockPosition(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DockPosition_Left: DockPosition = DockPosition(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DockPosition_Bottom: DockPosition = DockPosition(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DockPosition_Right: DockPosition = DockPosition(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DockPosition_Fill: DockPosition = DockPosition(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const DockPosition_None: DockPosition = DockPosition(5i32);
-impl ::core::marker::Copy for DockPosition {}
-impl ::core::clone::Clone for DockPosition {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DockPosition {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DockPosition {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DockPosition {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DockPosition").field(&self.0).finish()
-    }
-}
-pub const Dock_DockPosition_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d67f02e_c0b0_4b10_b5b9_18d6ecf98760);
-pub const Dock_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbaa846_83c8_428d_827f_7e6063fe0620);
-pub const Document_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cd6bb6f_6f08_4562_b229_e4e2fc7a9eb4);
-pub const Drag_DragCancel_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ede6fa_3451_4e0f_9e71_df9c280a4657);
-pub const Drag_DragComplete_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e96188_ef1f_463e_91ca_3a7792c29caf);
-pub const Drag_DragStart_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x883a480b_3aa9_429d_95e4_d9c8d011f0dd);
-pub const Drag_DropEffect_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x646f2779_48d3_4b23_8902_4bf100005df3);
-pub const Drag_DropEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5d61156_7ce6_49be_a836_9269dcec920f);
-pub const Drag_GrabbedItems_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77c1562c_7b86_4b21_9ed7_3cefda6f4c43);
-pub const Drag_IsGrabbed_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f206f3_75cc_4cca_a9b9_fcdfb982d8a2);
-pub const Drag_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bee21f_ccb3_4fed_995b_114f6e3d2728);
-pub const DropTarget_DragEnter_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad9319b_032c_4a88_961d_1cf579581e34);
-pub const DropTarget_DragLeave_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f82eb15_24a2_4988_9217_de162aee272b);
-pub const DropTarget_DropTargetEffect_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb75975_a0ca_4981_b818_87fc66e9509d);
-pub const DropTarget_DropTargetEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1dd4ed_cb89_45f1_a592_e03b08ae790f);
-pub const DropTarget_Dropped_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622cead8_1edb_4a3d_abbc_be2211ff68b5);
-pub const DropTarget_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bcbec56_bd34_4b7b_9fd5_2659905ea3dc);
-pub const Edit_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6504a5c8_2c86_4f87_ae7b_1abddc810cf9);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EventArgsType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_Simple: EventArgsType = EventArgsType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_PropertyChanged: EventArgsType = EventArgsType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_StructureChanged: EventArgsType = EventArgsType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_AsyncContentLoaded: EventArgsType = EventArgsType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_WindowClosed: EventArgsType = EventArgsType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_TextEditTextChanged: EventArgsType = EventArgsType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_Changes: EventArgsType = EventArgsType(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_Notification: EventArgsType = EventArgsType(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = EventArgsType(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const EventArgsType_StructuredMarkup: EventArgsType = EventArgsType(9i32);
-impl ::core::marker::Copy for EventArgsType {}
-impl ::core::clone::Clone for EventArgsType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EventArgsType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EventArgsType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EventArgsType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EventArgsType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
@@ -907,181 +151,6 @@ where
     }
     ExpandCollapsePattern_Expand(hobj.into()).ok()
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ExpandCollapseState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ExpandCollapseState_Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ExpandCollapseState_Expanded: ExpandCollapseState = ExpandCollapseState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCollapseState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ExpandCollapseState_LeafNode: ExpandCollapseState = ExpandCollapseState(3i32);
-impl ::core::marker::Copy for ExpandCollapseState {}
-impl ::core::clone::Clone for ExpandCollapseState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ExpandCollapseState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ExpandCollapseState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ExpandCollapseState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
-    }
-}
-pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
-pub const ExpandCollapse_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ExtendedProperty {
-    pub PropertyName: super::super::Foundation::BSTR,
-    pub PropertyValue: super::super::Foundation::BSTR,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ExtendedProperty {
-    fn clone(&self) -> Self {
-        Self { PropertyName: self.PropertyName.clone(), PropertyValue: self.PropertyValue.clone() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ExtendedProperty {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ExtendedProperty").field("PropertyName", &self.PropertyName).field("PropertyValue", &self.PropertyValue).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ExtendedProperty {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ExtendedProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropertyName == other.PropertyName && self.PropertyValue == other.PropertyValue
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ExtendedProperty {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ExtendedProperty {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct FILTERKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iWaitMSec: u32,
-    pub iDelayMSec: u32,
-    pub iRepeatMSec: u32,
-    pub iBounceMSec: u32,
-}
-impl ::core::marker::Copy for FILTERKEYS {}
-impl ::core::clone::Clone for FILTERKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FILTERKEYS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILTERKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iWaitMSec", &self.iWaitMSec).field("iDelayMSec", &self.iDelayMSec).field("iRepeatMSec", &self.iRepeatMSec).field("iBounceMSec", &self.iBounceMSec).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FILTERKEYS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FILTERKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTERKEYS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILTERKEYS {}
-impl ::core::default::Default for FILTERKEYS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const FillColor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FillType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FillType_None: FillType = FillType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FillType_Color: FillType = FillType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FillType_Gradient: FillType = FillType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FillType_Picture: FillType = FillType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FillType_Pattern: FillType = FillType(4i32);
-impl ::core::marker::Copy for FillType {}
-impl ::core::clone::Clone for FillType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FillType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FillType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FillType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FillType").field(&self.0).finish()
-    }
-}
-pub const FillType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc74e4_8cb9_429c_a9e1_9bc4ac372b62);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FlowDirections(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FlowDirections_Default: FlowDirections = FlowDirections(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FlowDirections_RightToLeft: FlowDirections = FlowDirections(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FlowDirections_BottomToTop: FlowDirections = FlowDirections(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const FlowDirections_Vertical: FlowDirections = FlowDirections(4i32);
-impl ::core::marker::Copy for FlowDirections {}
-impl ::core::clone::Clone for FlowDirections {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FlowDirections {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FlowDirections {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FlowDirections {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FlowDirections").field(&self.0).finish()
-    }
-}
-pub const FlowsFrom_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05c6844f_19de_48f8_95fa_880d5b0fd615);
-pub const FlowsTo_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f33d20_559a_47fb_a830_f9cb4ff1a70a);
-pub const FrameworkId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbfd9900_7e1a_4f58_b61b_7063120f773b);
-pub const FullDescription_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d4450ff_6aef_4f33_95dd_7befa72a4391);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: &mut u32, pbuild: &mut u32) {
@@ -1127,12 +196,6 @@ pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: ::core::option::Option<&m
     }
     GetStateTextW(lstatebit, ::core::mem::transmute(lpszstate.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len() as _))
 }
-pub const GridItem_ColumnSpan_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583ea3f5_86d0_4b08_a6ec_2c5463ffc109);
-pub const GridItem_Column_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc774c15c_62c0_4519_8bdc_47be573c8ad5);
-pub const GridItem_Parent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d912252_b97f_4ecc_8510_ea0e33427c72);
-pub const GridItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2d5c877_a462_4957_a2a5_2c96b303bc63);
-pub const GridItem_RowSpan_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4582291c_466b_4e93_8e83_3d1715ec0c5e);
-pub const GridItem_Row_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6223972a_c945_4563_9329_fdc974af2553);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[inline]
 pub unsafe fn GridPattern_GetItem<'a, P0>(hobj: P0, row: i32, column: i32, presult: &mut HUIANODE) -> ::windows::core::Result<()>
@@ -1145,359 +208,1313 @@ where
     }
     GridPattern_GetItem(hobj.into(), row, column, ::core::mem::transmute(presult)).ok()
 }
-pub const Grid_ColumnCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe96f375_44aa_4536_ac7a_2a75d71a3efc);
-pub const Grid_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260a2ccb_93a8_4e44_a4c1_3df397f2b02b);
-pub const Grid_RowCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9505bf_c2eb_4fb6_b356_8245ae53703e);
-pub const Group_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad50aa1c_e8c8_4774_ae1b_dd86df0b3bdc);
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct HIGHCONTRASTA {
-    pub cbSize: u32,
-    pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: ::windows::core::PSTR,
-}
-impl ::core::marker::Copy for HIGHCONTRASTA {}
-impl ::core::clone::Clone for HIGHCONTRASTA {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn InvokePattern_Invoke<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
+    InvokePattern_Invoke(hobj.into()).ok()
 }
-impl ::core::fmt::Debug for HIGHCONTRASTA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIGHCONTRASTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
     }
+    IsWinEventHookInstalled(event)
 }
-unsafe impl ::windows::core::Abi for HIGHCONTRASTA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HIGHCONTRASTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTA>()) == 0 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn ItemContainerPattern_FindItemByProperty<'a, P0, P1, P2>(hobj: P0, hnodestartafter: P1, propertyid: i32, value: P2, pfound: &mut HUIANODE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+    P1: ::std::convert::Into<HUIANODE>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut HUIANODE) -> ::windows::core::HRESULT;
     }
-}
-impl ::core::cmp::Eq for HIGHCONTRASTA {}
-impl ::core::default::Default for HIGHCONTRASTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct HIGHCONTRASTW {
-    pub cbSize: u32,
-    pub dwFlags: HIGHCONTRASTW_FLAGS,
-    pub lpszDefaultScheme: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for HIGHCONTRASTW {}
-impl ::core::clone::Clone for HIGHCONTRASTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HIGHCONTRASTW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HIGHCONTRASTW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HIGHCONTRASTW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HIGHCONTRASTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HIGHCONTRASTW {}
-impl ::core::default::Default for HIGHCONTRASTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
+    ItemContainerPattern_FindItemByProperty(hobj.into(), hnodestartafter.into(), propertyid, value.into().abi(), ::core::mem::transmute(pfound)).ok()
 }
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HIGHCONTRASTW_FLAGS(pub u32);
+#[inline]
+pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    LegacyIAccessiblePattern_DoDefaultAction(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, P0>(hobj: P0) -> ::windows::core::Result<IAccessible>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    LegacyIAccessiblePattern_GetIAccessible(hobj.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAccessible>(result__)
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_HIGHCONTRASTON: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(1u32);
+#[inline]
+pub unsafe fn LegacyIAccessiblePattern_Select<'a, P0>(hobj: P0, flagsselect: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows::core::HRESULT;
+    }
+    LegacyIAccessiblePattern_Select(hobj.into(), flagsselect).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_AVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(2u32);
+#[inline]
+pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, P0, P1>(hobj: P0, szvalue: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+    }
+    LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LresultFromObject<'a, P0, P1>(riid: &::windows::core::GUID, wparam: P0, punk: P1) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
+    }
+    LresultFromObject(::core::mem::transmute(riid), wparam.into(), punk.into().abi())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn MultipleViewPattern_GetViewName<'a, P0>(hobj: P0, viewid: i32, ppstr: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
+    }
+    MultipleViewPattern_GetViewName(hobj.into(), viewid, ::core::mem::transmute(ppstr)).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_HOTKEYACTIVE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4u32);
+#[inline]
+pub unsafe fn MultipleViewPattern_SetCurrentView<'a, P0>(hobj: P0, viewid: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows::core::HRESULT;
+    }
+    MultipleViewPattern_SetCurrentView(hobj.into(), viewid).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NotifyWinEvent<'a, P0>(event: u32, hwnd: P0, idobject: i32, idchild: i32)
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
+    }
+    NotifyWinEvent(event, hwnd.into(), idobject, idchild)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ObjectFromLresult<'a, P0, P1>(lresult: P0, riid: &::windows::core::GUID, wparam: P1, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::LRESULT>,
+    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    ObjectFromLresult(lresult.into(), ::core::mem::transmute(riid), wparam.into(), ::core::mem::transmute(ppvobject)).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_CONFIRMHOTKEY: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(8u32);
+#[inline]
+pub unsafe fn RangeValuePattern_SetValue<'a, P0>(hobj: P0, val: f64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows::core::HRESULT;
+    }
+    RangeValuePattern_SetValue(hobj.into(), val).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
+pub unsafe fn RegisterPointerInputTarget<'a, P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    }
+    RegisterPointerInputTarget(hwnd.into(), pointertype)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
+pub unsafe fn RegisterPointerInputTargetEx<'a, P0, P1>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    RegisterPointerInputTargetEx(hwnd.into(), pointertype, fobserve.into())
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
+#[inline]
+pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    ScrollItemPattern_ScrollIntoView(hobj.into()).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
+#[inline]
+pub unsafe fn ScrollPattern_Scroll<'a, P0>(hobj: P0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT;
+    }
+    ScrollPattern_Scroll(hobj.into(), horizontalamount, verticalamount).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(64u32);
+#[inline]
+pub unsafe fn ScrollPattern_SetScrollPercent<'a, P0>(hobj: P0, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT;
+    }
+    ScrollPattern_SetScrollPercent(hobj.into(), horizontalpercent, verticalpercent).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
-impl ::core::marker::Copy for HIGHCONTRASTW_FLAGS {}
-impl ::core::clone::Clone for HIGHCONTRASTW_FLAGS {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn SelectionItemPattern_AddToSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
+    SelectionItemPattern_AddToSelection(hobj.into()).ok()
 }
-impl ::core::default::Default for HIGHCONTRASTW_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HIGHCONTRASTW_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HIGHCONTRASTW_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HIGHCONTRASTW_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HIGHCONTRASTW_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HIGHCONTRASTW_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HIGHCONTRASTW_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HIGHCONTRASTW_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HIGHCONTRASTW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HUIAEVENT(pub isize);
-impl HUIAEVENT {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HUIAEVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HUIAEVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HUIAEVENT {}
-impl ::core::fmt::Debug for HUIAEVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUIAEVENT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HUIAEVENT>> for HUIAEVENT {
-    fn from(optional: ::core::option::Option<HUIAEVENT>) -> HUIAEVENT {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HUIAEVENT {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HUIANODE(pub isize);
-impl HUIANODE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HUIANODE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HUIANODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HUIANODE {}
-impl ::core::fmt::Debug for HUIANODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUIANODE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HUIANODE>> for HUIANODE {
-    fn from(optional: ::core::option::Option<HUIANODE>) -> HUIANODE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HUIANODE {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HUIAPATTERNOBJECT(pub isize);
-impl HUIAPATTERNOBJECT {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HUIAPATTERNOBJECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HUIAPATTERNOBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HUIAPATTERNOBJECT {}
-impl ::core::fmt::Debug for HUIAPATTERNOBJECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUIAPATTERNOBJECT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HUIAPATTERNOBJECT>> for HUIAPATTERNOBJECT {
-    fn from(optional: ::core::option::Option<HUIAPATTERNOBJECT>) -> HUIAPATTERNOBJECT {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HUIAPATTERNOBJECT {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HUIATEXTRANGE(pub isize);
-impl HUIATEXTRANGE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HUIATEXTRANGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HUIATEXTRANGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HUIATEXTRANGE {}
-impl ::core::fmt::Debug for HUIATEXTRANGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HUIATEXTRANGE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HUIATEXTRANGE>> for HUIATEXTRANGE {
-    fn from(optional: ::core::option::Option<HUIATEXTRANGE>) -> HUIATEXTRANGE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HUIATEXTRANGE {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HWINEVENTHOOK(pub isize);
-impl HWINEVENTHOOK {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HWINEVENTHOOK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HWINEVENTHOOK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HWINEVENTHOOK {}
-impl ::core::fmt::Debug for HWINEVENTHOOK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HWINEVENTHOOK").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HWINEVENTHOOK>> for HWINEVENTHOOK {
-    fn from(optional: ::core::option::Option<HWINEVENTHOOK>) -> HWINEVENTHOOK {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HWINEVENTHOOK {
-    type Abi = Self;
-}
-pub const HasKeyboardFocus_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
-pub const HeaderItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
-pub const Header_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel1: i32 = 80051i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel2: i32 = 80052i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel3: i32 = 80053i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel4: i32 = 80054i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel5: i32 = 80055i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel6: i32 = 80056i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel7: i32 = 80057i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel8: i32 = 80058i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel9: i32 = 80059i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HeadingLevel_None: i32 = 80050i32;
-pub const HeadingLevel_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29084272_aaaf_4a30_8796_3c12f62b6bbb);
-pub const HelpText_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HorizontalTextAlignment(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = HorizontalTextAlignment(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = HorizontalTextAlignment(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HorizontalTextAlignment_Right: HorizontalTextAlignment = HorizontalTextAlignment(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = HorizontalTextAlignment(3i32);
-impl ::core::marker::Copy for HorizontalTextAlignment {}
-impl ::core::clone::Clone for HorizontalTextAlignment {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn SelectionItemPattern_RemoveFromSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
+    SelectionItemPattern_RemoveFromSelection(hobj.into()).ok()
 }
-impl ::core::default::Default for HorizontalTextAlignment {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn SelectionItemPattern_Select<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
     }
+    SelectionItemPattern_Select(hobj.into()).ok()
 }
-unsafe impl ::windows::core::Abi for HorizontalTextAlignment {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HorizontalTextAlignment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HorizontalTextAlignment").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetWinEventHook<'a, P0>(eventmin: u32, eventmax: u32, hmodwineventproc: P0, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK
+where
+    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: *mut ::core::ffi::c_void, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
     }
+    SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags)
 }
-pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bdb03e_0921_4ec5_8dcf_eae877b0426b);
-pub const Hyperlink_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a56022c_b00d_4d15_8ff0_5b6b266e5e02);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn SynchronizedInputPattern_Cancel<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    SynchronizedInputPattern_Cancel(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn SynchronizedInputPattern_StartListening<'a, P0>(hobj: P0, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT;
+    }
+    SynchronizedInputPattern_StartListening(hobj.into(), inputtype).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn TextPattern_GetSelection<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    TextPattern_GetSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn TextPattern_GetVisibleRanges<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    TextPattern_GetVisibleRanges(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextPattern_RangeFromChild<'a, P0, P1>(hobj: P0, hnodechild: P1, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+    P1: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextPattern_RangeFromChild(hobj.into(), hnodechild.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextPattern_RangeFromPoint<'a, P0>(hobj: P0, point: UiaPoint, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextPattern_RangeFromPoint(hobj.into(), ::core::mem::transmute(point), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextPattern_get_DocumentRange<'a, P0>(hobj: P0, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextPattern_get_DocumentRange(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextPattern_get_SupportedTextSelection<'a, P0>(hobj: P0, pretval: &mut SupportedTextSelection) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT;
+    }
+    TextPattern_get_SupportedTextSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_AddToSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextRange_AddToSelection(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_Clone<'a, P0>(hobj: P0, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextRange_Clone(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TextRange_Compare<'a, P0, P1>(hobj: P0, range: P1, pretval: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+    P1: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    TextRange_Compare(hobj.into(), range.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_CompareEndpoints<'a, P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint, pretval: &mut i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+    P1: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT;
+    }
+    TextRange_CompareEndpoints(hobj.into(), endpoint, targetrange.into(), targetendpoint, ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_ExpandToEnclosingUnit<'a, P0>(hobj: P0, unit: TextUnit) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows::core::HRESULT;
+    }
+    TextRange_ExpandToEnclosingUnit(hobj.into(), unit).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn TextRange_FindAttribute<'a, P0, P1, P2>(hobj: P0, attributeid: i32, val: P1, backward: P2, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextRange_FindAttribute(hobj.into(), attributeid, val.into().abi(), backward.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TextRange_FindText<'a, P0, P1, P2, P3>(hobj: P0, text: P1, backward: P2, ignorecase: P3, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_FindText(hobj: HUIATEXTRANGE, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextRange_FindText(hobj.into(), text.into().abi(), backward.into(), ignorecase.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn TextRange_GetAttributeValue<'a, P0>(hobj: P0, attributeid: i32, pretval: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+    }
+    TextRange_GetAttributeValue(hobj.into(), attributeid, ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn TextRange_GetBoundingRectangles<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    TextRange_GetBoundingRectangles(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn TextRange_GetChildren<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    TextRange_GetChildren(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_GetEnclosingElement<'a, P0>(hobj: P0, pretval: &mut HUIANODE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows::core::HRESULT;
+    }
+    TextRange_GetEnclosingElement(hobj.into(), ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TextRange_GetText<'a, P0>(hobj: P0, maxlength: i32, pretval: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
+    }
+    TextRange_GetText(hobj.into(), maxlength, ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_Move<'a, P0>(hobj: P0, unit: TextUnit, count: i32, pretval: &mut i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
+    }
+    TextRange_Move(hobj.into(), unit, count, ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_MoveEndpointByRange<'a, P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+    P1: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT;
+    }
+    TextRange_MoveEndpointByRange(hobj.into(), endpoint, targetrange.into(), targetendpoint).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_MoveEndpointByUnit<'a, P0>(hobj: P0, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: &mut i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
+    }
+    TextRange_MoveEndpointByUnit(hobj.into(), endpoint, unit, count, ::core::mem::transmute(pretval)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_RemoveFromSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextRange_RemoveFromSelection(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TextRange_ScrollIntoView<'a, P0, P1>(hobj: P0, aligntotop: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    TextRange_ScrollIntoView(hobj.into(), aligntotop.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TextRange_Select<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    TextRange_Select(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TogglePattern_Toggle<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    TogglePattern_Toggle(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TransformPattern_Move<'a, P0>(hobj: P0, x: f64, y: f64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows::core::HRESULT;
+    }
+    TransformPattern_Move(hobj.into(), x, y).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TransformPattern_Resize<'a, P0>(hobj: P0, width: f64, height: f64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows::core::HRESULT;
+    }
+    TransformPattern_Resize(hobj.into(), width, height).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn TransformPattern_Rotate<'a, P0>(hobj: P0, degrees: f64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows::core::HRESULT;
+    }
+    TransformPattern_Rotate(hobj.into(), degrees).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaAddEvent<'a, P0>(hnode: P0, eventid: i32, pcallback: &mut UiaEventCallback, scope: TreeScope, pproperties: &mut i32, cproperties: i32, prequest: &mut UiaCacheRequest, phevent: &mut HUIAEVENT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut *mut ::core::ffi::c_void, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::HRESULT;
+    }
+    UiaAddEvent(hnode.into(), eventid, ::core::mem::transmute(pcallback), scope, ::core::mem::transmute(pproperties), cproperties, ::core::mem::transmute(prequest), ::core::mem::transmute(phevent)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
+    }
+    UiaClientsAreListening()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaDisconnectAllProviders() -> ::windows::core::HRESULT;
+    }
+    UiaDisconnectAllProviders().ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaDisconnectProvider<'a, P0>(pprovider: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaDisconnectProvider(pprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    UiaDisconnectProvider(pprovider.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaEventAddWindow<'a, P0, P1>(hevent: P0, hwnd: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAEVENT>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
+    }
+    UiaEventAddWindow(hevent.into(), hwnd.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaEventRemoveWindow<'a, P0, P1>(hevent: P0, hwnd: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAEVENT>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
+    }
+    UiaEventRemoveWindow(hevent.into(), hwnd.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaFind<'a, P0>(hnode: P0, pparams: &mut UiaFindParams, prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    UiaFind(hnode.into(), ::core::mem::transmute(pparams), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(ppoffsets), ::core::mem::transmute(pptreestructures)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaGetErrorDescription(pdescription: &mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
+    }
+    UiaGetErrorDescription(::core::mem::transmute(pdescription))
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaGetPatternProvider<'a, P0>(hnode: P0, patternid: i32, phobj: &mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    UiaGetPatternProvider(hnode.into(), patternid, ::core::mem::transmute(phobj)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaGetPropertyValue<'a, P0>(hnode: P0, propertyid: i32, pvalue: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+    }
+    UiaGetPropertyValue(hnode.into(), propertyid, ::core::mem::transmute(pvalue)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::windows::core::IUnknown> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    UiaGetReservedMixedAttributeValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::windows::core::IUnknown> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    UiaGetReservedNotSupportedValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaGetRootNode(phnode: &mut HUIANODE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
+    }
+    UiaGetRootNode(::core::mem::transmute(phnode)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn UiaGetRuntimeId<'a, P0>(hnode: P0, pruntimeid: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    UiaGetRuntimeId(hnode.into(), ::core::mem::transmute(pruntimeid)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaGetUpdatedCache<'a, P0>(hnode: P0, prequest: &mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: &mut UiaCondition, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
+    }
+    UiaGetUpdatedCache(hnode.into(), ::core::mem::transmute(prequest), normalizestate, ::core::mem::transmute(pnormalizecondition), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaHPatternObjectFromVariant(pvar: &mut super::super::System::Com::VARIANT, phobj: &mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaHTextRangeFromVariant(pvar: &mut super::super::System::Com::VARIANT, phtextrange: &mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
+    }
+    UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaHUiaNodeFromVariant(pvar: &mut super::super::System::Com::VARIANT, phnode: &mut HUIANODE) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
+    }
+    UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaHasServerSideProvider<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    UiaHasServerSideProvider(hwnd.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaHostProviderFromHwnd<'a, P0>(hwnd: P0) -> ::windows::core::Result<IRawElementProviderSimple>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    UiaHostProviderFromHwnd(hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaIAccessibleFromProvider<'a, P0>(pprovider: P0, dwflags: u32, ppaccessible: &mut ::core::option::Option<IAccessible>, pvarchild: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
+    }
+    UiaIAccessibleFromProvider(pprovider.into().abi(), dwflags, ::core::mem::transmute(ppaccessible), ::core::mem::transmute(pvarchild)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: &::windows::core::GUID) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
+    }
+    UiaLookupId(r#type, ::core::mem::transmute(pguid))
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaNavigate<'a, P0>(hnode: P0, direction: NavigateDirection, pcondition: &mut UiaCondition, prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
+    }
+    UiaNavigate(hnode.into(), direction, ::core::mem::transmute(pcondition), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaNodeFromFocus(prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
+    }
+    UiaNodeFromFocus(::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaNodeFromHandle<'a, P0>(hwnd: P0, phnode: &mut HUIANODE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
+    }
+    UiaNodeFromHandle(hwnd.into(), ::core::mem::transmute(phnode)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
+    }
+    UiaNodeFromPoint(x, y, ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaNodeFromProvider<'a, P0>(pprovider: P0, phnode: &mut HUIANODE) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeFromProvider(pprovider: *mut ::core::ffi::c_void, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
+    }
+    UiaNodeFromProvider(pprovider.into().abi(), ::core::mem::transmute(phnode)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaNodeRelease<'a, P0>(hnode: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
+    }
+    UiaNodeRelease(hnode.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaPatternRelease<'a, P0>(hobj: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
+    }
+    UiaPatternRelease(hobj.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaProviderForNonClient<'a, P0>(hwnd: P0, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    UiaProviderForNonClient(hwnd.into(), idobject, idchild, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn UiaProviderFromIAccessible<'a, P0>(paccessible: P0, idchild: i32, dwflags: u32) -> ::windows::core::Result<IRawElementProviderSimple>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaProviderFromIAccessible(paccessible: *mut ::core::ffi::c_void, idchild: i32, dwflags: u32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    UiaProviderFromIAccessible(paccessible.into().abi(), idchild, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<'a, P0, P1>(provider: P0, textrange: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, ITextRangeProvider>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseActiveTextPositionChangedEvent(provider: *mut ::core::ffi::c_void, textrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseActiveTextPositionChangedEvent(provider.into().abi(), textrange.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaRaiseAsyncContentLoadedEvent<'a, P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseAsyncContentLoadedEvent(pprovider: *mut ::core::ffi::c_void, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseAsyncContentLoadedEvent(pprovider.into().abi(), asynccontentloadedstate, percentcomplete).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaRaiseAutomationEvent<'a, P0>(pprovider: P0, id: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseAutomationEvent(pprovider.into().abi(), id).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, P0, P1, P2>(pprovider: P0, id: i32, oldvalue: P1, newvalue: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: i32, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseAutomationPropertyChangedEvent(pprovider.into().abi(), id, oldvalue.into().abi(), newvalue.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn UiaRaiseChangesEvent<'a, P0>(pprovider: P0, eventidcount: i32, puiachanges: &mut UiaChangeInfo) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseChangesEvent(pprovider.into().abi(), eventidcount, ::core::mem::transmute(puiachanges)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaRaiseNotificationEvent<'a, P0, P1, P2>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseNotificationEvent(provider: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseNotificationEvent(provider.into().abi(), notificationkind, notificationprocessing, displaystring.into().abi(), activityid.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaRaiseStructureChangedEvent<'a, P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: &mut i32, cruntimeidlen: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseStructureChangedEvent(pprovider: *mut ::core::ffi::c_void, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseStructureChangedEvent(pprovider.into().abi(), structurechangetype, ::core::mem::transmute(pruntimeid), cruntimeidlen).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
+#[cfg(feature = "Win32_System_Com")]
+#[inline]
+pub unsafe fn UiaRaiseTextEditTextChangedEvent<'a, P0>(pprovider: P0, texteditchangetype: TextEditChangeType, pchangeddata: &mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRaiseTextEditTextChangedEvent(pprovider: *mut ::core::ffi::c_void, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
+    }
+    UiaRaiseTextEditTextChangedEvent(pprovider.into().abi(), texteditchangetype, ::core::mem::transmute(pchangeddata)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn UiaRegisterProviderCallback(pcallback: &mut UiaProviderCallback) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRegisterProviderCallback(pcallback: *mut *mut ::core::ffi::c_void);
+    }
+    UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaRemoveEvent<'a, P0>(hevent: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAEVENT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::core::HRESULT;
+    }
+    UiaRemoveEvent(hevent.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaReturnRawElementProvider<'a, P0, P1, P2, P3>(hwnd: P0, wparam: P1, lparam: P2, el: P3) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
+    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
+    P3: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
+    }
+    UiaReturnRawElementProvider(hwnd.into(), wparam.into(), lparam.into(), el.into().abi())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn UiaSetFocus<'a, P0>(hnode: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIANODE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaSetFocus(hnode: HUIANODE) -> ::windows::core::HRESULT;
+    }
+    UiaSetFocus(hnode.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UiaTextRangeRelease<'a, P0>(hobj: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HUIATEXTRANGE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
+    }
+    UiaTextRangeRelease(hobj.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UnhookWinEvent<'a, P0>(hwineventhook: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HWINEVENTHOOK>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
+    }
+    UnhookWinEvent(hwineventhook.into())
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
+pub unsafe fn UnregisterPointerInputTarget<'a, P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    }
+    UnregisterPointerInputTarget(hwnd.into(), pointertype)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[inline]
+pub unsafe fn UnregisterPointerInputTargetEx<'a, P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
+    }
+    UnregisterPointerInputTargetEx(hwnd.into(), pointertype)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn ValuePattern_SetValue<'a, P0, P1>(hobj: P0, pval: P1) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
+    }
+    ValuePattern_SetValue(hobj.into(), pval.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn VirtualizedItemPattern_Realize<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    VirtualizedItemPattern_Realize(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[inline]
+pub unsafe fn WindowFromAccessibleObject<'a, P0>(param0: P0) -> ::windows::core::Result<super::super::Foundation::HWND>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowFromAccessibleObject(param0: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WindowFromAccessibleObject(param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn WindowPattern_Close<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
+    }
+    WindowPattern_Close(hobj.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[inline]
+pub unsafe fn WindowPattern_SetWindowVisualState<'a, P0>(hobj: P0, state: WindowVisualState) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows::core::HRESULT;
+    }
+    WindowPattern_SetWindowVisualState(hobj.into(), state).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WindowPattern_WaitForInputIdle<'a, P0>(hobj: P0, milliseconds: i32, presult: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    WindowPattern_WaitForInputIdle(hobj.into(), milliseconds, ::core::mem::transmute(presult)).ok()
+}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct IAccIdentity(::windows::core::IUnknown);
@@ -2941,8 +2958,6 @@ pub struct IGridProvider_Vtbl {
     pub RowCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
     pub ColumnCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT,
 }
-pub const IIS_ControlAccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c682a6_9731_43f2_9fae_e901e641b101);
-pub const IIS_IsOleaccProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x902697fa_80e4_4560_802a_a13f22a64709);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 #[repr(transparent)]
 pub struct IInvokeProvider(::windows::core::IUnknown);
@@ -21355,22 +21370,231 @@ pub struct IWindowProvider_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     IsTopmost: usize,
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANRUS_PRIORITY_AUDIO_DYNAMIC_DUCK: u32 = 16u32;
+pub const AcceleratorKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514865df_2557_4cb9_aeed_6ced084ce52c);
+pub const AccessKey_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06827b12_a7f9_4a15_917c_ffa5ad3eb0a7);
+pub const ActiveTextPositionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5c09e9c_c77d_4f25_b491_e5bb7017cbd4);
+pub const AnnotationObjects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310910c8_7c6e_4f20_becd_4aaf6d191156);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_AdvancedProofingIssue: i32 = 60020i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Author: i32 = 60019i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_CircularReferenceError: i32 = 60022i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Comment: i32 = 60003i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_ConflictingChange: i32 = 60018i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_DataValidationError: i32 = 60021i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_DeletionChange: i32 = 60012i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_EditingLockedChange: i32 = 60016i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Endnote: i32 = 60009i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_ExternalChange: i32 = 60017i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Footer: i32 = 60007i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Footnote: i32 = 60010i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_FormatChange: i32 = 60014i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_FormulaError: i32 = 60004i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_GrammarError: i32 = 60002i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Header: i32 = 60006i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Highlighted: i32 = 60008i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_InsertionChange: i32 = 60011i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Mathematics: i32 = 60023i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_MoveChange: i32 = 60013i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Sensitive: i32 = 60024i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_SpellingError: i32 = 60001i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_TrackChanges: i32 = 60005i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_Unknown: i32 = 60000i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnnotationType_UnsyncedChange: i32 = 60015i32;
+pub const AnnotationTypes_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64b71f76_53c4_4696_a219_20e940c9a176);
+pub const Annotation_AdvancedProofingIssue_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdac7b72c_c0f2_4b84_b90d_5fafc0f0ef1c);
+pub const Annotation_AnnotationTypeId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae484f_69ef_4c48_8f5b_c4938b206ac7);
+pub const Annotation_AnnotationTypeName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b818892_5ac9_4af9_aa96_f58a77b058e3);
+pub const Annotation_Author_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf161d3a7_f81b_4128_b17f_71f690914520);
+pub const Annotation_Author_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a528462_9c5c_4a03_a974_8b307a9937f2);
+pub const Annotation_CircularReferenceError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25bd9cf4_1745_4659_ba67_727f0318c616);
+pub const Annotation_Comment_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd2fda30_26b3_4c06_8bc7_98f1532e46fd);
+pub const Annotation_ConflictingChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98af8802_517c_459f_af13_016d3fab877e);
+pub const Annotation_Custom_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec82750_3931_4952_85bc_1dbff78a43e3);
+pub const Annotation_DataValidationError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8649fa8_9775_437e_ad46_e709d93c2343);
+pub const Annotation_DateTime_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b5ca5d_1acf_414b_a4d0_6b350b047578);
+pub const Annotation_DeletionChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe3d5b05_951d_42e7_901d_adc8c2cf34d0);
+pub const Annotation_EditingLockedChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc31f3e1c_7423_4dac_8348_41f099ff6f64);
+pub const Annotation_Endnote_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7565725c_2d99_4839_960d_33d3b866aba5);
+pub const Annotation_ExternalChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a05b31_5f11_42fd_887d_dfa010db2392);
+pub const Annotation_Footer_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcceab046_1833_47aa_8080_701ed0b0c832);
+pub const Annotation_Footnote_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3de10e21_4125_42db_8620_be8083080624);
+pub const Annotation_FormatChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb247345_d4f1_41ce_8e52_f79b69635e48);
+pub const Annotation_FormulaError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95611982_0cab_46d5_a2f0_e30d1905f8bf);
+pub const Annotation_GrammarError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757a048d_4518_41c6_854c_dc009b7cfb53);
+pub const Annotation_Header_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x867b409b_b216_4472_a219_525e310681f8);
+pub const Annotation_Highlighted_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757c884e_8083_4081_8b9c_e87f5072f0e4);
+pub const Annotation_InsertionChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dbeb3a6_df15_4164_a3c0_e21a8ce931c4);
+pub const Annotation_Mathematics_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaab634b_26d0_40c1_8073_57ca1c633c9b);
+pub const Annotation_MoveChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da587eb_23e5_4490_b385_1a22ddc8b187);
+pub const Annotation_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6c72ad7_356c_4850_9291_316f608a8c84);
+pub const Annotation_Sensitive_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37f4c04f_0f12_4464_929c_828fd15292e3);
+pub const Annotation_SpellingError_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae85567e_9ece_423f_81b7_96c43d53e50e);
+pub const Annotation_Target_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71b302d_2104_44ad_9c5c_092b4907d70f);
+pub const Annotation_TrackChanges_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21e6e888_dc14_4016_ac27_190553c8c470);
+pub const Annotation_UnsyncedChange_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1851116a_0e47_4b30_8cb5_d7dae4fbcd1b);
+pub const AppBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6114908d_cc02_4d37_875b_b530c7139554);
+pub const AriaProperties_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4213678c_e025_4922_beb5_e43ba08e6221);
+pub const AriaRole_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd207b95_be4a_4e0d_b727_63ace94b6916);
+pub const AsyncContentLoaded_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdee11c_d2fa_4fb9_904e_5cbee894d5ef);
+pub const AutomationFocusChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb68a1f17_f60d_41a7_a3cc_b05292155fe0);
+pub const AutomationId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc82c0500_b60e_4310_a267_303c531f8ee5);
+pub const AutomationPropertyChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2527fba1_8d7a_4630_a4cc_e66315942f52);
+pub const BoundingRectangle_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bbfe8b2_3bfc_48dd_b729_c794b846e9a1);
+pub const Button_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a78e369_c6a1_4f33_a9d7_79f20d0c788e);
+pub const CAccPropServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CLSID_AccPropServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f8350b_0548_48b1_a6ee_88bd00b4a5e7);
+pub const CUIAutomation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff48dba4_60ef_4201_aa87_54103eef594e);
+pub const CUIAutomation8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe22ad333_b25f_460c_83d0_0581107395c9);
+pub const CUIAutomationRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e29fabf_9977_42d1_8d0e_ca7e61ad87e6);
+pub const Calendar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8913eb88_00e5_46bc_8e4e_14a786e165a1);
+pub const CenterPoint_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cb00c08_540c_4edb_9445_26359ea69785);
+pub const Changes_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7df26714_614f_4e05_9488_716c5ba19436);
+pub const Changes_Summary_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x313d65a6_e60f_4d62_9861_55afd728d207);
+pub const CheckBox_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb50f922_a3db_49c0_8bc3_06dad55778e2);
+pub const ClassName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x157b7215_894f_4b65_84e2_aac0da08b16b);
+pub const ClickablePoint_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0196903b_b203_4818_a9f3_f08e675f2341);
+pub const ComboBox_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54cb426c_2f33_4fff_aaa1_aef60dac5deb);
+pub const ControlType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca774fea_28ac_4bc2_94ca_acec6d6c10a3);
+pub const ControllerFor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51124c8a_a5d2_4f13_9be6_7fa8ba9d3a90);
+pub const Culture_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d74f27_3d79_4dc2_b88b_3044963a8afb);
+pub const CustomNavigation_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafea938a_621e_4054_bb2c_2f46114dac3f);
+pub const Custom_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf29ea0c3_adb7_430a_ba90_e52c7313e6ed);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_CHILD: i32 = -5002i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_CHILDCOUNT: i32 = -5001i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_DEFAULTACTION: i32 = -5013i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_DESCRIPTION: i32 = -5005i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_DODEFAULTACTION: i32 = -5018i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_FOCUS: i32 = -5011i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_HELP: i32 = -5008i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_HELPTOPIC: i32 = -5009i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_HITTEST: i32 = -5017i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_KEYBOARDSHORTCUT: i32 = -5010i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_LOCATION: i32 = -5015i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_NAME: i32 = -5003i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_NAVIGATE: i32 = -5016i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_PARENT: i32 = -5000i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_ROLE: i32 = -5006i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_SELECT: i32 = -5014i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_SELECTION: i32 = -5012i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_STATE: i32 = -5007i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DISPID_ACC_VALUE: i32 = -5004i32;
+pub const DataGrid_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b783af_d103_4b0a_8415_e73942410f4b);
+pub const DataItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0177842_d94f_42a5_814b_6068addc8da5);
+pub const DescribedBy_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c5865b8_9992_40fd_8db0_6bf1d317f998);
+pub const Dock_DockPosition_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d67f02e_c0b0_4b10_b5b9_18d6ecf98760);
+pub const Dock_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbaa846_83c8_428d_827f_7e6063fe0620);
+pub const Document_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cd6bb6f_6f08_4562_b229_e4e2fc7a9eb4);
+pub const Drag_DragCancel_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ede6fa_3451_4e0f_9e71_df9c280a4657);
+pub const Drag_DragComplete_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e96188_ef1f_463e_91ca_3a7792c29caf);
+pub const Drag_DragStart_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x883a480b_3aa9_429d_95e4_d9c8d011f0dd);
+pub const Drag_DropEffect_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x646f2779_48d3_4b23_8902_4bf100005df3);
+pub const Drag_DropEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5d61156_7ce6_49be_a836_9269dcec920f);
+pub const Drag_GrabbedItems_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77c1562c_7b86_4b21_9ed7_3cefda6f4c43);
+pub const Drag_IsGrabbed_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f206f3_75cc_4cca_a9b9_fcdfb982d8a2);
+pub const Drag_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bee21f_ccb3_4fed_995b_114f6e3d2728);
+pub const DropTarget_DragEnter_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaad9319b_032c_4a88_961d_1cf579581e34);
+pub const DropTarget_DragLeave_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f82eb15_24a2_4988_9217_de162aee272b);
+pub const DropTarget_DropTargetEffect_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb75975_a0ca_4981_b818_87fc66e9509d);
+pub const DropTarget_DropTargetEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc1dd4ed_cb89_45f1_a592_e03b08ae790f);
+pub const DropTarget_Dropped_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x622cead8_1edb_4a3d_abbc_be2211ff68b5);
+pub const DropTarget_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bcbec56_bd34_4b7b_9fd5_2659905ea3dc);
+pub const Edit_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6504a5c8_2c86_4f87_ae7b_1abddc810cf9);
+pub const ExpandCollapse_ExpandCollapseState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275a4c48_85a7_4f69_aba0_af157610002b);
+pub const ExpandCollapse_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae05efa2_f9d1_428a_834c_53a5c52f9b8b);
+pub const FillColor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e0ec4d0_e2a8_4a56_9de7_953389933b39);
+pub const FillType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc74e4_8cb9_429c_a9e1_9bc4ac372b62);
+pub const FlowsFrom_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05c6844f_19de_48f8_95fa_880d5b0fd615);
+pub const FlowsTo_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f33d20_559a_47fb_a830_f9cb4ff1a70a);
+pub const FrameworkId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbfd9900_7e1a_4f58_b61b_7063120f773b);
+pub const FullDescription_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d4450ff_6aef_4f33_95dd_7befa72a4391);
+pub const GridItem_ColumnSpan_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x583ea3f5_86d0_4b08_a6ec_2c5463ffc109);
+pub const GridItem_Column_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc774c15c_62c0_4519_8bdc_47be573c8ad5);
+pub const GridItem_Parent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d912252_b97f_4ecc_8510_ea0e33427c72);
+pub const GridItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2d5c877_a462_4957_a2a5_2c96b303bc63);
+pub const GridItem_RowSpan_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4582291c_466b_4e93_8e83_3d1715ec0c5e);
+pub const GridItem_Row_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6223972a_c945_4563_9329_fdc974af2553);
+pub const Grid_ColumnCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe96f375_44aa_4536_ac7a_2a75d71a3efc);
+pub const Grid_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x260a2ccb_93a8_4e44_a4c1_3df397f2b02b);
+pub const Grid_RowCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9505bf_c2eb_4fb6_b356_8245ae53703e);
+pub const Group_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad50aa1c_e8c8_4774_ae1b_dd86df0b3bdc);
+pub const HasKeyboardFocus_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf8afd39_3f46_4800_9656_b2bf12529905);
+pub const HeaderItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bc12cb_7c8e_49cf_b168_4a93a32bebb0);
+pub const Header_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b90cbce_78fb_4614_82b6_554d74718e67);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel1: i32 = 80051i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel2: i32 = 80052i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel3: i32 = 80053i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel4: i32 = 80054i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel5: i32 = 80055i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel6: i32 = 80056i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel7: i32 = 80057i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel8: i32 = 80058i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel9: i32 = 80059i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HeadingLevel_None: i32 = 80050i32;
+pub const HeadingLevel_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29084272_aaaf_4a30_8796_3c12f62b6bbb);
+pub const HelpText_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08555685_0977_45c7_a7a6_abaf5684121a);
+pub const HostedFragmentRootsInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6bdb03e_0921_4ec5_8dcf_eae877b0426b);
+pub const Hyperlink_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a56022c_b00d_4d15_8ff0_5b6b266e5e02);
+pub const IIS_ControlAccessible: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c682a6_9731_43f2_9fae_e901e641b101);
+pub const IIS_IsOleaccProxy: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x902697fa_80e4_4560_802a_a13f22a64709);
 pub const Image_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3736e4_6b16_4c57_a962_f93260a75243);
 pub const InputDiscarded_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f36c367_7b18_417c_97e3_9d58ddc944ab);
 pub const InputReachedOtherElement_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed201d8a_4e6c_415e_a874_2460c9b66ba8);
 pub const InputReachedTarget_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ed549a_0549_40f0_bedb_28e44f7de2a3);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn InvokePattern_Invoke<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    InvokePattern_Invoke(hobj.into()).ok()
-}
 pub const Invoke_Invoked_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfd699f0_c915_49dd_b422_dde785c3d24b);
 pub const Invoke_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd976c2fc_66ea_4a6e_b28f_c24c7546ad37);
 pub const IsAnnotationPatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5b3238_6d5c_41b6_bcc4_5e807f6551c4);
@@ -21418,108 +21642,14 @@ pub const IsTransformPattern2Available_Property_GUID: ::windows::core::GUID = ::
 pub const IsTransformPatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f78804_d68b_4077_a5c6_7a5ea1ac31c5);
 pub const IsValuePatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b5020a7_2119_473b_be37_5ceb98bbfb22);
 pub const IsVirtualizedItemPatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x302cb151_2ac8_45d6_977b_d2b3a5a53f20);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsWinEventHookInstalled(event: u32) -> super::super::Foundation::BOOL;
-    }
-    IsWinEventHookInstalled(event)
-}
 pub const IsWindowPatternAvailable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7a57bb1_5888_4155_98dc_b422fd57f2bc);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn ItemContainerPattern_FindItemByProperty<'a, P0, P1, P2>(hobj: P0, hnodestartafter: P1, propertyid: i32, value: P2, pfound: &mut HUIANODE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-    P1: ::std::convert::Into<HUIANODE>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfound: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
-    ItemContainerPattern_FindItemByProperty(hobj.into(), hnodestartafter.into(), propertyid, value.into().abi(), ::core::mem::transmute(pfound)).ok()
-}
 pub const ItemContainer_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d13da0f_8b9a_4a99_85fa_c5c9a69f1ed4);
 pub const ItemStatus_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51de0321_3973_43e7_8913_0b08e813c37f);
 pub const ItemType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdda434d_6222_413b_a68a_325dd1d40f39);
 pub const LIBID_Accessibility: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: ::core::option::Option<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNACCESSIBLEOBJECTFROMWINDOW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNCREATESTDACCESSIBLEOBJECT = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::core::option::Option<::windows::core::IUnknown>) -> super::super::Foundation::LRESULT>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 pub const LabeledBy_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b8924b_fc8a_4a35_8031_cf78ac43e55e);
 pub const LandmarkType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x454045f2_6f61_49f7_a4f8_b5f0cf82da1e);
 pub const LayoutInvalidated_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed7d6544_a6bd_4595_9bae_3d28946cc715);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    LegacyIAccessiblePattern_DoDefaultAction(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn LegacyIAccessiblePattern_GetIAccessible<'a, P0>(hobj: P0) -> ::windows::core::Result<IAccessible>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT, paccessible: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    LegacyIAccessiblePattern_GetIAccessible(hobj.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IAccessible>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn LegacyIAccessiblePattern_Select<'a, P0>(hobj: P0, flagsselect: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> ::windows::core::HRESULT;
-    }
-    LegacyIAccessiblePattern_Select(hobj.into(), flagsselect).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn LegacyIAccessiblePattern_SetValue<'a, P0, P1>(hobj: P0, szvalue: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LegacyIAccessiblePattern_SetValue(hobj: HUIAPATTERNOBJECT, szvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
-    LegacyIAccessiblePattern_SetValue(hobj.into(), szvalue.into()).ok()
-}
 pub const LegacyIAccessible_ChildId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a191b5d_9ef2_4787_a459_dcde885dd4e8);
 pub const LegacyIAccessible_DefaultAction_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b331729_eaad_4502_b85f_92615622913c);
 pub const LegacyIAccessible_Description_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46448418_7d70_4ea9_9d27_b7e775cf2ad7);
@@ -21535,120 +21665,9 @@ pub const Level_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const ListItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b3717f2_44d1_4a58_98a8_f12a9b8f78e2);
 pub const List_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b149ee1_7cca_4cfc_9af1_cac7bddd3031);
 pub const LiveRegionChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102d5e90_e6a9_41b6_b1c5_a9b1929d9510);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LiveSetting(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const Off: LiveSetting = LiveSetting(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const Polite: LiveSetting = LiveSetting(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const Assertive: LiveSetting = LiveSetting(2i32);
-impl ::core::marker::Copy for LiveSetting {}
-impl ::core::clone::Clone for LiveSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LiveSetting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LiveSetting {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LiveSetting {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LiveSetting").field(&self.0).finish()
-    }
-}
 pub const LiveSetting_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12bcd8e_2a8e_4950_8ae7_3625111d58eb);
 pub const LocalizedControlType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8763404f_a1bd_452a_89c4_3f01d3833806);
 pub const LocalizedLandmarkType_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ac81980_eafb_4fb2_bf91_f485bef5e8e1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LresultFromObject<'a, P0, P1>(riid: &::windows::core::GUID, wparam: P0, punk: P1) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IUnknown>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LresultFromObject(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
-    }
-    LresultFromObject(::core::mem::transmute(riid), wparam.into(), punk.into().abi())
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct MOUSEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-    pub iMaxSpeed: u32,
-    pub iTimeToMaxSpeed: u32,
-    pub iCtrlSpeed: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for MOUSEKEYS {}
-impl ::core::clone::Clone for MOUSEKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MOUSEKEYS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MOUSEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iMaxSpeed", &self.iMaxSpeed).field("iTimeToMaxSpeed", &self.iTimeToMaxSpeed).field("iCtrlSpeed", &self.iCtrlSpeed).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MOUSEKEYS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MOUSEKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEKEYS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MOUSEKEYS {}
-impl ::core::default::Default for MOUSEKEYS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct MSAAMENUINFO {
-    pub dwMSAASignature: u32,
-    pub cchWText: u32,
-    pub pszWText: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for MSAAMENUINFO {}
-impl ::core::clone::Clone for MSAAMENUINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MSAAMENUINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MSAAMENUINFO").field("dwMSAASignature", &self.dwMSAASignature).field("cchWText", &self.cchWText).field("pszWText", &self.pszWText).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MSAAMENUINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MSAAMENUINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAAMENUINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MSAAMENUINFO {}
-impl ::core::default::Default for MSAAMENUINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const MSAA_MENU_SIG: i32 = -1441927155i32;
 pub const MenuBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc384250_0e7b_4ae8_95ae_a08f261b52ee);
@@ -21658,31 +21677,6 @@ pub const MenuModeEnd_Event_GUID: ::windows::core::GUID = ::windows::core::GUID:
 pub const MenuModeStart_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18d7c631_166a_4ac9_ae3b_ef4b5420e681);
 pub const MenuOpened_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebe2e945_66ca_4ed1_9ff8_2ad7df0a1b08);
 pub const Menu_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e9b1440_0ea8_41fd_b374_c1ea6f503cd1);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MultipleViewPattern_GetViewName<'a, P0>(hobj: P0, viewid: i32, ppstr: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-    }
-    MultipleViewPattern_GetViewName(hobj.into(), viewid, ::core::mem::transmute(ppstr)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn MultipleViewPattern_SetCurrentView<'a, P0>(hobj: P0, viewid: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> ::windows::core::HRESULT;
-    }
-    MultipleViewPattern_SetCurrentView(hobj.into(), viewid).ok()
-}
 pub const MultipleView_CurrentView_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a81a67a_b94f_4875_918b_65c8d2f998e5);
 pub const MultipleView_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x547a6ae4_113f_47c4_850f_db4dfa466b1d);
 pub const MultipleView_SupportedViews_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d5db9fd_ce3c_4ae7_b788_400a3c645547);
@@ -21707,229 +21701,12 @@ pub const NAVDIR_RIGHT: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const NAVDIR_UP: u32 = 1u32;
 pub const Name_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3a6921b_4a99_44f1_bca6_61187052c431);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NavigateDirection(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NavigateDirection_Parent: NavigateDirection = NavigateDirection(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NavigateDirection_NextSibling: NavigateDirection = NavigateDirection(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NavigateDirection_PreviousSibling: NavigateDirection = NavigateDirection(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NavigateDirection_FirstChild: NavigateDirection = NavigateDirection(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NavigateDirection_LastChild: NavigateDirection = NavigateDirection(4i32);
-impl ::core::marker::Copy for NavigateDirection {}
-impl ::core::clone::Clone for NavigateDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NavigateDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NavigateDirection {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NavigateDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NavigateDirection").field(&self.0).finish()
-    }
-}
 pub const NewNativeWindowHandle_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5196b33b_380a_4982_95e1_91f3ef60e024);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NormalizeState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NormalizeState_None: NormalizeState = NormalizeState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NormalizeState_View: NormalizeState = NormalizeState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NormalizeState_Custom: NormalizeState = NormalizeState(2i32);
-impl ::core::marker::Copy for NormalizeState {}
-impl ::core::clone::Clone for NormalizeState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NormalizeState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NormalizeState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NormalizeState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NormalizeState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NotificationKind(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationKind_ItemAdded: NotificationKind = NotificationKind(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationKind_ItemRemoved: NotificationKind = NotificationKind(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationKind_ActionCompleted: NotificationKind = NotificationKind(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationKind_ActionAborted: NotificationKind = NotificationKind(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationKind_Other: NotificationKind = NotificationKind(4i32);
-impl ::core::marker::Copy for NotificationKind {}
-impl ::core::clone::Clone for NotificationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NotificationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationKind").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NotificationProcessing(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = NotificationProcessing(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationProcessing_All: NotificationProcessing = NotificationProcessing(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationProcessing_MostRecent: NotificationProcessing = NotificationProcessing(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = NotificationProcessing(4i32);
-impl ::core::marker::Copy for NotificationProcessing {}
-impl ::core::clone::Clone for NotificationProcessing {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationProcessing {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NotificationProcessing {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationProcessing {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationProcessing").field(&self.0).finish()
-    }
-}
 pub const Notification_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72c5a2f7_9788_480f_b8eb_4dee00f6186f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NotifyWinEvent<'a, P0>(event: u32, hwnd: P0, idobject: i32, idchild: i32)
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32);
-    }
-    NotifyWinEvent(event, hwnd.into(), idobject, idchild)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ObjectFromLresult<'a, P0, P1>(lresult: P0, riid: &::windows::core::GUID, wparam: P1, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::LRESULT>,
-    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    ObjectFromLresult(lresult.into(), ::core::mem::transmute(riid), wparam.into(), ::core::mem::transmute(ppvobject)).ok()
-}
 pub const ObjectModel_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e04acfe_08fc_47ec_96bc_353fa3b34aa7);
 pub const OptimizeForVisualContent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a852250_c75a_4e5d_b858_e381b0f78861);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OrientationType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OrientationType_None: OrientationType = OrientationType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OrientationType_Horizontal: OrientationType = OrientationType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OrientationType_Vertical: OrientationType = OrientationType(2i32);
-impl ::core::marker::Copy for OrientationType {}
-impl ::core::clone::Clone for OrientationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OrientationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OrientationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OrientationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OrientationType").field(&self.0).finish()
-    }
-}
 pub const Orientation_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa01eee62_3884_4415_887e_678ec21e39ba);
 pub const OutlineColor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc395d6c0_4b55_4762_a073_fd303a634f52);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OutlineStyles(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OutlineStyles_None: OutlineStyles = OutlineStyles(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OutlineStyles_Outline: OutlineStyles = OutlineStyles(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OutlineStyles_Shadow: OutlineStyles = OutlineStyles(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OutlineStyles_Engraved: OutlineStyles = OutlineStyles(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const OutlineStyles_Embossed: OutlineStyles = OutlineStyles(8i32);
-impl ::core::marker::Copy for OutlineStyles {}
-impl ::core::clone::Clone for OutlineStyles {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OutlineStyles {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OutlineStyles {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OutlineStyles {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OutlineStyles").field(&self.0).finish()
-    }
-}
 pub const OutlineThickness_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13e67cc7_dac2_4888_bdd3_375c62fa9618);
 pub const PROPID_ACC_DEFAULTACTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x180c072b_c27f_43c7_9922_f63562a4632b);
 pub const PROPID_ACC_DESCRIPTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d48dfe4_bd3f_491f_a648_492d6f20c588);
@@ -21960,106 +21737,7 @@ pub const Pane_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from
 pub const PositionInSet_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33d1dc54_641e_4d76_a6b1_13f341c1f896);
 pub const ProcessId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40499998_9c31_4245_a403_87320e59eaf6);
 pub const ProgressBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x228c9f86_c36c_47bb_9fb6_a5834bfc53a4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PropertyConditionFlags(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const PropertyConditionFlags_None: PropertyConditionFlags = PropertyConditionFlags(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = PropertyConditionFlags(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = PropertyConditionFlags(2i32);
-impl ::core::marker::Copy for PropertyConditionFlags {}
-impl ::core::clone::Clone for PropertyConditionFlags {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PropertyConditionFlags {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PropertyConditionFlags {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PropertyConditionFlags {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PropertyConditionFlags").field(&self.0).finish()
-    }
-}
 pub const ProviderDescription_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdca5708a_c16b_4cd9_b889_beb16a804904);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ProviderOptions(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_ClientSideProvider: ProviderOptions = ProviderOptions(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_ServerSideProvider: ProviderOptions = ProviderOptions(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = ProviderOptions(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_OverrideProvider: ProviderOptions = ProviderOptions(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_ProviderOwnsSetFocus: ProviderOptions = ProviderOptions(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_UseComThreading: ProviderOptions = ProviderOptions(32i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = ProviderOptions(64i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = ProviderOptions(128i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderOptions_UseClientCoordinates: ProviderOptions = ProviderOptions(256i32);
-impl ::core::marker::Copy for ProviderOptions {}
-impl ::core::clone::Clone for ProviderOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ProviderOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderOptions").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ProviderType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderType_BaseHwnd: ProviderType = ProviderType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderType_Proxy: ProviderType = ProviderType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ProviderType_NonClientArea: ProviderType = ProviderType(2i32);
-impl ::core::marker::Copy for ProviderType {}
-impl ::core::clone::Clone for ProviderType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProviderType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ProviderType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ProviderType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProviderType").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_ALERT: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -22189,18 +21867,6 @@ pub const ROLE_SYSTEM_WHITESPACE: u32 = 59u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const ROLE_SYSTEM_WINDOW: u32 = 9u32;
 pub const RadioButton_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bdb49db_fe2c_4483_b3e1_e57f219440c6);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn RangeValuePattern_SetValue<'a, P0>(hobj: P0, val: f64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> ::windows::core::HRESULT;
-    }
-    RangeValuePattern_SetValue(hobj.into(), val).ok()
-}
 pub const RangeValue_IsReadOnly_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25fa1055_debf_4373_a79e_1f1a1908d3c4);
 pub const RangeValue_LargeChange_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1f96325_3a3d_4b44_8e1f_4a46d9844019);
 pub const RangeValue_Maximum_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19319914_f979_4b35_a1a6_d37e05433473);
@@ -22208,63 +21874,7 @@ pub const RangeValue_Minimum_Property_GUID: ::windows::core::GUID = ::windows::c
 pub const RangeValue_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18b00d87_b1c9_476a_bfbd_5f0bdb926f63);
 pub const RangeValue_SmallChange_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c2c457_3941_4107_9975_139760f7c072);
 pub const RangeValue_Value_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x131f5d98_c50c_489d_abe5_ae220898c5f7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn RegisterPointerInputTarget<'a, P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    }
-    RegisterPointerInputTarget(hwnd.into(), pointertype)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn RegisterPointerInputTargetEx<'a, P0, P1>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    RegisterPointerInputTargetEx(hwnd.into(), pointertype, fobserve.into())
-}
 pub const Rotation_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x767cdc7d_aec0_4110_ad32_30edd403492e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RowOrColumnMajor(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = RowOrColumnMajor(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = RowOrColumnMajor(2i32);
-impl ::core::marker::Copy for RowOrColumnMajor {}
-impl ::core::clone::Clone for RowOrColumnMajor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RowOrColumnMajor {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RowOrColumnMajor {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RowOrColumnMajor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
-    }
-}
 pub const RuntimeId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa39eebfa_7fba_4c89_b4d4_b99e2de7d160);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_ADDSELECTION: u32 = 8u32;
@@ -22280,677 +21890,14 @@ pub const SELFLAG_TAKEFOCUS: u32 = 1u32;
 pub const SELFLAG_TAKESELECTION: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const SELFLAG_VALID: u32 = 31u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct SERIALKEYSA {
-    pub cbSize: u32,
-    pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: ::windows::core::PSTR,
-    pub lpszPort: ::windows::core::PSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
-}
-impl ::core::marker::Copy for SERIALKEYSA {}
-impl ::core::clone::Clone for SERIALKEYSA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SERIALKEYSA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERIALKEYSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SERIALKEYSA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERIALKEYSA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERIALKEYSA {}
-impl ::core::default::Default for SERIALKEYSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct SERIALKEYSW {
-    pub cbSize: u32,
-    pub dwFlags: SERIALKEYS_FLAGS,
-    pub lpszActivePort: ::windows::core::PWSTR,
-    pub lpszPort: ::windows::core::PWSTR,
-    pub iBaudRate: u32,
-    pub iPortState: u32,
-    pub iActive: u32,
-}
-impl ::core::marker::Copy for SERIALKEYSW {}
-impl ::core::clone::Clone for SERIALKEYSW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SERIALKEYSW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SERIALKEYSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SERIALKEYSW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SERIALKEYSW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SERIALKEYSW {}
-impl ::core::default::Default for SERIALKEYSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SERIALKEYS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(1u32);
-impl ::core::marker::Copy for SERIALKEYS_FLAGS {}
-impl ::core::clone::Clone for SERIALKEYS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SERIALKEYS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SERIALKEYS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SERIALKEYS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SERIALKEYS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SERIALKEYS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SERIALKEYS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERIALKEYS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERIALKEYS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SERIALKEYS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 pub const SID_ControlElementProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4791d68_e254_4ba3_9a53_26a5c5497946);
 pub const SID_IsUIAutomationObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb96fdb85_7204_4724_842b_c7059dedb9d0);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct SOUNDSENTRYA {
-    pub cbSize: u32,
-    pub dwFlags: SOUNDSENTRY_FLAGS,
-    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
-    pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: ::windows::core::PSTR,
-    pub iWindowsEffectOrdinal: u32,
-}
-impl ::core::marker::Copy for SOUNDSENTRYA {}
-impl ::core::clone::Clone for SOUNDSENTRYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SOUNDSENTRYA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOUNDSENTRYA")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("iFSTextEffect", &self.iFSTextEffect)
-            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
-            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
-            .field("iFSGrafEffect", &self.iFSGrafEffect)
-            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
-            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
-            .field("iWindowsEffect", &self.iWindowsEffect)
-            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
-            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
-            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SOUNDSENTRYA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SOUNDSENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOUNDSENTRYA {}
-impl ::core::default::Default for SOUNDSENTRYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct SOUNDSENTRYW {
-    pub cbSize: u32,
-    pub dwFlags: SOUNDSENTRY_FLAGS,
-    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
-    pub iFSTextEffectMSec: u32,
-    pub iFSTextEffectColorBits: u32,
-    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
-    pub iFSGrafEffectMSec: u32,
-    pub iFSGrafEffectColor: u32,
-    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
-    pub iWindowsEffectMSec: u32,
-    pub lpszWindowsEffectDLL: ::windows::core::PWSTR,
-    pub iWindowsEffectOrdinal: u32,
-}
-impl ::core::marker::Copy for SOUNDSENTRYW {}
-impl ::core::clone::Clone for SOUNDSENTRYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SOUNDSENTRYW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOUNDSENTRYW")
-            .field("cbSize", &self.cbSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("iFSTextEffect", &self.iFSTextEffect)
-            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
-            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
-            .field("iFSGrafEffect", &self.iFSGrafEffect)
-            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
-            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
-            .field("iWindowsEffect", &self.iWindowsEffect)
-            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
-            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
-            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SOUNDSENTRYW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SOUNDSENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOUNDSENTRYW {}
-impl ::core::default::Default for SOUNDSENTRYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SOUNDSENTRY_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(4u32);
-impl ::core::marker::Copy for SOUNDSENTRY_FLAGS {}
-impl ::core::clone::Clone for SOUNDSENTRY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SOUNDSENTRY_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SOUNDSENTRY_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SOUNDSENTRY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SOUNDSENTRY_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for SOUNDSENTRY_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for SOUNDSENTRY_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SOUNDSENTRY_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SOUNDSENTRY_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for SOUNDSENTRY_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SOUNDSENTRY_TEXT_EFFECT(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSTF_CHARS: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSTF_DISPLAY: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(3u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSTF_NONE: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(0u32);
-impl ::core::marker::Copy for SOUNDSENTRY_TEXT_EFFECT {}
-impl ::core::clone::Clone for SOUNDSENTRY_TEXT_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SOUNDSENTRY_TEXT_EFFECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SOUNDSENTRY_TEXT_EFFECT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SOUNDSENTRY_TEXT_EFFECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SOUNDSENTRY_TEXT_EFFECT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SOUNDSENTRY_WINDOWS_EFFECT(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSWF_DISPLAY: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(3u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSWF_NONE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(0u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2u32);
-impl ::core::marker::Copy for SOUNDSENTRY_WINDOWS_EFFECT {}
-impl ::core::clone::Clone for SOUNDSENTRY_WINDOWS_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SOUNDSENTRY_WINDOWS_EFFECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SOUNDSENTRY_WINDOWS_EFFECT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SOUNDSENTRY_WINDOWS_EFFECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SOUNDSENTRY_WINDOWS_EFFECT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SOUND_SENTRY_GRAPHICS_EFFECT(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(3u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SSGF_NONE: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(0u32);
-impl ::core::marker::Copy for SOUND_SENTRY_GRAPHICS_EFFECT {}
-impl ::core::clone::Clone for SOUND_SENTRY_GRAPHICS_EFFECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SOUND_SENTRY_GRAPHICS_EFFECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SOUND_SENTRY_GRAPHICS_EFFECT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SOUND_SENTRY_GRAPHICS_EFFECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SOUND_SENTRY_GRAPHICS_EFFECT").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const STATE_SYSTEM_HASPOPUP: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const STATE_SYSTEM_NORMAL: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct STICKYKEYS {
-    pub cbSize: u32,
-    pub dwFlags: STICKYKEYS_FLAGS,
-}
-impl ::core::marker::Copy for STICKYKEYS {}
-impl ::core::clone::Clone for STICKYKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for STICKYKEYS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STICKYKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for STICKYKEYS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for STICKYKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STICKYKEYS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for STICKYKEYS {}
-impl ::core::default::Default for STICKYKEYS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct STICKYKEYS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_AVAILABLE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_HOTKEYACTIVE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_CONFIRMHOTKEY: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_HOTKEYSOUND: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_INDICATOR: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_AUDIBLEFEEDBACK: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_TRISTATE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(67108864u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(536870912u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(134217728u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(33554432u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1073741824u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2147483648u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_LWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8388608u32);
-impl ::core::marker::Copy for STICKYKEYS_FLAGS {}
-impl ::core::clone::Clone for STICKYKEYS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for STICKYKEYS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for STICKYKEYS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for STICKYKEYS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("STICKYKEYS_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for STICKYKEYS_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for STICKYKEYS_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for STICKYKEYS_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for STICKYKEYS_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for STICKYKEYS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SayAsInterpretAs(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_None: SayAsInterpretAs = SayAsInterpretAs(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Spell: SayAsInterpretAs = SayAsInterpretAs(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Cardinal: SayAsInterpretAs = SayAsInterpretAs(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Ordinal: SayAsInterpretAs = SayAsInterpretAs(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Number: SayAsInterpretAs = SayAsInterpretAs(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date: SayAsInterpretAs = SayAsInterpretAs(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Time: SayAsInterpretAs = SayAsInterpretAs(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Telephone: SayAsInterpretAs = SayAsInterpretAs(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Currency: SayAsInterpretAs = SayAsInterpretAs(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Net: SayAsInterpretAs = SayAsInterpretAs(9i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Url: SayAsInterpretAs = SayAsInterpretAs(10i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Address: SayAsInterpretAs = SayAsInterpretAs(11i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Alphanumeric: SayAsInterpretAs = SayAsInterpretAs(12i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Name: SayAsInterpretAs = SayAsInterpretAs(13i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Media: SayAsInterpretAs = SayAsInterpretAs(14i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_MonthDayYear: SayAsInterpretAs = SayAsInterpretAs(15i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_DayMonthYear: SayAsInterpretAs = SayAsInterpretAs(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_YearMonthDay: SayAsInterpretAs = SayAsInterpretAs(17i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_YearMonth: SayAsInterpretAs = SayAsInterpretAs(18i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_MonthYear: SayAsInterpretAs = SayAsInterpretAs(19i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_DayMonth: SayAsInterpretAs = SayAsInterpretAs(20i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_MonthDay: SayAsInterpretAs = SayAsInterpretAs(21i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Date_Year: SayAsInterpretAs = SayAsInterpretAs(22i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = SayAsInterpretAs(23i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Time_HoursMinutes12: SayAsInterpretAs = SayAsInterpretAs(24i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = SayAsInterpretAs(25i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = SayAsInterpretAs(26i32);
-impl ::core::marker::Copy for SayAsInterpretAs {}
-impl ::core::clone::Clone for SayAsInterpretAs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SayAsInterpretAs {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SayAsInterpretAs {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SayAsInterpretAs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SayAsInterpretAs").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ScrollAmount(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ScrollAmount_LargeDecrement: ScrollAmount = ScrollAmount(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ScrollAmount_SmallDecrement: ScrollAmount = ScrollAmount(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ScrollAmount_NoAmount: ScrollAmount = ScrollAmount(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ScrollAmount_LargeIncrement: ScrollAmount = ScrollAmount(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ScrollAmount_SmallIncrement: ScrollAmount = ScrollAmount(4i32);
-impl ::core::marker::Copy for ScrollAmount {}
-impl ::core::clone::Clone for ScrollAmount {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ScrollAmount {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ScrollAmount {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ScrollAmount {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ScrollAmount").field(&self.0).finish()
-    }
-}
 pub const ScrollBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaf34b36_5065_4946_b22f_92595fc0751a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn ScrollItemPattern_ScrollIntoView<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    ScrollItemPattern_ScrollIntoView(hobj.into()).ok()
-}
 pub const ScrollItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4591d005_a803_4d5c_b4d5_8d2800f906a7);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn ScrollPattern_Scroll<'a, P0>(hobj: P0, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> ::windows::core::HRESULT;
-    }
-    ScrollPattern_Scroll(hobj.into(), horizontalamount, verticalamount).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn ScrollPattern_SetScrollPercent<'a, P0>(hobj: P0, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::HRESULT;
-    }
-    ScrollPattern_SetScrollPercent(hobj.into(), horizontalpercent, verticalpercent).ok()
-}
 pub const Scroll_HorizontalScrollPercent_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7c13c0e_eb21_47ff_acc4_b5a3350f5191);
 pub const Scroll_HorizontalViewSize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70c2e5d4_fcb0_4713_a9aa_af92ff79e4cd);
 pub const Scroll_HorizontallyScrollable_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b925147_28cd_49ae_bd63_f44118d2e719);
@@ -22962,42 +21909,6 @@ pub const Selection2_CurrentSelectedItem_Property_GUID: ::windows::core::GUID = 
 pub const Selection2_FirstSelectedItem_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc24ea67_369c_4e55_9ff7_38da69540c29);
 pub const Selection2_ItemCount_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb49eb9f_456d_4048_b591_9c2026b84636);
 pub const Selection2_LastSelectedItem_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7bda90_2d83_49f8_860c_9ce394cf89b4);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn SelectionItemPattern_AddToSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    SelectionItemPattern_AddToSelection(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn SelectionItemPattern_RemoveFromSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    SelectionItemPattern_RemoveFromSelection(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn SelectionItemPattern_Select<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    SelectionItemPattern_Select(hobj.into()).ok()
-}
 pub const SelectionItem_ElementAddedToSelectionEvent_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c822dd1_c407_4dba_91dd_79d4aed0aec6);
 pub const SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x097fa8a9_7079_41af_8b9c_0934d8305e5c);
 pub const SelectionItem_ElementSelectedEvent_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c7dbfb_4ebe_4532_aaf4_008cf647233c);
@@ -23012,19 +21923,6 @@ pub const Selection_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID:
 pub const Selection_Selection_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa6dc2a2_0e2b_4d38_96d5_34e470b81853);
 pub const SemanticZoom_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fd34a43_061e_42c8_b589_9dccf74bc43a);
 pub const Separator_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8767eba3_2a63_4ab0_ac8d_aa50e23de978);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetWinEventHook<'a, P0>(eventmin: u32, eventmax: u32, hmodwineventproc: P0, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK
-where
-    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: super::super::Foundation::HINSTANCE, pfnwineventproc: *mut ::core::ffi::c_void, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK;
-    }
-    SetWinEventHook(eventmin, eventmax, hmodwineventproc.into(), ::core::mem::transmute(pfnwineventproc), idprocess, idthread, dwflags)
-}
 pub const SizeOfSet_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1600d33c_3b9f_4369_9431_aa293f344cf1);
 pub const Size_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b5f761d_f885_4404_973f_9b1d98e36d8f);
 pub const Slider_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb033c24b_3b35_4cea_b609_763682fa660b);
@@ -23036,41 +21934,6 @@ pub const SpreadsheetItem_Formula_Property_GUID: ::windows::core::GUID = ::windo
 pub const SpreadsheetItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32cf83ff_f1a8_4a8c_8658_d47ba74e20ba);
 pub const Spreadsheet_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5b24c9_9d1e_4b85_9e44_c02e3169b10b);
 pub const StatusBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45e7d1b_5873_475f_95a4_0433e1f1b00a);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StructureChangeType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StructureChangeType_ChildAdded: StructureChangeType = StructureChangeType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StructureChangeType_ChildRemoved: StructureChangeType = StructureChangeType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StructureChangeType_ChildrenInvalidated: StructureChangeType = StructureChangeType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = StructureChangeType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StructureChangeType_ChildrenBulkRemoved: StructureChangeType = StructureChangeType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const StructureChangeType_ChildrenReordered: StructureChangeType = StructureChangeType(5i32);
-impl ::core::marker::Copy for StructureChangeType {}
-impl ::core::clone::Clone for StructureChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StructureChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StructureChangeType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StructureChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StructureChangeType").field(&self.0).finish()
-    }
-}
 pub const StructureChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59977961_3edd_4b11_b13b_676b2a2a6ca9);
 pub const StructuredMarkup_CompositionComplete_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc48a3c17_677a_4047_a68d_fc1257528aef);
 pub const StructuredMarkup_Deleted_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9d0a020_e1c1_4ecf_b9aa_52efde7e41e1);
@@ -23135,127 +21998,8 @@ pub const Styles_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::fr
 pub const Styles_Shape_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71a23f8_778c_400d_8458_3b543e526984);
 pub const Styles_StyleId_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda82852f_3817_4233_82af_02279e72cc77);
 pub const Styles_StyleName_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c12b035_05d1_4f55_9e8e_1489f3ff550d);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SupportedTextSelection(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SupportedTextSelection_None: SupportedTextSelection = SupportedTextSelection(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SupportedTextSelection_Single: SupportedTextSelection = SupportedTextSelection(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SupportedTextSelection_Multiple: SupportedTextSelection = SupportedTextSelection(2i32);
-impl ::core::marker::Copy for SupportedTextSelection {}
-impl ::core::clone::Clone for SupportedTextSelection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SupportedTextSelection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SupportedTextSelection {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SupportedTextSelection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn SynchronizedInputPattern_Cancel<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    SynchronizedInputPattern_Cancel(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn SynchronizedInputPattern_StartListening<'a, P0>(hobj: P0, inputtype: SynchronizedInputType) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> ::windows::core::HRESULT;
-    }
-    SynchronizedInputPattern_StartListening(hobj.into(), inputtype).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SynchronizedInputType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SynchronizedInputType_KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SynchronizedInputType_KeyDown: SynchronizedInputType = SynchronizedInputType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = SynchronizedInputType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = SynchronizedInputType(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = SynchronizedInputType(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = SynchronizedInputType(32i32);
-impl ::core::marker::Copy for SynchronizedInputType {}
-impl ::core::clone::Clone for SynchronizedInputType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SynchronizedInputType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SynchronizedInputType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SynchronizedInputType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SynchronizedInputType").field(&self.0).finish()
-    }
-}
 pub const SynchronizedInput_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05c288a6_c47b_488b_b653_33977a551b8b);
 pub const SystemAlert_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd271545d_7a3a_47a7_8474_81d29a2451c9);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub struct TOGGLEKEYS {
-    pub cbSize: u32,
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for TOGGLEKEYS {}
-impl ::core::clone::Clone for TOGGLEKEYS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TOGGLEKEYS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TOGGLEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TOGGLEKEYS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TOGGLEKEYS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOGGLEKEYS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TOGGLEKEYS {}
-impl ::core::default::Default for TOGGLEKEYS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const TabItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c6a634f_921b_4e6e_b26e_08fcb0798f4c);
 pub const Tab_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38cd1f2d_337a_4bd2_a5e3_adb469e30bd3);
 pub const TableItem_ColumnHeaderItems_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x967a56a3_74b6_431e_8de6_99c411031c58);
@@ -23267,475 +22011,9 @@ pub const Table_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const Table_RowHeaders_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9e35b87_6eb8_4562_aac6_a8a9075236a8);
 pub const Table_RowOrColumnMajor_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83be75c3_29fe_4a30_85e1_2a6277fd106e);
 pub const TextChild_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7533cab7_3bfe_41ef_9e85_e2638cbe169e);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TextDecorationLineStyle(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_None: TextDecorationLineStyle = TextDecorationLineStyle(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_Single: TextDecorationLineStyle = TextDecorationLineStyle(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_WordsOnly: TextDecorationLineStyle = TextDecorationLineStyle(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_Double: TextDecorationLineStyle = TextDecorationLineStyle(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_Dot: TextDecorationLineStyle = TextDecorationLineStyle(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = TextDecorationLineStyle(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = TextDecorationLineStyle(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_DashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_Wavy: TextDecorationLineStyle = TextDecorationLineStyle(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickSingle: TextDecorationLineStyle = TextDecorationLineStyle(9i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_DoubleWavy: TextDecorationLineStyle = TextDecorationLineStyle(11i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickWavy: TextDecorationLineStyle = TextDecorationLineStyle(12i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_LongDash: TextDecorationLineStyle = TextDecorationLineStyle(13i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickDash: TextDecorationLineStyle = TextDecorationLineStyle(14i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickDashDot: TextDecorationLineStyle = TextDecorationLineStyle(15i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickDashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickDot: TextDecorationLineStyle = TextDecorationLineStyle(17i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_ThickLongDash: TextDecorationLineStyle = TextDecorationLineStyle(18i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextDecorationLineStyle_Other: TextDecorationLineStyle = TextDecorationLineStyle(-1i32);
-impl ::core::marker::Copy for TextDecorationLineStyle {}
-impl ::core::clone::Clone for TextDecorationLineStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextDecorationLineStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TextDecorationLineStyle {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TextDecorationLineStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextDecorationLineStyle").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TextEditChangeType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextEditChangeType_None: TextEditChangeType = TextEditChangeType(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextEditChangeType_AutoCorrect: TextEditChangeType = TextEditChangeType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextEditChangeType_Composition: TextEditChangeType = TextEditChangeType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextEditChangeType_CompositionFinalized: TextEditChangeType = TextEditChangeType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextEditChangeType_AutoComplete: TextEditChangeType = TextEditChangeType(4i32);
-impl ::core::marker::Copy for TextEditChangeType {}
-impl ::core::clone::Clone for TextEditChangeType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextEditChangeType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TextEditChangeType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TextEditChangeType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextEditChangeType").field(&self.0).finish()
-    }
-}
 pub const TextEdit_ConversionTargetChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3388c183_ed4f_4c8b_9baa_364d51d8847f);
 pub const TextEdit_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69f3ff89_5af9_4c75_9340_f2de292e4591);
 pub const TextEdit_TextChanged_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120b0308_ec22_4eb8_9c98_9867cda1b165);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TextPatternRangeEndpoint(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = TextPatternRangeEndpoint(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = TextPatternRangeEndpoint(1i32);
-impl ::core::marker::Copy for TextPatternRangeEndpoint {}
-impl ::core::clone::Clone for TextPatternRangeEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextPatternRangeEndpoint {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TextPatternRangeEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn TextPattern_GetSelection<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    TextPattern_GetSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn TextPattern_GetVisibleRanges<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    TextPattern_GetVisibleRanges(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextPattern_RangeFromChild<'a, P0, P1>(hobj: P0, hnodechild: P1, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-    P1: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextPattern_RangeFromChild(hobj.into(), hnodechild.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextPattern_RangeFromPoint<'a, P0>(hobj: P0, point: UiaPoint, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextPattern_RangeFromPoint(hobj.into(), ::core::mem::transmute(point), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextPattern_get_DocumentRange<'a, P0>(hobj: P0, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextPattern_get_DocumentRange(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextPattern_get_SupportedTextSelection<'a, P0>(hobj: P0, pretval: &mut SupportedTextSelection) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> ::windows::core::HRESULT;
-    }
-    TextPattern_get_SupportedTextSelection(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_AddToSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextRange_AddToSelection(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_Clone<'a, P0>(hobj: P0, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextRange_Clone(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TextRange_Compare<'a, P0, P1>(hobj: P0, range: P1, pretval: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-    P1: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    TextRange_Compare(hobj.into(), range.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_CompareEndpoints<'a, P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint, pretval: &mut i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-    P1: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> ::windows::core::HRESULT;
-    }
-    TextRange_CompareEndpoints(hobj.into(), endpoint, targetrange.into(), targetendpoint, ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_ExpandToEnclosingUnit<'a, P0>(hobj: P0, unit: TextUnit) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> ::windows::core::HRESULT;
-    }
-    TextRange_ExpandToEnclosingUnit(hobj.into(), unit).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn TextRange_FindAttribute<'a, P0, P1, P2>(hobj: P0, attributeid: i32, val: P1, backward: P2, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, backward: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextRange_FindAttribute(hobj.into(), attributeid, val.into().abi(), backward.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TextRange_FindText<'a, P0, P1, P2, P3>(hobj: P0, text: P1, backward: P2, ignorecase: P3, pretval: &mut HUIATEXTRANGE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P3: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_FindText(hobj: HUIATEXTRANGE, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, backward: super::super::Foundation::BOOL, ignorecase: super::super::Foundation::BOOL, pretval: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextRange_FindText(hobj.into(), text.into().abi(), backward.into(), ignorecase.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn TextRange_GetAttributeValue<'a, P0>(hobj: P0, attributeid: i32, pretval: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-    }
-    TextRange_GetAttributeValue(hobj.into(), attributeid, ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn TextRange_GetBoundingRectangles<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    TextRange_GetBoundingRectangles(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn TextRange_GetChildren<'a, P0>(hobj: P0, pretval: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    TextRange_GetChildren(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_GetEnclosingElement<'a, P0>(hobj: P0, pretval: &mut HUIANODE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
-    TextRange_GetEnclosingElement(hobj.into(), ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TextRange_GetText<'a, P0>(hobj: P0, maxlength: i32, pretval: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-    }
-    TextRange_GetText(hobj.into(), maxlength, ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_Move<'a, P0>(hobj: P0, unit: TextUnit, count: i32, pretval: &mut i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
-    }
-    TextRange_Move(hobj.into(), unit, count, ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_MoveEndpointByRange<'a, P0, P1>(hobj: P0, endpoint: TextPatternRangeEndpoint, targetrange: P1, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-    P1: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> ::windows::core::HRESULT;
-    }
-    TextRange_MoveEndpointByRange(hobj.into(), endpoint, targetrange.into(), targetendpoint).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_MoveEndpointByUnit<'a, P0>(hobj: P0, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: &mut i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> ::windows::core::HRESULT;
-    }
-    TextRange_MoveEndpointByUnit(hobj.into(), endpoint, unit, count, ::core::mem::transmute(pretval)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_RemoveFromSelection<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextRange_RemoveFromSelection(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TextRange_ScrollIntoView<'a, P0, P1>(hobj: P0, aligntotop: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    TextRange_ScrollIntoView(hobj.into(), aligntotop.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TextRange_Select<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TextRange_Select(hobj: HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    TextRange_Select(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TextUnit(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Character: TextUnit = TextUnit(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Format: TextUnit = TextUnit(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Word: TextUnit = TextUnit(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Line: TextUnit = TextUnit(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Paragraph: TextUnit = TextUnit(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Page: TextUnit = TextUnit(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TextUnit_Document: TextUnit = TextUnit(6i32);
-impl ::core::marker::Copy for TextUnit {}
-impl ::core::clone::Clone for TextUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TextUnit {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TextUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextUnit").field(&self.0).finish()
-    }
-}
 pub const Text_AfterParagraphSpacing_Attribute_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x588cbb38_e62f_497c_b5d1_ccdf0ee823d8);
 pub const Text_AfterSpacing_Attribute_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x588cbb38_e62f_497c_b5d1_ccdf0ee823d8);
 pub const Text_AnimationStyle_Attribute_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x628209f0_7c9a_4d57_be64_1f1836571ff5);
@@ -23789,47 +22067,6 @@ pub const Text_UnderlineColor_Attribute_GUID: ::windows::core::GUID = ::windows:
 pub const Text_UnderlineStyle_Attribute_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f3b21c0_ede4_44bd_9c36_3853038cbfeb);
 pub const Thumb_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x701ca877_e310_4dd6_b644_797e4faea213);
 pub const TitleBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98aa55bf_3bb0_4b65_836e_2ea30dbc171f);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TogglePattern_Toggle<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    TogglePattern_Toggle(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ToggleState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ToggleState_Off: ToggleState = ToggleState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ToggleState_On: ToggleState = ToggleState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ToggleState_Indeterminate: ToggleState = ToggleState(2i32);
-impl ::core::marker::Copy for ToggleState {}
-impl ::core::clone::Clone for ToggleState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToggleState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ToggleState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ToggleState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToggleState").field(&self.0).finish()
-    }
-}
 pub const Toggle_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b419760_e2f4_43ff_8c5f_9457c82b56e9);
 pub const Toggle_ToggleState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb23cdc52_22c2_4c6c_9ded_f5c422479ede);
 pub const ToolBar_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f06b751_e182_4e98_8893_2284543a7dce);
@@ -23841,113 +22078,11 @@ pub const Transform2_CanZoom_Property_GUID: ::windows::core::GUID = ::windows::c
 pub const Transform2_ZoomLevel_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeee29f1a_f4a2_4b5b_ac65_95cf93283387);
 pub const Transform2_ZoomMaximum_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42ab6b77_ceb0_4eca_b82a_6cfa5fa1fc08);
 pub const Transform2_ZoomMinimum_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x742ccc16_4ad1_4e07_96fe_b122c6e6b22b);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TransformPattern_Move<'a, P0>(hobj: P0, x: f64, y: f64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> ::windows::core::HRESULT;
-    }
-    TransformPattern_Move(hobj.into(), x, y).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TransformPattern_Resize<'a, P0>(hobj: P0, width: f64, height: f64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> ::windows::core::HRESULT;
-    }
-    TransformPattern_Resize(hobj.into(), width, height).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn TransformPattern_Rotate<'a, P0>(hobj: P0, degrees: f64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> ::windows::core::HRESULT;
-    }
-    TransformPattern_Rotate(hobj.into(), degrees).ok()
-}
 pub const Transform_CanMove_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b75824d_208b_4fdf_bccd_f1f4e5741f4f);
 pub const Transform_CanResize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb98dca5_4c1a_41d4_a4f6_ebc128644180);
 pub const Transform_CanRotate_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10079b48_3849_476f_ac96_44a95c8440d9);
 pub const Transform_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24b46fdb_587e_49f1_9c4a_d8e98b664b7b);
 pub const TreeItem_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62c9feb9_8ffc_4878_a3a4_96b030315c18);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TreeScope(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_None: TreeScope = TreeScope(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_Element: TreeScope = TreeScope(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_Children: TreeScope = TreeScope(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_Descendants: TreeScope = TreeScope(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_Parent: TreeScope = TreeScope(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_Ancestors: TreeScope = TreeScope(16i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeScope_Subtree: TreeScope = TreeScope(7i32);
-impl ::core::marker::Copy for TreeScope {}
-impl ::core::clone::Clone for TreeScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TreeScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TreeScope {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TreeScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TreeScope").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TreeTraversalOptions(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeTraversalOptions_Default: TreeTraversalOptions = TreeTraversalOptions(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = TreeTraversalOptions(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = TreeTraversalOptions(2i32);
-impl ::core::marker::Copy for TreeTraversalOptions {}
-impl ::core::clone::Clone for TreeTraversalOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TreeTraversalOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TreeTraversalOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TreeTraversalOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TreeTraversalOptions").field(&self.0).finish()
-    }
-}
 pub const Tree_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7561349c_d241_43f4_9908_b5f091bee611);
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_AcceleratorKeyPropertyId: i32 = 30006i32;
@@ -24651,6 +22786,2734 @@ pub const UIA_WindowWindowVisualStatePropertyId: i32 = 30075i32;
 pub const UIA_Window_WindowClosedEventId: i32 = 20017i32;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub const UIA_Window_WindowOpenedEventId: i32 = 20016i32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UiaAppendRuntimeId: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UiaRootObjectId: i32 = -25i32;
+pub const Value_IsReadOnly_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
+pub const Value_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);
+pub const Value_Value_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95f5e64_269f_4a85_ba99_4092c3ea2986);
+pub const VirtualizedItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
+pub const VisualEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe61a8565_aad9_46d7_9e70_4e8a8420d420);
+pub const Window_CanMaximize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64fff53f_635d_41c1_950c_cb5adfbe28e3);
+pub const Window_CanMinimize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb73b4625_5988_4b97_b4c2_a6fe6e78c8c6);
+pub const Window_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe13a7242_f462_4f4d_aec1_53b28d6c3290);
+pub const Window_IsModal_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4e6892_37b9_4fca_8532_ffe674ecfeed);
+pub const Window_IsTopmost_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef7d85d3_0937_4962_9241_b62345f24041);
+pub const Window_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27901735_c760_4994_ad11_5919e606b110);
+pub const Window_WindowClosed_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedf141f8_fa67_4e22_bbf7_944e05735ee2);
+pub const Window_WindowInteractionState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fed26a4_0455_4fa2_b21c_c4da2db1ff9c);
+pub const Window_WindowOpened_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e81d06_de45_4f2f_9633_de9e02fb65af);
+pub const Window_WindowVisualState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ab7905f_e860_453e_a30a_f6431e5daad5);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ACC_UTILITY_STATE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANRUS_ON_SCREEN_KEYBOARD_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANRUS_TOUCH_MODIFICATION_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANRUS_PRIORITY_AUDIO_ACTIVE: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANRUS_PRIORITY_AUDIO_ACTIVE_NODUCK: ACC_UTILITY_STATE_FLAGS = ACC_UTILITY_STATE_FLAGS(8u32);
+impl ::core::marker::Copy for ACC_UTILITY_STATE_FLAGS {}
+impl ::core::clone::Clone for ACC_UTILITY_STATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ACC_UTILITY_STATE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ACC_UTILITY_STATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACC_UTILITY_STATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACC_UTILITY_STATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ACC_UTILITY_STATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ACC_UTILITY_STATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ACC_UTILITY_STATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ACC_UTILITY_STATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ACC_UTILITY_STATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActiveEnd(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ActiveEnd_None: ActiveEnd = ActiveEnd(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ActiveEnd_Start: ActiveEnd = ActiveEnd(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ActiveEnd_End: ActiveEnd = ActiveEnd(2i32);
+impl ::core::marker::Copy for ActiveEnd {}
+impl ::core::clone::Clone for ActiveEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActiveEnd {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActiveEnd {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActiveEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActiveEnd").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AnimationStyle(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_None: AnimationStyle = AnimationStyle(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_LasVegasLights: AnimationStyle = AnimationStyle(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_BlinkingBackground: AnimationStyle = AnimationStyle(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_SparkleText: AnimationStyle = AnimationStyle(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_MarchingBlackAnts: AnimationStyle = AnimationStyle(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_MarchingRedAnts: AnimationStyle = AnimationStyle(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_Shimmer: AnimationStyle = AnimationStyle(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AnimationStyle_Other: AnimationStyle = AnimationStyle(-1i32);
+impl ::core::marker::Copy for AnimationStyle {}
+impl ::core::clone::Clone for AnimationStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AnimationStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AnimationStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AnimationStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationStyle").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AnnoScope(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANNO_THIS: AnnoScope = AnnoScope(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ANNO_CONTAINER: AnnoScope = AnnoScope(1i32);
+impl ::core::marker::Copy for AnnoScope {}
+impl ::core::clone::Clone for AnnoScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AnnoScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AnnoScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AnnoScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnnoScope").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AsyncContentLoadedState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AsyncContentLoadedState_Beginning: AsyncContentLoadedState = AsyncContentLoadedState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AsyncContentLoadedState_Progress: AsyncContentLoadedState = AsyncContentLoadedState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AsyncContentLoadedState_Completed: AsyncContentLoadedState = AsyncContentLoadedState(2i32);
+impl ::core::marker::Copy for AsyncContentLoadedState {}
+impl ::core::clone::Clone for AsyncContentLoadedState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AsyncContentLoadedState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AsyncContentLoadedState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AsyncContentLoadedState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncContentLoadedState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutomationElementMode(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationElementMode_None: AutomationElementMode = AutomationElementMode(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationElementMode_Full: AutomationElementMode = AutomationElementMode(1i32);
+impl ::core::marker::Copy for AutomationElementMode {}
+impl ::core::clone::Clone for AutomationElementMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AutomationElementMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AutomationElementMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomationElementMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationElementMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutomationIdentifierType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_Property: AutomationIdentifierType = AutomationIdentifierType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_Pattern: AutomationIdentifierType = AutomationIdentifierType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_Event: AutomationIdentifierType = AutomationIdentifierType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_ControlType: AutomationIdentifierType = AutomationIdentifierType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_TextAttribute: AutomationIdentifierType = AutomationIdentifierType(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_LandmarkType: AutomationIdentifierType = AutomationIdentifierType(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_Annotation: AutomationIdentifierType = AutomationIdentifierType(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_Changes: AutomationIdentifierType = AutomationIdentifierType(7i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const AutomationIdentifierType_Style: AutomationIdentifierType = AutomationIdentifierType(8i32);
+impl ::core::marker::Copy for AutomationIdentifierType {}
+impl ::core::clone::Clone for AutomationIdentifierType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AutomationIdentifierType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AutomationIdentifierType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomationIdentifierType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomationIdentifierType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BulletStyle(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_None: BulletStyle = BulletStyle(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_HollowRoundBullet: BulletStyle = BulletStyle(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_FilledRoundBullet: BulletStyle = BulletStyle(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_HollowSquareBullet: BulletStyle = BulletStyle(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_FilledSquareBullet: BulletStyle = BulletStyle(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_DashBullet: BulletStyle = BulletStyle(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const BulletStyle_Other: BulletStyle = BulletStyle(-1i32);
+impl ::core::marker::Copy for BulletStyle {}
+impl ::core::clone::Clone for BulletStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BulletStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BulletStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BulletStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BulletStyle").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CapStyle(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_None: CapStyle = CapStyle(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_SmallCap: CapStyle = CapStyle(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_AllCap: CapStyle = CapStyle(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_AllPetiteCaps: CapStyle = CapStyle(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_PetiteCaps: CapStyle = CapStyle(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_Unicase: CapStyle = CapStyle(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_Titling: CapStyle = CapStyle(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CapStyle_Other: CapStyle = CapStyle(-1i32);
+impl ::core::marker::Copy for CapStyle {}
+impl ::core::clone::Clone for CapStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CapStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CapStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CapStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CapStyle").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CaretBidiMode(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CaretBidiMode_LTR: CaretBidiMode = CaretBidiMode(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CaretBidiMode_RTL: CaretBidiMode = CaretBidiMode(1i32);
+impl ::core::marker::Copy for CaretBidiMode {}
+impl ::core::clone::Clone for CaretBidiMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CaretBidiMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CaretBidiMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CaretBidiMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaretBidiMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CaretPosition(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CaretPosition_Unknown: CaretPosition = CaretPosition(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CaretPosition_EndOfLine: CaretPosition = CaretPosition(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CaretPosition_BeginningOfLine: CaretPosition = CaretPosition(2i32);
+impl ::core::marker::Copy for CaretPosition {}
+impl ::core::clone::Clone for CaretPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CaretPosition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CaretPosition {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CaretPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaretPosition").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CoalesceEventsOptions(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CoalesceEventsOptions_Disabled: CoalesceEventsOptions = CoalesceEventsOptions(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const CoalesceEventsOptions_Enabled: CoalesceEventsOptions = CoalesceEventsOptions(1i32);
+impl ::core::marker::Copy for CoalesceEventsOptions {}
+impl ::core::clone::Clone for CoalesceEventsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CoalesceEventsOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CoalesceEventsOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CoalesceEventsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoalesceEventsOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConditionType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConditionType_True: ConditionType = ConditionType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConditionType_False: ConditionType = ConditionType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConditionType_Property: ConditionType = ConditionType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConditionType_And: ConditionType = ConditionType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConditionType_Or: ConditionType = ConditionType(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConditionType_Not: ConditionType = ConditionType(5i32);
+impl ::core::marker::Copy for ConditionType {}
+impl ::core::clone::Clone for ConditionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConditionType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConditionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConditionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConditionType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ConnectionRecoveryBehaviorOptions(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = ConnectionRecoveryBehaviorOptions(1i32);
+impl ::core::marker::Copy for ConnectionRecoveryBehaviorOptions {}
+impl ::core::clone::Clone for ConnectionRecoveryBehaviorOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ConnectionRecoveryBehaviorOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ConnectionRecoveryBehaviorOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ConnectionRecoveryBehaviorOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectionRecoveryBehaviorOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DockPosition(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DockPosition_Top: DockPosition = DockPosition(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DockPosition_Left: DockPosition = DockPosition(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DockPosition_Bottom: DockPosition = DockPosition(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DockPosition_Right: DockPosition = DockPosition(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DockPosition_Fill: DockPosition = DockPosition(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const DockPosition_None: DockPosition = DockPosition(5i32);
+impl ::core::marker::Copy for DockPosition {}
+impl ::core::clone::Clone for DockPosition {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DockPosition {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DockPosition {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DockPosition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DockPosition").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EventArgsType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_Simple: EventArgsType = EventArgsType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_PropertyChanged: EventArgsType = EventArgsType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_StructureChanged: EventArgsType = EventArgsType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_AsyncContentLoaded: EventArgsType = EventArgsType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_WindowClosed: EventArgsType = EventArgsType(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_TextEditTextChanged: EventArgsType = EventArgsType(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_Changes: EventArgsType = EventArgsType(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_Notification: EventArgsType = EventArgsType(7i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_ActiveTextPositionChanged: EventArgsType = EventArgsType(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const EventArgsType_StructuredMarkup: EventArgsType = EventArgsType(9i32);
+impl ::core::marker::Copy for EventArgsType {}
+impl ::core::clone::Clone for EventArgsType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EventArgsType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EventArgsType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EventArgsType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EventArgsType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ExpandCollapseState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ExpandCollapseState_Collapsed: ExpandCollapseState = ExpandCollapseState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ExpandCollapseState_Expanded: ExpandCollapseState = ExpandCollapseState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ExpandCollapseState_PartiallyExpanded: ExpandCollapseState = ExpandCollapseState(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ExpandCollapseState_LeafNode: ExpandCollapseState = ExpandCollapseState(3i32);
+impl ::core::marker::Copy for ExpandCollapseState {}
+impl ::core::clone::Clone for ExpandCollapseState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ExpandCollapseState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ExpandCollapseState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ExpandCollapseState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExpandCollapseState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FillType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FillType_None: FillType = FillType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FillType_Color: FillType = FillType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FillType_Gradient: FillType = FillType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FillType_Picture: FillType = FillType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FillType_Pattern: FillType = FillType(4i32);
+impl ::core::marker::Copy for FillType {}
+impl ::core::clone::Clone for FillType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FillType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FillType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FillType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FillType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FlowDirections(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FlowDirections_Default: FlowDirections = FlowDirections(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FlowDirections_RightToLeft: FlowDirections = FlowDirections(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FlowDirections_BottomToTop: FlowDirections = FlowDirections(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const FlowDirections_Vertical: FlowDirections = FlowDirections(4i32);
+impl ::core::marker::Copy for FlowDirections {}
+impl ::core::clone::Clone for FlowDirections {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FlowDirections {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FlowDirections {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FlowDirections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlowDirections").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HIGHCONTRASTW_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_HIGHCONTRASTON: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_AVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_HOTKEYACTIVE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_CONFIRMHOTKEY: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_HOTKEYSOUND: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_INDICATOR: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_HOTKEYAVAILABLE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HCF_OPTION_NOTHEMECHANGE: HIGHCONTRASTW_FLAGS = HIGHCONTRASTW_FLAGS(4096u32);
+impl ::core::marker::Copy for HIGHCONTRASTW_FLAGS {}
+impl ::core::clone::Clone for HIGHCONTRASTW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HIGHCONTRASTW_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HIGHCONTRASTW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HIGHCONTRASTW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIGHCONTRASTW_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HIGHCONTRASTW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HIGHCONTRASTW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HIGHCONTRASTW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HIGHCONTRASTW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HIGHCONTRASTW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HorizontalTextAlignment(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HorizontalTextAlignment_Left: HorizontalTextAlignment = HorizontalTextAlignment(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HorizontalTextAlignment_Centered: HorizontalTextAlignment = HorizontalTextAlignment(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HorizontalTextAlignment_Right: HorizontalTextAlignment = HorizontalTextAlignment(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const HorizontalTextAlignment_Justified: HorizontalTextAlignment = HorizontalTextAlignment(3i32);
+impl ::core::marker::Copy for HorizontalTextAlignment {}
+impl ::core::clone::Clone for HorizontalTextAlignment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HorizontalTextAlignment {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HorizontalTextAlignment {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HorizontalTextAlignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HorizontalTextAlignment").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LiveSetting(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const Off: LiveSetting = LiveSetting(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const Polite: LiveSetting = LiveSetting(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const Assertive: LiveSetting = LiveSetting(2i32);
+impl ::core::marker::Copy for LiveSetting {}
+impl ::core::clone::Clone for LiveSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LiveSetting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LiveSetting {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LiveSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LiveSetting").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NavigateDirection(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NavigateDirection_Parent: NavigateDirection = NavigateDirection(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NavigateDirection_NextSibling: NavigateDirection = NavigateDirection(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NavigateDirection_PreviousSibling: NavigateDirection = NavigateDirection(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NavigateDirection_FirstChild: NavigateDirection = NavigateDirection(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NavigateDirection_LastChild: NavigateDirection = NavigateDirection(4i32);
+impl ::core::marker::Copy for NavigateDirection {}
+impl ::core::clone::Clone for NavigateDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NavigateDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NavigateDirection {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NavigateDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigateDirection").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NormalizeState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NormalizeState_None: NormalizeState = NormalizeState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NormalizeState_View: NormalizeState = NormalizeState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NormalizeState_Custom: NormalizeState = NormalizeState(2i32);
+impl ::core::marker::Copy for NormalizeState {}
+impl ::core::clone::Clone for NormalizeState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NormalizeState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NormalizeState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NormalizeState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NormalizeState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NotificationKind(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationKind_ItemAdded: NotificationKind = NotificationKind(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationKind_ItemRemoved: NotificationKind = NotificationKind(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationKind_ActionCompleted: NotificationKind = NotificationKind(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationKind_ActionAborted: NotificationKind = NotificationKind(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationKind_Other: NotificationKind = NotificationKind(4i32);
+impl ::core::marker::Copy for NotificationKind {}
+impl ::core::clone::Clone for NotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NotificationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NotificationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationKind").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NotificationProcessing(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationProcessing_ImportantAll: NotificationProcessing = NotificationProcessing(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationProcessing_ImportantMostRecent: NotificationProcessing = NotificationProcessing(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationProcessing_All: NotificationProcessing = NotificationProcessing(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationProcessing_MostRecent: NotificationProcessing = NotificationProcessing(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const NotificationProcessing_CurrentThenMostRecent: NotificationProcessing = NotificationProcessing(4i32);
+impl ::core::marker::Copy for NotificationProcessing {}
+impl ::core::clone::Clone for NotificationProcessing {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NotificationProcessing {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NotificationProcessing {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NotificationProcessing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationProcessing").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OrientationType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OrientationType_None: OrientationType = OrientationType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OrientationType_Horizontal: OrientationType = OrientationType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OrientationType_Vertical: OrientationType = OrientationType(2i32);
+impl ::core::marker::Copy for OrientationType {}
+impl ::core::clone::Clone for OrientationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OrientationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OrientationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OrientationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OrientationType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OutlineStyles(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OutlineStyles_None: OutlineStyles = OutlineStyles(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OutlineStyles_Outline: OutlineStyles = OutlineStyles(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OutlineStyles_Shadow: OutlineStyles = OutlineStyles(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OutlineStyles_Engraved: OutlineStyles = OutlineStyles(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const OutlineStyles_Embossed: OutlineStyles = OutlineStyles(8i32);
+impl ::core::marker::Copy for OutlineStyles {}
+impl ::core::clone::Clone for OutlineStyles {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OutlineStyles {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OutlineStyles {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OutlineStyles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OutlineStyles").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PropertyConditionFlags(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const PropertyConditionFlags_None: PropertyConditionFlags = PropertyConditionFlags(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const PropertyConditionFlags_IgnoreCase: PropertyConditionFlags = PropertyConditionFlags(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const PropertyConditionFlags_MatchSubstring: PropertyConditionFlags = PropertyConditionFlags(2i32);
+impl ::core::marker::Copy for PropertyConditionFlags {}
+impl ::core::clone::Clone for PropertyConditionFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PropertyConditionFlags {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PropertyConditionFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PropertyConditionFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyConditionFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ProviderOptions(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_ClientSideProvider: ProviderOptions = ProviderOptions(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_ServerSideProvider: ProviderOptions = ProviderOptions(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_NonClientAreaProvider: ProviderOptions = ProviderOptions(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_OverrideProvider: ProviderOptions = ProviderOptions(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_ProviderOwnsSetFocus: ProviderOptions = ProviderOptions(16i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_UseComThreading: ProviderOptions = ProviderOptions(32i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_RefuseNonClientSupport: ProviderOptions = ProviderOptions(64i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_HasNativeIAccessible: ProviderOptions = ProviderOptions(128i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderOptions_UseClientCoordinates: ProviderOptions = ProviderOptions(256i32);
+impl ::core::marker::Copy for ProviderOptions {}
+impl ::core::clone::Clone for ProviderOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ProviderOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ProviderOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ProviderOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ProviderType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderType_BaseHwnd: ProviderType = ProviderType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderType_Proxy: ProviderType = ProviderType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ProviderType_NonClientArea: ProviderType = ProviderType(2i32);
+impl ::core::marker::Copy for ProviderType {}
+impl ::core::clone::Clone for ProviderType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ProviderType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ProviderType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ProviderType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RowOrColumnMajor(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const RowOrColumnMajor_RowMajor: RowOrColumnMajor = RowOrColumnMajor(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const RowOrColumnMajor_ColumnMajor: RowOrColumnMajor = RowOrColumnMajor(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const RowOrColumnMajor_Indeterminate: RowOrColumnMajor = RowOrColumnMajor(2i32);
+impl ::core::marker::Copy for RowOrColumnMajor {}
+impl ::core::clone::Clone for RowOrColumnMajor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RowOrColumnMajor {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RowOrColumnMajor {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RowOrColumnMajor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RowOrColumnMajor").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SERIALKEYS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SERKF_AVAILABLE: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SERKF_INDICATOR: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SERKF_SERIALKEYSON: SERIALKEYS_FLAGS = SERIALKEYS_FLAGS(1u32);
+impl ::core::marker::Copy for SERIALKEYS_FLAGS {}
+impl ::core::clone::Clone for SERIALKEYS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SERIALKEYS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SERIALKEYS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERIALKEYS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERIALKEYS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SERIALKEYS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SERIALKEYS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SERIALKEYS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SERIALKEYS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SERIALKEYS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SOUNDSENTRY_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSF_SOUNDSENTRYON: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSF_AVAILABLE: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSF_INDICATOR: SOUNDSENTRY_FLAGS = SOUNDSENTRY_FLAGS(4u32);
+impl ::core::marker::Copy for SOUNDSENTRY_FLAGS {}
+impl ::core::clone::Clone for SOUNDSENTRY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SOUNDSENTRY_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SOUNDSENTRY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOUNDSENTRY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOUNDSENTRY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SOUNDSENTRY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SOUNDSENTRY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SOUNDSENTRY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SOUNDSENTRY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SOUNDSENTRY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SOUNDSENTRY_TEXT_EFFECT(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSTF_BORDER: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(2u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSTF_CHARS: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(1u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSTF_DISPLAY: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(3u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSTF_NONE: SOUNDSENTRY_TEXT_EFFECT = SOUNDSENTRY_TEXT_EFFECT(0u32);
+impl ::core::marker::Copy for SOUNDSENTRY_TEXT_EFFECT {}
+impl ::core::clone::Clone for SOUNDSENTRY_TEXT_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SOUNDSENTRY_TEXT_EFFECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SOUNDSENTRY_TEXT_EFFECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOUNDSENTRY_TEXT_EFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOUNDSENTRY_TEXT_EFFECT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SOUNDSENTRY_WINDOWS_EFFECT(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSWF_CUSTOM: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(4u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSWF_DISPLAY: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(3u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSWF_NONE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(0u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSWF_TITLE: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(1u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSWF_WINDOW: SOUNDSENTRY_WINDOWS_EFFECT = SOUNDSENTRY_WINDOWS_EFFECT(2u32);
+impl ::core::marker::Copy for SOUNDSENTRY_WINDOWS_EFFECT {}
+impl ::core::clone::Clone for SOUNDSENTRY_WINDOWS_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SOUNDSENTRY_WINDOWS_EFFECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SOUNDSENTRY_WINDOWS_EFFECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOUNDSENTRY_WINDOWS_EFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOUNDSENTRY_WINDOWS_EFFECT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SOUND_SENTRY_GRAPHICS_EFFECT(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSGF_DISPLAY: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(3u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SSGF_NONE: SOUND_SENTRY_GRAPHICS_EFFECT = SOUND_SENTRY_GRAPHICS_EFFECT(0u32);
+impl ::core::marker::Copy for SOUND_SENTRY_GRAPHICS_EFFECT {}
+impl ::core::clone::Clone for SOUND_SENTRY_GRAPHICS_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SOUND_SENTRY_GRAPHICS_EFFECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SOUND_SENTRY_GRAPHICS_EFFECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOUND_SENTRY_GRAPHICS_EFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOUND_SENTRY_GRAPHICS_EFFECT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct STICKYKEYS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_STICKYKEYSON: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_AVAILABLE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_HOTKEYACTIVE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_CONFIRMHOTKEY: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_HOTKEYSOUND: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_INDICATOR: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_AUDIBLEFEEDBACK: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_TRISTATE: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_TWOKEYSOFF: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(67108864u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RALTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(536870912u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RCTLLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(134217728u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RSHIFTLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(33554432u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1073741824u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RWINLATCHED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2147483648u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RALTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RCTLLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RSHIFTLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_LWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SKF_RWINLOCKED: STICKYKEYS_FLAGS = STICKYKEYS_FLAGS(8388608u32);
+impl ::core::marker::Copy for STICKYKEYS_FLAGS {}
+impl ::core::clone::Clone for STICKYKEYS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for STICKYKEYS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for STICKYKEYS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STICKYKEYS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STICKYKEYS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STICKYKEYS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STICKYKEYS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STICKYKEYS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STICKYKEYS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STICKYKEYS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SayAsInterpretAs(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_None: SayAsInterpretAs = SayAsInterpretAs(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Spell: SayAsInterpretAs = SayAsInterpretAs(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Cardinal: SayAsInterpretAs = SayAsInterpretAs(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Ordinal: SayAsInterpretAs = SayAsInterpretAs(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Number: SayAsInterpretAs = SayAsInterpretAs(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date: SayAsInterpretAs = SayAsInterpretAs(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Time: SayAsInterpretAs = SayAsInterpretAs(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Telephone: SayAsInterpretAs = SayAsInterpretAs(7i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Currency: SayAsInterpretAs = SayAsInterpretAs(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Net: SayAsInterpretAs = SayAsInterpretAs(9i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Url: SayAsInterpretAs = SayAsInterpretAs(10i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Address: SayAsInterpretAs = SayAsInterpretAs(11i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Alphanumeric: SayAsInterpretAs = SayAsInterpretAs(12i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Name: SayAsInterpretAs = SayAsInterpretAs(13i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Media: SayAsInterpretAs = SayAsInterpretAs(14i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_MonthDayYear: SayAsInterpretAs = SayAsInterpretAs(15i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_DayMonthYear: SayAsInterpretAs = SayAsInterpretAs(16i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_YearMonthDay: SayAsInterpretAs = SayAsInterpretAs(17i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_YearMonth: SayAsInterpretAs = SayAsInterpretAs(18i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_MonthYear: SayAsInterpretAs = SayAsInterpretAs(19i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_DayMonth: SayAsInterpretAs = SayAsInterpretAs(20i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_MonthDay: SayAsInterpretAs = SayAsInterpretAs(21i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Date_Year: SayAsInterpretAs = SayAsInterpretAs(22i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Time_HoursMinutesSeconds12: SayAsInterpretAs = SayAsInterpretAs(23i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Time_HoursMinutes12: SayAsInterpretAs = SayAsInterpretAs(24i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Time_HoursMinutesSeconds24: SayAsInterpretAs = SayAsInterpretAs(25i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SayAsInterpretAs_Time_HoursMinutes24: SayAsInterpretAs = SayAsInterpretAs(26i32);
+impl ::core::marker::Copy for SayAsInterpretAs {}
+impl ::core::clone::Clone for SayAsInterpretAs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SayAsInterpretAs {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SayAsInterpretAs {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SayAsInterpretAs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SayAsInterpretAs").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ScrollAmount(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ScrollAmount_LargeDecrement: ScrollAmount = ScrollAmount(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ScrollAmount_SmallDecrement: ScrollAmount = ScrollAmount(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ScrollAmount_NoAmount: ScrollAmount = ScrollAmount(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ScrollAmount_LargeIncrement: ScrollAmount = ScrollAmount(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ScrollAmount_SmallIncrement: ScrollAmount = ScrollAmount(4i32);
+impl ::core::marker::Copy for ScrollAmount {}
+impl ::core::clone::Clone for ScrollAmount {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ScrollAmount {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ScrollAmount {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ScrollAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScrollAmount").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StructureChangeType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StructureChangeType_ChildAdded: StructureChangeType = StructureChangeType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StructureChangeType_ChildRemoved: StructureChangeType = StructureChangeType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StructureChangeType_ChildrenInvalidated: StructureChangeType = StructureChangeType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StructureChangeType_ChildrenBulkAdded: StructureChangeType = StructureChangeType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StructureChangeType_ChildrenBulkRemoved: StructureChangeType = StructureChangeType(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const StructureChangeType_ChildrenReordered: StructureChangeType = StructureChangeType(5i32);
+impl ::core::marker::Copy for StructureChangeType {}
+impl ::core::clone::Clone for StructureChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StructureChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StructureChangeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StructureChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StructureChangeType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SupportedTextSelection(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SupportedTextSelection_None: SupportedTextSelection = SupportedTextSelection(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SupportedTextSelection_Single: SupportedTextSelection = SupportedTextSelection(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SupportedTextSelection_Multiple: SupportedTextSelection = SupportedTextSelection(2i32);
+impl ::core::marker::Copy for SupportedTextSelection {}
+impl ::core::clone::Clone for SupportedTextSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SupportedTextSelection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SupportedTextSelection {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SupportedTextSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SupportedTextSelection").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SynchronizedInputType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SynchronizedInputType_KeyUp: SynchronizedInputType = SynchronizedInputType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SynchronizedInputType_KeyDown: SynchronizedInputType = SynchronizedInputType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SynchronizedInputType_LeftMouseUp: SynchronizedInputType = SynchronizedInputType(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SynchronizedInputType_LeftMouseDown: SynchronizedInputType = SynchronizedInputType(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SynchronizedInputType_RightMouseUp: SynchronizedInputType = SynchronizedInputType(16i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const SynchronizedInputType_RightMouseDown: SynchronizedInputType = SynchronizedInputType(32i32);
+impl ::core::marker::Copy for SynchronizedInputType {}
+impl ::core::clone::Clone for SynchronizedInputType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SynchronizedInputType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SynchronizedInputType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SynchronizedInputType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SynchronizedInputType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TextDecorationLineStyle(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_None: TextDecorationLineStyle = TextDecorationLineStyle(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_Single: TextDecorationLineStyle = TextDecorationLineStyle(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_WordsOnly: TextDecorationLineStyle = TextDecorationLineStyle(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_Double: TextDecorationLineStyle = TextDecorationLineStyle(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_Dot: TextDecorationLineStyle = TextDecorationLineStyle(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_Dash: TextDecorationLineStyle = TextDecorationLineStyle(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_DashDot: TextDecorationLineStyle = TextDecorationLineStyle(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_DashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(7i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_Wavy: TextDecorationLineStyle = TextDecorationLineStyle(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickSingle: TextDecorationLineStyle = TextDecorationLineStyle(9i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_DoubleWavy: TextDecorationLineStyle = TextDecorationLineStyle(11i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickWavy: TextDecorationLineStyle = TextDecorationLineStyle(12i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_LongDash: TextDecorationLineStyle = TextDecorationLineStyle(13i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickDash: TextDecorationLineStyle = TextDecorationLineStyle(14i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickDashDot: TextDecorationLineStyle = TextDecorationLineStyle(15i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickDashDotDot: TextDecorationLineStyle = TextDecorationLineStyle(16i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickDot: TextDecorationLineStyle = TextDecorationLineStyle(17i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_ThickLongDash: TextDecorationLineStyle = TextDecorationLineStyle(18i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextDecorationLineStyle_Other: TextDecorationLineStyle = TextDecorationLineStyle(-1i32);
+impl ::core::marker::Copy for TextDecorationLineStyle {}
+impl ::core::clone::Clone for TextDecorationLineStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TextDecorationLineStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TextDecorationLineStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TextDecorationLineStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextDecorationLineStyle").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TextEditChangeType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextEditChangeType_None: TextEditChangeType = TextEditChangeType(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextEditChangeType_AutoCorrect: TextEditChangeType = TextEditChangeType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextEditChangeType_Composition: TextEditChangeType = TextEditChangeType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextEditChangeType_CompositionFinalized: TextEditChangeType = TextEditChangeType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextEditChangeType_AutoComplete: TextEditChangeType = TextEditChangeType(4i32);
+impl ::core::marker::Copy for TextEditChangeType {}
+impl ::core::clone::Clone for TextEditChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TextEditChangeType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TextEditChangeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TextEditChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextEditChangeType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TextPatternRangeEndpoint(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextPatternRangeEndpoint_Start: TextPatternRangeEndpoint = TextPatternRangeEndpoint(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextPatternRangeEndpoint_End: TextPatternRangeEndpoint = TextPatternRangeEndpoint(1i32);
+impl ::core::marker::Copy for TextPatternRangeEndpoint {}
+impl ::core::clone::Clone for TextPatternRangeEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TextPatternRangeEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TextPatternRangeEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TextUnit(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Character: TextUnit = TextUnit(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Format: TextUnit = TextUnit(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Word: TextUnit = TextUnit(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Line: TextUnit = TextUnit(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Paragraph: TextUnit = TextUnit(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Page: TextUnit = TextUnit(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TextUnit_Document: TextUnit = TextUnit(6i32);
+impl ::core::marker::Copy for TextUnit {}
+impl ::core::clone::Clone for TextUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TextUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TextUnit {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TextUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextUnit").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ToggleState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ToggleState_Off: ToggleState = ToggleState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ToggleState_On: ToggleState = ToggleState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ToggleState_Indeterminate: ToggleState = ToggleState(2i32);
+impl ::core::marker::Copy for ToggleState {}
+impl ::core::clone::Clone for ToggleState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ToggleState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ToggleState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ToggleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToggleState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TreeScope(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_None: TreeScope = TreeScope(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_Element: TreeScope = TreeScope(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_Children: TreeScope = TreeScope(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_Descendants: TreeScope = TreeScope(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_Parent: TreeScope = TreeScope(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_Ancestors: TreeScope = TreeScope(16i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeScope_Subtree: TreeScope = TreeScope(7i32);
+impl ::core::marker::Copy for TreeScope {}
+impl ::core::clone::Clone for TreeScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TreeScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TreeScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TreeScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TreeScope").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TreeTraversalOptions(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeTraversalOptions_Default: TreeTraversalOptions = TreeTraversalOptions(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeTraversalOptions_PostOrder: TreeTraversalOptions = TreeTraversalOptions(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const TreeTraversalOptions_LastToFirstOrder: TreeTraversalOptions = TreeTraversalOptions(2i32);
+impl ::core::marker::Copy for TreeTraversalOptions {}
+impl ::core::clone::Clone for TreeTraversalOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TreeTraversalOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TreeTraversalOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TreeTraversalOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TreeTraversalOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UIAutomationType(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Int: UIAutomationType = UIAutomationType(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Bool: UIAutomationType = UIAutomationType(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_String: UIAutomationType = UIAutomationType(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Double: UIAutomationType = UIAutomationType(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Point: UIAutomationType = UIAutomationType(5i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Rect: UIAutomationType = UIAutomationType(6i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Element: UIAutomationType = UIAutomationType(7i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Array: UIAutomationType = UIAutomationType(65536i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_Out: UIAutomationType = UIAutomationType(131072i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_IntArray: UIAutomationType = UIAutomationType(65537i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_BoolArray: UIAutomationType = UIAutomationType(65538i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_StringArray: UIAutomationType = UIAutomationType(65539i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_DoubleArray: UIAutomationType = UIAutomationType(65540i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_PointArray: UIAutomationType = UIAutomationType(65541i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_RectArray: UIAutomationType = UIAutomationType(65542i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_ElementArray: UIAutomationType = UIAutomationType(65543i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutInt: UIAutomationType = UIAutomationType(131073i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutBool: UIAutomationType = UIAutomationType(131074i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutString: UIAutomationType = UIAutomationType(131075i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutDouble: UIAutomationType = UIAutomationType(131076i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutPoint: UIAutomationType = UIAutomationType(131077i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutRect: UIAutomationType = UIAutomationType(131078i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutElement: UIAutomationType = UIAutomationType(131079i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutIntArray: UIAutomationType = UIAutomationType(196609i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutBoolArray: UIAutomationType = UIAutomationType(196610i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutStringArray: UIAutomationType = UIAutomationType(196611i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutDoubleArray: UIAutomationType = UIAutomationType(196612i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutPointArray: UIAutomationType = UIAutomationType(196613i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutRectArray: UIAutomationType = UIAutomationType(196614i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const UIAutomationType_OutElementArray: UIAutomationType = UIAutomationType(196615i32);
+impl ::core::marker::Copy for UIAutomationType {}
+impl ::core::clone::Clone for UIAutomationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UIAutomationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UIAutomationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UIAutomationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIAutomationType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VisualEffects(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const VisualEffects_None: VisualEffects = VisualEffects(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const VisualEffects_Shadow: VisualEffects = VisualEffects(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const VisualEffects_Reflection: VisualEffects = VisualEffects(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const VisualEffects_Glow: VisualEffects = VisualEffects(4i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const VisualEffects_SoftEdges: VisualEffects = VisualEffects(8i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const VisualEffects_Bevel: VisualEffects = VisualEffects(16i32);
+impl ::core::marker::Copy for VisualEffects {}
+impl ::core::clone::Clone for VisualEffects {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VisualEffects {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VisualEffects {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VisualEffects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualEffects").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WindowInteractionState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowInteractionState_Running: WindowInteractionState = WindowInteractionState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowInteractionState_Closing: WindowInteractionState = WindowInteractionState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = WindowInteractionState(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = WindowInteractionState(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowInteractionState_NotResponding: WindowInteractionState = WindowInteractionState(4i32);
+impl ::core::marker::Copy for WindowInteractionState {}
+impl ::core::clone::Clone for WindowInteractionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WindowInteractionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WindowInteractionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WindowInteractionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowInteractionState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WindowVisualState(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowVisualState_Normal: WindowVisualState = WindowVisualState(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowVisualState_Maximized: WindowVisualState = WindowVisualState(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const WindowVisualState_Minimized: WindowVisualState = WindowVisualState(2i32);
+impl ::core::marker::Copy for WindowVisualState {}
+impl ::core::clone::Clone for WindowVisualState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WindowVisualState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WindowVisualState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WindowVisualState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowVisualState").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ZoomUnit(pub i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ZoomUnit_NoAmount: ZoomUnit = ZoomUnit(0i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ZoomUnit_LargeDecrement: ZoomUnit = ZoomUnit(1i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ZoomUnit_SmallDecrement: ZoomUnit = ZoomUnit(2i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ZoomUnit_LargeIncrement: ZoomUnit = ZoomUnit(3i32);
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub const ZoomUnit_SmallIncrement: ZoomUnit = ZoomUnit(4i32);
+impl ::core::marker::Copy for ZoomUnit {}
+impl ::core::clone::Clone for ZoomUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ZoomUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ZoomUnit {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ZoomUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomUnit").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct ACCESSTIMEOUT {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iTimeOutMSec: u32,
+}
+impl ::core::marker::Copy for ACCESSTIMEOUT {}
+impl ::core::clone::Clone for ACCESSTIMEOUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACCESSTIMEOUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACCESSTIMEOUT").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iTimeOutMSec", &self.iTimeOutMSec).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESSTIMEOUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACCESSTIMEOUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCESSTIMEOUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACCESSTIMEOUT {}
+impl ::core::default::Default for ACCESSTIMEOUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ExtendedProperty {
+    pub PropertyName: super::super::Foundation::BSTR,
+    pub PropertyValue: super::super::Foundation::BSTR,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ExtendedProperty {
+    fn clone(&self) -> Self {
+        Self { PropertyName: self.PropertyName.clone(), PropertyValue: self.PropertyValue.clone() }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ExtendedProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ExtendedProperty").field("PropertyName", &self.PropertyName).field("PropertyValue", &self.PropertyValue).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ExtendedProperty {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ExtendedProperty {
+    fn eq(&self, other: &Self) -> bool {
+        self.PropertyName == other.PropertyName && self.PropertyValue == other.PropertyValue
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ExtendedProperty {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ExtendedProperty {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct FILTERKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iWaitMSec: u32,
+    pub iDelayMSec: u32,
+    pub iRepeatMSec: u32,
+    pub iBounceMSec: u32,
+}
+impl ::core::marker::Copy for FILTERKEYS {}
+impl ::core::clone::Clone for FILTERKEYS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FILTERKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILTERKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iWaitMSec", &self.iWaitMSec).field("iDelayMSec", &self.iDelayMSec).field("iRepeatMSec", &self.iRepeatMSec).field("iBounceMSec", &self.iBounceMSec).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FILTERKEYS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTERKEYS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTERKEYS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTERKEYS {}
+impl ::core::default::Default for FILTERKEYS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct HIGHCONTRASTA {
+    pub cbSize: u32,
+    pub dwFlags: HIGHCONTRASTW_FLAGS,
+    pub lpszDefaultScheme: ::windows::core::PSTR,
+}
+impl ::core::marker::Copy for HIGHCONTRASTA {}
+impl ::core::clone::Clone for HIGHCONTRASTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HIGHCONTRASTA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIGHCONTRASTA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIGHCONTRASTA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIGHCONTRASTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIGHCONTRASTA {}
+impl ::core::default::Default for HIGHCONTRASTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct HIGHCONTRASTW {
+    pub cbSize: u32,
+    pub dwFlags: HIGHCONTRASTW_FLAGS,
+    pub lpszDefaultScheme: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for HIGHCONTRASTW {}
+impl ::core::clone::Clone for HIGHCONTRASTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HIGHCONTRASTW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HIGHCONTRASTW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszDefaultScheme", &self.lpszDefaultScheme).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIGHCONTRASTW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HIGHCONTRASTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HIGHCONTRASTW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HIGHCONTRASTW {}
+impl ::core::default::Default for HIGHCONTRASTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HUIAEVENT(pub isize);
+impl HUIAEVENT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HUIAEVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIAEVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIAEVENT {}
+impl ::core::fmt::Debug for HUIAEVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIAEVENT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HUIAEVENT>> for HUIAEVENT {
+    fn from(optional: ::core::option::Option<HUIAEVENT>) -> HUIAEVENT {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIAEVENT {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HUIANODE(pub isize);
+impl HUIANODE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HUIANODE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIANODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIANODE {}
+impl ::core::fmt::Debug for HUIANODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIANODE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HUIANODE>> for HUIANODE {
+    fn from(optional: ::core::option::Option<HUIANODE>) -> HUIANODE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIANODE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HUIAPATTERNOBJECT(pub isize);
+impl HUIAPATTERNOBJECT {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HUIAPATTERNOBJECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIAPATTERNOBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIAPATTERNOBJECT {}
+impl ::core::fmt::Debug for HUIAPATTERNOBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIAPATTERNOBJECT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HUIAPATTERNOBJECT>> for HUIAPATTERNOBJECT {
+    fn from(optional: ::core::option::Option<HUIAPATTERNOBJECT>) -> HUIAPATTERNOBJECT {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIAPATTERNOBJECT {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HUIATEXTRANGE(pub isize);
+impl HUIATEXTRANGE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HUIATEXTRANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HUIATEXTRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HUIATEXTRANGE {}
+impl ::core::fmt::Debug for HUIATEXTRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUIATEXTRANGE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HUIATEXTRANGE>> for HUIATEXTRANGE {
+    fn from(optional: ::core::option::Option<HUIATEXTRANGE>) -> HUIATEXTRANGE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HUIATEXTRANGE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HWINEVENTHOOK(pub isize);
+impl HWINEVENTHOOK {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HWINEVENTHOOK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWINEVENTHOOK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWINEVENTHOOK {}
+impl ::core::fmt::Debug for HWINEVENTHOOK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWINEVENTHOOK").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HWINEVENTHOOK>> for HWINEVENTHOOK {
+    fn from(optional: ::core::option::Option<HWINEVENTHOOK>) -> HWINEVENTHOOK {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HWINEVENTHOOK {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct MOUSEKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+    pub iMaxSpeed: u32,
+    pub iTimeToMaxSpeed: u32,
+    pub iCtrlSpeed: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for MOUSEKEYS {}
+impl ::core::clone::Clone for MOUSEKEYS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MOUSEKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MOUSEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("iMaxSpeed", &self.iMaxSpeed).field("iTimeToMaxSpeed", &self.iTimeToMaxSpeed).field("iCtrlSpeed", &self.iCtrlSpeed).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSEKEYS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MOUSEKEYS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEKEYS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MOUSEKEYS {}
+impl ::core::default::Default for MOUSEKEYS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct MSAAMENUINFO {
+    pub dwMSAASignature: u32,
+    pub cchWText: u32,
+    pub pszWText: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for MSAAMENUINFO {}
+impl ::core::clone::Clone for MSAAMENUINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MSAAMENUINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MSAAMENUINFO").field("dwMSAASignature", &self.dwMSAASignature).field("cchWText", &self.cchWText).field("pszWText", &self.pszWText).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MSAAMENUINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MSAAMENUINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSAAMENUINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MSAAMENUINFO {}
+impl ::core::default::Default for MSAAMENUINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct SERIALKEYSA {
+    pub cbSize: u32,
+    pub dwFlags: SERIALKEYS_FLAGS,
+    pub lpszActivePort: ::windows::core::PSTR,
+    pub lpszPort: ::windows::core::PSTR,
+    pub iBaudRate: u32,
+    pub iPortState: u32,
+    pub iActive: u32,
+}
+impl ::core::marker::Copy for SERIALKEYSA {}
+impl ::core::clone::Clone for SERIALKEYSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SERIALKEYSA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERIALKEYSA").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SERIALKEYSA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERIALKEYSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERIALKEYSA {}
+impl ::core::default::Default for SERIALKEYSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct SERIALKEYSW {
+    pub cbSize: u32,
+    pub dwFlags: SERIALKEYS_FLAGS,
+    pub lpszActivePort: ::windows::core::PWSTR,
+    pub lpszPort: ::windows::core::PWSTR,
+    pub iBaudRate: u32,
+    pub iPortState: u32,
+    pub iActive: u32,
+}
+impl ::core::marker::Copy for SERIALKEYSW {}
+impl ::core::clone::Clone for SERIALKEYSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SERIALKEYSW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SERIALKEYSW").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).field("lpszActivePort", &self.lpszActivePort).field("lpszPort", &self.lpszPort).field("iBaudRate", &self.iBaudRate).field("iPortState", &self.iPortState).field("iActive", &self.iActive).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SERIALKEYSW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERIALKEYSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERIALKEYSW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERIALKEYSW {}
+impl ::core::default::Default for SERIALKEYSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct SOUNDSENTRYA {
+    pub cbSize: u32,
+    pub dwFlags: SOUNDSENTRY_FLAGS,
+    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
+    pub iFSTextEffectMSec: u32,
+    pub iFSTextEffectColorBits: u32,
+    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
+    pub iFSGrafEffectMSec: u32,
+    pub iFSGrafEffectColor: u32,
+    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
+    pub iWindowsEffectMSec: u32,
+    pub lpszWindowsEffectDLL: ::windows::core::PSTR,
+    pub iWindowsEffectOrdinal: u32,
+}
+impl ::core::marker::Copy for SOUNDSENTRYA {}
+impl ::core::clone::Clone for SOUNDSENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SOUNDSENTRYA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOUNDSENTRYA")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("iFSTextEffect", &self.iFSTextEffect)
+            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
+            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
+            .field("iFSGrafEffect", &self.iFSGrafEffect)
+            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
+            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
+            .field("iWindowsEffect", &self.iWindowsEffect)
+            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
+            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
+            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOUNDSENTRYA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOUNDSENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOUNDSENTRYA {}
+impl ::core::default::Default for SOUNDSENTRYA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct SOUNDSENTRYW {
+    pub cbSize: u32,
+    pub dwFlags: SOUNDSENTRY_FLAGS,
+    pub iFSTextEffect: SOUNDSENTRY_TEXT_EFFECT,
+    pub iFSTextEffectMSec: u32,
+    pub iFSTextEffectColorBits: u32,
+    pub iFSGrafEffect: SOUND_SENTRY_GRAPHICS_EFFECT,
+    pub iFSGrafEffectMSec: u32,
+    pub iFSGrafEffectColor: u32,
+    pub iWindowsEffect: SOUNDSENTRY_WINDOWS_EFFECT,
+    pub iWindowsEffectMSec: u32,
+    pub lpszWindowsEffectDLL: ::windows::core::PWSTR,
+    pub iWindowsEffectOrdinal: u32,
+}
+impl ::core::marker::Copy for SOUNDSENTRYW {}
+impl ::core::clone::Clone for SOUNDSENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SOUNDSENTRYW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOUNDSENTRYW")
+            .field("cbSize", &self.cbSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("iFSTextEffect", &self.iFSTextEffect)
+            .field("iFSTextEffectMSec", &self.iFSTextEffectMSec)
+            .field("iFSTextEffectColorBits", &self.iFSTextEffectColorBits)
+            .field("iFSGrafEffect", &self.iFSGrafEffect)
+            .field("iFSGrafEffectMSec", &self.iFSGrafEffectMSec)
+            .field("iFSGrafEffectColor", &self.iFSGrafEffectColor)
+            .field("iWindowsEffect", &self.iWindowsEffect)
+            .field("iWindowsEffectMSec", &self.iWindowsEffectMSec)
+            .field("lpszWindowsEffectDLL", &self.lpszWindowsEffectDLL)
+            .field("iWindowsEffectOrdinal", &self.iWindowsEffectOrdinal)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOUNDSENTRYW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOUNDSENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOUNDSENTRYW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOUNDSENTRYW {}
+impl ::core::default::Default for SOUNDSENTRYW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct STICKYKEYS {
+    pub cbSize: u32,
+    pub dwFlags: STICKYKEYS_FLAGS,
+}
+impl ::core::marker::Copy for STICKYKEYS {}
+impl ::core::clone::Clone for STICKYKEYS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for STICKYKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STICKYKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for STICKYKEYS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for STICKYKEYS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STICKYKEYS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for STICKYKEYS {}
+impl ::core::default::Default for STICKYKEYS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
+pub struct TOGGLEKEYS {
+    pub cbSize: u32,
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for TOGGLEKEYS {}
+impl ::core::clone::Clone for TOGGLEKEYS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TOGGLEKEYS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TOGGLEKEYS").field("cbSize", &self.cbSize).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TOGGLEKEYS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TOGGLEKEYS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOGGLEKEYS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TOGGLEKEYS {}
+impl ::core::default::Default for TOGGLEKEYS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UIAutomationEventInfo {
@@ -24858,102 +25721,6 @@ impl ::core::default::Default for UIAutomationPropertyInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UIAutomationType(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Int: UIAutomationType = UIAutomationType(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Bool: UIAutomationType = UIAutomationType(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_String: UIAutomationType = UIAutomationType(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Double: UIAutomationType = UIAutomationType(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Point: UIAutomationType = UIAutomationType(5i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Rect: UIAutomationType = UIAutomationType(6i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Element: UIAutomationType = UIAutomationType(7i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Array: UIAutomationType = UIAutomationType(65536i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_Out: UIAutomationType = UIAutomationType(131072i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_IntArray: UIAutomationType = UIAutomationType(65537i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_BoolArray: UIAutomationType = UIAutomationType(65538i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_StringArray: UIAutomationType = UIAutomationType(65539i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_DoubleArray: UIAutomationType = UIAutomationType(65540i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_PointArray: UIAutomationType = UIAutomationType(65541i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_RectArray: UIAutomationType = UIAutomationType(65542i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_ElementArray: UIAutomationType = UIAutomationType(65543i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutInt: UIAutomationType = UIAutomationType(131073i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutBool: UIAutomationType = UIAutomationType(131074i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutString: UIAutomationType = UIAutomationType(131075i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutDouble: UIAutomationType = UIAutomationType(131076i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutPoint: UIAutomationType = UIAutomationType(131077i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutRect: UIAutomationType = UIAutomationType(131078i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutElement: UIAutomationType = UIAutomationType(131079i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutIntArray: UIAutomationType = UIAutomationType(196609i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutBoolArray: UIAutomationType = UIAutomationType(196610i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutStringArray: UIAutomationType = UIAutomationType(196611i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutDoubleArray: UIAutomationType = UIAutomationType(196612i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutPointArray: UIAutomationType = UIAutomationType(196613i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutRectArray: UIAutomationType = UIAutomationType(196614i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UIAutomationType_OutElementArray: UIAutomationType = UIAutomationType(196615i32);
-impl ::core::marker::Copy for UIAutomationType {}
-impl ::core::clone::Clone for UIAutomationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UIAutomationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UIAutomationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UIAutomationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UIAutomationType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaAddEvent<'a, P0>(hnode: P0, eventid: i32, pcallback: &mut UiaEventCallback, scope: TreeScope, pproperties: &mut i32, cproperties: i32, prequest: &mut UiaCacheRequest, phevent: &mut HUIAEVENT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut *mut ::core::ffi::c_void, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> ::windows::core::HRESULT;
-    }
-    UiaAddEvent(hnode.into(), eventid, ::core::mem::transmute(pcallback), scope, ::core::mem::transmute(pproperties), cproperties, ::core::mem::transmute(prequest), ::core::mem::transmute(phevent)).ok()
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaAndOrCondition {
@@ -24986,8 +25753,6 @@ impl ::core::default::Default for UiaAndOrCondition {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UiaAppendRuntimeId: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaAsyncContentLoadedEventArgs {
@@ -25130,16 +25895,6 @@ impl ::core::default::Default for UiaChangesEventArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaClientsAreListening() -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaClientsAreListening() -> super::super::Foundation::BOOL;
-    }
-    UiaClientsAreListening()
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaCondition {
@@ -25169,41 +25924,6 @@ impl ::core::default::Default for UiaCondition {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaDisconnectAllProviders() -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaDisconnectAllProviders() -> ::windows::core::HRESULT;
-    }
-    UiaDisconnectAllProviders().ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaDisconnectProvider<'a, P0>(pprovider: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaDisconnectProvider(pprovider: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    UiaDisconnectProvider(pprovider.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaEventAddWindow<'a, P0, P1>(hevent: P0, hwnd: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAEVENT>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
-    UiaEventAddWindow(hevent.into(), hwnd.into()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25235,36 +25955,6 @@ impl ::core::default::Default for UiaEventArgs {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: super::super::Foundation::BSTR)>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaEventRemoveWindow<'a, P0, P1>(hevent: P0, hwnd: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAEVENT>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
-    UiaEventRemoveWindow(hevent.into(), hwnd.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaFind<'a, P0>(hnode: P0, pparams: &mut UiaFindParams, prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    UiaFind(hnode.into(), ::core::mem::transmute(pparams), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(ppoffsets), ::core::mem::transmute(pptreestructures)).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
@@ -25307,246 +25997,6 @@ impl ::core::default::Default for UiaFindParams {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaGetErrorDescription(pdescription: &mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetErrorDescription(pdescription: *mut super::super::Foundation::BSTR) -> super::super::Foundation::BOOL;
-    }
-    UiaGetErrorDescription(::core::mem::transmute(pdescription))
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaGetPatternProvider<'a, P0>(hnode: P0, patternid: i32, phobj: &mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    UiaGetPatternProvider(hnode.into(), patternid, ::core::mem::transmute(phobj)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaGetPropertyValue<'a, P0>(hnode: P0, propertyid: i32, pvalue: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-    }
-    UiaGetPropertyValue(hnode.into(), propertyid, ::core::mem::transmute(pvalue)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaGetReservedMixedAttributeValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    UiaGetReservedMixedAttributeValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaGetReservedNotSupportedValue() -> ::windows::core::Result<::windows::core::IUnknown> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetReservedNotSupportedValue(punknotsupportedvalue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    UiaGetReservedNotSupportedValue(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaGetRootNode(phnode: &mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetRootNode(phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
-    UiaGetRootNode(::core::mem::transmute(phnode)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn UiaGetRuntimeId<'a, P0>(hnode: P0, pruntimeid: &mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    UiaGetRuntimeId(hnode.into(), ::core::mem::transmute(pruntimeid)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaGetUpdatedCache<'a, P0>(hnode: P0, prequest: &mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: &mut UiaCondition, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-    }
-    UiaGetUpdatedCache(hnode.into(), ::core::mem::transmute(prequest), normalizestate, ::core::mem::transmute(pnormalizecondition), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaHPatternObjectFromVariant(pvar: &mut super::super::System::Com::VARIANT, phobj: &mut HUIAPATTERNOBJECT) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Com::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    UiaHPatternObjectFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phobj)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaHTextRangeFromVariant(pvar: &mut super::super::System::Com::VARIANT, phtextrange: &mut HUIATEXTRANGE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> ::windows::core::HRESULT;
-    }
-    UiaHTextRangeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phtextrange)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaHUiaNodeFromVariant(pvar: &mut super::super::System::Com::VARIANT, phnode: &mut HUIANODE) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Com::VARIANT, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
-    UiaHUiaNodeFromVariant(::core::mem::transmute(pvar), ::core::mem::transmute(phnode)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaHasServerSideProvider<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    UiaHasServerSideProvider(hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaHostProviderFromHwnd<'a, P0>(hwnd: P0) -> ::windows::core::Result<IRawElementProviderSimple>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    UiaHostProviderFromHwnd(hwnd.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaIAccessibleFromProvider<'a, P0>(pprovider: P0, dwflags: u32, ppaccessible: &mut ::core::option::Option<IAccessible>, pvarchild: &mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaIAccessibleFromProvider(pprovider: *mut ::core::ffi::c_void, dwflags: u32, ppaccessible: *mut *mut ::core::ffi::c_void, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT;
-    }
-    UiaIAccessibleFromProvider(pprovider.into().abi(), dwflags, ::core::mem::transmute(ppaccessible), ::core::mem::transmute(pvarchild)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: &::windows::core::GUID) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const ::windows::core::GUID) -> i32;
-    }
-    UiaLookupId(r#type, ::core::mem::transmute(pguid))
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaNavigate<'a, P0>(hnode: P0, direction: NavigateDirection, pcondition: &mut UiaCondition, prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-    }
-    UiaNavigate(hnode.into(), direction, ::core::mem::transmute(pcondition), ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaNodeFromFocus(prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-    }
-    UiaNodeFromFocus(::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaNodeFromHandle<'a, P0>(hwnd: P0, phnode: &mut HUIANODE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
-    UiaNodeFromHandle(hwnd.into(), ::core::mem::transmute(phnode)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: &mut UiaCacheRequest, pprequesteddata: &mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: &mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT;
-    }
-    UiaNodeFromPoint(x, y, ::core::mem::transmute(prequest), ::core::mem::transmute(pprequesteddata), ::core::mem::transmute(pptreestructure)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaNodeFromProvider<'a, P0>(pprovider: P0, phnode: &mut HUIANODE) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeFromProvider(pprovider: *mut ::core::ffi::c_void, phnode: *mut HUIANODE) -> ::windows::core::HRESULT;
-    }
-    UiaNodeFromProvider(pprovider.into().abi(), ::core::mem::transmute(phnode)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaNodeRelease<'a, P0>(hnode: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaNodeRelease(hnode: HUIANODE) -> super::super::Foundation::BOOL;
-    }
-    UiaNodeRelease(hnode.into())
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaNotCondition {
@@ -25577,19 +26027,6 @@ impl ::core::default::Default for UiaNotCondition {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaPatternRelease<'a, P0>(hobj: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> super::super::Foundation::BOOL;
-    }
-    UiaPatternRelease(hobj.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25689,142 +26126,6 @@ impl ::core::default::Default for UiaPropertyCondition {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaProviderForNonClient<'a, P0>(hwnd: P0, idobject: i32, idchild: i32) -> ::windows::core::Result<IRawElementProviderSimple>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    UiaProviderForNonClient(hwnd.into(), idobject, idchild, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn UiaProviderFromIAccessible<'a, P0>(paccessible: P0, idchild: i32, dwflags: u32) -> ::windows::core::Result<IRawElementProviderSimple>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaProviderFromIAccessible(paccessible: *mut ::core::ffi::c_void, idchild: i32, dwflags: u32, ppprovider: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    UiaProviderFromIAccessible(paccessible.into().abi(), idchild, dwflags, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRawElementProviderSimple>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaRaiseActiveTextPositionChangedEvent<'a, P0, P1>(provider: P0, textrange: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, ITextRangeProvider>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseActiveTextPositionChangedEvent(provider: *mut ::core::ffi::c_void, textrange: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseActiveTextPositionChangedEvent(provider.into().abi(), textrange.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaRaiseAsyncContentLoadedEvent<'a, P0>(pprovider: P0, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseAsyncContentLoadedEvent(pprovider: *mut ::core::ffi::c_void, asynccontentloadedstate: AsyncContentLoadedState, percentcomplete: f64) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseAsyncContentLoadedEvent(pprovider.into().abi(), asynccontentloadedstate, percentcomplete).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaRaiseAutomationEvent<'a, P0>(pprovider: P0, id: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseAutomationEvent(pprovider: *mut ::core::ffi::c_void, id: i32) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseAutomationEvent(pprovider.into().abi(), id).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<'a, P0, P1, P2>(pprovider: P0, id: i32, oldvalue: P1, newvalue: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::Com::VARIANT>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseAutomationPropertyChangedEvent(pprovider: *mut ::core::ffi::c_void, id: i32, oldvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, newvalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseAutomationPropertyChangedEvent(pprovider.into().abi(), id, oldvalue.into().abi(), newvalue.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn UiaRaiseChangesEvent<'a, P0>(pprovider: P0, eventidcount: i32, puiachanges: &mut UiaChangeInfo) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseChangesEvent(pprovider: *mut ::core::ffi::c_void, eventidcount: i32, puiachanges: *mut UiaChangeInfo) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseChangesEvent(pprovider.into().abi(), eventidcount, ::core::mem::transmute(puiachanges)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaRaiseNotificationEvent<'a, P0, P1, P2>(provider: P0, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: P1, activityid: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-    P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::BSTR>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseNotificationEvent(provider: *mut ::core::ffi::c_void, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, activityid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseNotificationEvent(provider.into().abi(), notificationkind, notificationprocessing, displaystring.into().abi(), activityid.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaRaiseStructureChangedEvent<'a, P0>(pprovider: P0, structurechangetype: StructureChangeType, pruntimeid: &mut i32, cruntimeidlen: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseStructureChangedEvent(pprovider: *mut ::core::ffi::c_void, structurechangetype: StructureChangeType, pruntimeid: *mut i32, cruntimeidlen: i32) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseStructureChangedEvent(pprovider.into().abi(), structurechangetype, ::core::mem::transmute(pruntimeid), cruntimeidlen).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_System_Com\"`*"]
-#[cfg(feature = "Win32_System_Com")]
-#[inline]
-pub unsafe fn UiaRaiseTextEditTextChangedEvent<'a, P0>(pprovider: P0, texteditchangetype: TextEditChangeType, pchangeddata: &mut super::super::System::Com::SAFEARRAY) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRaiseTextEditTextChangedEvent(pprovider: *mut ::core::ffi::c_void, texteditchangetype: TextEditChangeType, pchangeddata: *mut super::super::System::Com::SAFEARRAY) -> ::windows::core::HRESULT;
-    }
-    UiaRaiseTextEditTextChangedEvent(pprovider.into().abi(), texteditchangetype, ::core::mem::transmute(pchangeddata)).ok()
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaRect {
@@ -25857,58 +26158,6 @@ impl ::core::default::Default for UiaRect {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn UiaRegisterProviderCallback(pcallback: &mut UiaProviderCallback) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRegisterProviderCallback(pcallback: *mut *mut ::core::ffi::c_void);
-    }
-    UiaRegisterProviderCallback(::core::mem::transmute(pcallback))
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaRemoveEvent<'a, P0>(hevent: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAEVENT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaRemoveEvent(hevent: HUIAEVENT) -> ::windows::core::HRESULT;
-    }
-    UiaRemoveEvent(hevent.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaReturnRawElementProvider<'a, P0, P1, P2, P3>(hwnd: P0, wparam: P1, lparam: P2, el: P3) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::WPARAM>,
-    P2: ::std::convert::Into<super::super::Foundation::LPARAM>,
-    P3: ::std::convert::Into<::windows::core::InParam<'a, IRawElementProviderSimple>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaReturnRawElementProvider(hwnd: super::super::Foundation::HWND, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM, el: *mut ::core::ffi::c_void) -> super::super::Foundation::LRESULT;
-    }
-    UiaReturnRawElementProvider(hwnd.into(), wparam.into(), lparam.into(), el.into().abi())
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const UiaRootObjectId: i32 = -25i32;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn UiaSetFocus<'a, P0>(hnode: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIANODE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaSetFocus(hnode: HUIANODE) -> ::windows::core::HRESULT;
-    }
-    UiaSetFocus(hnode.into()).ok()
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
@@ -25985,19 +26234,6 @@ impl ::core::default::Default for UiaTextEditTextChangedEventArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UiaTextRangeRelease<'a, P0>(hobj: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<HUIATEXTRANGE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> super::super::Foundation::BOOL;
-    }
-    UiaTextRangeRelease(hobj.into())
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
 pub struct UiaWindowClosedEventArgs {
@@ -26031,268 +26267,32 @@ impl ::core::default::Default for UiaWindowClosedEventArgs {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub type LPFNACCESSIBLECHILDREN = ::core::option::Option<unsafe extern "system" fn(pacccontainer: ::core::option::Option<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Com::VARIANT, pcobtained: *mut i32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = ::core::option::Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: *mut ::core::option::Option<IAccessible>, pvarchild: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UnhookWinEvent<'a, P0>(hwineventhook: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<HWINEVENTHOOK>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> super::super::Foundation::BOOL;
-    }
-    UnhookWinEvent(hwineventhook.into())
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn UnregisterPointerInputTarget<'a, P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    }
-    UnregisterPointerInputTarget(hwnd.into(), pointertype)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-#[inline]
-pub unsafe fn UnregisterPointerInputTargetEx<'a, P0>(hwnd: P0, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> super::super::Foundation::BOOL;
-    }
-    UnregisterPointerInputTargetEx(hwnd.into(), pointertype)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn ValuePattern_SetValue<'a, P0, P1>(hobj: P0, pval: P1) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, pval: ::windows::core::PCWSTR) -> ::windows::core::HRESULT;
-    }
-    ValuePattern_SetValue(hobj.into(), pval.into()).ok()
-}
-pub const Value_IsReadOnly_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb090f30_e24c_4799_a705_0d247bc037f8);
-pub const Value_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17faad9e_c877_475b_b933_77332779b637);
-pub const Value_Value_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95f5e64_269f_4a85_ba99_4092c3ea2986);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn VirtualizedItemPattern_Realize<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    VirtualizedItemPattern_Realize(hobj.into()).ok()
-}
-pub const VirtualizedItem_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf510173e_2e71_45e9_a6e5_62f6ed8289d5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VisualEffects(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const VisualEffects_None: VisualEffects = VisualEffects(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const VisualEffects_Shadow: VisualEffects = VisualEffects(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const VisualEffects_Reflection: VisualEffects = VisualEffects(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const VisualEffects_Glow: VisualEffects = VisualEffects(4i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const VisualEffects_SoftEdges: VisualEffects = VisualEffects(8i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const VisualEffects_Bevel: VisualEffects = VisualEffects(16i32);
-impl ::core::marker::Copy for VisualEffects {}
-impl ::core::clone::Clone for VisualEffects {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VisualEffects {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VisualEffects {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VisualEffects {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VisualEffects").field(&self.0).finish()
-    }
-}
-pub const VisualEffects_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe61a8565_aad9_46d7_9e70_4e8a8420d420);
+pub type LPFNACCESSIBLEOBJECTFROMWINDOW = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNCREATESTDACCESSIBLEOBJECT = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNLRESULTFROMOBJECT = ::core::option::Option<unsafe extern "system" fn(riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, punk: ::core::option::Option<::windows::core::IUnknown>) -> super::super::Foundation::LRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPFNOBJECTFROMLRESULT = ::core::option::Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const ::windows::core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub type UiaEventCallback = ::core::option::Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: super::super::Foundation::BSTR)>;
+#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub type UiaProviderCallback = ::core::option::Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, providertype: ProviderType) -> *mut super::super::System::Com::SAFEARRAY>;
 #[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINEVENTPROC = ::core::option::Option<unsafe extern "system" fn(hwineventhook: HWINEVENTHOOK, event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, ideventthread: u32, dwmseventtime: u32)>;
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-#[inline]
-pub unsafe fn WindowFromAccessibleObject<'a, P0>(param0: P0) -> ::windows::core::Result<super::super::Foundation::HWND>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IAccessible>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowFromAccessibleObject(param0: *mut ::core::ffi::c_void, phwnd: *mut super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WindowFromAccessibleObject(param0.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HWND>(result__)
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WindowInteractionState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowInteractionState_Running: WindowInteractionState = WindowInteractionState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowInteractionState_Closing: WindowInteractionState = WindowInteractionState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowInteractionState_ReadyForUserInteraction: WindowInteractionState = WindowInteractionState(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowInteractionState_BlockedByModalWindow: WindowInteractionState = WindowInteractionState(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowInteractionState_NotResponding: WindowInteractionState = WindowInteractionState(4i32);
-impl ::core::marker::Copy for WindowInteractionState {}
-impl ::core::clone::Clone for WindowInteractionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowInteractionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WindowInteractionState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WindowInteractionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowInteractionState").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn WindowPattern_Close<'a, P0>(hobj: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> ::windows::core::HRESULT;
-    }
-    WindowPattern_Close(hobj.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[inline]
-pub unsafe fn WindowPattern_SetWindowVisualState<'a, P0>(hobj: P0, state: WindowVisualState) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> ::windows::core::HRESULT;
-    }
-    WindowPattern_SetWindowVisualState(hobj.into(), state).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WindowPattern_WaitForInputIdle<'a, P0>(hobj: P0, milliseconds: i32, presult: &mut super::super::Foundation::BOOL) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HUIAPATTERNOBJECT>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    WindowPattern_WaitForInputIdle(hobj.into(), milliseconds, ::core::mem::transmute(presult)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WindowVisualState(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowVisualState_Normal: WindowVisualState = WindowVisualState(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowVisualState_Maximized: WindowVisualState = WindowVisualState(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const WindowVisualState_Minimized: WindowVisualState = WindowVisualState(2i32);
-impl ::core::marker::Copy for WindowVisualState {}
-impl ::core::clone::Clone for WindowVisualState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WindowVisualState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WindowVisualState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WindowVisualState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WindowVisualState").field(&self.0).finish()
-    }
-}
-pub const Window_CanMaximize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64fff53f_635d_41c1_950c_cb5adfbe28e3);
-pub const Window_CanMinimize_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb73b4625_5988_4b97_b4c2_a6fe6e78c8c6);
-pub const Window_Control_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe13a7242_f462_4f4d_aec1_53b28d6c3290);
-pub const Window_IsModal_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4e6892_37b9_4fca_8532_ffe674ecfeed);
-pub const Window_IsTopmost_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef7d85d3_0937_4962_9241_b62345f24041);
-pub const Window_Pattern_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27901735_c760_4994_ad11_5919e606b110);
-pub const Window_WindowClosed_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedf141f8_fa67_4e22_bbf7_944e05735ee2);
-pub const Window_WindowInteractionState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fed26a4_0455_4fa2_b21c_c4da2db1ff9c);
-pub const Window_WindowOpened_Event_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e81d06_de45_4f2f_9633_de9e02fb65af);
-pub const Window_WindowVisualState_Property_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ab7905f_e860_453e_a30a_f6431e5daad5);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ZoomUnit(pub i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ZoomUnit_NoAmount: ZoomUnit = ZoomUnit(0i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ZoomUnit_LargeDecrement: ZoomUnit = ZoomUnit(1i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ZoomUnit_SmallDecrement: ZoomUnit = ZoomUnit(2i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ZoomUnit_LargeIncrement: ZoomUnit = ZoomUnit(3i32);
-#[doc = "*Required features: `\"Win32_UI_Accessibility\"`*"]
-pub const ZoomUnit_SmallIncrement: ZoomUnit = ZoomUnit(4i32);
-impl ::core::marker::Copy for ZoomUnit {}
-impl ::core::clone::Clone for ZoomUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ZoomUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ZoomUnit {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ZoomUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ZoomUnit").field(&self.0).finish()
-    }
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

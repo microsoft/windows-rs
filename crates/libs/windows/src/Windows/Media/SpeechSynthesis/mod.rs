@@ -151,74 +151,6 @@ pub struct IVoiceInformation_Vtbl {
 }
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechAppendedSilence(pub i32);
-impl SpeechAppendedSilence {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpeechAppendedSilence {}
-impl ::core::clone::Clone for SpeechAppendedSilence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechAppendedSilence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechAppendedSilence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechAppendedSilence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SpeechPunctuationSilence(pub i32);
-impl SpeechPunctuationSilence {
-    pub const Default: Self = Self(0i32);
-    pub const Min: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SpeechPunctuationSilence {}
-impl ::core::clone::Clone for SpeechPunctuationSilence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SpeechPunctuationSilence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SpeechPunctuationSilence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SpeechPunctuationSilence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-#[repr(transparent)]
 pub struct SpeechSynthesisStream(::windows::core::IUnknown);
 impl SpeechSynthesisStream {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -903,40 +835,6 @@ unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VoiceGender(pub i32);
-impl VoiceGender {
-    pub const Male: Self = Self(0i32);
-    pub const Female: Self = Self(1i32);
-}
-impl ::core::marker::Copy for VoiceGender {}
-impl ::core::clone::Clone for VoiceGender {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VoiceGender {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VoiceGender {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VoiceGender {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VoiceGender").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VoiceGender {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
-#[repr(transparent)]
 pub struct VoiceInformation(::windows::core::IUnknown);
 impl VoiceInformation {
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1037,5 +935,107 @@ impl ::core::convert::From<&VoiceInformation> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for VoiceInformation {}
 unsafe impl ::core::marker::Sync for VoiceInformation {}
+#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechAppendedSilence(pub i32);
+impl SpeechAppendedSilence {
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpeechAppendedSilence {}
+impl ::core::clone::Clone for SpeechAppendedSilence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechAppendedSilence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechAppendedSilence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechAppendedSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechAppendedSilence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechAppendedSilence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SpeechPunctuationSilence(pub i32);
+impl SpeechPunctuationSilence {
+    pub const Default: Self = Self(0i32);
+    pub const Min: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SpeechPunctuationSilence {}
+impl ::core::clone::Clone for SpeechPunctuationSilence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SpeechPunctuationSilence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SpeechPunctuationSilence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpeechPunctuationSilence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SpeechPunctuationSilence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.SpeechPunctuationSilence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VoiceGender(pub i32);
+impl VoiceGender {
+    pub const Male: Self = Self(0i32);
+    pub const Female: Self = Self(1i32);
+}
+impl ::core::marker::Copy for VoiceGender {}
+impl ::core::clone::Clone for VoiceGender {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VoiceGender {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VoiceGender {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VoiceGender {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VoiceGender").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VoiceGender {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.SpeechSynthesis.VoiceGender;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

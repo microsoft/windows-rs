@@ -4,105 +4,6 @@ pub mod Guidance;
 pub mod LocalSearch;
 #[cfg(feature = "Services_Maps_OfflineMaps")]
 pub mod OfflineMaps;
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-pub struct EnhancedWaypoint(::windows::core::IUnknown);
-impl EnhancedWaypoint {
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    #[cfg(feature = "Devices_Geolocation")]
-    pub fn Point(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopoint> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Point)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
-        }
-    }
-    pub fn Kind(&self) -> ::windows::core::Result<WaypointKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WaypointKind>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
-    #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<'a, P0>(point: P0, kind: WaypointKind) -> ::windows::core::Result<EnhancedWaypoint>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
-    {
-        Self::IEnhancedWaypointFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), point.into().abi(), kind, result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<EnhancedWaypoint, IEnhancedWaypointFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for EnhancedWaypoint {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for EnhancedWaypoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnhancedWaypoint {}
-impl ::core::fmt::Debug for EnhancedWaypoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EnhancedWaypoint").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for EnhancedWaypoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for EnhancedWaypoint {
-    type Vtable = IEnhancedWaypoint_Vtbl;
-    const IID: ::windows::core::GUID = <IEnhancedWaypoint as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for EnhancedWaypoint {
-    const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
-}
-impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IUnknown {
-    fn from(value: EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IUnknown {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IUnknown {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IInspectable {
-    fn from(value: EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IInspectable {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IInspectable {
-    fn from(value: &EnhancedWaypoint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for EnhancedWaypoint {}
-unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IEnhancedWaypoint(::windows::core::IUnknown);
@@ -756,6 +657,105 @@ pub struct IPlaceInfoStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
+pub struct EnhancedWaypoint(::windows::core::IUnknown);
+impl EnhancedWaypoint {
+    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[cfg(feature = "Devices_Geolocation")]
+    pub fn Point(&self) -> ::windows::core::Result<super::super::Devices::Geolocation::Geopoint> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Point)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Devices::Geolocation::Geopoint>(result__)
+        }
+    }
+    pub fn Kind(&self) -> ::windows::core::Result<WaypointKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WaypointKind>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
+    #[cfg(feature = "Devices_Geolocation")]
+    pub fn Create<'a, P0>(point: P0, kind: WaypointKind) -> ::windows::core::Result<EnhancedWaypoint>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Devices::Geolocation::Geopoint>>,
+    {
+        Self::IEnhancedWaypointFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), point.into().abi(), kind, result__.as_mut_ptr()).from_abi::<EnhancedWaypoint>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<EnhancedWaypoint, IEnhancedWaypointFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for EnhancedWaypoint {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for EnhancedWaypoint {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for EnhancedWaypoint {}
+impl ::core::fmt::Debug for EnhancedWaypoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnhancedWaypoint").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for EnhancedWaypoint {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for EnhancedWaypoint {
+    type Vtable = IEnhancedWaypoint_Vtbl;
+    const IID: ::windows::core::GUID = <IEnhancedWaypoint as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for EnhancedWaypoint {
+    const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
+}
+impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IUnknown {
+    fn from(value: EnhancedWaypoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IUnknown {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IUnknown {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<EnhancedWaypoint> for ::windows::core::IInspectable {
+    fn from(value: EnhancedWaypoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&EnhancedWaypoint> for ::windows::core::IInspectable {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&EnhancedWaypoint> for &::windows::core::IInspectable {
+    fn from(value: &EnhancedWaypoint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for EnhancedWaypoint {}
+unsafe impl ::core::marker::Sync for EnhancedWaypoint {}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
 pub struct ManeuverWarning(::windows::core::IUnknown);
 impl ManeuverWarning {
     pub fn Kind(&self) -> ::windows::core::Result<ManeuverWarningKind> {
@@ -835,111 +835,6 @@ impl ::core::convert::From<&ManeuverWarning> for &::windows::core::IInspectable 
 }
 unsafe impl ::core::marker::Send for ManeuverWarning {}
 unsafe impl ::core::marker::Sync for ManeuverWarning {}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ManeuverWarningKind(pub i32);
-impl ManeuverWarningKind {
-    pub const None: Self = Self(0i32);
-    pub const Accident: Self = Self(1i32);
-    pub const AdministrativeDivisionChange: Self = Self(2i32);
-    pub const Alert: Self = Self(3i32);
-    pub const BlockedRoad: Self = Self(4i32);
-    pub const CheckTimetable: Self = Self(5i32);
-    pub const Congestion: Self = Self(6i32);
-    pub const Construction: Self = Self(7i32);
-    pub const CountryChange: Self = Self(8i32);
-    pub const DisabledVehicle: Self = Self(9i32);
-    pub const GateAccess: Self = Self(10i32);
-    pub const GetOffTransit: Self = Self(11i32);
-    pub const GetOnTransit: Self = Self(12i32);
-    pub const IllegalUTurn: Self = Self(13i32);
-    pub const MassTransit: Self = Self(14i32);
-    pub const Miscellaneous: Self = Self(15i32);
-    pub const NoIncident: Self = Self(16i32);
-    pub const Other: Self = Self(17i32);
-    pub const OtherNews: Self = Self(18i32);
-    pub const OtherTrafficIncidents: Self = Self(19i32);
-    pub const PlannedEvent: Self = Self(20i32);
-    pub const PrivateRoad: Self = Self(21i32);
-    pub const RestrictedTurn: Self = Self(22i32);
-    pub const RoadClosures: Self = Self(23i32);
-    pub const RoadHazard: Self = Self(24i32);
-    pub const ScheduledConstruction: Self = Self(25i32);
-    pub const SeasonalClosures: Self = Self(26i32);
-    pub const Tollbooth: Self = Self(27i32);
-    pub const TollRoad: Self = Self(28i32);
-    pub const TollZoneEnter: Self = Self(29i32);
-    pub const TollZoneExit: Self = Self(30i32);
-    pub const TrafficFlow: Self = Self(31i32);
-    pub const TransitLineChange: Self = Self(32i32);
-    pub const UnpavedRoad: Self = Self(33i32);
-    pub const UnscheduledConstruction: Self = Self(34i32);
-    pub const Weather: Self = Self(35i32);
-}
-impl ::core::marker::Copy for ManeuverWarningKind {}
-impl ::core::clone::Clone for ManeuverWarningKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ManeuverWarningKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ManeuverWarningKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ManeuverWarningKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ManeuverWarningKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ManeuverWarningSeverity(pub i32);
-impl ManeuverWarningSeverity {
-    pub const None: Self = Self(0i32);
-    pub const LowImpact: Self = Self(1i32);
-    pub const Minor: Self = Self(2i32);
-    pub const Moderate: Self = Self(3i32);
-    pub const Serious: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ManeuverWarningSeverity {}
-impl ::core::clone::Clone for ManeuverWarningSeverity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ManeuverWarningSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ManeuverWarningSeverity {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ManeuverWarningSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
 pub struct MapAddress(::windows::core::IUnknown);
@@ -1217,40 +1112,6 @@ impl ::core::convert::From<&MapLocation> for &::windows::core::IInspectable {
 unsafe impl ::core::marker::Send for MapLocation {}
 unsafe impl ::core::marker::Sync for MapLocation {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapLocationDesiredAccuracy(pub i32);
-impl MapLocationDesiredAccuracy {
-    pub const High: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MapLocationDesiredAccuracy {}
-impl ::core::clone::Clone for MapLocationDesiredAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapLocationDesiredAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapLocationDesiredAccuracy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
 pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[doc = "*Required features: `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -1395,45 +1256,6 @@ impl ::core::convert::From<&MapLocationFinderResult> for &::windows::core::IInsp
 unsafe impl ::core::marker::Send for MapLocationFinderResult {}
 unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapLocationFinderStatus(pub i32);
-impl MapLocationFinderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const BadLocation: Self = Self(3i32);
-    pub const IndexFailure: Self = Self(4i32);
-    pub const NetworkFailure: Self = Self(5i32);
-    pub const NotSupported: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MapLocationFinderStatus {}
-impl ::core::clone::Clone for MapLocationFinderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapLocationFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapLocationFinderStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapLocationFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapLocationFinderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
 pub struct MapManager;
 impl MapManager {
     pub fn ShowDownloadedMapsUI() -> ::windows::core::Result<()> {
@@ -1450,69 +1272,6 @@ impl MapManager {
 }
 impl ::windows::core::RuntimeName for MapManager {
     const NAME: &'static str = "Windows.Services.Maps.MapManager";
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapManeuverNotices(pub u32);
-impl MapManeuverNotices {
-    pub const None: Self = Self(0u32);
-    pub const Toll: Self = Self(1u32);
-    pub const Unpaved: Self = Self(2u32);
-}
-impl ::core::marker::Copy for MapManeuverNotices {}
-impl ::core::clone::Clone for MapManeuverNotices {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapManeuverNotices {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapManeuverNotices {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapManeuverNotices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MapManeuverNotices {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MapManeuverNotices {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MapManeuverNotices {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MapManeuverNotices {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MapManeuverNotices {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapManeuverNotices {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2085,48 +1844,6 @@ unsafe impl ::core::marker::Send for MapRouteFinderResult {}
 unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapRouteFinderStatus(pub i32);
-impl MapRouteFinderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const NoRouteFound: Self = Self(3i32);
-    pub const NoRouteFoundWithGivenOptions: Self = Self(4i32);
-    pub const StartPointNotFound: Self = Self(5i32);
-    pub const EndPointNotFound: Self = Self(6i32);
-    pub const NoPedestrianRouteFound: Self = Self(7i32);
-    pub const NetworkFailure: Self = Self(8i32);
-    pub const NotSupported: Self = Self(9i32);
-}
-impl ::core::marker::Copy for MapRouteFinderStatus {}
-impl ::core::clone::Clone for MapRouteFinderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapRouteFinderStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapRouteFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapRouteFinderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
 pub struct MapRouteLeg(::windows::core::IUnknown);
 impl MapRouteLeg {
     #[doc = "*Required features: `\"Devices_Geolocation\"`*"]
@@ -2393,166 +2110,6 @@ impl ::core::convert::From<&MapRouteManeuver> for &::windows::core::IInspectable
 unsafe impl ::core::marker::Send for MapRouteManeuver {}
 unsafe impl ::core::marker::Sync for MapRouteManeuver {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapRouteManeuverKind(pub i32);
-impl MapRouteManeuverKind {
-    pub const None: Self = Self(0i32);
-    pub const Start: Self = Self(1i32);
-    pub const Stopover: Self = Self(2i32);
-    pub const StopoverResume: Self = Self(3i32);
-    pub const End: Self = Self(4i32);
-    pub const GoStraight: Self = Self(5i32);
-    pub const UTurnLeft: Self = Self(6i32);
-    pub const UTurnRight: Self = Self(7i32);
-    pub const TurnKeepLeft: Self = Self(8i32);
-    pub const TurnKeepRight: Self = Self(9i32);
-    pub const TurnLightLeft: Self = Self(10i32);
-    pub const TurnLightRight: Self = Self(11i32);
-    pub const TurnLeft: Self = Self(12i32);
-    pub const TurnRight: Self = Self(13i32);
-    pub const TurnHardLeft: Self = Self(14i32);
-    pub const TurnHardRight: Self = Self(15i32);
-    pub const FreewayEnterLeft: Self = Self(16i32);
-    pub const FreewayEnterRight: Self = Self(17i32);
-    pub const FreewayLeaveLeft: Self = Self(18i32);
-    pub const FreewayLeaveRight: Self = Self(19i32);
-    pub const FreewayContinueLeft: Self = Self(20i32);
-    pub const FreewayContinueRight: Self = Self(21i32);
-    pub const TrafficCircleLeft: Self = Self(22i32);
-    pub const TrafficCircleRight: Self = Self(23i32);
-    pub const TakeFerry: Self = Self(24i32);
-}
-impl ::core::marker::Copy for MapRouteManeuverKind {}
-impl ::core::clone::Clone for MapRouteManeuverKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteManeuverKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapRouteManeuverKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapRouteManeuverKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapRouteManeuverKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapRouteOptimization(pub i32);
-impl MapRouteOptimization {
-    pub const Time: Self = Self(0i32);
-    pub const Distance: Self = Self(1i32);
-    pub const TimeWithTraffic: Self = Self(2i32);
-    pub const Scenic: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MapRouteOptimization {}
-impl ::core::clone::Clone for MapRouteOptimization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteOptimization {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapRouteOptimization {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapRouteOptimization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapRouteOptimization {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapRouteRestrictions(pub u32);
-impl MapRouteRestrictions {
-    pub const None: Self = Self(0u32);
-    pub const Highways: Self = Self(1u32);
-    pub const TollRoads: Self = Self(2u32);
-    pub const Ferries: Self = Self(4u32);
-    pub const Tunnels: Self = Self(8u32);
-    pub const DirtRoads: Self = Self(16u32);
-    pub const Motorail: Self = Self(32u32);
-}
-impl ::core::marker::Copy for MapRouteRestrictions {}
-impl ::core::clone::Clone for MapRouteRestrictions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapRouteRestrictions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapRouteRestrictions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapRouteRestrictions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for MapRouteRestrictions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for MapRouteRestrictions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MapRouteRestrictions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MapRouteRestrictions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for MapRouteRestrictions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapRouteRestrictions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
 pub struct MapService;
 impl MapService {
     pub fn SetServiceToken(value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
@@ -2608,40 +2165,6 @@ impl MapService {
 }
 impl ::windows::core::RuntimeName for MapService {
     const NAME: &'static str = "Windows.Services.Maps.MapService";
-}
-#[doc = "*Required features: `\"Services_Maps\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MapServiceDataUsagePreference(pub i32);
-impl MapServiceDataUsagePreference {
-    pub const Default: Self = Self(0i32);
-    pub const OfflineMapDataOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MapServiceDataUsagePreference {}
-impl ::core::clone::Clone for MapServiceDataUsagePreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MapServiceDataUsagePreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MapServiceDataUsagePreference {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MapServiceDataUsagePreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
@@ -2926,6 +2449,483 @@ impl ::core::convert::From<&PlaceInfoCreateOptions> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ManeuverWarningKind(pub i32);
+impl ManeuverWarningKind {
+    pub const None: Self = Self(0i32);
+    pub const Accident: Self = Self(1i32);
+    pub const AdministrativeDivisionChange: Self = Self(2i32);
+    pub const Alert: Self = Self(3i32);
+    pub const BlockedRoad: Self = Self(4i32);
+    pub const CheckTimetable: Self = Self(5i32);
+    pub const Congestion: Self = Self(6i32);
+    pub const Construction: Self = Self(7i32);
+    pub const CountryChange: Self = Self(8i32);
+    pub const DisabledVehicle: Self = Self(9i32);
+    pub const GateAccess: Self = Self(10i32);
+    pub const GetOffTransit: Self = Self(11i32);
+    pub const GetOnTransit: Self = Self(12i32);
+    pub const IllegalUTurn: Self = Self(13i32);
+    pub const MassTransit: Self = Self(14i32);
+    pub const Miscellaneous: Self = Self(15i32);
+    pub const NoIncident: Self = Self(16i32);
+    pub const Other: Self = Self(17i32);
+    pub const OtherNews: Self = Self(18i32);
+    pub const OtherTrafficIncidents: Self = Self(19i32);
+    pub const PlannedEvent: Self = Self(20i32);
+    pub const PrivateRoad: Self = Self(21i32);
+    pub const RestrictedTurn: Self = Self(22i32);
+    pub const RoadClosures: Self = Self(23i32);
+    pub const RoadHazard: Self = Self(24i32);
+    pub const ScheduledConstruction: Self = Self(25i32);
+    pub const SeasonalClosures: Self = Self(26i32);
+    pub const Tollbooth: Self = Self(27i32);
+    pub const TollRoad: Self = Self(28i32);
+    pub const TollZoneEnter: Self = Self(29i32);
+    pub const TollZoneExit: Self = Self(30i32);
+    pub const TrafficFlow: Self = Self(31i32);
+    pub const TransitLineChange: Self = Self(32i32);
+    pub const UnpavedRoad: Self = Self(33i32);
+    pub const UnscheduledConstruction: Self = Self(34i32);
+    pub const Weather: Self = Self(35i32);
+}
+impl ::core::marker::Copy for ManeuverWarningKind {}
+impl ::core::clone::Clone for ManeuverWarningKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ManeuverWarningKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ManeuverWarningKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ManeuverWarningKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ManeuverWarningKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ManeuverWarningSeverity(pub i32);
+impl ManeuverWarningSeverity {
+    pub const None: Self = Self(0i32);
+    pub const LowImpact: Self = Self(1i32);
+    pub const Minor: Self = Self(2i32);
+    pub const Moderate: Self = Self(3i32);
+    pub const Serious: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ManeuverWarningSeverity {}
+impl ::core::clone::Clone for ManeuverWarningSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ManeuverWarningSeverity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ManeuverWarningSeverity {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ManeuverWarningSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ManeuverWarningSeverity {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.ManeuverWarningSeverity;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapLocationDesiredAccuracy(pub i32);
+impl MapLocationDesiredAccuracy {
+    pub const High: Self = Self(0i32);
+    pub const Low: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapLocationDesiredAccuracy {}
+impl ::core::clone::Clone for MapLocationDesiredAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapLocationDesiredAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapLocationDesiredAccuracy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationDesiredAccuracy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapLocationFinderStatus(pub i32);
+impl MapLocationFinderStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const BadLocation: Self = Self(3i32);
+    pub const IndexFailure: Self = Self(4i32);
+    pub const NetworkFailure: Self = Self(5i32);
+    pub const NotSupported: Self = Self(6i32);
+}
+impl ::core::marker::Copy for MapLocationFinderStatus {}
+impl ::core::clone::Clone for MapLocationFinderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapLocationFinderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapLocationFinderStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapLocationFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapLocationFinderStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapLocationFinderStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapManeuverNotices(pub u32);
+impl MapManeuverNotices {
+    pub const None: Self = Self(0u32);
+    pub const Toll: Self = Self(1u32);
+    pub const Unpaved: Self = Self(2u32);
+}
+impl ::core::marker::Copy for MapManeuverNotices {}
+impl ::core::clone::Clone for MapManeuverNotices {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapManeuverNotices {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapManeuverNotices {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapManeuverNotices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MapManeuverNotices {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MapManeuverNotices {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MapManeuverNotices {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MapManeuverNotices {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MapManeuverNotices {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapManeuverNotices {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapManeuverNotices;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapRouteFinderStatus(pub i32);
+impl MapRouteFinderStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const NoRouteFound: Self = Self(3i32);
+    pub const NoRouteFoundWithGivenOptions: Self = Self(4i32);
+    pub const StartPointNotFound: Self = Self(5i32);
+    pub const EndPointNotFound: Self = Self(6i32);
+    pub const NoPedestrianRouteFound: Self = Self(7i32);
+    pub const NetworkFailure: Self = Self(8i32);
+    pub const NotSupported: Self = Self(9i32);
+}
+impl ::core::marker::Copy for MapRouteFinderStatus {}
+impl ::core::clone::Clone for MapRouteFinderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapRouteFinderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapRouteFinderStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapRouteFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapRouteFinderStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteFinderStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapRouteManeuverKind(pub i32);
+impl MapRouteManeuverKind {
+    pub const None: Self = Self(0i32);
+    pub const Start: Self = Self(1i32);
+    pub const Stopover: Self = Self(2i32);
+    pub const StopoverResume: Self = Self(3i32);
+    pub const End: Self = Self(4i32);
+    pub const GoStraight: Self = Self(5i32);
+    pub const UTurnLeft: Self = Self(6i32);
+    pub const UTurnRight: Self = Self(7i32);
+    pub const TurnKeepLeft: Self = Self(8i32);
+    pub const TurnKeepRight: Self = Self(9i32);
+    pub const TurnLightLeft: Self = Self(10i32);
+    pub const TurnLightRight: Self = Self(11i32);
+    pub const TurnLeft: Self = Self(12i32);
+    pub const TurnRight: Self = Self(13i32);
+    pub const TurnHardLeft: Self = Self(14i32);
+    pub const TurnHardRight: Self = Self(15i32);
+    pub const FreewayEnterLeft: Self = Self(16i32);
+    pub const FreewayEnterRight: Self = Self(17i32);
+    pub const FreewayLeaveLeft: Self = Self(18i32);
+    pub const FreewayLeaveRight: Self = Self(19i32);
+    pub const FreewayContinueLeft: Self = Self(20i32);
+    pub const FreewayContinueRight: Self = Self(21i32);
+    pub const TrafficCircleLeft: Self = Self(22i32);
+    pub const TrafficCircleRight: Self = Self(23i32);
+    pub const TakeFerry: Self = Self(24i32);
+}
+impl ::core::marker::Copy for MapRouteManeuverKind {}
+impl ::core::clone::Clone for MapRouteManeuverKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapRouteManeuverKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapRouteManeuverKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapRouteManeuverKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapRouteManeuverKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteManeuverKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapRouteOptimization(pub i32);
+impl MapRouteOptimization {
+    pub const Time: Self = Self(0i32);
+    pub const Distance: Self = Self(1i32);
+    pub const TimeWithTraffic: Self = Self(2i32);
+    pub const Scenic: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MapRouteOptimization {}
+impl ::core::clone::Clone for MapRouteOptimization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapRouteOptimization {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapRouteOptimization {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapRouteOptimization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapRouteOptimization {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteOptimization;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapRouteRestrictions(pub u32);
+impl MapRouteRestrictions {
+    pub const None: Self = Self(0u32);
+    pub const Highways: Self = Self(1u32);
+    pub const TollRoads: Self = Self(2u32);
+    pub const Ferries: Self = Self(4u32);
+    pub const Tunnels: Self = Self(8u32);
+    pub const DirtRoads: Self = Self(16u32);
+    pub const Motorail: Self = Self(32u32);
+}
+impl ::core::marker::Copy for MapRouteRestrictions {}
+impl ::core::clone::Clone for MapRouteRestrictions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapRouteRestrictions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapRouteRestrictions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapRouteRestrictions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MapRouteRestrictions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MapRouteRestrictions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MapRouteRestrictions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MapRouteRestrictions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MapRouteRestrictions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapRouteRestrictions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapRouteRestrictions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Maps\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MapServiceDataUsagePreference(pub i32);
+impl MapServiceDataUsagePreference {
+    pub const Default: Self = Self(0i32);
+    pub const OfflineMapDataOnly: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MapServiceDataUsagePreference {}
+impl ::core::clone::Clone for MapServiceDataUsagePreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MapServiceDataUsagePreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MapServiceDataUsagePreference {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MapServiceDataUsagePreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MapServiceDataUsagePreference {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.MapServiceDataUsagePreference;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

@@ -1,3 +1,234 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactDataProviderConnection(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactDataProviderConnection {
+    type Vtable = IContactDataProviderConnection_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactDataProviderConnection_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub SyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SyncRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveSyncRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub ServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ServerSearchReadBatchRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveServerSearchReadBatchRequested: usize,
+    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactDataProviderConnection2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactDataProviderConnection2 {
+    type Vtable = IContactDataProviderConnection2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactDataProviderConnection2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub CreateOrUpdateContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateOrUpdateContactRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveCreateOrUpdateContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveCreateOrUpdateContactRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub DeleteContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DeleteContactRequested: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveDeleteContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveDeleteContactRequested: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactDataProviderTriggerDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactDataProviderTriggerDetails {
+    type Vtable = IContactDataProviderTriggerDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x527104be_3c62_43c8_9ae7_db531685cd99);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactDataProviderTriggerDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListCreateOrUpdateContactRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListCreateOrUpdateContactRequest {
+    type Vtable = IContactListCreateOrUpdateContactRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4af411f_c849_47d0_b119_91cf605b2f2a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListCreateOrUpdateContactRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, createdorupdatedcontact: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListCreateOrUpdateContactRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListCreateOrUpdateContactRequestEventArgs {
+    type Vtable = IContactListCreateOrUpdateContactRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x851c1690_1a51_4b0c_aeef_1240ac5bed75);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListCreateOrUpdateContactRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListDeleteContactRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListDeleteContactRequest {
+    type Vtable = IContactListDeleteContactRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e114687_ce03_4de5_8557_9ccf552d472a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListDeleteContactRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContactId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListDeleteContactRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListDeleteContactRequestEventArgs {
+    type Vtable = IContactListDeleteContactRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListDeleteContactRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListServerSearchReadBatchRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListServerSearchReadBatchRequest {
+    type Vtable = IContactListServerSearchReadBatchRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba776a97_4030_4925_9fb4_143b295e653b);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListServerSearchReadBatchRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SuggestedBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub SaveContactAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    SaveContactAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchstatus: super::ContactBatchStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListServerSearchReadBatchRequestEventArgs {
+    type Vtable = IContactListServerSearchReadBatchRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a27e87b_69d7_4e4e_8042_861cba61471e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListServerSearchReadBatchRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListSyncManagerSyncRequest(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListSyncManagerSyncRequest {
+    type Vtable = IContactListSyncManagerSyncRequest_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListSyncManagerSyncRequest_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportCompletedAsync: usize,
+    #[cfg(feature = "Foundation")]
+    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportFailedAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IContactListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IContactListSyncManagerSyncRequestEventArgs {
+    type Vtable = IContactListSyncManagerSyncRequestEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x158e4dac_446d_4f10_afc2_02683ec533a6);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IContactListSyncManagerSyncRequestEventArgs_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GetDeferral: usize,
+}
 #[doc = "*Required features: `\"ApplicationModel_Contacts_DataProvider\"`*"]
 #[repr(transparent)]
 pub struct ContactDataProviderConnection(::windows::core::IUnknown);
@@ -965,236 +1196,5 @@ impl ::core::convert::From<&ContactListSyncManagerSyncRequestEventArgs> for &::w
 }
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequestEventArgs {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactDataProviderConnection(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactDataProviderConnection {
-    type Vtable = IContactDataProviderConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactDataProviderConnection_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub SyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SyncRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveSyncRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveSyncRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub ServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ServerSearchReadBatchRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveServerSearchReadBatchRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveServerSearchReadBatchRequested: usize,
-    pub Start: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactDataProviderConnection2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactDataProviderConnection2 {
-    type Vtable = IContactDataProviderConnection2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactDataProviderConnection2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub CreateOrUpdateContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateOrUpdateContactRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveCreateOrUpdateContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveCreateOrUpdateContactRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub DeleteContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DeleteContactRequested: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveDeleteContactRequested: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveDeleteContactRequested: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactDataProviderTriggerDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactDataProviderTriggerDetails {
-    type Vtable = IContactDataProviderTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x527104be_3c62_43c8_9ae7_db531685cd99);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactDataProviderTriggerDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Connection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListCreateOrUpdateContactRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListCreateOrUpdateContactRequest {
-    type Vtable = IContactListCreateOrUpdateContactRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4af411f_c849_47d0_b119_91cf605b2f2a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListCreateOrUpdateContactRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Contact: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, createdorupdatedcontact: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListCreateOrUpdateContactRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListCreateOrUpdateContactRequestEventArgs {
-    type Vtable = IContactListCreateOrUpdateContactRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x851c1690_1a51_4b0c_aeef_1240ac5bed75);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListCreateOrUpdateContactRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListDeleteContactRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListDeleteContactRequest {
-    type Vtable = IContactListDeleteContactRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e114687_ce03_4de5_8557_9ccf552d472a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListDeleteContactRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ContactId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListDeleteContactRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListDeleteContactRequestEventArgs {
-    type Vtable = IContactListDeleteContactRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListDeleteContactRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListServerSearchReadBatchRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListServerSearchReadBatchRequest {
-    type Vtable = IContactListServerSearchReadBatchRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba776a97_4030_4925_9fb4_143b295e653b);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListServerSearchReadBatchRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub SessionId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub Options: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SuggestedBatchSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub SaveContactAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contact: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    SaveContactAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, batchstatus: super::ContactBatchStatus, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListServerSearchReadBatchRequestEventArgs {
-    type Vtable = IContactListServerSearchReadBatchRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a27e87b_69d7_4e4e_8042_861cba61471e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListServerSearchReadBatchRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListSyncManagerSyncRequest(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListSyncManagerSyncRequest {
-    type Vtable = IContactListSyncManagerSyncRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListSyncManagerSyncRequest_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub ContactListId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportCompletedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportCompletedAsync: usize,
-    #[cfg(feature = "Foundation")]
-    pub ReportFailedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportFailedAsync: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IContactListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IContactListSyncManagerSyncRequestEventArgs {
-    type Vtable = IContactListSyncManagerSyncRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x158e4dac_446d_4f10_afc2_02683ec533a6);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IContactListSyncManagerSyncRequestEventArgs_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Request: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GetDeferral: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GetDeferral: usize,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

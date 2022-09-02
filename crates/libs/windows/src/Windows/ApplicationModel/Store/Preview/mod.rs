@@ -1,169 +1,5 @@
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
 pub mod InstallControl;
-#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DeliveryOptimizationDownloadMode(pub i32);
-impl DeliveryOptimizationDownloadMode {
-    pub const Simple: Self = Self(0i32);
-    pub const HttpOnly: Self = Self(1i32);
-    pub const Lan: Self = Self(2i32);
-    pub const Group: Self = Self(3i32);
-    pub const Internet: Self = Self(4i32);
-    pub const Bypass: Self = Self(5i32);
-}
-impl ::core::marker::Copy for DeliveryOptimizationDownloadMode {}
-impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeliveryOptimizationDownloadMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DeliveryOptimizationDownloadModeSource(pub i32);
-impl DeliveryOptimizationDownloadModeSource {
-    pub const Default: Self = Self(0i32);
-    pub const Policy: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DeliveryOptimizationDownloadModeSource {}
-impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DeliveryOptimizationDownloadModeSource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-#[repr(transparent)]
-pub struct DeliveryOptimizationSettings(::windows::core::IUnknown);
-impl DeliveryOptimizationSettings {
-    pub fn DownloadMode(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DeliveryOptimizationDownloadMode>(result__)
-        }
-    }
-    pub fn DownloadModeSource(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadModeSource> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadModeSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DeliveryOptimizationDownloadModeSource>(result__)
-        }
-    }
-    pub fn GetCurrentSettings() -> ::windows::core::Result<DeliveryOptimizationSettings> {
-        Self::IDeliveryOptimizationSettingsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentSettings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DeliveryOptimizationSettings>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IDeliveryOptimizationSettingsStatics<R, F: FnOnce(&IDeliveryOptimizationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DeliveryOptimizationSettings, IDeliveryOptimizationSettingsStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for DeliveryOptimizationSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DeliveryOptimizationSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeliveryOptimizationSettings {}
-impl ::core::fmt::Debug for DeliveryOptimizationSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DeliveryOptimizationSettings").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DeliveryOptimizationSettings {
-    type Vtable = IDeliveryOptimizationSettings_Vtbl;
-    const IID: ::windows::core::GUID = <IDeliveryOptimizationSettings as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DeliveryOptimizationSettings {
-    const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings";
-}
-impl ::core::convert::From<DeliveryOptimizationSettings> for ::windows::core::IUnknown {
-    fn from(value: DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for ::windows::core::IUnknown {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for &::windows::core::IUnknown {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DeliveryOptimizationSettings> for ::windows::core::IInspectable {
-    fn from(value: DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for ::windows::core::IInspectable {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DeliveryOptimizationSettings> for &::windows::core::IInspectable {
-    fn from(value: &DeliveryOptimizationSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DeliveryOptimizationSettings {}
-unsafe impl ::core::marker::Sync for DeliveryOptimizationSettings {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeliveryOptimizationSettings(::windows::core::IUnknown);
@@ -434,6 +270,98 @@ pub struct IWebAuthenticationCoreManagerHelper_Vtbl {
     #[cfg(not(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml")))]
     RequestTokenWithUIElementHostingAndWebAccountAsync: usize,
 }
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
+#[repr(transparent)]
+pub struct DeliveryOptimizationSettings(::windows::core::IUnknown);
+impl DeliveryOptimizationSettings {
+    pub fn DownloadMode(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DownloadMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DeliveryOptimizationDownloadMode>(result__)
+        }
+    }
+    pub fn DownloadModeSource(&self) -> ::windows::core::Result<DeliveryOptimizationDownloadModeSource> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DownloadModeSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DeliveryOptimizationDownloadModeSource>(result__)
+        }
+    }
+    pub fn GetCurrentSettings() -> ::windows::core::Result<DeliveryOptimizationSettings> {
+        Self::IDeliveryOptimizationSettingsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentSettings)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DeliveryOptimizationSettings>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IDeliveryOptimizationSettingsStatics<R, F: FnOnce(&IDeliveryOptimizationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DeliveryOptimizationSettings, IDeliveryOptimizationSettingsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for DeliveryOptimizationSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DeliveryOptimizationSettings {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DeliveryOptimizationSettings {}
+impl ::core::fmt::Debug for DeliveryOptimizationSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationSettings").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationSettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DeliveryOptimizationSettings {
+    type Vtable = IDeliveryOptimizationSettings_Vtbl;
+    const IID: ::windows::core::GUID = <IDeliveryOptimizationSettings as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DeliveryOptimizationSettings {
+    const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings";
+}
+impl ::core::convert::From<DeliveryOptimizationSettings> for ::windows::core::IUnknown {
+    fn from(value: DeliveryOptimizationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeliveryOptimizationSettings> for ::windows::core::IUnknown {
+    fn from(value: &DeliveryOptimizationSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeliveryOptimizationSettings> for &::windows::core::IUnknown {
+    fn from(value: &DeliveryOptimizationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DeliveryOptimizationSettings> for ::windows::core::IInspectable {
+    fn from(value: DeliveryOptimizationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DeliveryOptimizationSettings> for ::windows::core::IInspectable {
+    fn from(value: &DeliveryOptimizationSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DeliveryOptimizationSettings> for &::windows::core::IInspectable {
+    fn from(value: &DeliveryOptimizationSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DeliveryOptimizationSettings {}
+unsafe impl ::core::marker::Sync for DeliveryOptimizationSettings {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 pub struct StoreConfiguration;
 impl StoreConfiguration {
@@ -770,68 +698,6 @@ impl ::core::convert::From<&StoreHardwareManufacturerInfo> for &::windows::core:
 unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StoreLogOptions(pub u32);
-impl StoreLogOptions {
-    pub const None: Self = Self(0u32);
-    pub const TryElevate: Self = Self(1u32);
-}
-impl ::core::marker::Copy for StoreLogOptions {}
-impl ::core::clone::Clone for StoreLogOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StoreLogOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StoreLogOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StoreLogOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StoreLogOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for StoreLogOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for StoreLogOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for StoreLogOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for StoreLogOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for StoreLogOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StoreLogOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 pub struct StorePreview;
 impl StorePreview {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -963,42 +829,6 @@ impl ::core::convert::From<&StorePreviewProductInfo> for &::windows::core::IInsp
 }
 unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
-#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct StorePreviewProductPurchaseStatus(pub i32);
-impl StorePreviewProductPurchaseStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const AlreadyPurchased: Self = Self(1i32);
-    pub const NotFulfilled: Self = Self(2i32);
-    pub const NotPurchased: Self = Self(3i32);
-}
-impl ::core::marker::Copy for StorePreviewProductPurchaseStatus {}
-impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for StorePreviewProductPurchaseStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 pub struct StorePreviewPurchaseResults(::windows::core::IUnknown);
@@ -1204,6 +1034,213 @@ impl ::core::convert::From<&StorePreviewSkuInfo> for &::windows::core::IInspecta
 unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
+pub struct WebAuthenticationCoreManagerHelper;
+impl WebAuthenticationCoreManagerHelper {
+    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
+    pub fn RequestTokenWithUIElementHostingAsync<'a, P0, P1>(request: P0, uielement: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
+    {
+        Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), uielement.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
+    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::WebAccount>>,
+        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
+    {
+        Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), uielement.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IWebAuthenticationCoreManagerHelper<R, F: FnOnce(&IWebAuthenticationCoreManagerHelper) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for WebAuthenticationCoreManagerHelper {
+    const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper";
+}
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DeliveryOptimizationDownloadMode(pub i32);
+impl DeliveryOptimizationDownloadMode {
+    pub const Simple: Self = Self(0i32);
+    pub const HttpOnly: Self = Self(1i32);
+    pub const Lan: Self = Self(2i32);
+    pub const Group: Self = Self(3i32);
+    pub const Internet: Self = Self(4i32);
+    pub const Bypass: Self = Self(5i32);
+}
+impl ::core::marker::Copy for DeliveryOptimizationDownloadMode {}
+impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DeliveryOptimizationDownloadMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DeliveryOptimizationDownloadModeSource(pub i32);
+impl DeliveryOptimizationDownloadModeSource {
+    pub const Default: Self = Self(0i32);
+    pub const Policy: Self = Self(1i32);
+}
+impl ::core::marker::Copy for DeliveryOptimizationDownloadModeSource {}
+impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DeliveryOptimizationDownloadModeSource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationDownloadModeSource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationDownloadModeSource;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StoreLogOptions(pub u32);
+impl StoreLogOptions {
+    pub const None: Self = Self(0u32);
+    pub const TryElevate: Self = Self(1u32);
+}
+impl ::core::marker::Copy for StoreLogOptions {}
+impl ::core::clone::Clone for StoreLogOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StoreLogOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StoreLogOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StoreLogOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreLogOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for StoreLogOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for StoreLogOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for StoreLogOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for StoreLogOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for StoreLogOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StoreLogOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StoreLogOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct StorePreviewProductPurchaseStatus(pub i32);
+impl StorePreviewProductPurchaseStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const AlreadyPurchased: Self = Self(1i32);
+    pub const NotFulfilled: Self = Self(2i32);
+    pub const NotPurchased: Self = Self(3i32);
+}
+impl ::core::marker::Copy for StorePreviewProductPurchaseStatus {}
+impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for StorePreviewProductPurchaseStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for StorePreviewProductPurchaseStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Store.Preview.StorePreviewProductPurchaseStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct StoreSystemFeature(pub i32);
@@ -1269,43 +1306,6 @@ unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-pub struct WebAuthenticationCoreManagerHelper;
-impl WebAuthenticationCoreManagerHelper {
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAsync<'a, P0, P1>(request: P0, uielement: P1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
-    {
-        Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTokenWithUIElementHostingAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), uielement.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"Security_Credentials\"`, `\"UI_Xaml\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "Security_Credentials", feature = "UI_Xaml"))]
-    pub fn RequestTokenWithUIElementHostingAndWebAccountAsync<'a, P0, P1, P2>(request: P0, webaccount: P1, uielement: P2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Authentication::Web::Core::WebTokenRequest>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::Security::Credentials::WebAccount>>,
-        P2: ::std::convert::Into<::windows::core::InParam<'a, super::super::super::UI::Xaml::UIElement>>,
-    {
-        Self::IWebAuthenticationCoreManagerHelper(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestTokenWithUIElementHostingAndWebAccountAsync)(::windows::core::Interface::as_raw(this), request.into().abi(), webaccount.into().abi(), uielement.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IWebAuthenticationCoreManagerHelper<R, F: FnOnce(&IWebAuthenticationCoreManagerHelper) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<WebAuthenticationCoreManagerHelper, IWebAuthenticationCoreManagerHelper> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for WebAuthenticationCoreManagerHelper {
-    const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper";
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

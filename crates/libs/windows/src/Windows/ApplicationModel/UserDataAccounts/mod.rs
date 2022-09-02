@@ -529,69 +529,6 @@ impl ::core::convert::From<&UserDataAccount> for &::windows::core::IInspectable 
 unsafe impl ::core::marker::Send for UserDataAccount {}
 unsafe impl ::core::marker::Sync for UserDataAccount {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataAccountContentKinds(pub u32);
-impl UserDataAccountContentKinds {
-    pub const Email: Self = Self(1u32);
-    pub const Contact: Self = Self(2u32);
-    pub const Appointment: Self = Self(4u32);
-}
-impl ::core::marker::Copy for UserDataAccountContentKinds {}
-impl ::core::clone::Clone for UserDataAccountContentKinds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountContentKinds {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataAccountContentKinds {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAccountContentKinds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountContentKinds").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for UserDataAccountContentKinds {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for UserDataAccountContentKinds {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UserDataAccountContentKinds {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UserDataAccountContentKinds {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for UserDataAccountContentKinds {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataAccountContentKinds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
 pub struct UserDataAccountManager;
 impl UserDataAccountManager {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -738,41 +675,6 @@ unsafe impl ::core::marker::Send for UserDataAccountManagerForUser {}
 unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataAccountOtherAppReadAccess(pub i32);
-impl UserDataAccountOtherAppReadAccess {
-    pub const SystemOnly: Self = Self(0i32);
-    pub const Full: Self = Self(1i32);
-    pub const None: Self = Self(2i32);
-}
-impl ::core::marker::Copy for UserDataAccountOtherAppReadAccess {}
-impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataAccountOtherAppReadAccess {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAccountOtherAppReadAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountOtherAppReadAccess").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataAccountOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountOtherAppReadAccess;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
-#[repr(transparent)]
 pub struct UserDataAccountStore(::windows::core::IUnknown);
 impl UserDataAccountStore {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -903,40 +805,6 @@ unsafe impl ::core::marker::Send for UserDataAccountStore {}
 unsafe impl ::core::marker::Sync for UserDataAccountStore {}
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserDataAccountStoreAccessType(pub i32);
-impl UserDataAccountStoreAccessType {
-    pub const AllAccountsReadOnly: Self = Self(0i32);
-    pub const AppAccountsReadWrite: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserDataAccountStoreAccessType {}
-impl ::core::clone::Clone for UserDataAccountStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserDataAccountStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserDataAccountStoreAccessType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserDataAccountStoreAccessType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserDataAccountStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
-#[repr(transparent)]
 pub struct UserDataAccountStoreChangedEventArgs(::windows::core::IUnknown);
 impl UserDataAccountStoreChangedEventArgs {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1011,5 +879,137 @@ impl ::core::convert::From<&UserDataAccountStoreChangedEventArgs> for &::windows
 }
 unsafe impl ::core::marker::Send for UserDataAccountStoreChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserDataAccountStoreChangedEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataAccountContentKinds(pub u32);
+impl UserDataAccountContentKinds {
+    pub const Email: Self = Self(1u32);
+    pub const Contact: Self = Self(2u32);
+    pub const Appointment: Self = Self(4u32);
+}
+impl ::core::marker::Copy for UserDataAccountContentKinds {}
+impl ::core::clone::Clone for UserDataAccountContentKinds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataAccountContentKinds {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataAccountContentKinds {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataAccountContentKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountContentKinds").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for UserDataAccountContentKinds {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UserDataAccountContentKinds {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UserDataAccountContentKinds {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UserDataAccountContentKinds {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UserDataAccountContentKinds {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataAccountContentKinds {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountContentKinds;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataAccountOtherAppReadAccess(pub i32);
+impl UserDataAccountOtherAppReadAccess {
+    pub const SystemOnly: Self = Self(0i32);
+    pub const Full: Self = Self(1i32);
+    pub const None: Self = Self(2i32);
+}
+impl ::core::marker::Copy for UserDataAccountOtherAppReadAccess {}
+impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataAccountOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataAccountOtherAppReadAccess {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataAccountOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountOtherAppReadAccess").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataAccountOtherAppReadAccess {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountOtherAppReadAccess;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserDataAccountStoreAccessType(pub i32);
+impl UserDataAccountStoreAccessType {
+    pub const AllAccountsReadOnly: Self = Self(0i32);
+    pub const AppAccountsReadWrite: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserDataAccountStoreAccessType {}
+impl ::core::clone::Clone for UserDataAccountStoreAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserDataAccountStoreAccessType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserDataAccountStoreAccessType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountStoreAccessType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserDataAccountStoreAccessType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreAccessType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

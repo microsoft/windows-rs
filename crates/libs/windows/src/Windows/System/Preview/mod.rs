@@ -1,49 +1,3 @@
-#[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HingeState(pub i32);
-#[cfg(feature = "deprecated")]
-impl HingeState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Closed: Self = Self(1i32);
-    pub const Concave: Self = Self(2i32);
-    pub const Flat: Self = Self(3i32);
-    pub const Convex: Self = Self(4i32);
-    pub const Full: Self = Self(5i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for HingeState {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for HingeState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for HingeState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for HingeState {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for HingeState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for HingeState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Preview.HingeState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -504,5 +458,51 @@ impl ::core::convert::From<&TwoPanelHingedDevicePosturePreviewReadingChangedEven
 unsafe impl ::core::marker::Send for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {}
+#[doc = "*Required features: `\"System_Preview\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HingeState(pub i32);
+#[cfg(feature = "deprecated")]
+impl HingeState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Closed: Self = Self(1i32);
+    pub const Concave: Self = Self(2i32);
+    pub const Flat: Self = Self(3i32);
+    pub const Convex: Self = Self(4i32);
+    pub const Full: Self = Self(5i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for HingeState {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for HingeState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for HingeState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for HingeState {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HingeState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for HingeState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.System.Preview.HingeState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

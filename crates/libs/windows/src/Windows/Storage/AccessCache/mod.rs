@@ -1,293 +1,3 @@
-#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AccessCacheOptions(pub u32);
-impl AccessCacheOptions {
-    pub const None: Self = Self(0u32);
-    pub const DisallowUserInput: Self = Self(1u32);
-    pub const FastLocationsOnly: Self = Self(2u32);
-    pub const UseReadOnlyCachedCopy: Self = Self(4u32);
-    pub const SuppressAccessTimeUpdate: Self = Self(8u32);
-}
-impl ::core::marker::Copy for AccessCacheOptions {}
-impl ::core::clone::Clone for AccessCacheOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AccessCacheOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AccessCacheOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AccessCacheOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for AccessCacheOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for AccessCacheOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for AccessCacheOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for AccessCacheOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for AccessCacheOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
-pub struct AccessListEntry {
-    pub Token: ::windows::core::HSTRING,
-    pub Metadata: ::windows::core::HSTRING,
-}
-impl ::core::clone::Clone for AccessListEntry {
-    fn clone(&self) -> Self {
-        Self { Token: self.Token.clone(), Metadata: self.Metadata.clone() }
-    }
-}
-impl ::core::fmt::Debug for AccessListEntry {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AccessListEntry").field("Token", &self.Token).field("Metadata", &self.Metadata).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AccessListEntry {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-unsafe impl ::windows::core::RuntimeType for AccessListEntry {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(from.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccessListEntry {
-    fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token && self.Metadata == other.Metadata
-    }
-}
-impl ::core::cmp::Eq for AccessListEntry {}
-impl ::core::default::Default for AccessListEntry {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-pub struct AccessListEntryView(::windows::core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl AccessListEntryView {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<AccessListEntry>> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<AccessListEntry>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetAt(&self, index: u32) -> ::windows::core::Result<AccessListEntry> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<AccessListEntry>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Size(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AccessListEntry>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetMany(&self, startindex: u32, items: &mut [AccessListEntry]) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for AccessListEntryView {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for AccessListEntryView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for AccessListEntryView {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for AccessListEntryView {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccessListEntryView").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for AccessListEntryView {
-    type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<AccessListEntry>;
-    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<AccessListEntry> as ::windows::core::Interface>::IID;
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::windows::core::RuntimeName for AccessListEntryView {
-    const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::iter::IntoIterator for AccessListEntryView {
-    type Item = AccessListEntry;
-    type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        ::core::iter::IntoIterator::into_iter(&self)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::iter::IntoIterator for &AccessListEntryView {
-    type Item = AccessListEntry;
-    type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
-    fn into_iter(self) -> Self::IntoIter {
-        super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<AccessListEntryView> for ::windows::core::IUnknown {
-    fn from(value: AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for ::windows::core::IUnknown {
-    fn from(value: &AccessListEntryView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for &::windows::core::IUnknown {
-    fn from(value: &AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<AccessListEntryView> for ::windows::core::IInspectable {
-    fn from(value: AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for ::windows::core::IInspectable {
-    fn from(value: &AccessListEntryView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::From<&AccessListEntryView> for &::windows::core::IInspectable {
-    fn from(value: &AccessListEntryView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AccessListEntryView) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AccessListEntryView) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<'a> ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IItemRemovedEventArgs(::windows::core::IUnknown);
@@ -607,6 +317,194 @@ pub struct IStorageItemMostRecentlyUsedList2_Vtbl {
     pub AddWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub AddOrReplaceWithMetadataAndVisibility: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, file: *mut ::core::ffi::c_void, metadata: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, visibility: RecentStorageItemVisibility) -> ::windows::core::HRESULT,
 }
+#[doc = "*Required features: `\"Storage_AccessCache\"`, `\"Foundation_Collections\"`*"]
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+pub struct AccessListEntryView(::windows::core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+impl AccessListEntryView {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn First(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IIterator<AccessListEntry>> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<AccessListEntry>>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IIterator<AccessListEntry>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetAt(&self, index: u32) -> ::windows::core::Result<AccessListEntry> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<AccessListEntry>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Size(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn IndexOf<'a, P0>(&self, value: P0, index: &mut u32) -> ::windows::core::Result<bool>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AccessListEntry>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetMany(&self, startindex: u32, items: &mut [AccessListEntry]) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::clone::Clone for AccessListEntryView {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::PartialEq for AccessListEntryView {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::Eq for AccessListEntryView {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for AccessListEntryView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessListEntryView").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AccessCache.AccessListEntryView;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};struct(Windows.Storage.AccessCache.AccessListEntry;string;string)))");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::Interface for AccessListEntryView {
+    type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<AccessListEntry>;
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<AccessListEntry> as ::windows::core::Interface>::IID;
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::windows::core::RuntimeName for AccessListEntryView {
+    const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::iter::IntoIterator for AccessListEntryView {
+    type Item = AccessListEntry;
+    type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        ::core::iter::IntoIterator::into_iter(&self)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::iter::IntoIterator for &AccessListEntryView {
+    type Item = AccessListEntry;
+    type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
+    fn into_iter(self) -> Self::IntoIter {
+        super::super::Foundation::Collections::VectorViewIterator::new(::core::convert::TryInto::try_into(self).ok())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<AccessListEntryView> for ::windows::core::IUnknown {
+    fn from(value: AccessListEntryView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&AccessListEntryView> for ::windows::core::IUnknown {
+    fn from(value: &AccessListEntryView) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&AccessListEntryView> for &::windows::core::IUnknown {
+    fn from(value: &AccessListEntryView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<AccessListEntryView> for ::windows::core::IInspectable {
+    fn from(value: AccessListEntryView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&AccessListEntryView> for ::windows::core::IInspectable {
+    fn from(value: &AccessListEntryView) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::From<&AccessListEntryView> for &::windows::core::IInspectable {
+    fn from(value: &AccessListEntryView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AccessListEntryView) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AccessListEntryView) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<'a> ::core::convert::TryFrom<&AccessListEntryView> for ::windows::core::InParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
 #[repr(transparent)]
 pub struct ItemRemovedEventArgs(::windows::core::IUnknown);
@@ -677,40 +575,6 @@ impl ::core::convert::From<&ItemRemovedEventArgs> for ::windows::core::IInspecta
 impl ::core::convert::From<&ItemRemovedEventArgs> for &::windows::core::IInspectable {
     fn from(value: &ItemRemovedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RecentStorageItemVisibility(pub i32);
-impl RecentStorageItemVisibility {
-    pub const AppOnly: Self = Self(0i32);
-    pub const AppAndSystem: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RecentStorageItemVisibility {}
-impl ::core::clone::Clone for RecentStorageItemVisibility {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RecentStorageItemVisibility {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RecentStorageItemVisibility {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
@@ -1235,6 +1099,142 @@ impl<'a> ::core::convert::TryFrom<&StorageItemMostRecentlyUsedList> for ::window
     fn try_from(value: &StorageItemMostRecentlyUsedList) -> ::windows::core::Result<Self> {
         let item = ::std::convert::TryInto::try_into(value)?;
         Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AccessCacheOptions(pub u32);
+impl AccessCacheOptions {
+    pub const None: Self = Self(0u32);
+    pub const DisallowUserInput: Self = Self(1u32);
+    pub const FastLocationsOnly: Self = Self(2u32);
+    pub const UseReadOnlyCachedCopy: Self = Self(4u32);
+    pub const SuppressAccessTimeUpdate: Self = Self(8u32);
+}
+impl ::core::marker::Copy for AccessCacheOptions {}
+impl ::core::clone::Clone for AccessCacheOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AccessCacheOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AccessCacheOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AccessCacheOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AccessCacheOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AccessCacheOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AccessCacheOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AccessCacheOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AccessCacheOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccessCacheOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.AccessCacheOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RecentStorageItemVisibility(pub i32);
+impl RecentStorageItemVisibility {
+    pub const AppOnly: Self = Self(0i32);
+    pub const AppAndSystem: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RecentStorageItemVisibility {}
+impl ::core::clone::Clone for RecentStorageItemVisibility {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RecentStorageItemVisibility {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RecentStorageItemVisibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Storage.AccessCache.RecentStorageItemVisibility;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Storage_AccessCache\"`*"]
+pub struct AccessListEntry {
+    pub Token: ::windows::core::HSTRING,
+    pub Metadata: ::windows::core::HSTRING,
+}
+impl ::core::clone::Clone for AccessListEntry {
+    fn clone(&self) -> Self {
+        Self { Token: self.Token.clone(), Metadata: self.Metadata.clone() }
+    }
+}
+impl ::core::fmt::Debug for AccessListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AccessListEntry").field("Token", &self.Token).field("Metadata", &self.Metadata).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AccessListEntry {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+unsafe impl ::windows::core::RuntimeType for AccessListEntry {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Storage.AccessCache.AccessListEntry;string;string)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(from.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AccessListEntry {
+    fn eq(&self, other: &Self) -> bool {
+        self.Token == other.Token && self.Metadata == other.Metadata
+    }
+}
+impl ::core::cmp::Eq for AccessListEntry {}
+impl ::core::default::Default for AccessListEntry {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

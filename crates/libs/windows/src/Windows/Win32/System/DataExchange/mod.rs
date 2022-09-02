@@ -1,8 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCLASS_MASK: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCMD_MASK: i32 = 4080i32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 #[inline]
 pub unsafe fn AddAtomA<'a, P0>(lpstring: P0) -> u16
 where
@@ -39,286 +35,6 @@ where
     }
     AddClipboardFormatListener(hwnd.into())
 }
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CADV_LATEACK: u32 = 65535u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct CONVCONTEXT {
-    pub cb: u32,
-    pub wFlags: u32,
-    pub wCountryID: u32,
-    pub iCodePage: i32,
-    pub dwLangID: u32,
-    pub dwSecurity: u32,
-    pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for CONVCONTEXT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for CONVCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for CONVCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONVCONTEXT").field("cb", &self.cb).field("wFlags", &self.wFlags).field("wCountryID", &self.wCountryID).field("iCodePage", &self.iCodePage).field("dwLangID", &self.dwLangID).field("dwSecurity", &self.dwSecurity).field("qos", &self.qos).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for CONVCONTEXT {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for CONVCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVCONTEXT>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for CONVCONTEXT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for CONVCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct CONVINFO {
-    pub cb: u32,
-    pub hUser: usize,
-    pub hConvPartner: HCONV,
-    pub hszSvcPartner: HSZ,
-    pub hszServiceReq: HSZ,
-    pub hszTopic: HSZ,
-    pub hszItem: HSZ,
-    pub wFmt: u32,
-    pub wType: DDE_CLIENT_TRANSACTION_TYPE,
-    pub wStatus: CONVINFO_STATUS,
-    pub wConvst: CONVINFO_CONVERSATION_STATE,
-    pub wLastError: u32,
-    pub hConvList: HCONVLIST,
-    pub ConvCtxt: CONVCONTEXT,
-    pub hwnd: super::super::Foundation::HWND,
-    pub hwndPartner: super::super::Foundation::HWND,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for CONVINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for CONVINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for CONVINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONVINFO")
-            .field("cb", &self.cb)
-            .field("hUser", &self.hUser)
-            .field("hConvPartner", &self.hConvPartner)
-            .field("hszSvcPartner", &self.hszSvcPartner)
-            .field("hszServiceReq", &self.hszServiceReq)
-            .field("hszTopic", &self.hszTopic)
-            .field("hszItem", &self.hszItem)
-            .field("wFmt", &self.wFmt)
-            .field("wType", &self.wType)
-            .field("wStatus", &self.wStatus)
-            .field("wConvst", &self.wConvst)
-            .field("wLastError", &self.wLastError)
-            .field("hConvList", &self.hConvList)
-            .field("ConvCtxt", &self.ConvCtxt)
-            .field("hwnd", &self.hwnd)
-            .field("hwndPartner", &self.hwndPartner)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for CONVINFO {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for CONVINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVINFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for CONVINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for CONVINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONVINFO_CONVERSATION_STATE(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_ADVDATAACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(16u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_ADVDATASENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(15u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_ADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(11u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_CONNECTED: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(2u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_DATARCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(6u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_EXECACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(10u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_EXECSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(9u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_INCOMPLETE: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_INIT1: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(3u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_INIT2: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(4u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_NULL: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(0u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_POKEACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(8u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_POKESENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(7u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_REQSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(5u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(14u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(12u32);
-impl ::core::marker::Copy for CONVINFO_CONVERSATION_STATE {}
-impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONVINFO_CONVERSATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CONVINFO_CONVERSATION_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONVINFO_CONVERSATION_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CONVINFO_STATUS(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_BLOCKED: CONVINFO_STATUS = CONVINFO_STATUS(8u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_BLOCKNEXT: CONVINFO_STATUS = CONVINFO_STATUS(128u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_CLIENT: CONVINFO_STATUS = CONVINFO_STATUS(16u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_CONNECTED: CONVINFO_STATUS = CONVINFO_STATUS(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_INLIST: CONVINFO_STATUS = CONVINFO_STATUS(64u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_ISLOCAL: CONVINFO_STATUS = CONVINFO_STATUS(4u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_ISSELF: CONVINFO_STATUS = CONVINFO_STATUS(256u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const ST_TERMINATED: CONVINFO_STATUS = CONVINFO_STATUS(32u32);
-impl ::core::marker::Copy for CONVINFO_STATUS {}
-impl ::core::clone::Clone for CONVINFO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CONVINFO_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CONVINFO_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CONVINFO_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CONVINFO_STATUS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CONVINFO_STATUS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CONVINFO_STATUS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONVINFO_STATUS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONVINFO_STATUS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CONVINFO_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct COPYDATASTRUCT {
-    pub dwData: usize,
-    pub cbData: u32,
-    pub lpData: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for COPYDATASTRUCT {}
-impl ::core::clone::Clone for COPYDATASTRUCT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COPYDATASTRUCT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COPYDATASTRUCT").field("dwData", &self.dwData).field("cbData", &self.cbData).field("lpData", &self.lpData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COPYDATASTRUCT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COPYDATASTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYDATASTRUCT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COPYDATASTRUCT {}
-impl ::core::default::Default for COPYDATASTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CP_WINANSI: i32 = 1004i32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CP_WINNEUTRAL: i32 = 1200i32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CP_WINUNICODE: i32 = 1200i32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -352,497 +68,6 @@ pub unsafe fn CountClipboardFormats() -> i32 {
     }
     CountClipboardFormats()
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDEACK {
-    pub _bitfield: u16,
-}
-impl ::core::marker::Copy for DDEACK {}
-impl ::core::clone::Clone for DDEACK {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDEACK {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDEACK").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDEACK {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDEACK {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEACK>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDEACK {}
-impl ::core::default::Default for DDEACK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDEADVISE {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-}
-impl ::core::marker::Copy for DDEADVISE {}
-impl ::core::clone::Clone for DDEADVISE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDEADVISE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDEADVISE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDEADVISE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDEADVISE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEADVISE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDEADVISE {}
-impl ::core::default::Default for DDEADVISE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDEDATA {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-    pub Value: [u8; 1],
-}
-impl ::core::marker::Copy for DDEDATA {}
-impl ::core::clone::Clone for DDEDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDEDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDEDATA").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDEDATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDEDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEDATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDEDATA {}
-impl ::core::default::Default for DDEDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDELN {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-}
-impl ::core::marker::Copy for DDELN {}
-impl ::core::clone::Clone for DDELN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDELN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDELN").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDELN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDELN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDELN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDELN {}
-impl ::core::default::Default for DDELN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDEML_MSG_HOOK_DATA {
-    pub uiLo: usize,
-    pub uiHi: usize,
-    pub cbData: u32,
-    pub Data: [u32; 8],
-}
-impl ::core::marker::Copy for DDEML_MSG_HOOK_DATA {}
-impl ::core::clone::Clone for DDEML_MSG_HOOK_DATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDEML_MSG_HOOK_DATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDEML_MSG_HOOK_DATA").field("uiLo", &self.uiLo).field("uiHi", &self.uiHi).field("cbData", &self.cbData).field("Data", &self.Data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDEML_MSG_HOOK_DATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDEML_MSG_HOOK_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEML_MSG_HOOK_DATA>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDEML_MSG_HOOK_DATA {}
-impl ::core::default::Default for DDEML_MSG_HOOK_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDEPOKE {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-    pub Value: [u8; 1],
-}
-impl ::core::marker::Copy for DDEPOKE {}
-impl ::core::clone::Clone for DDEPOKE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDEPOKE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDEPOKE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDEPOKE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDEPOKE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEPOKE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDEPOKE {}
-impl ::core::default::Default for DDEPOKE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub struct DDEUP {
-    pub _bitfield: u16,
-    pub cfFormat: i16,
-    pub rgb: [u8; 1],
-}
-impl ::core::marker::Copy for DDEUP {}
-impl ::core::clone::Clone for DDEUP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DDEUP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DDEUP").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("rgb", &self.rgb).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DDEUP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DDEUP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEUP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DDEUP {}
-impl ::core::default::Default for DDEUP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32832u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16464u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16528u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8368u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16400u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8226u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4194u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32882u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32962u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(33010u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32930u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
-impl ::core::marker::Copy for DDE_CLIENT_TRANSACTION_TYPE {}
-impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_CLIENT_TRANSACTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DDE_CLIENT_TRANSACTION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DDE_CLIENT_TRANSACTION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
-impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
-impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_ENABLE_CALLBACK_CMD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DDE_ENABLE_CALLBACK_CMD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DDE_ENABLE_CALLBACK_CMD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FACK: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FACKREQ: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FAPPSTATUS: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FBUSY: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FDEFERUPD: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FNOTPROCESSED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FRELEASE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DDE_FREQUESTED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DDE_INITIALIZE_COMMAND(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
-impl ::core::marker::Copy for DDE_INITIALIZE_COMMAND {}
-impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_INITIALIZE_COMMAND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DDE_INITIALIZE_COMMAND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DDE_INITIALIZE_COMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DDE_INITIALIZE_COMMAND").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DDE_INITIALIZE_COMMAND {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DDE_NAME_SERVICE_CMD(pub u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
-impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
-impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DDE_NAME_SERVICE_CMD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DDE_NAME_SERVICE_CMD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DDE_NAME_SERVICE_CMD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DDE_NAME_SERVICE_CMD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_BUSY: u32 = 16385u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_DLL_USAGE: u32 = 16388u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_EXECACKTIMEOUT: u32 = 16389u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_FIRST: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_INVALIDPARAMETER: u32 = 16390u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_LAST: u32 = 16401u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_LOW_MEMORY: u32 = 16391u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_MEMORY_ERROR: u32 = 16392u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_NOTPROCESSED: u32 = 16393u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_NO_ERROR: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_POKEACKTIMEOUT: u32 = 16395u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_POSTMSG_FAILED: u32 = 16396u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_REENTRANCY: u32 = 16397u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_SERVER_DIED: u32 = 16398u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_SYS_ERROR: u32 = 16399u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1508,6 +733,1019 @@ pub unsafe fn GlobalGetAtomNameW(natom: u16, lpbuffer: &mut [u16]) -> u32 {
     }
     GlobalGetAtomNameW(natom, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
 }
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ImpersonateDdeClientWindow<'a, P0, P1>(hwndclient: P0, hwndserver: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    ImpersonateDdeClientWindow(hwndclient.into(), hwndserver.into())
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
+    }
+    InitAtomTable(nsize)
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL;
+    }
+    IsClipboardFormatAvailable(format)
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenClipboard<'a, P0>(hwndnewowner: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenClipboard(hwndnewowner: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    OpenClipboard(hwndnewowner.into())
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
+    }
+    PackDDElParam(msg, uilo, uihi)
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[inline]
+pub unsafe fn RegisterClipboardFormatA<'a, P0>(lpszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterClipboardFormatA(lpszformat: ::windows::core::PCSTR) -> u32;
+    }
+    RegisterClipboardFormatA(lpszformat.into())
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[inline]
+pub unsafe fn RegisterClipboardFormatW<'a, P0>(lpszformat: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegisterClipboardFormatW(lpszformat: ::windows::core::PCWSTR) -> u32;
+    }
+    RegisterClipboardFormatW(lpszformat.into())
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RemoveClipboardFormatListener<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    RemoveClipboardFormatListener(hwnd.into())
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ReuseDDElParam<'a, P0>(lparam: P0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM
+where
+    P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReuseDDElParam(lparam: super::super::Foundation::LPARAM, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
+    }
+    ReuseDDElParam(lparam.into(), msgin, msgout, uilo, uihi)
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetClipboardData<'a, P0>(uformat: u32, hmem: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetClipboardData(uformat: u32, hmem: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
+    }
+    let result__ = SetClipboardData(uformat, hmem.into());
+    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetClipboardViewer<'a, P0>(hwndnewviewer: P0) -> super::super::Foundation::HWND
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
+    }
+    SetClipboardViewer(hwndnewviewer.into())
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+#[inline]
+pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<&METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
+where
+    P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
+    }
+    SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(lpmeta16data.as_ptr()), hdcref.into(), ::core::mem::transmute(lpmfp))
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UnpackDDElParam<'a, P0>(msg: u32, lparam: P0, puilo: &mut usize, puihi: &mut usize) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
+    }
+    UnpackDDElParam(msg, lparam.into(), ::core::mem::transmute(puilo), ::core::mem::transmute(puihi))
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCLASS_MASK: i32 = 15i32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCMD_MASK: i32 = 4080i32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CADV_LATEACK: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CP_WINANSI: i32 = 1004i32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CP_WINNEUTRAL: i32 = 1200i32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CP_WINUNICODE: i32 = 1200i32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FACK: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FACKREQ: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FAPPSTATUS: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FBUSY: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FDEFERUPD: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FNOTPROCESSED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FRELEASE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DDE_FREQUESTED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_BUSY: u32 = 16385u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_DATAACKTIMEOUT: u32 = 16386u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_DLL_NOT_INITIALIZED: u32 = 16387u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_DLL_USAGE: u32 = 16388u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_EXECACKTIMEOUT: u32 = 16389u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_FIRST: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_INVALIDPARAMETER: u32 = 16390u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_LAST: u32 = 16401u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_LOW_MEMORY: u32 = 16391u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_MEMORY_ERROR: u32 = 16392u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_NOTPROCESSED: u32 = 16393u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_NO_CONV_ESTABLISHED: u32 = 16394u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_NO_ERROR: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_POKEACKTIMEOUT: u32 = 16395u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_POSTMSG_FAILED: u32 = 16396u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_REENTRANCY: u32 = 16397u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_SERVER_DIED: u32 = 16398u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_SYS_ERROR: u32 = 16399u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_UNADVACKTIMEOUT: u32 = 16400u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DMLERR_UNFOUND_QUEUE_ID: u32 = 16401u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const HDATA_APPOWNED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MAX_MONITORS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_MASK: u32 = 4278190080u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MH_CLEANUP: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MH_CREATE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MH_DELETE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MH_KEEP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MSGF_DDEMGR: u32 = 32769u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const QID_SYNC: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_ITEM_FORMATS: &str = "Formats";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_ITEM_HELP: &str = "Help";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_ITEM_RTNMSG: &str = "ReturnMessage";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_ITEM_STATUS: &str = "Status";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_ITEM_SYSITEMS: &str = "SysItems";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_ITEM_TOPICS: &str = "Topics";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDESYS_TOPIC: &str = "System";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const SZDDE_ITEM_ITEMLIST: &str = "TopicItemList";
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_ACK: u32 = 996u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_ADVISE: u32 = 994u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_DATA: u32 = 997u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_EXECUTE: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_FIRST: u32 = 992u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_INITIATE: u32 = 992u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_LAST: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_POKE: u32 = 999u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_REQUEST: u32 = 998u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_TERMINATE: u32 = 993u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const WM_DDE_UNADVISE: u32 = 995u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XCLASS_BOOL: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XCLASS_DATA: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XCLASS_FLAGS: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XCLASS_MASK: u32 = 64512u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XCLASS_NOTIFICATION: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYPF_ACKREQ: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYPF_NOBLOCK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYPF_NODATA: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_MASK: u32 = 240u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_SHIFT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONVINFO_CONVERSATION_STATE(pub u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_ADVDATAACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(16u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_ADVDATASENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(15u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_ADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(11u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_CONNECTED: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(2u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_DATARCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(6u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_EXECACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(10u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_EXECSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(9u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_INCOMPLETE: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_INIT1: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(3u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_INIT2: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(4u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_NULL: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(0u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_POKEACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(8u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_POKESENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(7u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_REQSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(5u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(14u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(12u32);
+impl ::core::marker::Copy for CONVINFO_CONVERSATION_STATE {}
+impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONVINFO_CONVERSATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONVINFO_CONVERSATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONVINFO_CONVERSATION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CONVINFO_STATUS(pub u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_BLOCKED: CONVINFO_STATUS = CONVINFO_STATUS(8u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_BLOCKNEXT: CONVINFO_STATUS = CONVINFO_STATUS(128u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_CLIENT: CONVINFO_STATUS = CONVINFO_STATUS(16u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_CONNECTED: CONVINFO_STATUS = CONVINFO_STATUS(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_INLIST: CONVINFO_STATUS = CONVINFO_STATUS(64u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_ISLOCAL: CONVINFO_STATUS = CONVINFO_STATUS(4u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_ISSELF: CONVINFO_STATUS = CONVINFO_STATUS(256u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const ST_TERMINATED: CONVINFO_STATUS = CONVINFO_STATUS(32u32);
+impl ::core::marker::Copy for CONVINFO_STATUS {}
+impl ::core::clone::Clone for CONVINFO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CONVINFO_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CONVINFO_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONVINFO_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONVINFO_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONVINFO_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONVINFO_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONVINFO_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32832u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16464u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16528u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8368u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16400u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8226u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4194u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32882u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32962u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(33010u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32930u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
+impl ::core::marker::Copy for DDE_CLIENT_TRANSACTION_TYPE {}
+impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DDE_CLIENT_TRANSACTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_CLIENT_TRANSACTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_CLIENT_TRANSACTION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
+impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
+impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DDE_ENABLE_CALLBACK_CMD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_ENABLE_CALLBACK_CMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_ENABLE_CALLBACK_CMD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DDE_INITIALIZE_COMMAND(pub u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
+impl ::core::marker::Copy for DDE_INITIALIZE_COMMAND {}
+impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DDE_INITIALIZE_COMMAND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_INITIALIZE_COMMAND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_INITIALIZE_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_INITIALIZE_COMMAND").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DDE_NAME_SERVICE_CMD(pub u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
+impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
+impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DDE_NAME_SERVICE_CMD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_NAME_SERVICE_CMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_NAME_SERVICE_CMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_NAME_SERVICE_CMD").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct CONVCONTEXT {
+    pub cb: u32,
+    pub wFlags: u32,
+    pub wCountryID: u32,
+    pub iCodePage: i32,
+    pub dwLangID: u32,
+    pub dwSecurity: u32,
+    pub qos: super::super::Security::SECURITY_QUALITY_OF_SERVICE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for CONVCONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for CONVCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for CONVCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONVCONTEXT").field("cb", &self.cb).field("wFlags", &self.wFlags).field("wCountryID", &self.wCountryID).field("iCodePage", &self.iCodePage).field("dwLangID", &self.dwLangID).field("dwSecurity", &self.dwSecurity).field("qos", &self.qos).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for CONVCONTEXT {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for CONVCONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVCONTEXT>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for CONVCONTEXT {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for CONVCONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct CONVINFO {
+    pub cb: u32,
+    pub hUser: usize,
+    pub hConvPartner: HCONV,
+    pub hszSvcPartner: HSZ,
+    pub hszServiceReq: HSZ,
+    pub hszTopic: HSZ,
+    pub hszItem: HSZ,
+    pub wFmt: u32,
+    pub wType: DDE_CLIENT_TRANSACTION_TYPE,
+    pub wStatus: CONVINFO_STATUS,
+    pub wConvst: CONVINFO_CONVERSATION_STATE,
+    pub wLastError: u32,
+    pub hConvList: HCONVLIST,
+    pub ConvCtxt: CONVCONTEXT,
+    pub hwnd: super::super::Foundation::HWND,
+    pub hwndPartner: super::super::Foundation::HWND,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for CONVINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for CONVINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for CONVINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONVINFO")
+            .field("cb", &self.cb)
+            .field("hUser", &self.hUser)
+            .field("hConvPartner", &self.hConvPartner)
+            .field("hszSvcPartner", &self.hszSvcPartner)
+            .field("hszServiceReq", &self.hszServiceReq)
+            .field("hszTopic", &self.hszTopic)
+            .field("hszItem", &self.hszItem)
+            .field("wFmt", &self.wFmt)
+            .field("wType", &self.wType)
+            .field("wStatus", &self.wStatus)
+            .field("wConvst", &self.wConvst)
+            .field("wLastError", &self.wLastError)
+            .field("hConvList", &self.hConvList)
+            .field("ConvCtxt", &self.ConvCtxt)
+            .field("hwnd", &self.hwnd)
+            .field("hwndPartner", &self.hwndPartner)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for CONVINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for CONVINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for CONVINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for CONVINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct COPYDATASTRUCT {
+    pub dwData: usize,
+    pub cbData: u32,
+    pub lpData: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for COPYDATASTRUCT {}
+impl ::core::clone::Clone for COPYDATASTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COPYDATASTRUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COPYDATASTRUCT").field("dwData", &self.dwData).field("cbData", &self.cbData).field("lpData", &self.lpData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COPYDATASTRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COPYDATASTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COPYDATASTRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COPYDATASTRUCT {}
+impl ::core::default::Default for COPYDATASTRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDEACK {
+    pub _bitfield: u16,
+}
+impl ::core::marker::Copy for DDEACK {}
+impl ::core::clone::Clone for DDEACK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDEACK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEACK").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDEACK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDEACK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEACK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDEACK {}
+impl ::core::default::Default for DDEACK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDEADVISE {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+}
+impl ::core::marker::Copy for DDEADVISE {}
+impl ::core::clone::Clone for DDEADVISE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDEADVISE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEADVISE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDEADVISE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDEADVISE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEADVISE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDEADVISE {}
+impl ::core::default::Default for DDEADVISE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDEDATA {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub Value: [u8; 1],
+}
+impl ::core::marker::Copy for DDEDATA {}
+impl ::core::clone::Clone for DDEDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDEDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEDATA").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDEDATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDEDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEDATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDEDATA {}
+impl ::core::default::Default for DDEDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDELN {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+}
+impl ::core::marker::Copy for DDELN {}
+impl ::core::clone::Clone for DDELN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDELN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDELN").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDELN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDELN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDELN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDELN {}
+impl ::core::default::Default for DDELN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDEML_MSG_HOOK_DATA {
+    pub uiLo: usize,
+    pub uiHi: usize,
+    pub cbData: u32,
+    pub Data: [u32; 8],
+}
+impl ::core::marker::Copy for DDEML_MSG_HOOK_DATA {}
+impl ::core::clone::Clone for DDEML_MSG_HOOK_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDEML_MSG_HOOK_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEML_MSG_HOOK_DATA").field("uiLo", &self.uiLo).field("uiHi", &self.uiHi).field("cbData", &self.cbData).field("Data", &self.Data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDEML_MSG_HOOK_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDEML_MSG_HOOK_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEML_MSG_HOOK_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDEML_MSG_HOOK_DATA {}
+impl ::core::default::Default for DDEML_MSG_HOOK_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDEPOKE {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub Value: [u8; 1],
+}
+impl ::core::marker::Copy for DDEPOKE {}
+impl ::core::clone::Clone for DDEPOKE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDEPOKE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEPOKE").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("Value", &self.Value).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDEPOKE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDEPOKE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEPOKE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDEPOKE {}
+impl ::core::default::Default for DDEPOKE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
+pub struct DDEUP {
+    pub _bitfield: u16,
+    pub cfFormat: i16,
+    pub rgb: [u8; 1],
+}
+impl ::core::marker::Copy for DDEUP {}
+impl ::core::clone::Clone for DDEUP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DDEUP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DDEUP").field("_bitfield", &self._bitfield).field("cfFormat", &self.cfFormat).field("rgb", &self.rgb).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DDEUP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DDEUP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DDEUP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DDEUP {}
+impl ::core::default::Default for DDEUP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCONV(pub isize);
@@ -1572,8 +1810,6 @@ impl ::core::convert::From<::core::option::Option<HCONVLIST>> for HCONVLIST {
 unsafe impl ::windows::core::Abi for HCONVLIST {
     type Abi = Self;
 }
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const HDATA_APPOWNED: u32 = 1u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HDDEDATA(pub isize);
@@ -1669,42 +1905,6 @@ impl ::core::default::Default for HSZPAIR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ImpersonateDdeClientWindow<'a, P0, P1>(hwndclient: P0, hwndserver: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ImpersonateDdeClientWindow(hwndclient: super::super::Foundation::HWND, hwndserver: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    ImpersonateDdeClientWindow(hwndclient.into(), hwndserver.into())
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn InitAtomTable(nsize: u32) -> super::super::Foundation::BOOL;
-    }
-    InitAtomTable(nsize)
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsClipboardFormatAvailable(format: u32) -> super::super::Foundation::BOOL;
-    }
-    IsClipboardFormatAvailable(format)
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MAX_MONITORS: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1746,16 +1946,6 @@ impl ::core::default::Default for METAFILEPICT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MF_MASK: u32 = 4278190080u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MH_CLEANUP: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MH_CREATE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MH_DELETE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MH_KEEP: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -2075,196 +2265,6 @@ impl ::core::default::Default for MONMSGSTRUCT {
     }
 }
 #[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const MSGF_DDEMGR: u32 = 32769u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenClipboard<'a, P0>(hwndnewowner: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenClipboard(hwndnewowner: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    OpenClipboard(hwndnewowner.into())
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
 pub type PFNCALLBACK = ::core::option::Option<unsafe extern "system" fn(wtype: u32, wfmt: u32, hconv: HCONV, hsz1: HSZ, hsz2: HSZ, hdata: HDDEDATA, dwdata1: usize, dwdata2: usize) -> HDDEDATA>;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PackDDElParam(msg: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
-    }
-    PackDDElParam(msg, uilo, uihi)
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const QID_SYNC: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[inline]
-pub unsafe fn RegisterClipboardFormatA<'a, P0>(lpszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterClipboardFormatA(lpszformat: ::windows::core::PCSTR) -> u32;
-    }
-    RegisterClipboardFormatA(lpszformat.into())
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-#[inline]
-pub unsafe fn RegisterClipboardFormatW<'a, P0>(lpszformat: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegisterClipboardFormatW(lpszformat: ::windows::core::PCWSTR) -> u32;
-    }
-    RegisterClipboardFormatW(lpszformat.into())
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RemoveClipboardFormatListener<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RemoveClipboardFormatListener(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    RemoveClipboardFormatListener(hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReuseDDElParam<'a, P0>(lparam: P0, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM
-where
-    P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReuseDDElParam(lparam: super::super::Foundation::LPARAM, msgin: u32, msgout: u32, uilo: usize, uihi: usize) -> super::super::Foundation::LPARAM;
-    }
-    ReuseDDElParam(lparam.into(), msgin, msgout, uilo, uihi)
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_FORMATS: &str = "Formats";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_HELP: &str = "Help";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_RTNMSG: &str = "ReturnMessage";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_STATUS: &str = "Status";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_SYSITEMS: &str = "SysItems";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_ITEM_TOPICS: &str = "Topics";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDESYS_TOPIC: &str = "System";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const SZDDE_ITEM_ITEMLIST: &str = "TopicItemList";
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetClipboardData<'a, P0>(uformat: u32, hmem: P0) -> ::windows::core::Result<super::super::Foundation::HANDLE>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetClipboardData(uformat: u32, hmem: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
-    }
-    let result__ = SetClipboardData(uformat, hmem.into());
-    (!result__.is_invalid()).then(|| result__).ok_or_else(::windows::core::Error::from_win32)
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetClipboardViewer<'a, P0>(hwndnewviewer: P0) -> super::super::Foundation::HWND
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetClipboardViewer(hwndnewviewer: super::super::Foundation::HWND) -> super::super::Foundation::HWND;
-    }
-    SetClipboardViewer(hwndnewviewer.into())
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
-#[inline]
-pub unsafe fn SetWinMetaFileBits<'a, P0>(lpmeta16data: &[u8], hdcref: P0, lpmfp: ::core::option::Option<&METAFILEPICT>) -> super::super::Graphics::Gdi::HENHMETAFILE
-where
-    P0: ::std::convert::Into<super::super::Graphics::Gdi::HDC>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetWinMetaFileBits(nsize: u32, lpmeta16data: *const u8, hdcref: super::super::Graphics::Gdi::HDC, lpmfp: *const METAFILEPICT) -> super::super::Graphics::Gdi::HENHMETAFILE;
-    }
-    SetWinMetaFileBits(lpmeta16data.len() as _, ::core::mem::transmute(lpmeta16data.as_ptr()), hdcref.into(), ::core::mem::transmute(lpmfp))
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const TIMEOUT_ASYNC: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UnpackDDElParam<'a, P0>(msg: u32, lparam: P0, puilo: &mut usize, puihi: &mut usize) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UnpackDDElParam(msg: u32, lparam: super::super::Foundation::LPARAM, puilo: *mut usize, puihi: *mut usize) -> super::super::Foundation::BOOL;
-    }
-    UnpackDDElParam(msg, lparam.into(), ::core::mem::transmute(puilo), ::core::mem::transmute(puihi))
-}
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_ACK: u32 = 996u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_ADVISE: u32 = 994u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_DATA: u32 = 997u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_EXECUTE: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_FIRST: u32 = 992u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_INITIATE: u32 = 992u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_LAST: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_POKE: u32 = 999u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_REQUEST: u32 = 998u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_TERMINATE: u32 = 993u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const WM_DDE_UNADVISE: u32 = 995u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XCLASS_BOOL: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XCLASS_DATA: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XCLASS_FLAGS: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XCLASS_MASK: u32 = 64512u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XCLASS_NOTIFICATION: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYPF_ACKREQ: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYPF_NOBLOCK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYPF_NODATA: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_MASK: u32 = 240u32;
-#[doc = "*Required features: `\"Win32_System_DataExchange\"`*"]
-pub const XTYP_SHIFT: u32 = 4u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

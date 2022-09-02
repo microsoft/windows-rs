@@ -1,3 +1,75 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBattery(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBattery {
+    type Vtable = IBattery_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBattery_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub ReportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ReportUpdated: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveReportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveReportUpdated: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBatteryReport(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBatteryReport {
+    type Vtable = IBatteryReport_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBatteryReport_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub ChargeRateInMilliwatts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    ChargeRateInMilliwatts: usize,
+    #[cfg(feature = "Foundation")]
+    pub DesignCapacityInMilliwattHours: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DesignCapacityInMilliwattHours: usize,
+    #[cfg(feature = "Foundation")]
+    pub FullChargeCapacityInMilliwattHours: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FullChargeCapacityInMilliwattHours: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemainingCapacityInMilliwattHours: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemainingCapacityInMilliwattHours: usize,
+    #[cfg(feature = "System_Power")]
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::Power::BatteryStatus) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "System_Power"))]
+    Status: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IBatteryStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IBatteryStatics {
+    type Vtable = IBatteryStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBatteryStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub AggregateBattery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    FromIdAsync: usize,
+    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Devices_Power\"`*"]
 #[repr(transparent)]
 pub struct Battery(::windows::core::IUnknown);
@@ -234,77 +306,5 @@ impl ::core::convert::From<&BatteryReport> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for BatteryReport {}
 unsafe impl ::core::marker::Sync for BatteryReport {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBattery(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBattery {
-    type Vtable = IBattery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBattery_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub DeviceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub GetReport: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub ReportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ReportUpdated: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveReportUpdated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveReportUpdated: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBatteryReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBatteryReport {
-    type Vtable = IBatteryReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9858c3a_4e13_420a_a8d0_24f18f395401);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBatteryReport_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub ChargeRateInMilliwatts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    ChargeRateInMilliwatts: usize,
-    #[cfg(feature = "Foundation")]
-    pub DesignCapacityInMilliwattHours: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DesignCapacityInMilliwattHours: usize,
-    #[cfg(feature = "Foundation")]
-    pub FullChargeCapacityInMilliwattHours: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FullChargeCapacityInMilliwattHours: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemainingCapacityInMilliwattHours: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemainingCapacityInMilliwattHours: usize,
-    #[cfg(feature = "System_Power")]
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::System::Power::BatteryStatus) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "System_Power"))]
-    Status: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IBatteryStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IBatteryStatics {
-    type Vtable = IBatteryStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IBatteryStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub AggregateBattery: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub FromIdAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    FromIdAsync: usize,
-    pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

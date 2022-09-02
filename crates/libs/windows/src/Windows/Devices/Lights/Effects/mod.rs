@@ -1285,40 +1285,6 @@ unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LampArrayEffectCompletionBehavior(pub i32);
-impl LampArrayEffectCompletionBehavior {
-    pub const ClearState: Self = Self(0i32);
-    pub const KeepState: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LampArrayEffectCompletionBehavior {}
-impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayEffectCompletionBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LampArrayEffectCompletionBehavior {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayEffectCompletionBehavior").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-#[repr(transparent)]
 pub struct LampArrayEffectPlaylist(::windows::core::IUnknown);
 impl LampArrayEffectPlaylist {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -1591,74 +1557,6 @@ unsafe impl ::core::marker::Send for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Sync for LampArrayEffectPlaylist {}
 #[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LampArrayEffectStartMode(pub i32);
-impl LampArrayEffectStartMode {
-    pub const Sequential: Self = Self(0i32);
-    pub const Simultaneous: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LampArrayEffectStartMode {}
-impl ::core::clone::Clone for LampArrayEffectStartMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayEffectStartMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LampArrayEffectStartMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LampArrayEffectStartMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayEffectStartMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LampArrayRepetitionMode(pub i32);
-impl LampArrayRepetitionMode {
-    pub const Occurrences: Self = Self(0i32);
-    pub const Forever: Self = Self(1i32);
-}
-impl ::core::marker::Copy for LampArrayRepetitionMode {}
-impl ::core::clone::Clone for LampArrayRepetitionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayRepetitionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LampArrayRepetitionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LampArrayRepetitionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayRepetitionMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
-#[repr(transparent)]
 pub struct LampArraySolidEffect(::windows::core::IUnknown);
 impl LampArraySolidEffect {
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
@@ -1924,5 +1822,107 @@ impl ::core::convert::From<&LampArrayUpdateRequestedEventArgs> for &::windows::c
 }
 unsafe impl ::core::marker::Send for LampArrayUpdateRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for LampArrayUpdateRequestedEventArgs {}
+#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LampArrayEffectCompletionBehavior(pub i32);
+impl LampArrayEffectCompletionBehavior {
+    pub const ClearState: Self = Self(0i32);
+    pub const KeepState: Self = Self(1i32);
+}
+impl ::core::marker::Copy for LampArrayEffectCompletionBehavior {}
+impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LampArrayEffectCompletionBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LampArrayEffectCompletionBehavior {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayEffectCompletionBehavior").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LampArrayEffectCompletionBehavior {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectCompletionBehavior;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LampArrayEffectStartMode(pub i32);
+impl LampArrayEffectStartMode {
+    pub const Sequential: Self = Self(0i32);
+    pub const Simultaneous: Self = Self(1i32);
+}
+impl ::core::marker::Copy for LampArrayEffectStartMode {}
+impl ::core::clone::Clone for LampArrayEffectStartMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LampArrayEffectStartMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LampArrayEffectStartMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LampArrayEffectStartMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayEffectStartMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LampArrayEffectStartMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayEffectStartMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Lights_Effects\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LampArrayRepetitionMode(pub i32);
+impl LampArrayRepetitionMode {
+    pub const Occurrences: Self = Self(0i32);
+    pub const Forever: Self = Self(1i32);
+}
+impl ::core::marker::Copy for LampArrayRepetitionMode {}
+impl ::core::clone::Clone for LampArrayRepetitionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LampArrayRepetitionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LampArrayRepetitionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LampArrayRepetitionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayRepetitionMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LampArrayRepetitionMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.Effects.LampArrayRepetitionMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

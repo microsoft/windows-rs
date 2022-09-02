@@ -1,77 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-pub struct CompositionFrameDisplayInstance {
-    pub displayAdapterLUID: super::super::Foundation::LUID,
-    pub displayVidPnSourceId: u32,
-    pub displayUniqueId: u32,
-    pub renderAdapterLUID: super::super::Foundation::LUID,
-    pub instanceKind: CompositionFrameInstanceKind,
-    pub finalTransform: PresentationTransform,
-    pub requiredCrossAdapterCopy: u8,
-    pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::marker::Copy for CompositionFrameDisplayInstance {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::clone::Clone for CompositionFrameDisplayInstance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CompositionFrameDisplayInstance").field("displayAdapterLUID", &self.displayAdapterLUID).field("displayVidPnSourceId", &self.displayVidPnSourceId).field("displayUniqueId", &self.displayUniqueId).field("renderAdapterLUID", &self.renderAdapterLUID).field("instanceKind", &self.instanceKind).field("finalTransform", &self.finalTransform).field("requiredCrossAdapterCopy", &self.requiredCrossAdapterCopy).field("colorSpace", &self.colorSpace).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-unsafe impl ::windows::core::Abi for CompositionFrameDisplayInstance {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::PartialEq for CompositionFrameDisplayInstance {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CompositionFrameDisplayInstance>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::cmp::Eq for CompositionFrameDisplayInstance {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-impl ::core::default::Default for CompositionFrameDisplayInstance {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CompositionFrameInstanceKind(pub i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
-#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
-impl ::core::marker::Copy for CompositionFrameInstanceKind {}
-impl ::core::clone::Clone for CompositionFrameInstanceKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CompositionFrameInstanceKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CompositionFrameInstanceKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CompositionFrameInstanceKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompositionFrameInstanceKind").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[inline]
 pub unsafe fn CreatePresentationFactory<'a, P0>(d3ddevice: P0, riid: &::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
@@ -801,6 +727,35 @@ pub struct IPresentationSurface_Vtbl {
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CompositionFrameInstanceKind(pub i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
+impl ::core::marker::Copy for CompositionFrameInstanceKind {}
+impl ::core::clone::Clone for CompositionFrameInstanceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CompositionFrameInstanceKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CompositionFrameInstanceKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CompositionFrameInstanceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionFrameInstanceKind").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct PresentStatisticsKind(pub i32);
 #[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`*"]
 pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
@@ -854,6 +809,51 @@ unsafe impl ::windows::core::Abi for PresentStatus {
 impl ::core::fmt::Debug for PresentStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PresentStatus").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Graphics_CompositionSwapchain\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Dxgi_Common\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub struct CompositionFrameDisplayInstance {
+    pub displayAdapterLUID: super::super::Foundation::LUID,
+    pub displayVidPnSourceId: u32,
+    pub displayUniqueId: u32,
+    pub renderAdapterLUID: super::super::Foundation::LUID,
+    pub instanceKind: CompositionFrameInstanceKind,
+    pub finalTransform: PresentationTransform,
+    pub requiredCrossAdapterCopy: u8,
+    pub colorSpace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::marker::Copy for CompositionFrameDisplayInstance {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::clone::Clone for CompositionFrameDisplayInstance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::fmt::Debug for CompositionFrameDisplayInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CompositionFrameDisplayInstance").field("displayAdapterLUID", &self.displayAdapterLUID).field("displayVidPnSourceId", &self.displayVidPnSourceId).field("displayUniqueId", &self.displayUniqueId).field("renderAdapterLUID", &self.renderAdapterLUID).field("instanceKind", &self.instanceKind).field("finalTransform", &self.finalTransform).field("requiredCrossAdapterCopy", &self.requiredCrossAdapterCopy).field("colorSpace", &self.colorSpace).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+unsafe impl ::windows::core::Abi for CompositionFrameDisplayInstance {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::cmp::PartialEq for CompositionFrameDisplayInstance {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CompositionFrameDisplayInstance>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::cmp::Eq for CompositionFrameDisplayInstance {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ::core::default::Default for CompositionFrameDisplayInstance {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]

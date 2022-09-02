@@ -458,46 +458,6 @@ unsafe impl ::core::marker::Send for LocalLocationFinderResult {}
 unsafe impl ::core::marker::Sync for LocalLocationFinderResult {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LocalLocationFinderStatus(pub i32);
-impl LocalLocationFinderStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownError: Self = Self(1i32);
-    pub const InvalidCredentials: Self = Self(2i32);
-    pub const InvalidCategory: Self = Self(3i32);
-    pub const InvalidSearchTerm: Self = Self(4i32);
-    pub const InvalidSearchArea: Self = Self(5i32);
-    pub const NetworkFailure: Self = Self(6i32);
-    pub const NotSupported: Self = Self(7i32);
-}
-impl ::core::marker::Copy for LocalLocationFinderStatus {}
-impl ::core::clone::Clone for LocalLocationFinderStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LocalLocationFinderStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LocalLocationFinderStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LocalLocationFinderStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
-#[repr(transparent)]
 pub struct LocalLocationHoursOfOperationItem(::windows::core::IUnknown);
 impl LocalLocationHoursOfOperationItem {
     #[doc = "*Required features: `\"Globalization\"`*"]
@@ -702,6 +662,46 @@ impl PlaceInfoHelper {
 }
 impl ::windows::core::RuntimeName for PlaceInfoHelper {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.PlaceInfoHelper";
+}
+#[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LocalLocationFinderStatus(pub i32);
+impl LocalLocationFinderStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownError: Self = Self(1i32);
+    pub const InvalidCredentials: Self = Self(2i32);
+    pub const InvalidCategory: Self = Self(3i32);
+    pub const InvalidSearchTerm: Self = Self(4i32);
+    pub const InvalidSearchArea: Self = Self(5i32);
+    pub const NetworkFailure: Self = Self(6i32);
+    pub const NotSupported: Self = Self(7i32);
+}
+impl ::core::marker::Copy for LocalLocationFinderStatus {}
+impl ::core::clone::Clone for LocalLocationFinderStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LocalLocationFinderStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LocalLocationFinderStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LocalLocationFinderStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocationFinderStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LocalLocationFinderStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Maps.LocalSearch.LocalLocationFinderStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

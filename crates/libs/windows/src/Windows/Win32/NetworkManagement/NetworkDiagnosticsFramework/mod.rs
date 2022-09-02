@@ -1,354 +1,191 @@
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ATTRIBUTE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_INVALID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_BOOLEAN: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_INT8: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_UINT8: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_INT16: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_UINT16: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_INT32: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_UINT32: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_INT64: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_UINT64: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_STRING: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_GUID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_LIFE_TIME: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_SOCKADDR: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const AT_OCTET_STRING: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(14i32);
-impl ::core::marker::Copy for ATTRIBUTE_TYPE {}
-impl ::core::clone::Clone for ATTRIBUTE_TYPE {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCancelIncident(::core::mem::transmute(handle)).ok()
 }
-impl ::core::default::Default for ATTRIBUTE_TYPE {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[inline]
+pub unsafe fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCloseIncident(::core::mem::transmute(handle)).ok()
 }
-unsafe impl ::windows::core::Abi for ATTRIBUTE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ATTRIBUTE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ATTRIBUTE_TYPE").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[inline]
+pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateConnectivityIncident(::core::mem::transmute(handle)).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DF_IMPERSONATION: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DF_TRACELESS: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DIAGNOSIS_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DS_CONFIRMED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DS_REJECTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DS_DEFERRED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(5i32);
-impl ::core::marker::Copy for DIAGNOSIS_STATUS {}
-impl ::core::clone::Clone for DIAGNOSIS_STATUS {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCreateDNSIncident<'a, P0>(hostname: P0, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateDNSIncident(hostname: ::windows::core::PCWSTR, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateDNSIncident(hostname.into(), querytype, ::core::mem::transmute(handle)).ok()
 }
-impl ::core::default::Default for DIAGNOSIS_STATUS {
-    fn default() -> Self {
-        Self(0)
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
+#[inline]
+pub unsafe fn NdfCreateGroupingIncident<'a, P0, P1, P2, P3, P4>(cloudname: P0, groupname: P1, identity: P2, invitation: P3, addresses: ::core::option::Option<&super::super::Networking::WinSock::SOCKET_ADDRESS_LIST>, appid: P4, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateGroupingIncident(cloudname: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, identity: ::windows::core::PCWSTR, invitation: ::windows::core::PCWSTR, addresses: *const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateGroupingIncident(cloudname.into(), groupname.into(), identity.into(), invitation.into(), ::core::mem::transmute(addresses), appid.into(), ::core::mem::transmute(handle)).ok()
 }
-unsafe impl ::windows::core::Abi for DIAGNOSIS_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DIAGNOSIS_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DIAGNOSIS_STATUS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct DIAG_SOCKADDR {
-    pub family: u16,
-    pub data: [super::super::Foundation::CHAR; 126],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DIAG_SOCKADDR {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCreateIncident<'a, P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateIncident(helperclassname: ::windows::core::PCWSTR, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateIncident(helperclassname.into(), attributes.len() as _, ::core::mem::transmute(attributes.as_ptr()), ::core::mem::transmute(handle)).ok()
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DIAG_SOCKADDR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DIAG_SOCKADDR").field("family", &self.family).field("data", &self.data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DIAG_SOCKADDR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DIAG_SOCKADDR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAG_SOCKADDR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DIAG_SOCKADDR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DIAG_SOCKADDR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub struct DiagnosticsInfo {
-    pub cost: i32,
-    pub flags: u32,
-}
-impl ::core::marker::Copy for DiagnosticsInfo {}
-impl ::core::clone::Clone for DiagnosticsInfo {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::HRESULT;
     }
+    NdfCreateNetConnectionIncident(::core::mem::transmute(handle), ::core::mem::transmute(id)).ok()
 }
-impl ::core::fmt::Debug for DiagnosticsInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DiagnosticsInfo").field("cost", &self.cost).field("flags", &self.flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DiagnosticsInfo {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DiagnosticsInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DiagnosticsInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DiagnosticsInfo {}
-impl ::core::default::Default for DiagnosticsInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct HELPER_ATTRIBUTE {
-    pub pwszName: ::windows::core::PWSTR,
-    pub r#type: ATTRIBUTE_TYPE,
-    pub Anonymous: HELPER_ATTRIBUTE_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HELPER_ATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HELPER_ATTRIBUTE {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCreatePnrpIncident<'a, P0, P1, P2, P3>(cloudname: P0, peername: P1, diagnosepublish: P2, appid: P3, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreatePnrpIncident(cloudname: ::windows::core::PCWSTR, peername: ::windows::core::PCWSTR, diagnosepublish: super::super::Foundation::BOOL, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreatePnrpIncident(cloudname.into(), peername.into(), diagnosepublish.into(), appid.into(), ::core::mem::transmute(handle)).ok()
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HELPER_ATTRIBUTE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HELPER_ATTRIBUTE>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HELPER_ATTRIBUTE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HELPER_ATTRIBUTE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub union HELPER_ATTRIBUTE_0 {
-    pub Boolean: super::super::Foundation::BOOL,
-    pub Char: u8,
-    pub Byte: u8,
-    pub Short: i16,
-    pub Word: u16,
-    pub Int: i32,
-    pub DWord: u32,
-    pub Int64: i64,
-    pub UInt64: u64,
-    pub PWStr: ::windows::core::PWSTR,
-    pub Guid: ::windows::core::GUID,
-    pub LifeTime: LIFE_TIME,
-    pub Address: DIAG_SOCKADDR,
-    pub OctetString: OCTET_STRING,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HELPER_ATTRIBUTE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HELPER_ATTRIBUTE_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HELPER_ATTRIBUTE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HELPER_ATTRIBUTE_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HELPER_ATTRIBUTE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HELPER_ATTRIBUTE_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct HYPOTHESIS {
-    pub pwszClassName: ::windows::core::PWSTR,
-    pub pwszDescription: ::windows::core::PWSTR,
-    pub celt: u32,
-    pub rgAttributes: *mut HELPER_ATTRIBUTE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HYPOTHESIS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HYPOTHESIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HYPOTHESIS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HYPOTHESIS").field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("celt", &self.celt).field("rgAttributes", &self.rgAttributes).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HYPOTHESIS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HYPOTHESIS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HYPOTHESIS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HYPOTHESIS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HYPOTHESIS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub struct HelperAttributeInfo {
-    pub pwszName: ::windows::core::PWSTR,
-    pub r#type: ATTRIBUTE_TYPE,
-}
-impl ::core::marker::Copy for HelperAttributeInfo {}
-impl ::core::clone::Clone for HelperAttributeInfo {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCreateSharingIncident<'a, P0>(uncpath: P0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateSharingIncident(uncpath: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateSharingIncident(uncpath.into(), ::core::mem::transmute(handle)).ok()
 }
-impl ::core::fmt::Debug for HelperAttributeInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HelperAttributeInfo").field("pwszName", &self.pwszName).field("type", &self.r#type).finish()
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[inline]
+pub unsafe fn NdfCreateWebIncident<'a, P0>(url: P0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateWebIncident(url: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateWebIncident(url.into(), ::core::mem::transmute(handle)).ok()
 }
-unsafe impl ::windows::core::Abi for HelperAttributeInfo {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HelperAttributeInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HelperAttributeInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HelperAttributeInfo {}
-impl ::core::default::Default for HelperAttributeInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct HypothesisResult {
-    pub hypothesis: HYPOTHESIS,
-    pub pathStatus: DIAGNOSIS_STATUS,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HypothesisResult {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HypothesisResult {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn NdfCreateWebIncidentEx<'a, P0, P1, P2>(url: P0, usewinhttp: P1, modulename: P2, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateWebIncidentEx(url: ::windows::core::PCWSTR, usewinhttp: super::super::Foundation::BOOL, modulename: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateWebIncidentEx(url.into(), usewinhttp.into(), modulename.into(), ::core::mem::transmute(handle)).ok()
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HypothesisResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HypothesisResult").field("hypothesis", &self.hypothesis).field("pathStatus", &self.pathStatus).finish()
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn NdfCreateWinSockIncident<'a, P0, P1, P2>(sock: P0, host: P1, port: u16, appid: P2, userid: ::core::option::Option<&super::super::Security::SID>, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Networking::WinSock::SOCKET>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfCreateWinSockIncident(sock: super::super::Networking::WinSock::SOCKET, host: ::windows::core::PCWSTR, port: u16, appid: ::windows::core::PCWSTR, userid: *const super::super::Security::SID, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
+    NdfCreateWinSockIncident(sock.into(), host.into(), port, appid.into(), ::core::mem::transmute(userid), ::core::mem::transmute(handle)).ok()
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HypothesisResult {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HypothesisResult {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HypothesisResult>()) == 0 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[inline]
+pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausecount: &mut u32, rootcauses: &mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::core::HRESULT;
     }
+    NdfDiagnoseIncident(::core::mem::transmute(handle), ::core::mem::transmute(rootcausecount), ::core::mem::transmute(rootcauses), dwwait, dwflags).ok()
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HypothesisResult {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HypothesisResult {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[inline]
+pub unsafe fn NdfExecuteDiagnosis<'a, P0>(handle: *const ::core::ffi::c_void, hwnd: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfExecuteDiagnosis(handle: *const ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
     }
+    NdfExecuteDiagnosis(::core::mem::transmute(handle), hwnd.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[inline]
+pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::PWSTR> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfGetTraceFile(handle: *const ::core::ffi::c_void, tracefilelocation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    NdfGetTraceFile(::core::mem::transmute(handle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[inline]
+pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: &RepairInfoEx, dwwait: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows::core::HRESULT;
+    }
+    NdfRepairIncident(::core::mem::transmute(handle), ::core::mem::transmute(repairex), dwwait).ok()
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
@@ -747,45 +584,10 @@ pub struct INetDiagHelperUtilFactory_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub CreateUtilityInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct LIFE_TIME {
-    pub startTime: super::super::Foundation::FILETIME,
-    pub endTime: super::super::Foundation::FILETIME,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for LIFE_TIME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for LIFE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LIFE_TIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LIFE_TIME").field("startTime", &self.startTime).field("endTime", &self.endTime).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LIFE_TIME {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LIFE_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIFE_TIME>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LIFE_TIME {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for LIFE_TIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DF_IMPERSONATION: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DF_TRACELESS: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 pub const NDF_ADD_CAPTURE_TRACE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -813,223 +615,121 @@ pub const NDF_INBOUND_FLAG_EDGETRAVERSAL: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 pub const NDF_INBOUND_FLAG_HEALTHCHECK: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCancelIncident(handle: *const ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCancelIncident(::core::mem::transmute(handle)).ok()
-}
+pub const RCF_ISCONFIRMED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCloseIncident(handle: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCloseIncident(::core::mem::transmute(handle)).ok()
-}
+pub const RCF_ISLEAF: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateConnectivityIncident(handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateConnectivityIncident(::core::mem::transmute(handle)).ok()
-}
+pub const RCF_ISTHIRDPARTY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCreateDNSIncident<'a, P0>(hostname: P0, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateDNSIncident(hostname: ::windows::core::PCWSTR, querytype: u16, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateDNSIncident(hostname.into(), querytype, ::core::mem::transmute(handle)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
-#[inline]
-pub unsafe fn NdfCreateGroupingIncident<'a, P0, P1, P2, P3, P4>(cloudname: P0, groupname: P1, identity: P2, invitation: P3, addresses: ::core::option::Option<&super::super::Networking::WinSock::SOCKET_ADDRESS_LIST>, appid: P4, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateGroupingIncident(cloudname: ::windows::core::PCWSTR, groupname: ::windows::core::PCWSTR, identity: ::windows::core::PCWSTR, invitation: ::windows::core::PCWSTR, addresses: *const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateGroupingIncident(cloudname.into(), groupname.into(), identity.into(), invitation.into(), ::core::mem::transmute(addresses), appid.into(), ::core::mem::transmute(handle)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NdfCreateIncident<'a, P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateIncident(helperclassname: ::windows::core::PCWSTR, celt: u32, attributes: *const HELPER_ATTRIBUTE, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateIncident(helperclassname.into(), attributes.len() as _, ::core::mem::transmute(attributes.as_ptr()), ::core::mem::transmute(handle)).ok()
-}
+pub const RF_CONTACT_ADMIN: u32 = 131072u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateNetConnectionIncident(handle: *mut *mut ::core::ffi::c_void, id: ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    NdfCreateNetConnectionIncident(::core::mem::transmute(handle), ::core::mem::transmute(id)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NdfCreatePnrpIncident<'a, P0, P1, P2, P3>(cloudname: P0, peername: P1, diagnosepublish: P2, appid: P3, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreatePnrpIncident(cloudname: ::windows::core::PCWSTR, peername: ::windows::core::PCWSTR, diagnosepublish: super::super::Foundation::BOOL, appid: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreatePnrpIncident(cloudname.into(), peername.into(), diagnosepublish.into(), appid.into(), ::core::mem::transmute(handle)).ok()
-}
+pub const RF_INFORMATION_ONLY: u32 = 33554432u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCreateSharingIncident<'a, P0>(uncpath: P0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateSharingIncident(uncpath: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateSharingIncident(uncpath.into(), ::core::mem::transmute(handle)).ok()
-}
+pub const RF_REPRO: u32 = 2097152u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfCreateWebIncident<'a, P0>(url: P0, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateWebIncident(url: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateWebIncident(url.into(), ::core::mem::transmute(handle)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NdfCreateWebIncidentEx<'a, P0, P1, P2>(url: P0, usewinhttp: P1, modulename: P2, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateWebIncidentEx(url: ::windows::core::PCWSTR, usewinhttp: super::super::Foundation::BOOL, modulename: ::windows::core::PCWSTR, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateWebIncidentEx(url.into(), usewinhttp.into(), modulename.into(), ::core::mem::transmute(handle)).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Networking_WinSock\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn NdfCreateWinSockIncident<'a, P0, P1, P2>(sock: P0, host: P1, port: u16, appid: P2, userid: ::core::option::Option<&super::super::Security::SID>, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Networking::WinSock::SOCKET>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfCreateWinSockIncident(sock: super::super::Networking::WinSock::SOCKET, host: ::windows::core::PCWSTR, port: u16, appid: ::windows::core::PCWSTR, userid: *const super::super::Security::SID, handle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    NdfCreateWinSockIncident(sock.into(), host.into(), port, appid.into(), ::core::mem::transmute(userid), ::core::mem::transmute(handle)).ok()
-}
+pub const RF_RESERVED: u32 = 1073741824u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausecount: &mut u32, rootcauses: &mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfDiagnoseIncident(handle: *const ::core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    NdfDiagnoseIncident(::core::mem::transmute(handle), ::core::mem::transmute(rootcausecount), ::core::mem::transmute(rootcauses), dwwait, dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NdfExecuteDiagnosis<'a, P0>(handle: *const ::core::ffi::c_void, hwnd: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfExecuteDiagnosis(handle: *const ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT;
-    }
-    NdfExecuteDiagnosis(::core::mem::transmute(handle), hwnd.into()).ok()
-}
+pub const RF_RESERVED_CA: u32 = 2147483648u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfGetTraceFile(handle: *const ::core::ffi::c_void) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfGetTraceFile(handle: *const ::core::ffi::c_void, tracefilelocation: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    NdfGetTraceFile(::core::mem::transmute(handle), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
+pub const RF_RESERVED_LNI: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[inline]
-pub unsafe fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: &RepairInfoEx, dwwait: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NdfRepairIncident(handle: *const ::core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> ::windows::core::HRESULT;
-    }
-    NdfRepairIncident(::core::mem::transmute(handle), ::core::mem::transmute(repairex), dwwait).ok()
-}
-#[repr(C)]
+pub const RF_SHOW_EVENTS: u32 = 8388608u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub struct OCTET_STRING {
-    pub dwLength: u32,
-    pub lpValue: *mut u8,
-}
-impl ::core::marker::Copy for OCTET_STRING {}
-impl ::core::clone::Clone for OCTET_STRING {
+pub const RF_UI_ONLY: u32 = 16777216u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const RF_USER_ACTION: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const RF_USER_CONFIRMATION: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const RF_VALIDATE_HELPTOPIC: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const RF_WORKAROUND: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ATTRIBUTE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_INVALID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_BOOLEAN: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_INT8: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_UINT8: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_INT16: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_UINT16: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_INT32: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_UINT32: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_INT64: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_UINT64: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_STRING: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_GUID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_LIFE_TIME: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_SOCKADDR: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const AT_OCTET_STRING: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(14i32);
+impl ::core::marker::Copy for ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for ATTRIBUTE_TYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for OCTET_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OCTET_STRING").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
+impl ::core::default::Default for ATTRIBUTE_TYPE {
+    fn default() -> Self {
+        Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for OCTET_STRING {
+unsafe impl ::windows::core::Abi for ATTRIBUTE_TYPE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OCTET_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OCTET_STRING>()) == 0 }
+impl ::core::fmt::Debug for ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ATTRIBUTE_TYPE").field(&self.0).finish()
     }
 }
-impl ::core::cmp::Eq for OCTET_STRING {}
-impl ::core::default::Default for OCTET_STRING {
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DIAGNOSIS_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DS_CONFIRMED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DS_REJECTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DS_DEFERRED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
+pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(5i32);
+impl ::core::marker::Copy for DIAGNOSIS_STATUS {}
+impl ::core::clone::Clone for DIAGNOSIS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DIAGNOSIS_STATUS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSIS_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIAGNOSIS_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIAGNOSIS_STATUS").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
@@ -1069,12 +769,6 @@ impl ::core::fmt::Debug for PROBLEM_TYPE {
         f.debug_tuple("PROBLEM_TYPE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RCF_ISCONFIRMED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RCF_ISLEAF: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RCF_ISTHIRDPARTY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1169,29 +863,368 @@ impl ::core::fmt::Debug for REPAIR_STATUS {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_CONTACT_ADMIN: u32 = 131072u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UI_INFO_TYPE(pub i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_INFORMATION_ONLY: u32 = 33554432u32;
+pub const UIT_INVALID: UI_INFO_TYPE = UI_INFO_TYPE(0i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_REPRO: u32 = 2097152u32;
+pub const UIT_NONE: UI_INFO_TYPE = UI_INFO_TYPE(1i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_RESERVED: u32 = 1073741824u32;
+pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = UI_INFO_TYPE(2i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_RESERVED_CA: u32 = 2147483648u32;
+pub const UIT_HELP_PANE: UI_INFO_TYPE = UI_INFO_TYPE(3i32);
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_RESERVED_LNI: u32 = 65536u32;
+pub const UIT_DUI: UI_INFO_TYPE = UI_INFO_TYPE(4i32);
+impl ::core::marker::Copy for UI_INFO_TYPE {}
+impl ::core::clone::Clone for UI_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UI_INFO_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UI_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_INFO_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DIAG_SOCKADDR {
+    pub family: u16,
+    pub data: [super::super::Foundation::CHAR; 126],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DIAG_SOCKADDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DIAG_SOCKADDR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DIAG_SOCKADDR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DIAG_SOCKADDR").field("family", &self.family).field("data", &self.data).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DIAG_SOCKADDR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DIAG_SOCKADDR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DIAG_SOCKADDR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DIAG_SOCKADDR {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DIAG_SOCKADDR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_SHOW_EVENTS: u32 = 8388608u32;
+pub struct DiagnosticsInfo {
+    pub cost: i32,
+    pub flags: u32,
+}
+impl ::core::marker::Copy for DiagnosticsInfo {}
+impl ::core::clone::Clone for DiagnosticsInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DiagnosticsInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DiagnosticsInfo").field("cost", &self.cost).field("flags", &self.flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DiagnosticsInfo {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DiagnosticsInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DiagnosticsInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DiagnosticsInfo {}
+impl ::core::default::Default for DiagnosticsInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HELPER_ATTRIBUTE {
+    pub pwszName: ::windows::core::PWSTR,
+    pub r#type: ATTRIBUTE_TYPE,
+    pub Anonymous: HELPER_ATTRIBUTE_0,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HELPER_ATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HELPER_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HELPER_ATTRIBUTE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HELPER_ATTRIBUTE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HELPER_ATTRIBUTE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HELPER_ATTRIBUTE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub union HELPER_ATTRIBUTE_0 {
+    pub Boolean: super::super::Foundation::BOOL,
+    pub Char: u8,
+    pub Byte: u8,
+    pub Short: i16,
+    pub Word: u16,
+    pub Int: i32,
+    pub DWord: u32,
+    pub Int64: i64,
+    pub UInt64: u64,
+    pub PWStr: ::windows::core::PWSTR,
+    pub Guid: ::windows::core::GUID,
+    pub LifeTime: LIFE_TIME,
+    pub Address: DIAG_SOCKADDR,
+    pub OctetString: OCTET_STRING,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HELPER_ATTRIBUTE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HELPER_ATTRIBUTE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HELPER_ATTRIBUTE_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HELPER_ATTRIBUTE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HELPER_ATTRIBUTE_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HELPER_ATTRIBUTE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HELPER_ATTRIBUTE_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HYPOTHESIS {
+    pub pwszClassName: ::windows::core::PWSTR,
+    pub pwszDescription: ::windows::core::PWSTR,
+    pub celt: u32,
+    pub rgAttributes: *mut HELPER_ATTRIBUTE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HYPOTHESIS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HYPOTHESIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HYPOTHESIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYPOTHESIS").field("pwszClassName", &self.pwszClassName).field("pwszDescription", &self.pwszDescription).field("celt", &self.celt).field("rgAttributes", &self.rgAttributes).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HYPOTHESIS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HYPOTHESIS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HYPOTHESIS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HYPOTHESIS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HYPOTHESIS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_UI_ONLY: u32 = 16777216u32;
+pub struct HelperAttributeInfo {
+    pub pwszName: ::windows::core::PWSTR,
+    pub r#type: ATTRIBUTE_TYPE,
+}
+impl ::core::marker::Copy for HelperAttributeInfo {}
+impl ::core::clone::Clone for HelperAttributeInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HelperAttributeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HelperAttributeInfo").field("pwszName", &self.pwszName).field("type", &self.r#type).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HelperAttributeInfo {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HelperAttributeInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HelperAttributeInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HelperAttributeInfo {}
+impl ::core::default::Default for HelperAttributeInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HypothesisResult {
+    pub hypothesis: HYPOTHESIS,
+    pub pathStatus: DIAGNOSIS_STATUS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HypothesisResult {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HypothesisResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HypothesisResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HypothesisResult").field("hypothesis", &self.hypothesis).field("pathStatus", &self.pathStatus).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HypothesisResult {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HypothesisResult {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HypothesisResult>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HypothesisResult {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HypothesisResult {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct LIFE_TIME {
+    pub startTime: super::super::Foundation::FILETIME,
+    pub endTime: super::super::Foundation::FILETIME,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for LIFE_TIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LIFE_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for LIFE_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LIFE_TIME").field("startTime", &self.startTime).field("endTime", &self.endTime).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for LIFE_TIME {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LIFE_TIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LIFE_TIME>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LIFE_TIME {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for LIFE_TIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_USER_ACTION: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_USER_CONFIRMATION: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_VALIDATE_HELPTOPIC: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const RF_WORKAROUND: u32 = 536870912u32;
+pub struct OCTET_STRING {
+    pub dwLength: u32,
+    pub lpValue: *mut u8,
+}
+impl ::core::marker::Copy for OCTET_STRING {}
+impl ::core::clone::Clone for OCTET_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OCTET_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OCTET_STRING").field("dwLength", &self.dwLength).field("lpValue", &self.lpValue).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OCTET_STRING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OCTET_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OCTET_STRING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OCTET_STRING {}
+impl ::core::default::Default for OCTET_STRING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
 pub struct RepairInfo {
@@ -1319,39 +1352,6 @@ impl ::core::cmp::Eq for ShellCommandInfo {}
 impl ::core::default::Default for ShellCommandInfo {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UI_INFO_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const UIT_INVALID: UI_INFO_TYPE = UI_INFO_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const UIT_NONE: UI_INFO_TYPE = UI_INFO_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = UI_INFO_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const UIT_HELP_PANE: UI_INFO_TYPE = UI_INFO_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetworkDiagnosticsFramework\"`*"]
-pub const UIT_DUI: UI_INFO_TYPE = UI_INFO_TYPE(4i32);
-impl ::core::marker::Copy for UI_INFO_TYPE {}
-impl ::core::clone::Clone for UI_INFO_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UI_INFO_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UI_INFO_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UI_INFO_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UI_INFO_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]

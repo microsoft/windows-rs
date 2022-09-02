@@ -833,77 +833,6 @@ unsafe impl ::core::marker::Send for ImageScannerAutoConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ImageScannerAutoCroppingMode(pub i32);
-impl ImageScannerAutoCroppingMode {
-    pub const Disabled: Self = Self(0i32);
-    pub const SingleRegion: Self = Self(1i32);
-    pub const MultipleRegion: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ImageScannerAutoCroppingMode {}
-impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerAutoCroppingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ImageScannerAutoCroppingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageScannerAutoCroppingMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Scanners\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ImageScannerColorMode(pub i32);
-impl ImageScannerColorMode {
-    pub const Color: Self = Self(0i32);
-    pub const Grayscale: Self = Self(1i32);
-    pub const Monochrome: Self = Self(2i32);
-    pub const AutoColor: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ImageScannerColorMode {}
-impl ::core::clone::Clone for ImageScannerColorMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerColorMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ImageScannerColorMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ImageScannerColorMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageScannerColorMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ImageScannerColorMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Scanners\"`*"]
-#[repr(transparent)]
 pub struct ImageScannerFeederConfiguration(::windows::core::IUnknown);
 impl ImageScannerFeederConfiguration {
     pub fn CanAutoDetectPageSize(&self) -> ::windows::core::Result<bool> {
@@ -1663,45 +1592,6 @@ unsafe impl ::core::marker::Send for ImageScannerFlatbedConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFlatbedConfiguration {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ImageScannerFormat(pub i32);
-impl ImageScannerFormat {
-    pub const Jpeg: Self = Self(0i32);
-    pub const Png: Self = Self(1i32);
-    pub const DeviceIndependentBitmap: Self = Self(2i32);
-    pub const Tiff: Self = Self(3i32);
-    pub const Xps: Self = Self(4i32);
-    pub const OpenXps: Self = Self(5i32);
-    pub const Pdf: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ImageScannerFormat {}
-impl ::core::clone::Clone for ImageScannerFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ImageScannerFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ImageScannerFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ImageScannerFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ImageScannerFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ImageScannerFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Scanners\"`*"]
-#[repr(transparent)]
 pub struct ImageScannerPreviewResult(::windows::core::IUnknown);
 impl ImageScannerPreviewResult {
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
@@ -1781,44 +1671,6 @@ impl ::core::convert::From<&ImageScannerPreviewResult> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for ImageScannerPreviewResult {}
 unsafe impl ::core::marker::Sync for ImageScannerPreviewResult {}
-#[repr(C)]
-#[doc = "*Required features: `\"Devices_Scanners\"`*"]
-pub struct ImageScannerResolution {
-    pub DpiX: f32,
-    pub DpiY: f32,
-}
-impl ::core::marker::Copy for ImageScannerResolution {}
-impl ::core::clone::Clone for ImageScannerResolution {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ImageScannerResolution {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ImageScannerResolution").field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ImageScannerResolution {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for ImageScannerResolution {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for ImageScannerResolution {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ImageScannerResolution>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ImageScannerResolution {}
-impl ::core::default::Default for ImageScannerResolution {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 pub struct ImageScannerScanResult(::windows::core::IUnknown);
@@ -1898,6 +1750,116 @@ unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
 #[doc = "*Required features: `\"Devices_Scanners\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ImageScannerAutoCroppingMode(pub i32);
+impl ImageScannerAutoCroppingMode {
+    pub const Disabled: Self = Self(0i32);
+    pub const SingleRegion: Self = Self(1i32);
+    pub const MultipleRegion: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ImageScannerAutoCroppingMode {}
+impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ImageScannerAutoCroppingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ImageScannerAutoCroppingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerAutoCroppingMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ImageScannerAutoCroppingMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerAutoCroppingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ImageScannerColorMode(pub i32);
+impl ImageScannerColorMode {
+    pub const Color: Self = Self(0i32);
+    pub const Grayscale: Self = Self(1i32);
+    pub const Monochrome: Self = Self(2i32);
+    pub const AutoColor: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ImageScannerColorMode {}
+impl ::core::clone::Clone for ImageScannerColorMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ImageScannerColorMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ImageScannerColorMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ImageScannerColorMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerColorMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ImageScannerColorMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerColorMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ImageScannerFormat(pub i32);
+impl ImageScannerFormat {
+    pub const Jpeg: Self = Self(0i32);
+    pub const Png: Self = Self(1i32);
+    pub const DeviceIndependentBitmap: Self = Self(2i32);
+    pub const Tiff: Self = Self(3i32);
+    pub const Xps: Self = Self(4i32);
+    pub const OpenXps: Self = Self(5i32);
+    pub const Pdf: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ImageScannerFormat {}
+impl ::core::clone::Clone for ImageScannerFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ImageScannerFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ImageScannerFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ImageScannerFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageScannerFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ImageScannerFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Scanners.ImageScannerFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {
     pub const Default: Self = Self(0i32);
@@ -1929,6 +1891,44 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerScanSource {
     type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Devices_Scanners\"`*"]
+pub struct ImageScannerResolution {
+    pub DpiX: f32,
+    pub DpiY: f32,
+}
+impl ::core::marker::Copy for ImageScannerResolution {}
+impl ::core::clone::Clone for ImageScannerResolution {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ImageScannerResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ImageScannerResolution").field("DpiX", &self.DpiX).field("DpiY", &self.DpiY).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ImageScannerResolution {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for ImageScannerResolution {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Devices.Scanners.ImageScannerResolution;f4;f4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for ImageScannerResolution {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ImageScannerResolution>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ImageScannerResolution {}
+impl ::core::default::Default for ImageScannerResolution {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

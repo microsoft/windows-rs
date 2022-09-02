@@ -1,963 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-pub struct BandwidthStatistics {
-    pub OutboundBitsPerSecond: u64,
-    pub InboundBitsPerSecond: u64,
-    pub OutboundBitsPerSecondInstability: u64,
-    pub InboundBitsPerSecondInstability: u64,
-    pub OutboundBandwidthPeaked: bool,
-    pub InboundBandwidthPeaked: bool,
-}
-impl ::core::marker::Copy for BandwidthStatistics {}
-impl ::core::clone::Clone for BandwidthStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BandwidthStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BandwidthStatistics {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for BandwidthStatistics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for BandwidthStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BandwidthStatistics>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BandwidthStatistics {}
-impl ::core::default::Default for BandwidthStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-pub struct ControlChannelTrigger(::windows::core::IUnknown);
-impl ControlChannelTrigger {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn ControlChannelTriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ControlChannelTriggerId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ServerKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServerKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetServerKeepAliveIntervalInMinutes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServerKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn CurrentKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn TransportObject(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TransportObject)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    #[cfg(feature = "ApplicationModel_Background")]
-    pub fn KeepAliveTrigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).KeepAliveTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-    #[cfg(feature = "ApplicationModel_Background")]
-    pub fn PushNotificationTrigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PushNotificationTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
-        }
-    }
-    pub fn UsingTransport<'a, P0>(&self, transport: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UsingTransport)(::windows::core::Interface::as_raw(this), transport.into().abi()).ok() }
-    }
-    pub fn WaitForPushEnabled(&self) -> ::windows::core::Result<ControlChannelTriggerStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WaitForPushEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ControlChannelTriggerStatus>(result__)
-        }
-    }
-    pub fn DecreaseNetworkKeepAliveInterval(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DecreaseNetworkKeepAliveInterval)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn FlushTransport(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).FlushTransport)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn IsWakeFromLowPowerSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IControlChannelTrigger2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsWakeFromLowPowerSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn CreateControlChannelTrigger(channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32) -> ::windows::core::Result<ControlChannelTrigger> {
-        Self::IControlChannelTriggerFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateControlChannelTrigger)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, result__.as_mut_ptr()).from_abi::<ControlChannelTrigger>(result__)
-        })
-    }
-    pub fn CreateControlChannelTriggerEx(channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::core::Result<ControlChannelTrigger> {
-        Self::IControlChannelTriggerFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateControlChannelTriggerEx)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, resourcerequesttype, result__.as_mut_ptr()).from_abi::<ControlChannelTrigger>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IControlChannelTriggerFactory<R, F: FnOnce(&IControlChannelTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ControlChannelTrigger, IControlChannelTriggerFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ControlChannelTrigger {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ControlChannelTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ControlChannelTrigger {}
-impl ::core::fmt::Debug for ControlChannelTrigger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTrigger").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ControlChannelTrigger {
-    type Vtable = IControlChannelTrigger_Vtbl;
-    const IID: ::windows::core::GUID = <IControlChannelTrigger as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ControlChannelTrigger {
-    const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
-}
-impl ::core::convert::From<ControlChannelTrigger> for ::windows::core::IUnknown {
-    fn from(value: ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for ::windows::core::IUnknown {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for &::windows::core::IUnknown {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ControlChannelTrigger> for ::windows::core::IInspectable {
-    fn from(value: ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for ::windows::core::IInspectable {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ControlChannelTrigger> for &::windows::core::IInspectable {
-    fn from(value: &ControlChannelTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: ControlChannelTrigger) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&ControlChannelTrigger> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&ControlChannelTrigger> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for ControlChannelTrigger {}
-unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ControlChannelTriggerResetReason(pub i32);
-impl ControlChannelTriggerResetReason {
-    pub const FastUserSwitched: Self = Self(0i32);
-    pub const LowPowerExit: Self = Self(1i32);
-    pub const QuietHoursExit: Self = Self(2i32);
-    pub const ApplicationRestart: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ControlChannelTriggerResetReason {}
-impl ::core::clone::Clone for ControlChannelTriggerResetReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ControlChannelTriggerResetReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ControlChannelTriggerResourceType(pub i32);
-impl ControlChannelTriggerResourceType {
-    pub const RequestSoftwareSlot: Self = Self(0i32);
-    pub const RequestHardwareSlot: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ControlChannelTriggerResourceType {}
-impl ::core::clone::Clone for ControlChannelTriggerResourceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ControlChannelTriggerResourceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ControlChannelTriggerStatus(pub i32);
-impl ControlChannelTriggerStatus {
-    pub const HardwareSlotRequested: Self = Self(0i32);
-    pub const SoftwareSlotAllocated: Self = Self(1i32);
-    pub const HardwareSlotAllocated: Self = Self(2i32);
-    pub const PolicyError: Self = Self(3i32);
-    pub const SystemError: Self = Self(4i32);
-    pub const TransportDisconnected: Self = Self(5i32);
-    pub const ServiceUnavailable: Self = Self(6i32);
-}
-impl ::core::marker::Copy for ControlChannelTriggerStatus {}
-impl ::core::clone::Clone for ControlChannelTriggerStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ControlChannelTriggerStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ControlChannelTriggerStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-pub struct DatagramSocket(::windows::core::IUnknown);
-impl DatagramSocket {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DatagramSocket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Control(&self) -> ::windows::core::Result<DatagramSocketControl> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DatagramSocketControl>(result__)
-        }
-    }
-    pub fn Information(&self) -> ::windows::core::Result<DatagramSocketInformation> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DatagramSocketInformation>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ConnectAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ConnectWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn BindServiceNameAsync(&self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BindServiceNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn BindEndpointAsync<'a, P0>(&self, localhostname: P0, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BindEndpointAsync)(::windows::core::Interface::as_raw(this), localhostname.into().abi(), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    pub fn JoinMulticastGroup<'a, P0>(&self, host: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).JoinMulticastGroup)(::windows::core::Interface::as_raw(this), host.into().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetOutputStreamAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetOutputStreamAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn GetOutputStreamWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetOutputStreamWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn MessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
-    pub fn BindServiceNameAndAdapterAsync<'a, P0>(&self, localservicename: &::windows::core::HSTRING, adapter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>,
-    {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).BindServiceNameAndAdapterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CancelIOAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    pub fn EnableTransferOwnership(&self, taskid: ::windows::core::GUID) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnership)(::windows::core::Interface::as_raw(this), taskid).ok() }
-    }
-    pub fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Interface::as_raw(this), taskid, connectedstandbyaction).ok() }
-    }
-    pub fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).TransferOwnership)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
-    }
-    pub fn TransferOwnershipWithContext<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn TransferOwnershipWithContextAndKeepAliveTime<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
-    {
-        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi(), keepalivetime).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
-        Self::IDatagramSocketStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetEndpointPairsAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetEndpointPairsWithSortOptionsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
-    {
-        Self::IDatagramSocketStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IDatagramSocketStatics<R, F: FnOnce(&IDatagramSocketStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DatagramSocket, IDatagramSocketStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for DatagramSocket {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DatagramSocket {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocket {}
-impl ::core::fmt::Debug for DatagramSocket {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocket").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DatagramSocket {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DatagramSocket {
-    type Vtable = IDatagramSocket_Vtbl;
-    const IID: ::windows::core::GUID = <IDatagramSocket as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DatagramSocket {
-    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
-}
-impl ::core::convert::From<DatagramSocket> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocket> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocket) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocket> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocket) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DatagramSocket) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::convert::TryFrom<&DatagramSocket> for super::super::Foundation::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl<'a> ::core::convert::TryFrom<&DatagramSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for DatagramSocket {}
-unsafe impl ::core::marker::Sync for DatagramSocket {}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-pub struct DatagramSocketControl(::windows::core::IUnknown);
-impl DatagramSocketControl {
-    pub fn QualityOfService(&self) -> ::windows::core::Result<SocketQualityOfService> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).QualityOfService)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SocketQualityOfService>(result__)
-        }
-    }
-    pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetQualityOfService)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).OutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
-        }
-    }
-    pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn InboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetInboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetInboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DontFragment(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DontFragment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetDontFragment(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDontFragment)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn MulticastOnly(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MulticastOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetMulticastOnly(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IDatagramSocketControl3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMulticastOnly)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for DatagramSocketControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DatagramSocketControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocketControl {}
-impl ::core::fmt::Debug for DatagramSocketControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocketControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DatagramSocketControl {
-    type Vtable = IDatagramSocketControl_Vtbl;
-    const IID: ::windows::core::GUID = <IDatagramSocketControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DatagramSocketControl {
-    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
-}
-impl ::core::convert::From<DatagramSocketControl> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocketControl> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocketControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketControl> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocketControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DatagramSocketControl {}
-unsafe impl ::core::marker::Sync for DatagramSocketControl {}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-pub struct DatagramSocketInformation(::windows::core::IUnknown);
-impl DatagramSocketInformation {
-    pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
-        }
-    }
-    pub fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocalPort)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
-        }
-    }
-    pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DatagramSocketInformation {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DatagramSocketInformation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocketInformation {}
-impl ::core::fmt::Debug for DatagramSocketInformation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocketInformation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DatagramSocketInformation {
-    type Vtable = IDatagramSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = <IDatagramSocketInformation as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DatagramSocketInformation {
-    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
-}
-impl ::core::convert::From<DatagramSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketInformation> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocketInformation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DatagramSocketInformation {}
-unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-pub struct DatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
-impl DatagramSocketMessageReceivedEventArgs {
-    pub fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
-        }
-    }
-    pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn GetDataReader(&self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDataReader)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::DataReader>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn GetDataStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDataStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DatagramSocketMessageReceivedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DatagramSocketMessageReceivedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DatagramSocketMessageReceivedEventArgs {}
-impl ::core::fmt::Debug for DatagramSocketMessageReceivedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DatagramSocketMessageReceivedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
-    type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDatagramSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
-    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
-}
-impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DatagramSocketMessageReceivedEventArgs {}
-unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IControlChannelTrigger(::windows::core::IUnknown);
@@ -2932,6 +1972,815 @@ pub struct IWebSocketServerCustomValidationRequestedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
+pub struct ControlChannelTrigger(::windows::core::IUnknown);
+impl ControlChannelTrigger {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn ControlChannelTriggerId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ControlChannelTriggerId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ServerKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServerKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetServerKeepAliveIntervalInMinutes(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetServerKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn CurrentKeepAliveIntervalInMinutes(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CurrentKeepAliveIntervalInMinutes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn TransportObject(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TransportObject)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
+    #[cfg(feature = "ApplicationModel_Background")]
+    pub fn KeepAliveTrigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).KeepAliveTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
+    #[cfg(feature = "ApplicationModel_Background")]
+    pub fn PushNotificationTrigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PushNotificationTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
+        }
+    }
+    pub fn UsingTransport<'a, P0>(&self, transport: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, ::windows::core::IInspectable>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).UsingTransport)(::windows::core::Interface::as_raw(this), transport.into().abi()).ok() }
+    }
+    pub fn WaitForPushEnabled(&self) -> ::windows::core::Result<ControlChannelTriggerStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).WaitForPushEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ControlChannelTriggerStatus>(result__)
+        }
+    }
+    pub fn DecreaseNetworkKeepAliveInterval(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).DecreaseNetworkKeepAliveInterval)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn FlushTransport(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).FlushTransport)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn IsWakeFromLowPowerSupported(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IControlChannelTrigger2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsWakeFromLowPowerSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn CreateControlChannelTrigger(channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32) -> ::windows::core::Result<ControlChannelTrigger> {
+        Self::IControlChannelTriggerFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateControlChannelTrigger)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, result__.as_mut_ptr()).from_abi::<ControlChannelTrigger>(result__)
+        })
+    }
+    pub fn CreateControlChannelTriggerEx(channelid: &::windows::core::HSTRING, serverkeepaliveintervalinminutes: u32, resourcerequesttype: ControlChannelTriggerResourceType) -> ::windows::core::Result<ControlChannelTrigger> {
+        Self::IControlChannelTriggerFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateControlChannelTriggerEx)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(channelid), serverkeepaliveintervalinminutes, resourcerequesttype, result__.as_mut_ptr()).from_abi::<ControlChannelTrigger>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IControlChannelTriggerFactory<R, F: FnOnce(&IControlChannelTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ControlChannelTrigger, IControlChannelTriggerFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ControlChannelTrigger {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ControlChannelTrigger {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ControlChannelTrigger {}
+impl ::core::fmt::Debug for ControlChannelTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTrigger").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.ControlChannelTrigger;{7d1431a7-ee96-40e8-a199-8703cd969ec3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ControlChannelTrigger {
+    type Vtable = IControlChannelTrigger_Vtbl;
+    const IID: ::windows::core::GUID = <IControlChannelTrigger as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ControlChannelTrigger {
+    const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
+}
+impl ::core::convert::From<ControlChannelTrigger> for ::windows::core::IUnknown {
+    fn from(value: ControlChannelTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ControlChannelTrigger> for ::windows::core::IUnknown {
+    fn from(value: &ControlChannelTrigger) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ControlChannelTrigger> for &::windows::core::IUnknown {
+    fn from(value: &ControlChannelTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ControlChannelTrigger> for ::windows::core::IInspectable {
+    fn from(value: ControlChannelTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ControlChannelTrigger> for ::windows::core::IInspectable {
+    fn from(value: &ControlChannelTrigger) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ControlChannelTrigger> for &::windows::core::IInspectable {
+    fn from(value: &ControlChannelTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<ControlChannelTrigger> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: ControlChannelTrigger) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&ControlChannelTrigger> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&ControlChannelTrigger> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &ControlChannelTrigger) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for ControlChannelTrigger {}
+unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+pub struct DatagramSocket(::windows::core::IUnknown);
+impl DatagramSocket {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DatagramSocket, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Control(&self) -> ::windows::core::Result<DatagramSocketControl> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Control)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DatagramSocketControl>(result__)
+        }
+    }
+    pub fn Information(&self) -> ::windows::core::Result<DatagramSocketInformation> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Information)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DatagramSocketInformation>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn OutputStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IOutputStream> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ConnectAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ConnectWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ConnectWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn BindServiceNameAsync(&self, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BindServiceNameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn BindEndpointAsync<'a, P0>(&self, localhostname: P0, localservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BindEndpointAsync)(::windows::core::Interface::as_raw(this), localhostname.into().abi(), ::core::mem::transmute_copy(localservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    pub fn JoinMulticastGroup<'a, P0>(&self, host: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).JoinMulticastGroup)(::windows::core::Interface::as_raw(this), host.into().abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn GetOutputStreamAsync<'a, P0>(&self, remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetOutputStreamAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn GetOutputStreamWithEndpointPairAsync<'a, P0>(&self, endpointpair: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EndpointPair>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetOutputStreamWithEndpointPairAsync)(::windows::core::Interface::as_raw(this), endpointpair.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IOutputStream>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn MessageReceived<'a, P0>(&self, eventhandler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<DatagramSocket, DatagramSocketMessageReceivedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), eventhandler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveMessageReceived(&self, eventcookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), eventcookie).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Networking_Connectivity\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity"))]
+    pub fn BindServiceNameAndAdapterAsync<'a, P0>(&self, localservicename: &::windows::core::HSTRING, adapter: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::Connectivity::NetworkAdapter>>,
+    {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).BindServiceNameAndAdapterAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(localservicename), adapter.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn CancelIOAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CancelIOAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    pub fn EnableTransferOwnership(&self, taskid: ::windows::core::GUID) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnership)(::windows::core::Interface::as_raw(this), taskid).ok() }
+    }
+    pub fn EnableTransferOwnershipWithConnectedStandbyAction(&self, taskid: ::windows::core::GUID, connectedstandbyaction: SocketActivityConnectedStandbyAction) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).EnableTransferOwnershipWithConnectedStandbyAction)(::windows::core::Interface::as_raw(this), taskid, connectedstandbyaction).ok() }
+    }
+    pub fn TransferOwnership(&self, socketid: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnership)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid)).ok() }
+    }
+    pub fn TransferOwnershipWithContext<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
+    {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn TransferOwnershipWithContextAndKeepAliveTime<'a, P0>(&self, socketid: &::windows::core::HSTRING, data: P0, keepalivetime: super::super::Foundation::TimeSpan) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, SocketActivityContext>>,
+    {
+        let this = &::windows::core::Interface::cast::<IDatagramSocket3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).TransferOwnershipWithContextAndKeepAliveTime)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(socketid), data.into().abi(), keepalivetime).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetEndpointPairsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
+        Self::IDatagramSocketStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetEndpointPairsAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetEndpointPairsWithSortOptionsAsync<'a, P0>(remotehostname: P0, remoteservicename: &::windows::core::HSTRING, sortoptions: super::HostNameSortOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::HostName>>,
+    {
+        Self::IDatagramSocketStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetEndpointPairsWithSortOptionsAsync)(::windows::core::Interface::as_raw(this), remotehostname.into().abi(), ::core::mem::transmute_copy(remoteservicename), sortoptions, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::EndpointPair>>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IDatagramSocketStatics<R, F: FnOnce(&IDatagramSocketStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DatagramSocket, IDatagramSocketStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for DatagramSocket {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DatagramSocket {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DatagramSocket {}
+impl ::core::fmt::Debug for DatagramSocket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocket").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DatagramSocket {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocket;{7fe25bbb-c3bc-4677-8446-ca28a465a3af})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DatagramSocket {
+    type Vtable = IDatagramSocket_Vtbl;
+    const IID: ::windows::core::GUID = <IDatagramSocket as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DatagramSocket {
+    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
+}
+impl ::core::convert::From<DatagramSocket> for ::windows::core::IUnknown {
+    fn from(value: DatagramSocket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocket> for ::windows::core::IUnknown {
+    fn from(value: &DatagramSocket) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocket> for &::windows::core::IUnknown {
+    fn from(value: &DatagramSocket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DatagramSocket> for ::windows::core::IInspectable {
+    fn from(value: DatagramSocket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocket> for ::windows::core::IInspectable {
+    fn from(value: &DatagramSocket) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocket> for &::windows::core::IInspectable {
+    fn from(value: &DatagramSocket) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<DatagramSocket> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DatagramSocket) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::convert::TryFrom<&DatagramSocket> for super::super::Foundation::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+#[cfg(feature = "Foundation")]
+impl<'a> ::core::convert::TryFrom<&DatagramSocket> for ::windows::core::InParam<'a, super::super::Foundation::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DatagramSocket) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for DatagramSocket {}
+unsafe impl ::core::marker::Sync for DatagramSocket {}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+pub struct DatagramSocketControl(::windows::core::IUnknown);
+impl DatagramSocketControl {
+    pub fn QualityOfService(&self) -> ::windows::core::Result<SocketQualityOfService> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).QualityOfService)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<SocketQualityOfService>(result__)
+        }
+    }
+    pub fn SetQualityOfService(&self, value: SocketQualityOfService) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetQualityOfService)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn OutboundUnicastHopLimit(&self) -> ::windows::core::Result<u8> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).OutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
+        }
+    }
+    pub fn SetOutboundUnicastHopLimit(&self, value: u8) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetOutboundUnicastHopLimit)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn InboundBufferSizeInBytes(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).InboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetInboundBufferSizeInBytes(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetInboundBufferSizeInBytes)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DontFragment(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DontFragment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetDontFragment(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocketControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetDontFragment)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn MulticastOnly(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocketControl3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MulticastOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetMulticastOnly(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IDatagramSocketControl3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetMulticastOnly)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for DatagramSocketControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DatagramSocketControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DatagramSocketControl {}
+impl ::core::fmt::Debug for DatagramSocketControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocketControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketControl;{52ac3f2e-349a-4135-bb58-b79b2647d390})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DatagramSocketControl {
+    type Vtable = IDatagramSocketControl_Vtbl;
+    const IID: ::windows::core::GUID = <IDatagramSocketControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DatagramSocketControl {
+    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
+}
+impl ::core::convert::From<DatagramSocketControl> for ::windows::core::IUnknown {
+    fn from(value: DatagramSocketControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocketControl> for ::windows::core::IUnknown {
+    fn from(value: &DatagramSocketControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocketControl> for &::windows::core::IUnknown {
+    fn from(value: &DatagramSocketControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DatagramSocketControl> for ::windows::core::IInspectable {
+    fn from(value: DatagramSocketControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocketControl> for ::windows::core::IInspectable {
+    fn from(value: &DatagramSocketControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocketControl> for &::windows::core::IInspectable {
+    fn from(value: &DatagramSocketControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DatagramSocketControl {}
+unsafe impl ::core::marker::Sync for DatagramSocketControl {}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+pub struct DatagramSocketInformation(::windows::core::IUnknown);
+impl DatagramSocketInformation {
+    pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
+        }
+    }
+    pub fn LocalPort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LocalPort)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
+        }
+    }
+    pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DatagramSocketInformation {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DatagramSocketInformation {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DatagramSocketInformation {}
+impl ::core::fmt::Debug for DatagramSocketInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocketInformation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketInformation;{5f1a569a-55fb-48cd-9706-7a974f7b1585})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DatagramSocketInformation {
+    type Vtable = IDatagramSocketInformation_Vtbl;
+    const IID: ::windows::core::GUID = <IDatagramSocketInformation as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DatagramSocketInformation {
+    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
+}
+impl ::core::convert::From<DatagramSocketInformation> for ::windows::core::IUnknown {
+    fn from(value: DatagramSocketInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocketInformation> for ::windows::core::IUnknown {
+    fn from(value: &DatagramSocketInformation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocketInformation> for &::windows::core::IUnknown {
+    fn from(value: &DatagramSocketInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DatagramSocketInformation> for ::windows::core::IInspectable {
+    fn from(value: DatagramSocketInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocketInformation> for ::windows::core::IInspectable {
+    fn from(value: &DatagramSocketInformation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocketInformation> for &::windows::core::IInspectable {
+    fn from(value: &DatagramSocketInformation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DatagramSocketInformation {}
+unsafe impl ::core::marker::Sync for DatagramSocketInformation {}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+pub struct DatagramSocketMessageReceivedEventArgs(::windows::core::IUnknown);
+impl DatagramSocketMessageReceivedEventArgs {
+    pub fn RemoteAddress(&self) -> ::windows::core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RemoteAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
+        }
+    }
+    pub fn RemotePort(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RemotePort)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn LocalAddress(&self) -> ::windows::core::Result<super::HostName> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LocalAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::HostName>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetDataReader(&self) -> ::windows::core::Result<super::super::Storage::Streams::DataReader> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDataReader)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::DataReader>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn GetDataStream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDataStream)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DatagramSocketMessageReceivedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DatagramSocketMessageReceivedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DatagramSocketMessageReceivedEventArgs {}
+impl ::core::fmt::Debug for DatagramSocketMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DatagramSocketMessageReceivedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs;{9e2ddca2-1712-4ce4-b179-8c652c6d107e})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
+    type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDatagramSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
+    const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
+}
+impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DatagramSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DatagramSocketMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DatagramSocketMessageReceivedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DatagramSocketMessageReceivedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DatagramSocketMessageReceivedEventArgs {}
+unsafe impl ::core::marker::Sync for DatagramSocketMessageReceivedEventArgs {}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
 pub struct MessageWebSocket(::windows::core::IUnknown);
 impl MessageWebSocket {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -3680,80 +3529,6 @@ unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MessageWebSocketReceiveMode(pub i32);
-impl MessageWebSocketReceiveMode {
-    pub const FullMessage: Self = Self(0i32);
-    pub const PartialMessage: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MessageWebSocketReceiveMode {}
-impl ::core::clone::Clone for MessageWebSocketReceiveMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MessageWebSocketReceiveMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-pub struct RoundTripTimeStatistics {
-    pub Variance: u32,
-    pub Max: u32,
-    pub Min: u32,
-    pub Sum: u32,
-}
-impl ::core::marker::Copy for RoundTripTimeStatistics {}
-impl ::core::clone::Clone for RoundTripTimeStatistics {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RoundTripTimeStatistics {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RoundTripTimeStatistics {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for RoundTripTimeStatistics {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for RoundTripTimeStatistics {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RoundTripTimeStatistics>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RoundTripTimeStatistics {}
-impl ::core::default::Default for RoundTripTimeStatistics {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
 pub struct ServerMessageWebSocket(::windows::core::IUnknown);
 impl ServerMessageWebSocket {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -4308,40 +4083,6 @@ unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketActivityConnectedStandbyAction(pub i32);
-impl SocketActivityConnectedStandbyAction {
-    pub const DoNotWake: Self = Self(0i32);
-    pub const Wake: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SocketActivityConnectedStandbyAction {}
-impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketActivityConnectedStandbyAction {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
 pub struct SocketActivityContext(::windows::core::IUnknown);
 impl SocketActivityContext {
     #[doc = "*Required features: `\"Storage_Streams\"`*"]
@@ -4564,42 +4305,6 @@ unsafe impl ::core::marker::Send for SocketActivityInformation {}
 unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketActivityKind(pub i32);
-impl SocketActivityKind {
-    pub const None: Self = Self(0i32);
-    pub const StreamSocketListener: Self = Self(1i32);
-    pub const DatagramSocket: Self = Self(2i32);
-    pub const StreamSocket: Self = Self(3i32);
-}
-impl ::core::marker::Copy for SocketActivityKind {}
-impl ::core::clone::Clone for SocketActivityKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketActivityKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketActivityKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketActivityKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
 pub struct SocketActivityTriggerDetails(::windows::core::IUnknown);
 impl SocketActivityTriggerDetails {
     pub fn Reason(&self) -> ::windows::core::Result<SocketActivityTriggerReason> {
@@ -4680,43 +4385,6 @@ impl ::core::convert::From<&SocketActivityTriggerDetails> for &::windows::core::
 unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketActivityTriggerReason(pub i32);
-impl SocketActivityTriggerReason {
-    pub const None: Self = Self(0i32);
-    pub const SocketActivity: Self = Self(1i32);
-    pub const ConnectionAccepted: Self = Self(2i32);
-    pub const KeepAliveTimerExpired: Self = Self(3i32);
-    pub const SocketClosed: Self = Self(4i32);
-}
-impl ::core::marker::Copy for SocketActivityTriggerReason {}
-impl ::core::clone::Clone for SocketActivityTriggerReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketActivityTriggerReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketActivityTriggerReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
 pub struct SocketError;
 impl SocketError {
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<SocketErrorStatus> {
@@ -4733,214 +4401,6 @@ impl SocketError {
 }
 impl ::windows::core::RuntimeName for SocketError {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketError";
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketErrorStatus(pub i32);
-impl SocketErrorStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const OperationAborted: Self = Self(1i32);
-    pub const HttpInvalidServerResponse: Self = Self(2i32);
-    pub const ConnectionTimedOut: Self = Self(3i32);
-    pub const AddressFamilyNotSupported: Self = Self(4i32);
-    pub const SocketTypeNotSupported: Self = Self(5i32);
-    pub const HostNotFound: Self = Self(6i32);
-    pub const NoDataRecordOfRequestedType: Self = Self(7i32);
-    pub const NonAuthoritativeHostNotFound: Self = Self(8i32);
-    pub const ClassTypeNotFound: Self = Self(9i32);
-    pub const AddressAlreadyInUse: Self = Self(10i32);
-    pub const CannotAssignRequestedAddress: Self = Self(11i32);
-    pub const ConnectionRefused: Self = Self(12i32);
-    pub const NetworkIsUnreachable: Self = Self(13i32);
-    pub const UnreachableHost: Self = Self(14i32);
-    pub const NetworkIsDown: Self = Self(15i32);
-    pub const NetworkDroppedConnectionOnReset: Self = Self(16i32);
-    pub const SoftwareCausedConnectionAbort: Self = Self(17i32);
-    pub const ConnectionResetByPeer: Self = Self(18i32);
-    pub const HostIsDown: Self = Self(19i32);
-    pub const NoAddressesFound: Self = Self(20i32);
-    pub const TooManyOpenFiles: Self = Self(21i32);
-    pub const MessageTooLong: Self = Self(22i32);
-    pub const CertificateExpired: Self = Self(23i32);
-    pub const CertificateUntrustedRoot: Self = Self(24i32);
-    pub const CertificateCommonNameIsIncorrect: Self = Self(25i32);
-    pub const CertificateWrongUsage: Self = Self(26i32);
-    pub const CertificateRevoked: Self = Self(27i32);
-    pub const CertificateNoRevocationCheck: Self = Self(28i32);
-    pub const CertificateRevocationServerOffline: Self = Self(29i32);
-    pub const CertificateIsInvalid: Self = Self(30i32);
-}
-impl ::core::marker::Copy for SocketErrorStatus {}
-impl ::core::clone::Clone for SocketErrorStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketErrorStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketErrorStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketErrorStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketMessageType(pub i32);
-impl SocketMessageType {
-    pub const Binary: Self = Self(0i32);
-    pub const Utf8: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SocketMessageType {}
-impl ::core::clone::Clone for SocketMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketMessageType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketMessageType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketMessageType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketProtectionLevel(pub i32);
-impl SocketProtectionLevel {
-    pub const PlainSocket: Self = Self(0i32);
-    pub const Ssl: Self = Self(1i32);
-    pub const SslAllowNullEncryption: Self = Self(2i32);
-    pub const BluetoothEncryptionAllowNullAuthentication: Self = Self(3i32);
-    pub const BluetoothEncryptionWithAuthentication: Self = Self(4i32);
-    pub const Ssl3AllowWeakEncryption: Self = Self(5i32);
-    pub const Tls10: Self = Self(6i32);
-    pub const Tls11: Self = Self(7i32);
-    pub const Tls12: Self = Self(8i32);
-    pub const Unspecified: Self = Self(9i32);
-}
-impl ::core::marker::Copy for SocketProtectionLevel {}
-impl ::core::clone::Clone for SocketProtectionLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketProtectionLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketProtectionLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketProtectionLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketQualityOfService(pub i32);
-impl SocketQualityOfService {
-    pub const Normal: Self = Self(0i32);
-    pub const LowLatency: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SocketQualityOfService {}
-impl ::core::clone::Clone for SocketQualityOfService {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketQualityOfService {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketQualityOfService {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketQualityOfService {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_Sockets\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocketSslErrorSeverity(pub i32);
-impl SocketSslErrorSeverity {
-    pub const None: Self = Self(0i32);
-    pub const Ignorable: Self = Self(1i32);
-    pub const Fatal: Self = Self(2i32);
-}
-impl ::core::marker::Copy for SocketSslErrorSeverity {}
-impl ::core::clone::Clone for SocketSslErrorSeverity {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SocketSslErrorSeverity {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SocketSslErrorSeverity {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
 #[repr(transparent)]
@@ -6961,5 +6421,545 @@ impl ::core::convert::From<&WebSocketServerCustomValidationRequestedEventArgs> f
 }
 unsafe impl ::core::marker::Send for WebSocketServerCustomValidationRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketServerCustomValidationRequestedEventArgs {}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ControlChannelTriggerResetReason(pub i32);
+impl ControlChannelTriggerResetReason {
+    pub const FastUserSwitched: Self = Self(0i32);
+    pub const LowPowerExit: Self = Self(1i32);
+    pub const QuietHoursExit: Self = Self(2i32);
+    pub const ApplicationRestart: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ControlChannelTriggerResetReason {}
+impl ::core::clone::Clone for ControlChannelTriggerResetReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ControlChannelTriggerResetReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResetReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResetReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ControlChannelTriggerResourceType(pub i32);
+impl ControlChannelTriggerResourceType {
+    pub const RequestSoftwareSlot: Self = Self(0i32);
+    pub const RequestHardwareSlot: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ControlChannelTriggerResourceType {}
+impl ::core::clone::Clone for ControlChannelTriggerResourceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ControlChannelTriggerResourceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerResourceType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerResourceType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ControlChannelTriggerStatus(pub i32);
+impl ControlChannelTriggerStatus {
+    pub const HardwareSlotRequested: Self = Self(0i32);
+    pub const SoftwareSlotAllocated: Self = Self(1i32);
+    pub const HardwareSlotAllocated: Self = Self(2i32);
+    pub const PolicyError: Self = Self(3i32);
+    pub const SystemError: Self = Self(4i32);
+    pub const TransportDisconnected: Self = Self(5i32);
+    pub const ServiceUnavailable: Self = Self(6i32);
+}
+impl ::core::marker::Copy for ControlChannelTriggerStatus {}
+impl ::core::clone::Clone for ControlChannelTriggerStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ControlChannelTriggerStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ControlChannelTriggerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ControlChannelTriggerStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.ControlChannelTriggerStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MessageWebSocketReceiveMode(pub i32);
+impl MessageWebSocketReceiveMode {
+    pub const FullMessage: Self = Self(0i32);
+    pub const PartialMessage: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MessageWebSocketReceiveMode {}
+impl ::core::clone::Clone for MessageWebSocketReceiveMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MessageWebSocketReceiveMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MessageWebSocketReceiveMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.MessageWebSocketReceiveMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketActivityConnectedStandbyAction(pub i32);
+impl SocketActivityConnectedStandbyAction {
+    pub const DoNotWake: Self = Self(0i32);
+    pub const Wake: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SocketActivityConnectedStandbyAction {}
+impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketActivityConnectedStandbyAction {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketActivityConnectedStandbyAction {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityConnectedStandbyAction;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketActivityKind(pub i32);
+impl SocketActivityKind {
+    pub const None: Self = Self(0i32);
+    pub const StreamSocketListener: Self = Self(1i32);
+    pub const DatagramSocket: Self = Self(2i32);
+    pub const StreamSocket: Self = Self(3i32);
+}
+impl ::core::marker::Copy for SocketActivityKind {}
+impl ::core::clone::Clone for SocketActivityKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketActivityKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketActivityKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketActivityKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketActivityKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketActivityTriggerReason(pub i32);
+impl SocketActivityTriggerReason {
+    pub const None: Self = Self(0i32);
+    pub const SocketActivity: Self = Self(1i32);
+    pub const ConnectionAccepted: Self = Self(2i32);
+    pub const KeepAliveTimerExpired: Self = Self(3i32);
+    pub const SocketClosed: Self = Self(4i32);
+}
+impl ::core::marker::Copy for SocketActivityTriggerReason {}
+impl ::core::clone::Clone for SocketActivityTriggerReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketActivityTriggerReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketActivityTriggerReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketActivityTriggerReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketErrorStatus(pub i32);
+impl SocketErrorStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const OperationAborted: Self = Self(1i32);
+    pub const HttpInvalidServerResponse: Self = Self(2i32);
+    pub const ConnectionTimedOut: Self = Self(3i32);
+    pub const AddressFamilyNotSupported: Self = Self(4i32);
+    pub const SocketTypeNotSupported: Self = Self(5i32);
+    pub const HostNotFound: Self = Self(6i32);
+    pub const NoDataRecordOfRequestedType: Self = Self(7i32);
+    pub const NonAuthoritativeHostNotFound: Self = Self(8i32);
+    pub const ClassTypeNotFound: Self = Self(9i32);
+    pub const AddressAlreadyInUse: Self = Self(10i32);
+    pub const CannotAssignRequestedAddress: Self = Self(11i32);
+    pub const ConnectionRefused: Self = Self(12i32);
+    pub const NetworkIsUnreachable: Self = Self(13i32);
+    pub const UnreachableHost: Self = Self(14i32);
+    pub const NetworkIsDown: Self = Self(15i32);
+    pub const NetworkDroppedConnectionOnReset: Self = Self(16i32);
+    pub const SoftwareCausedConnectionAbort: Self = Self(17i32);
+    pub const ConnectionResetByPeer: Self = Self(18i32);
+    pub const HostIsDown: Self = Self(19i32);
+    pub const NoAddressesFound: Self = Self(20i32);
+    pub const TooManyOpenFiles: Self = Self(21i32);
+    pub const MessageTooLong: Self = Self(22i32);
+    pub const CertificateExpired: Self = Self(23i32);
+    pub const CertificateUntrustedRoot: Self = Self(24i32);
+    pub const CertificateCommonNameIsIncorrect: Self = Self(25i32);
+    pub const CertificateWrongUsage: Self = Self(26i32);
+    pub const CertificateRevoked: Self = Self(27i32);
+    pub const CertificateNoRevocationCheck: Self = Self(28i32);
+    pub const CertificateRevocationServerOffline: Self = Self(29i32);
+    pub const CertificateIsInvalid: Self = Self(30i32);
+}
+impl ::core::marker::Copy for SocketErrorStatus {}
+impl ::core::clone::Clone for SocketErrorStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketErrorStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketErrorStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketErrorStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketErrorStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketErrorStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketMessageType(pub i32);
+impl SocketMessageType {
+    pub const Binary: Self = Self(0i32);
+    pub const Utf8: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SocketMessageType {}
+impl ::core::clone::Clone for SocketMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketMessageType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketMessageType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketMessageType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketMessageType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketMessageType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketProtectionLevel(pub i32);
+impl SocketProtectionLevel {
+    pub const PlainSocket: Self = Self(0i32);
+    pub const Ssl: Self = Self(1i32);
+    pub const SslAllowNullEncryption: Self = Self(2i32);
+    pub const BluetoothEncryptionAllowNullAuthentication: Self = Self(3i32);
+    pub const BluetoothEncryptionWithAuthentication: Self = Self(4i32);
+    pub const Ssl3AllowWeakEncryption: Self = Self(5i32);
+    pub const Tls10: Self = Self(6i32);
+    pub const Tls11: Self = Self(7i32);
+    pub const Tls12: Self = Self(8i32);
+    pub const Unspecified: Self = Self(9i32);
+}
+impl ::core::marker::Copy for SocketProtectionLevel {}
+impl ::core::clone::Clone for SocketProtectionLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketProtectionLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketProtectionLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketProtectionLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketProtectionLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketProtectionLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketQualityOfService(pub i32);
+impl SocketQualityOfService {
+    pub const Normal: Self = Self(0i32);
+    pub const LowLatency: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SocketQualityOfService {}
+impl ::core::clone::Clone for SocketQualityOfService {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketQualityOfService {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketQualityOfService {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketQualityOfService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketQualityOfService {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketQualityOfService;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocketSslErrorSeverity(pub i32);
+impl SocketSslErrorSeverity {
+    pub const None: Self = Self(0i32);
+    pub const Ignorable: Self = Self(1i32);
+    pub const Fatal: Self = Self(2i32);
+}
+impl ::core::marker::Copy for SocketSslErrorSeverity {}
+impl ::core::clone::Clone for SocketSslErrorSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SocketSslErrorSeverity {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SocketSslErrorSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SocketSslErrorSeverity {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.Sockets.SocketSslErrorSeverity;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+pub struct BandwidthStatistics {
+    pub OutboundBitsPerSecond: u64,
+    pub InboundBitsPerSecond: u64,
+    pub OutboundBitsPerSecondInstability: u64,
+    pub InboundBitsPerSecondInstability: u64,
+    pub OutboundBandwidthPeaked: bool,
+    pub InboundBandwidthPeaked: bool,
+}
+impl ::core::marker::Copy for BandwidthStatistics {}
+impl ::core::clone::Clone for BandwidthStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BandwidthStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BandwidthStatistics").field("OutboundBitsPerSecond", &self.OutboundBitsPerSecond).field("InboundBitsPerSecond", &self.InboundBitsPerSecond).field("OutboundBitsPerSecondInstability", &self.OutboundBitsPerSecondInstability).field("InboundBitsPerSecondInstability", &self.InboundBitsPerSecondInstability).field("OutboundBandwidthPeaked", &self.OutboundBandwidthPeaked).field("InboundBandwidthPeaked", &self.InboundBandwidthPeaked).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BandwidthStatistics {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for BandwidthStatistics {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.BandwidthStatistics;u8;u8;u8;u8;b1;b1)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for BandwidthStatistics {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BandwidthStatistics>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BandwidthStatistics {}
+impl ::core::default::Default for BandwidthStatistics {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Networking_Sockets\"`*"]
+pub struct RoundTripTimeStatistics {
+    pub Variance: u32,
+    pub Max: u32,
+    pub Min: u32,
+    pub Sum: u32,
+}
+impl ::core::marker::Copy for RoundTripTimeStatistics {}
+impl ::core::clone::Clone for RoundTripTimeStatistics {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RoundTripTimeStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RoundTripTimeStatistics").field("Variance", &self.Variance).field("Max", &self.Max).field("Min", &self.Min).field("Sum", &self.Sum).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RoundTripTimeStatistics {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for RoundTripTimeStatistics {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.Sockets.RoundTripTimeStatistics;u4;u4;u4;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for RoundTripTimeStatistics {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RoundTripTimeStatistics>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RoundTripTimeStatistics {}
+impl ::core::default::Default for RoundTripTimeStatistics {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,3 +1,60 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICommunicationBlockingAccessManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICommunicationBlockingAccessManagerStatics {
+    type Vtable = ICommunicationBlockingAccessManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c969998_9d2a_5db7_edd5_0ce407fc2595);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsBlockingActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub IsBlockedNumberAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    IsBlockedNumberAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ShowBlockNumbersUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumbers: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ShowBlockNumbersUI: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ShowUnblockNumbersUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumbers: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ShowUnblockNumbersUI: usize,
+    pub ShowBlockedCallsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub ShowBlockedMessagesUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICommunicationBlockingAppManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStatics {
+    type Vtable = ICommunicationBlockingAppManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db58ec_14a6_4baa_942a_6a673d999bf2);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICommunicationBlockingAppManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsCurrentAppActiveBlockingApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub ShowCommunicationBlockingSettingsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct ICommunicationBlockingAppManagerStatics2(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStatics2 {
+    type Vtable = ICommunicationBlockingAppManagerStatics2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14a68edd_ed88_457a_a364_a3634d6f166d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub RequestSetAsActiveBlockingAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RequestSetAsActiveBlockingAppAsync: usize,
+}
 #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
 pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
@@ -87,63 +144,6 @@ impl CommunicationBlockingAppManager {
 }
 impl ::windows::core::RuntimeName for CommunicationBlockingAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAppManager";
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICommunicationBlockingAccessManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICommunicationBlockingAccessManagerStatics {
-    type Vtable = ICommunicationBlockingAccessManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c969998_9d2a_5db7_edd5_0ce407fc2595);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICommunicationBlockingAccessManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsBlockingActive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub IsBlockedNumberAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, number: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    IsBlockedNumberAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ShowBlockNumbersUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumbers: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ShowBlockNumbersUI: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ShowUnblockNumbersUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phonenumbers: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ShowUnblockNumbersUI: usize,
-    pub ShowBlockedCallsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub ShowBlockedMessagesUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICommunicationBlockingAppManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStatics {
-    type Vtable = ICommunicationBlockingAppManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db58ec_14a6_4baa_942a_6a673d999bf2);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICommunicationBlockingAppManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsCurrentAppActiveBlockingApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub ShowCommunicationBlockingSettingsUI: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct ICommunicationBlockingAppManagerStatics2(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for ICommunicationBlockingAppManagerStatics2 {
-    type Vtable = ICommunicationBlockingAppManagerStatics2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14a68edd_ed88_457a_a364_a3634d6f166d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICommunicationBlockingAppManagerStatics2_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub RequestSetAsActiveBlockingAppAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RequestSetAsActiveBlockingAppAsync: usize,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

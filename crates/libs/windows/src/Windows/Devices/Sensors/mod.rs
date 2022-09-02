@@ -1,3190 +1,5 @@
 #[cfg(feature = "Devices_Sensors_Custom")]
 pub mod Custom;
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct Accelerometer(::windows::core::IUnknown);
-impl Accelerometer {
-    pub fn GetCurrentReading(&self) -> ::windows::core::Result<AccelerometerReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
-        }
-    }
-    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Shaken<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerShakenEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Shaken)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveShaken(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveShaken)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    #[cfg(feature = "Graphics_Display")]
-    pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
-        }
-    }
-    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn ReadingType(&self) -> ::windows::core::Result<AccelerometerReadingType> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReadingType>(result__)
-        }
-    }
-    pub fn ReportThreshold(&self) -> ::windows::core::Result<AccelerometerDataThreshold> {
-        let this = &::windows::core::Interface::cast::<IAccelerometer5>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerDataThreshold>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IAccelerometerDeviceId>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<Accelerometer> {
-        Self::IAccelerometerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
-        })
-    }
-    pub fn GetDefaultWithAccelerometerReadingType(readingtype: AccelerometerReadingType) -> ::windows::core::Result<Accelerometer> {
-        Self::IAccelerometerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
-        Self::IAccelerometerStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Accelerometer>>(result__)
-        })
-    }
-    pub fn GetDeviceSelector(readingtype: AccelerometerReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IAccelerometerStatics3(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAccelerometerStatics<R, F: FnOnce(&IAccelerometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IAccelerometerStatics2<R, F: FnOnce(&IAccelerometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IAccelerometerStatics3<R, F: FnOnce(&IAccelerometerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics3> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Accelerometer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Accelerometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Accelerometer {}
-impl ::core::fmt::Debug for Accelerometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Accelerometer").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Accelerometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Accelerometer;{df184548-2711-4da7-8098-4b82205d3c7d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for Accelerometer {
-    type Vtable = IAccelerometer_Vtbl;
-    const IID: ::windows::core::GUID = <IAccelerometer as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for Accelerometer {
-    const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
-}
-impl ::core::convert::From<Accelerometer> for ::windows::core::IUnknown {
-    fn from(value: Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Accelerometer> for ::windows::core::IUnknown {
-    fn from(value: &Accelerometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Accelerometer> for &::windows::core::IUnknown {
-    fn from(value: &Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Accelerometer> for ::windows::core::IInspectable {
-    fn from(value: Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Accelerometer> for ::windows::core::IInspectable {
-    fn from(value: &Accelerometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Accelerometer> for &::windows::core::IInspectable {
-    fn from(value: &Accelerometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for Accelerometer {}
-unsafe impl ::core::marker::Sync for Accelerometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct AccelerometerDataThreshold(::windows::core::IUnknown);
-impl AccelerometerDataThreshold {
-    pub fn XAxisInGForce(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).XAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetXAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetXAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn YAxisInGForce(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetYAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetYAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ZAxisInGForce(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ZAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetZAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for AccelerometerDataThreshold {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerDataThreshold {}
-impl ::core::fmt::Debug for AccelerometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerDataThreshold").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccelerometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerDataThreshold;{f92c1b68-6320-5577-879e-9942621c3dd9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
-    type Vtable = IAccelerometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = <IAccelerometerDataThreshold as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AccelerometerDataThreshold {
-    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
-}
-impl ::core::convert::From<AccelerometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
-unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct AccelerometerReading(::windows::core::IUnknown);
-impl AccelerometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn AccelerationX(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccelerationX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn AccelerationY(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccelerationY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn AccelerationZ(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AccelerationZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AccelerometerReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerReading {}
-impl ::core::fmt::Debug for AccelerometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccelerometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReading;{b9fe7acb-d351-40af-8bb6-7aa9ae641fb7})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AccelerometerReading {
-    type Vtable = IAccelerometerReading_Vtbl;
-    const IID: ::windows::core::GUID = <IAccelerometerReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AccelerometerReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
-}
-impl ::core::convert::From<AccelerometerReading> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerReading> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AccelerometerReading {}
-unsafe impl ::core::marker::Sync for AccelerometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct AccelerometerReadingChangedEventArgs(::windows::core::IUnknown);
-impl AccelerometerReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<AccelerometerReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AccelerometerReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for AccelerometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccelerometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs;{0095c65b-b6ac-475a-9f44-8b32d35a3f25})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs {
-    type Vtable = IAccelerometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAccelerometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AccelerometerReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
-}
-impl ::core::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AccelerometerReadingType(pub i32);
-impl AccelerometerReadingType {
-    pub const Standard: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-    pub const Gravity: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AccelerometerReadingType {}
-impl ::core::clone::Clone for AccelerometerReadingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AccelerometerReadingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AccelerometerReadingType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AccelerometerReadingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccelerometerReadingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct AccelerometerShakenEventArgs(::windows::core::IUnknown);
-impl AccelerometerShakenEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AccelerometerShakenEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AccelerometerShakenEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerShakenEventArgs {}
-impl ::core::fmt::Debug for AccelerometerShakenEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AccelerometerShakenEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AccelerometerShakenEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerShakenEventArgs;{95ff01d1-4a28-4f35-98e8-8178aae4084a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
-    type Vtable = IAccelerometerShakenEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAccelerometerShakenEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AccelerometerShakenEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
-}
-impl ::core::convert::From<AccelerometerShakenEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AccelerometerShakenEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AccelerometerShakenEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
-unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct ActivitySensor(::windows::core::IUnknown);
-impl ActivitySensor {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ActivityType>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SubscribedActivities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ActivityType>>(result__)
-        }
-    }
-    pub fn PowerInMilliwatts(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PowerInMilliwatts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedActivities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivityType>>(result__)
-        }
-    }
-    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ActivitySensor, ActivitySensorReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
-        Self::IActivitySensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
-        })
-    }
-    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IActivitySensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
-        Self::IActivitySensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
-        Self::IActivitySensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemHistoryAsync)(::windows::core::Interface::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
-        Self::IActivitySensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Interface::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IActivitySensorStatics<R, F: FnOnce(&IActivitySensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ActivitySensor, IActivitySensorStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ActivitySensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensor {}
-impl ::core::fmt::Debug for ActivitySensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensor").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivitySensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensor;{cd7a630c-fb5f-48eb-b09b-a2708d1c61ef})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ActivitySensor {
-    type Vtable = IActivitySensor_Vtbl;
-    const IID: ::windows::core::GUID = <IActivitySensor as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ActivitySensor {
-    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
-}
-impl ::core::convert::From<ActivitySensor> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensor> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensor> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ActivitySensor {}
-unsafe impl ::core::marker::Sync for ActivitySensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct ActivitySensorReading(::windows::core::IUnknown);
-impl ActivitySensorReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn Activity(&self) -> ::windows::core::Result<ActivityType> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Activity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivityType>(result__)
-        }
-    }
-    pub fn Confidence(&self) -> ::windows::core::Result<ActivitySensorReadingConfidence> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Confidence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReadingConfidence>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ActivitySensorReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensorReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReading {}
-impl ::core::fmt::Debug for ActivitySensorReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivitySensorReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReading;{85125a96-1472-40a2-b2ae-e1ef29226c78})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ActivitySensorReading {
-    type Vtable = IActivitySensorReading_Vtbl;
-    const IID: ::windows::core::GUID = <IActivitySensorReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ActivitySensorReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
-}
-impl ::core::convert::From<ActivitySensorReading> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorReading> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ActivitySensorReading {}
-unsafe impl ::core::marker::Sync for ActivitySensorReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct ActivitySensorReadingChangeReport(::windows::core::IUnknown);
-impl ActivitySensorReadingChangeReport {
-    pub fn Reading(&self) -> ::windows::core::Result<ActivitySensorReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ActivitySensorReadingChangeReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensorReadingChangeReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReadingChangeReport {}
-impl ::core::fmt::Debug for ActivitySensorReadingChangeReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingChangeReport").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangeReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangeReport;{4f3c2915-d93b-47bd-960a-f20fb2f322b9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
-    type Vtable = IActivitySensorReadingChangeReport_Vtbl;
-    const IID: ::windows::core::GUID = <IActivitySensorReadingChangeReport as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ActivitySensorReadingChangeReport {
-    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
-}
-impl ::core::convert::From<ActivitySensorReadingChangeReport> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorReadingChangeReport> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
-unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct ActivitySensorReadingChangedEventArgs(::windows::core::IUnknown);
-impl ActivitySensorReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<ActivitySensorReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ActivitySensorReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for ActivitySensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs;{de386717-aeb6-4ec7-946a-d9cc19b951ec})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs {
-    type Vtable = IActivitySensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IActivitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ActivitySensorReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
-}
-impl ::core::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivitySensorReadingConfidence(pub i32);
-impl ActivitySensorReadingConfidence {
-    pub const High: Self = Self(0i32);
-    pub const Low: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ActivitySensorReadingConfidence {}
-impl ::core::clone::Clone for ActivitySensorReadingConfidence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivitySensorReadingConfidence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct ActivitySensorTriggerDetails(::windows::core::IUnknown);
-impl ActivitySensorTriggerDetails {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadReports)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ActivitySensorTriggerDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ActivitySensorTriggerDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorTriggerDetails {}
-impl ::core::fmt::Debug for ActivitySensorTriggerDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivitySensorTriggerDetails").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivitySensorTriggerDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorTriggerDetails;{2c9e6612-b9ca-4677-b263-243297f79d3a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
-    type Vtable = IActivitySensorTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = <IActivitySensorTriggerDetails as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ActivitySensorTriggerDetails {
-    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
-}
-impl ::core::convert::From<ActivitySensorTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for ::windows::core::IUnknown {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::IUnknown {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ActivitySensorTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for ::windows::core::IInspectable {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::IInspectable {
-    fn from(value: &ActivitySensorTriggerDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
-unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ActivityType(pub i32);
-impl ActivityType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Idle: Self = Self(1i32);
-    pub const Stationary: Self = Self(2i32);
-    pub const Fidgeting: Self = Self(3i32);
-    pub const Walking: Self = Self(4i32);
-    pub const Running: Self = Self(5i32);
-    pub const InVehicle: Self = Self(6i32);
-    pub const Biking: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ActivityType {}
-impl ::core::clone::Clone for ActivityType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ActivityType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ActivityType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ActivityType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ActivityType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ActivityType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct Altimeter(::windows::core::IUnknown);
-impl Altimeter {
-    pub fn GetCurrentReading(&self) -> ::windows::core::Result<AltimeterReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<Altimeter> {
-        Self::IAltimeterStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Altimeter>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAltimeterStatics<R, F: FnOnce(&IAltimeterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Altimeter, IAltimeterStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Altimeter {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Altimeter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Altimeter {}
-impl ::core::fmt::Debug for Altimeter {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Altimeter").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Altimeter {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Altimeter;{72f057fd-8f04-49f1-b4a7-f4e363b701a2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for Altimeter {
-    type Vtable = IAltimeter_Vtbl;
-    const IID: ::windows::core::GUID = <IAltimeter as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for Altimeter {
-    const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
-}
-impl ::core::convert::From<Altimeter> for ::windows::core::IUnknown {
-    fn from(value: Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Altimeter> for ::windows::core::IUnknown {
-    fn from(value: &Altimeter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Altimeter> for &::windows::core::IUnknown {
-    fn from(value: &Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Altimeter> for ::windows::core::IInspectable {
-    fn from(value: Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Altimeter> for ::windows::core::IInspectable {
-    fn from(value: &Altimeter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Altimeter> for &::windows::core::IInspectable {
-    fn from(value: &Altimeter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for Altimeter {}
-unsafe impl ::core::marker::Sync for Altimeter {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct AltimeterReading(::windows::core::IUnknown);
-impl AltimeterReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn AltitudeChangeInMeters(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AltitudeChangeInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AltimeterReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AltimeterReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AltimeterReading {}
-impl ::core::fmt::Debug for AltimeterReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AltimeterReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AltimeterReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReading;{fbe8ef73-7f5e-48c8-aa1a-f1f3befc1144})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AltimeterReading {
-    type Vtable = IAltimeterReading_Vtbl;
-    const IID: ::windows::core::GUID = <IAltimeterReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AltimeterReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
-}
-impl ::core::convert::From<AltimeterReading> for ::windows::core::IUnknown {
-    fn from(value: AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for ::windows::core::IUnknown {
-    fn from(value: &AltimeterReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for &::windows::core::IUnknown {
-    fn from(value: &AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AltimeterReading> for ::windows::core::IInspectable {
-    fn from(value: AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for ::windows::core::IInspectable {
-    fn from(value: &AltimeterReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReading> for &::windows::core::IInspectable {
-    fn from(value: &AltimeterReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AltimeterReading {}
-unsafe impl ::core::marker::Sync for AltimeterReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct AltimeterReadingChangedEventArgs(::windows::core::IUnknown);
-impl AltimeterReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<AltimeterReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AltimeterReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AltimeterReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AltimeterReadingChangedEventArgs {}
-impl ::core::fmt::Debug for AltimeterReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AltimeterReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AltimeterReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReadingChangedEventArgs;{7069d077-446d-47f7-998c-ebc23b45e4a2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
-    type Vtable = IAltimeterReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAltimeterReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AltimeterReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
-}
-impl ::core::convert::From<AltimeterReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AltimeterReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct Barometer(::windows::core::IUnknown);
-impl Barometer {
-    pub fn GetCurrentReading(&self) -> ::windows::core::Result<BarometerReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn ReportThreshold(&self) -> ::windows::core::Result<BarometerDataThreshold> {
-        let this = &::windows::core::Interface::cast::<IBarometer3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerDataThreshold>(result__)
-        }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<Barometer> {
-        Self::IBarometerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Barometer>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
-        Self::IBarometerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Barometer>>(result__)
-        })
-    }
-    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IBarometerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IBarometerStatics<R, F: FnOnce(&IBarometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Barometer, IBarometerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IBarometerStatics2<R, F: FnOnce(&IBarometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Barometer, IBarometerStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Barometer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Barometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Barometer {}
-impl ::core::fmt::Debug for Barometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Barometer").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Barometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Barometer;{934475a8-78bf-452f-b017-f0209ce6dab4})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for Barometer {
-    type Vtable = IBarometer_Vtbl;
-    const IID: ::windows::core::GUID = <IBarometer as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for Barometer {
-    const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
-}
-impl ::core::convert::From<Barometer> for ::windows::core::IUnknown {
-    fn from(value: Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Barometer> for ::windows::core::IUnknown {
-    fn from(value: &Barometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Barometer> for &::windows::core::IUnknown {
-    fn from(value: &Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Barometer> for ::windows::core::IInspectable {
-    fn from(value: Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Barometer> for ::windows::core::IInspectable {
-    fn from(value: &Barometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Barometer> for &::windows::core::IInspectable {
-    fn from(value: &Barometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for Barometer {}
-unsafe impl ::core::marker::Sync for Barometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct BarometerDataThreshold(::windows::core::IUnknown);
-impl BarometerDataThreshold {
-    pub fn Hectopascals(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Hectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetHectopascals(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHectopascals)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for BarometerDataThreshold {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarometerDataThreshold {}
-impl ::core::fmt::Debug for BarometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarometerDataThreshold").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BarometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerDataThreshold;{076b952c-cb62-5a90-a0d1-f85e4a936394})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BarometerDataThreshold {
-    type Vtable = IBarometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = <IBarometerDataThreshold as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BarometerDataThreshold {
-    const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
-}
-impl ::core::convert::From<BarometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &BarometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BarometerDataThreshold {}
-unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct BarometerReading(::windows::core::IUnknown);
-impl BarometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn StationPressureInHectopascals(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StationPressureInHectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BarometerReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarometerReading {}
-impl ::core::fmt::Debug for BarometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarometerReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BarometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReading;{f5b9d2e6-1df6-4a1a-a7ad-321d4f5db247})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BarometerReading {
-    type Vtable = IBarometerReading_Vtbl;
-    const IID: ::windows::core::GUID = <IBarometerReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BarometerReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
-}
-impl ::core::convert::From<BarometerReading> for ::windows::core::IUnknown {
-    fn from(value: BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReading> for ::windows::core::IUnknown {
-    fn from(value: &BarometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReading> for &::windows::core::IUnknown {
-    fn from(value: &BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarometerReading> for ::windows::core::IInspectable {
-    fn from(value: BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReading> for ::windows::core::IInspectable {
-    fn from(value: &BarometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReading> for &::windows::core::IInspectable {
-    fn from(value: &BarometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BarometerReading {}
-unsafe impl ::core::marker::Sync for BarometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct BarometerReadingChangedEventArgs(::windows::core::IUnknown);
-impl BarometerReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<BarometerReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BarometerReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BarometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for BarometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BarometerReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BarometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReadingChangedEventArgs;{3d84945f-037b-404f-9bbb-6232d69543c3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
-    type Vtable = IBarometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IBarometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BarometerReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
-}
-impl ::core::convert::From<BarometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BarometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct Compass(::windows::core::IUnknown);
-impl Compass {
-    pub fn GetCurrentReading(&self) -> ::windows::core::Result<CompassReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
-        }
-    }
-    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    #[cfg(feature = "Graphics_Display")]
-    pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
-        let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
-        }
-    }
-    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn ReportThreshold(&self) -> ::windows::core::Result<CompassDataThreshold> {
-        let this = &::windows::core::Interface::cast::<ICompass4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassDataThreshold>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<ICompassDeviceId>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<Compass> {
-        Self::ICompassStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compass>(result__)
-        })
-    }
-    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::ICompassStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
-        Self::ICompassStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Compass>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn ICompassStatics<R, F: FnOnce(&ICompassStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compass, ICompassStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn ICompassStatics2<R, F: FnOnce(&ICompassStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Compass, ICompassStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Compass {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Compass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Compass {}
-impl ::core::fmt::Debug for Compass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Compass").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Compass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Compass;{292ffa94-1b45-403c-ba06-b106dba69a64})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for Compass {
-    type Vtable = ICompass_Vtbl;
-    const IID: ::windows::core::GUID = <ICompass as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for Compass {
-    const NAME: &'static str = "Windows.Devices.Sensors.Compass";
-}
-impl ::core::convert::From<Compass> for ::windows::core::IUnknown {
-    fn from(value: Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compass> for ::windows::core::IUnknown {
-    fn from(value: &Compass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compass> for &::windows::core::IUnknown {
-    fn from(value: &Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Compass> for ::windows::core::IInspectable {
-    fn from(value: Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Compass> for ::windows::core::IInspectable {
-    fn from(value: &Compass) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Compass> for &::windows::core::IInspectable {
-    fn from(value: &Compass) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for Compass {}
-unsafe impl ::core::marker::Sync for Compass {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct CompassDataThreshold(::windows::core::IUnknown);
-impl CompassDataThreshold {
-    pub fn Degrees(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Degrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetDegrees(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for CompassDataThreshold {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompassDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompassDataThreshold {}
-impl ::core::fmt::Debug for CompassDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompassDataThreshold").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CompassDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassDataThreshold;{d15b52b3-d39d-5ec8-b2e4-f193e6ab34ed})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CompassDataThreshold {
-    type Vtable = ICompassDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = <ICompassDataThreshold as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CompassDataThreshold {
-    const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
-}
-impl ::core::convert::From<CompassDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &CompassDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompassDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &CompassDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &CompassDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CompassDataThreshold {}
-unsafe impl ::core::marker::Sync for CompassDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct CompassReading(::windows::core::IUnknown);
-impl CompassReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn HeadingMagneticNorth(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingMagneticNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn HeadingTrueNorth(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingTrueNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
-        }
-    }
-    pub fn HeadingAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy> {
-        let this = &::windows::core::Interface::cast::<ICompassReadingHeadingAccuracy>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CompassReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompassReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompassReading {}
-impl ::core::fmt::Debug for CompassReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompassReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CompassReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReading;{82911128-513d-4dc9-b781-5eedfbf02d0c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CompassReading {
-    type Vtable = ICompassReading_Vtbl;
-    const IID: ::windows::core::GUID = <ICompassReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CompassReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
-}
-impl ::core::convert::From<CompassReading> for ::windows::core::IUnknown {
-    fn from(value: CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReading> for ::windows::core::IUnknown {
-    fn from(value: &CompassReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReading> for &::windows::core::IUnknown {
-    fn from(value: &CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompassReading> for ::windows::core::IInspectable {
-    fn from(value: CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReading> for ::windows::core::IInspectable {
-    fn from(value: &CompassReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReading> for &::windows::core::IInspectable {
-    fn from(value: &CompassReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CompassReading {}
-unsafe impl ::core::marker::Sync for CompassReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct CompassReadingChangedEventArgs(::windows::core::IUnknown);
-impl CompassReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<CompassReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CompassReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CompassReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompassReadingChangedEventArgs {}
-impl ::core::fmt::Debug for CompassReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CompassReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CompassReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReadingChangedEventArgs;{8f1549b0-e8bc-4c7e-b009-4e41df137072})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
-    type Vtable = ICompassReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICompassReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CompassReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
-}
-impl ::core::convert::From<CompassReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CompassReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CompassReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct Gyrometer(::windows::core::IUnknown);
-impl Gyrometer {
-    pub fn GetCurrentReading(&self) -> ::windows::core::Result<GyrometerReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
-        }
-    }
-    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    #[cfg(feature = "Graphics_Display")]
-    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Graphics_Display\"`*"]
-    #[cfg(feature = "Graphics_Display")]
-    pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
-        let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
-        }
-    }
-    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
-        let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn ReportThreshold(&self) -> ::windows::core::Result<GyrometerDataThreshold> {
-        let this = &::windows::core::Interface::cast::<IGyrometer4>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerDataThreshold>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = &::windows::core::Interface::cast::<IGyrometerDeviceId>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<Gyrometer> {
-        Self::IGyrometerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Gyrometer>(result__)
-        })
-    }
-    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IGyrometerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
-        Self::IGyrometerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Gyrometer>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IGyrometerStatics<R, F: FnOnce(&IGyrometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Gyrometer, IGyrometerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IGyrometerStatics2<R, F: FnOnce(&IGyrometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<Gyrometer, IGyrometerStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for Gyrometer {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for Gyrometer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Gyrometer {}
-impl ::core::fmt::Debug for Gyrometer {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("Gyrometer").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for Gyrometer {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Gyrometer;{fdb9a9c4-84b1-4ca2-9763-9b589506c70c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for Gyrometer {
-    type Vtable = IGyrometer_Vtbl;
-    const IID: ::windows::core::GUID = <IGyrometer as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for Gyrometer {
-    const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
-}
-impl ::core::convert::From<Gyrometer> for ::windows::core::IUnknown {
-    fn from(value: Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Gyrometer> for ::windows::core::IUnknown {
-    fn from(value: &Gyrometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Gyrometer> for &::windows::core::IUnknown {
-    fn from(value: &Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<Gyrometer> for ::windows::core::IInspectable {
-    fn from(value: Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&Gyrometer> for ::windows::core::IInspectable {
-    fn from(value: &Gyrometer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&Gyrometer> for &::windows::core::IInspectable {
-    fn from(value: &Gyrometer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for Gyrometer {}
-unsafe impl ::core::marker::Sync for Gyrometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct GyrometerDataThreshold(::windows::core::IUnknown);
-impl GyrometerDataThreshold {
-    pub fn XAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).XAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetXAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetXAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn YAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).YAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetYAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetYAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ZAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ZAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetZAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for GyrometerDataThreshold {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GyrometerDataThreshold {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GyrometerDataThreshold {}
-impl ::core::fmt::Debug for GyrometerDataThreshold {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GyrometerDataThreshold").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GyrometerDataThreshold {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerDataThreshold;{8648b31e-6e52-5259-bbad-242a69dc38c8})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
-    type Vtable = IGyrometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = <IGyrometerDataThreshold as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for GyrometerDataThreshold {
-    const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
-}
-impl ::core::convert::From<GyrometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for ::windows::core::IUnknown {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IUnknown {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GyrometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for ::windows::core::IInspectable {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IInspectable {
-    fn from(value: &GyrometerDataThreshold) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
-unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct GyrometerReading(::windows::core::IUnknown);
-impl GyrometerReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn AngularVelocityX(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocityX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn AngularVelocityY(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocityY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn AngularVelocityZ(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocityZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
-        let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for GyrometerReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GyrometerReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GyrometerReading {}
-impl ::core::fmt::Debug for GyrometerReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GyrometerReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GyrometerReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReading;{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for GyrometerReading {
-    type Vtable = IGyrometerReading_Vtbl;
-    const IID: ::windows::core::GUID = <IGyrometerReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for GyrometerReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
-}
-impl ::core::convert::From<GyrometerReading> for ::windows::core::IUnknown {
-    fn from(value: GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for ::windows::core::IUnknown {
-    fn from(value: &GyrometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for &::windows::core::IUnknown {
-    fn from(value: &GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GyrometerReading> for ::windows::core::IInspectable {
-    fn from(value: GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for ::windows::core::IInspectable {
-    fn from(value: &GyrometerReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReading> for &::windows::core::IInspectable {
-    fn from(value: &GyrometerReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for GyrometerReading {}
-unsafe impl ::core::marker::Sync for GyrometerReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct GyrometerReadingChangedEventArgs(::windows::core::IUnknown);
-impl GyrometerReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<GyrometerReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for GyrometerReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GyrometerReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GyrometerReadingChangedEventArgs {}
-impl ::core::fmt::Debug for GyrometerReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GyrometerReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GyrometerReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReadingChangedEventArgs;{0fdf1895-6f9e-42ce-8d58-388c0ab8356d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
-    type Vtable = IGyrometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IGyrometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for GyrometerReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
-}
-impl ::core::convert::From<GyrometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GyrometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct HingeAngleReading(::windows::core::IUnknown);
-impl HingeAngleReading {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
-        }
-    }
-    pub fn AngleInDegrees(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AngleInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for HingeAngleReading {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HingeAngleReading {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HingeAngleReading {}
-impl ::core::fmt::Debug for HingeAngleReading {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeAngleReading").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HingeAngleReading {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleReading;{a3cd45b9-1bf1-4f65-a704-e2da04f182c0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HingeAngleReading {
-    type Vtable = IHingeAngleReading_Vtbl;
-    const IID: ::windows::core::GUID = <IHingeAngleReading as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HingeAngleReading {
-    const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
-}
-impl ::core::convert::From<HingeAngleReading> for ::windows::core::IUnknown {
-    fn from(value: HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for ::windows::core::IUnknown {
-    fn from(value: &HingeAngleReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IUnknown {
-    fn from(value: &HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HingeAngleReading> for ::windows::core::IInspectable {
-    fn from(value: HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for ::windows::core::IInspectable {
-    fn from(value: &HingeAngleReading) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IInspectable {
-    fn from(value: &HingeAngleReading) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for HingeAngleReading {}
-unsafe impl ::core::marker::Sync for HingeAngleReading {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct HingeAngleSensor(::windows::core::IUnknown);
-impl HingeAngleSensor {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleReading>>(result__)
-        }
-    }
-    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn MinReportThresholdInDegrees(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn ReportThresholdInDegrees(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetReportThresholdInDegrees(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HingeAngleSensor, HingeAngleSensorReadingChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
-        Self::IHingeAngleSensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
-        Self::IHingeAngleSensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &::windows::core::HSTRING, secondpanelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
-        Self::IHingeAngleSensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(firstpanelid), ::core::mem::transmute_copy(secondpanelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
-        Self::IHingeAngleSensorStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IHingeAngleSensorStatics<R, F: FnOnce(&IHingeAngleSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HingeAngleSensor, IHingeAngleSensorStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for HingeAngleSensor {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HingeAngleSensor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HingeAngleSensor {}
-impl ::core::fmt::Debug for HingeAngleSensor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeAngleSensor").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HingeAngleSensor {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensor;{e9d3be02-bfdf-437f-8c29-88c77393d309})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HingeAngleSensor {
-    type Vtable = IHingeAngleSensor_Vtbl;
-    const IID: ::windows::core::GUID = <IHingeAngleSensor as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HingeAngleSensor {
-    const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
-}
-impl ::core::convert::From<HingeAngleSensor> for ::windows::core::IUnknown {
-    fn from(value: HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for ::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HingeAngleSensor> for ::windows::core::IInspectable {
-    fn from(value: HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for ::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for HingeAngleSensor {}
-unsafe impl ::core::marker::Sync for HingeAngleSensor {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-pub struct HingeAngleSensorReadingChangedEventArgs(::windows::core::IUnknown);
-impl HingeAngleSensorReadingChangedEventArgs {
-    pub fn Reading(&self) -> ::windows::core::Result<HingeAngleReading> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HingeAngleReading>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for HingeAngleSensorReadingChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HingeAngleSensorReadingChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HingeAngleSensorReadingChangedEventArgs {}
-impl ::core::fmt::Debug for HingeAngleSensorReadingChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HingeAngleSensorReadingChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs;{24d9558b-fad0-42b8-a854-78923049a1ba})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventArgs {
-    type Vtable = IHingeAngleSensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IHingeAngleSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
-}
-impl ::core::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
-unsafe impl ::core::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAccelerometer(::windows::core::IUnknown);
@@ -5494,6 +2309,3082 @@ pub struct ISimpleOrientationSensorStatics2_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
+pub struct Accelerometer(::windows::core::IUnknown);
+impl Accelerometer {
+    pub fn GetCurrentReading(&self) -> ::windows::core::Result<AccelerometerReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
+        }
+    }
+    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Shaken<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Accelerometer, AccelerometerShakenEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Shaken)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveShaken(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveShaken)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Graphics_Display\"`*"]
+    #[cfg(feature = "Graphics_Display")]
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Graphics_Display\"`*"]
+    #[cfg(feature = "Graphics_Display")]
+    pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+        }
+    }
+    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn ReadingType(&self) -> ::windows::core::Result<AccelerometerReadingType> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReadingType>(result__)
+        }
+    }
+    pub fn ReportThreshold(&self) -> ::windows::core::Result<AccelerometerDataThreshold> {
+        let this = &::windows::core::Interface::cast::<IAccelerometer5>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerDataThreshold>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IAccelerometerDeviceId>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<Accelerometer> {
+        Self::IAccelerometerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
+        })
+    }
+    pub fn GetDefaultWithAccelerometerReadingType(readingtype: AccelerometerReadingType) -> ::windows::core::Result<Accelerometer> {
+        Self::IAccelerometerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefaultWithAccelerometerReadingType)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<Accelerometer>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Accelerometer>> {
+        Self::IAccelerometerStatics3(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Accelerometer>>(result__)
+        })
+    }
+    pub fn GetDeviceSelector(readingtype: AccelerometerReadingType) -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IAccelerometerStatics3(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), readingtype, result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAccelerometerStatics<R, F: FnOnce(&IAccelerometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IAccelerometerStatics2<R, F: FnOnce(&IAccelerometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IAccelerometerStatics3<R, F: FnOnce(&IAccelerometerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Accelerometer, IAccelerometerStatics3> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for Accelerometer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Accelerometer {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Accelerometer {}
+impl ::core::fmt::Debug for Accelerometer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Accelerometer").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Accelerometer {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Accelerometer;{df184548-2711-4da7-8098-4b82205d3c7d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for Accelerometer {
+    type Vtable = IAccelerometer_Vtbl;
+    const IID: ::windows::core::GUID = <IAccelerometer as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for Accelerometer {
+    const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
+}
+impl ::core::convert::From<Accelerometer> for ::windows::core::IUnknown {
+    fn from(value: Accelerometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Accelerometer> for ::windows::core::IUnknown {
+    fn from(value: &Accelerometer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Accelerometer> for &::windows::core::IUnknown {
+    fn from(value: &Accelerometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<Accelerometer> for ::windows::core::IInspectable {
+    fn from(value: Accelerometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Accelerometer> for ::windows::core::IInspectable {
+    fn from(value: &Accelerometer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Accelerometer> for &::windows::core::IInspectable {
+    fn from(value: &Accelerometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for Accelerometer {}
+unsafe impl ::core::marker::Sync for Accelerometer {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct AccelerometerDataThreshold(::windows::core::IUnknown);
+impl AccelerometerDataThreshold {
+    pub fn XAxisInGForce(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).XAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetXAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetXAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn YAxisInGForce(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).YAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetYAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetYAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ZAxisInGForce(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ZAxisInGForce)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetZAxisInGForce(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetZAxisInGForce)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for AccelerometerDataThreshold {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AccelerometerDataThreshold {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AccelerometerDataThreshold {}
+impl ::core::fmt::Debug for AccelerometerDataThreshold {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerDataThreshold").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccelerometerDataThreshold {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerDataThreshold;{f92c1b68-6320-5577-879e-9942621c3dd9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
+    type Vtable = IAccelerometerDataThreshold_Vtbl;
+    const IID: ::windows::core::GUID = <IAccelerometerDataThreshold as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AccelerometerDataThreshold {
+    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
+}
+impl ::core::convert::From<AccelerometerDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: AccelerometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: &AccelerometerDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::IUnknown {
+    fn from(value: &AccelerometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AccelerometerDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: AccelerometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: &AccelerometerDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerDataThreshold> for &::windows::core::IInspectable {
+    fn from(value: &AccelerometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AccelerometerDataThreshold {}
+unsafe impl ::core::marker::Sync for AccelerometerDataThreshold {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct AccelerometerReading(::windows::core::IUnknown);
+impl AccelerometerReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn AccelerationX(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AccelerationX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn AccelerationY(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AccelerationY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn AccelerationZ(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AccelerationZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = &::windows::core::Interface::cast::<IAccelerometerReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AccelerometerReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AccelerometerReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AccelerometerReading {}
+impl ::core::fmt::Debug for AccelerometerReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccelerometerReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReading;{b9fe7acb-d351-40af-8bb6-7aa9ae641fb7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AccelerometerReading {
+    type Vtable = IAccelerometerReading_Vtbl;
+    const IID: ::windows::core::GUID = <IAccelerometerReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AccelerometerReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
+}
+impl ::core::convert::From<AccelerometerReading> for ::windows::core::IUnknown {
+    fn from(value: AccelerometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerReading> for ::windows::core::IUnknown {
+    fn from(value: &AccelerometerReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IUnknown {
+    fn from(value: &AccelerometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AccelerometerReading> for ::windows::core::IInspectable {
+    fn from(value: AccelerometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerReading> for ::windows::core::IInspectable {
+    fn from(value: &AccelerometerReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerReading> for &::windows::core::IInspectable {
+    fn from(value: &AccelerometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AccelerometerReading {}
+unsafe impl ::core::marker::Sync for AccelerometerReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct AccelerometerReadingChangedEventArgs(::windows::core::IUnknown);
+impl AccelerometerReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<AccelerometerReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AccelerometerReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AccelerometerReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AccelerometerReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AccelerometerReadingChangedEventArgs {}
+impl ::core::fmt::Debug for AccelerometerReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccelerometerReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs;{0095c65b-b6ac-475a-9f44-8b32d35a3f25})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs {
+    type Vtable = IAccelerometerReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAccelerometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AccelerometerReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
+}
+impl ::core::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AccelerometerReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AccelerometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AccelerometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct AccelerometerShakenEventArgs(::windows::core::IUnknown);
+impl AccelerometerShakenEventArgs {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AccelerometerShakenEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AccelerometerShakenEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AccelerometerShakenEventArgs {}
+impl ::core::fmt::Debug for AccelerometerShakenEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerShakenEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccelerometerShakenEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AccelerometerShakenEventArgs;{95ff01d1-4a28-4f35-98e8-8178aae4084a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
+    type Vtable = IAccelerometerShakenEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAccelerometerShakenEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AccelerometerShakenEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
+}
+impl ::core::convert::From<AccelerometerShakenEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AccelerometerShakenEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerShakenEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AccelerometerShakenEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AccelerometerShakenEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AccelerometerShakenEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AccelerometerShakenEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AccelerometerShakenEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AccelerometerShakenEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AccelerometerShakenEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AccelerometerShakenEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AccelerometerShakenEventArgs {}
+unsafe impl ::core::marker::Sync for AccelerometerShakenEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct ActivitySensor(::windows::core::IUnknown);
+impl ActivitySensor {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensorReading>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensorReading>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SubscribedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<ActivityType>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SubscribedActivities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVector<ActivityType>>(result__)
+        }
+    }
+    pub fn PowerInMilliwatts(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PowerInMilliwatts)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedActivities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivityType>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedActivities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivityType>>(result__)
+        }
+    }
+    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ActivitySensor, ActivitySensorReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+        Self::IActivitySensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
+        })
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IActivitySensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ActivitySensor>> {
+        Self::IActivitySensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ActivitySensor>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetSystemHistoryAsync(fromtime: super::super::Foundation::DateTime) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
+        Self::IActivitySensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetSystemHistoryAsync)(::windows::core::Interface::as_raw(this), fromtime, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetSystemHistoryWithDurationAsync(fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>> {
+        Self::IActivitySensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetSystemHistoryWithDurationAsync)(::windows::core::Interface::as_raw(this), fromtime, duration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IActivitySensorStatics<R, F: FnOnce(&IActivitySensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ActivitySensor, IActivitySensorStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ActivitySensor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivitySensor {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivitySensor {}
+impl ::core::fmt::Debug for ActivitySensor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensor").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivitySensor {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensor;{cd7a630c-fb5f-48eb-b09b-a2708d1c61ef})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ActivitySensor {
+    type Vtable = IActivitySensor_Vtbl;
+    const IID: ::windows::core::GUID = <IActivitySensor as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ActivitySensor {
+    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
+}
+impl ::core::convert::From<ActivitySensor> for ::windows::core::IUnknown {
+    fn from(value: ActivitySensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensor> for ::windows::core::IUnknown {
+    fn from(value: &ActivitySensor) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensor> for &::windows::core::IUnknown {
+    fn from(value: &ActivitySensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ActivitySensor> for ::windows::core::IInspectable {
+    fn from(value: ActivitySensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensor> for ::windows::core::IInspectable {
+    fn from(value: &ActivitySensor) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensor> for &::windows::core::IInspectable {
+    fn from(value: &ActivitySensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ActivitySensor {}
+unsafe impl ::core::marker::Sync for ActivitySensor {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct ActivitySensorReading(::windows::core::IUnknown);
+impl ActivitySensorReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn Activity(&self) -> ::windows::core::Result<ActivityType> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Activity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivityType>(result__)
+        }
+    }
+    pub fn Confidence(&self) -> ::windows::core::Result<ActivitySensorReadingConfidence> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Confidence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReadingConfidence>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ActivitySensorReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivitySensorReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivitySensorReading {}
+impl ::core::fmt::Debug for ActivitySensorReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivitySensorReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReading;{85125a96-1472-40a2-b2ae-e1ef29226c78})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ActivitySensorReading {
+    type Vtable = IActivitySensorReading_Vtbl;
+    const IID: ::windows::core::GUID = <IActivitySensorReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ActivitySensorReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
+}
+impl ::core::convert::From<ActivitySensorReading> for ::windows::core::IUnknown {
+    fn from(value: ActivitySensorReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorReading> for ::windows::core::IUnknown {
+    fn from(value: &ActivitySensorReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IUnknown {
+    fn from(value: &ActivitySensorReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ActivitySensorReading> for ::windows::core::IInspectable {
+    fn from(value: ActivitySensorReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorReading> for ::windows::core::IInspectable {
+    fn from(value: &ActivitySensorReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorReading> for &::windows::core::IInspectable {
+    fn from(value: &ActivitySensorReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ActivitySensorReading {}
+unsafe impl ::core::marker::Sync for ActivitySensorReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct ActivitySensorReadingChangeReport(::windows::core::IUnknown);
+impl ActivitySensorReadingChangeReport {
+    pub fn Reading(&self) -> ::windows::core::Result<ActivitySensorReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ActivitySensorReadingChangeReport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivitySensorReadingChangeReport {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivitySensorReadingChangeReport {}
+impl ::core::fmt::Debug for ActivitySensorReadingChangeReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorReadingChangeReport").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangeReport {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangeReport;{4f3c2915-d93b-47bd-960a-f20fb2f322b9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
+    type Vtable = IActivitySensorReadingChangeReport_Vtbl;
+    const IID: ::windows::core::GUID = <IActivitySensorReadingChangeReport as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ActivitySensorReadingChangeReport {
+    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
+}
+impl ::core::convert::From<ActivitySensorReadingChangeReport> for ::windows::core::IUnknown {
+    fn from(value: ActivitySensorReadingChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangeReport> for ::windows::core::IUnknown {
+    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::core::IUnknown {
+    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ActivitySensorReadingChangeReport> for ::windows::core::IInspectable {
+    fn from(value: ActivitySensorReadingChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangeReport> for ::windows::core::IInspectable {
+    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangeReport> for &::windows::core::IInspectable {
+    fn from(value: &ActivitySensorReadingChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ActivitySensorReadingChangeReport {}
+unsafe impl ::core::marker::Sync for ActivitySensorReadingChangeReport {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct ActivitySensorReadingChangedEventArgs(::windows::core::IUnknown);
+impl ActivitySensorReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<ActivitySensorReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ActivitySensorReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ActivitySensorReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivitySensorReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivitySensorReadingChangedEventArgs {}
+impl ::core::fmt::Debug for ActivitySensorReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs;{de386717-aeb6-4ec7-946a-d9cc19b951ec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs {
+    type Vtable = IActivitySensorReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IActivitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ActivitySensorReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
+}
+impl ::core::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ActivitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ActivitySensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ActivitySensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct ActivitySensorTriggerDetails(::windows::core::IUnknown);
+impl ActivitySensorTriggerDetails {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadReports)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ActivitySensorTriggerDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ActivitySensorTriggerDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ActivitySensorTriggerDetails {}
+impl ::core::fmt::Debug for ActivitySensorTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorTriggerDetails").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivitySensorTriggerDetails {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.ActivitySensorTriggerDetails;{2c9e6612-b9ca-4677-b263-243297f79d3a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
+    type Vtable = IActivitySensorTriggerDetails_Vtbl;
+    const IID: ::windows::core::GUID = <IActivitySensorTriggerDetails as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ActivitySensorTriggerDetails {
+    const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
+}
+impl ::core::convert::From<ActivitySensorTriggerDetails> for ::windows::core::IUnknown {
+    fn from(value: ActivitySensorTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorTriggerDetails> for ::windows::core::IUnknown {
+    fn from(value: &ActivitySensorTriggerDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::IUnknown {
+    fn from(value: &ActivitySensorTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ActivitySensorTriggerDetails> for ::windows::core::IInspectable {
+    fn from(value: ActivitySensorTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ActivitySensorTriggerDetails> for ::windows::core::IInspectable {
+    fn from(value: &ActivitySensorTriggerDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ActivitySensorTriggerDetails> for &::windows::core::IInspectable {
+    fn from(value: &ActivitySensorTriggerDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
+unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct Altimeter(::windows::core::IUnknown);
+impl Altimeter {
+    pub fn GetCurrentReading(&self) -> ::windows::core::Result<AltimeterReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IAltimeter2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<Altimeter> {
+        Self::IAltimeterStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Altimeter>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAltimeterStatics<R, F: FnOnce(&IAltimeterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Altimeter, IAltimeterStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for Altimeter {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Altimeter {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Altimeter {}
+impl ::core::fmt::Debug for Altimeter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Altimeter").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Altimeter {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Altimeter;{72f057fd-8f04-49f1-b4a7-f4e363b701a2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for Altimeter {
+    type Vtable = IAltimeter_Vtbl;
+    const IID: ::windows::core::GUID = <IAltimeter as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for Altimeter {
+    const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
+}
+impl ::core::convert::From<Altimeter> for ::windows::core::IUnknown {
+    fn from(value: Altimeter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Altimeter> for ::windows::core::IUnknown {
+    fn from(value: &Altimeter) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Altimeter> for &::windows::core::IUnknown {
+    fn from(value: &Altimeter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<Altimeter> for ::windows::core::IInspectable {
+    fn from(value: Altimeter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Altimeter> for ::windows::core::IInspectable {
+    fn from(value: &Altimeter) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Altimeter> for &::windows::core::IInspectable {
+    fn from(value: &Altimeter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for Altimeter {}
+unsafe impl ::core::marker::Sync for Altimeter {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct AltimeterReading(::windows::core::IUnknown);
+impl AltimeterReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn AltitudeChangeInMeters(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AltitudeChangeInMeters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = &::windows::core::Interface::cast::<IAltimeterReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AltimeterReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AltimeterReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AltimeterReading {}
+impl ::core::fmt::Debug for AltimeterReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AltimeterReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AltimeterReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReading;{fbe8ef73-7f5e-48c8-aa1a-f1f3befc1144})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AltimeterReading {
+    type Vtable = IAltimeterReading_Vtbl;
+    const IID: ::windows::core::GUID = <IAltimeterReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AltimeterReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
+}
+impl ::core::convert::From<AltimeterReading> for ::windows::core::IUnknown {
+    fn from(value: AltimeterReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AltimeterReading> for ::windows::core::IUnknown {
+    fn from(value: &AltimeterReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AltimeterReading> for &::windows::core::IUnknown {
+    fn from(value: &AltimeterReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AltimeterReading> for ::windows::core::IInspectable {
+    fn from(value: AltimeterReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AltimeterReading> for ::windows::core::IInspectable {
+    fn from(value: &AltimeterReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AltimeterReading> for &::windows::core::IInspectable {
+    fn from(value: &AltimeterReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AltimeterReading {}
+unsafe impl ::core::marker::Sync for AltimeterReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct AltimeterReadingChangedEventArgs(::windows::core::IUnknown);
+impl AltimeterReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<AltimeterReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AltimeterReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AltimeterReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AltimeterReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AltimeterReadingChangedEventArgs {}
+impl ::core::fmt::Debug for AltimeterReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AltimeterReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AltimeterReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.AltimeterReadingChangedEventArgs;{7069d077-446d-47f7-998c-ebc23b45e4a2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
+    type Vtable = IAltimeterReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAltimeterReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AltimeterReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
+}
+impl ::core::convert::From<AltimeterReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AltimeterReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AltimeterReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AltimeterReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AltimeterReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AltimeterReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for AltimeterReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct Barometer(::windows::core::IUnknown);
+impl Barometer {
+    pub fn GetCurrentReading(&self) -> ::windows::core::Result<BarometerReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Barometer, BarometerReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IBarometer2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn ReportThreshold(&self) -> ::windows::core::Result<BarometerDataThreshold> {
+        let this = &::windows::core::Interface::cast::<IBarometer3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerDataThreshold>(result__)
+        }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<Barometer> {
+        Self::IBarometerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Barometer>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Barometer>> {
+        Self::IBarometerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Barometer>>(result__)
+        })
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IBarometerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IBarometerStatics<R, F: FnOnce(&IBarometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Barometer, IBarometerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IBarometerStatics2<R, F: FnOnce(&IBarometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Barometer, IBarometerStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for Barometer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Barometer {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Barometer {}
+impl ::core::fmt::Debug for Barometer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Barometer").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Barometer {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Barometer;{934475a8-78bf-452f-b017-f0209ce6dab4})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for Barometer {
+    type Vtable = IBarometer_Vtbl;
+    const IID: ::windows::core::GUID = <IBarometer as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for Barometer {
+    const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
+}
+impl ::core::convert::From<Barometer> for ::windows::core::IUnknown {
+    fn from(value: Barometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Barometer> for ::windows::core::IUnknown {
+    fn from(value: &Barometer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Barometer> for &::windows::core::IUnknown {
+    fn from(value: &Barometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<Barometer> for ::windows::core::IInspectable {
+    fn from(value: Barometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Barometer> for ::windows::core::IInspectable {
+    fn from(value: &Barometer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Barometer> for &::windows::core::IInspectable {
+    fn from(value: &Barometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for Barometer {}
+unsafe impl ::core::marker::Sync for Barometer {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct BarometerDataThreshold(::windows::core::IUnknown);
+impl BarometerDataThreshold {
+    pub fn Hectopascals(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Hectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetHectopascals(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetHectopascals)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for BarometerDataThreshold {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BarometerDataThreshold {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BarometerDataThreshold {}
+impl ::core::fmt::Debug for BarometerDataThreshold {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarometerDataThreshold").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BarometerDataThreshold {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerDataThreshold;{076b952c-cb62-5a90-a0d1-f85e4a936394})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BarometerDataThreshold {
+    type Vtable = IBarometerDataThreshold_Vtbl;
+    const IID: ::windows::core::GUID = <IBarometerDataThreshold as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BarometerDataThreshold {
+    const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
+}
+impl ::core::convert::From<BarometerDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: BarometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarometerDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: &BarometerDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IUnknown {
+    fn from(value: &BarometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BarometerDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: BarometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarometerDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: &BarometerDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarometerDataThreshold> for &::windows::core::IInspectable {
+    fn from(value: &BarometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BarometerDataThreshold {}
+unsafe impl ::core::marker::Sync for BarometerDataThreshold {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct BarometerReading(::windows::core::IUnknown);
+impl BarometerReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn StationPressureInHectopascals(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StationPressureInHectopascals)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = &::windows::core::Interface::cast::<IBarometerReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BarometerReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BarometerReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BarometerReading {}
+impl ::core::fmt::Debug for BarometerReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarometerReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BarometerReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReading;{f5b9d2e6-1df6-4a1a-a7ad-321d4f5db247})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BarometerReading {
+    type Vtable = IBarometerReading_Vtbl;
+    const IID: ::windows::core::GUID = <IBarometerReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BarometerReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
+}
+impl ::core::convert::From<BarometerReading> for ::windows::core::IUnknown {
+    fn from(value: BarometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarometerReading> for ::windows::core::IUnknown {
+    fn from(value: &BarometerReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarometerReading> for &::windows::core::IUnknown {
+    fn from(value: &BarometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BarometerReading> for ::windows::core::IInspectable {
+    fn from(value: BarometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarometerReading> for ::windows::core::IInspectable {
+    fn from(value: &BarometerReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarometerReading> for &::windows::core::IInspectable {
+    fn from(value: &BarometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BarometerReading {}
+unsafe impl ::core::marker::Sync for BarometerReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct BarometerReadingChangedEventArgs(::windows::core::IUnknown);
+impl BarometerReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<BarometerReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BarometerReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BarometerReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BarometerReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BarometerReadingChangedEventArgs {}
+impl ::core::fmt::Debug for BarometerReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarometerReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BarometerReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.BarometerReadingChangedEventArgs;{3d84945f-037b-404f-9bbb-6232d69543c3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
+    type Vtable = IBarometerReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IBarometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BarometerReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
+}
+impl ::core::convert::From<BarometerReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: BarometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarometerReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BarometerReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: BarometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BarometerReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BarometerReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &BarometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BarometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for BarometerReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct Compass(::windows::core::IUnknown);
+impl Compass {
+    pub fn GetCurrentReading(&self) -> ::windows::core::Result<CompassReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
+        }
+    }
+    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Graphics_Display\"`*"]
+    #[cfg(feature = "Graphics_Display")]
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Graphics_Display\"`*"]
+    #[cfg(feature = "Graphics_Display")]
+    pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
+        let this = &::windows::core::Interface::cast::<ICompass2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+        }
+    }
+    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<ICompass3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn ReportThreshold(&self) -> ::windows::core::Result<CompassDataThreshold> {
+        let this = &::windows::core::Interface::cast::<ICompass4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassDataThreshold>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<ICompassDeviceId>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<Compass> {
+        Self::ICompassStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Compass>(result__)
+        })
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::ICompassStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Compass>> {
+        Self::ICompassStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Compass>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn ICompassStatics<R, F: FnOnce(&ICompassStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Compass, ICompassStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn ICompassStatics2<R, F: FnOnce(&ICompassStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Compass, ICompassStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for Compass {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Compass {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Compass {}
+impl ::core::fmt::Debug for Compass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Compass").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Compass {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Compass;{292ffa94-1b45-403c-ba06-b106dba69a64})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for Compass {
+    type Vtable = ICompass_Vtbl;
+    const IID: ::windows::core::GUID = <ICompass as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for Compass {
+    const NAME: &'static str = "Windows.Devices.Sensors.Compass";
+}
+impl ::core::convert::From<Compass> for ::windows::core::IUnknown {
+    fn from(value: Compass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Compass> for ::windows::core::IUnknown {
+    fn from(value: &Compass) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Compass> for &::windows::core::IUnknown {
+    fn from(value: &Compass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<Compass> for ::windows::core::IInspectable {
+    fn from(value: Compass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Compass> for ::windows::core::IInspectable {
+    fn from(value: &Compass) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Compass> for &::windows::core::IInspectable {
+    fn from(value: &Compass) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for Compass {}
+unsafe impl ::core::marker::Sync for Compass {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct CompassDataThreshold(::windows::core::IUnknown);
+impl CompassDataThreshold {
+    pub fn Degrees(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Degrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetDegrees(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for CompassDataThreshold {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CompassDataThreshold {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CompassDataThreshold {}
+impl ::core::fmt::Debug for CompassDataThreshold {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompassDataThreshold").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CompassDataThreshold {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassDataThreshold;{d15b52b3-d39d-5ec8-b2e4-f193e6ab34ed})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CompassDataThreshold {
+    type Vtable = ICompassDataThreshold_Vtbl;
+    const IID: ::windows::core::GUID = <ICompassDataThreshold as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CompassDataThreshold {
+    const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
+}
+impl ::core::convert::From<CompassDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: CompassDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompassDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: &CompassDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IUnknown {
+    fn from(value: &CompassDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CompassDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: CompassDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompassDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: &CompassDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompassDataThreshold> for &::windows::core::IInspectable {
+    fn from(value: &CompassDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CompassDataThreshold {}
+unsafe impl ::core::marker::Sync for CompassDataThreshold {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct CompassReading(::windows::core::IUnknown);
+impl CompassReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn HeadingMagneticNorth(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HeadingMagneticNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn HeadingTrueNorth(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HeadingTrueNorth)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = &::windows::core::Interface::cast::<ICompassReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+        }
+    }
+    pub fn HeadingAccuracy(&self) -> ::windows::core::Result<MagnetometerAccuracy> {
+        let this = &::windows::core::Interface::cast::<ICompassReadingHeadingAccuracy>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HeadingAccuracy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MagnetometerAccuracy>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CompassReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CompassReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CompassReading {}
+impl ::core::fmt::Debug for CompassReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompassReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CompassReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReading;{82911128-513d-4dc9-b781-5eedfbf02d0c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CompassReading {
+    type Vtable = ICompassReading_Vtbl;
+    const IID: ::windows::core::GUID = <ICompassReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CompassReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
+}
+impl ::core::convert::From<CompassReading> for ::windows::core::IUnknown {
+    fn from(value: CompassReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompassReading> for ::windows::core::IUnknown {
+    fn from(value: &CompassReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompassReading> for &::windows::core::IUnknown {
+    fn from(value: &CompassReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CompassReading> for ::windows::core::IInspectable {
+    fn from(value: CompassReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompassReading> for ::windows::core::IInspectable {
+    fn from(value: &CompassReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompassReading> for &::windows::core::IInspectable {
+    fn from(value: &CompassReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CompassReading {}
+unsafe impl ::core::marker::Sync for CompassReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct CompassReadingChangedEventArgs(::windows::core::IUnknown);
+impl CompassReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<CompassReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CompassReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CompassReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CompassReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CompassReadingChangedEventArgs {}
+impl ::core::fmt::Debug for CompassReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompassReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CompassReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.CompassReadingChangedEventArgs;{8f1549b0-e8bc-4c7e-b009-4e41df137072})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
+    type Vtable = ICompassReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICompassReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CompassReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
+}
+impl ::core::convert::From<CompassReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CompassReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompassReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CompassReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CompassReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CompassReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CompassReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CompassReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CompassReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CompassReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CompassReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CompassReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CompassReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct Gyrometer(::windows::core::IUnknown);
+impl Gyrometer {
+    pub fn GetCurrentReading(&self) -> ::windows::core::Result<GyrometerReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
+        }
+    }
+    pub fn MinimumReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinimumReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn SetReportInterval(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportInterval)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportInterval(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportInterval)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Graphics_Display\"`*"]
+    #[cfg(feature = "Graphics_Display")]
+    pub fn SetReadingTransform(&self, value: super::super::Graphics::Display::DisplayOrientations) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReadingTransform)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Graphics_Display\"`*"]
+    #[cfg(feature = "Graphics_Display")]
+    pub fn ReadingTransform(&self) -> ::windows::core::Result<super::super::Graphics::Display::DisplayOrientations> {
+        let this = &::windows::core::Interface::cast::<IGyrometer2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingTransform)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Graphics::Display::DisplayOrientations>(result__)
+        }
+    }
+    pub fn SetReportLatency(&self, value: u32) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportLatency)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ReportLatency(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportLatency)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MaxBatchSize(&self) -> ::windows::core::Result<u32> {
+        let this = &::windows::core::Interface::cast::<IGyrometer3>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxBatchSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn ReportThreshold(&self) -> ::windows::core::Result<GyrometerDataThreshold> {
+        let this = &::windows::core::Interface::cast::<IGyrometer4>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportThreshold)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerDataThreshold>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = &::windows::core::Interface::cast::<IGyrometerDeviceId>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<Gyrometer> {
+        Self::IGyrometerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Gyrometer>(result__)
+        })
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IGyrometerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Gyrometer>> {
+        Self::IGyrometerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<Gyrometer>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IGyrometerStatics<R, F: FnOnce(&IGyrometerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Gyrometer, IGyrometerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IGyrometerStatics2<R, F: FnOnce(&IGyrometerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<Gyrometer, IGyrometerStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for Gyrometer {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Gyrometer {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Gyrometer {}
+impl ::core::fmt::Debug for Gyrometer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Gyrometer").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for Gyrometer {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.Gyrometer;{fdb9a9c4-84b1-4ca2-9763-9b589506c70c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for Gyrometer {
+    type Vtable = IGyrometer_Vtbl;
+    const IID: ::windows::core::GUID = <IGyrometer as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for Gyrometer {
+    const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
+}
+impl ::core::convert::From<Gyrometer> for ::windows::core::IUnknown {
+    fn from(value: Gyrometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Gyrometer> for ::windows::core::IUnknown {
+    fn from(value: &Gyrometer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Gyrometer> for &::windows::core::IUnknown {
+    fn from(value: &Gyrometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<Gyrometer> for ::windows::core::IInspectable {
+    fn from(value: Gyrometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&Gyrometer> for ::windows::core::IInspectable {
+    fn from(value: &Gyrometer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&Gyrometer> for &::windows::core::IInspectable {
+    fn from(value: &Gyrometer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for Gyrometer {}
+unsafe impl ::core::marker::Sync for Gyrometer {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct GyrometerDataThreshold(::windows::core::IUnknown);
+impl GyrometerDataThreshold {
+    pub fn XAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).XAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetXAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetXAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn YAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).YAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetYAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetYAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn ZAxisInDegreesPerSecond(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ZAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetZAxisInDegreesPerSecond(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetZAxisInDegreesPerSecond)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for GyrometerDataThreshold {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GyrometerDataThreshold {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GyrometerDataThreshold {}
+impl ::core::fmt::Debug for GyrometerDataThreshold {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GyrometerDataThreshold").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GyrometerDataThreshold {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerDataThreshold;{8648b31e-6e52-5259-bbad-242a69dc38c8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
+    type Vtable = IGyrometerDataThreshold_Vtbl;
+    const IID: ::windows::core::GUID = <IGyrometerDataThreshold as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for GyrometerDataThreshold {
+    const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
+}
+impl ::core::convert::From<GyrometerDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: GyrometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GyrometerDataThreshold> for ::windows::core::IUnknown {
+    fn from(value: &GyrometerDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IUnknown {
+    fn from(value: &GyrometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<GyrometerDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: GyrometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GyrometerDataThreshold> for ::windows::core::IInspectable {
+    fn from(value: &GyrometerDataThreshold) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GyrometerDataThreshold> for &::windows::core::IInspectable {
+    fn from(value: &GyrometerDataThreshold) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for GyrometerDataThreshold {}
+unsafe impl ::core::marker::Sync for GyrometerDataThreshold {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct GyrometerReading(::windows::core::IUnknown);
+impl GyrometerReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn AngularVelocityX(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AngularVelocityX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn AngularVelocityY(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AngularVelocityY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn AngularVelocityZ(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AngularVelocityZ)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PerformanceCount(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+        let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PerformanceCount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = &::windows::core::Interface::cast::<IGyrometerReading2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for GyrometerReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GyrometerReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GyrometerReading {}
+impl ::core::fmt::Debug for GyrometerReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GyrometerReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GyrometerReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReading;{b3d6de5c-1ee4-456f-9de7-e2493b5c8e03})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for GyrometerReading {
+    type Vtable = IGyrometerReading_Vtbl;
+    const IID: ::windows::core::GUID = <IGyrometerReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for GyrometerReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
+}
+impl ::core::convert::From<GyrometerReading> for ::windows::core::IUnknown {
+    fn from(value: GyrometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GyrometerReading> for ::windows::core::IUnknown {
+    fn from(value: &GyrometerReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GyrometerReading> for &::windows::core::IUnknown {
+    fn from(value: &GyrometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<GyrometerReading> for ::windows::core::IInspectable {
+    fn from(value: GyrometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GyrometerReading> for ::windows::core::IInspectable {
+    fn from(value: &GyrometerReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GyrometerReading> for &::windows::core::IInspectable {
+    fn from(value: &GyrometerReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for GyrometerReading {}
+unsafe impl ::core::marker::Sync for GyrometerReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct GyrometerReadingChangedEventArgs(::windows::core::IUnknown);
+impl GyrometerReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<GyrometerReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GyrometerReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for GyrometerReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GyrometerReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GyrometerReadingChangedEventArgs {}
+impl ::core::fmt::Debug for GyrometerReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GyrometerReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GyrometerReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.GyrometerReadingChangedEventArgs;{0fdf1895-6f9e-42ce-8d58-388c0ab8356d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
+    type Vtable = IGyrometerReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IGyrometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for GyrometerReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
+}
+impl ::core::convert::From<GyrometerReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<GyrometerReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: GyrometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GyrometerReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &GyrometerReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for GyrometerReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for GyrometerReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct HingeAngleReading(::windows::core::IUnknown);
+impl HingeAngleReading {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Timestamp(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::DateTime>(result__)
+        }
+    }
+    pub fn AngleInDegrees(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AngleInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for HingeAngleReading {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HingeAngleReading {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HingeAngleReading {}
+impl ::core::fmt::Debug for HingeAngleReading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeAngleReading").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HingeAngleReading {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleReading;{a3cd45b9-1bf1-4f65-a704-e2da04f182c0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HingeAngleReading {
+    type Vtable = IHingeAngleReading_Vtbl;
+    const IID: ::windows::core::GUID = <IHingeAngleReading as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HingeAngleReading {
+    const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
+}
+impl ::core::convert::From<HingeAngleReading> for ::windows::core::IUnknown {
+    fn from(value: HingeAngleReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HingeAngleReading> for ::windows::core::IUnknown {
+    fn from(value: &HingeAngleReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IUnknown {
+    fn from(value: &HingeAngleReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HingeAngleReading> for ::windows::core::IInspectable {
+    fn from(value: HingeAngleReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HingeAngleReading> for ::windows::core::IInspectable {
+    fn from(value: &HingeAngleReading) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HingeAngleReading> for &::windows::core::IInspectable {
+    fn from(value: &HingeAngleReading) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for HingeAngleReading {}
+unsafe impl ::core::marker::Sync for HingeAngleReading {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct HingeAngleSensor(::windows::core::IUnknown);
+impl HingeAngleSensor {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetCurrentReadingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleReading>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCurrentReadingAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleReading>>(result__)
+        }
+    }
+    pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn MinReportThresholdInDegrees(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn ReportThresholdInDegrees(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetReportThresholdInDegrees(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetReportThresholdInDegrees)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ReadingChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<HingeAngleSensor, HingeAngleSensorReadingChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ReadingChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveReadingChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveReadingChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
+        Self::IHingeAngleSensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+        Self::IHingeAngleSensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn GetRelatedToAdjacentPanelsAsync(firstpanelid: &::windows::core::HSTRING, secondpanelid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+        Self::IHingeAngleSensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetRelatedToAdjacentPanelsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(firstpanelid), ::core::mem::transmute_copy(secondpanelid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FromIdAsync(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HingeAngleSensor>> {
+        Self::IHingeAngleSensorStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HingeAngleSensor>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IHingeAngleSensorStatics<R, F: FnOnce(&IHingeAngleSensorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<HingeAngleSensor, IHingeAngleSensorStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for HingeAngleSensor {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HingeAngleSensor {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HingeAngleSensor {}
+impl ::core::fmt::Debug for HingeAngleSensor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeAngleSensor").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HingeAngleSensor {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensor;{e9d3be02-bfdf-437f-8c29-88c77393d309})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HingeAngleSensor {
+    type Vtable = IHingeAngleSensor_Vtbl;
+    const IID: ::windows::core::GUID = <IHingeAngleSensor as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HingeAngleSensor {
+    const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
+}
+impl ::core::convert::From<HingeAngleSensor> for ::windows::core::IUnknown {
+    fn from(value: HingeAngleSensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HingeAngleSensor> for ::windows::core::IUnknown {
+    fn from(value: &HingeAngleSensor) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IUnknown {
+    fn from(value: &HingeAngleSensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HingeAngleSensor> for ::windows::core::IInspectable {
+    fn from(value: HingeAngleSensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HingeAngleSensor> for ::windows::core::IInspectable {
+    fn from(value: &HingeAngleSensor) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HingeAngleSensor> for &::windows::core::IInspectable {
+    fn from(value: &HingeAngleSensor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for HingeAngleSensor {}
+unsafe impl ::core::marker::Sync for HingeAngleSensor {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+pub struct HingeAngleSensorReadingChangedEventArgs(::windows::core::IUnknown);
+impl HingeAngleSensorReadingChangedEventArgs {
+    pub fn Reading(&self) -> ::windows::core::Result<HingeAngleReading> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Reading)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HingeAngleReading>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for HingeAngleSensorReadingChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HingeAngleSensorReadingChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HingeAngleSensorReadingChangedEventArgs {}
+impl ::core::fmt::Debug for HingeAngleSensorReadingChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HingeAngleSensorReadingChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HingeAngleSensorReadingChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs;{24d9558b-fad0-42b8-a854-78923049a1ba})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventArgs {
+    type Vtable = IHingeAngleSensorReadingChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IHingeAngleSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
+    const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
+}
+impl ::core::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: HingeAngleSensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HingeAngleSensorReadingChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &HingeAngleSensorReadingChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for HingeAngleSensorReadingChangedEventArgs {}
+unsafe impl ::core::marker::Sync for HingeAngleSensorReadingChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
 pub struct Inclinometer(::windows::core::IUnknown);
 impl Inclinometer {
     pub fn GetCurrentReading(&self) -> ::windows::core::Result<InclinometerReading> {
@@ -6627,42 +6518,6 @@ impl ::core::convert::From<&Magnetometer> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MagnetometerAccuracy(pub i32);
-impl MagnetometerAccuracy {
-    pub const Unknown: Self = Self(0i32);
-    pub const Unreliable: Self = Self(1i32);
-    pub const Approximate: Self = Self(2i32);
-    pub const High: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MagnetometerAccuracy {}
-impl ::core::clone::Clone for MagnetometerAccuracy {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MagnetometerAccuracy {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MagnetometerAccuracy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MagnetometerAccuracy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct MagnetometerDataThreshold(::windows::core::IUnknown);
@@ -7829,41 +7684,6 @@ unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PedometerStepKind(pub i32);
-impl PedometerStepKind {
-    pub const Unknown: Self = Self(0i32);
-    pub const Walking: Self = Self(1i32);
-    pub const Running: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PedometerStepKind {}
-impl ::core::clone::Clone for PedometerStepKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PedometerStepKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PedometerStepKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PedometerStepKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PedometerStepKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PedometerStepKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
 pub struct ProximitySensor(::windows::core::IUnknown);
 impl ProximitySensor {
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8482,40 +8302,6 @@ unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SensorOptimizationGoal(pub i32);
-impl SensorOptimizationGoal {
-    pub const Precision: Self = Self(0i32);
-    pub const PowerEfficiency: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SensorOptimizationGoal {}
-impl ::core::clone::Clone for SensorOptimizationGoal {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorOptimizationGoal {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorOptimizationGoal {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SensorOptimizationGoal {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
 pub struct SensorQuaternion(::windows::core::IUnknown);
 impl SensorQuaternion {
     pub fn W(&self) -> ::windows::core::Result<f32> {
@@ -8609,40 +8395,6 @@ impl ::core::convert::From<&SensorQuaternion> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SensorReadingType(pub i32);
-impl SensorReadingType {
-    pub const Absolute: Self = Self(0i32);
-    pub const Relative: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SensorReadingType {}
-impl ::core::clone::Clone for SensorReadingType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorReadingType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SensorReadingType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorReadingType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorReadingType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SensorReadingType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SensorRotationMatrix(::windows::core::IUnknown);
@@ -8773,90 +8525,6 @@ impl ::core::convert::From<&SensorRotationMatrix> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SensorType(pub i32);
-impl SensorType {
-    pub const Accelerometer: Self = Self(0i32);
-    pub const ActivitySensor: Self = Self(1i32);
-    pub const Barometer: Self = Self(2i32);
-    pub const Compass: Self = Self(3i32);
-    pub const CustomSensor: Self = Self(4i32);
-    pub const Gyroscope: Self = Self(5i32);
-    pub const ProximitySensor: Self = Self(6i32);
-    pub const Inclinometer: Self = Self(7i32);
-    pub const LightSensor: Self = Self(8i32);
-    pub const OrientationSensor: Self = Self(9i32);
-    pub const Pedometer: Self = Self(10i32);
-    pub const RelativeInclinometer: Self = Self(11i32);
-    pub const RelativeOrientationSensor: Self = Self(12i32);
-    pub const SimpleOrientationSensor: Self = Self(13i32);
-}
-impl ::core::marker::Copy for SensorType {}
-impl ::core::clone::Clone for SensorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SensorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SensorType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SensorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SensorType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SensorType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Sensors\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SimpleOrientation(pub i32);
-impl SimpleOrientation {
-    pub const NotRotated: Self = Self(0i32);
-    pub const Rotated90DegreesCounterclockwise: Self = Self(1i32);
-    pub const Rotated180DegreesCounterclockwise: Self = Self(2i32);
-    pub const Rotated270DegreesCounterclockwise: Self = Self(3i32);
-    pub const Faceup: Self = Self(4i32);
-    pub const Facedown: Self = Self(5i32);
-}
-impl ::core::marker::Copy for SimpleOrientation {}
-impl ::core::clone::Clone for SimpleOrientation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SimpleOrientation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SimpleOrientation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SimpleOrientation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SimpleOrientation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SimpleOrientation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Sensors\"`*"]
 #[repr(transparent)]
 pub struct SimpleOrientationSensor(::windows::core::IUnknown);
@@ -9084,5 +8752,337 @@ impl ::core::convert::From<&SimpleOrientationSensorOrientationChangedEventArgs> 
 }
 unsafe impl ::core::marker::Send for SimpleOrientationSensorOrientationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SimpleOrientationSensorOrientationChangedEventArgs {}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AccelerometerReadingType(pub i32);
+impl AccelerometerReadingType {
+    pub const Standard: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
+    pub const Gravity: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AccelerometerReadingType {}
+impl ::core::clone::Clone for AccelerometerReadingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AccelerometerReadingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AccelerometerReadingType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AccelerometerReadingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AccelerometerReadingType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.AccelerometerReadingType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivitySensorReadingConfidence(pub i32);
+impl ActivitySensorReadingConfidence {
+    pub const High: Self = Self(0i32);
+    pub const Low: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ActivitySensorReadingConfidence {}
+impl ::core::clone::Clone for ActivitySensorReadingConfidence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivitySensorReadingConfidence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingConfidence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivitySensorReadingConfidence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ActivityType(pub i32);
+impl ActivityType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Idle: Self = Self(1i32);
+    pub const Stationary: Self = Self(2i32);
+    pub const Fidgeting: Self = Self(3i32);
+    pub const Walking: Self = Self(4i32);
+    pub const Running: Self = Self(5i32);
+    pub const InVehicle: Self = Self(6i32);
+    pub const Biking: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ActivityType {}
+impl ::core::clone::Clone for ActivityType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ActivityType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ActivityType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ActivityType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivityType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ActivityType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.ActivityType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MagnetometerAccuracy(pub i32);
+impl MagnetometerAccuracy {
+    pub const Unknown: Self = Self(0i32);
+    pub const Unreliable: Self = Self(1i32);
+    pub const Approximate: Self = Self(2i32);
+    pub const High: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MagnetometerAccuracy {}
+impl ::core::clone::Clone for MagnetometerAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MagnetometerAccuracy {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MagnetometerAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MagnetometerAccuracy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.MagnetometerAccuracy;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PedometerStepKind(pub i32);
+impl PedometerStepKind {
+    pub const Unknown: Self = Self(0i32);
+    pub const Walking: Self = Self(1i32);
+    pub const Running: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PedometerStepKind {}
+impl ::core::clone::Clone for PedometerStepKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PedometerStepKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PedometerStepKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PedometerStepKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PedometerStepKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PedometerStepKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.PedometerStepKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SensorOptimizationGoal(pub i32);
+impl SensorOptimizationGoal {
+    pub const Precision: Self = Self(0i32);
+    pub const PowerEfficiency: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SensorOptimizationGoal {}
+impl ::core::clone::Clone for SensorOptimizationGoal {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SensorOptimizationGoal {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SensorOptimizationGoal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SensorOptimizationGoal {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorOptimizationGoal;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SensorReadingType(pub i32);
+impl SensorReadingType {
+    pub const Absolute: Self = Self(0i32);
+    pub const Relative: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SensorReadingType {}
+impl ::core::clone::Clone for SensorReadingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SensorReadingType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SensorReadingType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SensorReadingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorReadingType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SensorReadingType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorReadingType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SensorType(pub i32);
+impl SensorType {
+    pub const Accelerometer: Self = Self(0i32);
+    pub const ActivitySensor: Self = Self(1i32);
+    pub const Barometer: Self = Self(2i32);
+    pub const Compass: Self = Self(3i32);
+    pub const CustomSensor: Self = Self(4i32);
+    pub const Gyroscope: Self = Self(5i32);
+    pub const ProximitySensor: Self = Self(6i32);
+    pub const Inclinometer: Self = Self(7i32);
+    pub const LightSensor: Self = Self(8i32);
+    pub const OrientationSensor: Self = Self(9i32);
+    pub const Pedometer: Self = Self(10i32);
+    pub const RelativeInclinometer: Self = Self(11i32);
+    pub const RelativeOrientationSensor: Self = Self(12i32);
+    pub const SimpleOrientationSensor: Self = Self(13i32);
+}
+impl ::core::marker::Copy for SensorType {}
+impl ::core::clone::Clone for SensorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SensorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SensorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SensorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SensorType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SensorType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Sensors\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SimpleOrientation(pub i32);
+impl SimpleOrientation {
+    pub const NotRotated: Self = Self(0i32);
+    pub const Rotated90DegreesCounterclockwise: Self = Self(1i32);
+    pub const Rotated180DegreesCounterclockwise: Self = Self(2i32);
+    pub const Rotated270DegreesCounterclockwise: Self = Self(3i32);
+    pub const Faceup: Self = Self(4i32);
+    pub const Facedown: Self = Self(5i32);
+}
+impl ::core::marker::Copy for SimpleOrientation {}
+impl ::core::clone::Clone for SimpleOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SimpleOrientation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SimpleOrientation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SimpleOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SimpleOrientation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SimpleOrientation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.SimpleOrientation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

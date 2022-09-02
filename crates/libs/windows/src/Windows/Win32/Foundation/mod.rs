@@ -1,4 +1,221 @@
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn CloseHandle<'a, P0>(hobject: P0) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CloseHandle(hobject: HANDLE) -> BOOL;
+    }
+    CloseHandle(hobject.into())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn CompareObjectHandles<'a, P0, P1>(hfirstobjecthandle: P0, hsecondobjecthandle: P1) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+    P1: ::std::convert::Into<HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
+    }
+    CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: &mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+    P1: ::std::convert::Into<HANDLE>,
+    P2: ::std::convert::Into<HANDLE>,
+    P3: ::std::convert::Into<BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
+    }
+    DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions)
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn GetHandleInformation<'a, P0>(hobject: P0, lpdwflags: &mut u32) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
+    }
+    GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags))
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn GetLastError() -> WIN32_ERROR {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetLastError() -> WIN32_ERROR;
+    }
+    GetLastError()
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn RtlNtStatusToDosError<'a, P0>(status: P0) -> u32
+where
+    P0: ::std::convert::Into<NTSTATUS>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
+    }
+    RtlNtStatusToDosError(status.into())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SetHandleInformation<'a, P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL
+where
+    P0: ::std::convert::Into<HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
+    }
+    SetHandleInformation(hobject.into(), dwmask, dwflags)
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetLastError(dwerrcode: WIN32_ERROR);
+    }
+    SetLastError(dwerrcode)
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
+    }
+    SetLastErrorEx(dwerrcode, dwtype)
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysAddRefString<'a, P0>(bstrstring: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
+    }
+    SysAddRefString(bstrstring.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysAllocString<'a, P0>(psz: P0) -> BSTR
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
+    }
+    SysAllocString(psz.into())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> BSTR {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
+    }
+    SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _))
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> BSTR {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
+    }
+    SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len() as _))
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysFreeString<'a, P0>(bstrstring: P0)
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
+    }
+    SysFreeString(bstrstring.into().abi())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysReAllocString<'a, P0>(pbstr: &mut BSTR, psz: P0) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
+    }
+    SysReAllocString(::core::mem::transmute(pbstr), psz.into())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysReAllocStringLen<'a, P0>(pbstr: &mut BSTR, psz: P0, len: u32) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
+    }
+    SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), len)
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysReleaseString<'a, P0>(bstrstring: P0)
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
+    }
+    SysReleaseString(bstrstring.into().abi())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysStringByteLen<'a, P0>(bstr: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
+    }
+    SysStringByteLen(bstr.into().abi())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[inline]
+pub unsafe fn SysStringLen<'a, P0>(pbstr: P0) -> u32
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
+    }
+    SysStringLen(pbstr.into().abi())
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: i32 = 15705i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_READ_FAILED: i32 = 15704i32;
@@ -64,347 +281,8 @@ pub const APPX_E_RELATIONSHIPS_NOT_ALLOWED: ::windows::core::HRESULT = ::windows
 pub const APPX_E_REQUESTED_RANGE_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146958840i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APPX_E_RESOURCESPRI_NOT_ALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146958829i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct APP_LOCAL_DEVICE_ID {
-    pub value: [u8; 32],
-}
-impl ::core::marker::Copy for APP_LOCAL_DEVICE_ID {}
-impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for APP_LOCAL_DEVICE_ID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_LOCAL_DEVICE_ID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for APP_LOCAL_DEVICE_ID {}
-impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const APP_LOCAL_DEVICE_ID_SIZE: u32 = 32u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BOOL(pub i32);
-impl ::core::default::Default for BOOL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for BOOL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for BOOL {}
-impl ::core::fmt::Debug for BOOL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BOOL").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
-    fn from(optional: ::core::option::Option<BOOL>) -> BOOL {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for BOOL {
-    type Abi = Self;
-}
-impl BOOL {
-    #[inline]
-    pub fn as_bool(self) -> bool {
-        self.0 != 0
-    }
-    #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-    #[inline]
-    #[track_caller]
-    pub fn unwrap(self) {
-        self.ok().unwrap();
-    }
-    #[inline]
-    #[track_caller]
-    pub fn expect(self, msg: &str) {
-        self.ok().expect(msg);
-    }
-}
-impl ::core::convert::From<BOOL> for bool {
-    fn from(value: BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<&BOOL> for bool {
-    fn from(value: &BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<bool> for BOOL {
-    fn from(value: bool) -> Self {
-        if value {
-            Self(1)
-        } else {
-            Self(0)
-        }
-    }
-}
-impl ::core::convert::From<&bool> for BOOL {
-    fn from(value: &bool) -> Self {
-        (*value).into()
-    }
-}
-impl ::core::cmp::PartialEq<bool> for BOOL {
-    fn eq(&self, other: &bool) -> bool {
-        self.as_bool() == *other
-    }
-}
-impl ::core::cmp::PartialEq<BOOL> for bool {
-    fn eq(&self, other: &BOOL) -> bool {
-        *self == other.as_bool()
-    }
-}
-impl ::core::ops::Not for BOOL {
-    type Output = Self;
-    fn not(self) -> Self::Output {
-        if self.as_bool() {
-            Self(0)
-        } else {
-            Self(1)
-        }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BOOLEAN(pub u8);
-impl ::core::default::Default for BOOLEAN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for BOOLEAN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for BOOLEAN {}
-impl ::core::fmt::Debug for BOOLEAN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BOOLEAN").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
-    fn from(optional: ::core::option::Option<BOOLEAN>) -> BOOLEAN {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for BOOLEAN {
-    type Abi = Self;
-}
-impl BOOLEAN {
-    #[inline]
-    pub fn as_bool(self) -> bool {
-        self.0 != 0
-    }
-    #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-    #[inline]
-    #[track_caller]
-    pub fn unwrap(self) {
-        self.ok().unwrap();
-    }
-    #[inline]
-    #[track_caller]
-    pub fn expect(self, msg: &str) {
-        self.ok().expect(msg);
-    }
-}
-impl ::core::convert::From<BOOLEAN> for bool {
-    fn from(value: BOOLEAN) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<&BOOLEAN> for bool {
-    fn from(value: &BOOLEAN) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<bool> for BOOLEAN {
-    fn from(value: bool) -> Self {
-        if value {
-            Self(1)
-        } else {
-            Self(0)
-        }
-    }
-}
-impl ::core::convert::From<&bool> for BOOLEAN {
-    fn from(value: &bool) -> Self {
-        (*value).into()
-    }
-}
-impl ::core::cmp::PartialEq<bool> for BOOLEAN {
-    fn eq(&self, other: &bool) -> bool {
-        self.as_bool() == *other
-    }
-}
-impl ::core::cmp::PartialEq<BOOLEAN> for bool {
-    fn eq(&self, other: &BOOLEAN) -> bool {
-        *self == other.as_bool()
-    }
-}
-impl ::core::ops::Not for BOOLEAN {
-    type Output = Self;
-    fn not(self) -> Self::Output {
-        if self.as_bool() {
-            Self(0)
-        } else {
-            Self(1)
-        }
-    }
-}
-#[repr(transparent)]
-pub struct BSTR(*const u16);
-impl BSTR {
-    pub fn new() -> Self {
-        Self(core::ptr::null_mut())
-    }
-    pub fn is_empty(&self) -> bool {
-        self.len() == 0
-    }
-    pub fn len(&self) -> usize {
-        if self.0.is_null() {
-            0
-        } else {
-            unsafe { SysStringLen(self) as usize }
-        }
-    }
-    pub fn from_wide(value: &[u16]) -> Self {
-        if value.is_empty() {
-            return Self(::core::ptr::null_mut());
-        }
-        unsafe { SysAllocStringLen(Some(value)) }
-    }
-    pub fn as_wide(&self) -> &[u16] {
-        if self.0.is_null() {
-            return &[];
-        }
-        unsafe { ::core::slice::from_raw_parts(self.0, self.len()) }
-    }
-    pub unsafe fn from_raw(raw: *const u16) -> Self {
-        Self(raw)
-    }
-    pub fn into_raw(self) -> *const u16 {
-        unsafe { std::mem::transmute(self) }
-    }
-}
-impl ::core::clone::Clone for BSTR {
-    fn clone(&self) -> Self {
-        Self::from_wide(self.as_wide())
-    }
-}
-impl ::core::convert::From<&str> for BSTR {
-    fn from(value: &str) -> Self {
-        let value: ::windows::core::alloc::vec::Vec<u16> = value.encode_utf16().collect();
-        Self::from_wide(&value)
-    }
-}
-impl ::core::convert::From<::windows::core::alloc::string::String> for BSTR {
-    fn from(value: ::windows::core::alloc::string::String) -> Self {
-        value.as_str().into()
-    }
-}
-impl ::core::convert::From<&::windows::core::alloc::string::String> for BSTR {
-    fn from(value: &::windows::core::alloc::string::String) -> Self {
-        value.as_str().into()
-    }
-}
-impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::windows::core::alloc::string::String {
-    type Error = ::windows::core::alloc::string::FromUtf16Error;
-    fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
-        ::windows::core::alloc::string::String::from_utf16(value.as_wide())
-    }
-}
-impl ::core::convert::TryFrom<BSTR> for ::windows::core::alloc::string::String {
-    type Error = ::windows::core::alloc::string::FromUtf16Error;
-    fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
-        ::windows::core::alloc::string::String::try_from(&value)
-    }
-}
-impl ::core::default::Default for BSTR {
-    fn default() -> Self {
-        Self(::core::ptr::null_mut())
-    }
-}
-impl ::core::fmt::Display for BSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        ::core::write!(f, "{}", ::windows::core::Decode(|| ::core::char::decode_utf16(self.as_wide().iter().cloned())))
-    }
-}
-impl ::core::fmt::Debug for BSTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        ::core::write!(f, "{}", self)
-    }
-}
-impl ::core::cmp::PartialEq for BSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.as_wide() == other.as_wide()
-    }
-}
-impl ::core::cmp::Eq for BSTR {}
-impl ::core::cmp::PartialEq<::windows::core::alloc::string::String> for BSTR {
-    fn eq(&self, other: &::windows::core::alloc::string::String) -> bool {
-        self == other.as_str()
-    }
-}
-impl ::core::cmp::PartialEq<str> for BSTR {
-    fn eq(&self, other: &str) -> bool {
-        self == other
-    }
-}
-impl ::core::cmp::PartialEq<&str> for BSTR {
-    fn eq(&self, other: &&str) -> bool {
-        self.as_wide().iter().copied().eq(other.encode_utf16())
-    }
-}
-impl ::core::cmp::PartialEq<BSTR> for &str {
-    fn eq(&self, other: &BSTR) -> bool {
-        other == self
-    }
-}
-impl ::core::ops::Drop for BSTR {
-    fn drop(&mut self) {
-        if !self.0.is_null() {
-            unsafe { SysFreeString(self as &Self) }
-        }
-    }
-}
-unsafe impl ::windows::core::Abi for BSTR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const BT_E_SPURIOUS_ACTIVATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146958592i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -581,33 +459,6 @@ pub const CERT_E_UNTRUSTEDTESTROOT: ::windows::core::HRESULT = ::windows::core::
 pub const CERT_E_VALIDITYPERIODNESTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762494i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const CERT_E_WRONG_USAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762480i32);
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CHAR(pub u8);
-impl ::core::default::Default for CHAR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for CHAR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for CHAR {}
-impl ::core::fmt::Debug for CHAR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CHAR").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<CHAR>> for CHAR {
-    fn from(optional: ::core::option::Option<CHAR>) -> CHAR {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for CHAR {
-    type Abi = Self;
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const CI_CORRUPT_CATALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473535i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -732,33 +583,6 @@ pub const CLIPBRD_E_LAST: i32 = -2147221025i32;
 pub const CLIPBRD_S_FIRST: i32 = 262608i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const CLIPBRD_S_LAST: i32 = 262623i32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COLORREF(pub u32);
-impl ::core::default::Default for COLORREF {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for COLORREF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for COLORREF {}
-impl ::core::fmt::Debug for COLORREF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COLORREF").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<COLORREF>> for COLORREF {
-    fn from(optional: ::core::option::Option<COLORREF>) -> COLORREF {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for COLORREF {
-    type Abi = Self;
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const COMADMIN_E_ALREADYINSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146368508i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1450,31 +1274,6 @@ pub const CS_E_PACKAGE_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRE
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const CS_E_SCHEMA_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221138i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn CloseHandle<'a, P0>(hobject: P0) -> BOOL
-where
-    P0: ::std::convert::Into<HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CloseHandle(hobject: HANDLE) -> BOOL;
-    }
-    CloseHandle(hobject.into())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn CompareObjectHandles<'a, P0, P1>(hfirstobjecthandle: P0, hsecondobjecthandle: P1) -> BOOL
-where
-    P0: ::std::convert::Into<HANDLE>,
-    P1: ::std::convert::Into<HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> BOOL;
-    }
-    CompareObjectHandles(hfirstobjecthandle.into(), hsecondobjecthandle.into())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const D2DERR_BAD_NUMBER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003238895i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const D2DERR_BITMAP_BOUND_AS_TARGET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003238875i32);
@@ -1630,148 +1429,6 @@ pub const DCOMPOSITION_ERROR_SURFACE_BEING_RENDERED: ::windows::core::HRESULT = 
 pub const DCOMPOSITION_ERROR_SURFACE_NOT_BEING_RENDERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003302398i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DCOMPOSITION_ERROR_WINDOW_ALREADY_COMPOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003302400i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct DECIMAL {
-    pub wReserved: u16,
-    pub Anonymous1: DECIMAL_0,
-    pub Hi32: u32,
-    pub Anonymous2: DECIMAL_1,
-}
-impl ::core::marker::Copy for DECIMAL {}
-impl ::core::clone::Clone for DECIMAL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DECIMAL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL {}
-impl ::core::default::Default for DECIMAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub union DECIMAL_0 {
-    pub Anonymous: DECIMAL_0_0,
-    pub signscale: u16,
-}
-impl ::core::marker::Copy for DECIMAL_0 {}
-impl ::core::clone::Clone for DECIMAL_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DECIMAL_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_0 {}
-impl ::core::default::Default for DECIMAL_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct DECIMAL_0_0 {
-    pub scale: u8,
-    pub sign: u8,
-}
-impl ::core::marker::Copy for DECIMAL_0_0 {}
-impl ::core::clone::Clone for DECIMAL_0_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DECIMAL_0_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DECIMAL_0_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_0_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_0_0 {}
-impl ::core::default::Default for DECIMAL_0_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub union DECIMAL_1 {
-    pub Anonymous: DECIMAL_1_0,
-    pub Lo64: u64,
-}
-impl ::core::marker::Copy for DECIMAL_1 {}
-impl ::core::clone::Clone for DECIMAL_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DECIMAL_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_1 {}
-impl ::core::default::Default for DECIMAL_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct DECIMAL_1_0 {
-    pub Lo32: u32,
-    pub Mid32: u32,
-}
-impl ::core::marker::Copy for DECIMAL_1_0 {}
-impl ::core::clone::Clone for DECIMAL_1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DECIMAL_1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DECIMAL_1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DECIMAL_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DECIMAL_1_0 {}
-impl ::core::default::Default for DECIMAL_1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DIGSIG_E_CRYPTO: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146762744i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -1875,61 +1532,6 @@ pub const DRAGDROP_S_LAST: i32 = 262415i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DRAGDROP_S_USEDEFAULTCURSORS: ::windows::core::HRESULT = ::windows::core::HRESULT(262402i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(2u32);
-impl ::core::marker::Copy for DUPLICATE_HANDLE_OPTIONS {}
-impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DUPLICATE_HANDLE_OPTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DUPLICATE_HANDLE_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DUPLICATE_HANDLE_OPTIONS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DV_E_CLIPFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221398i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DV_E_DVASPECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221397i32);
@@ -2025,21 +1627,6 @@ pub const DXGI_STATUS_OCCLUDED: ::windows::core::HRESULT = ::windows::core::HRES
 pub const DXGI_STATUS_PRESENT_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(142213167i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const DXGI_STATUS_UNOCCLUDED: ::windows::core::HRESULT = ::windows::core::HRESULT(142213129i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn DuplicateHandle<'a, P0, P1, P2, P3>(hsourceprocesshandle: P0, hsourcehandle: P1, htargetprocesshandle: P2, lptargethandle: &mut HANDLE, dwdesiredaccess: u32, binherithandle: P3, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL
-where
-    P0: ::std::convert::Into<HANDLE>,
-    P1: ::std::convert::Into<HANDLE>,
-    P2: ::std::convert::Into<HANDLE>,
-    P3: ::std::convert::Into<BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: BOOL, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> BOOL;
-    }
-    DuplicateHandle(hsourceprocesshandle.into(), hsourcehandle.into(), htargetprocesshandle.into(), ::core::mem::transmute(lptargethandle), dwdesiredaccess, binherithandle.into(), dwoptions)
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const EAS_E_ADMINS_CANNOT_CHANGE_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2141913080i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3197,8 +2784,6 @@ pub const E_UNEXPECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-214
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FACILTIY_MUI_ERROR_CODE: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FA_E_HOMEGROUP_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927198i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FA_E_MAX_PERSISTED_ITEMS_REACHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144927200i32);
@@ -3220,37 +2805,6 @@ pub const FDAEMON_E_WORDLISTCOMMITFAILED: ::windows::core::HRESULT = ::windows::
 pub const FDAEMON_W_EMPTYWORDLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(267909i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FDAEMON_W_WORDLISTFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(267904i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct FILETIME {
-    pub dwLowDateTime: u32,
-    pub dwHighDateTime: u32,
-}
-impl ::core::marker::Copy for FILETIME {}
-impl ::core::clone::Clone for FILETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FILETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FILETIME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FILETIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILETIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILETIME {}
-impl ::core::default::Default for FILETIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FILTER_E_ALREADY_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215562i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3281,37 +2835,6 @@ pub const FILTER_S_NO_PROPSETS: ::windows::core::HRESULT = ::windows::core::HRES
 pub const FILTER_S_NO_SECURITY_DESCRIPTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(268092i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FILTER_S_PARTIAL_CONTENTSCAN_IMMEDIATE: ::windows::core::HRESULT = ::windows::core::HRESULT(268081i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct FLOAT128 {
-    pub LowPart: i64,
-    pub HighPart: i64,
-}
-impl ::core::marker::Copy for FLOAT128 {}
-impl ::core::clone::Clone for FLOAT128 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FLOAT128 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FLOAT128 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FLOAT128 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT128>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FLOAT128 {}
-impl ::core::default::Default for FLOAT128 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const FRS_ERR_AUTHENTICATION: i32 = 8008i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -3941,141 +3464,6 @@ pub const GCN_E_REQUEST_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core:
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const GCN_E_RUNTIMEKEYS_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143616988i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn GetHandleInformation<'a, P0>(hobject: P0, lpdwflags: &mut u32) -> BOOL
-where
-    P0: ::std::convert::Into<HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> BOOL;
-    }
-    GetHandleInformation(hobject.into(), ::core::mem::transmute(lpdwflags))
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn GetLastError() -> WIN32_ERROR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetLastError() -> WIN32_ERROR;
-    }
-    GetLastError()
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HANDLE(pub isize);
-impl HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HANDLE {}
-impl ::core::fmt::Debug for HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HANDLE>> for HANDLE {
-    fn from(optional: ::core::option::Option<HANDLE>) -> HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HANDLE_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
-impl ::core::marker::Copy for HANDLE_FLAGS {}
-impl ::core::clone::Clone for HANDLE_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HANDLE_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HANDLE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HANDLE_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HANDLE_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for HANDLE_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for HANDLE_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HANDLE_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HANDLE_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for HANDLE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HANDLE_PTR(pub usize);
-impl ::core::default::Default for HANDLE_PTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HANDLE_PTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HANDLE_PTR {}
-impl ::core::fmt::Debug for HANDLE_PTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HANDLE_PTR>> for HANDLE_PTR {
-    fn from(optional: ::core::option::Option<HANDLE_PTR>) -> HANDLE_PTR {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HANDLE_PTR {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HCN_E_ADAPTER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143617018i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HCN_E_ADDR_INVALID_OR_RESERVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143616977i32);
@@ -4229,130 +3617,6 @@ pub const HCS_E_UNKNOWN_MESSAGE: ::windows::core::HRESULT = ::windows::core::HRE
 pub const HCS_E_UNSUPPORTED_PROTOCOL_VERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878900i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HCS_E_WINDOWS_INSIDER_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878893i32);
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HINSTANCE(pub isize);
-impl HINSTANCE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == 0
-    }
-}
-impl ::core::default::Default for HINSTANCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HINSTANCE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HINSTANCE {}
-impl ::core::fmt::Debug for HINSTANCE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HINSTANCE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HINSTANCE>> for HINSTANCE {
-    fn from(optional: ::core::option::Option<HINSTANCE>) -> HINSTANCE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HINSTANCE {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HLSURF__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HLSURF__ {}
-impl ::core::clone::Clone for HLSURF__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HLSURF__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HLSURF__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HLSURF__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HLSURF__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HLSURF__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HLSURF__ {}
-impl ::core::default::Default for HLSURF__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HRSRC(pub isize);
-impl HRSRC {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HRSRC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HRSRC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HRSRC {}
-impl ::core::fmt::Debug for HRSRC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HRSRC").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HRSRC>> for HRSRC {
-    fn from(optional: ::core::option::Option<HRSRC>) -> HRSRC {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HRSRC {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HSPRITE__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HSPRITE__ {}
-impl ::core::clone::Clone for HSPRITE__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HSPRITE__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSPRITE__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HSPRITE__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HSPRITE__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSPRITE__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HSPRITE__ {}
-impl ::core::default::Default for HSPRITE__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HSP_BASE_ERROR_MASK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2128019200i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4409,36 +3673,6 @@ pub const HSP_KSP_NO_MEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT
 pub const HSP_KSP_NO_MORE_ITEMS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2128018920i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HSP_KSP_PARAMETER_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2128018927i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HSTR__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HSTR__ {}
-impl ::core::clone::Clone for HSTR__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HSTR__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HSTR__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HSTR__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HSTR__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTR__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HSTR__ {}
-impl ::core::default::Default for HSTR__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HTTP_E_STATUS_AMBIGUOUS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145844948i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4509,63 +3743,6 @@ pub const HTTP_E_STATUS_URI_TOO_LONG: ::windows::core::HRESULT = ::windows::core
 pub const HTTP_E_STATUS_USE_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145844943i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const HTTP_E_STATUS_VERSION_NOT_SUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145844743i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct HUMPD__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for HUMPD__ {}
-impl ::core::clone::Clone for HUMPD__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for HUMPD__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HUMPD__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HUMPD__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HUMPD__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HUMPD__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for HUMPD__ {}
-impl ::core::default::Default for HUMPD__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HWND(pub isize);
-impl ::core::default::Default for HWND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HWND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HWND {}
-impl ::core::fmt::Debug for HWND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HWND").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HWND>> for HWND {
-    fn from(optional: ::core::option::Option<HWND>) -> HWND {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HWND {
-    type Abi = Self;
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const INPLACE_E_FIRST: i32 = -2147221088i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4620,91 +3797,6 @@ pub const JSCRIPT_E_CANTEXECUTE: ::windows::core::HRESULT = ::windows::core::HRE
 pub const LANGUAGE_E_DATABASE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215484i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const LANGUAGE_S_LARGE_WORD: ::windows::core::HRESULT = ::windows::core::HRESULT(268161i32);
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LPARAM(pub isize);
-impl ::core::default::Default for LPARAM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for LPARAM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for LPARAM {}
-impl ::core::fmt::Debug for LPARAM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LPARAM").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<LPARAM>> for LPARAM {
-    fn from(optional: ::core::option::Option<LPARAM>) -> LPARAM {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for LPARAM {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LRESULT(pub isize);
-impl ::core::default::Default for LRESULT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for LRESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for LRESULT {}
-impl ::core::fmt::Debug for LRESULT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LRESULT").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<LRESULT>> for LRESULT {
-    fn from(optional: ::core::option::Option<LRESULT>) -> LRESULT {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for LRESULT {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct LUID {
-    pub LowPart: u32,
-    pub HighPart: i32,
-}
-impl ::core::marker::Copy for LUID {}
-impl ::core::clone::Clone for LUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LUID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LUID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LUID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LUID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LUID {}
-impl ::core::default::Default for LUID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const MARSHAL_E_FIRST: i32 = -2147221216i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -4998,8 +4090,6 @@ pub const NAP_E_TOO_MANY_CALLS: ::windows::core::HRESULT = ::windows::core::HRES
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NAP_S_CERT_ALREADY_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(2555917i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NOERROR: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NOT_AN_ERROR1: ::windows::core::HRESULT = ::windows::core::HRESULT(529920i32);
@@ -5119,198 +4209,6 @@ pub const NTE_UI_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-
 pub const NTE_USER_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893770i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const NTE_VALIDATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146893774i32);
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NTSTATUS(pub i32);
-impl ::core::default::Default for NTSTATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for NTSTATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for NTSTATUS {}
-impl ::core::fmt::Debug for NTSTATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NTSTATUS").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
-    fn from(optional: ::core::option::Option<NTSTATUS>) -> NTSTATUS {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for NTSTATUS {
-    type Abi = Self;
-}
-impl NTSTATUS {
-    #[inline]
-    pub const fn is_ok(self) -> bool {
-        self.0 >= 0
-    }
-    #[inline]
-    pub const fn is_err(self) -> bool {
-        !self.is_ok()
-    }
-    #[inline]
-    pub const fn to_hresult(self) -> ::windows::core::HRESULT {
-        ::windows::core::HRESULT(self.0 | 0x1000_0000)
-    }
-    #[inline]
-    pub const fn ok(self) -> ::windows::core::Result<()> {
-        if self.is_ok() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error { code: self.to_hresult(), info: None })
-        }
-    }
-}
-impl ::core::convert::From<NTSTATUS> for ::windows::core::HRESULT {
-    fn from(value: NTSTATUS) -> Self {
-        value.to_hresult()
-    }
-}
-impl ::core::convert::From<NTSTATUS> for ::windows::core::Error {
-    fn from(value: NTSTATUS) -> Self {
-        Self { code: value.to_hresult(), info: None }
-    }
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NTSTATUS_FACILITY_CODE(pub u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_DEBUGGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(1u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_RPC_RUNTIME: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(2u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_RPC_STUBS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(3u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_IO_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(4u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_CODCLASS_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(6u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_NTWIN32: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(7u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_NTCERT: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(8u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_NTSSPI: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(9u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_TERMINAL_SERVER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(10u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_USB_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(16u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_HID_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(17u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_FIREWIRE_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(18u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_CLUSTER_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(19u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_ACPI_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(20u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SXS_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(21u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_TRANSACTION: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(25u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_COMMONLOG: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(26u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_VIDEO: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(27u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_FILTER_MANAGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(28u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_MONITOR: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(29u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_GRAPHICS_KERNEL: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(30u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_DRIVER_FRAMEWORK: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(32u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_FVE_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(33u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_FWP_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(34u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_NDIS_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(35u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_QUIC_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(36u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_TPM: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(41u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_RTPM: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(42u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_HYPERVISOR: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(53u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_IPSEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(54u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_VIRTUALIZATION: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(55u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_VOLMGR: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(56u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_BCD_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(57u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_WIN32K_NTUSER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(62u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_WIN32K_NTGDI: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(63u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_RESUME_KEY_FILTER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(64u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_RDBSS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(65u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_BTH_ATT: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(66u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SECUREBOOT: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(67u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_AUDIO_KERNEL: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(68u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_VSM: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(69u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_NT_IORING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(70u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_VOLSNAP: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(80u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SDBUS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(81u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SHARED_VHDX: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(92u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SMB: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(93u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_XVS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(94u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_INTERIX: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(153u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SPACES: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(231u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SECURITY_CORE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(232u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_SYSTEM_INTEGRITY: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(233u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_LICENSING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(234u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_PLATFORM_MANIFEST: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(235u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_APP_EXEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(236u32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const FACILITY_MAXIMUM_VALUE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(237u32);
-impl ::core::marker::Copy for NTSTATUS_FACILITY_CODE {}
-impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NTSTATUS_FACILITY_CODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NTSTATUS_FACILITY_CODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const OLEOBJ_E_FIRST: i32 = -2147221120i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5511,8 +4409,6 @@ pub const OSS_TYPE_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HR
 pub const OSS_UNAVAIL_ENCRULES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146881513i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const OSS_UNIMPLEMENTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146881511i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const PEERDIST_ERROR_ALREADY_COMPLETED: i32 = 4060i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -5771,135 +4667,8 @@ pub const PLA_E_TASKSCHED_CHANNEL_NOT_ENABLED: ::windows::core::HRESULT = ::wind
 pub const PLA_E_TOO_MANY_FOLDERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144337851i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const PLA_S_PROPERTY_IGNORED: ::windows::core::HRESULT = ::windows::core::HRESULT(3145984i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct POINT {
-    pub x: i32,
-    pub y: i32,
-}
-impl ::core::marker::Copy for POINT {}
-impl ::core::clone::Clone for POINT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for POINT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for POINT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for POINT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for POINT {}
-impl ::core::default::Default for POINT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct POINTL {
-    pub x: i32,
-    pub y: i32,
-}
-impl ::core::marker::Copy for POINTL {}
-impl ::core::clone::Clone for POINTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for POINTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for POINTL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for POINTL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for POINTL {}
-impl ::core::default::Default for POINTL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct POINTS {
-    pub x: i16,
-    pub y: i16,
-}
-impl ::core::marker::Copy for POINTS {}
-impl ::core::clone::Clone for POINTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for POINTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for POINTS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for POINTS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for POINTS {}
-impl ::core::default::Default for POINTS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const PRESENTATION_ERROR_LOST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004811775i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PSID(pub *mut ::core::ffi::c_void);
-impl PSID {
-    pub fn is_invalid(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl ::core::default::Default for PSID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for PSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for PSID {}
-impl ::core::fmt::Debug for PSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PSID").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<PSID>> for PSID {
-    fn from(optional: ::core::option::Option<PSID>) -> PSID {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for PSID {
-    type Abi = Self;
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const PSINK_E_INDEX_ONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215471i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6018,72 +4787,6 @@ pub const QUERY_S_NO_QUERY: ::windows::core::HRESULT = ::windows::core::HRESULT(
 pub const QUTIL_E_CANT_CONVERT_VROOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215754i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const QUTIL_E_INVALID_CODEPAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473928i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct RECT {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-impl ::core::marker::Copy for RECT {}
-impl ::core::clone::Clone for RECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RECT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RECT {}
-impl ::core::default::Default for RECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct RECTL {
-    pub left: i32,
-    pub top: i32,
-    pub right: i32,
-    pub bottom: i32,
-}
-impl ::core::marker::Copy for RECTL {}
-impl ::core::clone::Clone for RECTL {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RECTL {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RECTL {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RECTL {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECTL>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RECTL {}
-impl ::core::default::Default for RECTL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const REGDB_E_BADTHREADINGMODEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221162i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6500,18 +5203,6 @@ pub const RPC_X_WRONG_PIPE_ORDER: i32 = 1831i32;
 pub const RPC_X_WRONG_PIPE_VERSION: i32 = 1832i32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const RPC_X_WRONG_STUB_VERSION: i32 = 1829i32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn RtlNtStatusToDosError<'a, P0>(status: P0) -> u32
-where
-    P0: ::std::convert::Into<NTSTATUS>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlNtStatusToDosError(status: NTSTATUS) -> u32;
-    }
-    RtlNtStatusToDosError(status.into())
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SCARD_E_BAD_SEEK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146435031i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -6956,64 +5647,6 @@ pub const SEC_I_SIGNATURE_NEEDED: ::windows::core::HRESULT = ::windows::core::HR
 pub const SEVERITY_ERROR: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SEVERITY_SUCCESS: u32 = 0u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SHANDLE_PTR(pub isize);
-impl ::core::default::Default for SHANDLE_PTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for SHANDLE_PTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for SHANDLE_PTR {}
-impl ::core::fmt::Debug for SHANDLE_PTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<SHANDLE_PTR>> for SHANDLE_PTR {
-    fn from(optional: ::core::option::Option<SHANDLE_PTR>) -> SHANDLE_PTR {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for SHANDLE_PTR {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct SIZE {
-    pub cx: i32,
-    pub cy: i32,
-}
-impl ::core::marker::Copy for SIZE {}
-impl ::core::clone::Clone for SIZE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SIZE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SIZE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIZE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SIZE {}
-impl ::core::default::Default for SIZE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SPAPI_E_AUTHENTICODE_DISALLOWED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146500032i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12860,43 +11493,6 @@ pub const STORE_ERROR_UNLICENSED_USER: i32 = 15862i32;
 pub const STRICT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const SUCCESS: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct SYSTEMTIME {
-    pub wYear: u16,
-    pub wMonth: u16,
-    pub wDayOfWeek: u16,
-    pub wDay: u16,
-    pub wHour: u16,
-    pub wMinute: u16,
-    pub wSecond: u16,
-    pub wMilliseconds: u16,
-}
-impl ::core::marker::Copy for SYSTEMTIME {}
-impl ::core::clone::Clone for SYSTEMTIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SYSTEMTIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEMTIME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SYSTEMTIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEMTIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SYSTEMTIME {}
-impl ::core::default::Default for SYSTEMTIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const S_APPLICATION_ACTIVATION_ERROR_HANDLED_BY_DIALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(2556505i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12905,150 +11501,6 @@ pub const S_FALSE: ::windows::core::HRESULT = ::windows::core::HRESULT(1i32);
 pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const S_STORE_LAUNCHED_FOR_REMEDIATION: ::windows::core::HRESULT = ::windows::core::HRESULT(2556504i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SetHandleInformation<'a, P0>(hobject: P0, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL
-where
-    P0: ::std::convert::Into<HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> BOOL;
-    }
-    SetHandleInformation(hobject.into(), dwmask, dwflags)
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetLastError(dwerrcode: WIN32_ERROR);
-    }
-    SetLastError(dwerrcode)
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32);
-    }
-    SetLastErrorEx(dwerrcode, dwtype)
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysAddRefString<'a, P0>(bstrstring: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
-    }
-    SysAddRefString(bstrstring.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysAllocString<'a, P0>(psz: P0) -> BSTR
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocString(psz: ::windows::core::PCWSTR) -> BSTR;
-    }
-    SysAllocString(psz.into())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysAllocStringByteLen(psz: ::core::option::Option<&[u8]>) -> BSTR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocStringByteLen(psz: ::windows::core::PCSTR, len: u32) -> BSTR;
-    }
-    SysAllocStringByteLen(::core::mem::transmute(psz.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len() as _))
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysAllocStringLen(strin: ::core::option::Option<&[u16]>) -> BSTR {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysAllocStringLen(strin: ::windows::core::PCWSTR, ui: u32) -> BSTR;
-    }
-    SysAllocStringLen(::core::mem::transmute(strin.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len() as _))
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysFreeString<'a, P0>(bstrstring: P0)
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
-    }
-    SysFreeString(bstrstring.into().abi())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysReAllocString<'a, P0>(pbstr: &mut BSTR, psz: P0) -> i32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysReAllocString(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR) -> i32;
-    }
-    SysReAllocString(::core::mem::transmute(pbstr), psz.into())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysReAllocStringLen<'a, P0>(pbstr: &mut BSTR, psz: P0, len: u32) -> i32
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysReAllocStringLen(pbstr: *mut BSTR, psz: ::windows::core::PCWSTR, len: u32) -> i32;
-    }
-    SysReAllocStringLen(::core::mem::transmute(pbstr), psz.into(), len)
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysReleaseString<'a, P0>(bstrstring: P0)
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
-    }
-    SysReleaseString(bstrstring.into().abi())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysStringByteLen<'a, P0>(bstr: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
-    }
-    SysStringByteLen(bstr.into().abi())
-}
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-#[inline]
-pub unsafe fn SysStringLen<'a, P0>(pbstr: P0) -> u32
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, BSTR>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
-    }
-    SysStringLen(pbstr.into().abi())
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const TBSIMP_E_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144796160i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -13945,38 +12397,6 @@ pub const UI_E_VALUE_NOT_SET: ::windows::core::HRESULT = ::windows::core::HRESUL
 pub const UI_E_WINDOW_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144730623i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const UI_E_WRONG_THREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2144731124i32);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub struct UNICODE_STRING {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Buffer: ::windows::core::PWSTR,
-}
-impl ::core::marker::Copy for UNICODE_STRING {}
-impl ::core::clone::Clone for UNICODE_STRING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for UNICODE_STRING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for UNICODE_STRING {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UNICODE_STRING {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNICODE_STRING>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UNICODE_STRING {}
-impl ::core::default::Default for UNICODE_STRING {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const UTC_E_ACTION_NOT_SUPPORTED_IN_DESTINATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2017128380i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -14291,6 +12711,805 @@ pub const WHV_E_UNSUPPORTED_PROCESSOR_CONFIG: ::windows::core::HRESULT = ::windo
 pub const WHV_E_VP_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878394i32);
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 pub const WHV_E_VP_DOES_NOT_EXIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143878393i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_ALREADYLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292403i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_BADHEADER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292319i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_BADIMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292320i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_BADMETADATAHEADER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292317i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_BADSTREAMDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292304i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_CODECNOTHUMBNAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292348i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_CODECPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292349i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_CODECTOOMANYSCANLINES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292346i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_COMPONENTINITIALIZEFAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292277i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_COMPONENTNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292336i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_DUPLICATEMETADATAPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292275i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_FRAMEMISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292318i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_IMAGESIZEOUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292335i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INSUFFICIENTBUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292276i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INTERNALERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292344i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INVALIDJPEGSCANINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292266i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INVALIDPROGRESSIVELEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292267i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INVALIDQUERYCHARACTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292269i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INVALIDQUERYREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292272i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_INVALIDREGISTRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292278i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292404i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_PALETTEUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292347i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_PROPERTYNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292352i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_PROPERTYNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292351i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_PROPERTYSIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292350i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_PROPERTYUNEXPECTEDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292274i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_REQUESTONLYVALIDATMETADATAROOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292270i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_SOURCERECTDOESNOTMATCHDIMENSIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292343i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_STREAMNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292301i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_STREAMREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292302i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_STREAMWRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292303i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_TOOMUCHMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292334i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_UNEXPECTEDMETADATATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292271i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_UNEXPECTEDSIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292273i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_UNKNOWNIMAGEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292409i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_UNSUPPORTEDOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292287i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292288i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_UNSUPPORTEDVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292405i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_VALUEOUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292411i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_WIN32ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292268i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINCODEC_ERR_WRONGSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292412i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_ASYNC_THREAD_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012849i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_BAD_AUTO_PROXY_SCRIPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012730i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_BAD_OPTION_LENGTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012886i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_BAD_REGISTRY_PARAMETER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012874i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012867i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_CHG_POST_IS_NON_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012854i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_CLIENT_AUTH_CERT_NEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012852i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_CLIENT_AUTH_NOT_SETUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012850i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_CONNECTION_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012866i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_CONNECTION_RESET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012865i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_COOKIE_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012734i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_COOKIE_NEEDS_CONFIRMATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012735i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_DECODING_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012721i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_DIALOG_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012847i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012733i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_DOWNLEVEL_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012745i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_EXTENDED_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012893i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_FAILED_DUETOSECURITYCHECK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012725i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_FORCE_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012864i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_HANDLE_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012860i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_HEADER_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012741i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_HEADER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012746i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_HTTPS_HTTP_SUBMIT_REDIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012844i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_HTTPS_TO_HTTP_ON_REDIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012856i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_HTTP_TO_HTTPS_ON_REDIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012857i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INCORRECT_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012869i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INCORRECT_HANDLE_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012877i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INCORRECT_HANDLE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012878i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INCORRECT_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012882i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INCORRECT_USER_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012883i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INTERNAL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012892i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_CA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012851i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_HEADER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012743i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_OPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012880i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_OPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012887i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_PROXY_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012863i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_QUERY_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012742i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_SERVER_RESPONSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012744i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012891i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_ITEM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012868i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_LOGIN_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012881i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_LOGIN_FAILURE_DISPLAY_ENTITY_BODY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012722i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_MIXED_SECURITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012855i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NAME_NOT_RESOLVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012889i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NEED_UI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012862i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012724i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NOT_PROXY_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012876i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NOT_REDIRECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012736i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NO_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012871i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NO_CONTEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012872i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NO_DIRECT_ACCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012873i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_NO_NEW_CONTAINERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012845i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_OPERATION_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012879i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_OPTION_NOT_SETTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012885i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_OUT_OF_HANDLES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012895i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_POST_IS_NON_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012853i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_PROTOCOL_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012888i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_PROXY_SERVER_UNREACHABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012731i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012740i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_REDIRECT_NEEDS_CONFIRMATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012728i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_REDIRECT_SCHEME_CHANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012848i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_REGISTRY_VALUE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012875i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_REQUEST_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012870i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_RETRY_DIALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012846i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SECURITY_CHANNEL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012739i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SEC_CERT_CN_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012858i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SEC_CERT_DATE_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012859i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SEC_CERT_ERRORS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012841i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SEC_CERT_REVOKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012726i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SEC_CERT_REV_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012839i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SEC_INVALID_CERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012727i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SERVER_UNREACHABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012732i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_SHUTDOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012884i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_TCPIP_NOT_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012737i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012894i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_UNABLE_TO_CACHE_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012738i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_UNABLE_TO_DOWNLOAD_SCRIPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012729i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WININET_E_UNRECOGNIZED_SCHEME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012890i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINML_ERR_INVALID_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828734i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINML_ERR_INVALID_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828735i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINML_ERR_SIZE_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828732i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINML_ERR_VALUE_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828733i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINVER: u32 = 1280u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WINVER_MAXVER: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420137i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_ALL_URL_NOT_COMPLETED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419901i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CALLBACK_ALREADY_REGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419898i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CHANNEL_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420160i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CHANNEL_REQUEST_NOT_COMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420159i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CLOUD_AUTH_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420134i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CLOUD_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420151i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CLOUD_DISABLED_FOR_APP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419893i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CLOUD_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420144i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_CLOUD_SERVICE_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420133i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_DEV_ID_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420128i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_DUPLICATE_CHANNEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420156i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_DUPLICATE_REGISTRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420136i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_FAILED_LOCK_SCREEN_UPDATE_INTIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420132i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_GROUP_ALPHANUMERIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419894i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_GROUP_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419895i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_IMAGE_NOT_FOUND_IN_CACHE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419902i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_INTERNET_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420141i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_INVALID_APP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420158i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_INVALID_CLOUD_IMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419900i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_INVALID_HTTP_STATUS_CODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420117i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420143i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_HIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420153i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_ID_MATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419899i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420142i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_NOT_POSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420152i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_POSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420154i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420139i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_NOTIFICATION_TYPE_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420140i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_OUTSTANDING_CHANNEL_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420157i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_OUT_OF_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419904i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_PLATFORM_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420155i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_POWER_SAVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419903i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_PUSH_NOTIFICATION_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420135i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_STORAGE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419896i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_TAG_ALPHANUMERIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420118i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_TAG_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420138i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WPN_E_TOAST_NOTIFICATION_DROPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419897i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ADDRESS_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485941i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ADDRESS_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485940i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485947i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_ACTION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485935i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485932i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485937i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_FAULT_RECEIVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485933i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485938i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485939i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_TOO_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485934i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_ENDPOINT_UNREACHABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485936i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_INVALID_ENDPOINT_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485920i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485952i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_INVALID_OPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485949i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485929i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_NO_TRANSLATION_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485943i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_NUMERIC_OVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485950i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_OBJECT_FAULTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485951i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_OPERATION_ABANDONED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485945i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_OPERATION_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485948i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_OPERATION_TIMED_OUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485946i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_OTHER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485919i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_PROXY_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485930i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_PROXY_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485931i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_PROXY_REQUIRES_BASIC_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485928i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_PROXY_REQUIRES_DIGEST_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485927i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_PROXY_REQUIRES_NEGOTIATE_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485925i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_PROXY_REQUIRES_NTLM_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485926i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_QUOTA_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485944i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SECURITY_SYSTEM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485917i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SECURITY_TOKEN_EXPIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485918i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SECURITY_VERIFICATION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485942i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SERVER_REQUIRES_BASIC_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485924i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SERVER_REQUIRES_DIGEST_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485923i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SERVER_REQUIRES_NEGOTIATE_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485921i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_E_SERVER_REQUIRES_NTLM_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485922i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(3997696i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const WS_S_END: ::windows::core::HRESULT = ::windows::core::HRESULT(3997697i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168231i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_ABORTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168215i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_ALREADYINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168232i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_ALREADYOTHERSINGLEPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168256i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_CANTRETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168255i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_CLERKEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168127i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_CLERKNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168128i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_COMMITFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168254i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_COMMITPREVENTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168253i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_CONNECTION_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168227i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_CONNECTION_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168228i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_DEST_TMNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168222i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_FIRST: u32 = 2147799040u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_HEURISTICABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168252i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_HEURISTICCOMMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168251i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_HEURISTICDAMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168250i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_HEURISTICDANGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168249i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_INDOUBT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168234i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_INVALIDCOOKIE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168235i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_INVALIDLSN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168124i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_ISOLATIONLEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168248i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_LAST: u32 = 2147799083u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_LOGFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168230i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_LU_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168212i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NETWORK_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168220i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168247i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOENLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168246i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOIMPORTOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168236i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOISORETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168245i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NORESOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168244i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOTCURRENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168243i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168233i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOTRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168242i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168241i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_PARTNER_NETWORK_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168219i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_PULL_COMM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168213i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_PUSH_COMM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168214i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_RECOVERYINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168126i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_REENLISTTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168226i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_REPLAYREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168123i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_TIP_CONNECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168225i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_TIP_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168221i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_TIP_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168224i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_TIP_PULL_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168223i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_TMNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168229i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_TRANSACTIONCLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168125i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_UNABLE_TO_LOAD_DTC_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168216i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_UNABLE_TO_READ_DTC_CONFIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168217i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_UNKNOWNRMGRID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168240i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_WRONGSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168239i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_WRONGUOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168238i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_XA_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168218i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_E_XTIONEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168237i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_ABORTING: ::windows::core::HRESULT = ::windows::core::HRESULT(315400i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_ALLNORETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(315399i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(315392i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_DEFECT: ::windows::core::HRESULT = ::windows::core::HRESULT(315393i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_FIRST: u32 = 315392u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_LAST: u32 = 315408u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_LASTRESOURCEMANAGER: ::windows::core::HRESULT = ::windows::core::HRESULT(315408i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_LOCALLY_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(315402i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_MADECHANGESCONTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(315397i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_MADECHANGESINFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(315398i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_OKINFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(315396i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(315394i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_SINGLEPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(315401i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XACT_S_SOMENORETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(315395i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XENROLL_E_CANNOT_ADD_ROOT_CERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873343i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XENROLL_E_KEYSPEC_SMIME_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873339i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XENROLL_E_KEY_NOT_EXPORTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873344i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XENROLL_E_RESPONSE_KA_HASH_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873340i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XENROLL_E_RESPONSE_KA_HASH_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873342i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const XENROLL_E_RESPONSE_UNEXPECTED_KA_HASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873341i32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const _WIN32_IE_MAXVER: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const _WIN32_MAXVER: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DUPLICATE_HANDLE_OPTIONS(pub u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const DUPLICATE_CLOSE_SOURCE: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(1u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const DUPLICATE_SAME_ACCESS: DUPLICATE_HANDLE_OPTIONS = DUPLICATE_HANDLE_OPTIONS(2u32);
+impl ::core::marker::Copy for DUPLICATE_HANDLE_OPTIONS {}
+impl ::core::clone::Clone for DUPLICATE_HANDLE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DUPLICATE_HANDLE_OPTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DUPLICATE_HANDLE_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DUPLICATE_HANDLE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DUPLICATE_HANDLE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DUPLICATE_HANDLE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DUPLICATE_HANDLE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DUPLICATE_HANDLE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DUPLICATE_HANDLE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DUPLICATE_HANDLE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HANDLE_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const HANDLE_FLAG_INHERIT: HANDLE_FLAGS = HANDLE_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const HANDLE_FLAG_PROTECT_FROM_CLOSE: HANDLE_FLAGS = HANDLE_FLAGS(2u32);
+impl ::core::marker::Copy for HANDLE_FLAGS {}
+impl ::core::clone::Clone for HANDLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HANDLE_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HANDLE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HANDLE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HANDLE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HANDLE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HANDLE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HANDLE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HANDLE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NTSTATUS_FACILITY_CODE(pub u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_DEBUGGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(1u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_RPC_RUNTIME: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(2u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_RPC_STUBS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(3u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_IO_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(4u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_CODCLASS_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(6u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_NTWIN32: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(7u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_NTCERT: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(8u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_NTSSPI: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(9u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_TERMINAL_SERVER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(10u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_USB_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(16u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_HID_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(17u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_FIREWIRE_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(18u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_CLUSTER_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(19u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_ACPI_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(20u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SXS_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(21u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_TRANSACTION: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(25u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_COMMONLOG: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(26u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_VIDEO: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(27u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_FILTER_MANAGER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(28u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_MONITOR: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(29u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_GRAPHICS_KERNEL: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(30u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_DRIVER_FRAMEWORK: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(32u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_FVE_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(33u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_FWP_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(34u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_NDIS_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(35u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_QUIC_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(36u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_TPM: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(41u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_RTPM: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(42u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_HYPERVISOR: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(53u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_IPSEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(54u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_VIRTUALIZATION: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(55u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_VOLMGR: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(56u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_BCD_ERROR_CODE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(57u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_WIN32K_NTUSER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(62u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_WIN32K_NTGDI: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(63u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_RESUME_KEY_FILTER: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(64u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_RDBSS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(65u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_BTH_ATT: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(66u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SECUREBOOT: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(67u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_AUDIO_KERNEL: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(68u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_VSM: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(69u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_NT_IORING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(70u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_VOLSNAP: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(80u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SDBUS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(81u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SHARED_VHDX: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(92u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SMB: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(93u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_XVS: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(94u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_INTERIX: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(153u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SPACES: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(231u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SECURITY_CORE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(232u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_SYSTEM_INTEGRITY: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(233u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_LICENSING: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(234u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_PLATFORM_MANIFEST: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(235u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_APP_EXEC: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(236u32);
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub const FACILITY_MAXIMUM_VALUE: NTSTATUS_FACILITY_CODE = NTSTATUS_FACILITY_CODE(237u32);
+impl ::core::marker::Copy for NTSTATUS_FACILITY_CODE {}
+impl ::core::clone::Clone for NTSTATUS_FACILITY_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NTSTATUS_FACILITY_CODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NTSTATUS_FACILITY_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NTSTATUS_FACILITY_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NTSTATUS_FACILITY_CODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -20755,256 +19974,1604 @@ impl ::core::convert::From<WIN32_ERROR> for ::windows::core::Error {
         Self { code: value.to_hresult(), info: None }
     }
 }
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_ALREADYLOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292403i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_BADHEADER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292319i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_BADIMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292320i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_BADMETADATAHEADER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292317i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_BADSTREAMDATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292304i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_CODECNOTHUMBNAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292348i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_CODECPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292349i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_CODECTOOMANYSCANLINES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292346i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_COMPONENTINITIALIZEFAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292277i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_COMPONENTNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292336i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_DUPLICATEMETADATAPRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292275i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_FRAMEMISSING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292318i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_IMAGESIZEOUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292335i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INSUFFICIENTBUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292276i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INTERNALERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292344i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INVALIDJPEGSCANINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292266i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INVALIDPROGRESSIVELEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292267i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INVALIDQUERYCHARACTER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292269i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INVALIDQUERYREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292272i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_INVALIDREGISTRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292278i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292404i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_PALETTEUNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292347i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_PROPERTYNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292352i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_PROPERTYNOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292351i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_PROPERTYSIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292350i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_PROPERTYUNEXPECTEDTYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292274i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_REQUESTONLYVALIDATMETADATAROOT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292270i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_SOURCERECTDOESNOTMATCHDIMENSIONS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292343i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_STREAMNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292301i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_STREAMREAD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292302i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_STREAMWRITE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292303i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_TOOMUCHMETADATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292334i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_UNEXPECTEDMETADATATYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292271i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_UNEXPECTEDSIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292273i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_UNKNOWNIMAGEFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292409i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_UNSUPPORTEDOPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292287i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_UNSUPPORTEDPIXELFORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292288i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_UNSUPPORTEDVERSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292405i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_VALUEOUTOFRANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292411i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_WIN32ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292268i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINCODEC_ERR_WRONGSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003292412i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_ASYNC_THREAD_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012849i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_BAD_AUTO_PROXY_SCRIPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012730i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_BAD_OPTION_LENGTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012886i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_BAD_REGISTRY_PARAMETER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012874i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_CANNOT_CONNECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012867i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_CHG_POST_IS_NON_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012854i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_CLIENT_AUTH_CERT_NEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012852i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_CLIENT_AUTH_NOT_SETUP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012850i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_CONNECTION_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012866i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_CONNECTION_RESET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012865i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_COOKIE_DECLINED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012734i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_COOKIE_NEEDS_CONFIRMATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012735i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_DECODING_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012721i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_DIALOG_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012847i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012733i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_DOWNLEVEL_SERVER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012745i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_EXTENDED_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012893i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_FAILED_DUETOSECURITYCHECK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012725i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_FORCE_RETRY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012864i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_HANDLE_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012860i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_HEADER_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012741i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_HEADER_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012746i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_HTTPS_HTTP_SUBMIT_REDIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012844i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_HTTPS_TO_HTTP_ON_REDIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012856i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_HTTP_TO_HTTPS_ON_REDIR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012857i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INCORRECT_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012869i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INCORRECT_HANDLE_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012877i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INCORRECT_HANDLE_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012878i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INCORRECT_PASSWORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012882i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INCORRECT_USER_NAME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012883i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INTERNAL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012892i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_CA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012851i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_HEADER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012743i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_OPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012880i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_OPTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012887i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_PROXY_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012863i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_QUERY_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012742i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_SERVER_RESPONSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012744i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_INVALID_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012891i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_ITEM_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012868i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_LOGIN_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012881i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_LOGIN_FAILURE_DISPLAY_ENTITY_BODY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012722i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_MIXED_SECURITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012855i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NAME_NOT_RESOLVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012889i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NEED_UI: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012862i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NOT_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012724i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NOT_PROXY_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012876i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NOT_REDIRECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012736i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NO_CALLBACK: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012871i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NO_CONTEXT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012872i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NO_DIRECT_ACCESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012873i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_NO_NEW_CONTAINERS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012845i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_OPERATION_CANCELLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012879i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_OPTION_NOT_SETTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012885i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_OUT_OF_HANDLES: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012895i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_POST_IS_NON_SECURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012853i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_PROTOCOL_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012888i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_PROXY_SERVER_UNREACHABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012731i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_REDIRECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012740i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_REDIRECT_NEEDS_CONFIRMATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012728i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_REDIRECT_SCHEME_CHANGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012848i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_REGISTRY_VALUE_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012875i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_REQUEST_PENDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012870i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_RETRY_DIALOG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012846i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SECURITY_CHANNEL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012739i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SEC_CERT_CN_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012858i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SEC_CERT_DATE_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012859i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SEC_CERT_ERRORS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012841i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SEC_CERT_REVOKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012726i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SEC_CERT_REV_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012839i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SEC_INVALID_CERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012727i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SERVER_UNREACHABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012732i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_SHUTDOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012884i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_TCPIP_NOT_INSTALLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012737i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_TIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012894i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_UNABLE_TO_CACHE_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012738i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_UNABLE_TO_DOWNLOAD_SCRIPT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012729i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WININET_E_UNRECOGNIZED_SCHEME: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147012890i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINML_ERR_INVALID_BINDING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828734i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINML_ERR_INVALID_DEVICE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828735i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINML_ERR_SIZE_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828732i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINML_ERR_VALUE_NOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003828733i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINVER: u32 = 1280u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WINVER_MAXVER: u32 = 2560u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct APP_LOCAL_DEVICE_ID {
+    pub value: [u8; 32],
+}
+impl ::core::marker::Copy for APP_LOCAL_DEVICE_ID {}
+impl ::core::clone::Clone for APP_LOCAL_DEVICE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for APP_LOCAL_DEVICE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("APP_LOCAL_DEVICE_ID").field("value", &self.value).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for APP_LOCAL_DEVICE_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for APP_LOCAL_DEVICE_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_LOCAL_DEVICE_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for APP_LOCAL_DEVICE_ID {}
+impl ::core::default::Default for APP_LOCAL_DEVICE_ID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BOOL(pub i32);
+impl ::core::default::Default for BOOL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BOOL {}
+impl ::core::fmt::Debug for BOOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOL").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<BOOL>> for BOOL {
+    fn from(optional: ::core::option::Option<BOOL>) -> BOOL {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for BOOL {
+    type Abi = Self;
+}
+impl BOOL {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
+    }
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
+}
+impl ::core::convert::From<BOOL> for bool {
+    fn from(value: BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&BOOL> for bool {
+    fn from(value: &BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for BOOL {
+    fn from(value: bool) -> Self {
+        if value {
+            Self(1)
+        } else {
+            Self(0)
+        }
+    }
+}
+impl ::core::convert::From<&bool> for BOOL {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for BOOL {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<BOOL> for bool {
+    fn eq(&self, other: &BOOL) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for BOOL {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            Self(0)
+        } else {
+            Self(1)
+        }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BOOLEAN(pub u8);
+impl ::core::default::Default for BOOLEAN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for BOOLEAN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BOOLEAN {}
+impl ::core::fmt::Debug for BOOLEAN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BOOLEAN").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<BOOLEAN>> for BOOLEAN {
+    fn from(optional: ::core::option::Option<BOOLEAN>) -> BOOLEAN {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for BOOLEAN {
+    type Abi = Self;
+}
+impl BOOLEAN {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
+    }
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
+}
+impl ::core::convert::From<BOOLEAN> for bool {
+    fn from(value: BOOLEAN) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&BOOLEAN> for bool {
+    fn from(value: &BOOLEAN) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for BOOLEAN {
+    fn from(value: bool) -> Self {
+        if value {
+            Self(1)
+        } else {
+            Self(0)
+        }
+    }
+}
+impl ::core::convert::From<&bool> for BOOLEAN {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for BOOLEAN {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<BOOLEAN> for bool {
+    fn eq(&self, other: &BOOLEAN) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for BOOLEAN {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            Self(0)
+        } else {
+            Self(1)
+        }
+    }
+}
+#[repr(transparent)]
+pub struct BSTR(*const u16);
+impl BSTR {
+    pub fn new() -> Self {
+        Self(core::ptr::null_mut())
+    }
+    pub fn is_empty(&self) -> bool {
+        self.len() == 0
+    }
+    pub fn len(&self) -> usize {
+        if self.0.is_null() {
+            0
+        } else {
+            unsafe { SysStringLen(self) as usize }
+        }
+    }
+    pub fn from_wide(value: &[u16]) -> Self {
+        if value.is_empty() {
+            return Self(::core::ptr::null_mut());
+        }
+        unsafe { SysAllocStringLen(Some(value)) }
+    }
+    pub fn as_wide(&self) -> &[u16] {
+        if self.0.is_null() {
+            return &[];
+        }
+        unsafe { ::core::slice::from_raw_parts(self.0, self.len()) }
+    }
+    pub unsafe fn from_raw(raw: *const u16) -> Self {
+        Self(raw)
+    }
+    pub fn into_raw(self) -> *const u16 {
+        unsafe { std::mem::transmute(self) }
+    }
+}
+impl ::core::clone::Clone for BSTR {
+    fn clone(&self) -> Self {
+        Self::from_wide(self.as_wide())
+    }
+}
+impl ::core::convert::From<&str> for BSTR {
+    fn from(value: &str) -> Self {
+        let value: ::windows::core::alloc::vec::Vec<u16> = value.encode_utf16().collect();
+        Self::from_wide(&value)
+    }
+}
+impl ::core::convert::From<::windows::core::alloc::string::String> for BSTR {
+    fn from(value: ::windows::core::alloc::string::String) -> Self {
+        value.as_str().into()
+    }
+}
+impl ::core::convert::From<&::windows::core::alloc::string::String> for BSTR {
+    fn from(value: &::windows::core::alloc::string::String) -> Self {
+        value.as_str().into()
+    }
+}
+impl<'a> ::core::convert::TryFrom<&'a BSTR> for ::windows::core::alloc::string::String {
+    type Error = ::windows::core::alloc::string::FromUtf16Error;
+    fn try_from(value: &BSTR) -> ::core::result::Result<Self, Self::Error> {
+        ::windows::core::alloc::string::String::from_utf16(value.as_wide())
+    }
+}
+impl ::core::convert::TryFrom<BSTR> for ::windows::core::alloc::string::String {
+    type Error = ::windows::core::alloc::string::FromUtf16Error;
+    fn try_from(value: BSTR) -> ::core::result::Result<Self, Self::Error> {
+        ::windows::core::alloc::string::String::try_from(&value)
+    }
+}
+impl ::core::default::Default for BSTR {
+    fn default() -> Self {
+        Self(::core::ptr::null_mut())
+    }
+}
+impl ::core::fmt::Display for BSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        ::core::write!(f, "{}", ::windows::core::Decode(|| ::core::char::decode_utf16(self.as_wide().iter().cloned())))
+    }
+}
+impl ::core::fmt::Debug for BSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        ::core::write!(f, "{}", self)
+    }
+}
+impl ::core::cmp::PartialEq for BSTR {
+    fn eq(&self, other: &Self) -> bool {
+        self.as_wide() == other.as_wide()
+    }
+}
+impl ::core::cmp::Eq for BSTR {}
+impl ::core::cmp::PartialEq<::windows::core::alloc::string::String> for BSTR {
+    fn eq(&self, other: &::windows::core::alloc::string::String) -> bool {
+        self == other.as_str()
+    }
+}
+impl ::core::cmp::PartialEq<str> for BSTR {
+    fn eq(&self, other: &str) -> bool {
+        self == other
+    }
+}
+impl ::core::cmp::PartialEq<&str> for BSTR {
+    fn eq(&self, other: &&str) -> bool {
+        self.as_wide().iter().copied().eq(other.encode_utf16())
+    }
+}
+impl ::core::cmp::PartialEq<BSTR> for &str {
+    fn eq(&self, other: &BSTR) -> bool {
+        other == self
+    }
+}
+impl ::core::ops::Drop for BSTR {
+    fn drop(&mut self) {
+        if !self.0.is_null() {
+            unsafe { SysFreeString(self as &Self) }
+        }
+    }
+}
+unsafe impl ::windows::core::Abi for BSTR {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CHAR(pub u8);
+impl ::core::default::Default for CHAR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CHAR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CHAR {}
+impl ::core::fmt::Debug for CHAR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHAR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<CHAR>> for CHAR {
+    fn from(optional: ::core::option::Option<CHAR>) -> CHAR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for CHAR {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COLORREF(pub u32);
+impl ::core::default::Default for COLORREF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for COLORREF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for COLORREF {}
+impl ::core::fmt::Debug for COLORREF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLORREF").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<COLORREF>> for COLORREF {
+    fn from(optional: ::core::option::Option<COLORREF>) -> COLORREF {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for COLORREF {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct DECIMAL {
+    pub wReserved: u16,
+    pub Anonymous1: DECIMAL_0,
+    pub Hi32: u32,
+    pub Anonymous2: DECIMAL_1,
+}
+impl ::core::marker::Copy for DECIMAL {}
+impl ::core::clone::Clone for DECIMAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DECIMAL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DECIMAL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DECIMAL {}
+impl ::core::default::Default for DECIMAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub union DECIMAL_0 {
+    pub Anonymous: DECIMAL_0_0,
+    pub signscale: u16,
+}
+impl ::core::marker::Copy for DECIMAL_0 {}
+impl ::core::clone::Clone for DECIMAL_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DECIMAL_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DECIMAL_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DECIMAL_0 {}
+impl ::core::default::Default for DECIMAL_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct DECIMAL_0_0 {
+    pub scale: u8,
+    pub sign: u8,
+}
+impl ::core::marker::Copy for DECIMAL_0_0 {}
+impl ::core::clone::Clone for DECIMAL_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DECIMAL_0_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DECIMAL_0_0").field("scale", &self.scale).field("sign", &self.sign).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DECIMAL_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DECIMAL_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DECIMAL_0_0 {}
+impl ::core::default::Default for DECIMAL_0_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub union DECIMAL_1 {
+    pub Anonymous: DECIMAL_1_0,
+    pub Lo64: u64,
+}
+impl ::core::marker::Copy for DECIMAL_1 {}
+impl ::core::clone::Clone for DECIMAL_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DECIMAL_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DECIMAL_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DECIMAL_1 {}
+impl ::core::default::Default for DECIMAL_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct DECIMAL_1_0 {
+    pub Lo32: u32,
+    pub Mid32: u32,
+}
+impl ::core::marker::Copy for DECIMAL_1_0 {}
+impl ::core::clone::Clone for DECIMAL_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DECIMAL_1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DECIMAL_1_0").field("Lo32", &self.Lo32).field("Mid32", &self.Mid32).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DECIMAL_1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DECIMAL_1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DECIMAL_1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DECIMAL_1_0 {}
+impl ::core::default::Default for DECIMAL_1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct FILETIME {
+    pub dwLowDateTime: u32,
+    pub dwHighDateTime: u32,
+}
+impl ::core::marker::Copy for FILETIME {}
+impl ::core::clone::Clone for FILETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FILETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILETIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FILETIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILETIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILETIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILETIME {}
+impl ::core::default::Default for FILETIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct FLOAT128 {
+    pub LowPart: i64,
+    pub HighPart: i64,
+}
+impl ::core::marker::Copy for FLOAT128 {}
+impl ::core::clone::Clone for FLOAT128 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FLOAT128 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLOAT128").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FLOAT128 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FLOAT128 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT128>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FLOAT128 {}
+impl ::core::default::Default for FLOAT128 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HANDLE(pub isize);
+impl HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HANDLE {}
+impl ::core::fmt::Debug for HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HANDLE>> for HANDLE {
+    fn from(optional: ::core::option::Option<HANDLE>) -> HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HANDLE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HANDLE_PTR(pub usize);
+impl ::core::default::Default for HANDLE_PTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HANDLE_PTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HANDLE_PTR {}
+impl ::core::fmt::Debug for HANDLE_PTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDLE_PTR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HANDLE_PTR>> for HANDLE_PTR {
+    fn from(optional: ::core::option::Option<HANDLE_PTR>) -> HANDLE_PTR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HANDLE_PTR {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HINSTANCE(pub isize);
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == 0
+    }
+}
+impl ::core::default::Default for HINSTANCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HINSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HINSTANCE {}
+impl ::core::fmt::Debug for HINSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HINSTANCE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HINSTANCE>> for HINSTANCE {
+    fn from(optional: ::core::option::Option<HINSTANCE>) -> HINSTANCE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HINSTANCE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct HLSURF__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HLSURF__ {}
+impl ::core::clone::Clone for HLSURF__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HLSURF__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HLSURF__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HLSURF__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HLSURF__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HLSURF__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HLSURF__ {}
+impl ::core::default::Default for HLSURF__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HRESULT(pub i32);
+impl ::core::default::Default for HRESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HRESULT {}
+impl ::core::fmt::Debug for HRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HRESULT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HRESULT>> for HRESULT {
+    fn from(optional: ::core::option::Option<HRESULT>) -> HRESULT {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HRESULT {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HRSRC(pub isize);
+impl HRSRC {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HRSRC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HRSRC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HRSRC {}
+impl ::core::fmt::Debug for HRSRC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HRSRC").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HRSRC>> for HRSRC {
+    fn from(optional: ::core::option::Option<HRSRC>) -> HRSRC {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HRSRC {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct HSPRITE__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HSPRITE__ {}
+impl ::core::clone::Clone for HSPRITE__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HSPRITE__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSPRITE__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSPRITE__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HSPRITE__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSPRITE__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HSPRITE__ {}
+impl ::core::default::Default for HSPRITE__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct HSTR__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HSTR__ {}
+impl ::core::clone::Clone for HSTR__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HSTR__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HSTR__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSTR__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HSTR__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HSTR__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HSTR__ {}
+impl ::core::default::Default for HSTR__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct HUMPD__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for HUMPD__ {}
+impl ::core::clone::Clone for HUMPD__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HUMPD__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HUMPD__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HUMPD__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HUMPD__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HUMPD__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HUMPD__ {}
+impl ::core::default::Default for HUMPD__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HWND(pub isize);
+impl ::core::default::Default for HWND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWND {}
+impl ::core::fmt::Debug for HWND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWND").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HWND>> for HWND {
+    fn from(optional: ::core::option::Option<HWND>) -> HWND {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HWND {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub union LARGE_INTEGER {
+    pub Anonymous: LARGE_INTEGER_0,
+    pub u: LARGE_INTEGER_1,
+    pub QuadPart: i64,
+}
+impl ::core::marker::Copy for LARGE_INTEGER {}
+impl ::core::clone::Clone for LARGE_INTEGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LARGE_INTEGER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LARGE_INTEGER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LARGE_INTEGER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LARGE_INTEGER {}
+impl ::core::default::Default for LARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct LARGE_INTEGER_0 {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for LARGE_INTEGER_0 {}
+impl ::core::clone::Clone for LARGE_INTEGER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LARGE_INTEGER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LARGE_INTEGER_0").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LARGE_INTEGER_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LARGE_INTEGER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LARGE_INTEGER_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LARGE_INTEGER_0 {}
+impl ::core::default::Default for LARGE_INTEGER_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct LARGE_INTEGER_1 {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for LARGE_INTEGER_1 {}
+impl ::core::clone::Clone for LARGE_INTEGER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LARGE_INTEGER_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LARGE_INTEGER_1").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LARGE_INTEGER_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LARGE_INTEGER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LARGE_INTEGER_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LARGE_INTEGER_1 {}
+impl ::core::default::Default for LARGE_INTEGER_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LPARAM(pub isize);
+impl ::core::default::Default for LPARAM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LPARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LPARAM {}
+impl ::core::fmt::Debug for LPARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LPARAM").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<LPARAM>> for LPARAM {
+    fn from(optional: ::core::option::Option<LPARAM>) -> LPARAM {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for LPARAM {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LRESULT(pub isize);
+impl ::core::default::Default for LRESULT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for LRESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for LRESULT {}
+impl ::core::fmt::Debug for LRESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LRESULT").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<LRESULT>> for LRESULT {
+    fn from(optional: ::core::option::Option<LRESULT>) -> LRESULT {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for LRESULT {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct LUID {
+    pub LowPart: u32,
+    pub HighPart: i32,
+}
+impl ::core::marker::Copy for LUID {}
+impl ::core::clone::Clone for LUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LUID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LUID").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LUID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LUID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LUID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LUID {}
+impl ::core::default::Default for LUID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NTSTATUS(pub i32);
+impl ::core::default::Default for NTSTATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for NTSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for NTSTATUS {}
+impl ::core::fmt::Debug for NTSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NTSTATUS").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<NTSTATUS>> for NTSTATUS {
+    fn from(optional: ::core::option::Option<NTSTATUS>) -> NTSTATUS {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for NTSTATUS {
+    type Abi = Self;
+}
+impl NTSTATUS {
+    #[inline]
+    pub const fn is_ok(self) -> bool {
+        self.0 >= 0
+    }
+    #[inline]
+    pub const fn is_err(self) -> bool {
+        !self.is_ok()
+    }
+    #[inline]
+    pub const fn to_hresult(self) -> ::windows::core::HRESULT {
+        ::windows::core::HRESULT(self.0 | 0x1000_0000)
+    }
+    #[inline]
+    pub const fn ok(self) -> ::windows::core::Result<()> {
+        if self.is_ok() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error { code: self.to_hresult(), info: None })
+        }
+    }
+}
+impl ::core::convert::From<NTSTATUS> for ::windows::core::HRESULT {
+    fn from(value: NTSTATUS) -> Self {
+        value.to_hresult()
+    }
+}
+impl ::core::convert::From<NTSTATUS> for ::windows::core::Error {
+    fn from(value: NTSTATUS) -> Self {
+        Self { code: value.to_hresult(), info: None }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct POINT {
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for POINT {}
+impl ::core::clone::Clone for POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINT").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for POINT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POINT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POINT {}
+impl ::core::default::Default for POINT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct POINTL {
+    pub x: i32,
+    pub y: i32,
+}
+impl ::core::marker::Copy for POINTL {}
+impl ::core::clone::Clone for POINTL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POINTL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTL").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for POINTL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POINTL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POINTL {}
+impl ::core::default::Default for POINTL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct POINTS {
+    pub x: i16,
+    pub y: i16,
+}
+impl ::core::marker::Copy for POINTS {}
+impl ::core::clone::Clone for POINTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for POINTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("POINTS").field("x", &self.x).field("y", &self.y).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for POINTS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POINTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POINTS {}
+impl ::core::default::Default for POINTS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PSID(pub *mut ::core::ffi::c_void);
+impl PSID {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl ::core::default::Default for PSID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSID {}
+impl ::core::fmt::Debug for PSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSID").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PSID>> for PSID {
+    fn from(optional: ::core::option::Option<PSID>) -> PSID {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for PSID {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PSTR(pub *mut u8);
+impl PSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl ::core::default::Default for PSTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PSTR {}
+impl ::core::fmt::Debug for PSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSTR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PSTR>> for PSTR {
+    fn from(optional: ::core::option::Option<PSTR>) -> PSTR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for PSTR {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PWSTR(pub *mut u16);
+impl PWSTR {
+    pub fn is_invalid(&self) -> bool {
+        self.0.is_null()
+    }
+}
+impl ::core::default::Default for PWSTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PWSTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PWSTR {}
+impl ::core::fmt::Debug for PWSTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PWSTR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<PWSTR>> for PWSTR {
+    fn from(optional: ::core::option::Option<PWSTR>) -> PWSTR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for PWSTR {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct RECT {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl ::core::marker::Copy for RECT {}
+impl ::core::clone::Clone for RECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECT").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RECT {}
+impl ::core::default::Default for RECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct RECTL {
+    pub left: i32,
+    pub top: i32,
+    pub right: i32,
+    pub bottom: i32,
+}
+impl ::core::marker::Copy for RECTL {}
+impl ::core::clone::Clone for RECTL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RECTL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RECTL").field("left", &self.left).field("top", &self.top).field("right", &self.right).field("bottom", &self.bottom).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RECTL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RECTL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RECTL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RECTL {}
+impl ::core::default::Default for RECTL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SHANDLE_PTR(pub isize);
+impl ::core::default::Default for SHANDLE_PTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for SHANDLE_PTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for SHANDLE_PTR {}
+impl ::core::fmt::Debug for SHANDLE_PTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHANDLE_PTR").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<SHANDLE_PTR>> for SHANDLE_PTR {
+    fn from(optional: ::core::option::Option<SHANDLE_PTR>) -> SHANDLE_PTR {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for SHANDLE_PTR {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct SIZE {
+    pub cx: i32,
+    pub cy: i32,
+}
+impl ::core::marker::Copy for SIZE {}
+impl ::core::clone::Clone for SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SIZE").field("cx", &self.cx).field("cy", &self.cy).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SIZE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SIZE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIZE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SIZE {}
+impl ::core::default::Default for SIZE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct SYSTEMTIME {
+    pub wYear: u16,
+    pub wMonth: u16,
+    pub wDayOfWeek: u16,
+    pub wDay: u16,
+    pub wHour: u16,
+    pub wMinute: u16,
+    pub wSecond: u16,
+    pub wMilliseconds: u16,
+}
+impl ::core::marker::Copy for SYSTEMTIME {}
+impl ::core::clone::Clone for SYSTEMTIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SYSTEMTIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SYSTEMTIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDayOfWeek", &self.wDayOfWeek).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).field("wMilliseconds", &self.wMilliseconds).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEMTIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SYSTEMTIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEMTIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SYSTEMTIME {}
+impl ::core::default::Default for SYSTEMTIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub union ULARGE_INTEGER {
+    pub Anonymous: ULARGE_INTEGER_0,
+    pub u: ULARGE_INTEGER_1,
+    pub QuadPart: u64,
+}
+impl ::core::marker::Copy for ULARGE_INTEGER {}
+impl ::core::clone::Clone for ULARGE_INTEGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ULARGE_INTEGER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ULARGE_INTEGER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ULARGE_INTEGER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ULARGE_INTEGER {}
+impl ::core::default::Default for ULARGE_INTEGER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct ULARGE_INTEGER_0 {
+    pub LowPart: u32,
+    pub HighPart: u32,
+}
+impl ::core::marker::Copy for ULARGE_INTEGER_0 {}
+impl ::core::clone::Clone for ULARGE_INTEGER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ULARGE_INTEGER_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ULARGE_INTEGER_0").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ULARGE_INTEGER_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ULARGE_INTEGER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ULARGE_INTEGER_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ULARGE_INTEGER_0 {}
+impl ::core::default::Default for ULARGE_INTEGER_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct ULARGE_INTEGER_1 {
+    pub LowPart: u32,
+    pub HighPart: u32,
+}
+impl ::core::marker::Copy for ULARGE_INTEGER_1 {}
+impl ::core::clone::Clone for ULARGE_INTEGER_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ULARGE_INTEGER_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ULARGE_INTEGER_1").field("LowPart", &self.LowPart).field("HighPart", &self.HighPart).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ULARGE_INTEGER_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ULARGE_INTEGER_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ULARGE_INTEGER_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ULARGE_INTEGER_1 {}
+impl ::core::default::Default for ULARGE_INTEGER_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Foundation\"`*"]
+pub struct UNICODE_STRING {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Buffer: ::windows::core::PWSTR,
+}
+impl ::core::marker::Copy for UNICODE_STRING {}
+impl ::core::clone::Clone for UNICODE_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for UNICODE_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for UNICODE_STRING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UNICODE_STRING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNICODE_STRING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UNICODE_STRING {}
+impl ::core::default::Default for UNICODE_STRING {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct WPARAM(pub usize);
@@ -21033,310 +21600,12 @@ unsafe impl ::windows::core::Abi for WPARAM {
     type Abi = Self;
 }
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420137i32);
+pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_ALL_URL_NOT_COMPLETED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419901i32);
+pub type NEARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CALLBACK_ALREADY_REGISTERED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419898i32);
+pub type PAPCFUNC = ::core::option::Option<unsafe extern "system" fn(parameter: usize)>;
 #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CHANNEL_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420160i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CHANNEL_REQUEST_NOT_COMPLETE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420159i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CLOUD_AUTH_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420134i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CLOUD_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420151i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CLOUD_DISABLED_FOR_APP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419893i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CLOUD_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420144i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_CLOUD_SERVICE_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420133i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_DEV_ID_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420128i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_DUPLICATE_CHANNEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420156i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_DUPLICATE_REGISTRATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420136i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_FAILED_LOCK_SCREEN_UPDATE_INTIALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420132i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_GROUP_ALPHANUMERIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419894i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_GROUP_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419895i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_IMAGE_NOT_FOUND_IN_CACHE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419902i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_INTERNET_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420141i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_INVALID_APP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420158i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_INVALID_CLOUD_IMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419900i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_INVALID_HTTP_STATUS_CODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420117i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420143i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_HIDDEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420153i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_ID_MATCHED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419899i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420142i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_NOT_POSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420152i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_POSTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420154i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420139i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_NOTIFICATION_TYPE_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420140i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_OUTSTANDING_CHANNEL_REQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420157i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_OUT_OF_SESSION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419904i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_PLATFORM_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420155i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_POWER_SAVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419903i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_PUSH_NOTIFICATION_INCAPABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420135i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_STORAGE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419896i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_TAG_ALPHANUMERIC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420118i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_TAG_SIZE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143420138i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WPN_E_TOAST_NOTIFICATION_DROPPED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143419897i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ADDRESS_IN_USE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485941i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ADDRESS_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485940i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485947i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_ACTION_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485935i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_DISCONNECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485932i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485937i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_FAULT_RECEIVED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485933i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_NOT_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485938i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485939i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_TOO_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485934i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_ENDPOINT_UNREACHABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485936i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_INVALID_ENDPOINT_URL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485920i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_INVALID_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485952i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_INVALID_OPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485949i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485929i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_NO_TRANSLATION_AVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485943i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_NUMERIC_OVERFLOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485950i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_OBJECT_FAULTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485951i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_OPERATION_ABANDONED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485945i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_OPERATION_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485948i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_OPERATION_TIMED_OUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485946i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_OTHER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485919i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_PROXY_ACCESS_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485930i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_PROXY_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485931i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_PROXY_REQUIRES_BASIC_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485928i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_PROXY_REQUIRES_DIGEST_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485927i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_PROXY_REQUIRES_NEGOTIATE_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485925i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_PROXY_REQUIRES_NTLM_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485926i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_QUOTA_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485944i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SECURITY_SYSTEM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485917i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SECURITY_TOKEN_EXPIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485918i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SECURITY_VERIFICATION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485942i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SERVER_REQUIRES_BASIC_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485924i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SERVER_REQUIRES_DIGEST_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485923i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SERVER_REQUIRES_NEGOTIATE_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485921i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_E_SERVER_REQUIRES_NTLM_AUTH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2143485922i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(3997696i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const WS_S_END: ::windows::core::HRESULT = ::windows::core::HRESULT(3997697i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168231i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_ABORTING: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168215i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_ALREADYINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168232i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_ALREADYOTHERSINGLEPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168256i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_CANTRETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168255i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_CLERKEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168127i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_CLERKNOTFOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168128i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_COMMITFAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168254i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_COMMITPREVENTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168253i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_CONNECTION_DENIED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168227i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_CONNECTION_DOWN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168228i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_DEST_TMNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168222i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_FIRST: u32 = 2147799040u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_HEURISTICABORT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168252i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_HEURISTICCOMMIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168251i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_HEURISTICDAMAGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168250i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_HEURISTICDANGER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168249i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_INDOUBT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168234i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_INVALIDCOOKIE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168235i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_INVALIDLSN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168124i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_ISOLATIONLEVEL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168248i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_LAST: u32 = 2147799083u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_LOGFULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168230i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_LU_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168212i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NETWORK_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168220i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168247i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOENLIST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168246i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOIMPORTOBJECT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168236i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOISORETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168245i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NORESOURCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168244i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOTCURRENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168243i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168233i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOTRANSACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168242i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_NOTSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168241i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_PARTNER_NETWORK_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168219i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_PULL_COMM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168213i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_PUSH_COMM_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168214i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_RECOVERYINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168126i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_REENLISTTIMEOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168226i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_REPLAYREQUEST: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168123i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_TIP_CONNECT_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168225i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_TIP_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168221i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_TIP_PROTOCOL_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168224i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_TIP_PULL_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168223i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_TMNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168229i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_TRANSACTIONCLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168125i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_UNABLE_TO_LOAD_DTC_PROXY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168216i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_UNABLE_TO_READ_DTC_CONFIG: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168217i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_UNKNOWNRMGRID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168240i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_WRONGSTATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168239i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_WRONGUOW: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168238i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_XA_TX_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168218i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_E_XTIONEXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147168237i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_ABORTING: ::windows::core::HRESULT = ::windows::core::HRESULT(315400i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_ALLNORETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(315399i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_ASYNC: ::windows::core::HRESULT = ::windows::core::HRESULT(315392i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_DEFECT: ::windows::core::HRESULT = ::windows::core::HRESULT(315393i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_FIRST: u32 = 315392u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_LAST: u32 = 315408u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_LASTRESOURCEMANAGER: ::windows::core::HRESULT = ::windows::core::HRESULT(315408i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_LOCALLY_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(315402i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_MADECHANGESCONTENT: ::windows::core::HRESULT = ::windows::core::HRESULT(315397i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_MADECHANGESINFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(315398i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_OKINFORM: ::windows::core::HRESULT = ::windows::core::HRESULT(315396i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_READONLY: ::windows::core::HRESULT = ::windows::core::HRESULT(315394i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_SINGLEPHASE: ::windows::core::HRESULT = ::windows::core::HRESULT(315401i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XACT_S_SOMENORETAIN: ::windows::core::HRESULT = ::windows::core::HRESULT(315395i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XENROLL_E_CANNOT_ADD_ROOT_CERT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873343i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XENROLL_E_KEYSPEC_SMIME_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873339i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XENROLL_E_KEY_NOT_EXPORTABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873344i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XENROLL_E_RESPONSE_KA_HASH_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873340i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XENROLL_E_RESPONSE_KA_HASH_NOT_FOUND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873342i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const XENROLL_E_RESPONSE_UNEXPECTED_KA_HASH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146873341i32);
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const _WIN32_IE_MAXVER: u32 = 2560u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const _WIN32_MAXVER: u32 = 2560u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const _WIN32_WINDOWS_MAXVER: u32 = 2560u32;
-#[doc = "*Required features: `\"Win32_Foundation\"`*"]
-pub const _WIN32_WINNT_MAXVER: u32 = 2560u32;
+pub type PROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

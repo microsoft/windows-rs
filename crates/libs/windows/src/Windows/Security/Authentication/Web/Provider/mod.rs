@@ -1215,40 +1215,6 @@ impl ::core::convert::From<&WebAccountClientView> for &::windows::core::IInspect
 unsafe impl ::core::marker::Send for WebAccountClientView {}
 unsafe impl ::core::marker::Sync for WebAccountClientView {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebAccountClientViewType(pub i32);
-impl WebAccountClientViewType {
-    pub const IdOnly: Self = Self(0i32);
-    pub const IdAndProperties: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebAccountClientViewType {}
-impl ::core::clone::Clone for WebAccountClientViewType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountClientViewType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebAccountClientViewType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountClientViewType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebAccountClientViewType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 pub struct WebAccountManager;
 impl WebAccountManager {
     #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
@@ -2103,45 +2069,6 @@ unsafe impl ::core::marker::Send for WebAccountProviderManageAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderManageAccountOperation {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebAccountProviderOperationKind(pub i32);
-impl WebAccountProviderOperationKind {
-    pub const RequestToken: Self = Self(0i32);
-    pub const GetTokenSilently: Self = Self(1i32);
-    pub const AddAccount: Self = Self(2i32);
-    pub const ManageAccount: Self = Self(3i32);
-    pub const DeleteAccount: Self = Self(4i32);
-    pub const RetrieveCookies: Self = Self(5i32);
-    pub const SignOutAccount: Self = Self(6i32);
-}
-impl ::core::marker::Copy for WebAccountProviderOperationKind {}
-impl ::core::clone::Clone for WebAccountProviderOperationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountProviderOperationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebAccountProviderOperationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountProviderOperationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebAccountProviderOperationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
-#[repr(transparent)]
 pub struct WebAccountProviderRequestTokenOperation(::windows::core::IUnknown);
 impl WebAccountProviderRequestTokenOperation {
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
@@ -2781,102 +2708,6 @@ unsafe impl ::core::marker::Send for WebAccountProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for WebAccountProviderTriggerDetails {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebAccountScope(pub i32);
-impl WebAccountScope {
-    pub const PerUser: Self = Self(0i32);
-    pub const PerApplication: Self = Self(1i32);
-}
-impl ::core::marker::Copy for WebAccountScope {}
-impl ::core::clone::Clone for WebAccountScope {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountScope {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebAccountScope {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountScope {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountScope").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebAccountScope {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WebAccountSelectionOptions(pub u32);
-impl WebAccountSelectionOptions {
-    pub const Default: Self = Self(0u32);
-    pub const New: Self = Self(1u32);
-}
-impl ::core::marker::Copy for WebAccountSelectionOptions {}
-impl ::core::clone::Clone for WebAccountSelectionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WebAccountSelectionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WebAccountSelectionOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WebAccountSelectionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for WebAccountSelectionOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for WebAccountSelectionOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WebAccountSelectionOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WebAccountSelectionOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for WebAccountSelectionOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for WebAccountSelectionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
-#[repr(transparent)]
 pub struct WebProviderTokenRequest(::windows::core::IUnknown);
 impl WebProviderTokenRequest {
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
@@ -3115,5 +2946,174 @@ impl ::core::convert::From<&WebProviderTokenResponse> for &::windows::core::IIns
 }
 unsafe impl ::core::marker::Send for WebProviderTokenResponse {}
 unsafe impl ::core::marker::Sync for WebProviderTokenResponse {}
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebAccountClientViewType(pub i32);
+impl WebAccountClientViewType {
+    pub const IdOnly: Self = Self(0i32);
+    pub const IdAndProperties: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WebAccountClientViewType {}
+impl ::core::clone::Clone for WebAccountClientViewType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebAccountClientViewType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebAccountClientViewType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebAccountClientViewType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebAccountClientViewType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountClientViewType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebAccountProviderOperationKind(pub i32);
+impl WebAccountProviderOperationKind {
+    pub const RequestToken: Self = Self(0i32);
+    pub const GetTokenSilently: Self = Self(1i32);
+    pub const AddAccount: Self = Self(2i32);
+    pub const ManageAccount: Self = Self(3i32);
+    pub const DeleteAccount: Self = Self(4i32);
+    pub const RetrieveCookies: Self = Self(5i32);
+    pub const SignOutAccount: Self = Self(6i32);
+}
+impl ::core::marker::Copy for WebAccountProviderOperationKind {}
+impl ::core::clone::Clone for WebAccountProviderOperationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebAccountProviderOperationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebAccountProviderOperationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebAccountProviderOperationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebAccountProviderOperationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountProviderOperationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebAccountScope(pub i32);
+impl WebAccountScope {
+    pub const PerUser: Self = Self(0i32);
+    pub const PerApplication: Self = Self(1i32);
+}
+impl ::core::marker::Copy for WebAccountScope {}
+impl ::core::clone::Clone for WebAccountScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebAccountScope {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebAccountScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebAccountScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountScope").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebAccountScope {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountScope;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WebAccountSelectionOptions(pub u32);
+impl WebAccountSelectionOptions {
+    pub const Default: Self = Self(0u32);
+    pub const New: Self = Self(1u32);
+}
+impl ::core::marker::Copy for WebAccountSelectionOptions {}
+impl ::core::clone::Clone for WebAccountSelectionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WebAccountSelectionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WebAccountSelectionOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WebAccountSelectionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WebAccountSelectionOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WebAccountSelectionOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WebAccountSelectionOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WebAccountSelectionOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WebAccountSelectionOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for WebAccountSelectionOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Security.Authentication.Web.Provider.WebAccountSelectionOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

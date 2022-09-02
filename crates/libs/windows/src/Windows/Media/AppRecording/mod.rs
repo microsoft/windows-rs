@@ -1,3 +1,139 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingManager(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingManager {
+    type Vtable = IAppRecordingManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub StartRecordingToFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    StartRecordingToFileAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
+    RecordTimeSpanToFileAsync: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SupportedScreenshotMediaEncodingSubtypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SupportedScreenshotMediaEncodingSubtypes: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    pub SaveScreenshotToFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folder: *mut ::core::ffi::c_void, filenameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: AppRecordingSaveScreenshotOption, requestedformats: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
+    SaveScreenshotToFilesAsync: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingManagerStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingManagerStatics {
+    type Vtable = IAppRecordingManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingResult {
+    type Vtable = IAppRecordingResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Duration: usize,
+    pub IsFileTruncated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingSaveScreenshotResult(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingSaveScreenshotResult {
+    type Vtable = IAppRecordingSaveScreenshotResult_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingSaveScreenshotResult_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub SavedScreenshotInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    SavedScreenshotInfos: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingSavedScreenshotInfo(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingSavedScreenshotInfo {
+    type Vtable = IAppRecordingSavedScreenshotInfo_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Storage")]
+    pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Storage"))]
+    File: usize,
+    pub MediaEncodingSubtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingStatus(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingStatus {
+    type Vtable = IAppRecordingStatus_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingStatus_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub CanRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub CanRecordTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub HistoricalBufferDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    HistoricalBufferDuration: usize,
+    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IAppRecordingStatusDetails(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IAppRecordingStatusDetails {
+    type Vtable = IAppRecordingStatusDetails_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IAppRecordingStatusDetails_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub IsAnyAppBroadcasting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsCaptureResourceUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsGameStreamInProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsTimeSpanRecordingDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsGpuConstrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsAppInactive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsBlockedForApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsDisabledByUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    pub IsDisabledBySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingManager(::windows::core::IUnknown);
@@ -227,40 +363,6 @@ impl ::core::convert::From<&AppRecordingResult> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for AppRecordingResult {}
 unsafe impl ::core::marker::Sync for AppRecordingResult {}
-#[doc = "*Required features: `\"Media_AppRecording\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AppRecordingSaveScreenshotOption(pub i32);
-impl AppRecordingSaveScreenshotOption {
-    pub const None: Self = Self(0i32);
-    pub const HdrContentVisible: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AppRecordingSaveScreenshotOption {}
-impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AppRecordingSaveScreenshotOption {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AppRecordingSaveScreenshotOption {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
 pub struct AppRecordingSaveScreenshotResult(::windows::core::IUnknown);
@@ -661,141 +763,39 @@ impl ::core::convert::From<&AppRecordingStatusDetails> for &::windows::core::IIn
 }
 unsafe impl ::core::marker::Send for AppRecordingStatusDetails {}
 unsafe impl ::core::marker::Sync for AppRecordingStatusDetails {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Media_AppRecording\"`*"]
 #[repr(transparent)]
-pub struct IAppRecordingManager(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingManager {
-    type Vtable = IAppRecordingManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AppRecordingSaveScreenshotOption(pub i32);
+impl AppRecordingSaveScreenshotOption {
+    pub const None: Self = Self(0i32);
+    pub const HdrContentVisible: Self = Self(1i32);
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub StartRecordingToFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
-    StartRecordingToFileAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
-    pub RecordTimeSpanToFileAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, file: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))]
-    RecordTimeSpanToFileAsync: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SupportedScreenshotMediaEncodingSubtypes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SupportedScreenshotMediaEncodingSubtypes: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
-    pub SaveScreenshotToFilesAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, folder: *mut ::core::ffi::c_void, filenameprefix: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, option: AppRecordingSaveScreenshotOption, requestedformats: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))]
-    SaveScreenshotToFilesAsync: usize,
+impl ::core::marker::Copy for AppRecordingSaveScreenshotOption {}
+impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppRecordingManagerStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingManagerStatics {
-    type Vtable = IAppRecordingManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d);
+impl ::core::default::Default for AppRecordingSaveScreenshotOption {
+    fn default() -> Self {
+        Self(0)
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::Abi for AppRecordingSaveScreenshotOption {
+    type Abi = Self;
 }
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppRecordingResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingResult {
-    type Vtable = IAppRecordingResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
+impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()
+    }
 }
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
-    pub IsFileTruncated: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppRecordingSaveScreenshotResult(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingSaveScreenshotResult {
-    type Vtable = IAppRecordingSaveScreenshotResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingSaveScreenshotResult_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Succeeded: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub SavedScreenshotInfos: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    SavedScreenshotInfos: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppRecordingSavedScreenshotInfo(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingSavedScreenshotInfo {
-    type Vtable = IAppRecordingSavedScreenshotInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingSavedScreenshotInfo_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Storage")]
-    pub File: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage"))]
-    File: usize,
-    pub MediaEncodingSubtype: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppRecordingStatus(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingStatus {
-    type Vtable = IAppRecordingStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingStatus_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub CanRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub CanRecordTimeSpan: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub HistoricalBufferDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    HistoricalBufferDuration: usize,
-    pub Details: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IAppRecordingStatusDetails(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IAppRecordingStatusDetails {
-    type Vtable = IAppRecordingStatusDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IAppRecordingStatusDetails_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub IsAnyAppBroadcasting: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsCaptureResourceUnavailable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsGameStreamInProgress: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsTimeSpanRecordingDisabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsGpuConstrained: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsAppInactive: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsBlockedForApp: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsDisabledByUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    pub IsDisabledBySystem: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotOption {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.AppRecording.AppRecordingSaveScreenshotOption;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

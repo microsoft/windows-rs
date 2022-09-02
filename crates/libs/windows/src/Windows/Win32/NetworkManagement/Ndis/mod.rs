@@ -1,34 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct BSSID_INFO {
-    pub BSSID: [u8; 6],
-    pub PMKID: [u8; 16],
-}
-impl ::core::marker::Copy for BSSID_INFO {}
-impl ::core::clone::Clone for BSSID_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BSSID_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BSSID_INFO").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BSSID_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BSSID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSSID_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BSSID_INFO {}
-impl ::core::default::Default for BSSID_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -45,67 +14,6 @@ pub const DOT11_RSN_MAX_CIPHER_KEY_LENGTH: u32 = 32u32;
 pub const EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const ETHERNET_LENGTH_OF_ADDRESS: u32 = 6u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct GEN_GET_NETCARD_TIME {
-    pub ReadTime: u64,
-}
-impl ::core::marker::Copy for GEN_GET_NETCARD_TIME {}
-impl ::core::clone::Clone for GEN_GET_NETCARD_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GEN_GET_NETCARD_TIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GEN_GET_NETCARD_TIME").field("ReadTime", &self.ReadTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GEN_GET_NETCARD_TIME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GEN_GET_NETCARD_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GEN_GET_NETCARD_TIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GEN_GET_NETCARD_TIME {}
-impl ::core::default::Default for GEN_GET_NETCARD_TIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct GEN_GET_TIME_CAPS {
-    pub Flags: u32,
-    pub ClockPrecision: u32,
-}
-impl ::core::marker::Copy for GEN_GET_TIME_CAPS {}
-impl ::core::clone::Clone for GEN_GET_TIME_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for GEN_GET_TIME_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("GEN_GET_TIME_CAPS").field("Flags", &self.Flags).field("ClockPrecision", &self.ClockPrecision).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for GEN_GET_TIME_CAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for GEN_GET_TIME_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GEN_GET_TIME_CAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for GEN_GET_TIME_CAPS {}
-impl ::core::default::Default for GEN_GET_TIME_CAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 pub const GUID_DEVINTERFACE_NET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcac88484_7515_4c03_82e6_71a87abac361);
 pub const GUID_DEVINTERFACE_NETUIO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08336f60_0679_4c6c_85d2_ae7ced65fff7);
 pub const GUID_NDIS_802_11_ADD_KEY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab8b5a62_1d51_49d8_ba5c_fa980be03a1d);
@@ -297,137 +205,9 @@ pub const GUID_PM_WOL_PATTERN_LIST: ::windows::core::GUID = ::windows::core::GUI
 pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4054e80f_2bc1_4ccc_b033_4abc0c4a1e8c);
 pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaacfca7_954a_4632_a16e_a8a63793a9e5);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IF_ADMINISTRATIVE_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(2i32);
-impl ::core::marker::Copy for IF_ADMINISTRATIVE_STATE {}
-impl ::core::clone::Clone for IF_ADMINISTRATIVE_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IF_ADMINISTRATIVE_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IF_ADMINISTRATIVE_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IF_ADMINISTRATIVE_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct IF_COUNTED_STRING_LH {
-    pub Length: u16,
-    pub String: [u16; 257],
-}
-impl ::core::marker::Copy for IF_COUNTED_STRING_LH {}
-impl ::core::clone::Clone for IF_COUNTED_STRING_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IF_COUNTED_STRING_LH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IF_COUNTED_STRING_LH").field("Length", &self.Length).field("String", &self.String).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IF_COUNTED_STRING_LH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IF_COUNTED_STRING_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IF_COUNTED_STRING_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IF_COUNTED_STRING_LH {}
-impl ::core::default::Default for IF_COUNTED_STRING_LH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IF_MAX_STRING_SIZE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IF_OPER_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusUp: IF_OPER_STATUS = IF_OPER_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusDown: IF_OPER_STATUS = IF_OPER_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusTesting: IF_OPER_STATUS = IF_OPER_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusUnknown: IF_OPER_STATUS = IF_OPER_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusDormant: IF_OPER_STATUS = IF_OPER_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusNotPresent: IF_OPER_STATUS = IF_OPER_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = IF_OPER_STATUS(7i32);
-impl ::core::marker::Copy for IF_OPER_STATUS {}
-impl ::core::clone::Clone for IF_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IF_OPER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IF_OPER_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IF_OPER_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IF_OPER_STATUS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct IF_PHYSICAL_ADDRESS_LH {
-    pub Length: u16,
-    pub Address: [u8; 32],
-}
-impl ::core::marker::Copy for IF_PHYSICAL_ADDRESS_LH {}
-impl ::core::clone::Clone for IF_PHYSICAL_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IF_PHYSICAL_ADDRESS_LH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IF_PHYSICAL_ADDRESS_LH").field("Length", &self.Length).field("Address", &self.Address).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IF_PHYSICAL_ADDRESS_LH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IF_PHYSICAL_ADDRESS_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IF_PHYSICAL_ADDRESS_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IF_PHYSICAL_ADDRESS_LH {}
-impl ::core::default::Default for IF_PHYSICAL_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IOCTL_NDIS_RESERVED5: u32 = 1507380u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -468,273 +248,18 @@ pub const IPSEC_OFFLOAD_V2_ENCRYPTION_DES_CBC: u32 = 2u32;
 pub const IPSEC_OFFLOAD_V2_ENCRYPTION_NONE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: u32 = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_AI_REQFI {
-    pub Capabilities: u16,
-    pub ListenInterval: u16,
-    pub CurrentAPAddress: [u8; 6],
-}
-impl ::core::marker::Copy for NDIS_802_11_AI_REQFI {}
-impl ::core::clone::Clone for NDIS_802_11_AI_REQFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_AI_REQFI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AI_REQFI").field("Capabilities", &self.Capabilities).field("ListenInterval", &self.ListenInterval).field("CurrentAPAddress", &self.CurrentAPAddress).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_AI_REQFI {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_AI_REQFI {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AI_REQFI>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_AI_REQFI {}
-impl ::core::default::Default for NDIS_802_11_AI_REQFI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AI_REQFI_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AI_REQFI_CURRENTAPADDRESS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AI_REQFI_LISTENINTERVAL: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_AI_RESFI {
-    pub Capabilities: u16,
-    pub StatusCode: u16,
-    pub AssociationId: u16,
-}
-impl ::core::marker::Copy for NDIS_802_11_AI_RESFI {}
-impl ::core::clone::Clone for NDIS_802_11_AI_RESFI {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_AI_RESFI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AI_RESFI").field("Capabilities", &self.Capabilities).field("StatusCode", &self.StatusCode).field("AssociationId", &self.AssociationId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_AI_RESFI {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_AI_RESFI {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AI_RESFI>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_AI_RESFI {}
-impl ::core::default::Default for NDIS_802_11_AI_RESFI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AI_RESFI_ASSOCIATIONID: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AI_RESFI_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AI_RESFI_STATUSCODE: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
-    pub Length: u32,
-    pub AvailableRequestFixedIEs: u16,
-    pub RequestFixedIEs: NDIS_802_11_AI_REQFI,
-    pub RequestIELength: u32,
-    pub OffsetRequestIEs: u32,
-    pub AvailableResponseFixedIEs: u16,
-    pub ResponseFixedIEs: NDIS_802_11_AI_RESFI,
-    pub ResponseIELength: u32,
-    pub OffsetResponseIEs: u32,
-}
-impl ::core::marker::Copy for NDIS_802_11_ASSOCIATION_INFORMATION {}
-impl ::core::clone::Clone for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_ASSOCIATION_INFORMATION")
-            .field("Length", &self.Length)
-            .field("AvailableRequestFixedIEs", &self.AvailableRequestFixedIEs)
-            .field("RequestFixedIEs", &self.RequestFixedIEs)
-            .field("RequestIELength", &self.RequestIELength)
-            .field("OffsetRequestIEs", &self.OffsetRequestIEs)
-            .field("AvailableResponseFixedIEs", &self.AvailableResponseFixedIEs)
-            .field("ResponseFixedIEs", &self.ResponseFixedIEs)
-            .field("ResponseIELength", &self.ResponseIELength)
-            .field("OffsetResponseIEs", &self.OffsetResponseIEs)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_ASSOCIATION_INFORMATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_ASSOCIATION_INFORMATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_ASSOCIATION_INFORMATION {}
-impl ::core::default::Default for NDIS_802_11_ASSOCIATION_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
-    pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
-}
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION").field("AuthModeSupported", &self.AuthModeSupported).field("EncryptStatusSupported", &self.EncryptStatusSupported).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_ENCRYPTION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
-impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_AUTHENTICATION_EVENT {
-    pub Status: NDIS_802_11_STATUS_INDICATION,
-    pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_EVENT {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT").field("Status", &self.Status).field("Request", &self.Request).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_EVENT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_EVENT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_EVENT {}
-impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_EVENT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeShared: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeAutoSwitch: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPANone: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA2: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA2PSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA3: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA3Ent192: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA3SAE: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeWPA3Ent: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AuthModeMax: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(11i32);
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_AUTHENTICATION_MODE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
-    pub Length: u32,
-    pub Bssid: [u8; 6],
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_REQUEST {}
-impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST").field("Length", &self.Length).field("Bssid", &self.Bssid).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_REQUEST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_REQUEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_REQUEST {}
-impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_REQUEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AUTH_REQUEST_AUTH_FIELDS: u32 = 15u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -745,236 +270,6 @@ pub const NDIS_802_11_AUTH_REQUEST_KEYUPDATE: u32 = 2u32;
 pub const NDIS_802_11_AUTH_REQUEST_PAIRWISE_ERROR: u32 = 6u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_AUTH_REQUEST_REAUTH: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_BSSID_LIST {
-    pub NumberOfItems: u32,
-    pub Bssid: [NDIS_WLAN_BSSID; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_BSSID_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_BSSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_BSSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_BSSID_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_BSSID_LIST {}
-impl ::core::default::Default for NDIS_802_11_BSSID_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_BSSID_LIST_EX {
-    pub NumberOfItems: u32,
-    pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_BSSID_LIST_EX {}
-impl ::core::clone::Clone for NDIS_802_11_BSSID_LIST_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_BSSID_LIST_EX").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_BSSID_LIST_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_BSSID_LIST_EX {}
-impl ::core::default::Default for NDIS_802_11_BSSID_LIST_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_CAPABILITY {
-    pub Length: u32,
-    pub Version: u32,
-    pub NoOfPMKIDs: u32,
-    pub NoOfAuthEncryptPairsSupported: u32,
-    pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_CAPABILITY {}
-impl ::core::clone::Clone for NDIS_802_11_CAPABILITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_CAPABILITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_CAPABILITY").field("Length", &self.Length).field("Version", &self.Version).field("NoOfPMKIDs", &self.NoOfPMKIDs).field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported).field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_CAPABILITY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_CAPABILITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CAPABILITY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_CAPABILITY {}
-impl ::core::default::Default for NDIS_802_11_CAPABILITY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_CONFIGURATION {
-    pub Length: u32,
-    pub BeaconPeriod: u32,
-    pub ATIMWindow: u32,
-    pub DSConfig: u32,
-    pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
-}
-impl ::core::marker::Copy for NDIS_802_11_CONFIGURATION {}
-impl ::core::clone::Clone for NDIS_802_11_CONFIGURATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_CONFIGURATION").field("Length", &self.Length).field("BeaconPeriod", &self.BeaconPeriod).field("ATIMWindow", &self.ATIMWindow).field("DSConfig", &self.DSConfig).field("FHConfig", &self.FHConfig).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CONFIGURATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_CONFIGURATION {}
-impl ::core::default::Default for NDIS_802_11_CONFIGURATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_CONFIGURATION_FH {
-    pub Length: u32,
-    pub HopPattern: u32,
-    pub HopSet: u32,
-    pub DwellTime: u32,
-}
-impl ::core::marker::Copy for NDIS_802_11_CONFIGURATION_FH {}
-impl ::core::clone::Clone for NDIS_802_11_CONFIGURATION_FH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION_FH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_CONFIGURATION_FH").field("Length", &self.Length).field("HopPattern", &self.HopPattern).field("HopSet", &self.HopSet).field("DwellTime", &self.DwellTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION_FH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CONFIGURATION_FH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_CONFIGURATION_FH {}
-impl ::core::default::Default for NDIS_802_11_CONFIGURATION_FH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_FIXED_IEs {
-    pub Timestamp: [u8; 8],
-    pub BeaconInterval: u16,
-    pub Capabilities: u16,
-}
-impl ::core::marker::Copy for NDIS_802_11_FIXED_IEs {}
-impl ::core::clone::Clone for NDIS_802_11_FIXED_IEs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_FIXED_IEs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_FIXED_IEs").field("Timestamp", &self.Timestamp).field("BeaconInterval", &self.BeaconInterval).field("Capabilities", &self.Capabilities).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_FIXED_IEs {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_FIXED_IEs>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_FIXED_IEs {}
-impl ::core::default::Default for NDIS_802_11_FIXED_IEs {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_KEY {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub KeyLength: u32,
-    pub BSSID: [u8; 6],
-    pub KeyRSC: u64,
-    pub KeyMaterial: [u8; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_KEY {}
-impl ::core::clone::Clone for NDIS_802_11_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_KEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("BSSID", &self.BSSID).field("KeyRSC", &self.KeyRSC).field("KeyMaterial", &self.KeyMaterial).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_KEY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_KEY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_KEY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_KEY {}
-impl ::core::default::Default for NDIS_802_11_KEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_LENGTH_RATES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -982,865 +277,9 @@ pub const NDIS_802_11_LENGTH_RATES_EX: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_LENGTH_SSID: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11MediaStreamOn: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(1i32);
-impl ::core::marker::Copy for NDIS_802_11_MEDIA_STREAM_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_MEDIA_STREAM_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_MEDIA_STREAM_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_MEDIA_STREAM_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_MEDIA_STREAM_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11InfrastructureMax: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(3i32);
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_INFRASTRUCTURE {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_NETWORK_INFRASTRUCTURE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11DS: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11OFDM5: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11OFDM24: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Automode: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11NetworkTypeMax: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(5i32);
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_NETWORK_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_NETWORK_TYPE_LIST {
-    pub NumberOfItems: u32,
-    pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST").field("NumberOfItems", &self.NumberOfItems).field("NetworkType", &self.NetworkType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_NETWORK_TYPE_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_NETWORK_TYPE_LIST {}
-impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
-    pub NumberOfItems: u32,
-    pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_NON_BCAST_SSID_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_NON_BCAST_SSID_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_NON_BCAST_SSID_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_NON_BCAST_SSID_LIST {}
-impl ::core::default::Default for NDIS_802_11_NON_BCAST_SSID_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_PMKID {
-    pub Length: u32,
-    pub BSSIDInfoCount: u32,
-    pub BSSIDInfo: [BSSID_INFO; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_PMKID {}
-impl ::core::clone::Clone for NDIS_802_11_PMKID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_PMKID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_PMKID").field("Length", &self.Length).field("BSSIDInfoCount", &self.BSSIDInfoCount).field("BSSIDInfo", &self.BSSIDInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_PMKID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_PMKID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_PMKID {}
-impl ::core::default::Default for NDIS_802_11_PMKID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
-    pub Version: u32,
-    pub NumCandidates: u32,
-    pub CandidateList: [PMKID_CANDIDATE; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_PMKID_CANDIDATE_LIST {}
-impl ::core::clone::Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST").field("Version", &self.Version).field("NumCandidates", &self.NumCandidates).field("CandidateList", &self.CandidateList).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_PMKID_CANDIDATE_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_PMKID_CANDIDATE_LIST {}
-impl ::core::default::Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_POWER_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11PowerModeCAM: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11PowerModeMAX_PSP: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11PowerModeFast_PSP: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11PowerModeMax: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(3i32);
-impl ::core::marker::Copy for NDIS_802_11_POWER_MODE {}
-impl ::core::clone::Clone for NDIS_802_11_POWER_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_POWER_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_POWER_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_POWER_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_POWER_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11PrivFilter8021xWEP: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(1i32);
-impl ::core::marker::Copy for NDIS_802_11_PRIVACY_FILTER {}
-impl ::core::clone::Clone for NDIS_802_11_PRIVACY_FILTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_PRIVACY_FILTER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_PRIVACY_FILTER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_PRIVACY_FILTER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_RADIO_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11RadioStatusOn: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11RadioStatusHardwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11RadioStatusSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11RadioStatusHardwareSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11RadioStatusMax: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(4i32);
-impl ::core::marker::Copy for NDIS_802_11_RADIO_STATUS {}
-impl ::core::clone::Clone for NDIS_802_11_RADIO_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_RADIO_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_RADIO_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_RADIO_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11ReloadWEPKeys: NDIS_802_11_RELOAD_DEFAULTS = NDIS_802_11_RELOAD_DEFAULTS(0i32);
-impl ::core::marker::Copy for NDIS_802_11_RELOAD_DEFAULTS {}
-impl ::core::clone::Clone for NDIS_802_11_RELOAD_DEFAULTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_RELOAD_DEFAULTS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_RELOAD_DEFAULTS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_RELOAD_DEFAULTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_RELOAD_DEFAULTS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_REMOVE_KEY {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub BSSID: [u8; 6],
-}
-impl ::core::marker::Copy for NDIS_802_11_REMOVE_KEY {}
-impl ::core::clone::Clone for NDIS_802_11_REMOVE_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_REMOVE_KEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_REMOVE_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("BSSID", &self.BSSID).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_REMOVE_KEY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_REMOVE_KEY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_REMOVE_KEY {}
-impl ::core::default::Default for NDIS_802_11_REMOVE_KEY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_SSID {
-    pub SsidLength: u32,
-    pub Ssid: [u8; 32],
-}
-impl ::core::marker::Copy for NDIS_802_11_SSID {}
-impl ::core::clone::Clone for NDIS_802_11_SSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_SSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_SSID").field("SsidLength", &self.SsidLength).field("Ssid", &self.Ssid).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_SSID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_SSID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_SSID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_SSID {}
-impl ::core::default::Default for NDIS_802_11_SSID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_STATISTICS {
-    pub Length: u32,
-    pub TransmittedFragmentCount: i64,
-    pub MulticastTransmittedFrameCount: i64,
-    pub FailedCount: i64,
-    pub RetryCount: i64,
-    pub MultipleRetryCount: i64,
-    pub RTSSuccessCount: i64,
-    pub RTSFailureCount: i64,
-    pub ACKFailureCount: i64,
-    pub FrameDuplicateCount: i64,
-    pub ReceivedFragmentCount: i64,
-    pub MulticastReceivedFrameCount: i64,
-    pub FCSErrorCount: i64,
-    pub TKIPLocalMICFailures: i64,
-    pub TKIPICVErrorCount: i64,
-    pub TKIPCounterMeasuresInvoked: i64,
-    pub TKIPReplays: i64,
-    pub CCMPFormatErrors: i64,
-    pub CCMPReplays: i64,
-    pub CCMPDecryptErrors: i64,
-    pub FourWayHandshakeFailures: i64,
-    pub WEPUndecryptableCount: i64,
-    pub WEPICVErrorCount: i64,
-    pub DecryptSuccessCount: i64,
-    pub DecryptFailureCount: i64,
-}
-impl ::core::marker::Copy for NDIS_802_11_STATISTICS {}
-impl ::core::clone::Clone for NDIS_802_11_STATISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_STATISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_STATISTICS")
-            .field("Length", &self.Length)
-            .field("TransmittedFragmentCount", &self.TransmittedFragmentCount)
-            .field("MulticastTransmittedFrameCount", &self.MulticastTransmittedFrameCount)
-            .field("FailedCount", &self.FailedCount)
-            .field("RetryCount", &self.RetryCount)
-            .field("MultipleRetryCount", &self.MultipleRetryCount)
-            .field("RTSSuccessCount", &self.RTSSuccessCount)
-            .field("RTSFailureCount", &self.RTSFailureCount)
-            .field("ACKFailureCount", &self.ACKFailureCount)
-            .field("FrameDuplicateCount", &self.FrameDuplicateCount)
-            .field("ReceivedFragmentCount", &self.ReceivedFragmentCount)
-            .field("MulticastReceivedFrameCount", &self.MulticastReceivedFrameCount)
-            .field("FCSErrorCount", &self.FCSErrorCount)
-            .field("TKIPLocalMICFailures", &self.TKIPLocalMICFailures)
-            .field("TKIPICVErrorCount", &self.TKIPICVErrorCount)
-            .field("TKIPCounterMeasuresInvoked", &self.TKIPCounterMeasuresInvoked)
-            .field("TKIPReplays", &self.TKIPReplays)
-            .field("CCMPFormatErrors", &self.CCMPFormatErrors)
-            .field("CCMPReplays", &self.CCMPReplays)
-            .field("CCMPDecryptErrors", &self.CCMPDecryptErrors)
-            .field("FourWayHandshakeFailures", &self.FourWayHandshakeFailures)
-            .field("WEPUndecryptableCount", &self.WEPUndecryptableCount)
-            .field("WEPICVErrorCount", &self.WEPICVErrorCount)
-            .field("DecryptSuccessCount", &self.DecryptSuccessCount)
-            .field("DecryptFailureCount", &self.DecryptFailureCount)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_STATISTICS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_STATISTICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_STATISTICS {}
-impl ::core::default::Default for NDIS_802_11_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_STATUS_INDICATION {
-    pub StatusType: NDIS_802_11_STATUS_TYPE,
-}
-impl ::core::marker::Copy for NDIS_802_11_STATUS_INDICATION {}
-impl ::core::clone::Clone for NDIS_802_11_STATUS_INDICATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_STATUS_INDICATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_STATUS_INDICATION").field("StatusType", &self.StatusType).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_INDICATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_STATUS_INDICATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_STATUS_INDICATION {}
-impl ::core::default::Default for NDIS_802_11_STATUS_INDICATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_STATUS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11StatusTypeMax: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(3i32);
-impl ::core::marker::Copy for NDIS_802_11_STATUS_TYPE {}
-impl ::core::clone::Clone for NDIS_802_11_STATUS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_STATUS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_STATUS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_STATUS_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_TEST {
-    pub Length: u32,
-    pub Type: u32,
-    pub Anonymous: NDIS_802_11_TEST_0,
-}
-impl ::core::marker::Copy for NDIS_802_11_TEST {}
-impl ::core::clone::Clone for NDIS_802_11_TEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_TEST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_TEST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_TEST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_TEST {}
-impl ::core::default::Default for NDIS_802_11_TEST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub union NDIS_802_11_TEST_0 {
-    pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
-    pub RssiTrigger: i32,
-}
-impl ::core::marker::Copy for NDIS_802_11_TEST_0 {}
-impl ::core::clone::Clone for NDIS_802_11_TEST_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_TEST_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_TEST_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_TEST_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_TEST_0 {}
-impl ::core::default::Default for NDIS_802_11_TEST_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_VARIABLE_IEs {
-    pub ElementID: u8,
-    pub Length: u8,
-    pub data: [u8; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_VARIABLE_IEs {}
-impl ::core::clone::Clone for NDIS_802_11_VARIABLE_IEs {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_VARIABLE_IEs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_VARIABLE_IEs").field("ElementID", &self.ElementID).field("Length", &self.Length).field("data", &self.data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_VARIABLE_IEs {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_VARIABLE_IEs>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_VARIABLE_IEs {}
-impl ::core::default::Default for NDIS_802_11_VARIABLE_IEs {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_802_11_WEP {
-    pub Length: u32,
-    pub KeyIndex: u32,
-    pub KeyLength: u32,
-    pub KeyMaterial: [u8; 1],
-}
-impl ::core::marker::Copy for NDIS_802_11_WEP {}
-impl ::core::clone::Clone for NDIS_802_11_WEP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_802_11_WEP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_802_11_WEP").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("KeyMaterial", &self.KeyMaterial).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_WEP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_802_11_WEP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_WEP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_802_11_WEP {}
-impl ::core::default::Default for NDIS_802_11_WEP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_11_WEP_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Encryption1Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11WEPDisabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11EncryptionDisabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11WEPKeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Encryption1KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11WEPNotSupported: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11EncryptionNotSupported: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Encryption2Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Encryption2KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Encryption3Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const Ndis802_11Encryption3KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(7i32);
-impl ::core::marker::Copy for NDIS_802_11_WEP_STATUS {}
-impl ::core::clone::Clone for NDIS_802_11_WEP_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_11_WEP_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_11_WEP_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_11_WEP_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_11_WEP_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_802_5_RING_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRingStateOpened: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRingStateClosed: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRingStateOpening: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRingStateClosing: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRingStateOpenFailure: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRingStateRingFailure: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(6i32);
-impl ::core::marker::Copy for NDIS_802_5_RING_STATE {}
-impl ::core::clone::Clone for NDIS_802_5_RING_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_802_5_RING_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_802_5_RING_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_802_5_RING_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_802_5_RING_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_CO_DEVICE_PROFILE {
-    pub DeviceDescription: NDIS_VAR_DATA_DESC,
-    pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
-    pub ulTAPISupplementaryPassThru: u32,
-    pub ulAddressModes: u32,
-    pub ulNumAddresses: u32,
-    pub ulBearerModes: u32,
-    pub ulMaxTxRate: u32,
-    pub ulMinTxRate: u32,
-    pub ulMaxRxRate: u32,
-    pub ulMinRxRate: u32,
-    pub ulMediaModes: u32,
-    pub ulGenerateToneModes: u32,
-    pub ulGenerateToneMaxNumFreq: u32,
-    pub ulGenerateDigitModes: u32,
-    pub ulMonitorToneMaxNumFreq: u32,
-    pub ulMonitorToneMaxNumEntries: u32,
-    pub ulMonitorDigitModes: u32,
-    pub ulGatherDigitsMinTimeout: u32,
-    pub ulGatherDigitsMaxTimeout: u32,
-    pub ulDevCapFlags: u32,
-    pub ulMaxNumActiveCalls: u32,
-    pub ulAnswerMode: u32,
-    pub ulUUIAcceptSize: u32,
-    pub ulUUIAnswerSize: u32,
-    pub ulUUIMakeCallSize: u32,
-    pub ulUUIDropSize: u32,
-    pub ulUUISendUserUserInfoSize: u32,
-    pub ulUUICallInfoSize: u32,
-}
-impl ::core::marker::Copy for NDIS_CO_DEVICE_PROFILE {}
-impl ::core::clone::Clone for NDIS_CO_DEVICE_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_CO_DEVICE_PROFILE")
-            .field("DeviceDescription", &self.DeviceDescription)
-            .field("DevSpecificInfo", &self.DevSpecificInfo)
-            .field("ulTAPISupplementaryPassThru", &self.ulTAPISupplementaryPassThru)
-            .field("ulAddressModes", &self.ulAddressModes)
-            .field("ulNumAddresses", &self.ulNumAddresses)
-            .field("ulBearerModes", &self.ulBearerModes)
-            .field("ulMaxTxRate", &self.ulMaxTxRate)
-            .field("ulMinTxRate", &self.ulMinTxRate)
-            .field("ulMaxRxRate", &self.ulMaxRxRate)
-            .field("ulMinRxRate", &self.ulMinRxRate)
-            .field("ulMediaModes", &self.ulMediaModes)
-            .field("ulGenerateToneModes", &self.ulGenerateToneModes)
-            .field("ulGenerateToneMaxNumFreq", &self.ulGenerateToneMaxNumFreq)
-            .field("ulGenerateDigitModes", &self.ulGenerateDigitModes)
-            .field("ulMonitorToneMaxNumFreq", &self.ulMonitorToneMaxNumFreq)
-            .field("ulMonitorToneMaxNumEntries", &self.ulMonitorToneMaxNumEntries)
-            .field("ulMonitorDigitModes", &self.ulMonitorDigitModes)
-            .field("ulGatherDigitsMinTimeout", &self.ulGatherDigitsMinTimeout)
-            .field("ulGatherDigitsMaxTimeout", &self.ulGatherDigitsMaxTimeout)
-            .field("ulDevCapFlags", &self.ulDevCapFlags)
-            .field("ulMaxNumActiveCalls", &self.ulMaxNumActiveCalls)
-            .field("ulAnswerMode", &self.ulAnswerMode)
-            .field("ulUUIAcceptSize", &self.ulUUIAcceptSize)
-            .field("ulUUIAnswerSize", &self.ulUUIAnswerSize)
-            .field("ulUUIMakeCallSize", &self.ulUUIMakeCallSize)
-            .field("ulUUIDropSize", &self.ulUUIDropSize)
-            .field("ulUUISendUserUserInfoSize", &self.ulUUISendUserUserInfoSize)
-            .field("ulUUICallInfoSize", &self.ulUUICallInfoSize)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_CO_DEVICE_PROFILE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_CO_DEVICE_PROFILE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_CO_DEVICE_PROFILE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_CO_DEVICE_PROFILE {}
-impl ::core::default::Default for NDIS_CO_DEVICE_PROFILE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_CO_LINK_SPEED {
-    pub Outbound: u32,
-    pub Inbound: u32,
-}
-impl ::core::marker::Copy for NDIS_CO_LINK_SPEED {}
-impl ::core::clone::Clone for NDIS_CO_LINK_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_CO_LINK_SPEED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_CO_LINK_SPEED").field("Outbound", &self.Outbound).field("Inbound", &self.Inbound).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_CO_LINK_SPEED {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_CO_LINK_SPEED {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_CO_LINK_SPEED>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_CO_LINK_SPEED {}
-impl ::core::default::Default for NDIS_CO_LINK_SPEED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_CO_MAC_OPTION_DYNAMIC_LINK_SPEED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -1853,41 +292,6 @@ pub const NDIS_DEFAULT_RECEIVE_QUEUE_ID: u32 = 0u32;
 pub const NDIS_DEFAULT_SWITCH_ID: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_DEFAULT_VPORT_ID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_DEVICE_POWER_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDeviceStateUnspecified: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDeviceStateD0: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDeviceStateD1: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDeviceStateD2: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDeviceStateD3: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDeviceStateMaximum: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(5i32);
-impl ::core::marker::Copy for NDIS_DEVICE_POWER_STATE {}
-impl ::core::clone::Clone for NDIS_DEVICE_POWER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_DEVICE_POWER_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_DEVICE_POWER_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_DEVICE_POWER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_DEVICE_POWER_STATE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_DEVICE_TYPE_ENDPOINT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -1934,137 +338,6 @@ pub const NDIS_ETH_TYPE_IPV4: u32 = 2048u32;
 pub const NDIS_ETH_TYPE_IPV6: u32 = 34525u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_ETH_TYPE_SLOW_PROTOCOL: u32 = 34825u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeIsolated: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeLocalA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeLocalB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeLocalAB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeLocalS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeWrapA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeWrapB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeWrapAB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeWrapS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeCWrapA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeCWrapB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeCWrapS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiTypeThrough: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(13i32);
-impl ::core::marker::Copy for NDIS_FDDI_ATTACHMENT_TYPE {}
-impl ::core::clone::Clone for NDIS_FDDI_ATTACHMENT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_FDDI_ATTACHMENT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_FDDI_ATTACHMENT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_FDDI_ATTACHMENT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateOff: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateBreak: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateTrace: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateConnect: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateNext: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateSignal: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateJoin: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateVerify: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateActive: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiStateMaintenance: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(10i32);
-impl ::core::marker::Copy for NDIS_FDDI_LCONNECTION_STATE {}
-impl ::core::clone::Clone for NDIS_FDDI_LCONNECTION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_FDDI_LCONNECTION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_FDDI_LCONNECTION_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_FDDI_LCONNECTION_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingIsolated: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingNonOperational: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingOperational: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingDetect: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingNonOperationalDup: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingOperationalDup: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingDirected: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisFddiRingTrace: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(8i32);
-impl ::core::marker::Copy for NDIS_FDDI_RING_MGT_STATE {}
-impl ::core::clone::Clone for NDIS_FDDI_RING_MGT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_FDDI_RING_MGT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_FDDI_RING_MGT_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_FDDI_RING_MGT_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_FDDI_RING_MGT_STATE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_GFP_ENCAPSULATION_TYPE_IP_IN_GRE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -2413,129 +686,8 @@ pub const NDIS_GFT_WCFE_REDIRECT_TO_INGRESS_QUEUE_OF_VPORT: u32 = 2u32;
 pub const NDIS_GFT_WCFE_REDIRECT_TO_INGRESS_QUEUE_OF_VPORT_IF_TTL_IS_ONE: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_GFT_WILDCARD_MATCH_FLOW_ENTRY_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_GUID {
-    pub Guid: ::windows::core::GUID,
-    pub Anonymous: NDIS_GUID_0,
-    pub Size: u32,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_GUID {}
-impl ::core::clone::Clone for NDIS_GUID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_GUID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_GUID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_GUID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_GUID {}
-impl ::core::default::Default for NDIS_GUID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub union NDIS_GUID_0 {
-    pub Oid: u32,
-    pub Status: i32,
-}
-impl ::core::marker::Copy for NDIS_GUID_0 {}
-impl ::core::clone::Clone for NDIS_GUID_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_GUID_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_GUID_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_GUID_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_GUID_0 {}
-impl ::core::default::Default for NDIS_GUID_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub SystemTimestamp1: u64,
-    pub HardwareClockTimestamp: u64,
-    pub SystemTimestamp2: u64,
-}
-impl ::core::marker::Copy for NDIS_HARDWARE_CROSSTIMESTAMP {}
-impl ::core::clone::Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP").field("Header", &self.Header).field("Flags", &self.Flags).field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_HARDWARE_CROSSTIMESTAMP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_HARDWARE_CROSSTIMESTAMP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_HARDWARE_CROSSTIMESTAMP {}
-impl ::core::default::Default for NDIS_HARDWARE_CROSSTIMESTAMP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_HARDWARE_CROSSTIMESTAMP_REVISION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_HARDWARE_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisHardwareStatusReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisHardwareStatusInitializing: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisHardwareStatusReset: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisHardwareStatusClosing: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisHardwareStatusNotReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(4i32);
-impl ::core::marker::Copy for NDIS_HARDWARE_STATUS {}
-impl ::core::clone::Clone for NDIS_HARDWARE_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_HARDWARE_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_HARDWARE_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_HARDWARE_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_HARDWARE_STATUS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_HASH_FUNCTION_MASK: u32 = 255u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -2578,543 +730,22 @@ pub const NDIS_HD_SPLIT_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_FLAG_HYPERVISOR_PRESENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_HYPERVISOR_INFO_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct NDIS_INTERFACE_INFORMATION {
-    pub ifOperStatus: NET_IF_OPER_STATUS,
-    pub ifOperStatusFlags: u32,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-    pub ifMtu: u32,
-    pub ifPromiscuousMode: super::super::Foundation::BOOLEAN,
-    pub ifDeviceWakeUpEnable: super::super::Foundation::BOOLEAN,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub ifLastChange: u64,
-    pub ifCounterDiscontinuityTime: u64,
-    pub ifInUnknownProtos: u64,
-    pub ifInDiscards: u64,
-    pub ifInErrors: u64,
-    pub ifHCInOctets: u64,
-    pub ifHCInUcastPkts: u64,
-    pub ifHCInMulticastPkts: u64,
-    pub ifHCInBroadcastPkts: u64,
-    pub ifHCOutOctets: u64,
-    pub ifHCOutUcastPkts: u64,
-    pub ifHCOutMulticastPkts: u64,
-    pub ifHCOutBroadcastPkts: u64,
-    pub ifOutErrors: u64,
-    pub ifOutDiscards: u64,
-    pub ifHCInUcastOctets: u64,
-    pub ifHCInMulticastOctets: u64,
-    pub ifHCInBroadcastOctets: u64,
-    pub ifHCOutUcastOctets: u64,
-    pub ifHCOutMulticastOctets: u64,
-    pub ifHCOutBroadcastOctets: u64,
-    pub CompartmentId: u32,
-    pub SupportedStatistics: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NDIS_INTERFACE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for NDIS_INTERFACE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NDIS_INTERFACE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_INTERFACE_INFORMATION")
-            .field("ifOperStatus", &self.ifOperStatus)
-            .field("ifOperStatusFlags", &self.ifOperStatusFlags)
-            .field("MediaConnectState", &self.MediaConnectState)
-            .field("MediaDuplexState", &self.MediaDuplexState)
-            .field("ifMtu", &self.ifMtu)
-            .field("ifPromiscuousMode", &self.ifPromiscuousMode)
-            .field("ifDeviceWakeUpEnable", &self.ifDeviceWakeUpEnable)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("ifLastChange", &self.ifLastChange)
-            .field("ifCounterDiscontinuityTime", &self.ifCounterDiscontinuityTime)
-            .field("ifInUnknownProtos", &self.ifInUnknownProtos)
-            .field("ifInDiscards", &self.ifInDiscards)
-            .field("ifInErrors", &self.ifInErrors)
-            .field("ifHCInOctets", &self.ifHCInOctets)
-            .field("ifHCInUcastPkts", &self.ifHCInUcastPkts)
-            .field("ifHCInMulticastPkts", &self.ifHCInMulticastPkts)
-            .field("ifHCInBroadcastPkts", &self.ifHCInBroadcastPkts)
-            .field("ifHCOutOctets", &self.ifHCOutOctets)
-            .field("ifHCOutUcastPkts", &self.ifHCOutUcastPkts)
-            .field("ifHCOutMulticastPkts", &self.ifHCOutMulticastPkts)
-            .field("ifHCOutBroadcastPkts", &self.ifHCOutBroadcastPkts)
-            .field("ifOutErrors", &self.ifOutErrors)
-            .field("ifOutDiscards", &self.ifOutDiscards)
-            .field("ifHCInUcastOctets", &self.ifHCInUcastOctets)
-            .field("ifHCInMulticastOctets", &self.ifHCInMulticastOctets)
-            .field("ifHCInBroadcastOctets", &self.ifHCInBroadcastOctets)
-            .field("ifHCOutUcastOctets", &self.ifHCOutUcastOctets)
-            .field("ifHCOutMulticastOctets", &self.ifHCOutMulticastOctets)
-            .field("ifHCOutBroadcastOctets", &self.ifHCOutBroadcastOctets)
-            .field("CompartmentId", &self.CompartmentId)
-            .field("SupportedStatistics", &self.SupportedStatistics)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_INTERFACE_INFORMATION {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NDIS_INTERFACE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_INTERFACE_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NDIS_INTERFACE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NDIS_INTERFACE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_INTERRUPT_MODERATION(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisInterruptModerationNotSupported: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisInterruptModerationEnabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisInterruptModerationDisabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(3i32);
-impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION {}
-impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_INTERRUPT_MODERATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_INTERRUPT_MODERATION").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
-}
-impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("InterruptModeration", &self.InterruptModeration).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_INTERRUPT_MODERATION_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
-impl ::core::default::Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
-}
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1 {}
-impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_0 {}
-impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_1 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_1").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_1 {}
-impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_2 {}
-impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_2 {}
-impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IP_OPER_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
-}
-impl ::core::marker::Copy for NDIS_IP_OPER_STATE {}
-impl ::core::clone::Clone for NDIS_IP_OPER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IP_OPER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IP_OPER_STATE").field("Header", &self.Header).field("Flags", &self.Flags).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IP_OPER_STATE {}
-impl ::core::default::Default for NDIS_IP_OPER_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IP_OPER_STATUS {
-    pub AddressFamily: u32,
-    pub OperationalStatus: NET_IF_OPER_STATUS,
-    pub OperationalStatusFlags: u32,
-}
-impl ::core::marker::Copy for NDIS_IP_OPER_STATUS {}
-impl ::core::clone::Clone for NDIS_IP_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IP_OPER_STATUS").field("AddressFamily", &self.AddressFamily).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATUS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IP_OPER_STATUS {}
-impl ::core::default::Default for NDIS_IP_OPER_STATUS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IP_OPER_STATUS_INFO {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub NumberofAddressFamiliesReturned: u32,
-    pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
-}
-impl ::core::marker::Copy for NDIS_IP_OPER_STATUS_INFO {}
-impl ::core::clone::Clone for NDIS_IP_OPER_STATUS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IP_OPER_STATUS_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("NumberofAddressFamiliesReturned", &self.NumberofAddressFamiliesReturned).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATUS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IP_OPER_STATUS_INFO {}
-impl ::core::default::Default for NDIS_IP_OPER_STATUS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_IP_OPER_STATUS_INFO_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_IRDA_PACKET_INFO {
-    pub ExtraBOFs: u32,
-    pub MinTurnAroundTime: u32,
-}
-impl ::core::marker::Copy for NDIS_IRDA_PACKET_INFO {}
-impl ::core::clone::Clone for NDIS_IRDA_PACKET_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_IRDA_PACKET_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_IRDA_PACKET_INFO").field("ExtraBOFs", &self.ExtraBOFs).field("MinTurnAroundTime", &self.MinTurnAroundTime).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_IRDA_PACKET_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IRDA_PACKET_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_IRDA_PACKET_INFO {}
-impl ::core::default::Default for NDIS_IRDA_PACKET_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_ISOLATION_NAME_MAX_STRING_SIZE: u32 = 127u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_ISOLATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_LINK_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-    pub AutoNegotiationFlags: u32,
-}
-impl ::core::marker::Copy for NDIS_LINK_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_LINK_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_LINK_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_LINK_PARAMETERS").field("Header", &self.Header).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_LINK_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_LINK_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_LINK_PARAMETERS {}
-impl ::core::default::Default for NDIS_LINK_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_LINK_PARAMETERS_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_LINK_SPEED {
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-}
-impl ::core::marker::Copy for NDIS_LINK_SPEED {}
-impl ::core::clone::Clone for NDIS_LINK_SPEED {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_LINK_SPEED {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_LINK_SPEED").field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_LINK_SPEED {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_LINK_SPEED {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_SPEED>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_LINK_SPEED {}
-impl ::core::default::Default for NDIS_LINK_SPEED {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_LINK_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
-    pub AutoNegotiationFlags: u32,
-}
-impl ::core::marker::Copy for NDIS_LINK_STATE {}
-impl ::core::clone::Clone for NDIS_LINK_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_LINK_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_LINK_STATE").field("Header", &self.Header).field("MediaConnectState", &self.MediaConnectState).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_LINK_STATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_LINK_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_LINK_STATE {}
-impl ::core::default::Default for NDIS_LINK_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_LINK_STATE_DUPLEX_AUTO_NEGOTIATED: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3154,98 +785,6 @@ pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_MEDIA_CAP_TRANSMIT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_MEDIA_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediaStateConnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediaStateDisconnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(1i32);
-impl ::core::marker::Copy for NDIS_MEDIA_STATE {}
-impl ::core::clone::Clone for NDIS_MEDIA_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_MEDIA_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_MEDIA_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_MEDIA_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_MEDIA_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_MEDIUM(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMedium802_3: NDIS_MEDIUM = NDIS_MEDIUM(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMedium802_5: NDIS_MEDIUM = NDIS_MEDIUM(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumFddi: NDIS_MEDIUM = NDIS_MEDIUM(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumWan: NDIS_MEDIUM = NDIS_MEDIUM(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumLocalTalk: NDIS_MEDIUM = NDIS_MEDIUM(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumDix: NDIS_MEDIUM = NDIS_MEDIUM(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumArcnetRaw: NDIS_MEDIUM = NDIS_MEDIUM(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumArcnet878_2: NDIS_MEDIUM = NDIS_MEDIUM(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumAtm: NDIS_MEDIUM = NDIS_MEDIUM(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumWirelessWan: NDIS_MEDIUM = NDIS_MEDIUM(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumIrda: NDIS_MEDIUM = NDIS_MEDIUM(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumBpc: NDIS_MEDIUM = NDIS_MEDIUM(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumCoWan: NDIS_MEDIUM = NDIS_MEDIUM(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMedium1394: NDIS_MEDIUM = NDIS_MEDIUM(13i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumInfiniBand: NDIS_MEDIUM = NDIS_MEDIUM(14i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumTunnel: NDIS_MEDIUM = NDIS_MEDIUM(15i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumNative802_11: NDIS_MEDIUM = NDIS_MEDIUM(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumLoopback: NDIS_MEDIUM = NDIS_MEDIUM(17i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumWiMAX: NDIS_MEDIUM = NDIS_MEDIUM(18i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumIP: NDIS_MEDIUM = NDIS_MEDIUM(19i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisMediumMax: NDIS_MEDIUM = NDIS_MEDIUM(20i32);
-impl ::core::marker::Copy for NDIS_MEDIUM {}
-impl ::core::clone::Clone for NDIS_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_MEDIUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_MEDIUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_MEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_MEDIUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_NDK_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_NDK_CONNECTIONS_REVISION_1: u32 = 1u32;
@@ -3253,37 +792,6 @@ pub const NDIS_NDK_CONNECTIONS_REVISION_1: u32 = 1u32;
 pub const NDIS_NDK_LOCAL_ENDPOINTS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_NDK_STATISTICS_INFO_REVISION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPossibleNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisDefinitelyNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisNetworkChangeFromMediaConnect: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisNetworkChangeMax: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(4i32);
-impl ::core::marker::Copy for NDIS_NETWORK_CHANGE_TYPE {}
-impl ::core::clone::Clone for NDIS_NETWORK_CHANGE_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_NETWORK_CHANGE_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_NETWORK_CHANGE_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_NETWORK_CHANGE_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_NETWORK_CHANGE_TYPE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_NIC_SWITCH_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3386,38 +894,6 @@ pub const NDIS_NIC_SWITCH_VPORT_PARAMS_PROCESSOR_AFFINITY_CHANGED: u32 = 1048576
 pub const NDIS_NIC_SWITCH_VPORT_PARAMS_QOS_SQ_ID_CHANGED: u32 = 4194304u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_NIC_SWITCH_VPORT_PARAMS_STATE_CHANGED: u32 = 524288u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_OBJECT_HEADER {
-    pub Type: u8,
-    pub Revision: u8,
-    pub Size: u16,
-}
-impl ::core::marker::Copy for NDIS_OBJECT_HEADER {}
-impl ::core::clone::Clone for NDIS_OBJECT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_OBJECT_HEADER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_OBJECT_HEADER").field("Type", &self.Type).field("Revision", &self.Revision).field("Size", &self.Size).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_OBJECT_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_OBJECT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OBJECT_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_OBJECT_HEADER {}
-impl ::core::default::Default for NDIS_OBJECT_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OBJECT_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3550,101 +1026,10 @@ pub const NDIS_OBJECT_TYPE_STATUS_INDICATION: u32 = 152u32;
 pub const NDIS_OBJECT_TYPE_SWITCH_OPTIONAL_HANDLERS: u32 = 184u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS: u32 = 151u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
-    pub LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
-    pub IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
-    pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_OFFLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_OFFLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OFFLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_OFFLOAD {}
-impl ::core::default::Default for NDIS_OFFLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OFFLOAD_NOT_SUPPORTED: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_OFFLOAD_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub IPv4Checksum: u8,
-    pub TCPIPv4Checksum: u8,
-    pub UDPIPv4Checksum: u8,
-    pub TCPIPv6Checksum: u8,
-    pub UDPIPv6Checksum: u8,
-    pub LsoV1: u8,
-    pub IPsecV1: u8,
-    pub LsoV2IPv4: u8,
-    pub LsoV2IPv6: u8,
-    pub TcpConnectionIPv4: u8,
-    pub TcpConnectionIPv6: u8,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_OFFLOAD_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_OFFLOAD_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_OFFLOAD_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_OFFLOAD_PARAMETERS")
-            .field("Header", &self.Header)
-            .field("IPv4Checksum", &self.IPv4Checksum)
-            .field("TCPIPv4Checksum", &self.TCPIPv4Checksum)
-            .field("UDPIPv4Checksum", &self.UDPIPv4Checksum)
-            .field("TCPIPv6Checksum", &self.TCPIPv6Checksum)
-            .field("UDPIPv6Checksum", &self.UDPIPv6Checksum)
-            .field("LsoV1", &self.LsoV1)
-            .field("IPsecV1", &self.IPsecV1)
-            .field("LsoV2IPv4", &self.LsoV2IPv4)
-            .field("LsoV2IPv6", &self.LsoV2IPv6)
-            .field("TcpConnectionIPv4", &self.TcpConnectionIPv4)
-            .field("TcpConnectionIPv6", &self.TcpConnectionIPv6)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_OFFLOAD_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OFFLOAD_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_OFFLOAD_PARAMETERS {}
-impl ::core::default::Default for NDIS_OFFLOAD_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OFFLOAD_PARAMETERS_CONNECTION_OFFLOAD_DISABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3725,38 +1110,6 @@ pub const NDIS_OFFLOAD_SET_OFF: u32 = 2u32;
 pub const NDIS_OFFLOAD_SET_ON: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OFFLOAD_SUPPORTED: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_OPER_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub OperationalStatus: NET_IF_OPER_STATUS,
-    pub OperationalStatusFlags: u32,
-}
-impl ::core::marker::Copy for NDIS_OPER_STATE {}
-impl ::core::clone::Clone for NDIS_OPER_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_OPER_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_OPER_STATE").field("Header", &self.Header).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_OPER_STATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_OPER_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OPER_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_OPER_STATE {}
-impl ::core::default::Default for NDIS_OPER_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OPER_STATE_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3785,62 +1138,6 @@ pub const NDIS_PACKET_TYPE_PROMISCUOUS: u32 = 32u32;
 pub const NDIS_PACKET_TYPE_SMT: u32 = 64u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PACKET_TYPE_SOURCE_ROUTING: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub DeviceType: u32,
-    pub CurrentSpeedAndMode: u32,
-    pub CurrentPayloadSize: u32,
-    pub MaxPayloadSize: u32,
-    pub MaxReadRequestSize: u32,
-    pub CurrentLinkSpeed: u32,
-    pub CurrentLinkWidth: u32,
-    pub MaxLinkSpeed: u32,
-    pub MaxLinkWidth: u32,
-    pub PciExpressVersion: u32,
-    pub InterruptType: u32,
-    pub MaxInterruptMessages: u32,
-}
-impl ::core::marker::Copy for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
-impl ::core::clone::Clone for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PCI_DEVICE_CUSTOM_PROPERTIES")
-            .field("Header", &self.Header)
-            .field("DeviceType", &self.DeviceType)
-            .field("CurrentSpeedAndMode", &self.CurrentSpeedAndMode)
-            .field("CurrentPayloadSize", &self.CurrentPayloadSize)
-            .field("MaxPayloadSize", &self.MaxPayloadSize)
-            .field("MaxReadRequestSize", &self.MaxReadRequestSize)
-            .field("CurrentLinkSpeed", &self.CurrentLinkSpeed)
-            .field("CurrentLinkWidth", &self.CurrentLinkWidth)
-            .field("MaxLinkSpeed", &self.MaxLinkSpeed)
-            .field("MaxLinkWidth", &self.MaxLinkWidth)
-            .field("PciExpressVersion", &self.PciExpressVersion)
-            .field("InterruptType", &self.InterruptType)
-            .field("MaxInterruptMessages", &self.MaxInterruptMessages)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PCI_DEVICE_CUSTOM_PROPERTIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
-impl ::core::default::Default for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PD_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -3854,73 +1151,6 @@ pub const NDIS_PD_CAPS_RECEIVE_FILTER_COUNTERS_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PD_CONFIG_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumUnspecified: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumWirelessLan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumCableModem: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumPhoneLine: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumPowerLine: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumDSL: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumFibreChannel: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMedium1394: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumWirelessWan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumNative802_11: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumBluetooth: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumInfiniband: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumWiMax: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumUWB: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(13i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMedium802_3: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(14i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMedium802_5: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(15i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumIrda: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(16i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumWiredWAN: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(17i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumWiredCoWan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(18i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumOther: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(19i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumNative802_15_4: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(20i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPhysicalMediumMax: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(21i32);
-impl ::core::marker::Copy for NDIS_PHYSICAL_MEDIUM {}
-impl ::core::clone::Clone for NDIS_PHYSICAL_MEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PHYSICAL_MEDIUM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PHYSICAL_MEDIUM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_PHYSICAL_MEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_PHYSICAL_MEDIUM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_CAPABILITIES_REVISION_2: u32 = 2u32;
@@ -3928,41 +1158,6 @@ pub const NDIS_PM_CAPABILITIES_REVISION_2: u32 = 2u32;
 pub const NDIS_PM_MAX_PATTERN_ID: u32 = 65535u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_MAX_STRING_SIZE: u32 = 64u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PM_PACKET_PATTERN {
-    pub Priority: u32,
-    pub Reserved: u32,
-    pub MaskSize: u32,
-    pub PatternOffset: u32,
-    pub PatternSize: u32,
-    pub PatternFlags: u32,
-}
-impl ::core::marker::Copy for NDIS_PM_PACKET_PATTERN {}
-impl ::core::clone::Clone for NDIS_PM_PACKET_PATTERN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PM_PACKET_PATTERN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PM_PACKET_PATTERN").field("Priority", &self.Priority).field("Reserved", &self.Reserved).field("MaskSize", &self.MaskSize).field("PatternOffset", &self.PatternOffset).field("PatternSize", &self.PatternSize).field("PatternFlags", &self.PatternFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PM_PACKET_PATTERN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PM_PACKET_PATTERN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PM_PACKET_PATTERN {}
-impl ::core::default::Default for NDIS_PM_PACKET_PATTERN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -4009,38 +1204,6 @@ pub const NDIS_PM_WAKE_PACKET_INDICATION_SUPPORTED: u32 = 1u32;
 pub const NDIS_PM_WAKE_PACKET_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_WAKE_REASON_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
-    pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
-    pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
-    pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
-}
-impl ::core::marker::Copy for NDIS_PM_WAKE_UP_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES").field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp).field("MinPatternWakeUp", &self.MinPatternWakeUp).field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PM_WAKE_UP_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PM_WAKE_UP_CAPABILITIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PM_WAKE_UP_CAPABILITIES {}
-impl ::core::default::Default for NDIS_PM_WAKE_UP_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_WOL_BITMAP_PATTERN_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -4079,383 +1242,22 @@ pub const NDIS_PM_WOL_PRIORITY_HIGHEST: u32 = 1u32;
 pub const NDIS_PM_WOL_PRIORITY_LOWEST: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PM_WOL_PRIORITY_NORMAL: u32 = 268435456u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PNP_CAPABILITIES {
-    pub Flags: u32,
-    pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
-}
-impl ::core::marker::Copy for NDIS_PNP_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_PNP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PNP_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PNP_CAPABILITIES").field("Flags", &self.Flags).field("WakeUpCapabilities", &self.WakeUpCapabilities).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PNP_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PNP_CAPABILITIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PNP_CAPABILITIES {}
-impl ::core::default::Default for NDIS_PNP_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PNP_WAKE_UP_LINK_CHANGE: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PORT {
-    pub Next: *mut NDIS_PORT,
-    pub NdisReserved: *mut ::core::ffi::c_void,
-    pub MiniportReserved: *mut ::core::ffi::c_void,
-    pub ProtocolReserved: *mut ::core::ffi::c_void,
-    pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
-}
-impl ::core::marker::Copy for NDIS_PORT {}
-impl ::core::clone::Clone for NDIS_PORT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PORT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PORT").field("Next", &self.Next).field("NdisReserved", &self.NdisReserved).field("MiniportReserved", &self.MiniportReserved).field("ProtocolReserved", &self.ProtocolReserved).field("PortCharacteristics", &self.PortCharacteristics).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PORT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PORT {}
-impl ::core::default::Default for NDIS_PORT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PORT_ARRAY {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub NumberOfPorts: u32,
-    pub OffsetFirstPort: u32,
-    pub ElementSize: u32,
-    pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
-}
-impl ::core::marker::Copy for NDIS_PORT_ARRAY {}
-impl ::core::clone::Clone for NDIS_PORT_ARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PORT_ARRAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PORT_ARRAY").field("Header", &self.Header).field("NumberOfPorts", &self.NumberOfPorts).field("OffsetFirstPort", &self.OffsetFirstPort).field("ElementSize", &self.ElementSize).field("Ports", &self.Ports).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_ARRAY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PORT_ARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_ARRAY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PORT_ARRAY {}
-impl ::core::default::Default for NDIS_PORT_ARRAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PORT_ARRAY_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub SendControlState: NDIS_PORT_CONTROL_STATE,
-    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
-    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-}
-impl ::core::marker::Copy for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS").field("Header", &self.Header).field("SendControlState", &self.SendControlState).field("RcvControlState", &self.RcvControlState).field("SendAuthorizationState", &self.SendAuthorizationState).field("RcvAuthorizationState", &self.RcvAuthorizationState).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_AUTHENTICATION_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
-impl ::core::default::Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortAuthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortUnauthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(3i32);
-impl ::core::marker::Copy for NDIS_PORT_AUTHORIZATION_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_AUTHORIZATION_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PORT_AUTHORIZATION_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHORIZATION_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_PORT_AUTHORIZATION_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_PORT_AUTHORIZATION_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PORT_CHARACTERISTICS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub PortNumber: u32,
-    pub Flags: u32,
-    pub Type: NDIS_PORT_TYPE,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub Direction: NET_IF_DIRECTION_TYPE,
-    pub SendControlState: NDIS_PORT_CONTROL_STATE,
-    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
-    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-}
-impl ::core::marker::Copy for NDIS_PORT_CHARACTERISTICS {}
-impl ::core::clone::Clone for NDIS_PORT_CHARACTERISTICS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PORT_CHARACTERISTICS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PORT_CHARACTERISTICS")
-            .field("Header", &self.Header)
-            .field("PortNumber", &self.PortNumber)
-            .field("Flags", &self.Flags)
-            .field("Type", &self.Type)
-            .field("MediaConnectState", &self.MediaConnectState)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("Direction", &self.Direction)
-            .field("SendControlState", &self.SendControlState)
-            .field("RcvControlState", &self.RcvControlState)
-            .field("SendAuthorizationState", &self.SendAuthorizationState)
-            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_CHARACTERISTICS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PORT_CHARACTERISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_CHARACTERISTICS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PORT_CHARACTERISTICS {}
-impl ::core::default::Default for NDIS_PORT_CHARACTERISTICS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PORT_CHARACTERISTICS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PORT_CHAR_USE_DEFAULT_AUTH_SETTINGS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_PORT_CONTROL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortControlStateUnknown: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortControlStateControlled: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortControlStateUncontrolled: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(2i32);
-impl ::core::marker::Copy for NDIS_PORT_CONTROL_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_CONTROL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PORT_CONTROL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_CONTROL_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_PORT_CONTROL_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_PORT_CONTROL_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_PORT_STATE {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
-    pub XmitLinkSpeed: u64,
-    pub RcvLinkSpeed: u64,
-    pub Direction: NET_IF_DIRECTION_TYPE,
-    pub SendControlState: NDIS_PORT_CONTROL_STATE,
-    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
-    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_PORT_STATE {}
-impl ::core::clone::Clone for NDIS_PORT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_PORT_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_PORT_STATE")
-            .field("Header", &self.Header)
-            .field("MediaConnectState", &self.MediaConnectState)
-            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
-            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
-            .field("Direction", &self.Direction)
-            .field("SendControlState", &self.SendControlState)
-            .field("RcvControlState", &self.RcvControlState)
-            .field("SendAuthorizationState", &self.SendAuthorizationState)
-            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_STATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_PORT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_STATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_PORT_STATE {}
-impl ::core::default::Default for NDIS_PORT_STATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PORT_STATE_REVISION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_PORT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortTypeUndefined: NDIS_PORT_TYPE = NDIS_PORT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortTypeBridge: NDIS_PORT_TYPE = NDIS_PORT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortTypeRasConnection: NDIS_PORT_TYPE = NDIS_PORT_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortType8021xSupplicant: NDIS_PORT_TYPE = NDIS_PORT_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPortTypeMax: NDIS_PORT_TYPE = NDIS_PORT_TYPE(4i32);
-impl ::core::marker::Copy for NDIS_PORT_TYPE {}
-impl ::core::clone::Clone for NDIS_PORT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PORT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PORT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_PORT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_PORT_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_PROCESSOR_VENDOR(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisProcessorVendorUnknown: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisProcessorVendorGenuinIntel: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisProcessorVendorGenuineIntel: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisProcessorVendorAuthenticAMD: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(2i32);
-impl ::core::marker::Copy for NDIS_PROCESSOR_VENDOR {}
-impl ::core::clone::Clone for NDIS_PROCESSOR_VENDOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_PROCESSOR_VENDOR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_PROCESSOR_VENDOR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_PROCESSOR_VENDOR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_PROCESSOR_VENDOR").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PROTOCOL_ID_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -4676,40 +1478,6 @@ pub const NDIS_RECEIVE_HASH_FLAG_ENABLE_HASH: u32 = 1u32;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_INFO_UNCHANGED: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_RECEIVE_HASH_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub HashInformation: u32,
-    pub HashSecretKeySize: u16,
-    pub HashSecretKeyOffset: u32,
-}
-impl ::core::marker::Copy for NDIS_RECEIVE_HASH_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("HashInformation", &self.HashInformation).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_RECEIVE_HASH_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_HASH_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_RECEIVE_HASH_PARAMETERS {}
-impl ::core::default::Default for NDIS_RECEIVE_HASH_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -4748,82 +1516,12 @@ pub const NDIS_RECEIVE_QUEUE_PARAMETERS_REVISION_2: u32 = 2u32;
 pub const NDIS_RECEIVE_QUEUE_PARAMETERS_REVISION_3: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_QUEUE_PARAMETERS_SUGGESTED_RECV_BUFFER_NUMBERS_CHANGED: u32 = 262144u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub CapabilitiesFlags: u32,
-    pub NumberOfInterruptMessages: u32,
-    pub NumberOfReceiveQueues: u32,
-}
-impl ::core::marker::Copy for NDIS_RECEIVE_SCALE_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES").field("Header", &self.Header).field("CapabilitiesFlags", &self.CapabilitiesFlags).field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages).field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_SCALE_CAPABILITIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_RECEIVE_SCALE_CAPABILITIES {}
-impl ::core::default::Default for NDIS_RECEIVE_SCALE_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_2: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_3: u32 = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u16,
-    pub BaseCpuNumber: u16,
-    pub HashInformation: u32,
-    pub IndirectionTableSize: u16,
-    pub IndirectionTableOffset: u32,
-    pub HashSecretKeySize: u16,
-    pub HashSecretKeyOffset: u32,
-}
-impl ::core::marker::Copy for NDIS_RECEIVE_SCALE_PARAMETERS {}
-impl ::core::clone::Clone for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("BaseCpuNumber", &self.BaseCpuNumber).field("HashInformation", &self.HashInformation).field("IndirectionTableSize", &self.IndirectionTableSize).field("IndirectionTableOffset", &self.IndirectionTableOffset).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_PARAMETERS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_SCALE_PARAMETERS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_RECEIVE_SCALE_PARAMETERS {}
-impl ::core::default::Default for NDIS_RECEIVE_SCALE_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_SCALE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -4842,53 +1540,6 @@ pub const NDIS_RECEIVE_SCALE_PARAM_HASH_KEY_CHANGED: u32 = 4u32;
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_ENTRIES_CHANGED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RECEIVE_SCALE_PARAM_NUMBER_OF_QUEUES_CHANGED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_REQUEST_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestQueryInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestSetInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestQueryStatistics: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestOpen: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestClose: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestSend: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestTransferData: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestReset: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestGeneric1: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestGeneric2: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestGeneric3: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisRequestGeneric4: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(11i32);
-impl ::core::marker::Copy for NDIS_REQUEST_TYPE {}
-impl ::core::clone::Clone for NDIS_REQUEST_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_REQUEST_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_REQUEST_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_REQUEST_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_REQUEST_TYPE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_RING_AUTO_REMOVAL_ERROR: u32 = 1024u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -5049,176 +1700,8 @@ pub const NDIS_STATISTICS_FLAGS_VALID_RCV_ERROR: u32 = 32u32;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_DISCARDS: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: u32 = 1024u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_STATISTICS_INFO {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub SupportedStatistics: u32,
-    pub ifInDiscards: u64,
-    pub ifInErrors: u64,
-    pub ifHCInOctets: u64,
-    pub ifHCInUcastPkts: u64,
-    pub ifHCInMulticastPkts: u64,
-    pub ifHCInBroadcastPkts: u64,
-    pub ifHCOutOctets: u64,
-    pub ifHCOutUcastPkts: u64,
-    pub ifHCOutMulticastPkts: u64,
-    pub ifHCOutBroadcastPkts: u64,
-    pub ifOutErrors: u64,
-    pub ifOutDiscards: u64,
-    pub ifHCInUcastOctets: u64,
-    pub ifHCInMulticastOctets: u64,
-    pub ifHCInBroadcastOctets: u64,
-    pub ifHCOutUcastOctets: u64,
-    pub ifHCOutMulticastOctets: u64,
-    pub ifHCOutBroadcastOctets: u64,
-}
-impl ::core::marker::Copy for NDIS_STATISTICS_INFO {}
-impl ::core::clone::Clone for NDIS_STATISTICS_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_STATISTICS_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_STATISTICS_INFO")
-            .field("Header", &self.Header)
-            .field("SupportedStatistics", &self.SupportedStatistics)
-            .field("ifInDiscards", &self.ifInDiscards)
-            .field("ifInErrors", &self.ifInErrors)
-            .field("ifHCInOctets", &self.ifHCInOctets)
-            .field("ifHCInUcastPkts", &self.ifHCInUcastPkts)
-            .field("ifHCInMulticastPkts", &self.ifHCInMulticastPkts)
-            .field("ifHCInBroadcastPkts", &self.ifHCInBroadcastPkts)
-            .field("ifHCOutOctets", &self.ifHCOutOctets)
-            .field("ifHCOutUcastPkts", &self.ifHCOutUcastPkts)
-            .field("ifHCOutMulticastPkts", &self.ifHCOutMulticastPkts)
-            .field("ifHCOutBroadcastPkts", &self.ifHCOutBroadcastPkts)
-            .field("ifOutErrors", &self.ifOutErrors)
-            .field("ifOutDiscards", &self.ifOutDiscards)
-            .field("ifHCInUcastOctets", &self.ifHCInUcastOctets)
-            .field("ifHCInMulticastOctets", &self.ifHCInMulticastOctets)
-            .field("ifHCInBroadcastOctets", &self.ifHCInBroadcastOctets)
-            .field("ifHCOutUcastOctets", &self.ifHCOutUcastOctets)
-            .field("ifHCOutMulticastOctets", &self.ifHCOutMulticastOctets)
-            .field("ifHCOutBroadcastOctets", &self.ifHCOutBroadcastOctets)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_STATISTICS_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_STATISTICS_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_STATISTICS_INFO {}
-impl ::core::default::Default for NDIS_STATISTICS_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_STATISTICS_INFO_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_STATISTICS_VALUE {
-    pub Oid: u32,
-    pub DataLength: u32,
-    pub Data: [u8; 1],
-}
-impl ::core::marker::Copy for NDIS_STATISTICS_VALUE {}
-impl ::core::clone::Clone for NDIS_STATISTICS_VALUE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_STATISTICS_VALUE").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_VALUE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_STATISTICS_VALUE {}
-impl ::core::default::Default for NDIS_STATISTICS_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_STATISTICS_VALUE_EX {
-    pub Oid: u32,
-    pub DataLength: u32,
-    pub Length: u32,
-    pub Data: [u8; 1],
-}
-impl ::core::marker::Copy for NDIS_STATISTICS_VALUE_EX {}
-impl ::core::clone::Clone for NDIS_STATISTICS_VALUE_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_STATISTICS_VALUE_EX").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Length", &self.Length).field("Data", &self.Data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_VALUE_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_STATISTICS_VALUE_EX {}
-impl ::core::default::Default for NDIS_STATISTICS_VALUE_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPauseFunctionsSendOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPauseFunctionsReceiveOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPauseFunctionsSendAndReceive: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisPauseFunctionsUnknown: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(4i32);
-impl ::core::marker::Copy for NDIS_SUPPORTED_PAUSE_FUNCTIONS {}
-impl ::core::clone::Clone for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_SUPPORTED_PAUSE_FUNCTIONS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_SUPPORT_NDIS6: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -5325,777 +1808,16 @@ pub const NDIS_SWITCH_PROPERTY_ENUM_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const NDIS_SWITCH_PROPERTY_PARAMETERS_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_SYSTEM_PROCESSOR_INFO_EX_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_CONNECTION_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-    pub TcpConnectionOffloadCapacity: u32,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_CONNECTION_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_CONNECTION_OFFLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_CONNECTION_OFFLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_CONNECTION_OFFLOAD {}
-impl ::core::default::Default for NDIS_TCP_CONNECTION_OFFLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_2: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
-}
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
-impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub Encapsulation: u32,
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
-}
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
-    pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
-}
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub _bitfield: u32,
-}
-impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_TCP_RECV_SEG_COALESC_OFFLOAD_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub TimeoutArrayLength: u32,
-    pub TimeoutArray: [u32; 1],
-}
-impl ::core::marker::Copy for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
-impl ::core::clone::Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES").field("Header", &self.Header).field("Flags", &self.Flags).field("TimeoutArrayLength", &self.TimeoutArrayLength).field("TimeoutArray", &self.TimeoutArray).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
-impl ::core::default::Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct NDIS_TIMESTAMP_CAPABILITIES {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub HardwareClockFrequencyHz: u64,
-    pub CrossTimestamp: super::super::Foundation::BOOLEAN,
-    pub Reserved1: u64,
-    pub Reserved2: u64,
-    pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TIMESTAMP_CAPABILITIES").field("Header", &self.Header).field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("CrossTimestamp", &self.CrossTimestamp).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("TimestampFlags", &self.TimestampFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITIES {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMESTAMP_CAPABILITIES>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NDIS_TIMESTAMP_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NDIS_TIMESTAMP_CAPABILITIES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv4AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub PtpV2OverUdpIPv6AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
-    pub AllReceiveHw: super::super::Foundation::BOOLEAN,
-    pub AllTransmitHw: super::super::Foundation::BOOLEAN,
-    pub TaggedTransmitHw: super::super::Foundation::BOOLEAN,
-    pub AllReceiveSw: super::super::Foundation::BOOLEAN,
-    pub AllTransmitSw: super::super::Foundation::BOOLEAN,
-    pub TaggedTransmitSw: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_TIMESTAMP_CAPABILITY_FLAGS")
-            .field("PtpV2OverUdpIPv4EventMsgReceiveHw", &self.PtpV2OverUdpIPv4EventMsgReceiveHw)
-            .field("PtpV2OverUdpIPv4AllMsgReceiveHw", &self.PtpV2OverUdpIPv4AllMsgReceiveHw)
-            .field("PtpV2OverUdpIPv4EventMsgTransmitHw", &self.PtpV2OverUdpIPv4EventMsgTransmitHw)
-            .field("PtpV2OverUdpIPv4AllMsgTransmitHw", &self.PtpV2OverUdpIPv4AllMsgTransmitHw)
-            .field("PtpV2OverUdpIPv6EventMsgReceiveHw", &self.PtpV2OverUdpIPv6EventMsgReceiveHw)
-            .field("PtpV2OverUdpIPv6AllMsgReceiveHw", &self.PtpV2OverUdpIPv6AllMsgReceiveHw)
-            .field("PtpV2OverUdpIPv6EventMsgTransmitHw", &self.PtpV2OverUdpIPv6EventMsgTransmitHw)
-            .field("PtpV2OverUdpIPv6AllMsgTransmitHw", &self.PtpV2OverUdpIPv6AllMsgTransmitHw)
-            .field("AllReceiveHw", &self.AllReceiveHw)
-            .field("AllTransmitHw", &self.AllTransmitHw)
-            .field("TaggedTransmitHw", &self.TaggedTransmitHw)
-            .field("AllReceiveSw", &self.AllReceiveSw)
-            .field("AllTransmitSw", &self.AllTransmitSw)
-            .field("TaggedTransmitSw", &self.TaggedTransmitSw)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMESTAMP_CAPABILITY_FLAGS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_VAR_DATA_DESC {
-    pub Length: u16,
-    pub MaximumLength: u16,
-    pub Offset: usize,
-}
-impl ::core::marker::Copy for NDIS_VAR_DATA_DESC {}
-impl ::core::clone::Clone for NDIS_VAR_DATA_DESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_VAR_DATA_DESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_VAR_DATA_DESC").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Offset", &self.Offset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_VAR_DATA_DESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_VAR_DATA_DESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_VAR_DATA_DESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_VAR_DATA_DESC {}
-impl ::core::default::Default for NDIS_VAR_DATA_DESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanHeaderNative: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanHeaderEthernet: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(1i32);
-impl ::core::marker::Copy for NDIS_WAN_HEADER_FORMAT {}
-impl ::core::clone::Clone for NDIS_WAN_HEADER_FORMAT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_WAN_HEADER_FORMAT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WAN_HEADER_FORMAT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_WAN_HEADER_FORMAT").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumHub: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumX_25: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumIsdn: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumSerial: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumFrameRelay: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumAtm: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumSonet: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumSW56K: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(7i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumPPTP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(8i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumL2TP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(9i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumIrda: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(10i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumParallel: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(11i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumPppoe: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(12i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumSSTP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(13i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumAgileVPN: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(14i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumGre: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(15i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanMediumSubTypeMax: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(16i32);
-impl ::core::marker::Copy for NDIS_WAN_MEDIUM_SUBTYPE {}
-impl ::core::clone::Clone for NDIS_WAN_MEDIUM_SUBTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_WAN_MEDIUM_SUBTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WAN_MEDIUM_SUBTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_WAN_MEDIUM_SUBTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_WAN_MEDIUM_SUBTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WAN_PROTOCOL_CAPS {
-    pub Flags: u32,
-    pub Reserved: u32,
-}
-impl ::core::marker::Copy for NDIS_WAN_PROTOCOL_CAPS {}
-impl ::core::clone::Clone for NDIS_WAN_PROTOCOL_CAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WAN_PROTOCOL_CAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WAN_PROTOCOL_CAPS").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WAN_PROTOCOL_CAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WAN_PROTOCOL_CAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WAN_PROTOCOL_CAPS {}
-impl ::core::default::Default for NDIS_WAN_PROTOCOL_CAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDIS_WAN_QUALITY(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanRaw: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanErrorControl: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdisWanReliable: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(2i32);
-impl ::core::marker::Copy for NDIS_WAN_QUALITY {}
-impl ::core::clone::Clone for NDIS_WAN_QUALITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDIS_WAN_QUALITY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WAN_QUALITY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDIS_WAN_QUALITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDIS_WAN_QUALITY").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WLAN_BSSID {
-    pub Length: u32,
-    pub MacAddress: [u8; 6],
-    pub Reserved: [u8; 2],
-    pub Ssid: NDIS_802_11_SSID,
-    pub Privacy: u32,
-    pub Rssi: i32,
-    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
-    pub Configuration: NDIS_802_11_CONFIGURATION,
-    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
-    pub SupportedRates: [u8; 8],
-}
-impl ::core::marker::Copy for NDIS_WLAN_BSSID {}
-impl ::core::clone::Clone for NDIS_WLAN_BSSID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WLAN_BSSID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WLAN_BSSID").field("Length", &self.Length).field("MacAddress", &self.MacAddress).field("Reserved", &self.Reserved).field("Ssid", &self.Ssid).field("Privacy", &self.Privacy).field("Rssi", &self.Rssi).field("NetworkTypeInUse", &self.NetworkTypeInUse).field("Configuration", &self.Configuration).field("InfrastructureMode", &self.InfrastructureMode).field("SupportedRates", &self.SupportedRates).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WLAN_BSSID>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WLAN_BSSID {}
-impl ::core::default::Default for NDIS_WLAN_BSSID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WLAN_BSSID_EX {
-    pub Length: u32,
-    pub MacAddress: [u8; 6],
-    pub Reserved: [u8; 2],
-    pub Ssid: NDIS_802_11_SSID,
-    pub Privacy: u32,
-    pub Rssi: i32,
-    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
-    pub Configuration: NDIS_802_11_CONFIGURATION,
-    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
-    pub SupportedRates: [u8; 16],
-    pub IELength: u32,
-    pub IEs: [u8; 1],
-}
-impl ::core::marker::Copy for NDIS_WLAN_BSSID_EX {}
-impl ::core::clone::Clone for NDIS_WLAN_BSSID_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WLAN_BSSID_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WLAN_BSSID_EX")
-            .field("Length", &self.Length)
-            .field("MacAddress", &self.MacAddress)
-            .field("Reserved", &self.Reserved)
-            .field("Ssid", &self.Ssid)
-            .field("Privacy", &self.Privacy)
-            .field("Rssi", &self.Rssi)
-            .field("NetworkTypeInUse", &self.NetworkTypeInUse)
-            .field("Configuration", &self.Configuration)
-            .field("InfrastructureMode", &self.InfrastructureMode)
-            .field("SupportedRates", &self.SupportedRates)
-            .field("IELength", &self.IELength)
-            .field("IEs", &self.IEs)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WLAN_BSSID_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WLAN_BSSID_EX {}
-impl ::core::default::Default for NDIS_WLAN_BSSID_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WLAN_WAKE_ON_4WAY_HANDSHAKE_REQUEST_ENABLED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -6114,246 +1836,10 @@ pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_ENABLED: u32 = 1u32;
 pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct NDIS_WMI_ENUM_ADAPTER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub IfIndex: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub DeviceNameLength: u16,
-    pub DeviceName: [super::super::Foundation::CHAR; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NDIS_WMI_ENUM_ADAPTER {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NDIS_WMI_ENUM_ADAPTER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_ENUM_ADAPTER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_EVENT_HEADER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub IfIndex: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub RequestId: u64,
-    pub PortNumber: u32,
-    pub DeviceNameLength: u32,
-    pub DeviceNameOffset: u32,
-    pub Padding: [u8; 4],
-}
-impl ::core::marker::Copy for NDIS_WMI_EVENT_HEADER {}
-impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_EVENT_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_EVENT_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_EVENT_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_EVENT_HEADER {}
-impl ::core::default::Default for NDIS_WMI_EVENT_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_EVENT_HEADER_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
-    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
-    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
-}
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
-impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    pub Md5: u32,
-    pub Sha_1: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_0").field("Md5", &self.Md5).field("Sha_1", &self.Sha_1).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
-impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    pub Des: u32,
-    pub Reserved: u32,
-    pub TripleDes: u32,
-    pub NullEsp: u32,
-    pub Transport: u32,
-    pub Tunnel: u32,
-    pub Send: u32,
-    pub Receive: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_1").field("Des", &self.Des).field("Reserved", &self.Reserved).field("TripleDes", &self.TripleDes).field("NullEsp", &self.NullEsp).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
-impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    pub Encapsulation: u32,
-    pub AhEspCombined: u32,
-    pub TransportTunnelCombined: u32,
-    pub IPv4Options: u32,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
-impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
-impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_METHOD_HEADER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub PortNumber: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub RequestId: u64,
-    pub Timeout: u32,
-    pub Padding: [u8; 4],
-}
-impl ::core::marker::Copy for NDIS_WMI_METHOD_HEADER {}
-impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_METHOD_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_METHOD_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_METHOD_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_METHOD_HEADER {}
-impl ::core::default::Default for NDIS_WMI_METHOD_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_METHOD_HEADER_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -6366,74 +1852,6 @@ pub const NDIS_WMI_OBJECT_TYPE_METHOD: u32 = 2u32;
 pub const NDIS_WMI_OBJECT_TYPE_OUTPUT_INFO: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_OBJECT_TYPE_SET: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
-    pub LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
-    pub IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
-    pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_WMI_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_OFFLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_OFFLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_OFFLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_OFFLOAD {}
-impl ::core::default::Default for NDIS_WMI_OFFLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_OUTPUT_INFO {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Flags: u32,
-    pub SupportedRevision: u8,
-    pub DataOffset: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_OUTPUT_INFO {}
-impl ::core::clone::Clone for NDIS_WMI_OUTPUT_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_OUTPUT_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_OUTPUT_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("SupportedRevision", &self.SupportedRevision).field("DataOffset", &self.DataOffset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_OUTPUT_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_OUTPUT_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_OUTPUT_INFO {}
-impl ::core::default::Default for NDIS_WMI_OUTPUT_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_PM_ACTIVE_CAPABILITIES_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -6442,407 +1860,8 @@ pub const NDIS_WMI_PM_ADMIN_CONFIG_REVISION_1: u32 = 1u32;
 pub const NDIS_WMI_RECEIVE_QUEUE_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_RECEIVE_QUEUE_PARAMETERS_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_SET_HEADER {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub PortNumber: u32,
-    pub NetLuid: NET_LUID_LH,
-    pub RequestId: u64,
-    pub Timeout: u32,
-    pub Padding: [u8; 4],
-}
-impl ::core::marker::Copy for NDIS_WMI_SET_HEADER {}
-impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_SET_HEADER {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_SET_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_SET_HEADER>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_SET_HEADER {}
-impl ::core::default::Default for NDIS_WMI_SET_HEADER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    pub Header: NDIS_OBJECT_HEADER,
-    pub Encapsulation: u32,
-    pub SupportIPv4: u32,
-    pub SupportIPv6: u32,
-    pub SupportIPv6ExtensionHeaders: u32,
-    pub SupportSack: u32,
-    pub TcpConnectionOffloadCapacity: u32,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("SupportIPv4", &self.SupportIPv4).field("SupportIPv6", &self.SupportIPv6).field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders).field("SupportSack", &self.SupportSack).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_CONNECTION_OFFLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
-impl ::core::default::Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
-    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
-    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
-    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
-impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
-impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    pub Encapsulation: u32,
-    pub IpOptionsSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-    pub IpChecksum: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
-impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
-impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    pub Encapsulation: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-    pub TcpChecksum: u32,
-    pub UdpChecksum: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
-impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
-impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub TcpOptions: u32,
-    pub IpOptions: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("TcpOptions", &self.TcpOptions).field("IpOptions", &self.IpOptions).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
-impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
-    pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
-impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
-impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    pub Encapsulation: u32,
-    pub MaxOffLoadSize: u32,
-    pub MinSegmentCount: u32,
-    pub IpExtensionHeadersSupported: u32,
-    pub TcpOptionsSupported: u32,
-}
-impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
-impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WWAN_WAKE_ON_PACKET_STATE_ENABLED: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -6877,522 +1896,8 @@ pub const NDK_ADAPTER_FLAG_MULTI_ENGINE_SUPPORTED: u32 = 8u32;
 pub const NDK_ADAPTER_FLAG_RDMA_READ_LOCAL_INVALIDATE_SUPPORTED: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDK_ADAPTER_FLAG_RDMA_READ_SINK_NOT_REQUIRED: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDK_ADAPTER_INFO {
-    pub Version: NDK_VERSION,
-    pub VendorId: u32,
-    pub DeviceId: u32,
-    pub MaxRegistrationSize: usize,
-    pub MaxWindowSize: usize,
-    pub FRMRPageCount: u32,
-    pub MaxInitiatorRequestSge: u32,
-    pub MaxReceiveRequestSge: u32,
-    pub MaxReadRequestSge: u32,
-    pub MaxTransferLength: u32,
-    pub MaxInlineDataSize: u32,
-    pub MaxInboundReadLimit: u32,
-    pub MaxOutboundReadLimit: u32,
-    pub MaxReceiveQueueDepth: u32,
-    pub MaxInitiatorQueueDepth: u32,
-    pub MaxSrqDepth: u32,
-    pub MaxCqDepth: u32,
-    pub LargeRequestThreshold: u32,
-    pub MaxCallerData: u32,
-    pub MaxCalleeData: u32,
-    pub AdapterFlags: u32,
-    pub RdmaTechnology: NDK_RDMA_TECHNOLOGY,
-}
-impl ::core::marker::Copy for NDK_ADAPTER_INFO {}
-impl ::core::clone::Clone for NDK_ADAPTER_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDK_ADAPTER_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDK_ADAPTER_INFO")
-            .field("Version", &self.Version)
-            .field("VendorId", &self.VendorId)
-            .field("DeviceId", &self.DeviceId)
-            .field("MaxRegistrationSize", &self.MaxRegistrationSize)
-            .field("MaxWindowSize", &self.MaxWindowSize)
-            .field("FRMRPageCount", &self.FRMRPageCount)
-            .field("MaxInitiatorRequestSge", &self.MaxInitiatorRequestSge)
-            .field("MaxReceiveRequestSge", &self.MaxReceiveRequestSge)
-            .field("MaxReadRequestSge", &self.MaxReadRequestSge)
-            .field("MaxTransferLength", &self.MaxTransferLength)
-            .field("MaxInlineDataSize", &self.MaxInlineDataSize)
-            .field("MaxInboundReadLimit", &self.MaxInboundReadLimit)
-            .field("MaxOutboundReadLimit", &self.MaxOutboundReadLimit)
-            .field("MaxReceiveQueueDepth", &self.MaxReceiveQueueDepth)
-            .field("MaxInitiatorQueueDepth", &self.MaxInitiatorQueueDepth)
-            .field("MaxSrqDepth", &self.MaxSrqDepth)
-            .field("MaxCqDepth", &self.MaxCqDepth)
-            .field("LargeRequestThreshold", &self.LargeRequestThreshold)
-            .field("MaxCallerData", &self.MaxCallerData)
-            .field("MaxCalleeData", &self.MaxCalleeData)
-            .field("AdapterFlags", &self.AdapterFlags)
-            .field("RdmaTechnology", &self.RdmaTechnology)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDK_ADAPTER_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDK_ADAPTER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDK_ADAPTER_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDK_ADAPTER_INFO {}
-impl ::core::default::Default for NDK_ADAPTER_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NDK_RDMA_TECHNOLOGY(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdkUndefined: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdkiWarp: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdkInfiniBand: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdkRoCE: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdkRoCEv2: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NdkMaxTechnology: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(5i32);
-impl ::core::marker::Copy for NDK_RDMA_TECHNOLOGY {}
-impl ::core::clone::Clone for NDK_RDMA_TECHNOLOGY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NDK_RDMA_TECHNOLOGY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NDK_RDMA_TECHNOLOGY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NDK_RDMA_TECHNOLOGY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NDK_RDMA_TECHNOLOGY").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NDK_VERSION {
-    pub Major: u16,
-    pub Minor: u16,
-}
-impl ::core::marker::Copy for NDK_VERSION {}
-impl ::core::clone::Clone for NDK_VERSION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NDK_VERSION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NDK_VERSION").field("Major", &self.Major).field("Minor", &self.Minor).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NDK_VERSION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NDK_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDK_VERSION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NDK_VERSION {}
-impl ::core::default::Default for NDK_VERSION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NETWORK_ADDRESS {
-    pub AddressLength: u16,
-    pub AddressType: u16,
-    pub Address: [u8; 1],
-}
-impl ::core::marker::Copy for NETWORK_ADDRESS {}
-impl ::core::clone::Clone for NETWORK_ADDRESS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETWORK_ADDRESS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS").field("AddressLength", &self.AddressLength).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETWORK_ADDRESS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETWORK_ADDRESS {}
-impl ::core::default::Default for NETWORK_ADDRESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NETWORK_ADDRESS_IP {
-    pub sin_port: u16,
-    pub IN_ADDR: u32,
-    pub sin_zero: [u8; 8],
-}
-impl ::core::marker::Copy for NETWORK_ADDRESS_IP {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_IP {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETWORK_ADDRESS_IP {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_IP").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IP>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETWORK_ADDRESS_IP {}
-impl ::core::default::Default for NETWORK_ADDRESS_IP {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NETWORK_ADDRESS_IP6 {
-    pub sin6_port: u16,
-    pub sin6_flowinfo: u32,
-    pub sin6_addr: [u16; 8],
-    pub sin6_scope_id: u32,
-}
-impl ::core::marker::Copy for NETWORK_ADDRESS_IP6 {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_IP6 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETWORK_ADDRESS_IP6 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_IP6").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP6 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IP6>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETWORK_ADDRESS_IP6 {}
-impl ::core::default::Default for NETWORK_ADDRESS_IP6 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NETWORK_ADDRESS_IPX {
-    pub NetworkAddress: u32,
-    pub NodeAddress: [u8; 6],
-    pub Socket: u16,
-}
-impl ::core::marker::Copy for NETWORK_ADDRESS_IPX {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_IPX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETWORK_ADDRESS_IPX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_IPX").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IPX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IPX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IPX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETWORK_ADDRESS_IPX {}
-impl ::core::default::Default for NETWORK_ADDRESS_IPX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NETWORK_ADDRESS_LIST {
-    pub AddressCount: i32,
-    pub AddressType: u16,
-    pub Address: [NETWORK_ADDRESS; 1],
-}
-impl ::core::marker::Copy for NETWORK_ADDRESS_LIST {}
-impl ::core::clone::Clone for NETWORK_ADDRESS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NETWORK_ADDRESS_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NETWORK_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NETWORK_ADDRESS_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NETWORK_ADDRESS_LIST {}
-impl ::core::default::Default for NETWORK_ADDRESS_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_ACCESS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(5i32);
-impl ::core::marker::Copy for NET_IF_ACCESS_TYPE {}
-impl ::core::clone::Clone for NET_IF_ACCESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_ACCESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_ACCESS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_ACCESS_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_ADMIN_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(3i32);
-impl ::core::marker::Copy for NET_IF_ADMIN_STATUS {}
-impl ::core::clone::Clone for NET_IF_ADMIN_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_ADMIN_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_ADMIN_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_ADMIN_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_ADMIN_STATUS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NET_IF_ALIAS_LH {
-    pub ifAliasLength: u16,
-    pub ifAliasOffset: u16,
-}
-impl ::core::marker::Copy for NET_IF_ALIAS_LH {}
-impl ::core::clone::Clone for NET_IF_ALIAS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_IF_ALIAS_LH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_IF_ALIAS_LH").field("ifAliasLength", &self.ifAliasLength).field("ifAliasOffset", &self.ifAliasOffset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_ALIAS_LH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_IF_ALIAS_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_IF_ALIAS_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_IF_ALIAS_LH {}
-impl ::core::default::Default for NET_IF_ALIAS_LH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_CONNECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(4i32);
-impl ::core::marker::Copy for NET_IF_CONNECTION_TYPE {}
-impl ::core::clone::Clone for NET_IF_CONNECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_CONNECTION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_CONNECTION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_DIRECTION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(3i32);
-impl ::core::marker::Copy for NET_IF_DIRECTION_TYPE {}
-impl ::core::clone::Clone for NET_IF_DIRECTION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_DIRECTION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_DIRECTION_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(2i32);
-impl ::core::marker::Copy for NET_IF_MEDIA_CONNECT_STATE {}
-impl ::core::clone::Clone for NET_IF_MEDIA_CONNECT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_MEDIA_CONNECT_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_MEDIA_CONNECT_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(2i32);
-impl ::core::marker::Copy for NET_IF_MEDIA_DUPLEX_STATE {}
-impl ::core::clone::Clone for NET_IF_MEDIA_DUPLEX_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_MEDIA_DUPLEX_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_MEDIA_DUPLEX_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_MEDIA_DUPLEX_STATE").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -7402,43 +1907,6 @@ pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_OPER_STATUS(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_TESTING: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(4i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(5i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(6i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(7i32);
-impl ::core::marker::Copy for NET_IF_OPER_STATUS {}
-impl ::core::clone::Clone for NET_IF_OPER_STATUS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_OPER_STATUS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_OPER_STATUS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_OPER_STATUS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_OPER_STATUS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
@@ -7446,155 +1914,6 @@ pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
 pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NET_IF_RCV_ADDRESS_LH {
-    pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
-    pub ifRcvAddressLength: u16,
-    pub ifRcvAddressOffset: u16,
-}
-impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_LH {}
-impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_LH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_IF_RCV_ADDRESS_LH").field("ifRcvAddressType", &self.ifRcvAddressType).field("ifRcvAddressLength", &self.ifRcvAddressLength).field("ifRcvAddressOffset", &self.ifRcvAddressOffset).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_LH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_IF_RCV_ADDRESS_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_IF_RCV_ADDRESS_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_IF_RCV_ADDRESS_LH {}
-impl ::core::default::Default for NET_IF_RCV_ADDRESS_LH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(3i32);
-impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_TYPE {}
-impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NET_IF_RCV_ADDRESS_TYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub union NET_LUID_LH {
-    pub Value: u64,
-    pub Info: NET_LUID_LH_0,
-}
-impl ::core::marker::Copy for NET_LUID_LH {}
-impl ::core::clone::Clone for NET_LUID_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for NET_LUID_LH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_LUID_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_LUID_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_LUID_LH {}
-impl ::core::default::Default for NET_LUID_LH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NET_LUID_LH_0 {
-    pub _bitfield: u64,
-}
-impl ::core::marker::Copy for NET_LUID_LH_0 {}
-impl ::core::clone::Clone for NET_LUID_LH_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_LUID_LH_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_LUID_LH_0").field("_bitfield", &self._bitfield).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_LUID_LH_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_LUID_LH_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_LUID_LH_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_LUID_LH_0 {}
-impl ::core::default::Default for NET_LUID_LH_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct NET_PHYSICAL_LOCATION_LH {
-    pub BusNumber: u32,
-    pub SlotNumber: u32,
-    pub FunctionNumber: u32,
-}
-impl ::core::marker::Copy for NET_PHYSICAL_LOCATION_LH {}
-impl ::core::clone::Clone for NET_PHYSICAL_LOCATION_LH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for NET_PHYSICAL_LOCATION_LH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("NET_PHYSICAL_LOCATION_LH").field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("FunctionNumber", &self.FunctionNumber).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for NET_PHYSICAL_LOCATION_LH {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for NET_PHYSICAL_LOCATION_LH {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_PHYSICAL_LOCATION_LH>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for NET_PHYSICAL_LOCATION_LH {}
-impl ::core::default::Default for NET_PHYSICAL_LOCATION_LH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NET_SITEID_MAXSYSTEM: u32 = 268435455u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -7627,417 +1946,12 @@ pub const NdisHashFunctionReserved2: u32 = 4u32;
 pub const NdisHashFunctionReserved3: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisHashFunctionToeplitz: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct OFFLOAD_ALGO_INFO {
-    pub algoIdentifier: u32,
-    pub algoKeylen: u32,
-    pub algoRounds: u32,
-}
-impl ::core::marker::Copy for OFFLOAD_ALGO_INFO {}
-impl ::core::clone::Clone for OFFLOAD_ALGO_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OFFLOAD_ALGO_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_ALGO_INFO").field("algoIdentifier", &self.algoIdentifier).field("algoKeylen", &self.algoKeylen).field("algoRounds", &self.algoRounds).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OFFLOAD_ALGO_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OFFLOAD_ALGO_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_ALGO_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OFFLOAD_ALGO_INFO {}
-impl ::core::default::Default for OFFLOAD_ALGO_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OFFLOAD_CONF_ALGO(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_CONF_DES: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_CONF_3_DES: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(3i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_CONF_MAX: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(4i32);
-impl ::core::marker::Copy for OFFLOAD_CONF_ALGO {}
-impl ::core::clone::Clone for OFFLOAD_CONF_ALGO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLOAD_CONF_ALGO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OFFLOAD_CONF_ALGO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OFFLOAD_CONF_ALGO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OFFLOAD_CONF_ALGO").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_INBOUND_SA: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_INTEGRITY_SHA: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const OFFLOAD_IPSEC_INTEGRITY_MAX: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(3i32);
-impl ::core::marker::Copy for OFFLOAD_INTEGRITY_ALGO {}
-impl ::core::clone::Clone for OFFLOAD_INTEGRITY_ALGO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLOAD_INTEGRITY_ALGO {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OFFLOAD_INTEGRITY_ALGO {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OFFLOAD_INTEGRITY_ALGO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OFFLOAD_INTEGRITY_ALGO").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFFLOAD_IPSEC_ADD_SA {
-    pub SrcAddr: u32,
-    pub SrcMask: u32,
-    pub DestAddr: u32,
-    pub DestMask: u32,
-    pub Protocol: u32,
-    pub SrcPort: u16,
-    pub DestPort: u16,
-    pub SrcTunnelAddr: u32,
-    pub DestTunnelAddr: u32,
-    pub Flags: u16,
-    pub NumSAs: i16,
-    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-    pub KeyLen: u32,
-    pub KeyMat: [u8; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_SA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_ADD_SA")
-            .field("SrcAddr", &self.SrcAddr)
-            .field("SrcMask", &self.SrcMask)
-            .field("DestAddr", &self.DestAddr)
-            .field("DestMask", &self.DestMask)
-            .field("Protocol", &self.Protocol)
-            .field("SrcPort", &self.SrcPort)
-            .field("DestPort", &self.DestPort)
-            .field("SrcTunnelAddr", &self.SrcTunnelAddr)
-            .field("DestTunnelAddr", &self.DestTunnelAddr)
-            .field("Flags", &self.Flags)
-            .field("NumSAs", &self.NumSAs)
-            .field("SecAssoc", &self.SecAssoc)
-            .field("OffloadHandle", &self.OffloadHandle)
-            .field("KeyLen", &self.KeyLen)
-            .field("KeyMat", &self.KeyMat)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_SA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_SA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_ADD_SA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFFLOAD_IPSEC_ADD_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFFLOAD_IPSEC_ADD_SA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    pub SrcAddr: u32,
-    pub SrcMask: u32,
-    pub DstAddr: u32,
-    pub DstMask: u32,
-    pub Protocol: u32,
-    pub SrcPort: u16,
-    pub DstPort: u16,
-    pub SrcTunnelAddr: u32,
-    pub DstTunnelAddr: u32,
-    pub Flags: u16,
-    pub NumSAs: i16,
-    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-    pub EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
-    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
-    pub KeyLen: u32,
-    pub KeyMat: [u8; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_ADD_UDPESP_SA")
-            .field("SrcAddr", &self.SrcAddr)
-            .field("SrcMask", &self.SrcMask)
-            .field("DstAddr", &self.DstAddr)
-            .field("DstMask", &self.DstMask)
-            .field("Protocol", &self.Protocol)
-            .field("SrcPort", &self.SrcPort)
-            .field("DstPort", &self.DstPort)
-            .field("SrcTunnelAddr", &self.SrcTunnelAddr)
-            .field("DstTunnelAddr", &self.DstTunnelAddr)
-            .field("Flags", &self.Flags)
-            .field("NumSAs", &self.NumSAs)
-            .field("SecAssoc", &self.SecAssoc)
-            .field("OffloadHandle", &self.OffloadHandle)
-            .field("EncapTypeEntry", &self.EncapTypeEntry)
-            .field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle)
-            .field("KeyLen", &self.KeyLen)
-            .field("KeyMat", &self.KeyMat)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_ADD_UDPESP_SA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFFLOAD_IPSEC_ADD_UDPESP_SA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFFLOAD_IPSEC_DELETE_SA {
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_SA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_DELETE_SA").field("OffloadHandle", &self.OffloadHandle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_SA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_SA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_DELETE_SA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFFLOAD_IPSEC_DELETE_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFFLOAD_IPSEC_DELETE_SA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    pub OffloadHandle: super::super::Foundation::HANDLE,
-    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_DELETE_UDPESP_SA").field("OffloadHandle", &self.OffloadHandle).field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_DELETE_UDPESP_SA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    pub UdpEncapType: UDP_ENCAP_TYPE,
-    pub DstEncapPort: u16,
-}
-impl ::core::marker::Copy for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
-impl ::core::clone::Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY").field("UdpEncapType", &self.UdpEncapType).field("DstEncapPort", &self.DstEncapPort).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
-impl ::core::default::Default for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_MAX_SAS: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OFFLOAD_OPERATION_E(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const ENCRYPT: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(2i32);
-impl ::core::marker::Copy for OFFLOAD_OPERATION_E {}
-impl ::core::clone::Clone for OFFLOAD_OPERATION_E {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OFFLOAD_OPERATION_E {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OFFLOAD_OPERATION_E {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OFFLOAD_OPERATION_E {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OFFLOAD_OPERATION_E").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_OUTBOUND_SA: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct OFFLOAD_SECURITY_ASSOCIATION {
-    pub Operation: OFFLOAD_OPERATION_E,
-    pub SPI: u32,
-    pub IntegrityAlgo: OFFLOAD_ALGO_INFO,
-    pub ConfAlgo: OFFLOAD_ALGO_INFO,
-    pub Reserved: OFFLOAD_ALGO_INFO,
-}
-impl ::core::marker::Copy for OFFLOAD_SECURITY_ASSOCIATION {}
-impl ::core::clone::Clone for OFFLOAD_SECURITY_ASSOCIATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for OFFLOAD_SECURITY_ASSOCIATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("OFFLOAD_SECURITY_ASSOCIATION").field("Operation", &self.Operation).field("SPI", &self.SPI).field("IntegrityAlgo", &self.IntegrityAlgo).field("ConfAlgo", &self.ConfAlgo).field("Reserved", &self.Reserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for OFFLOAD_SECURITY_ASSOCIATION {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_SECURITY_ASSOCIATION>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for OFFLOAD_SECURITY_ASSOCIATION {}
-impl ::core::default::Default for OFFLOAD_SECURITY_ASSOCIATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OID_1394_LOCAL_NODE_INFO: u32 = 201392385u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -9578,37 +3492,6 @@ pub const OID_WWAN_VENDOR_SPECIFIC: u32 = 234946836u32;
 pub const OID_WWAN_VISIBLE_PROVIDERS: u32 = 234946824u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OID_XBOX_ACC_RESERVED0: u32 = 4194304000u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct PMKID_CANDIDATE {
-    pub BSSID: [u8; 6],
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for PMKID_CANDIDATE {}
-impl ::core::clone::Clone for PMKID_CANDIDATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for PMKID_CANDIDATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PMKID_CANDIDATE").field("BSSID", &self.BSSID).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for PMKID_CANDIDATE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for PMKID_CANDIDATE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PMKID_CANDIDATE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for PMKID_CANDIDATE {}
-impl ::core::default::Default for PMKID_CANDIDATE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const READABLE_LOCAL_CLOCK: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -9617,35 +3500,1575 @@ pub const RECEIVE_TIME_INDICATION_CAPABLE: u32 = 8u32;
 pub const TIMED_SEND_CAPABLE: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const TIME_STAMP_CAPABLE: u32 = 32u32;
-#[repr(C)]
+pub const UNSPECIFIED_NETWORK_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ba5bde_143e_4c0d_b66d_2379bb141913);
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct TRANSPORT_HEADER_OFFSET {
-    pub ProtocolType: u16,
-    pub HeaderOffset: u16,
-}
-impl ::core::marker::Copy for TRANSPORT_HEADER_OFFSET {}
-impl ::core::clone::Clone for TRANSPORT_HEADER_OFFSET {
+pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_ALLOW_READ: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_ALLOW_WRITE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_ANSI_STRING: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_ARRAY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_METHOD: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_NDIS_RESERVED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_SUPPORT_COMMON_HEADER: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_TO_OID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_TO_STATUS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const fNDIS_GUID_UNICODE_STRING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IF_ADMINISTRATIVE_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = IF_ADMINISTRATIVE_STATE(2i32);
+impl ::core::marker::Copy for IF_ADMINISTRATIVE_STATE {}
+impl ::core::clone::Clone for IF_ADMINISTRATIVE_STATE {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::fmt::Debug for TRANSPORT_HEADER_OFFSET {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TRANSPORT_HEADER_OFFSET").field("ProtocolType", &self.ProtocolType).field("HeaderOffset", &self.HeaderOffset).finish()
+impl ::core::default::Default for IF_ADMINISTRATIVE_STATE {
+    fn default() -> Self {
+        Self(0)
     }
 }
-unsafe impl ::windows::core::Abi for TRANSPORT_HEADER_OFFSET {
+unsafe impl ::windows::core::Abi for IF_ADMINISTRATIVE_STATE {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSPORT_HEADER_OFFSET>()) == 0 }
+impl ::core::fmt::Debug for IF_ADMINISTRATIVE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IF_ADMINISTRATIVE_STATE").field(&self.0).finish()
     }
 }
-impl ::core::cmp::Eq for TRANSPORT_HEADER_OFFSET {}
-impl ::core::default::Default for TRANSPORT_HEADER_OFFSET {
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IF_OPER_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusUp: IF_OPER_STATUS = IF_OPER_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusDown: IF_OPER_STATUS = IF_OPER_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusTesting: IF_OPER_STATUS = IF_OPER_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusUnknown: IF_OPER_STATUS = IF_OPER_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusDormant: IF_OPER_STATUS = IF_OPER_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusNotPresent: IF_OPER_STATUS = IF_OPER_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = IF_OPER_STATUS(7i32);
+impl ::core::marker::Copy for IF_OPER_STATUS {}
+impl ::core::clone::Clone for IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IF_OPER_STATUS {
     fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IF_OPER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IF_OPER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IF_OPER_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_AUTHENTICATION_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeOpen: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeShared: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeAutoSwitch: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPAPSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPANone: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA2: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA2PSK: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA3: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA3Ent192: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA3SAE: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeWPA3Ent: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AuthModeMax: NDIS_802_11_AUTHENTICATION_MODE = NDIS_802_11_AUTHENTICATION_MODE(11i32);
+impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_MODE {}
+impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_AUTHENTICATION_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_MEDIA_STREAM_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11MediaStreamOff: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11MediaStreamOn: NDIS_802_11_MEDIA_STREAM_MODE = NDIS_802_11_MEDIA_STREAM_MODE(1i32);
+impl ::core::marker::Copy for NDIS_802_11_MEDIA_STREAM_MODE {}
+impl ::core::clone::Clone for NDIS_802_11_MEDIA_STREAM_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_MEDIA_STREAM_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_MEDIA_STREAM_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_MEDIA_STREAM_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_MEDIA_STREAM_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_NETWORK_INFRASTRUCTURE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11IBSS: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Infrastructure: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11AutoUnknown: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11InfrastructureMax: NDIS_802_11_NETWORK_INFRASTRUCTURE = NDIS_802_11_NETWORK_INFRASTRUCTURE(3i32);
+impl ::core::marker::Copy for NDIS_802_11_NETWORK_INFRASTRUCTURE {}
+impl ::core::clone::Clone for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_NETWORK_INFRASTRUCTURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_NETWORK_INFRASTRUCTURE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_NETWORK_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11FH: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11DS: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11OFDM5: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11OFDM24: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Automode: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11NetworkTypeMax: NDIS_802_11_NETWORK_TYPE = NDIS_802_11_NETWORK_TYPE(5i32);
+impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE {}
+impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_NETWORK_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_POWER_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11PowerModeCAM: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11PowerModeMAX_PSP: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11PowerModeFast_PSP: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11PowerModeMax: NDIS_802_11_POWER_MODE = NDIS_802_11_POWER_MODE(3i32);
+impl ::core::marker::Copy for NDIS_802_11_POWER_MODE {}
+impl ::core::clone::Clone for NDIS_802_11_POWER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_POWER_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_POWER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_POWER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_POWER_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_PRIVACY_FILTER(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11PrivFilterAcceptAll: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11PrivFilter8021xWEP: NDIS_802_11_PRIVACY_FILTER = NDIS_802_11_PRIVACY_FILTER(1i32);
+impl ::core::marker::Copy for NDIS_802_11_PRIVACY_FILTER {}
+impl ::core::clone::Clone for NDIS_802_11_PRIVACY_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_PRIVACY_FILTER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_PRIVACY_FILTER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_PRIVACY_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_PRIVACY_FILTER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_RADIO_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11RadioStatusOn: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11RadioStatusHardwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11RadioStatusSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11RadioStatusHardwareSoftwareOff: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11RadioStatusMax: NDIS_802_11_RADIO_STATUS = NDIS_802_11_RADIO_STATUS(4i32);
+impl ::core::marker::Copy for NDIS_802_11_RADIO_STATUS {}
+impl ::core::clone::Clone for NDIS_802_11_RADIO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_RADIO_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_RADIO_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_RADIO_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_RADIO_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_RELOAD_DEFAULTS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11ReloadWEPKeys: NDIS_802_11_RELOAD_DEFAULTS = NDIS_802_11_RELOAD_DEFAULTS(0i32);
+impl ::core::marker::Copy for NDIS_802_11_RELOAD_DEFAULTS {}
+impl ::core::clone::Clone for NDIS_802_11_RELOAD_DEFAULTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_RELOAD_DEFAULTS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_RELOAD_DEFAULTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_RELOAD_DEFAULTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_RELOAD_DEFAULTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_STATUS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11StatusType_Authentication: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11StatusType_MediaStreamMode: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11StatusType_PMKID_CandidateList: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11StatusTypeMax: NDIS_802_11_STATUS_TYPE = NDIS_802_11_STATUS_TYPE(3i32);
+impl ::core::marker::Copy for NDIS_802_11_STATUS_TYPE {}
+impl ::core::clone::Clone for NDIS_802_11_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_STATUS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_STATUS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_STATUS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_11_WEP_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11WEPEnabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Encryption1Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11WEPDisabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11EncryptionDisabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11WEPKeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Encryption1KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11WEPNotSupported: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11EncryptionNotSupported: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Encryption2Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Encryption2KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Encryption3Enabled: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const Ndis802_11Encryption3KeyAbsent: NDIS_802_11_WEP_STATUS = NDIS_802_11_WEP_STATUS(7i32);
+impl ::core::marker::Copy for NDIS_802_11_WEP_STATUS {}
+impl ::core::clone::Clone for NDIS_802_11_WEP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_11_WEP_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_WEP_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_11_WEP_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_11_WEP_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_802_5_RING_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRingStateOpened: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRingStateClosed: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRingStateOpening: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRingStateClosing: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRingStateOpenFailure: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRingStateRingFailure: NDIS_802_5_RING_STATE = NDIS_802_5_RING_STATE(6i32);
+impl ::core::marker::Copy for NDIS_802_5_RING_STATE {}
+impl ::core::clone::Clone for NDIS_802_5_RING_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_802_5_RING_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_5_RING_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_802_5_RING_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_802_5_RING_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_DEVICE_POWER_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDeviceStateUnspecified: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDeviceStateD0: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDeviceStateD1: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDeviceStateD2: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDeviceStateD3: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDeviceStateMaximum: NDIS_DEVICE_POWER_STATE = NDIS_DEVICE_POWER_STATE(5i32);
+impl ::core::marker::Copy for NDIS_DEVICE_POWER_STATE {}
+impl ::core::clone::Clone for NDIS_DEVICE_POWER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_DEVICE_POWER_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_DEVICE_POWER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_DEVICE_POWER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_DEVICE_POWER_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_FDDI_ATTACHMENT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeIsolated: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeLocalA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeLocalB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeLocalAB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeLocalS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeWrapA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeWrapB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeWrapAB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeWrapS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeCWrapA: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeCWrapB: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeCWrapS: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiTypeThrough: NDIS_FDDI_ATTACHMENT_TYPE = NDIS_FDDI_ATTACHMENT_TYPE(13i32);
+impl ::core::marker::Copy for NDIS_FDDI_ATTACHMENT_TYPE {}
+impl ::core::clone::Clone for NDIS_FDDI_ATTACHMENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_FDDI_ATTACHMENT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_FDDI_ATTACHMENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_FDDI_ATTACHMENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_FDDI_ATTACHMENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_FDDI_LCONNECTION_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateOff: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateBreak: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateTrace: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateConnect: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateNext: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateSignal: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateJoin: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateVerify: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateActive: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiStateMaintenance: NDIS_FDDI_LCONNECTION_STATE = NDIS_FDDI_LCONNECTION_STATE(10i32);
+impl ::core::marker::Copy for NDIS_FDDI_LCONNECTION_STATE {}
+impl ::core::clone::Clone for NDIS_FDDI_LCONNECTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_FDDI_LCONNECTION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_FDDI_LCONNECTION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_FDDI_LCONNECTION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_FDDI_LCONNECTION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_FDDI_RING_MGT_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingIsolated: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingNonOperational: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingOperational: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingDetect: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingNonOperationalDup: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingOperationalDup: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingDirected: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisFddiRingTrace: NDIS_FDDI_RING_MGT_STATE = NDIS_FDDI_RING_MGT_STATE(8i32);
+impl ::core::marker::Copy for NDIS_FDDI_RING_MGT_STATE {}
+impl ::core::clone::Clone for NDIS_FDDI_RING_MGT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_FDDI_RING_MGT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_FDDI_RING_MGT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_FDDI_RING_MGT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_FDDI_RING_MGT_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_HARDWARE_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisHardwareStatusReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisHardwareStatusInitializing: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisHardwareStatusReset: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisHardwareStatusClosing: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisHardwareStatusNotReady: NDIS_HARDWARE_STATUS = NDIS_HARDWARE_STATUS(4i32);
+impl ::core::marker::Copy for NDIS_HARDWARE_STATUS {}
+impl ::core::clone::Clone for NDIS_HARDWARE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_HARDWARE_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_HARDWARE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_HARDWARE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_HARDWARE_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_INTERRUPT_MODERATION(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisInterruptModerationUnknown: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisInterruptModerationNotSupported: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisInterruptModerationEnabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisInterruptModerationDisabled: NDIS_INTERRUPT_MODERATION = NDIS_INTERRUPT_MODERATION(3i32);
+impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION {}
+impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_INTERRUPT_MODERATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_INTERRUPT_MODERATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_MEDIA_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediaStateConnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediaStateDisconnected: NDIS_MEDIA_STATE = NDIS_MEDIA_STATE(1i32);
+impl ::core::marker::Copy for NDIS_MEDIA_STATE {}
+impl ::core::clone::Clone for NDIS_MEDIA_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_MEDIA_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_MEDIA_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_MEDIA_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_MEDIA_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_MEDIUM(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMedium802_3: NDIS_MEDIUM = NDIS_MEDIUM(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMedium802_5: NDIS_MEDIUM = NDIS_MEDIUM(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumFddi: NDIS_MEDIUM = NDIS_MEDIUM(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumWan: NDIS_MEDIUM = NDIS_MEDIUM(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumLocalTalk: NDIS_MEDIUM = NDIS_MEDIUM(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumDix: NDIS_MEDIUM = NDIS_MEDIUM(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumArcnetRaw: NDIS_MEDIUM = NDIS_MEDIUM(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumArcnet878_2: NDIS_MEDIUM = NDIS_MEDIUM(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumAtm: NDIS_MEDIUM = NDIS_MEDIUM(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumWirelessWan: NDIS_MEDIUM = NDIS_MEDIUM(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumIrda: NDIS_MEDIUM = NDIS_MEDIUM(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumBpc: NDIS_MEDIUM = NDIS_MEDIUM(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumCoWan: NDIS_MEDIUM = NDIS_MEDIUM(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMedium1394: NDIS_MEDIUM = NDIS_MEDIUM(13i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumInfiniBand: NDIS_MEDIUM = NDIS_MEDIUM(14i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumTunnel: NDIS_MEDIUM = NDIS_MEDIUM(15i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumNative802_11: NDIS_MEDIUM = NDIS_MEDIUM(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumLoopback: NDIS_MEDIUM = NDIS_MEDIUM(17i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumWiMAX: NDIS_MEDIUM = NDIS_MEDIUM(18i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumIP: NDIS_MEDIUM = NDIS_MEDIUM(19i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisMediumMax: NDIS_MEDIUM = NDIS_MEDIUM(20i32);
+impl ::core::marker::Copy for NDIS_MEDIUM {}
+impl ::core::clone::Clone for NDIS_MEDIUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_MEDIUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_MEDIUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_MEDIUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_MEDIUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_NETWORK_CHANGE_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPossibleNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisDefinitelyNetworkChange: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisNetworkChangeFromMediaConnect: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisNetworkChangeMax: NDIS_NETWORK_CHANGE_TYPE = NDIS_NETWORK_CHANGE_TYPE(4i32);
+impl ::core::marker::Copy for NDIS_NETWORK_CHANGE_TYPE {}
+impl ::core::clone::Clone for NDIS_NETWORK_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_NETWORK_CHANGE_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_NETWORK_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_NETWORK_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_NETWORK_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_PHYSICAL_MEDIUM(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumUnspecified: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumWirelessLan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumCableModem: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumPhoneLine: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumPowerLine: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumDSL: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumFibreChannel: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMedium1394: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumWirelessWan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumNative802_11: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumBluetooth: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumInfiniband: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumWiMax: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumUWB: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(13i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMedium802_3: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(14i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMedium802_5: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(15i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumIrda: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(16i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumWiredWAN: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(17i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumWiredCoWan: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(18i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumOther: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(19i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumNative802_15_4: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(20i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPhysicalMediumMax: NDIS_PHYSICAL_MEDIUM = NDIS_PHYSICAL_MEDIUM(21i32);
+impl ::core::marker::Copy for NDIS_PHYSICAL_MEDIUM {}
+impl ::core::clone::Clone for NDIS_PHYSICAL_MEDIUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_PHYSICAL_MEDIUM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PHYSICAL_MEDIUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_PHYSICAL_MEDIUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_PHYSICAL_MEDIUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_PORT_AUTHORIZATION_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortAuthorizationUnknown: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortAuthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortUnauthorized: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE = NDIS_PORT_AUTHORIZATION_STATE(3i32);
+impl ::core::marker::Copy for NDIS_PORT_AUTHORIZATION_STATE {}
+impl ::core::clone::Clone for NDIS_PORT_AUTHORIZATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_PORT_AUTHORIZATION_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHORIZATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_PORT_AUTHORIZATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_PORT_AUTHORIZATION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_PORT_CONTROL_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortControlStateUnknown: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortControlStateControlled: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortControlStateUncontrolled: NDIS_PORT_CONTROL_STATE = NDIS_PORT_CONTROL_STATE(2i32);
+impl ::core::marker::Copy for NDIS_PORT_CONTROL_STATE {}
+impl ::core::clone::Clone for NDIS_PORT_CONTROL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_PORT_CONTROL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_CONTROL_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_PORT_CONTROL_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_PORT_CONTROL_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_PORT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortTypeUndefined: NDIS_PORT_TYPE = NDIS_PORT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortTypeBridge: NDIS_PORT_TYPE = NDIS_PORT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortTypeRasConnection: NDIS_PORT_TYPE = NDIS_PORT_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortType8021xSupplicant: NDIS_PORT_TYPE = NDIS_PORT_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPortTypeMax: NDIS_PORT_TYPE = NDIS_PORT_TYPE(4i32);
+impl ::core::marker::Copy for NDIS_PORT_TYPE {}
+impl ::core::clone::Clone for NDIS_PORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_PORT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_PORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_PORT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_PROCESSOR_VENDOR(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisProcessorVendorUnknown: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisProcessorVendorGenuinIntel: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisProcessorVendorGenuineIntel: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisProcessorVendorAuthenticAMD: NDIS_PROCESSOR_VENDOR = NDIS_PROCESSOR_VENDOR(2i32);
+impl ::core::marker::Copy for NDIS_PROCESSOR_VENDOR {}
+impl ::core::clone::Clone for NDIS_PROCESSOR_VENDOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_PROCESSOR_VENDOR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PROCESSOR_VENDOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_PROCESSOR_VENDOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_PROCESSOR_VENDOR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_REQUEST_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestQueryInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestSetInformation: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestQueryStatistics: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestOpen: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestClose: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestSend: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestTransferData: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestReset: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestGeneric1: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestGeneric2: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestGeneric3: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisRequestGeneric4: NDIS_REQUEST_TYPE = NDIS_REQUEST_TYPE(11i32);
+impl ::core::marker::Copy for NDIS_REQUEST_TYPE {}
+impl ::core::clone::Clone for NDIS_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_REQUEST_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_REQUEST_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_REQUEST_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_SUPPORTED_PAUSE_FUNCTIONS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPauseFunctionsUnsupported: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPauseFunctionsSendOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPauseFunctionsReceiveOnly: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPauseFunctionsSendAndReceive: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisPauseFunctionsUnknown: NDIS_SUPPORTED_PAUSE_FUNCTIONS = NDIS_SUPPORTED_PAUSE_FUNCTIONS(4i32);
+impl ::core::marker::Copy for NDIS_SUPPORTED_PAUSE_FUNCTIONS {}
+impl ::core::clone::Clone for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_SUPPORTED_PAUSE_FUNCTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_SUPPORTED_PAUSE_FUNCTIONS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_WAN_HEADER_FORMAT(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanHeaderNative: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanHeaderEthernet: NDIS_WAN_HEADER_FORMAT = NDIS_WAN_HEADER_FORMAT(1i32);
+impl ::core::marker::Copy for NDIS_WAN_HEADER_FORMAT {}
+impl ::core::clone::Clone for NDIS_WAN_HEADER_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_WAN_HEADER_FORMAT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WAN_HEADER_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_WAN_HEADER_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_WAN_HEADER_FORMAT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_WAN_MEDIUM_SUBTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumHub: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumX_25: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumIsdn: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumSerial: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumFrameRelay: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumAtm: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumSonet: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumSW56K: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(7i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumPPTP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(8i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumL2TP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(9i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumIrda: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(10i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumParallel: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(11i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumPppoe: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(12i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumSSTP: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(13i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumAgileVPN: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(14i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumGre: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(15i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanMediumSubTypeMax: NDIS_WAN_MEDIUM_SUBTYPE = NDIS_WAN_MEDIUM_SUBTYPE(16i32);
+impl ::core::marker::Copy for NDIS_WAN_MEDIUM_SUBTYPE {}
+impl ::core::clone::Clone for NDIS_WAN_MEDIUM_SUBTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_WAN_MEDIUM_SUBTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WAN_MEDIUM_SUBTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_WAN_MEDIUM_SUBTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_WAN_MEDIUM_SUBTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDIS_WAN_QUALITY(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanRaw: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanErrorControl: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdisWanReliable: NDIS_WAN_QUALITY = NDIS_WAN_QUALITY(2i32);
+impl ::core::marker::Copy for NDIS_WAN_QUALITY {}
+impl ::core::clone::Clone for NDIS_WAN_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDIS_WAN_QUALITY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WAN_QUALITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDIS_WAN_QUALITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDIS_WAN_QUALITY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NDK_RDMA_TECHNOLOGY(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdkUndefined: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdkiWarp: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdkInfiniBand: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdkRoCE: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdkRoCEv2: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NdkMaxTechnology: NDK_RDMA_TECHNOLOGY = NDK_RDMA_TECHNOLOGY(5i32);
+impl ::core::marker::Copy for NDK_RDMA_TECHNOLOGY {}
+impl ::core::clone::Clone for NDK_RDMA_TECHNOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NDK_RDMA_TECHNOLOGY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NDK_RDMA_TECHNOLOGY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NDK_RDMA_TECHNOLOGY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NDK_RDMA_TECHNOLOGY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_ACCESS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = NET_IF_ACCESS_TYPE(5i32);
+impl ::core::marker::Copy for NET_IF_ACCESS_TYPE {}
+impl ::core::clone::Clone for NET_IF_ACCESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_ACCESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_ACCESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_ACCESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_ACCESS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_ADMIN_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = NET_IF_ADMIN_STATUS(3i32);
+impl ::core::marker::Copy for NET_IF_ADMIN_STATUS {}
+impl ::core::clone::Clone for NET_IF_ADMIN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_ADMIN_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_ADMIN_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_ADMIN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_ADMIN_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_CONNECTION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = NET_IF_CONNECTION_TYPE(4i32);
+impl ::core::marker::Copy for NET_IF_CONNECTION_TYPE {}
+impl ::core::clone::Clone for NET_IF_CONNECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_CONNECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_CONNECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_CONNECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_CONNECTION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_DIRECTION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = NET_IF_DIRECTION_TYPE(3i32);
+impl ::core::marker::Copy for NET_IF_DIRECTION_TYPE {}
+impl ::core::clone::Clone for NET_IF_DIRECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_DIRECTION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_DIRECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_DIRECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_DIRECTION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_MEDIA_CONNECT_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = NET_IF_MEDIA_CONNECT_STATE(2i32);
+impl ::core::marker::Copy for NET_IF_MEDIA_CONNECT_STATE {}
+impl ::core::clone::Clone for NET_IF_MEDIA_CONNECT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_MEDIA_CONNECT_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_MEDIA_CONNECT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_MEDIA_CONNECT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_MEDIA_CONNECT_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_MEDIA_DUPLEX_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = NET_IF_MEDIA_DUPLEX_STATE(2i32);
+impl ::core::marker::Copy for NET_IF_MEDIA_DUPLEX_STATE {}
+impl ::core::clone::Clone for NET_IF_MEDIA_DUPLEX_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_MEDIA_DUPLEX_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_MEDIA_DUPLEX_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_MEDIA_DUPLEX_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_MEDIA_DUPLEX_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_OPER_STATUS(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_TESTING: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(4i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(5i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(6i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = NET_IF_OPER_STATUS(7i32);
+impl ::core::marker::Copy for NET_IF_OPER_STATUS {}
+impl ::core::clone::Clone for NET_IF_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_OPER_STATUS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_OPER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_OPER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_OPER_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NET_IF_RCV_ADDRESS_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = NET_IF_RCV_ADDRESS_TYPE(3i32);
+impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_TYPE {}
+impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NET_IF_RCV_ADDRESS_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_IF_RCV_ADDRESS_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OFFLOAD_CONF_ALGO(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_CONF_DES: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_CONF_3_DES: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(3i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_CONF_MAX: OFFLOAD_CONF_ALGO = OFFLOAD_CONF_ALGO(4i32);
+impl ::core::marker::Copy for OFFLOAD_CONF_ALGO {}
+impl ::core::clone::Clone for OFFLOAD_CONF_ALGO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OFFLOAD_CONF_ALGO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLOAD_CONF_ALGO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLOAD_CONF_ALGO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLOAD_CONF_ALGO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OFFLOAD_INTEGRITY_ALGO(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_INTEGRITY_SHA: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const OFFLOAD_IPSEC_INTEGRITY_MAX: OFFLOAD_INTEGRITY_ALGO = OFFLOAD_INTEGRITY_ALGO(3i32);
+impl ::core::marker::Copy for OFFLOAD_INTEGRITY_ALGO {}
+impl ::core::clone::Clone for OFFLOAD_INTEGRITY_ALGO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OFFLOAD_INTEGRITY_ALGO {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLOAD_INTEGRITY_ALGO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLOAD_INTEGRITY_ALGO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLOAD_INTEGRITY_ALGO").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OFFLOAD_OPERATION_E(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const AUTHENTICATE: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const ENCRYPT: OFFLOAD_OPERATION_E = OFFLOAD_OPERATION_E(2i32);
+impl ::core::marker::Copy for OFFLOAD_OPERATION_E {}
+impl ::core::clone::Clone for OFFLOAD_OPERATION_E {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OFFLOAD_OPERATION_E {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLOAD_OPERATION_E {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLOAD_OPERATION_E {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLOAD_OPERATION_E").field(&self.0).finish()
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -9712,28 +5135,4605 @@ impl ::core::fmt::Debug for UDP_ENCAP_TYPE {
         f.debug_tuple("UDP_ENCAP_TYPE").field(&self.0).finish()
     }
 }
-pub const UNSPECIFIED_NETWORK_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ba5bde_143e_4c0d_b66d_2379bb141913);
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
+pub struct BSSID_INFO {
+    pub BSSID: [u8; 6],
+    pub PMKID: [u8; 16],
+}
+impl ::core::marker::Copy for BSSID_INFO {}
+impl ::core::clone::Clone for BSSID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BSSID_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BSSID_INFO").field("BSSID", &self.BSSID).field("PMKID", &self.PMKID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BSSID_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BSSID_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BSSID_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BSSID_INFO {}
+impl ::core::default::Default for BSSID_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_ALLOW_READ: u32 = 32u32;
+pub struct GEN_GET_NETCARD_TIME {
+    pub ReadTime: u64,
+}
+impl ::core::marker::Copy for GEN_GET_NETCARD_TIME {}
+impl ::core::clone::Clone for GEN_GET_NETCARD_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GEN_GET_NETCARD_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GEN_GET_NETCARD_TIME").field("ReadTime", &self.ReadTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GEN_GET_NETCARD_TIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GEN_GET_NETCARD_TIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GEN_GET_NETCARD_TIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GEN_GET_NETCARD_TIME {}
+impl ::core::default::Default for GEN_GET_NETCARD_TIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_ALLOW_WRITE: u32 = 64u32;
+pub struct GEN_GET_TIME_CAPS {
+    pub Flags: u32,
+    pub ClockPrecision: u32,
+}
+impl ::core::marker::Copy for GEN_GET_TIME_CAPS {}
+impl ::core::clone::Clone for GEN_GET_TIME_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for GEN_GET_TIME_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("GEN_GET_TIME_CAPS").field("Flags", &self.Flags).field("ClockPrecision", &self.ClockPrecision).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for GEN_GET_TIME_CAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GEN_GET_TIME_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GEN_GET_TIME_CAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GEN_GET_TIME_CAPS {}
+impl ::core::default::Default for GEN_GET_TIME_CAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_ANSI_STRING: u32 = 4u32;
+pub struct IF_COUNTED_STRING_LH {
+    pub Length: u16,
+    pub String: [u16; 257],
+}
+impl ::core::marker::Copy for IF_COUNTED_STRING_LH {}
+impl ::core::clone::Clone for IF_COUNTED_STRING_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IF_COUNTED_STRING_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IF_COUNTED_STRING_LH").field("Length", &self.Length).field("String", &self.String).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IF_COUNTED_STRING_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IF_COUNTED_STRING_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IF_COUNTED_STRING_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IF_COUNTED_STRING_LH {}
+impl ::core::default::Default for IF_COUNTED_STRING_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_ARRAY: u32 = 16u32;
+pub struct IF_PHYSICAL_ADDRESS_LH {
+    pub Length: u16,
+    pub Address: [u8; 32],
+}
+impl ::core::marker::Copy for IF_PHYSICAL_ADDRESS_LH {}
+impl ::core::clone::Clone for IF_PHYSICAL_ADDRESS_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IF_PHYSICAL_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IF_PHYSICAL_ADDRESS_LH").field("Length", &self.Length).field("Address", &self.Address).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IF_PHYSICAL_ADDRESS_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IF_PHYSICAL_ADDRESS_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IF_PHYSICAL_ADDRESS_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IF_PHYSICAL_ADDRESS_LH {}
+impl ::core::default::Default for IF_PHYSICAL_ADDRESS_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_METHOD: u32 = 128u32;
+pub struct NDIS_802_11_AI_REQFI {
+    pub Capabilities: u16,
+    pub ListenInterval: u16,
+    pub CurrentAPAddress: [u8; 6],
+}
+impl ::core::marker::Copy for NDIS_802_11_AI_REQFI {}
+impl ::core::clone::Clone for NDIS_802_11_AI_REQFI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_AI_REQFI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_AI_REQFI").field("Capabilities", &self.Capabilities).field("ListenInterval", &self.ListenInterval).field("CurrentAPAddress", &self.CurrentAPAddress).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_AI_REQFI {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_AI_REQFI {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AI_REQFI>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_AI_REQFI {}
+impl ::core::default::Default for NDIS_802_11_AI_REQFI {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_NDIS_RESERVED: u32 = 256u32;
+pub struct NDIS_802_11_AI_RESFI {
+    pub Capabilities: u16,
+    pub StatusCode: u16,
+    pub AssociationId: u16,
+}
+impl ::core::marker::Copy for NDIS_802_11_AI_RESFI {}
+impl ::core::clone::Clone for NDIS_802_11_AI_RESFI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_AI_RESFI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_AI_RESFI").field("Capabilities", &self.Capabilities).field("StatusCode", &self.StatusCode).field("AssociationId", &self.AssociationId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_AI_RESFI {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_AI_RESFI {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AI_RESFI>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_AI_RESFI {}
+impl ::core::default::Default for NDIS_802_11_AI_RESFI {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_SUPPORT_COMMON_HEADER: u32 = 512u32;
+pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
+    pub Length: u32,
+    pub AvailableRequestFixedIEs: u16,
+    pub RequestFixedIEs: NDIS_802_11_AI_REQFI,
+    pub RequestIELength: u32,
+    pub OffsetRequestIEs: u32,
+    pub AvailableResponseFixedIEs: u16,
+    pub ResponseFixedIEs: NDIS_802_11_AI_RESFI,
+    pub ResponseIELength: u32,
+    pub OffsetResponseIEs: u32,
+}
+impl ::core::marker::Copy for NDIS_802_11_ASSOCIATION_INFORMATION {}
+impl ::core::clone::Clone for NDIS_802_11_ASSOCIATION_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_ASSOCIATION_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_ASSOCIATION_INFORMATION")
+            .field("Length", &self.Length)
+            .field("AvailableRequestFixedIEs", &self.AvailableRequestFixedIEs)
+            .field("RequestFixedIEs", &self.RequestFixedIEs)
+            .field("RequestIELength", &self.RequestIELength)
+            .field("OffsetRequestIEs", &self.OffsetRequestIEs)
+            .field("AvailableResponseFixedIEs", &self.AvailableResponseFixedIEs)
+            .field("ResponseFixedIEs", &self.ResponseFixedIEs)
+            .field("ResponseIELength", &self.ResponseIELength)
+            .field("OffsetResponseIEs", &self.OffsetResponseIEs)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_ASSOCIATION_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_ASSOCIATION_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_ASSOCIATION_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_ASSOCIATION_INFORMATION {}
+impl ::core::default::Default for NDIS_802_11_ASSOCIATION_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_TO_OID: u32 = 1u32;
+pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
+    pub EncryptStatusSupported: NDIS_802_11_WEP_STATUS,
+}
+impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
+impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_AUTHENTICATION_ENCRYPTION").field("AuthModeSupported", &self.AuthModeSupported).field("EncryptStatusSupported", &self.EncryptStatusSupported).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_ENCRYPTION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_ENCRYPTION {}
+impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_ENCRYPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_TO_STATUS: u32 = 2u32;
+pub struct NDIS_802_11_AUTHENTICATION_EVENT {
+    pub Status: NDIS_802_11_STATUS_INDICATION,
+    pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_EVENT {}
+impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_AUTHENTICATION_EVENT").field("Status", &self.Status).field("Request", &self.Request).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_EVENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_EVENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_EVENT {}
+impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_EVENT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const fNDIS_GUID_UNICODE_STRING: u32 = 8u32;
+pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
+    pub Length: u32,
+    pub Bssid: [u8; 6],
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_802_11_AUTHENTICATION_REQUEST {}
+impl ::core::clone::Clone for NDIS_802_11_AUTHENTICATION_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_AUTHENTICATION_REQUEST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_AUTHENTICATION_REQUEST").field("Length", &self.Length).field("Bssid", &self.Bssid).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_AUTHENTICATION_REQUEST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_AUTHENTICATION_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_AUTHENTICATION_REQUEST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_AUTHENTICATION_REQUEST {}
+impl ::core::default::Default for NDIS_802_11_AUTHENTICATION_REQUEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_BSSID_LIST {
+    pub NumberOfItems: u32,
+    pub Bssid: [NDIS_WLAN_BSSID; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_BSSID_LIST {}
+impl ::core::clone::Clone for NDIS_802_11_BSSID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_BSSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_BSSID_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_BSSID_LIST {}
+impl ::core::default::Default for NDIS_802_11_BSSID_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_BSSID_LIST_EX {
+    pub NumberOfItems: u32,
+    pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_BSSID_LIST_EX {}
+impl ::core::clone::Clone for NDIS_802_11_BSSID_LIST_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_BSSID_LIST_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_BSSID_LIST_EX").field("NumberOfItems", &self.NumberOfItems).field("Bssid", &self.Bssid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_BSSID_LIST_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_BSSID_LIST_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_BSSID_LIST_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_BSSID_LIST_EX {}
+impl ::core::default::Default for NDIS_802_11_BSSID_LIST_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_CAPABILITY {
+    pub Length: u32,
+    pub Version: u32,
+    pub NoOfPMKIDs: u32,
+    pub NoOfAuthEncryptPairsSupported: u32,
+    pub AuthenticationEncryptionSupported: [NDIS_802_11_AUTHENTICATION_ENCRYPTION; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_CAPABILITY {}
+impl ::core::clone::Clone for NDIS_802_11_CAPABILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_CAPABILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_CAPABILITY").field("Length", &self.Length).field("Version", &self.Version).field("NoOfPMKIDs", &self.NoOfPMKIDs).field("NoOfAuthEncryptPairsSupported", &self.NoOfAuthEncryptPairsSupported).field("AuthenticationEncryptionSupported", &self.AuthenticationEncryptionSupported).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_CAPABILITY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_CAPABILITY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CAPABILITY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_CAPABILITY {}
+impl ::core::default::Default for NDIS_802_11_CAPABILITY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_CONFIGURATION {
+    pub Length: u32,
+    pub BeaconPeriod: u32,
+    pub ATIMWindow: u32,
+    pub DSConfig: u32,
+    pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
+}
+impl ::core::marker::Copy for NDIS_802_11_CONFIGURATION {}
+impl ::core::clone::Clone for NDIS_802_11_CONFIGURATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_CONFIGURATION").field("Length", &self.Length).field("BeaconPeriod", &self.BeaconPeriod).field("ATIMWindow", &self.ATIMWindow).field("DSConfig", &self.DSConfig).field("FHConfig", &self.FHConfig).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CONFIGURATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_CONFIGURATION {}
+impl ::core::default::Default for NDIS_802_11_CONFIGURATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_CONFIGURATION_FH {
+    pub Length: u32,
+    pub HopPattern: u32,
+    pub HopSet: u32,
+    pub DwellTime: u32,
+}
+impl ::core::marker::Copy for NDIS_802_11_CONFIGURATION_FH {}
+impl ::core::clone::Clone for NDIS_802_11_CONFIGURATION_FH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_CONFIGURATION_FH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_CONFIGURATION_FH").field("Length", &self.Length).field("HopPattern", &self.HopPattern).field("HopSet", &self.HopSet).field("DwellTime", &self.DwellTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_CONFIGURATION_FH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_CONFIGURATION_FH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_CONFIGURATION_FH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_CONFIGURATION_FH {}
+impl ::core::default::Default for NDIS_802_11_CONFIGURATION_FH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_FIXED_IEs {
+    pub Timestamp: [u8; 8],
+    pub BeaconInterval: u16,
+    pub Capabilities: u16,
+}
+impl ::core::marker::Copy for NDIS_802_11_FIXED_IEs {}
+impl ::core::clone::Clone for NDIS_802_11_FIXED_IEs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_FIXED_IEs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_FIXED_IEs").field("Timestamp", &self.Timestamp).field("BeaconInterval", &self.BeaconInterval).field("Capabilities", &self.Capabilities).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_FIXED_IEs {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_FIXED_IEs {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_FIXED_IEs>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_FIXED_IEs {}
+impl ::core::default::Default for NDIS_802_11_FIXED_IEs {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_KEY {
+    pub Length: u32,
+    pub KeyIndex: u32,
+    pub KeyLength: u32,
+    pub BSSID: [u8; 6],
+    pub KeyRSC: u64,
+    pub KeyMaterial: [u8; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_KEY {}
+impl ::core::clone::Clone for NDIS_802_11_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("BSSID", &self.BSSID).field("KeyRSC", &self.KeyRSC).field("KeyMaterial", &self.KeyMaterial).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_KEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_KEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_KEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_KEY {}
+impl ::core::default::Default for NDIS_802_11_KEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_NETWORK_TYPE_LIST {
+    pub NumberOfItems: u32,
+    pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_NETWORK_TYPE_LIST {}
+impl ::core::clone::Clone for NDIS_802_11_NETWORK_TYPE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_NETWORK_TYPE_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_NETWORK_TYPE_LIST").field("NumberOfItems", &self.NumberOfItems).field("NetworkType", &self.NetworkType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_NETWORK_TYPE_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_NETWORK_TYPE_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_NETWORK_TYPE_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_NETWORK_TYPE_LIST {}
+impl ::core::default::Default for NDIS_802_11_NETWORK_TYPE_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
+    pub NumberOfItems: u32,
+    pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_NON_BCAST_SSID_LIST {}
+impl ::core::clone::Clone for NDIS_802_11_NON_BCAST_SSID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_NON_BCAST_SSID_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_NON_BCAST_SSID_LIST").field("NumberOfItems", &self.NumberOfItems).field("Non_Bcast_Ssid", &self.Non_Bcast_Ssid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_NON_BCAST_SSID_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_NON_BCAST_SSID_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_NON_BCAST_SSID_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_NON_BCAST_SSID_LIST {}
+impl ::core::default::Default for NDIS_802_11_NON_BCAST_SSID_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_PMKID {
+    pub Length: u32,
+    pub BSSIDInfoCount: u32,
+    pub BSSIDInfo: [BSSID_INFO; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_PMKID {}
+impl ::core::clone::Clone for NDIS_802_11_PMKID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_PMKID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_PMKID").field("Length", &self.Length).field("BSSIDInfoCount", &self.BSSIDInfoCount).field("BSSIDInfo", &self.BSSIDInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_PMKID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_PMKID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_PMKID {}
+impl ::core::default::Default for NDIS_802_11_PMKID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
+    pub Version: u32,
+    pub NumCandidates: u32,
+    pub CandidateList: [PMKID_CANDIDATE; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_PMKID_CANDIDATE_LIST {}
+impl ::core::clone::Clone for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_PMKID_CANDIDATE_LIST").field("Version", &self.Version).field("NumCandidates", &self.NumCandidates).field("CandidateList", &self.CandidateList).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_PMKID_CANDIDATE_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_PMKID_CANDIDATE_LIST {}
+impl ::core::default::Default for NDIS_802_11_PMKID_CANDIDATE_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_REMOVE_KEY {
+    pub Length: u32,
+    pub KeyIndex: u32,
+    pub BSSID: [u8; 6],
+}
+impl ::core::marker::Copy for NDIS_802_11_REMOVE_KEY {}
+impl ::core::clone::Clone for NDIS_802_11_REMOVE_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_REMOVE_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_REMOVE_KEY").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("BSSID", &self.BSSID).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_REMOVE_KEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_REMOVE_KEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_REMOVE_KEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_REMOVE_KEY {}
+impl ::core::default::Default for NDIS_802_11_REMOVE_KEY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_SSID {
+    pub SsidLength: u32,
+    pub Ssid: [u8; 32],
+}
+impl ::core::marker::Copy for NDIS_802_11_SSID {}
+impl ::core::clone::Clone for NDIS_802_11_SSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_SSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_SSID").field("SsidLength", &self.SsidLength).field("Ssid", &self.Ssid).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_SSID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_SSID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_SSID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_SSID {}
+impl ::core::default::Default for NDIS_802_11_SSID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_STATISTICS {
+    pub Length: u32,
+    pub TransmittedFragmentCount: i64,
+    pub MulticastTransmittedFrameCount: i64,
+    pub FailedCount: i64,
+    pub RetryCount: i64,
+    pub MultipleRetryCount: i64,
+    pub RTSSuccessCount: i64,
+    pub RTSFailureCount: i64,
+    pub ACKFailureCount: i64,
+    pub FrameDuplicateCount: i64,
+    pub ReceivedFragmentCount: i64,
+    pub MulticastReceivedFrameCount: i64,
+    pub FCSErrorCount: i64,
+    pub TKIPLocalMICFailures: i64,
+    pub TKIPICVErrorCount: i64,
+    pub TKIPCounterMeasuresInvoked: i64,
+    pub TKIPReplays: i64,
+    pub CCMPFormatErrors: i64,
+    pub CCMPReplays: i64,
+    pub CCMPDecryptErrors: i64,
+    pub FourWayHandshakeFailures: i64,
+    pub WEPUndecryptableCount: i64,
+    pub WEPICVErrorCount: i64,
+    pub DecryptSuccessCount: i64,
+    pub DecryptFailureCount: i64,
+}
+impl ::core::marker::Copy for NDIS_802_11_STATISTICS {}
+impl ::core::clone::Clone for NDIS_802_11_STATISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_STATISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_STATISTICS")
+            .field("Length", &self.Length)
+            .field("TransmittedFragmentCount", &self.TransmittedFragmentCount)
+            .field("MulticastTransmittedFrameCount", &self.MulticastTransmittedFrameCount)
+            .field("FailedCount", &self.FailedCount)
+            .field("RetryCount", &self.RetryCount)
+            .field("MultipleRetryCount", &self.MultipleRetryCount)
+            .field("RTSSuccessCount", &self.RTSSuccessCount)
+            .field("RTSFailureCount", &self.RTSFailureCount)
+            .field("ACKFailureCount", &self.ACKFailureCount)
+            .field("FrameDuplicateCount", &self.FrameDuplicateCount)
+            .field("ReceivedFragmentCount", &self.ReceivedFragmentCount)
+            .field("MulticastReceivedFrameCount", &self.MulticastReceivedFrameCount)
+            .field("FCSErrorCount", &self.FCSErrorCount)
+            .field("TKIPLocalMICFailures", &self.TKIPLocalMICFailures)
+            .field("TKIPICVErrorCount", &self.TKIPICVErrorCount)
+            .field("TKIPCounterMeasuresInvoked", &self.TKIPCounterMeasuresInvoked)
+            .field("TKIPReplays", &self.TKIPReplays)
+            .field("CCMPFormatErrors", &self.CCMPFormatErrors)
+            .field("CCMPReplays", &self.CCMPReplays)
+            .field("CCMPDecryptErrors", &self.CCMPDecryptErrors)
+            .field("FourWayHandshakeFailures", &self.FourWayHandshakeFailures)
+            .field("WEPUndecryptableCount", &self.WEPUndecryptableCount)
+            .field("WEPICVErrorCount", &self.WEPICVErrorCount)
+            .field("DecryptSuccessCount", &self.DecryptSuccessCount)
+            .field("DecryptFailureCount", &self.DecryptFailureCount)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_STATISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_STATISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_STATISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_STATISTICS {}
+impl ::core::default::Default for NDIS_802_11_STATISTICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_STATUS_INDICATION {
+    pub StatusType: NDIS_802_11_STATUS_TYPE,
+}
+impl ::core::marker::Copy for NDIS_802_11_STATUS_INDICATION {}
+impl ::core::clone::Clone for NDIS_802_11_STATUS_INDICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_STATUS_INDICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_STATUS_INDICATION").field("StatusType", &self.StatusType).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_STATUS_INDICATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_STATUS_INDICATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_STATUS_INDICATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_STATUS_INDICATION {}
+impl ::core::default::Default for NDIS_802_11_STATUS_INDICATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_TEST {
+    pub Length: u32,
+    pub Type: u32,
+    pub Anonymous: NDIS_802_11_TEST_0,
+}
+impl ::core::marker::Copy for NDIS_802_11_TEST {}
+impl ::core::clone::Clone for NDIS_802_11_TEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_TEST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_TEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_TEST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_TEST {}
+impl ::core::default::Default for NDIS_802_11_TEST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub union NDIS_802_11_TEST_0 {
+    pub AuthenticationEvent: NDIS_802_11_AUTHENTICATION_EVENT,
+    pub RssiTrigger: i32,
+}
+impl ::core::marker::Copy for NDIS_802_11_TEST_0 {}
+impl ::core::clone::Clone for NDIS_802_11_TEST_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_TEST_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_TEST_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_TEST_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_TEST_0 {}
+impl ::core::default::Default for NDIS_802_11_TEST_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_VARIABLE_IEs {
+    pub ElementID: u8,
+    pub Length: u8,
+    pub data: [u8; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_VARIABLE_IEs {}
+impl ::core::clone::Clone for NDIS_802_11_VARIABLE_IEs {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_VARIABLE_IEs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_VARIABLE_IEs").field("ElementID", &self.ElementID).field("Length", &self.Length).field("data", &self.data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_VARIABLE_IEs {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_VARIABLE_IEs {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_VARIABLE_IEs>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_VARIABLE_IEs {}
+impl ::core::default::Default for NDIS_802_11_VARIABLE_IEs {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_802_11_WEP {
+    pub Length: u32,
+    pub KeyIndex: u32,
+    pub KeyLength: u32,
+    pub KeyMaterial: [u8; 1],
+}
+impl ::core::marker::Copy for NDIS_802_11_WEP {}
+impl ::core::clone::Clone for NDIS_802_11_WEP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_802_11_WEP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_802_11_WEP").field("Length", &self.Length).field("KeyIndex", &self.KeyIndex).field("KeyLength", &self.KeyLength).field("KeyMaterial", &self.KeyMaterial).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_802_11_WEP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_802_11_WEP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_802_11_WEP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_802_11_WEP {}
+impl ::core::default::Default for NDIS_802_11_WEP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_CO_DEVICE_PROFILE {
+    pub DeviceDescription: NDIS_VAR_DATA_DESC,
+    pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
+    pub ulTAPISupplementaryPassThru: u32,
+    pub ulAddressModes: u32,
+    pub ulNumAddresses: u32,
+    pub ulBearerModes: u32,
+    pub ulMaxTxRate: u32,
+    pub ulMinTxRate: u32,
+    pub ulMaxRxRate: u32,
+    pub ulMinRxRate: u32,
+    pub ulMediaModes: u32,
+    pub ulGenerateToneModes: u32,
+    pub ulGenerateToneMaxNumFreq: u32,
+    pub ulGenerateDigitModes: u32,
+    pub ulMonitorToneMaxNumFreq: u32,
+    pub ulMonitorToneMaxNumEntries: u32,
+    pub ulMonitorDigitModes: u32,
+    pub ulGatherDigitsMinTimeout: u32,
+    pub ulGatherDigitsMaxTimeout: u32,
+    pub ulDevCapFlags: u32,
+    pub ulMaxNumActiveCalls: u32,
+    pub ulAnswerMode: u32,
+    pub ulUUIAcceptSize: u32,
+    pub ulUUIAnswerSize: u32,
+    pub ulUUIMakeCallSize: u32,
+    pub ulUUIDropSize: u32,
+    pub ulUUISendUserUserInfoSize: u32,
+    pub ulUUICallInfoSize: u32,
+}
+impl ::core::marker::Copy for NDIS_CO_DEVICE_PROFILE {}
+impl ::core::clone::Clone for NDIS_CO_DEVICE_PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_CO_DEVICE_PROFILE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_CO_DEVICE_PROFILE")
+            .field("DeviceDescription", &self.DeviceDescription)
+            .field("DevSpecificInfo", &self.DevSpecificInfo)
+            .field("ulTAPISupplementaryPassThru", &self.ulTAPISupplementaryPassThru)
+            .field("ulAddressModes", &self.ulAddressModes)
+            .field("ulNumAddresses", &self.ulNumAddresses)
+            .field("ulBearerModes", &self.ulBearerModes)
+            .field("ulMaxTxRate", &self.ulMaxTxRate)
+            .field("ulMinTxRate", &self.ulMinTxRate)
+            .field("ulMaxRxRate", &self.ulMaxRxRate)
+            .field("ulMinRxRate", &self.ulMinRxRate)
+            .field("ulMediaModes", &self.ulMediaModes)
+            .field("ulGenerateToneModes", &self.ulGenerateToneModes)
+            .field("ulGenerateToneMaxNumFreq", &self.ulGenerateToneMaxNumFreq)
+            .field("ulGenerateDigitModes", &self.ulGenerateDigitModes)
+            .field("ulMonitorToneMaxNumFreq", &self.ulMonitorToneMaxNumFreq)
+            .field("ulMonitorToneMaxNumEntries", &self.ulMonitorToneMaxNumEntries)
+            .field("ulMonitorDigitModes", &self.ulMonitorDigitModes)
+            .field("ulGatherDigitsMinTimeout", &self.ulGatherDigitsMinTimeout)
+            .field("ulGatherDigitsMaxTimeout", &self.ulGatherDigitsMaxTimeout)
+            .field("ulDevCapFlags", &self.ulDevCapFlags)
+            .field("ulMaxNumActiveCalls", &self.ulMaxNumActiveCalls)
+            .field("ulAnswerMode", &self.ulAnswerMode)
+            .field("ulUUIAcceptSize", &self.ulUUIAcceptSize)
+            .field("ulUUIAnswerSize", &self.ulUUIAnswerSize)
+            .field("ulUUIMakeCallSize", &self.ulUUIMakeCallSize)
+            .field("ulUUIDropSize", &self.ulUUIDropSize)
+            .field("ulUUISendUserUserInfoSize", &self.ulUUISendUserUserInfoSize)
+            .field("ulUUICallInfoSize", &self.ulUUICallInfoSize)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_CO_DEVICE_PROFILE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_CO_DEVICE_PROFILE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_CO_DEVICE_PROFILE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_CO_DEVICE_PROFILE {}
+impl ::core::default::Default for NDIS_CO_DEVICE_PROFILE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_CO_LINK_SPEED {
+    pub Outbound: u32,
+    pub Inbound: u32,
+}
+impl ::core::marker::Copy for NDIS_CO_LINK_SPEED {}
+impl ::core::clone::Clone for NDIS_CO_LINK_SPEED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_CO_LINK_SPEED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_CO_LINK_SPEED").field("Outbound", &self.Outbound).field("Inbound", &self.Inbound).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_CO_LINK_SPEED {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_CO_LINK_SPEED {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_CO_LINK_SPEED>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_CO_LINK_SPEED {}
+impl ::core::default::Default for NDIS_CO_LINK_SPEED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_GUID {
+    pub Guid: ::windows::core::GUID,
+    pub Anonymous: NDIS_GUID_0,
+    pub Size: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_GUID {}
+impl ::core::clone::Clone for NDIS_GUID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_GUID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_GUID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_GUID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_GUID {}
+impl ::core::default::Default for NDIS_GUID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub union NDIS_GUID_0 {
+    pub Oid: u32,
+    pub Status: i32,
+}
+impl ::core::marker::Copy for NDIS_GUID_0 {}
+impl ::core::clone::Clone for NDIS_GUID_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_GUID_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_GUID_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_GUID_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_GUID_0 {}
+impl ::core::default::Default for NDIS_GUID_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub SystemTimestamp1: u64,
+    pub HardwareClockTimestamp: u64,
+    pub SystemTimestamp2: u64,
+}
+impl ::core::marker::Copy for NDIS_HARDWARE_CROSSTIMESTAMP {}
+impl ::core::clone::Clone for NDIS_HARDWARE_CROSSTIMESTAMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_HARDWARE_CROSSTIMESTAMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_HARDWARE_CROSSTIMESTAMP").field("Header", &self.Header).field("Flags", &self.Flags).field("SystemTimestamp1", &self.SystemTimestamp1).field("HardwareClockTimestamp", &self.HardwareClockTimestamp).field("SystemTimestamp2", &self.SystemTimestamp2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_HARDWARE_CROSSTIMESTAMP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_HARDWARE_CROSSTIMESTAMP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_HARDWARE_CROSSTIMESTAMP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_HARDWARE_CROSSTIMESTAMP {}
+impl ::core::default::Default for NDIS_HARDWARE_CROSSTIMESTAMP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NDIS_INTERFACE_INFORMATION {
+    pub ifOperStatus: NET_IF_OPER_STATUS,
+    pub ifOperStatusFlags: u32,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub ifMtu: u32,
+    pub ifPromiscuousMode: super::super::Foundation::BOOLEAN,
+    pub ifDeviceWakeUpEnable: super::super::Foundation::BOOLEAN,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub ifLastChange: u64,
+    pub ifCounterDiscontinuityTime: u64,
+    pub ifInUnknownProtos: u64,
+    pub ifInDiscards: u64,
+    pub ifInErrors: u64,
+    pub ifHCInOctets: u64,
+    pub ifHCInUcastPkts: u64,
+    pub ifHCInMulticastPkts: u64,
+    pub ifHCInBroadcastPkts: u64,
+    pub ifHCOutOctets: u64,
+    pub ifHCOutUcastPkts: u64,
+    pub ifHCOutMulticastPkts: u64,
+    pub ifHCOutBroadcastPkts: u64,
+    pub ifOutErrors: u64,
+    pub ifOutDiscards: u64,
+    pub ifHCInUcastOctets: u64,
+    pub ifHCInMulticastOctets: u64,
+    pub ifHCInBroadcastOctets: u64,
+    pub ifHCOutUcastOctets: u64,
+    pub ifHCOutMulticastOctets: u64,
+    pub ifHCOutBroadcastOctets: u64,
+    pub CompartmentId: u32,
+    pub SupportedStatistics: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NDIS_INTERFACE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NDIS_INTERFACE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NDIS_INTERFACE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_INTERFACE_INFORMATION")
+            .field("ifOperStatus", &self.ifOperStatus)
+            .field("ifOperStatusFlags", &self.ifOperStatusFlags)
+            .field("MediaConnectState", &self.MediaConnectState)
+            .field("MediaDuplexState", &self.MediaDuplexState)
+            .field("ifMtu", &self.ifMtu)
+            .field("ifPromiscuousMode", &self.ifPromiscuousMode)
+            .field("ifDeviceWakeUpEnable", &self.ifDeviceWakeUpEnable)
+            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
+            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
+            .field("ifLastChange", &self.ifLastChange)
+            .field("ifCounterDiscontinuityTime", &self.ifCounterDiscontinuityTime)
+            .field("ifInUnknownProtos", &self.ifInUnknownProtos)
+            .field("ifInDiscards", &self.ifInDiscards)
+            .field("ifInErrors", &self.ifInErrors)
+            .field("ifHCInOctets", &self.ifHCInOctets)
+            .field("ifHCInUcastPkts", &self.ifHCInUcastPkts)
+            .field("ifHCInMulticastPkts", &self.ifHCInMulticastPkts)
+            .field("ifHCInBroadcastPkts", &self.ifHCInBroadcastPkts)
+            .field("ifHCOutOctets", &self.ifHCOutOctets)
+            .field("ifHCOutUcastPkts", &self.ifHCOutUcastPkts)
+            .field("ifHCOutMulticastPkts", &self.ifHCOutMulticastPkts)
+            .field("ifHCOutBroadcastPkts", &self.ifHCOutBroadcastPkts)
+            .field("ifOutErrors", &self.ifOutErrors)
+            .field("ifOutDiscards", &self.ifOutDiscards)
+            .field("ifHCInUcastOctets", &self.ifHCInUcastOctets)
+            .field("ifHCInMulticastOctets", &self.ifHCInMulticastOctets)
+            .field("ifHCInBroadcastOctets", &self.ifHCInBroadcastOctets)
+            .field("ifHCOutUcastOctets", &self.ifHCOutUcastOctets)
+            .field("ifHCOutMulticastOctets", &self.ifHCOutMulticastOctets)
+            .field("ifHCOutBroadcastOctets", &self.ifHCOutBroadcastOctets)
+            .field("CompartmentId", &self.CompartmentId)
+            .field("SupportedStatistics", &self.SupportedStatistics)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NDIS_INTERFACE_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NDIS_INTERFACE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_INTERFACE_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NDIS_INTERFACE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for NDIS_INTERFACE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub InterruptModeration: NDIS_INTERRUPT_MODERATION,
+}
+impl ::core::marker::Copy for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
+impl ::core::clone::Clone for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_INTERRUPT_MODERATION_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("InterruptModeration", &self.InterruptModeration).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_INTERRUPT_MODERATION_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_INTERRUPT_MODERATION_PARAMETERS {}
+impl ::core::default::Default for NDIS_INTERRUPT_MODERATION_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IPSEC_OFFLOAD_V1 {
+    pub Supported: NDIS_IPSEC_OFFLOAD_V1_2,
+    pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_0,
+    pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_1,
+}
+impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1 {}
+impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1 {}
+impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_0 {}
+impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_0 {}
+impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_1 {}
+impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_1").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_1 {}
+impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
+    pub Encapsulation: u32,
+    pub AhEspCombined: u32,
+    pub TransportTunnelCombined: u32,
+    pub IPv4Options: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_IPSEC_OFFLOAD_V1_2 {}
+impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IPSEC_OFFLOAD_V1_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IPSEC_OFFLOAD_V1_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IPSEC_OFFLOAD_V1_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IPSEC_OFFLOAD_V1_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IPSEC_OFFLOAD_V1_2 {}
+impl ::core::default::Default for NDIS_IPSEC_OFFLOAD_V1_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IP_OPER_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
+}
+impl ::core::marker::Copy for NDIS_IP_OPER_STATE {}
+impl ::core::clone::Clone for NDIS_IP_OPER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IP_OPER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IP_OPER_STATE").field("Header", &self.Header).field("Flags", &self.Flags).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IP_OPER_STATE {}
+impl ::core::default::Default for NDIS_IP_OPER_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IP_OPER_STATUS {
+    pub AddressFamily: u32,
+    pub OperationalStatus: NET_IF_OPER_STATUS,
+    pub OperationalStatusFlags: u32,
+}
+impl ::core::marker::Copy for NDIS_IP_OPER_STATUS {}
+impl ::core::clone::Clone for NDIS_IP_OPER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IP_OPER_STATUS").field("AddressFamily", &self.AddressFamily).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IP_OPER_STATUS {}
+impl ::core::default::Default for NDIS_IP_OPER_STATUS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IP_OPER_STATUS_INFO {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub NumberofAddressFamiliesReturned: u32,
+    pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
+}
+impl ::core::marker::Copy for NDIS_IP_OPER_STATUS_INFO {}
+impl ::core::clone::Clone for NDIS_IP_OPER_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IP_OPER_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IP_OPER_STATUS_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("NumberofAddressFamiliesReturned", &self.NumberofAddressFamiliesReturned).field("IpOperationalStatus", &self.IpOperationalStatus).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IP_OPER_STATUS_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IP_OPER_STATUS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IP_OPER_STATUS_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IP_OPER_STATUS_INFO {}
+impl ::core::default::Default for NDIS_IP_OPER_STATUS_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_IRDA_PACKET_INFO {
+    pub ExtraBOFs: u32,
+    pub MinTurnAroundTime: u32,
+}
+impl ::core::marker::Copy for NDIS_IRDA_PACKET_INFO {}
+impl ::core::clone::Clone for NDIS_IRDA_PACKET_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_IRDA_PACKET_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_IRDA_PACKET_INFO").field("ExtraBOFs", &self.ExtraBOFs).field("MinTurnAroundTime", &self.MinTurnAroundTime).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_IRDA_PACKET_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_IRDA_PACKET_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_IRDA_PACKET_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_IRDA_PACKET_INFO {}
+impl ::core::default::Default for NDIS_IRDA_PACKET_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_LINK_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
+    pub AutoNegotiationFlags: u32,
+}
+impl ::core::marker::Copy for NDIS_LINK_PARAMETERS {}
+impl ::core::clone::Clone for NDIS_LINK_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_LINK_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_LINK_PARAMETERS").field("Header", &self.Header).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_LINK_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_LINK_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_LINK_PARAMETERS {}
+impl ::core::default::Default for NDIS_LINK_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_LINK_SPEED {
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+}
+impl ::core::marker::Copy for NDIS_LINK_SPEED {}
+impl ::core::clone::Clone for NDIS_LINK_SPEED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_LINK_SPEED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_LINK_SPEED").field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_LINK_SPEED {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_LINK_SPEED {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_SPEED>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_LINK_SPEED {}
+impl ::core::default::Default for NDIS_LINK_SPEED {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_LINK_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
+    pub AutoNegotiationFlags: u32,
+}
+impl ::core::marker::Copy for NDIS_LINK_STATE {}
+impl ::core::clone::Clone for NDIS_LINK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_LINK_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_LINK_STATE").field("Header", &self.Header).field("MediaConnectState", &self.MediaConnectState).field("MediaDuplexState", &self.MediaDuplexState).field("XmitLinkSpeed", &self.XmitLinkSpeed).field("RcvLinkSpeed", &self.RcvLinkSpeed).field("PauseFunctions", &self.PauseFunctions).field("AutoNegotiationFlags", &self.AutoNegotiationFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_LINK_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_LINK_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_LINK_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_LINK_STATE {}
+impl ::core::default::Default for NDIS_LINK_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_OBJECT_HEADER {
+    pub Type: u8,
+    pub Revision: u8,
+    pub Size: u16,
+}
+impl ::core::marker::Copy for NDIS_OBJECT_HEADER {}
+impl ::core::clone::Clone for NDIS_OBJECT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_OBJECT_HEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_OBJECT_HEADER").field("Type", &self.Type).field("Revision", &self.Revision).field("Size", &self.Size).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_OBJECT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_OBJECT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OBJECT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_OBJECT_HEADER {}
+impl ::core::default::Default for NDIS_OBJECT_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
+    pub LsoV1: NDIS_TCP_LARGE_SEND_OFFLOAD_V1,
+    pub IPsecV1: NDIS_IPSEC_OFFLOAD_V1,
+    pub LsoV2: NDIS_TCP_LARGE_SEND_OFFLOAD_V2,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_OFFLOAD {}
+impl ::core::clone::Clone for NDIS_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_OFFLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_OFFLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_OFFLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OFFLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_OFFLOAD {}
+impl ::core::default::Default for NDIS_OFFLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_OFFLOAD_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub IPv4Checksum: u8,
+    pub TCPIPv4Checksum: u8,
+    pub UDPIPv4Checksum: u8,
+    pub TCPIPv6Checksum: u8,
+    pub UDPIPv6Checksum: u8,
+    pub LsoV1: u8,
+    pub IPsecV1: u8,
+    pub LsoV2IPv4: u8,
+    pub LsoV2IPv6: u8,
+    pub TcpConnectionIPv4: u8,
+    pub TcpConnectionIPv6: u8,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_OFFLOAD_PARAMETERS {}
+impl ::core::clone::Clone for NDIS_OFFLOAD_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_OFFLOAD_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_OFFLOAD_PARAMETERS")
+            .field("Header", &self.Header)
+            .field("IPv4Checksum", &self.IPv4Checksum)
+            .field("TCPIPv4Checksum", &self.TCPIPv4Checksum)
+            .field("UDPIPv4Checksum", &self.UDPIPv4Checksum)
+            .field("TCPIPv6Checksum", &self.TCPIPv6Checksum)
+            .field("UDPIPv6Checksum", &self.UDPIPv6Checksum)
+            .field("LsoV1", &self.LsoV1)
+            .field("IPsecV1", &self.IPsecV1)
+            .field("LsoV2IPv4", &self.LsoV2IPv4)
+            .field("LsoV2IPv6", &self.LsoV2IPv6)
+            .field("TcpConnectionIPv4", &self.TcpConnectionIPv4)
+            .field("TcpConnectionIPv6", &self.TcpConnectionIPv6)
+            .field("Flags", &self.Flags)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_OFFLOAD_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_OFFLOAD_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OFFLOAD_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_OFFLOAD_PARAMETERS {}
+impl ::core::default::Default for NDIS_OFFLOAD_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_OPER_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub OperationalStatus: NET_IF_OPER_STATUS,
+    pub OperationalStatusFlags: u32,
+}
+impl ::core::marker::Copy for NDIS_OPER_STATE {}
+impl ::core::clone::Clone for NDIS_OPER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_OPER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_OPER_STATE").field("Header", &self.Header).field("OperationalStatus", &self.OperationalStatus).field("OperationalStatusFlags", &self.OperationalStatusFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_OPER_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_OPER_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_OPER_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_OPER_STATE {}
+impl ::core::default::Default for NDIS_OPER_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub DeviceType: u32,
+    pub CurrentSpeedAndMode: u32,
+    pub CurrentPayloadSize: u32,
+    pub MaxPayloadSize: u32,
+    pub MaxReadRequestSize: u32,
+    pub CurrentLinkSpeed: u32,
+    pub CurrentLinkWidth: u32,
+    pub MaxLinkSpeed: u32,
+    pub MaxLinkWidth: u32,
+    pub PciExpressVersion: u32,
+    pub InterruptType: u32,
+    pub MaxInterruptMessages: u32,
+}
+impl ::core::marker::Copy for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
+impl ::core::clone::Clone for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PCI_DEVICE_CUSTOM_PROPERTIES")
+            .field("Header", &self.Header)
+            .field("DeviceType", &self.DeviceType)
+            .field("CurrentSpeedAndMode", &self.CurrentSpeedAndMode)
+            .field("CurrentPayloadSize", &self.CurrentPayloadSize)
+            .field("MaxPayloadSize", &self.MaxPayloadSize)
+            .field("MaxReadRequestSize", &self.MaxReadRequestSize)
+            .field("CurrentLinkSpeed", &self.CurrentLinkSpeed)
+            .field("CurrentLinkWidth", &self.CurrentLinkWidth)
+            .field("MaxLinkSpeed", &self.MaxLinkSpeed)
+            .field("MaxLinkWidth", &self.MaxLinkWidth)
+            .field("PciExpressVersion", &self.PciExpressVersion)
+            .field("InterruptType", &self.InterruptType)
+            .field("MaxInterruptMessages", &self.MaxInterruptMessages)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PCI_DEVICE_CUSTOM_PROPERTIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {}
+impl ::core::default::Default for NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PM_PACKET_PATTERN {
+    pub Priority: u32,
+    pub Reserved: u32,
+    pub MaskSize: u32,
+    pub PatternOffset: u32,
+    pub PatternSize: u32,
+    pub PatternFlags: u32,
+}
+impl ::core::marker::Copy for NDIS_PM_PACKET_PATTERN {}
+impl ::core::clone::Clone for NDIS_PM_PACKET_PATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PM_PACKET_PATTERN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PM_PACKET_PATTERN").field("Priority", &self.Priority).field("Reserved", &self.Reserved).field("MaskSize", &self.MaskSize).field("PatternOffset", &self.PatternOffset).field("PatternSize", &self.PatternSize).field("PatternFlags", &self.PatternFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PM_PACKET_PATTERN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PM_PACKET_PATTERN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PM_PACKET_PATTERN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PM_PACKET_PATTERN {}
+impl ::core::default::Default for NDIS_PM_PACKET_PATTERN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
+    pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
+    pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
+    pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
+}
+impl ::core::marker::Copy for NDIS_PM_WAKE_UP_CAPABILITIES {}
+impl ::core::clone::Clone for NDIS_PM_WAKE_UP_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PM_WAKE_UP_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PM_WAKE_UP_CAPABILITIES").field("MinMagicPacketWakeUp", &self.MinMagicPacketWakeUp).field("MinPatternWakeUp", &self.MinPatternWakeUp).field("MinLinkChangeWakeUp", &self.MinLinkChangeWakeUp).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PM_WAKE_UP_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PM_WAKE_UP_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PM_WAKE_UP_CAPABILITIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PM_WAKE_UP_CAPABILITIES {}
+impl ::core::default::Default for NDIS_PM_WAKE_UP_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PNP_CAPABILITIES {
+    pub Flags: u32,
+    pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
+}
+impl ::core::marker::Copy for NDIS_PNP_CAPABILITIES {}
+impl ::core::clone::Clone for NDIS_PNP_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PNP_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PNP_CAPABILITIES").field("Flags", &self.Flags).field("WakeUpCapabilities", &self.WakeUpCapabilities).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PNP_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PNP_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PNP_CAPABILITIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PNP_CAPABILITIES {}
+impl ::core::default::Default for NDIS_PNP_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PORT {
+    pub Next: *mut NDIS_PORT,
+    pub NdisReserved: *mut ::core::ffi::c_void,
+    pub MiniportReserved: *mut ::core::ffi::c_void,
+    pub ProtocolReserved: *mut ::core::ffi::c_void,
+    pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
+}
+impl ::core::marker::Copy for NDIS_PORT {}
+impl ::core::clone::Clone for NDIS_PORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PORT").field("Next", &self.Next).field("NdisReserved", &self.NdisReserved).field("MiniportReserved", &self.MiniportReserved).field("ProtocolReserved", &self.ProtocolReserved).field("PortCharacteristics", &self.PortCharacteristics).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PORT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PORT {}
+impl ::core::default::Default for NDIS_PORT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PORT_ARRAY {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub NumberOfPorts: u32,
+    pub OffsetFirstPort: u32,
+    pub ElementSize: u32,
+    pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
+}
+impl ::core::marker::Copy for NDIS_PORT_ARRAY {}
+impl ::core::clone::Clone for NDIS_PORT_ARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PORT_ARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PORT_ARRAY").field("Header", &self.Header).field("NumberOfPorts", &self.NumberOfPorts).field("OffsetFirstPort", &self.OffsetFirstPort).field("ElementSize", &self.ElementSize).field("Ports", &self.Ports).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_ARRAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PORT_ARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_ARRAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PORT_ARRAY {}
+impl ::core::default::Default for NDIS_PORT_ARRAY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub SendControlState: NDIS_PORT_CONTROL_STATE,
+    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
+    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+}
+impl ::core::marker::Copy for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
+impl ::core::clone::Clone for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PORT_AUTHENTICATION_PARAMETERS").field("Header", &self.Header).field("SendControlState", &self.SendControlState).field("RcvControlState", &self.RcvControlState).field("SendAuthorizationState", &self.SendAuthorizationState).field("RcvAuthorizationState", &self.RcvAuthorizationState).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_AUTHENTICATION_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PORT_AUTHENTICATION_PARAMETERS {}
+impl ::core::default::Default for NDIS_PORT_AUTHENTICATION_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PORT_CHARACTERISTICS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub PortNumber: u32,
+    pub Flags: u32,
+    pub Type: NDIS_PORT_TYPE,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub Direction: NET_IF_DIRECTION_TYPE,
+    pub SendControlState: NDIS_PORT_CONTROL_STATE,
+    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
+    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+}
+impl ::core::marker::Copy for NDIS_PORT_CHARACTERISTICS {}
+impl ::core::clone::Clone for NDIS_PORT_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PORT_CHARACTERISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PORT_CHARACTERISTICS")
+            .field("Header", &self.Header)
+            .field("PortNumber", &self.PortNumber)
+            .field("Flags", &self.Flags)
+            .field("Type", &self.Type)
+            .field("MediaConnectState", &self.MediaConnectState)
+            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
+            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
+            .field("Direction", &self.Direction)
+            .field("SendControlState", &self.SendControlState)
+            .field("RcvControlState", &self.RcvControlState)
+            .field("SendAuthorizationState", &self.SendAuthorizationState)
+            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_CHARACTERISTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PORT_CHARACTERISTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_CHARACTERISTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PORT_CHARACTERISTICS {}
+impl ::core::default::Default for NDIS_PORT_CHARACTERISTICS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_PORT_STATE {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub Direction: NET_IF_DIRECTION_TYPE,
+    pub SendControlState: NDIS_PORT_CONTROL_STATE,
+    pub RcvControlState: NDIS_PORT_CONTROL_STATE,
+    pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_PORT_STATE {}
+impl ::core::clone::Clone for NDIS_PORT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_PORT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_PORT_STATE")
+            .field("Header", &self.Header)
+            .field("MediaConnectState", &self.MediaConnectState)
+            .field("XmitLinkSpeed", &self.XmitLinkSpeed)
+            .field("RcvLinkSpeed", &self.RcvLinkSpeed)
+            .field("Direction", &self.Direction)
+            .field("SendControlState", &self.SendControlState)
+            .field("RcvControlState", &self.RcvControlState)
+            .field("SendAuthorizationState", &self.SendAuthorizationState)
+            .field("RcvAuthorizationState", &self.RcvAuthorizationState)
+            .field("Flags", &self.Flags)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_PORT_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_PORT_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_PORT_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_PORT_STATE {}
+impl ::core::default::Default for NDIS_PORT_STATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_RECEIVE_HASH_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub HashInformation: u32,
+    pub HashSecretKeySize: u16,
+    pub HashSecretKeyOffset: u32,
+}
+impl ::core::marker::Copy for NDIS_RECEIVE_HASH_PARAMETERS {}
+impl ::core::clone::Clone for NDIS_RECEIVE_HASH_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_RECEIVE_HASH_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_RECEIVE_HASH_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("HashInformation", &self.HashInformation).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_RECEIVE_HASH_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_RECEIVE_HASH_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_HASH_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_RECEIVE_HASH_PARAMETERS {}
+impl ::core::default::Default for NDIS_RECEIVE_HASH_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub CapabilitiesFlags: u32,
+    pub NumberOfInterruptMessages: u32,
+    pub NumberOfReceiveQueues: u32,
+}
+impl ::core::marker::Copy for NDIS_RECEIVE_SCALE_CAPABILITIES {}
+impl ::core::clone::Clone for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_RECEIVE_SCALE_CAPABILITIES").field("Header", &self.Header).field("CapabilitiesFlags", &self.CapabilitiesFlags).field("NumberOfInterruptMessages", &self.NumberOfInterruptMessages).field("NumberOfReceiveQueues", &self.NumberOfReceiveQueues).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_SCALE_CAPABILITIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_RECEIVE_SCALE_CAPABILITIES {}
+impl ::core::default::Default for NDIS_RECEIVE_SCALE_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u16,
+    pub BaseCpuNumber: u16,
+    pub HashInformation: u32,
+    pub IndirectionTableSize: u16,
+    pub IndirectionTableOffset: u32,
+    pub HashSecretKeySize: u16,
+    pub HashSecretKeyOffset: u32,
+}
+impl ::core::marker::Copy for NDIS_RECEIVE_SCALE_PARAMETERS {}
+impl ::core::clone::Clone for NDIS_RECEIVE_SCALE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_RECEIVE_SCALE_PARAMETERS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_RECEIVE_SCALE_PARAMETERS").field("Header", &self.Header).field("Flags", &self.Flags).field("BaseCpuNumber", &self.BaseCpuNumber).field("HashInformation", &self.HashInformation).field("IndirectionTableSize", &self.IndirectionTableSize).field("IndirectionTableOffset", &self.IndirectionTableOffset).field("HashSecretKeySize", &self.HashSecretKeySize).field("HashSecretKeyOffset", &self.HashSecretKeyOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_RECEIVE_SCALE_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_RECEIVE_SCALE_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_RECEIVE_SCALE_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_RECEIVE_SCALE_PARAMETERS {}
+impl ::core::default::Default for NDIS_RECEIVE_SCALE_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_STATISTICS_INFO {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub SupportedStatistics: u32,
+    pub ifInDiscards: u64,
+    pub ifInErrors: u64,
+    pub ifHCInOctets: u64,
+    pub ifHCInUcastPkts: u64,
+    pub ifHCInMulticastPkts: u64,
+    pub ifHCInBroadcastPkts: u64,
+    pub ifHCOutOctets: u64,
+    pub ifHCOutUcastPkts: u64,
+    pub ifHCOutMulticastPkts: u64,
+    pub ifHCOutBroadcastPkts: u64,
+    pub ifOutErrors: u64,
+    pub ifOutDiscards: u64,
+    pub ifHCInUcastOctets: u64,
+    pub ifHCInMulticastOctets: u64,
+    pub ifHCInBroadcastOctets: u64,
+    pub ifHCOutUcastOctets: u64,
+    pub ifHCOutMulticastOctets: u64,
+    pub ifHCOutBroadcastOctets: u64,
+}
+impl ::core::marker::Copy for NDIS_STATISTICS_INFO {}
+impl ::core::clone::Clone for NDIS_STATISTICS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_STATISTICS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_STATISTICS_INFO")
+            .field("Header", &self.Header)
+            .field("SupportedStatistics", &self.SupportedStatistics)
+            .field("ifInDiscards", &self.ifInDiscards)
+            .field("ifInErrors", &self.ifInErrors)
+            .field("ifHCInOctets", &self.ifHCInOctets)
+            .field("ifHCInUcastPkts", &self.ifHCInUcastPkts)
+            .field("ifHCInMulticastPkts", &self.ifHCInMulticastPkts)
+            .field("ifHCInBroadcastPkts", &self.ifHCInBroadcastPkts)
+            .field("ifHCOutOctets", &self.ifHCOutOctets)
+            .field("ifHCOutUcastPkts", &self.ifHCOutUcastPkts)
+            .field("ifHCOutMulticastPkts", &self.ifHCOutMulticastPkts)
+            .field("ifHCOutBroadcastPkts", &self.ifHCOutBroadcastPkts)
+            .field("ifOutErrors", &self.ifOutErrors)
+            .field("ifOutDiscards", &self.ifOutDiscards)
+            .field("ifHCInUcastOctets", &self.ifHCInUcastOctets)
+            .field("ifHCInMulticastOctets", &self.ifHCInMulticastOctets)
+            .field("ifHCInBroadcastOctets", &self.ifHCInBroadcastOctets)
+            .field("ifHCOutUcastOctets", &self.ifHCOutUcastOctets)
+            .field("ifHCOutMulticastOctets", &self.ifHCOutMulticastOctets)
+            .field("ifHCOutBroadcastOctets", &self.ifHCOutBroadcastOctets)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_STATISTICS_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_STATISTICS_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_STATISTICS_INFO {}
+impl ::core::default::Default for NDIS_STATISTICS_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_STATISTICS_VALUE {
+    pub Oid: u32,
+    pub DataLength: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for NDIS_STATISTICS_VALUE {}
+impl ::core::clone::Clone for NDIS_STATISTICS_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_STATISTICS_VALUE").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_VALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_STATISTICS_VALUE {}
+impl ::core::default::Default for NDIS_STATISTICS_VALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_STATISTICS_VALUE_EX {
+    pub Oid: u32,
+    pub DataLength: u32,
+    pub Length: u32,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for NDIS_STATISTICS_VALUE_EX {}
+impl ::core::clone::Clone for NDIS_STATISTICS_VALUE_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_STATISTICS_VALUE_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_STATISTICS_VALUE_EX").field("Oid", &self.Oid).field("DataLength", &self.DataLength).field("Length", &self.Length).field("Data", &self.Data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_STATISTICS_VALUE_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_STATISTICS_VALUE_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_STATISTICS_VALUE_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_STATISTICS_VALUE_EX {}
+impl ::core::default::Default for NDIS_STATISTICS_VALUE_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_CONNECTION_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+    pub TcpConnectionOffloadCapacity: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_CONNECTION_OFFLOAD {}
+impl ::core::clone::Clone for NDIS_TCP_CONNECTION_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_CONNECTION_OFFLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_CONNECTION_OFFLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_CONNECTION_OFFLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_CONNECTION_OFFLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_CONNECTION_OFFLOAD {}
+impl ::core::default::Default for NDIS_TCP_CONNECTION_OFFLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv6Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
+    pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_2,
+}
+impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
+impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD {}
+impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
+impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {}
+impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
+impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {}
+impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
+impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {}
+impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    pub Encapsulation: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
+impl ::core::clone::Clone for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_IP_CHECKSUM_OFFLOAD_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {}
+impl ::core::default::Default for NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
+}
+impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
+impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {}
+impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
+impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
+impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
+    pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
+}
+impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
+impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {}
+impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
+impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
+impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub _bitfield: u32,
+}
+impl ::core::marker::Copy for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
+impl ::core::clone::Clone for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
+impl ::core::default::Default for NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub TimeoutArrayLength: u32,
+    pub TimeoutArray: [u32; 1],
+}
+impl ::core::marker::Copy for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
+impl ::core::clone::Clone for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES").field("Header", &self.Header).field("Flags", &self.Flags).field("TimeoutArrayLength", &self.TimeoutArrayLength).field("TimeoutArray", &self.TimeoutArray).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {}
+impl ::core::default::Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NDIS_TIMESTAMP_CAPABILITIES {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub HardwareClockFrequencyHz: u64,
+    pub CrossTimestamp: super::super::Foundation::BOOLEAN,
+    pub Reserved1: u64,
+    pub Reserved2: u64,
+    pub TimestampFlags: NDIS_TIMESTAMP_CAPABILITY_FLAGS,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TIMESTAMP_CAPABILITIES").field("Header", &self.Header).field("HardwareClockFrequencyHz", &self.HardwareClockFrequencyHz).field("CrossTimestamp", &self.CrossTimestamp).field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("TimestampFlags", &self.TimestampFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMESTAMP_CAPABILITIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NDIS_TIMESTAMP_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for NDIS_TIMESTAMP_CAPABILITIES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    pub PtpV2OverUdpIPv4EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv4AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6EventMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6AllMsgReceiveHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6EventMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub PtpV2OverUdpIPv6AllMsgTransmitHw: super::super::Foundation::BOOLEAN,
+    pub AllReceiveHw: super::super::Foundation::BOOLEAN,
+    pub AllTransmitHw: super::super::Foundation::BOOLEAN,
+    pub TaggedTransmitHw: super::super::Foundation::BOOLEAN,
+    pub AllReceiveSw: super::super::Foundation::BOOLEAN,
+    pub AllTransmitSw: super::super::Foundation::BOOLEAN,
+    pub TaggedTransmitSw: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_TIMESTAMP_CAPABILITY_FLAGS")
+            .field("PtpV2OverUdpIPv4EventMsgReceiveHw", &self.PtpV2OverUdpIPv4EventMsgReceiveHw)
+            .field("PtpV2OverUdpIPv4AllMsgReceiveHw", &self.PtpV2OverUdpIPv4AllMsgReceiveHw)
+            .field("PtpV2OverUdpIPv4EventMsgTransmitHw", &self.PtpV2OverUdpIPv4EventMsgTransmitHw)
+            .field("PtpV2OverUdpIPv4AllMsgTransmitHw", &self.PtpV2OverUdpIPv4AllMsgTransmitHw)
+            .field("PtpV2OverUdpIPv6EventMsgReceiveHw", &self.PtpV2OverUdpIPv6EventMsgReceiveHw)
+            .field("PtpV2OverUdpIPv6AllMsgReceiveHw", &self.PtpV2OverUdpIPv6AllMsgReceiveHw)
+            .field("PtpV2OverUdpIPv6EventMsgTransmitHw", &self.PtpV2OverUdpIPv6EventMsgTransmitHw)
+            .field("PtpV2OverUdpIPv6AllMsgTransmitHw", &self.PtpV2OverUdpIPv6AllMsgTransmitHw)
+            .field("AllReceiveHw", &self.AllReceiveHw)
+            .field("AllTransmitHw", &self.AllTransmitHw)
+            .field("TaggedTransmitHw", &self.TaggedTransmitHw)
+            .field("AllReceiveSw", &self.AllReceiveSw)
+            .field("AllTransmitSw", &self.AllTransmitSw)
+            .field("TaggedTransmitSw", &self.TaggedTransmitSw)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_TIMESTAMP_CAPABILITY_FLAGS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NDIS_TIMESTAMP_CAPABILITY_FLAGS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for NDIS_TIMESTAMP_CAPABILITY_FLAGS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_VAR_DATA_DESC {
+    pub Length: u16,
+    pub MaximumLength: u16,
+    pub Offset: usize,
+}
+impl ::core::marker::Copy for NDIS_VAR_DATA_DESC {}
+impl ::core::clone::Clone for NDIS_VAR_DATA_DESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_VAR_DATA_DESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_VAR_DATA_DESC").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Offset", &self.Offset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_VAR_DATA_DESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_VAR_DATA_DESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_VAR_DATA_DESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_VAR_DATA_DESC {}
+impl ::core::default::Default for NDIS_VAR_DATA_DESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WAN_PROTOCOL_CAPS {
+    pub Flags: u32,
+    pub Reserved: u32,
+}
+impl ::core::marker::Copy for NDIS_WAN_PROTOCOL_CAPS {}
+impl ::core::clone::Clone for NDIS_WAN_PROTOCOL_CAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WAN_PROTOCOL_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WAN_PROTOCOL_CAPS").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WAN_PROTOCOL_CAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WAN_PROTOCOL_CAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WAN_PROTOCOL_CAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WAN_PROTOCOL_CAPS {}
+impl ::core::default::Default for NDIS_WAN_PROTOCOL_CAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WLAN_BSSID {
+    pub Length: u32,
+    pub MacAddress: [u8; 6],
+    pub Reserved: [u8; 2],
+    pub Ssid: NDIS_802_11_SSID,
+    pub Privacy: u32,
+    pub Rssi: i32,
+    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
+    pub Configuration: NDIS_802_11_CONFIGURATION,
+    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
+    pub SupportedRates: [u8; 8],
+}
+impl ::core::marker::Copy for NDIS_WLAN_BSSID {}
+impl ::core::clone::Clone for NDIS_WLAN_BSSID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WLAN_BSSID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WLAN_BSSID").field("Length", &self.Length).field("MacAddress", &self.MacAddress).field("Reserved", &self.Reserved).field("Ssid", &self.Ssid).field("Privacy", &self.Privacy).field("Rssi", &self.Rssi).field("NetworkTypeInUse", &self.NetworkTypeInUse).field("Configuration", &self.Configuration).field("InfrastructureMode", &self.InfrastructureMode).field("SupportedRates", &self.SupportedRates).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WLAN_BSSID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WLAN_BSSID {}
+impl ::core::default::Default for NDIS_WLAN_BSSID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WLAN_BSSID_EX {
+    pub Length: u32,
+    pub MacAddress: [u8; 6],
+    pub Reserved: [u8; 2],
+    pub Ssid: NDIS_802_11_SSID,
+    pub Privacy: u32,
+    pub Rssi: i32,
+    pub NetworkTypeInUse: NDIS_802_11_NETWORK_TYPE,
+    pub Configuration: NDIS_802_11_CONFIGURATION,
+    pub InfrastructureMode: NDIS_802_11_NETWORK_INFRASTRUCTURE,
+    pub SupportedRates: [u8; 16],
+    pub IELength: u32,
+    pub IEs: [u8; 1],
+}
+impl ::core::marker::Copy for NDIS_WLAN_BSSID_EX {}
+impl ::core::clone::Clone for NDIS_WLAN_BSSID_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WLAN_BSSID_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WLAN_BSSID_EX")
+            .field("Length", &self.Length)
+            .field("MacAddress", &self.MacAddress)
+            .field("Reserved", &self.Reserved)
+            .field("Ssid", &self.Ssid)
+            .field("Privacy", &self.Privacy)
+            .field("Rssi", &self.Rssi)
+            .field("NetworkTypeInUse", &self.NetworkTypeInUse)
+            .field("Configuration", &self.Configuration)
+            .field("InfrastructureMode", &self.InfrastructureMode)
+            .field("SupportedRates", &self.SupportedRates)
+            .field("IELength", &self.IELength)
+            .field("IEs", &self.IEs)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WLAN_BSSID_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WLAN_BSSID_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WLAN_BSSID_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WLAN_BSSID_EX {}
+impl ::core::default::Default for NDIS_WLAN_BSSID_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NDIS_WMI_ENUM_ADAPTER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub IfIndex: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub DeviceNameLength: u16,
+    pub DeviceName: [super::super::Foundation::CHAR; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NDIS_WMI_ENUM_ADAPTER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NDIS_WMI_ENUM_ADAPTER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_ENUM_ADAPTER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NDIS_WMI_ENUM_ADAPTER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for NDIS_WMI_ENUM_ADAPTER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_EVENT_HEADER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub IfIndex: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub RequestId: u64,
+    pub PortNumber: u32,
+    pub DeviceNameLength: u32,
+    pub DeviceNameOffset: u32,
+    pub Padding: [u8; 4],
+}
+impl ::core::marker::Copy for NDIS_WMI_EVENT_HEADER {}
+impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_EVENT_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_EVENT_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_EVENT_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_EVENT_HEADER {}
+impl ::core::default::Default for NDIS_WMI_EVENT_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
+    pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
+    pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
+}
+impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
+impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1").field("Supported", &self.Supported).field("IPv4AH", &self.IPv4AH).field("IPv4ESP", &self.IPv4ESP).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1 {}
+impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    pub Md5: u32,
+    pub Sha_1: u32,
+    pub Transport: u32,
+    pub Tunnel: u32,
+    pub Send: u32,
+    pub Receive: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
+impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_0").field("Md5", &self.Md5).field("Sha_1", &self.Sha_1).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {}
+impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    pub Des: u32,
+    pub Reserved: u32,
+    pub TripleDes: u32,
+    pub NullEsp: u32,
+    pub Transport: u32,
+    pub Tunnel: u32,
+    pub Send: u32,
+    pub Receive: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
+impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_1").field("Des", &self.Des).field("Reserved", &self.Reserved).field("TripleDes", &self.TripleDes).field("NullEsp", &self.NullEsp).field("Transport", &self.Transport).field("Tunnel", &self.Tunnel).field("Send", &self.Send).field("Receive", &self.Receive).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {}
+impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    pub Encapsulation: u32,
+    pub AhEspCombined: u32,
+    pub TransportTunnelCombined: u32,
+    pub IPv4Options: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
+impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_IPSEC_OFFLOAD_V1_2").field("Encapsulation", &self.Encapsulation).field("AhEspCombined", &self.AhEspCombined).field("TransportTunnelCombined", &self.TransportTunnelCombined).field("IPv4Options", &self.IPv4Options).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_IPSEC_OFFLOAD_V1_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {}
+impl ::core::default::Default for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_METHOD_HEADER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub PortNumber: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub RequestId: u64,
+    pub Timeout: u32,
+    pub Padding: [u8; 4],
+}
+impl ::core::marker::Copy for NDIS_WMI_METHOD_HEADER {}
+impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_METHOD_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_METHOD_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_METHOD_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_METHOD_HEADER {}
+impl ::core::default::Default for NDIS_WMI_METHOD_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
+    pub LsoV1: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1,
+    pub IPsecV1: NDIS_WMI_IPSEC_OFFLOAD_V1,
+    pub LsoV2: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_OFFLOAD {}
+impl ::core::clone::Clone for NDIS_WMI_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_OFFLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_OFFLOAD").field("Header", &self.Header).field("Checksum", &self.Checksum).field("LsoV1", &self.LsoV1).field("IPsecV1", &self.IPsecV1).field("LsoV2", &self.LsoV2).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_OFFLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_OFFLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_OFFLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_OFFLOAD {}
+impl ::core::default::Default for NDIS_WMI_OFFLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_OUTPUT_INFO {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Flags: u32,
+    pub SupportedRevision: u8,
+    pub DataOffset: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_OUTPUT_INFO {}
+impl ::core::clone::Clone for NDIS_WMI_OUTPUT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_OUTPUT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_OUTPUT_INFO").field("Header", &self.Header).field("Flags", &self.Flags).field("SupportedRevision", &self.SupportedRevision).field("DataOffset", &self.DataOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_OUTPUT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_OUTPUT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_OUTPUT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_OUTPUT_INFO {}
+impl ::core::default::Default for NDIS_WMI_OUTPUT_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_SET_HEADER {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub PortNumber: u32,
+    pub NetLuid: NET_LUID_LH,
+    pub RequestId: u64,
+    pub Timeout: u32,
+    pub Padding: [u8; 4],
+}
+impl ::core::marker::Copy for NDIS_WMI_SET_HEADER {}
+impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_SET_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_SET_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_SET_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_SET_HEADER {}
+impl ::core::default::Default for NDIS_WMI_SET_HEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    pub Header: NDIS_OBJECT_HEADER,
+    pub Encapsulation: u32,
+    pub SupportIPv4: u32,
+    pub SupportIPv6: u32,
+    pub SupportIPv6ExtensionHeaders: u32,
+    pub SupportSack: u32,
+    pub TcpConnectionOffloadCapacity: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_CONNECTION_OFFLOAD").field("Header", &self.Header).field("Encapsulation", &self.Encapsulation).field("SupportIPv4", &self.SupportIPv4).field("SupportIPv6", &self.SupportIPv6).field("SupportIPv6ExtensionHeaders", &self.SupportIPv6ExtensionHeaders).field("SupportSack", &self.SupportSack).field("TcpConnectionOffloadCapacity", &self.TcpConnectionOffloadCapacity).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_CONNECTION_OFFLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_CONNECTION_OFFLOAD {}
+impl ::core::default::Default for NDIS_WMI_TCP_CONNECTION_OFFLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
+    pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
+    pub IPv6Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
+    pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD").field("IPv4Transmit", &self.IPv4Transmit).field("IPv4Receive", &self.IPv4Receive).field("IPv6Transmit", &self.IPv6Transmit).field("IPv6Receive", &self.IPv6Receive).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {}
+impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    pub Encapsulation: u32,
+    pub IpOptionsSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+    pub IpChecksum: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {}
+impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    pub Encapsulation: u32,
+    pub IpOptionsSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+    pub IpChecksum: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1").field("Encapsulation", &self.Encapsulation).field("IpOptionsSupported", &self.IpOptionsSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).field("IpChecksum", &self.IpChecksum).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {}
+impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    pub Encapsulation: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {}
+impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    pub Encapsulation: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+    pub TcpChecksum: u32,
+    pub UdpChecksum: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3").field("Encapsulation", &self.Encapsulation).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).field("TcpChecksum", &self.TcpChecksum).field("UdpChecksum", &self.UdpChecksum).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {}
+impl ::core::default::Default for NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1").field("IPv4", &self.IPv4).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {}
+impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub TcpOptions: u32,
+    pub IpOptions: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("TcpOptions", &self.TcpOptions).field("IpOptions", &self.IpOptions).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {}
+impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
+    pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2").field("IPv4", &self.IPv4).field("IPv6", &self.IPv6).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {}
+impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {}
+impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    pub Encapsulation: u32,
+    pub MaxOffLoadSize: u32,
+    pub MinSegmentCount: u32,
+    pub IpExtensionHeadersSupported: u32,
+    pub TcpOptionsSupported: u32,
+}
+impl ::core::marker::Copy for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
+impl ::core::clone::Clone for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1").field("Encapsulation", &self.Encapsulation).field("MaxOffLoadSize", &self.MaxOffLoadSize).field("MinSegmentCount", &self.MinSegmentCount).field("IpExtensionHeadersSupported", &self.IpExtensionHeadersSupported).field("TcpOptionsSupported", &self.TcpOptionsSupported).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {}
+impl ::core::default::Default for NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDK_ADAPTER_INFO {
+    pub Version: NDK_VERSION,
+    pub VendorId: u32,
+    pub DeviceId: u32,
+    pub MaxRegistrationSize: usize,
+    pub MaxWindowSize: usize,
+    pub FRMRPageCount: u32,
+    pub MaxInitiatorRequestSge: u32,
+    pub MaxReceiveRequestSge: u32,
+    pub MaxReadRequestSge: u32,
+    pub MaxTransferLength: u32,
+    pub MaxInlineDataSize: u32,
+    pub MaxInboundReadLimit: u32,
+    pub MaxOutboundReadLimit: u32,
+    pub MaxReceiveQueueDepth: u32,
+    pub MaxInitiatorQueueDepth: u32,
+    pub MaxSrqDepth: u32,
+    pub MaxCqDepth: u32,
+    pub LargeRequestThreshold: u32,
+    pub MaxCallerData: u32,
+    pub MaxCalleeData: u32,
+    pub AdapterFlags: u32,
+    pub RdmaTechnology: NDK_RDMA_TECHNOLOGY,
+}
+impl ::core::marker::Copy for NDK_ADAPTER_INFO {}
+impl ::core::clone::Clone for NDK_ADAPTER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDK_ADAPTER_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDK_ADAPTER_INFO")
+            .field("Version", &self.Version)
+            .field("VendorId", &self.VendorId)
+            .field("DeviceId", &self.DeviceId)
+            .field("MaxRegistrationSize", &self.MaxRegistrationSize)
+            .field("MaxWindowSize", &self.MaxWindowSize)
+            .field("FRMRPageCount", &self.FRMRPageCount)
+            .field("MaxInitiatorRequestSge", &self.MaxInitiatorRequestSge)
+            .field("MaxReceiveRequestSge", &self.MaxReceiveRequestSge)
+            .field("MaxReadRequestSge", &self.MaxReadRequestSge)
+            .field("MaxTransferLength", &self.MaxTransferLength)
+            .field("MaxInlineDataSize", &self.MaxInlineDataSize)
+            .field("MaxInboundReadLimit", &self.MaxInboundReadLimit)
+            .field("MaxOutboundReadLimit", &self.MaxOutboundReadLimit)
+            .field("MaxReceiveQueueDepth", &self.MaxReceiveQueueDepth)
+            .field("MaxInitiatorQueueDepth", &self.MaxInitiatorQueueDepth)
+            .field("MaxSrqDepth", &self.MaxSrqDepth)
+            .field("MaxCqDepth", &self.MaxCqDepth)
+            .field("LargeRequestThreshold", &self.LargeRequestThreshold)
+            .field("MaxCallerData", &self.MaxCallerData)
+            .field("MaxCalleeData", &self.MaxCalleeData)
+            .field("AdapterFlags", &self.AdapterFlags)
+            .field("RdmaTechnology", &self.RdmaTechnology)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDK_ADAPTER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDK_ADAPTER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDK_ADAPTER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDK_ADAPTER_INFO {}
+impl ::core::default::Default for NDK_ADAPTER_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NDK_VERSION {
+    pub Major: u16,
+    pub Minor: u16,
+}
+impl ::core::marker::Copy for NDK_VERSION {}
+impl ::core::clone::Clone for NDK_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NDK_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NDK_VERSION").field("Major", &self.Major).field("Minor", &self.Minor).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NDK_VERSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NDK_VERSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NDK_VERSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NDK_VERSION {}
+impl ::core::default::Default for NDK_VERSION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NETWORK_ADDRESS {
+    pub AddressLength: u16,
+    pub AddressType: u16,
+    pub Address: [u8; 1],
+}
+impl ::core::marker::Copy for NETWORK_ADDRESS {}
+impl ::core::clone::Clone for NETWORK_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETWORK_ADDRESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETWORK_ADDRESS").field("AddressLength", &self.AddressLength).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETWORK_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETWORK_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETWORK_ADDRESS {}
+impl ::core::default::Default for NETWORK_ADDRESS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NETWORK_ADDRESS_IP {
+    pub sin_port: u16,
+    pub IN_ADDR: u32,
+    pub sin_zero: [u8; 8],
+}
+impl ::core::marker::Copy for NETWORK_ADDRESS_IP {}
+impl ::core::clone::Clone for NETWORK_ADDRESS_IP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETWORK_ADDRESS_IP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETWORK_ADDRESS_IP").field("sin_port", &self.sin_port).field("IN_ADDR", &self.IN_ADDR).field("sin_zero", &self.sin_zero).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETWORK_ADDRESS_IP {}
+impl ::core::default::Default for NETWORK_ADDRESS_IP {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NETWORK_ADDRESS_IP6 {
+    pub sin6_port: u16,
+    pub sin6_flowinfo: u32,
+    pub sin6_addr: [u16; 8],
+    pub sin6_scope_id: u32,
+}
+impl ::core::marker::Copy for NETWORK_ADDRESS_IP6 {}
+impl ::core::clone::Clone for NETWORK_ADDRESS_IP6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETWORK_ADDRESS_IP6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETWORK_ADDRESS_IP6").field("sin6_port", &self.sin6_port).field("sin6_flowinfo", &self.sin6_flowinfo).field("sin6_addr", &self.sin6_addr).field("sin6_scope_id", &self.sin6_scope_id).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IP6 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IP6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IP6>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETWORK_ADDRESS_IP6 {}
+impl ::core::default::Default for NETWORK_ADDRESS_IP6 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NETWORK_ADDRESS_IPX {
+    pub NetworkAddress: u32,
+    pub NodeAddress: [u8; 6],
+    pub Socket: u16,
+}
+impl ::core::marker::Copy for NETWORK_ADDRESS_IPX {}
+impl ::core::clone::Clone for NETWORK_ADDRESS_IPX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETWORK_ADDRESS_IPX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETWORK_ADDRESS_IPX").field("NetworkAddress", &self.NetworkAddress).field("NodeAddress", &self.NodeAddress).field("Socket", &self.Socket).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_IPX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETWORK_ADDRESS_IPX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_IPX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETWORK_ADDRESS_IPX {}
+impl ::core::default::Default for NETWORK_ADDRESS_IPX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NETWORK_ADDRESS_LIST {
+    pub AddressCount: i32,
+    pub AddressType: u16,
+    pub Address: [NETWORK_ADDRESS; 1],
+}
+impl ::core::marker::Copy for NETWORK_ADDRESS_LIST {}
+impl ::core::clone::Clone for NETWORK_ADDRESS_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NETWORK_ADDRESS_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NETWORK_ADDRESS_LIST").field("AddressCount", &self.AddressCount).field("AddressType", &self.AddressType).field("Address", &self.Address).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NETWORK_ADDRESS_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETWORK_ADDRESS_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETWORK_ADDRESS_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETWORK_ADDRESS_LIST {}
+impl ::core::default::Default for NETWORK_ADDRESS_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_IF_ALIAS_LH {
+    pub ifAliasLength: u16,
+    pub ifAliasOffset: u16,
+}
+impl ::core::marker::Copy for NET_IF_ALIAS_LH {}
+impl ::core::clone::Clone for NET_IF_ALIAS_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_IF_ALIAS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_IF_ALIAS_LH").field("ifAliasLength", &self.ifAliasLength).field("ifAliasOffset", &self.ifAliasOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_ALIAS_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_IF_ALIAS_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_IF_ALIAS_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_IF_ALIAS_LH {}
+impl ::core::default::Default for NET_IF_ALIAS_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_IF_RCV_ADDRESS_LH {
+    pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
+    pub ifRcvAddressLength: u16,
+    pub ifRcvAddressOffset: u16,
+}
+impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_LH {}
+impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_IF_RCV_ADDRESS_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_IF_RCV_ADDRESS_LH").field("ifRcvAddressType", &self.ifRcvAddressType).field("ifRcvAddressLength", &self.ifRcvAddressLength).field("ifRcvAddressOffset", &self.ifRcvAddressOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_IF_RCV_ADDRESS_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_IF_RCV_ADDRESS_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_IF_RCV_ADDRESS_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_IF_RCV_ADDRESS_LH {}
+impl ::core::default::Default for NET_IF_RCV_ADDRESS_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub union NET_LUID_LH {
+    pub Value: u64,
+    pub Info: NET_LUID_LH_0,
+}
+impl ::core::marker::Copy for NET_LUID_LH {}
+impl ::core::clone::Clone for NET_LUID_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_LUID_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_LUID_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_LUID_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_LUID_LH {}
+impl ::core::default::Default for NET_LUID_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_LUID_LH_0 {
+    pub _bitfield: u64,
+}
+impl ::core::marker::Copy for NET_LUID_LH_0 {}
+impl ::core::clone::Clone for NET_LUID_LH_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_LUID_LH_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_LUID_LH_0").field("_bitfield", &self._bitfield).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_LUID_LH_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_LUID_LH_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_LUID_LH_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_LUID_LH_0 {}
+impl ::core::default::Default for NET_LUID_LH_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_PHYSICAL_LOCATION_LH {
+    pub BusNumber: u32,
+    pub SlotNumber: u32,
+    pub FunctionNumber: u32,
+}
+impl ::core::marker::Copy for NET_PHYSICAL_LOCATION_LH {}
+impl ::core::clone::Clone for NET_PHYSICAL_LOCATION_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for NET_PHYSICAL_LOCATION_LH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("NET_PHYSICAL_LOCATION_LH").field("BusNumber", &self.BusNumber).field("SlotNumber", &self.SlotNumber).field("FunctionNumber", &self.FunctionNumber).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for NET_PHYSICAL_LOCATION_LH {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NET_PHYSICAL_LOCATION_LH {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NET_PHYSICAL_LOCATION_LH>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NET_PHYSICAL_LOCATION_LH {}
+impl ::core::default::Default for NET_PHYSICAL_LOCATION_LH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct OFFLOAD_ALGO_INFO {
+    pub algoIdentifier: u32,
+    pub algoKeylen: u32,
+    pub algoRounds: u32,
+}
+impl ::core::marker::Copy for OFFLOAD_ALGO_INFO {}
+impl ::core::clone::Clone for OFFLOAD_ALGO_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OFFLOAD_ALGO_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_ALGO_INFO").field("algoIdentifier", &self.algoIdentifier).field("algoKeylen", &self.algoKeylen).field("algoRounds", &self.algoRounds).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLOAD_ALGO_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OFFLOAD_ALGO_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_ALGO_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OFFLOAD_ALGO_INFO {}
+impl ::core::default::Default for OFFLOAD_ALGO_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFFLOAD_IPSEC_ADD_SA {
+    pub SrcAddr: u32,
+    pub SrcMask: u32,
+    pub DestAddr: u32,
+    pub DestMask: u32,
+    pub Protocol: u32,
+    pub SrcPort: u16,
+    pub DestPort: u16,
+    pub SrcTunnelAddr: u32,
+    pub DestTunnelAddr: u32,
+    pub Flags: u16,
+    pub NumSAs: i16,
+    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+    pub KeyLen: u32,
+    pub KeyMat: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_SA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_SA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_IPSEC_ADD_SA")
+            .field("SrcAddr", &self.SrcAddr)
+            .field("SrcMask", &self.SrcMask)
+            .field("DestAddr", &self.DestAddr)
+            .field("DestMask", &self.DestMask)
+            .field("Protocol", &self.Protocol)
+            .field("SrcPort", &self.SrcPort)
+            .field("DestPort", &self.DestPort)
+            .field("SrcTunnelAddr", &self.SrcTunnelAddr)
+            .field("DestTunnelAddr", &self.DestTunnelAddr)
+            .field("Flags", &self.Flags)
+            .field("NumSAs", &self.NumSAs)
+            .field("SecAssoc", &self.SecAssoc)
+            .field("OffloadHandle", &self.OffloadHandle)
+            .field("KeyLen", &self.KeyLen)
+            .field("KeyMat", &self.KeyMat)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_SA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_SA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_ADD_SA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFFLOAD_IPSEC_ADD_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFFLOAD_IPSEC_ADD_SA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    pub SrcAddr: u32,
+    pub SrcMask: u32,
+    pub DstAddr: u32,
+    pub DstMask: u32,
+    pub Protocol: u32,
+    pub SrcPort: u16,
+    pub DstPort: u16,
+    pub SrcTunnelAddr: u32,
+    pub DstTunnelAddr: u32,
+    pub Flags: u16,
+    pub NumSAs: i16,
+    pub SecAssoc: [OFFLOAD_SECURITY_ASSOCIATION; 3],
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+    pub EncapTypeEntry: OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY,
+    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
+    pub KeyLen: u32,
+    pub KeyMat: [u8; 1],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_IPSEC_ADD_UDPESP_SA")
+            .field("SrcAddr", &self.SrcAddr)
+            .field("SrcMask", &self.SrcMask)
+            .field("DstAddr", &self.DstAddr)
+            .field("DstMask", &self.DstMask)
+            .field("Protocol", &self.Protocol)
+            .field("SrcPort", &self.SrcPort)
+            .field("DstPort", &self.DstPort)
+            .field("SrcTunnelAddr", &self.SrcTunnelAddr)
+            .field("DstTunnelAddr", &self.DstTunnelAddr)
+            .field("Flags", &self.Flags)
+            .field("NumSAs", &self.NumSAs)
+            .field("SecAssoc", &self.SecAssoc)
+            .field("OffloadHandle", &self.OffloadHandle)
+            .field("EncapTypeEntry", &self.EncapTypeEntry)
+            .field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle)
+            .field("KeyLen", &self.KeyLen)
+            .field("KeyMat", &self.KeyMat)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_ADD_UDPESP_SA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFFLOAD_IPSEC_ADD_UDPESP_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFFLOAD_IPSEC_ADD_UDPESP_SA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFFLOAD_IPSEC_DELETE_SA {
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_SA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_SA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_IPSEC_DELETE_SA").field("OffloadHandle", &self.OffloadHandle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_SA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_SA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_DELETE_SA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFFLOAD_IPSEC_DELETE_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFFLOAD_IPSEC_DELETE_SA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    pub OffloadHandle: super::super::Foundation::HANDLE,
+    pub EncapTypeEntryOffldHandle: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_IPSEC_DELETE_UDPESP_SA").field("OffloadHandle", &self.OffloadHandle).field("EncapTypeEntryOffldHandle", &self.EncapTypeEntryOffldHandle).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_DELETE_UDPESP_SA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFFLOAD_IPSEC_DELETE_UDPESP_SA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFFLOAD_IPSEC_DELETE_UDPESP_SA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    pub UdpEncapType: UDP_ENCAP_TYPE,
+    pub DstEncapPort: u16,
+}
+impl ::core::marker::Copy for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
+impl ::core::clone::Clone for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY").field("UdpEncapType", &self.UdpEncapType).field("DstEncapPort", &self.DstEncapPort).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {}
+impl ::core::default::Default for OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct OFFLOAD_SECURITY_ASSOCIATION {
+    pub Operation: OFFLOAD_OPERATION_E,
+    pub SPI: u32,
+    pub IntegrityAlgo: OFFLOAD_ALGO_INFO,
+    pub ConfAlgo: OFFLOAD_ALGO_INFO,
+    pub Reserved: OFFLOAD_ALGO_INFO,
+}
+impl ::core::marker::Copy for OFFLOAD_SECURITY_ASSOCIATION {}
+impl ::core::clone::Clone for OFFLOAD_SECURITY_ASSOCIATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for OFFLOAD_SECURITY_ASSOCIATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("OFFLOAD_SECURITY_ASSOCIATION").field("Operation", &self.Operation).field("SPI", &self.SPI).field("IntegrityAlgo", &self.IntegrityAlgo).field("ConfAlgo", &self.ConfAlgo).field("Reserved", &self.Reserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLOAD_SECURITY_ASSOCIATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for OFFLOAD_SECURITY_ASSOCIATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFFLOAD_SECURITY_ASSOCIATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for OFFLOAD_SECURITY_ASSOCIATION {}
+impl ::core::default::Default for OFFLOAD_SECURITY_ASSOCIATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct PMKID_CANDIDATE {
+    pub BSSID: [u8; 6],
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for PMKID_CANDIDATE {}
+impl ::core::clone::Clone for PMKID_CANDIDATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for PMKID_CANDIDATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("PMKID_CANDIDATE").field("BSSID", &self.BSSID).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PMKID_CANDIDATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PMKID_CANDIDATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PMKID_CANDIDATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PMKID_CANDIDATE {}
+impl ::core::default::Default for PMKID_CANDIDATE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct TRANSPORT_HEADER_OFFSET {
+    pub ProtocolType: u16,
+    pub HeaderOffset: u16,
+}
+impl ::core::marker::Copy for TRANSPORT_HEADER_OFFSET {}
+impl ::core::clone::Clone for TRANSPORT_HEADER_OFFSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TRANSPORT_HEADER_OFFSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TRANSPORT_HEADER_OFFSET").field("ProtocolType", &self.ProtocolType).field("HeaderOffset", &self.HeaderOffset).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSPORT_HEADER_OFFSET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TRANSPORT_HEADER_OFFSET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TRANSPORT_HEADER_OFFSET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TRANSPORT_HEADER_OFFSET {}
+impl ::core::default::Default for TRANSPORT_HEADER_OFFSET {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

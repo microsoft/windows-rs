@@ -1555,40 +1555,6 @@ unsafe impl ::core::marker::Send for UserActivitySessionHistoryItem {}
 unsafe impl ::core::marker::Sync for UserActivitySessionHistoryItem {}
 #[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UserActivityState(pub i32);
-impl UserActivityState {
-    pub const New: Self = Self(0i32);
-    pub const Published: Self = Self(1i32);
-}
-impl ::core::marker::Copy for UserActivityState {}
-impl ::core::clone::Clone for UserActivityState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UserActivityState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UserActivityState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UserActivityState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UserActivityState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UserActivityState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
-#[repr(transparent)]
 pub struct UserActivityVisualElements(::windows::core::IUnknown);
 impl UserActivityVisualElements {
     pub fn DisplayText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1735,5 +1701,39 @@ impl ::core::convert::From<&UserActivityVisualElements> for &::windows::core::II
 }
 unsafe impl ::core::marker::Send for UserActivityVisualElements {}
 unsafe impl ::core::marker::Sync for UserActivityVisualElements {}
+#[doc = "*Required features: `\"ApplicationModel_UserActivities\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UserActivityState(pub i32);
+impl UserActivityState {
+    pub const New: Self = Self(0i32);
+    pub const Published: Self = Self(1i32);
+}
+impl ::core::marker::Copy for UserActivityState {}
+impl ::core::clone::Clone for UserActivityState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UserActivityState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UserActivityState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UserActivityState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserActivityState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UserActivityState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.UserActivities.UserActivityState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

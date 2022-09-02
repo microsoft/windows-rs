@@ -899,91 +899,6 @@ unsafe impl ::core::marker::Sync for SocialFeedItem {}
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocialFeedItemStyle(pub i32);
-#[cfg(feature = "deprecated")]
-impl SocialFeedItemStyle {
-    pub const Default: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SocialFeedItemStyle {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SocialFeedItemStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SocialFeedItemStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for SocialFeedItemStyle {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialFeedItemStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialFeedItemStyle").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocialFeedKind(pub i32);
-#[cfg(feature = "deprecated")]
-impl SocialFeedKind {
-    pub const HomeFeed: Self = Self(0i32);
-    pub const ContactFeed: Self = Self(1i32);
-    pub const Dashboard: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SocialFeedKind {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SocialFeedKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SocialFeedKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for SocialFeedKind {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialFeedKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialFeedKind").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for SocialFeedKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
 pub struct SocialFeedSharedItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl SocialFeedSharedItem {
@@ -1150,91 +1065,6 @@ impl ::core::convert::From<&SocialFeedSharedItem> for &::windows::core::IInspect
 unsafe impl ::core::marker::Send for SocialFeedSharedItem {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialFeedSharedItem {}
-#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocialFeedUpdateMode(pub i32);
-#[cfg(feature = "deprecated")]
-impl SocialFeedUpdateMode {
-    pub const Append: Self = Self(0i32);
-    pub const Replace: Self = Self(1i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SocialFeedUpdateMode {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SocialFeedUpdateMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SocialFeedUpdateMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for SocialFeedUpdateMode {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialFeedUpdateMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialFeedUpdateMode").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SocialItemBadgeStyle(pub i32);
-#[cfg(feature = "deprecated")]
-impl SocialItemBadgeStyle {
-    pub const Hidden: Self = Self(0i32);
-    pub const Visible: Self = Self(1i32);
-    pub const VisibleWithCount: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for SocialItemBadgeStyle {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for SocialItemBadgeStyle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for SocialItemBadgeStyle {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for SocialItemBadgeStyle {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for SocialItemBadgeStyle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SocialItemBadgeStyle").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for SocialItemBadgeStyle {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -1537,5 +1367,175 @@ impl ::core::convert::From<&SocialUserInfo> for &::windows::core::IInspectable {
 unsafe impl ::core::marker::Send for SocialUserInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialUserInfo {}
+#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocialFeedItemStyle(pub i32);
+#[cfg(feature = "deprecated")]
+impl SocialFeedItemStyle {
+    pub const Default: Self = Self(0i32);
+    pub const Photo: Self = Self(1i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for SocialFeedItemStyle {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for SocialFeedItemStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialFeedItemStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for SocialFeedItemStyle {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedItemStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedItemStyle").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for SocialFeedItemStyle {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedItemStyle;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocialFeedKind(pub i32);
+#[cfg(feature = "deprecated")]
+impl SocialFeedKind {
+    pub const HomeFeed: Self = Self(0i32);
+    pub const ContactFeed: Self = Self(1i32);
+    pub const Dashboard: Self = Self(2i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for SocialFeedKind {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for SocialFeedKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialFeedKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for SocialFeedKind {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedKind").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for SocialFeedKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocialFeedUpdateMode(pub i32);
+#[cfg(feature = "deprecated")]
+impl SocialFeedUpdateMode {
+    pub const Append: Self = Self(0i32);
+    pub const Replace: Self = Self(1i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for SocialFeedUpdateMode {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for SocialFeedUpdateMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialFeedUpdateMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for SocialFeedUpdateMode {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialFeedUpdateMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialFeedUpdateMode").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for SocialFeedUpdateMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialFeedUpdateMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_SocialInfo\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SocialItemBadgeStyle(pub i32);
+#[cfg(feature = "deprecated")]
+impl SocialItemBadgeStyle {
+    pub const Hidden: Self = Self(0i32);
+    pub const Visible: Self = Self(1i32);
+    pub const VisibleWithCount: Self = Self(2i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for SocialItemBadgeStyle {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for SocialItemBadgeStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for SocialItemBadgeStyle {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for SocialItemBadgeStyle {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SocialItemBadgeStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocialItemBadgeStyle").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for SocialItemBadgeStyle {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.SocialInfo.SocialItemBadgeStyle;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

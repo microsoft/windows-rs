@@ -1,135 +1,3 @@
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMPRESSOR_HANDLE(pub isize);
-impl COMPRESSOR_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for COMPRESSOR_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for COMPRESSOR_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for COMPRESSOR_HANDLE {}
-impl ::core::fmt::Debug for COMPRESSOR_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPRESSOR_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<COMPRESSOR_HANDLE>> for COMPRESSOR_HANDLE {
-    fn from(optional: ::core::option::Option<COMPRESSOR_HANDLE>) -> COMPRESSOR_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMPRESS_ALGORITHM(pub u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
-impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
-impl ::core::clone::Clone for COMPRESS_ALGORITHM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPRESS_ALGORITHM {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub struct COMPRESS_ALLOCATION_ROUTINES {
-    pub Allocate: PFN_COMPRESS_ALLOCATE,
-    pub Free: PFN_COMPRESS_FREE,
-    pub UserContext: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for COMPRESS_ALLOCATION_ROUTINES {}
-impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("Allocate", &self.Allocate.map(|f| f as usize)).field("Free", &self.Free.map(|f| f as usize)).field("UserContext", &self.UserContext).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPRESS_ALLOCATION_ROUTINES>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
-impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMPRESS_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
-impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMPRESS_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub const COMPRESS_RAW: u32 = 536870912u32;
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -196,10 +64,6 @@ pub unsafe fn Decompress(decompressorhandle: isize, compresseddata: ::core::opti
     }
     Decompress(decompressorhandle, ::core::mem::transmute(compresseddata.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), compresseddata.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompressedbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), uncompressedbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(uncompresseddatasize))
 }
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub type PFN_COMPRESS_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
-pub type PFN_COMPRESS_FREE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_Storage_Compression\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -269,5 +133,141 @@ pub unsafe fn SetDecompressorInformation(decompressorhandle: isize, compressinfo
     }
     SetDecompressorInformation(decompressorhandle, compressinformationclass, ::core::mem::transmute(compressinformation.as_ptr()), compressinformation.len() as _)
 }
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_RAW: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPRESS_ALGORITHM(pub u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
+impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
+impl ::core::clone::Clone for COMPRESS_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMPRESS_ALGORITHM {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPRESS_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
+impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMPRESS_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESS_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMPRESSOR_HANDLE(pub isize);
+impl COMPRESSOR_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for COMPRESSOR_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for COMPRESSOR_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for COMPRESSOR_HANDLE {}
+impl ::core::fmt::Debug for COMPRESSOR_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESSOR_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<COMPRESSOR_HANDLE>> for COMPRESSOR_HANDLE {
+    fn from(optional: ::core::option::Option<COMPRESSOR_HANDLE>) -> COMPRESSOR_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub struct COMPRESS_ALLOCATION_ROUTINES {
+    pub Allocate: PFN_COMPRESS_ALLOCATE,
+    pub Free: PFN_COMPRESS_FREE,
+    pub UserContext: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for COMPRESS_ALLOCATION_ROUTINES {}
+impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("Allocate", &self.Allocate.map(|f| f as usize)).field("Free", &self.Free.map(|f| f as usize)).field("UserContext", &self.UserContext).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPRESS_ALLOCATION_ROUTINES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
+impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub type PFN_COMPRESS_ALLOCATE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, size: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: `\"Win32_Storage_Compression\"`*"]
+pub type PFN_COMPRESS_FREE = ::core::option::Option<unsafe extern "system" fn(usercontext: *const ::core::ffi::c_void, memory: *const ::core::ffi::c_void)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

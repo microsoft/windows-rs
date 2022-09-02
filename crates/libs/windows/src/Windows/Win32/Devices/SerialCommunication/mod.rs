@@ -1,12 +1,4 @@
 #[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
-pub const CDB_REPORT_BITS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
-pub const CDB_REPORT_BYTES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
-pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
-pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
 #[inline]
 pub unsafe fn ComDBClaimNextFreePort<'a, P0>(hcomdb: P0, comnumber: &mut u32) -> i32
 where
@@ -89,6 +81,14 @@ where
     }
     ComDBResizeDatabase(hcomdb.into(), newsize)
 }
+#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
+pub const CDB_REPORT_BITS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
+pub const CDB_REPORT_BYTES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
+pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_Devices_SerialCommunication\"`*"]
+pub const COMDB_MIN_PORTS_ARBITRATED: u32 = 256u32;
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct HCOMDB(pub isize);

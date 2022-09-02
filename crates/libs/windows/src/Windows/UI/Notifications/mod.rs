@@ -2,566 +2,6 @@
 pub mod Management;
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdaptiveNotificationContentKind(pub i32);
-impl AdaptiveNotificationContentKind {
-    pub const Text: Self = Self(0i32);
-}
-impl ::core::marker::Copy for AdaptiveNotificationContentKind {}
-impl ::core::clone::Clone for AdaptiveNotificationContentKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdaptiveNotificationContentKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdaptiveNotificationContentKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-pub struct AdaptiveNotificationText(::windows::core::IUnknown);
-impl AdaptiveNotificationText {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdaptiveNotificationText, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind> {
-        let this = &::windows::core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdaptiveNotificationContentKind>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
-        let this = &::windows::core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Hints)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
-        }
-    }
-    pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-}
-impl ::core::clone::Clone for AdaptiveNotificationText {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AdaptiveNotificationText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveNotificationText {}
-impl ::core::fmt::Debug for AdaptiveNotificationText {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdaptiveNotificationText").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationText {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AdaptiveNotificationText {
-    type Vtable = IAdaptiveNotificationText_Vtbl;
-    const IID: ::windows::core::GUID = <IAdaptiveNotificationText as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AdaptiveNotificationText {
-    const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
-}
-impl ::core::convert::From<AdaptiveNotificationText> for ::windows::core::IUnknown {
-    fn from(value: AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for ::windows::core::IUnknown {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for &::windows::core::IUnknown {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdaptiveNotificationText> for ::windows::core::IInspectable {
-    fn from(value: AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for ::windows::core::IInspectable {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdaptiveNotificationText> for &::windows::core::IInspectable {
-    fn from(value: &AdaptiveNotificationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AdaptiveNotificationText> for IAdaptiveNotificationContent {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AdaptiveNotificationText) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AdaptiveNotificationText> for IAdaptiveNotificationContent {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AdaptiveNotificationText) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AdaptiveNotificationText> for ::windows::core::InParam<'a, IAdaptiveNotificationContent> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AdaptiveNotificationText) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for AdaptiveNotificationText {}
-unsafe impl ::core::marker::Sync for AdaptiveNotificationText {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-pub struct BadgeNotification(::windows::core::IUnknown);
-impl BadgeNotification {
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ExpirationTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateBadgeNotification<'a, P0>(content: P0) -> ::windows::core::Result<BadgeNotification>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
-    {
-        Self::IBadgeNotificationFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeNotification>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BadgeNotification, IBadgeNotificationFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for BadgeNotification {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BadgeNotification {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeNotification {}
-impl ::core::fmt::Debug for BadgeNotification {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeNotification").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BadgeNotification {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeNotification;{075cb4ca-d08a-4e2f-9233-7e289c1f7722})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BadgeNotification {
-    type Vtable = IBadgeNotification_Vtbl;
-    const IID: ::windows::core::GUID = <IBadgeNotification as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BadgeNotification {
-    const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
-}
-impl ::core::convert::From<BadgeNotification> for ::windows::core::IUnknown {
-    fn from(value: BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for ::windows::core::IUnknown {
-    fn from(value: &BadgeNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for &::windows::core::IUnknown {
-    fn from(value: &BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BadgeNotification> for ::windows::core::IInspectable {
-    fn from(value: BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for ::windows::core::IInspectable {
-    fn from(value: &BadgeNotification) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeNotification> for &::windows::core::IInspectable {
-    fn from(value: &BadgeNotification) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BadgeNotification {}
-unsafe impl ::core::marker::Sync for BadgeNotification {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BadgeTemplateType(pub i32);
-impl BadgeTemplateType {
-    pub const BadgeGlyph: Self = Self(0i32);
-    pub const BadgeNumber: Self = Self(1i32);
-}
-impl ::core::marker::Copy for BadgeTemplateType {}
-impl ::core::clone::Clone for BadgeTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BadgeTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BadgeTemplateType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BadgeTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BadgeTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct BadgeUpdateManager;
-impl BadgeUpdateManager {
-    pub fn CreateBadgeUpdaterForApplication() -> ::windows::core::Result<BadgeUpdater> {
-        Self::IBadgeUpdateManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
-        })
-    }
-    pub fn CreateBadgeUpdaterForApplicationWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
-        Self::IBadgeUpdateManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
-        })
-    }
-    pub fn CreateBadgeUpdaterForSecondaryTile(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
-        Self::IBadgeUpdateManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent(r#type: BadgeTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
-        Self::IBadgeUpdateManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<BadgeUpdateManagerForUser>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
-    {
-        Self::IBadgeUpdateManagerStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdateManagerForUser>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    #[doc(hidden)]
-    pub fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics2> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for BadgeUpdateManager {
-    const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManager";
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-pub struct BadgeUpdateManagerForUser(::windows::core::IUnknown);
-impl BadgeUpdateManagerForUser {
-    pub fn CreateBadgeUpdaterForApplication(&self) -> ::windows::core::Result<BadgeUpdater> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
-        }
-    }
-    pub fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
-        }
-    }
-    pub fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"System\"`*"]
-    #[cfg(feature = "System")]
-    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for BadgeUpdateManagerForUser {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BadgeUpdateManagerForUser {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeUpdateManagerForUser {}
-impl ::core::fmt::Debug for BadgeUpdateManagerForUser {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeUpdateManagerForUser").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BadgeUpdateManagerForUser {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BadgeUpdateManagerForUser {
-    type Vtable = IBadgeUpdateManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = <IBadgeUpdateManagerForUser as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BadgeUpdateManagerForUser {
-    const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
-}
-impl ::core::convert::From<BadgeUpdateManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for ::windows::core::IUnknown {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for &::windows::core::IUnknown {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BadgeUpdateManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for ::windows::core::IInspectable {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdateManagerForUser> for &::windows::core::IInspectable {
-    fn from(value: &BadgeUpdateManagerForUser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
-unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-pub struct BadgeUpdater(::windows::core::IUnknown);
-impl BadgeUpdater {
-    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, BadgeNotification>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
-    }
-    pub fn Clear(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdate<'a, P0>(&self, badgecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), requestedinterval).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), starttime, requestedinterval).ok() }
-    }
-    pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopPeriodicUpdate)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-}
-impl ::core::clone::Clone for BadgeUpdater {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for BadgeUpdater {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeUpdater {}
-impl ::core::fmt::Debug for BadgeUpdater {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BadgeUpdater").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for BadgeUpdater {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdater;{b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for BadgeUpdater {
-    type Vtable = IBadgeUpdater_Vtbl;
-    const IID: ::windows::core::GUID = <IBadgeUpdater as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for BadgeUpdater {
-    const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
-}
-impl ::core::convert::From<BadgeUpdater> for ::windows::core::IUnknown {
-    fn from(value: BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for ::windows::core::IUnknown {
-    fn from(value: &BadgeUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for &::windows::core::IUnknown {
-    fn from(value: &BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<BadgeUpdater> for ::windows::core::IInspectable {
-    fn from(value: BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for ::windows::core::IInspectable {
-    fn from(value: &BadgeUpdater) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&BadgeUpdater> for &::windows::core::IInspectable {
-    fn from(value: &BadgeUpdater) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for BadgeUpdater {}
-unsafe impl ::core::marker::Sync for BadgeUpdater {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
 pub struct IAdaptiveNotificationContent(::windows::core::IUnknown);
 impl IAdaptiveNotificationContent {
     pub fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind> {
@@ -1897,6 +1337,499 @@ pub struct IUserNotificationChangedEventArgs_Vtbl {
     pub UserNotificationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+pub struct AdaptiveNotificationText(::windows::core::IUnknown);
+impl AdaptiveNotificationText {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AdaptiveNotificationText, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Kind(&self) -> ::windows::core::Result<AdaptiveNotificationContentKind> {
+        let this = &::windows::core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdaptiveNotificationContentKind>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Hints(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
+        let this = &::windows::core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Hints)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+        }
+    }
+    pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetLanguage(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetLanguage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+}
+impl ::core::clone::Clone for AdaptiveNotificationText {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AdaptiveNotificationText {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AdaptiveNotificationText {}
+impl ::core::fmt::Debug for AdaptiveNotificationText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveNotificationText").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationText {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.AdaptiveNotificationText;{46d4a3be-609a-4326-a40b-bfde872034a3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AdaptiveNotificationText {
+    type Vtable = IAdaptiveNotificationText_Vtbl;
+    const IID: ::windows::core::GUID = <IAdaptiveNotificationText as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AdaptiveNotificationText {
+    const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
+}
+impl ::core::convert::From<AdaptiveNotificationText> for ::windows::core::IUnknown {
+    fn from(value: AdaptiveNotificationText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AdaptiveNotificationText> for ::windows::core::IUnknown {
+    fn from(value: &AdaptiveNotificationText) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AdaptiveNotificationText> for &::windows::core::IUnknown {
+    fn from(value: &AdaptiveNotificationText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AdaptiveNotificationText> for ::windows::core::IInspectable {
+    fn from(value: AdaptiveNotificationText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AdaptiveNotificationText> for ::windows::core::IInspectable {
+    fn from(value: &AdaptiveNotificationText) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AdaptiveNotificationText> for &::windows::core::IInspectable {
+    fn from(value: &AdaptiveNotificationText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AdaptiveNotificationText> for IAdaptiveNotificationContent {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AdaptiveNotificationText) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AdaptiveNotificationText> for IAdaptiveNotificationContent {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AdaptiveNotificationText) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AdaptiveNotificationText> for ::windows::core::InParam<'a, IAdaptiveNotificationContent> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AdaptiveNotificationText) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for AdaptiveNotificationText {}
+unsafe impl ::core::marker::Sync for AdaptiveNotificationText {}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+pub struct BadgeNotification(::windows::core::IUnknown);
+impl BadgeNotification {
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub fn Content(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetExpirationTime<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetExpirationTime)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ExpirationTime(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ExpirationTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub fn CreateBadgeNotification<'a, P0>(content: P0) -> ::windows::core::Result<BadgeNotification>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Data::Xml::Dom::XmlDocument>>,
+    {
+        Self::IBadgeNotificationFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeNotification)(::windows::core::Interface::as_raw(this), content.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeNotification>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<BadgeNotification, IBadgeNotificationFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for BadgeNotification {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BadgeNotification {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BadgeNotification {}
+impl ::core::fmt::Debug for BadgeNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeNotification").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BadgeNotification {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeNotification;{075cb4ca-d08a-4e2f-9233-7e289c1f7722})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BadgeNotification {
+    type Vtable = IBadgeNotification_Vtbl;
+    const IID: ::windows::core::GUID = <IBadgeNotification as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BadgeNotification {
+    const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
+}
+impl ::core::convert::From<BadgeNotification> for ::windows::core::IUnknown {
+    fn from(value: BadgeNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BadgeNotification> for ::windows::core::IUnknown {
+    fn from(value: &BadgeNotification) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BadgeNotification> for &::windows::core::IUnknown {
+    fn from(value: &BadgeNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BadgeNotification> for ::windows::core::IInspectable {
+    fn from(value: BadgeNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BadgeNotification> for ::windows::core::IInspectable {
+    fn from(value: &BadgeNotification) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BadgeNotification> for &::windows::core::IInspectable {
+    fn from(value: &BadgeNotification) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BadgeNotification {}
+unsafe impl ::core::marker::Sync for BadgeNotification {}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+pub struct BadgeUpdateManager;
+impl BadgeUpdateManager {
+    pub fn CreateBadgeUpdaterForApplication() -> ::windows::core::Result<BadgeUpdater> {
+        Self::IBadgeUpdateManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+        })
+    }
+    pub fn CreateBadgeUpdaterForApplicationWithId(applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
+        Self::IBadgeUpdateManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+        })
+    }
+    pub fn CreateBadgeUpdaterForSecondaryTile(tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
+        Self::IBadgeUpdateManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub fn GetTemplateContent(r#type: BadgeTemplateType) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+        Self::IBadgeUpdateManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetTemplateContent)(::windows::core::Interface::as_raw(this), r#type, result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn GetForUser<'a, P0>(user: P0) -> ::windows::core::Result<BadgeUpdateManagerForUser>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::System::User>>,
+    {
+        Self::IBadgeUpdateManagerStatics2(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into().abi(), result__.as_mut_ptr()).from_abi::<BadgeUpdateManagerForUser>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    #[doc(hidden)]
+    pub fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics2> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for BadgeUpdateManager {
+    const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManager";
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+pub struct BadgeUpdateManagerForUser(::windows::core::IUnknown);
+impl BadgeUpdateManagerForUser {
+    pub fn CreateBadgeUpdaterForApplication(&self) -> ::windows::core::Result<BadgeUpdater> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+        }
+    }
+    pub fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(applicationid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+        }
+    }
+    pub fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &::windows::core::HSTRING) -> ::windows::core::Result<BadgeUpdater> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(tileid), result__.as_mut_ptr()).from_abi::<BadgeUpdater>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"System\"`*"]
+    #[cfg(feature = "System")]
+    pub fn User(&self) -> ::windows::core::Result<super::super::System::User> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::System::User>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for BadgeUpdateManagerForUser {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BadgeUpdateManagerForUser {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BadgeUpdateManagerForUser {}
+impl ::core::fmt::Debug for BadgeUpdateManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeUpdateManagerForUser").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BadgeUpdateManagerForUser {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdateManagerForUser;{996b21bc-0386-44e5-ba8d-0c1077a62e92})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BadgeUpdateManagerForUser {
+    type Vtable = IBadgeUpdateManagerForUser_Vtbl;
+    const IID: ::windows::core::GUID = <IBadgeUpdateManagerForUser as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BadgeUpdateManagerForUser {
+    const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
+}
+impl ::core::convert::From<BadgeUpdateManagerForUser> for ::windows::core::IUnknown {
+    fn from(value: BadgeUpdateManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BadgeUpdateManagerForUser> for ::windows::core::IUnknown {
+    fn from(value: &BadgeUpdateManagerForUser) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BadgeUpdateManagerForUser> for &::windows::core::IUnknown {
+    fn from(value: &BadgeUpdateManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BadgeUpdateManagerForUser> for ::windows::core::IInspectable {
+    fn from(value: BadgeUpdateManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BadgeUpdateManagerForUser> for ::windows::core::IInspectable {
+    fn from(value: &BadgeUpdateManagerForUser) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BadgeUpdateManagerForUser> for &::windows::core::IInspectable {
+    fn from(value: &BadgeUpdateManagerForUser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BadgeUpdateManagerForUser {}
+unsafe impl ::core::marker::Sync for BadgeUpdateManagerForUser {}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+pub struct BadgeUpdater(::windows::core::IUnknown);
+impl BadgeUpdater {
+    pub fn Update<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, BadgeNotification>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this), notification.into().abi()).ok() }
+    }
+    pub fn Clear(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Clear)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn StartPeriodicUpdate<'a, P0>(&self, badgecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdate)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), requestedinterval).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn StartPeriodicUpdateAtTime<'a, P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::Uri>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).StartPeriodicUpdateAtTime)(::windows::core::Interface::as_raw(this), badgecontent.into().abi(), starttime, requestedinterval).ok() }
+    }
+    pub fn StopPeriodicUpdate(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).StopPeriodicUpdate)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+}
+impl ::core::clone::Clone for BadgeUpdater {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for BadgeUpdater {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BadgeUpdater {}
+impl ::core::fmt::Debug for BadgeUpdater {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeUpdater").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BadgeUpdater {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.BadgeUpdater;{b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for BadgeUpdater {
+    type Vtable = IBadgeUpdater_Vtbl;
+    const IID: ::windows::core::GUID = <IBadgeUpdater as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for BadgeUpdater {
+    const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
+}
+impl ::core::convert::From<BadgeUpdater> for ::windows::core::IUnknown {
+    fn from(value: BadgeUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BadgeUpdater> for ::windows::core::IUnknown {
+    fn from(value: &BadgeUpdater) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BadgeUpdater> for &::windows::core::IUnknown {
+    fn from(value: &BadgeUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<BadgeUpdater> for ::windows::core::IInspectable {
+    fn from(value: BadgeUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&BadgeUpdater> for ::windows::core::IInspectable {
+    fn from(value: &BadgeUpdater) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&BadgeUpdater> for &::windows::core::IInspectable {
+    fn from(value: &BadgeUpdater) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for BadgeUpdater {}
+unsafe impl ::core::marker::Sync for BadgeUpdater {}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
 pub struct KnownAdaptiveNotificationHints;
 impl KnownAdaptiveNotificationHints {
     pub fn Style() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2427,174 +2360,6 @@ unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NotificationKinds(pub u32);
-impl NotificationKinds {
-    pub const Unknown: Self = Self(0u32);
-    pub const Toast: Self = Self(1u32);
-}
-impl ::core::marker::Copy for NotificationKinds {}
-impl ::core::clone::Clone for NotificationKinds {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationKinds {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NotificationKinds {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationKinds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationKinds").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for NotificationKinds {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for NotificationKinds {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NotificationKinds {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NotificationKinds {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for NotificationKinds {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NotificationKinds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NotificationMirroring(pub i32);
-impl NotificationMirroring {
-    pub const Allowed: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-}
-impl ::core::marker::Copy for NotificationMirroring {}
-impl ::core::clone::Clone for NotificationMirroring {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationMirroring {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NotificationMirroring {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationMirroring {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationMirroring").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NotificationMirroring {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NotificationSetting(pub i32);
-impl NotificationSetting {
-    pub const Enabled: Self = Self(0i32);
-    pub const DisabledForApplication: Self = Self(1i32);
-    pub const DisabledForUser: Self = Self(2i32);
-    pub const DisabledByGroupPolicy: Self = Self(3i32);
-    pub const DisabledByManifest: Self = Self(4i32);
-}
-impl ::core::marker::Copy for NotificationSetting {}
-impl ::core::clone::Clone for NotificationSetting {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationSetting {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NotificationSetting {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationSetting {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationSetting").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NotificationSetting {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NotificationUpdateResult(pub i32);
-impl NotificationUpdateResult {
-    pub const Succeeded: Self = Self(0i32);
-    pub const Failed: Self = Self(1i32);
-    pub const NotificationNotFound: Self = Self(2i32);
-}
-impl ::core::marker::Copy for NotificationUpdateResult {}
-impl ::core::clone::Clone for NotificationUpdateResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NotificationUpdateResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NotificationUpdateResult {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NotificationUpdateResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NotificationUpdateResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
 pub struct NotificationVisual(::windows::core::IUnknown);
 impl NotificationVisual {
     pub fn Language(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2687,43 +2452,6 @@ impl ::core::convert::From<&NotificationVisual> for &::windows::core::IInspectab
 }
 unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PeriodicUpdateRecurrence(pub i32);
-impl PeriodicUpdateRecurrence {
-    pub const HalfHour: Self = Self(0i32);
-    pub const Hour: Self = Self(1i32);
-    pub const SixHours: Self = Self(2i32);
-    pub const TwelveHours: Self = Self(3i32);
-    pub const Daily: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PeriodicUpdateRecurrence {}
-impl ::core::clone::Clone for PeriodicUpdateRecurrence {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PeriodicUpdateRecurrence {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PeriodicUpdateRecurrence {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PeriodicUpdateRecurrence {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ScheduledTileNotification(::windows::core::IUnknown);
@@ -3359,39 +3087,6 @@ impl ::core::convert::From<&TileFlyoutNotification> for &::windows::core::IInspe
 unsafe impl ::core::marker::Send for TileFlyoutNotification {}
 unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TileFlyoutTemplateType(pub i32);
-impl TileFlyoutTemplateType {
-    pub const TileFlyoutTemplate01: Self = Self(0i32);
-}
-impl ::core::marker::Copy for TileFlyoutTemplateType {}
-impl ::core::clone::Clone for TileFlyoutTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileFlyoutTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TileFlyoutTemplateType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TileFlyoutTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TileFlyoutTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
 pub struct TileFlyoutUpdateManager;
 impl TileFlyoutUpdateManager {
     pub fn CreateTileFlyoutUpdaterForApplication() -> ::windows::core::Result<TileFlyoutUpdater> {
@@ -3656,164 +3351,6 @@ impl ::core::convert::From<&TileNotification> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for TileNotification {}
 unsafe impl ::core::marker::Sync for TileNotification {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TileTemplateType(pub i32);
-impl TileTemplateType {
-    pub const TileSquareImage: Self = Self(0i32);
-    pub const TileSquareBlock: Self = Self(1i32);
-    pub const TileSquareText01: Self = Self(2i32);
-    pub const TileSquareText02: Self = Self(3i32);
-    pub const TileSquareText03: Self = Self(4i32);
-    pub const TileSquareText04: Self = Self(5i32);
-    pub const TileSquarePeekImageAndText01: Self = Self(6i32);
-    pub const TileSquarePeekImageAndText02: Self = Self(7i32);
-    pub const TileSquarePeekImageAndText03: Self = Self(8i32);
-    pub const TileSquarePeekImageAndText04: Self = Self(9i32);
-    pub const TileWideImage: Self = Self(10i32);
-    pub const TileWideImageCollection: Self = Self(11i32);
-    pub const TileWideImageAndText01: Self = Self(12i32);
-    pub const TileWideImageAndText02: Self = Self(13i32);
-    pub const TileWideBlockAndText01: Self = Self(14i32);
-    pub const TileWideBlockAndText02: Self = Self(15i32);
-    pub const TileWidePeekImageCollection01: Self = Self(16i32);
-    pub const TileWidePeekImageCollection02: Self = Self(17i32);
-    pub const TileWidePeekImageCollection03: Self = Self(18i32);
-    pub const TileWidePeekImageCollection04: Self = Self(19i32);
-    pub const TileWidePeekImageCollection05: Self = Self(20i32);
-    pub const TileWidePeekImageCollection06: Self = Self(21i32);
-    pub const TileWidePeekImageAndText01: Self = Self(22i32);
-    pub const TileWidePeekImageAndText02: Self = Self(23i32);
-    pub const TileWidePeekImage01: Self = Self(24i32);
-    pub const TileWidePeekImage02: Self = Self(25i32);
-    pub const TileWidePeekImage03: Self = Self(26i32);
-    pub const TileWidePeekImage04: Self = Self(27i32);
-    pub const TileWidePeekImage05: Self = Self(28i32);
-    pub const TileWidePeekImage06: Self = Self(29i32);
-    pub const TileWideSmallImageAndText01: Self = Self(30i32);
-    pub const TileWideSmallImageAndText02: Self = Self(31i32);
-    pub const TileWideSmallImageAndText03: Self = Self(32i32);
-    pub const TileWideSmallImageAndText04: Self = Self(33i32);
-    pub const TileWideSmallImageAndText05: Self = Self(34i32);
-    pub const TileWideText01: Self = Self(35i32);
-    pub const TileWideText02: Self = Self(36i32);
-    pub const TileWideText03: Self = Self(37i32);
-    pub const TileWideText04: Self = Self(38i32);
-    pub const TileWideText05: Self = Self(39i32);
-    pub const TileWideText06: Self = Self(40i32);
-    pub const TileWideText07: Self = Self(41i32);
-    pub const TileWideText08: Self = Self(42i32);
-    pub const TileWideText09: Self = Self(43i32);
-    pub const TileWideText10: Self = Self(44i32);
-    pub const TileWideText11: Self = Self(45i32);
-    pub const TileSquare150x150Image: Self = Self(0i32);
-    pub const TileSquare150x150Block: Self = Self(1i32);
-    pub const TileSquare150x150Text01: Self = Self(2i32);
-    pub const TileSquare150x150Text02: Self = Self(3i32);
-    pub const TileSquare150x150Text03: Self = Self(4i32);
-    pub const TileSquare150x150Text04: Self = Self(5i32);
-    pub const TileSquare150x150PeekImageAndText01: Self = Self(6i32);
-    pub const TileSquare150x150PeekImageAndText02: Self = Self(7i32);
-    pub const TileSquare150x150PeekImageAndText03: Self = Self(8i32);
-    pub const TileSquare150x150PeekImageAndText04: Self = Self(9i32);
-    pub const TileWide310x150Image: Self = Self(10i32);
-    pub const TileWide310x150ImageCollection: Self = Self(11i32);
-    pub const TileWide310x150ImageAndText01: Self = Self(12i32);
-    pub const TileWide310x150ImageAndText02: Self = Self(13i32);
-    pub const TileWide310x150BlockAndText01: Self = Self(14i32);
-    pub const TileWide310x150BlockAndText02: Self = Self(15i32);
-    pub const TileWide310x150PeekImageCollection01: Self = Self(16i32);
-    pub const TileWide310x150PeekImageCollection02: Self = Self(17i32);
-    pub const TileWide310x150PeekImageCollection03: Self = Self(18i32);
-    pub const TileWide310x150PeekImageCollection04: Self = Self(19i32);
-    pub const TileWide310x150PeekImageCollection05: Self = Self(20i32);
-    pub const TileWide310x150PeekImageCollection06: Self = Self(21i32);
-    pub const TileWide310x150PeekImageAndText01: Self = Self(22i32);
-    pub const TileWide310x150PeekImageAndText02: Self = Self(23i32);
-    pub const TileWide310x150PeekImage01: Self = Self(24i32);
-    pub const TileWide310x150PeekImage02: Self = Self(25i32);
-    pub const TileWide310x150PeekImage03: Self = Self(26i32);
-    pub const TileWide310x150PeekImage04: Self = Self(27i32);
-    pub const TileWide310x150PeekImage05: Self = Self(28i32);
-    pub const TileWide310x150PeekImage06: Self = Self(29i32);
-    pub const TileWide310x150SmallImageAndText01: Self = Self(30i32);
-    pub const TileWide310x150SmallImageAndText02: Self = Self(31i32);
-    pub const TileWide310x150SmallImageAndText03: Self = Self(32i32);
-    pub const TileWide310x150SmallImageAndText04: Self = Self(33i32);
-    pub const TileWide310x150SmallImageAndText05: Self = Self(34i32);
-    pub const TileWide310x150Text01: Self = Self(35i32);
-    pub const TileWide310x150Text02: Self = Self(36i32);
-    pub const TileWide310x150Text03: Self = Self(37i32);
-    pub const TileWide310x150Text04: Self = Self(38i32);
-    pub const TileWide310x150Text05: Self = Self(39i32);
-    pub const TileWide310x150Text06: Self = Self(40i32);
-    pub const TileWide310x150Text07: Self = Self(41i32);
-    pub const TileWide310x150Text08: Self = Self(42i32);
-    pub const TileWide310x150Text09: Self = Self(43i32);
-    pub const TileWide310x150Text10: Self = Self(44i32);
-    pub const TileWide310x150Text11: Self = Self(45i32);
-    pub const TileSquare310x310BlockAndText01: Self = Self(46i32);
-    pub const TileSquare310x310BlockAndText02: Self = Self(47i32);
-    pub const TileSquare310x310Image: Self = Self(48i32);
-    pub const TileSquare310x310ImageAndText01: Self = Self(49i32);
-    pub const TileSquare310x310ImageAndText02: Self = Self(50i32);
-    pub const TileSquare310x310ImageAndTextOverlay01: Self = Self(51i32);
-    pub const TileSquare310x310ImageAndTextOverlay02: Self = Self(52i32);
-    pub const TileSquare310x310ImageAndTextOverlay03: Self = Self(53i32);
-    pub const TileSquare310x310ImageCollectionAndText01: Self = Self(54i32);
-    pub const TileSquare310x310ImageCollectionAndText02: Self = Self(55i32);
-    pub const TileSquare310x310ImageCollection: Self = Self(56i32);
-    pub const TileSquare310x310SmallImagesAndTextList01: Self = Self(57i32);
-    pub const TileSquare310x310SmallImagesAndTextList02: Self = Self(58i32);
-    pub const TileSquare310x310SmallImagesAndTextList03: Self = Self(59i32);
-    pub const TileSquare310x310SmallImagesAndTextList04: Self = Self(60i32);
-    pub const TileSquare310x310Text01: Self = Self(61i32);
-    pub const TileSquare310x310Text02: Self = Self(62i32);
-    pub const TileSquare310x310Text03: Self = Self(63i32);
-    pub const TileSquare310x310Text04: Self = Self(64i32);
-    pub const TileSquare310x310Text05: Self = Self(65i32);
-    pub const TileSquare310x310Text06: Self = Self(66i32);
-    pub const TileSquare310x310Text07: Self = Self(67i32);
-    pub const TileSquare310x310Text08: Self = Self(68i32);
-    pub const TileSquare310x310TextList01: Self = Self(69i32);
-    pub const TileSquare310x310TextList02: Self = Self(70i32);
-    pub const TileSquare310x310TextList03: Self = Self(71i32);
-    pub const TileSquare310x310SmallImageAndText01: Self = Self(72i32);
-    pub const TileSquare310x310SmallImagesAndTextList05: Self = Self(73i32);
-    pub const TileSquare310x310Text09: Self = Self(74i32);
-    pub const TileSquare71x71IconWithBadge: Self = Self(75i32);
-    pub const TileSquare150x150IconWithBadge: Self = Self(76i32);
-    pub const TileWide310x150IconWithBadgeAndText: Self = Self(77i32);
-    pub const TileSquare71x71Image: Self = Self(78i32);
-    pub const TileTall150x310Image: Self = Self(79i32);
-}
-impl ::core::marker::Copy for TileTemplateType {}
-impl ::core::clone::Clone for TileTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TileTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TileTemplateType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TileTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TileTemplateType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TileTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 pub struct TileUpdateManager;
 impl TileUpdateManager {
@@ -4475,41 +4012,6 @@ unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ToastDismissalReason(pub i32);
-impl ToastDismissalReason {
-    pub const UserCanceled: Self = Self(0i32);
-    pub const ApplicationHidden: Self = Self(1i32);
-    pub const TimedOut: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ToastDismissalReason {}
-impl ::core::clone::Clone for ToastDismissalReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastDismissalReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ToastDismissalReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastDismissalReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ToastDismissalReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
 pub struct ToastDismissedEventArgs(::windows::core::IUnknown);
 impl ToastDismissedEventArgs {
     pub fn Reason(&self) -> ::windows::core::Result<ToastDismissalReason> {
@@ -4656,42 +4158,6 @@ impl ::core::convert::From<&ToastFailedEventArgs> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ToastHistoryChangedType(pub i32);
-impl ToastHistoryChangedType {
-    pub const Cleared: Self = Self(0i32);
-    pub const Removed: Self = Self(1i32);
-    pub const Expired: Self = Self(2i32);
-    pub const Added: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ToastHistoryChangedType {}
-impl ::core::clone::Clone for ToastHistoryChangedType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastHistoryChangedType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ToastHistoryChangedType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastHistoryChangedType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ToastHistoryChangedType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct ToastNotification(::windows::core::IUnknown);
@@ -5423,40 +4889,6 @@ unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ToastNotificationPriority(pub i32);
-impl ToastNotificationPriority {
-    pub const Default: Self = Self(0i32);
-    pub const High: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ToastNotificationPriority {}
-impl ::core::clone::Clone for ToastNotificationPriority {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastNotificationPriority {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ToastNotificationPriority {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastNotificationPriority {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ToastNotificationPriority {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
 pub struct ToastNotifier(::windows::core::IUnknown);
 impl ToastNotifier {
     pub fn Show<'a, P0>(&self, notification: P0) -> ::windows::core::Result<()>
@@ -5604,46 +5036,6 @@ impl ::core::convert::From<&ToastNotifier> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
-#[doc = "*Required features: `\"UI_Notifications\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ToastTemplateType(pub i32);
-impl ToastTemplateType {
-    pub const ToastImageAndText01: Self = Self(0i32);
-    pub const ToastImageAndText02: Self = Self(1i32);
-    pub const ToastImageAndText03: Self = Self(2i32);
-    pub const ToastImageAndText04: Self = Self(3i32);
-    pub const ToastText01: Self = Self(4i32);
-    pub const ToastText02: Self = Self(5i32);
-    pub const ToastText03: Self = Self(6i32);
-    pub const ToastText04: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ToastTemplateType {}
-impl ::core::clone::Clone for ToastTemplateType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ToastTemplateType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ToastTemplateType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ToastTemplateType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ToastTemplateType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ToastTemplateType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 pub struct UserNotification(::windows::core::IUnknown);
@@ -5824,6 +5216,614 @@ impl ::core::convert::From<&UserNotificationChangedEventArgs> for &::windows::co
 }
 unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdaptiveNotificationContentKind(pub i32);
+impl AdaptiveNotificationContentKind {
+    pub const Text: Self = Self(0i32);
+}
+impl ::core::marker::Copy for AdaptiveNotificationContentKind {}
+impl ::core::clone::Clone for AdaptiveNotificationContentKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdaptiveNotificationContentKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdaptiveNotificationContentKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationContentKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.AdaptiveNotificationContentKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BadgeTemplateType(pub i32);
+impl BadgeTemplateType {
+    pub const BadgeGlyph: Self = Self(0i32);
+    pub const BadgeNumber: Self = Self(1i32);
+}
+impl ::core::marker::Copy for BadgeTemplateType {}
+impl ::core::clone::Clone for BadgeTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BadgeTemplateType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BadgeTemplateType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BadgeTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for BadgeTemplateType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.BadgeTemplateType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NotificationKinds(pub u32);
+impl NotificationKinds {
+    pub const Unknown: Self = Self(0u32);
+    pub const Toast: Self = Self(1u32);
+}
+impl ::core::marker::Copy for NotificationKinds {}
+impl ::core::clone::Clone for NotificationKinds {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NotificationKinds {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NotificationKinds {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NotificationKinds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationKinds").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NotificationKinds {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NotificationKinds {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NotificationKinds {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NotificationKinds {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NotificationKinds {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NotificationKinds {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationKinds;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NotificationMirroring(pub i32);
+impl NotificationMirroring {
+    pub const Allowed: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+}
+impl ::core::marker::Copy for NotificationMirroring {}
+impl ::core::clone::Clone for NotificationMirroring {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NotificationMirroring {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NotificationMirroring {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NotificationMirroring {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationMirroring").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NotificationMirroring {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationMirroring;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NotificationSetting(pub i32);
+impl NotificationSetting {
+    pub const Enabled: Self = Self(0i32);
+    pub const DisabledForApplication: Self = Self(1i32);
+    pub const DisabledForUser: Self = Self(2i32);
+    pub const DisabledByGroupPolicy: Self = Self(3i32);
+    pub const DisabledByManifest: Self = Self(4i32);
+}
+impl ::core::marker::Copy for NotificationSetting {}
+impl ::core::clone::Clone for NotificationSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NotificationSetting {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NotificationSetting {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NotificationSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationSetting").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NotificationSetting {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationSetting;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NotificationUpdateResult(pub i32);
+impl NotificationUpdateResult {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Failed: Self = Self(1i32);
+    pub const NotificationNotFound: Self = Self(2i32);
+}
+impl ::core::marker::Copy for NotificationUpdateResult {}
+impl ::core::clone::Clone for NotificationUpdateResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NotificationUpdateResult {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NotificationUpdateResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NotificationUpdateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NotificationUpdateResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.NotificationUpdateResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PeriodicUpdateRecurrence(pub i32);
+impl PeriodicUpdateRecurrence {
+    pub const HalfHour: Self = Self(0i32);
+    pub const Hour: Self = Self(1i32);
+    pub const SixHours: Self = Self(2i32);
+    pub const TwelveHours: Self = Self(3i32);
+    pub const Daily: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PeriodicUpdateRecurrence {}
+impl ::core::clone::Clone for PeriodicUpdateRecurrence {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PeriodicUpdateRecurrence {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PeriodicUpdateRecurrence {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PeriodicUpdateRecurrence {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.PeriodicUpdateRecurrence;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TileFlyoutTemplateType(pub i32);
+impl TileFlyoutTemplateType {
+    pub const TileFlyoutTemplate01: Self = Self(0i32);
+}
+impl ::core::marker::Copy for TileFlyoutTemplateType {}
+impl ::core::clone::Clone for TileFlyoutTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TileFlyoutTemplateType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TileFlyoutTemplateType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TileFlyoutTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TileFlyoutTemplateType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileFlyoutTemplateType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TileTemplateType(pub i32);
+impl TileTemplateType {
+    pub const TileSquareImage: Self = Self(0i32);
+    pub const TileSquareBlock: Self = Self(1i32);
+    pub const TileSquareText01: Self = Self(2i32);
+    pub const TileSquareText02: Self = Self(3i32);
+    pub const TileSquareText03: Self = Self(4i32);
+    pub const TileSquareText04: Self = Self(5i32);
+    pub const TileSquarePeekImageAndText01: Self = Self(6i32);
+    pub const TileSquarePeekImageAndText02: Self = Self(7i32);
+    pub const TileSquarePeekImageAndText03: Self = Self(8i32);
+    pub const TileSquarePeekImageAndText04: Self = Self(9i32);
+    pub const TileWideImage: Self = Self(10i32);
+    pub const TileWideImageCollection: Self = Self(11i32);
+    pub const TileWideImageAndText01: Self = Self(12i32);
+    pub const TileWideImageAndText02: Self = Self(13i32);
+    pub const TileWideBlockAndText01: Self = Self(14i32);
+    pub const TileWideBlockAndText02: Self = Self(15i32);
+    pub const TileWidePeekImageCollection01: Self = Self(16i32);
+    pub const TileWidePeekImageCollection02: Self = Self(17i32);
+    pub const TileWidePeekImageCollection03: Self = Self(18i32);
+    pub const TileWidePeekImageCollection04: Self = Self(19i32);
+    pub const TileWidePeekImageCollection05: Self = Self(20i32);
+    pub const TileWidePeekImageCollection06: Self = Self(21i32);
+    pub const TileWidePeekImageAndText01: Self = Self(22i32);
+    pub const TileWidePeekImageAndText02: Self = Self(23i32);
+    pub const TileWidePeekImage01: Self = Self(24i32);
+    pub const TileWidePeekImage02: Self = Self(25i32);
+    pub const TileWidePeekImage03: Self = Self(26i32);
+    pub const TileWidePeekImage04: Self = Self(27i32);
+    pub const TileWidePeekImage05: Self = Self(28i32);
+    pub const TileWidePeekImage06: Self = Self(29i32);
+    pub const TileWideSmallImageAndText01: Self = Self(30i32);
+    pub const TileWideSmallImageAndText02: Self = Self(31i32);
+    pub const TileWideSmallImageAndText03: Self = Self(32i32);
+    pub const TileWideSmallImageAndText04: Self = Self(33i32);
+    pub const TileWideSmallImageAndText05: Self = Self(34i32);
+    pub const TileWideText01: Self = Self(35i32);
+    pub const TileWideText02: Self = Self(36i32);
+    pub const TileWideText03: Self = Self(37i32);
+    pub const TileWideText04: Self = Self(38i32);
+    pub const TileWideText05: Self = Self(39i32);
+    pub const TileWideText06: Self = Self(40i32);
+    pub const TileWideText07: Self = Self(41i32);
+    pub const TileWideText08: Self = Self(42i32);
+    pub const TileWideText09: Self = Self(43i32);
+    pub const TileWideText10: Self = Self(44i32);
+    pub const TileWideText11: Self = Self(45i32);
+    pub const TileSquare150x150Image: Self = Self(0i32);
+    pub const TileSquare150x150Block: Self = Self(1i32);
+    pub const TileSquare150x150Text01: Self = Self(2i32);
+    pub const TileSquare150x150Text02: Self = Self(3i32);
+    pub const TileSquare150x150Text03: Self = Self(4i32);
+    pub const TileSquare150x150Text04: Self = Self(5i32);
+    pub const TileSquare150x150PeekImageAndText01: Self = Self(6i32);
+    pub const TileSquare150x150PeekImageAndText02: Self = Self(7i32);
+    pub const TileSquare150x150PeekImageAndText03: Self = Self(8i32);
+    pub const TileSquare150x150PeekImageAndText04: Self = Self(9i32);
+    pub const TileWide310x150Image: Self = Self(10i32);
+    pub const TileWide310x150ImageCollection: Self = Self(11i32);
+    pub const TileWide310x150ImageAndText01: Self = Self(12i32);
+    pub const TileWide310x150ImageAndText02: Self = Self(13i32);
+    pub const TileWide310x150BlockAndText01: Self = Self(14i32);
+    pub const TileWide310x150BlockAndText02: Self = Self(15i32);
+    pub const TileWide310x150PeekImageCollection01: Self = Self(16i32);
+    pub const TileWide310x150PeekImageCollection02: Self = Self(17i32);
+    pub const TileWide310x150PeekImageCollection03: Self = Self(18i32);
+    pub const TileWide310x150PeekImageCollection04: Self = Self(19i32);
+    pub const TileWide310x150PeekImageCollection05: Self = Self(20i32);
+    pub const TileWide310x150PeekImageCollection06: Self = Self(21i32);
+    pub const TileWide310x150PeekImageAndText01: Self = Self(22i32);
+    pub const TileWide310x150PeekImageAndText02: Self = Self(23i32);
+    pub const TileWide310x150PeekImage01: Self = Self(24i32);
+    pub const TileWide310x150PeekImage02: Self = Self(25i32);
+    pub const TileWide310x150PeekImage03: Self = Self(26i32);
+    pub const TileWide310x150PeekImage04: Self = Self(27i32);
+    pub const TileWide310x150PeekImage05: Self = Self(28i32);
+    pub const TileWide310x150PeekImage06: Self = Self(29i32);
+    pub const TileWide310x150SmallImageAndText01: Self = Self(30i32);
+    pub const TileWide310x150SmallImageAndText02: Self = Self(31i32);
+    pub const TileWide310x150SmallImageAndText03: Self = Self(32i32);
+    pub const TileWide310x150SmallImageAndText04: Self = Self(33i32);
+    pub const TileWide310x150SmallImageAndText05: Self = Self(34i32);
+    pub const TileWide310x150Text01: Self = Self(35i32);
+    pub const TileWide310x150Text02: Self = Self(36i32);
+    pub const TileWide310x150Text03: Self = Self(37i32);
+    pub const TileWide310x150Text04: Self = Self(38i32);
+    pub const TileWide310x150Text05: Self = Self(39i32);
+    pub const TileWide310x150Text06: Self = Self(40i32);
+    pub const TileWide310x150Text07: Self = Self(41i32);
+    pub const TileWide310x150Text08: Self = Self(42i32);
+    pub const TileWide310x150Text09: Self = Self(43i32);
+    pub const TileWide310x150Text10: Self = Self(44i32);
+    pub const TileWide310x150Text11: Self = Self(45i32);
+    pub const TileSquare310x310BlockAndText01: Self = Self(46i32);
+    pub const TileSquare310x310BlockAndText02: Self = Self(47i32);
+    pub const TileSquare310x310Image: Self = Self(48i32);
+    pub const TileSquare310x310ImageAndText01: Self = Self(49i32);
+    pub const TileSquare310x310ImageAndText02: Self = Self(50i32);
+    pub const TileSquare310x310ImageAndTextOverlay01: Self = Self(51i32);
+    pub const TileSquare310x310ImageAndTextOverlay02: Self = Self(52i32);
+    pub const TileSquare310x310ImageAndTextOverlay03: Self = Self(53i32);
+    pub const TileSquare310x310ImageCollectionAndText01: Self = Self(54i32);
+    pub const TileSquare310x310ImageCollectionAndText02: Self = Self(55i32);
+    pub const TileSquare310x310ImageCollection: Self = Self(56i32);
+    pub const TileSquare310x310SmallImagesAndTextList01: Self = Self(57i32);
+    pub const TileSquare310x310SmallImagesAndTextList02: Self = Self(58i32);
+    pub const TileSquare310x310SmallImagesAndTextList03: Self = Self(59i32);
+    pub const TileSquare310x310SmallImagesAndTextList04: Self = Self(60i32);
+    pub const TileSquare310x310Text01: Self = Self(61i32);
+    pub const TileSquare310x310Text02: Self = Self(62i32);
+    pub const TileSquare310x310Text03: Self = Self(63i32);
+    pub const TileSquare310x310Text04: Self = Self(64i32);
+    pub const TileSquare310x310Text05: Self = Self(65i32);
+    pub const TileSquare310x310Text06: Self = Self(66i32);
+    pub const TileSquare310x310Text07: Self = Self(67i32);
+    pub const TileSquare310x310Text08: Self = Self(68i32);
+    pub const TileSquare310x310TextList01: Self = Self(69i32);
+    pub const TileSquare310x310TextList02: Self = Self(70i32);
+    pub const TileSquare310x310TextList03: Self = Self(71i32);
+    pub const TileSquare310x310SmallImageAndText01: Self = Self(72i32);
+    pub const TileSquare310x310SmallImagesAndTextList05: Self = Self(73i32);
+    pub const TileSquare310x310Text09: Self = Self(74i32);
+    pub const TileSquare71x71IconWithBadge: Self = Self(75i32);
+    pub const TileSquare150x150IconWithBadge: Self = Self(76i32);
+    pub const TileWide310x150IconWithBadgeAndText: Self = Self(77i32);
+    pub const TileSquare71x71Image: Self = Self(78i32);
+    pub const TileTall150x310Image: Self = Self(79i32);
+}
+impl ::core::marker::Copy for TileTemplateType {}
+impl ::core::clone::Clone for TileTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TileTemplateType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TileTemplateType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TileTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileTemplateType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TileTemplateType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.TileTemplateType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ToastDismissalReason(pub i32);
+impl ToastDismissalReason {
+    pub const UserCanceled: Self = Self(0i32);
+    pub const ApplicationHidden: Self = Self(1i32);
+    pub const TimedOut: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ToastDismissalReason {}
+impl ::core::clone::Clone for ToastDismissalReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ToastDismissalReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ToastDismissalReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ToastDismissalReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ToastDismissalReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastDismissalReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ToastHistoryChangedType(pub i32);
+impl ToastHistoryChangedType {
+    pub const Cleared: Self = Self(0i32);
+    pub const Removed: Self = Self(1i32);
+    pub const Expired: Self = Self(2i32);
+    pub const Added: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ToastHistoryChangedType {}
+impl ::core::clone::Clone for ToastHistoryChangedType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ToastHistoryChangedType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ToastHistoryChangedType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ToastHistoryChangedType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ToastHistoryChangedType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastHistoryChangedType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ToastNotificationPriority(pub i32);
+impl ToastNotificationPriority {
+    pub const Default: Self = Self(0i32);
+    pub const High: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ToastNotificationPriority {}
+impl ::core::clone::Clone for ToastNotificationPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ToastNotificationPriority {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ToastNotificationPriority {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ToastNotificationPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ToastNotificationPriority {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastNotificationPriority;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"UI_Notifications\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ToastTemplateType(pub i32);
+impl ToastTemplateType {
+    pub const ToastImageAndText01: Self = Self(0i32);
+    pub const ToastImageAndText02: Self = Self(1i32);
+    pub const ToastImageAndText03: Self = Self(2i32);
+    pub const ToastImageAndText04: Self = Self(3i32);
+    pub const ToastText01: Self = Self(4i32);
+    pub const ToastText02: Self = Self(5i32);
+    pub const ToastText03: Self = Self(6i32);
+    pub const ToastText04: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ToastTemplateType {}
+impl ::core::clone::Clone for ToastTemplateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ToastTemplateType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ToastTemplateType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ToastTemplateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastTemplateType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ToastTemplateType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.UI.Notifications.ToastTemplateType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

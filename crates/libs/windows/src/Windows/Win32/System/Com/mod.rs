@@ -13,1054 +13,6 @@ pub mod UI;
 #[cfg(feature = "Win32_System_Com_Urlmon")]
 pub mod Urlmon;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ADVF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_NODATA: ADVF = ADVF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
-impl ::core::marker::Copy for ADVF {}
-impl ::core::clone::Clone for ADVF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ADVF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ADVF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ADVF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ADVF").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED1: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED2: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED3: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED4: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED5: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct APTTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
-impl ::core::marker::Copy for APTTYPE {}
-impl ::core::clone::Clone for APTTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APTTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for APTTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for APTTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APTTYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct APTTYPEQUALIFIER(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
-impl ::core::marker::Copy for APTTYPEQUALIFIER {}
-impl ::core::clone::Clone for APTTYPEQUALIFIER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for APTTYPEQUALIFIER {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for APTTYPEQUALIFIER {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for APTTYPEQUALIFIER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("APTTYPEQUALIFIER").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct AUTHENTICATEINFO {
-    pub dwFlags: u32,
-    pub dwReserved: u32,
-}
-impl ::core::marker::Copy for AUTHENTICATEINFO {}
-impl ::core::clone::Clone for AUTHENTICATEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for AUTHENTICATEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("AUTHENTICATEINFO").field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for AUTHENTICATEINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUTHENTICATEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHENTICATEINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUTHENTICATEINFO {}
-impl ::core::default::Default for AUTHENTICATEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ApplicationType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ServerApplication: ApplicationType = ApplicationType(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
-impl ::core::marker::Copy for ApplicationType {}
-impl ::core::clone::Clone for ApplicationType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ApplicationType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ApplicationType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ApplicationType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ApplicationType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIAdviseSink(::windows::core::IUnknown);
-impl AsyncIAdviseSink {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Begin_OnDataChange(&self, pformatetc: &FORMATETC, pstgmed: &STGMEDIUM) {
-        (::windows::core::Interface::vtable(self).Begin_OnDataChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
-    }
-    pub unsafe fn Finish_OnDataChange(&self) {
-        (::windows::core::Interface::vtable(self).Finish_OnDataChange)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        (::windows::core::Interface::vtable(self).Begin_OnViewChange)(::windows::core::Interface::as_raw(self), dwaspect, lindex)
-    }
-    pub unsafe fn Finish_OnViewChange(&self) {
-        (::windows::core::Interface::vtable(self).Finish_OnViewChange)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnRename<'a, P0>(&self, pmk: P0)
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-    {
-        (::windows::core::Interface::vtable(self).Begin_OnRename)(::windows::core::Interface::as_raw(self), pmk.into().abi())
-    }
-    pub unsafe fn Finish_OnRename(&self) {
-        (::windows::core::Interface::vtable(self).Finish_OnRename)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnSave(&self) {
-        (::windows::core::Interface::vtable(self).Begin_OnSave)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Finish_OnSave(&self) {
-        (::windows::core::Interface::vtable(self).Finish_OnSave)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnClose(&self) {
-        (::windows::core::Interface::vtable(self).Begin_OnClose)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Finish_OnClose(&self) {
-        (::windows::core::Interface::vtable(self).Finish_OnClose)(::windows::core::Interface::as_raw(self))
-    }
-}
-impl ::core::convert::From<AsyncIAdviseSink> for ::windows::core::IUnknown {
-    fn from(value: AsyncIAdviseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIAdviseSink> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIAdviseSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIAdviseSink> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIAdviseSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIAdviseSink {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIAdviseSink {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIAdviseSink {}
-impl ::core::fmt::Debug for AsyncIAdviseSink {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIAdviseSink").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIAdviseSink {
-    type Vtable = AsyncIAdviseSink_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000150_0000_0000_c000_000000000046);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIAdviseSink_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub Begin_OnDataChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM),
-    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
-    Begin_OnDataChange: usize,
-    pub Finish_OnDataChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Begin_OnViewChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, lindex: i32),
-    pub Finish_OnViewChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Begin_OnRename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: *mut ::core::ffi::c_void),
-    pub Finish_OnRename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Begin_OnSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Finish_OnSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Begin_OnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-    pub Finish_OnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIAdviseSink2(::windows::core::IUnknown);
-impl AsyncIAdviseSink2 {
-    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Begin_OnDataChange(&self, pformatetc: &FORMATETC, pstgmed: &STGMEDIUM) {
-        (::windows::core::Interface::vtable(self).base__.Begin_OnDataChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
-    }
-    pub unsafe fn Finish_OnDataChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.Finish_OnDataChange)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
-        (::windows::core::Interface::vtable(self).base__.Begin_OnViewChange)(::windows::core::Interface::as_raw(self), dwaspect, lindex)
-    }
-    pub unsafe fn Finish_OnViewChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.Finish_OnViewChange)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnRename<'a, P0>(&self, pmk: P0)
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-    {
-        (::windows::core::Interface::vtable(self).base__.Begin_OnRename)(::windows::core::Interface::as_raw(self), pmk.into().abi())
-    }
-    pub unsafe fn Finish_OnRename(&self) {
-        (::windows::core::Interface::vtable(self).base__.Finish_OnRename)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnSave(&self) {
-        (::windows::core::Interface::vtable(self).base__.Begin_OnSave)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Finish_OnSave(&self) {
-        (::windows::core::Interface::vtable(self).base__.Finish_OnSave)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnClose(&self) {
-        (::windows::core::Interface::vtable(self).base__.Begin_OnClose)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Finish_OnClose(&self) {
-        (::windows::core::Interface::vtable(self).base__.Finish_OnClose)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_OnLinkSrcChange<'a, P0>(&self, pmk: P0)
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-    {
-        (::windows::core::Interface::vtable(self).Begin_OnLinkSrcChange)(::windows::core::Interface::as_raw(self), pmk.into().abi())
-    }
-    pub unsafe fn Finish_OnLinkSrcChange(&self) {
-        (::windows::core::Interface::vtable(self).Finish_OnLinkSrcChange)(::windows::core::Interface::as_raw(self))
-    }
-}
-impl ::core::convert::From<AsyncIAdviseSink2> for ::windows::core::IUnknown {
-    fn from(value: AsyncIAdviseSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIAdviseSink2> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIAdviseSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIAdviseSink2> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIAdviseSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<AsyncIAdviseSink2> for AsyncIAdviseSink {
-    fn from(value: AsyncIAdviseSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIAdviseSink2> for &'a AsyncIAdviseSink {
-    fn from(value: &'a AsyncIAdviseSink2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIAdviseSink2> for AsyncIAdviseSink {
-    fn from(value: &AsyncIAdviseSink2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIAdviseSink2 {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIAdviseSink2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIAdviseSink2 {}
-impl ::core::fmt::Debug for AsyncIAdviseSink2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIAdviseSink2").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIAdviseSink2 {
-    type Vtable = AsyncIAdviseSink2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000151_0000_0000_c000_000000000046);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIAdviseSink2_Vtbl {
-    pub base__: AsyncIAdviseSink_Vtbl,
-    pub Begin_OnLinkSrcChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: *mut ::core::ffi::c_void),
-    pub Finish_OnLinkSrcChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIMultiQI(::windows::core::IUnknown);
-impl AsyncIMultiQI {
-    pub unsafe fn Begin_QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(::windows::core::Interface::as_raw(self), pmqis.len() as _, ::core::mem::transmute(pmqis.as_ptr())).ok()
-    }
-    pub unsafe fn Finish_QueryMultipleInterfaces(&self, pmqis: &mut MULTI_QI) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmqis)).ok()
-    }
-}
-impl ::core::convert::From<AsyncIMultiQI> for ::windows::core::IUnknown {
-    fn from(value: AsyncIMultiQI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIMultiQI> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIMultiQI) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIMultiQI> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIMultiQI) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIMultiQI {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIMultiQI {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIMultiQI {}
-impl ::core::fmt::Debug for AsyncIMultiQI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIMultiQI").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIMultiQI {
-    type Vtable = AsyncIMultiQI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000e0020_0000_0000_c000_000000000046);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIMultiQI_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Begin_QueryMultipleInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::HRESULT,
-    pub Finish_QueryMultipleInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmqis: *mut MULTI_QI) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIPipeByte(::windows::core::IUnknown);
-impl AsyncIPipeByte {
-    pub unsafe fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Pull)(::windows::core::Interface::as_raw(self), crequest).ok()
-    }
-    pub unsafe fn Finish_Pull(&self, buf: *mut u8, pcreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_Pull)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf), ::core::mem::transmute(pcreturned)).ok()
-    }
-    pub unsafe fn Begin_Push(&self, buf: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Push)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
-    }
-    pub unsafe fn Finish_Push(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_Push)(::windows::core::Interface::as_raw(self)).ok()
-    }
-}
-impl ::core::convert::From<AsyncIPipeByte> for ::windows::core::IUnknown {
-    fn from(value: AsyncIPipeByte) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIPipeByte> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIPipeByte) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIPipeByte> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIPipeByte) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIPipeByte {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIPipeByte {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIPipeByte {}
-impl ::core::fmt::Debug for AsyncIPipeByte {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIPipeByte").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIPipeByte {
-    type Vtable = AsyncIPipeByte_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acb_2f86_11d1_8e04_00c04fb9989a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIPipeByte_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Begin_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequest: u32) -> ::windows::core::HRESULT,
-    pub Finish_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *mut u8, pcreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub Begin_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *const u8, csent: u32) -> ::windows::core::HRESULT,
-    pub Finish_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIPipeDouble(::windows::core::IUnknown);
-impl AsyncIPipeDouble {
-    pub unsafe fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Pull)(::windows::core::Interface::as_raw(self), crequest).ok()
-    }
-    pub unsafe fn Finish_Pull(&self, buf: *mut f64, pcreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_Pull)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf), ::core::mem::transmute(pcreturned)).ok()
-    }
-    pub unsafe fn Begin_Push(&self, buf: &[f64]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Push)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
-    }
-    pub unsafe fn Finish_Push(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_Push)(::windows::core::Interface::as_raw(self)).ok()
-    }
-}
-impl ::core::convert::From<AsyncIPipeDouble> for ::windows::core::IUnknown {
-    fn from(value: AsyncIPipeDouble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIPipeDouble> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIPipeDouble) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIPipeDouble> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIPipeDouble) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIPipeDouble {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIPipeDouble {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIPipeDouble {}
-impl ::core::fmt::Debug for AsyncIPipeDouble {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIPipeDouble").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIPipeDouble {
-    type Vtable = AsyncIPipeDouble_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIPipeDouble_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Begin_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequest: u32) -> ::windows::core::HRESULT,
-    pub Finish_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *mut f64, pcreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub Begin_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *const f64, csent: u32) -> ::windows::core::HRESULT,
-    pub Finish_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIPipeLong(::windows::core::IUnknown);
-impl AsyncIPipeLong {
-    pub unsafe fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Pull)(::windows::core::Interface::as_raw(self), crequest).ok()
-    }
-    pub unsafe fn Finish_Pull(&self, buf: *mut i32, pcreturned: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_Pull)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf), ::core::mem::transmute(pcreturned)).ok()
-    }
-    pub unsafe fn Begin_Push(&self, buf: &[i32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Push)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
-    }
-    pub unsafe fn Finish_Push(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_Push)(::windows::core::Interface::as_raw(self)).ok()
-    }
-}
-impl ::core::convert::From<AsyncIPipeLong> for ::windows::core::IUnknown {
-    fn from(value: AsyncIPipeLong) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIPipeLong> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIPipeLong) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIPipeLong> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIPipeLong) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIPipeLong {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIPipeLong {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIPipeLong {}
-impl ::core::fmt::Debug for AsyncIPipeLong {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIPipeLong").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIPipeLong {
-    type Vtable = AsyncIPipeLong_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIPipeLong_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Begin_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequest: u32) -> ::windows::core::HRESULT,
-    pub Finish_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *mut i32, pcreturned: *mut u32) -> ::windows::core::HRESULT,
-    pub Begin_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *const i32, csent: u32) -> ::windows::core::HRESULT,
-    pub Finish_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-pub struct AsyncIUnknown(::windows::core::IUnknown);
-impl AsyncIUnknown {
-    pub unsafe fn Begin_QueryInterface(&self, riid: &::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_QueryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid)).ok()
-    }
-    pub unsafe fn Finish_QueryInterface(&self, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Finish_QueryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppvobject)).ok()
-    }
-    pub unsafe fn Begin_AddRef(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_AddRef)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Finish_AddRef(&self) -> u32 {
-        (::windows::core::Interface::vtable(self).Finish_AddRef)(::windows::core::Interface::as_raw(self))
-    }
-    pub unsafe fn Begin_Release(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin_Release)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn Finish_Release(&self) -> u32 {
-        (::windows::core::Interface::vtable(self).Finish_Release)(::windows::core::Interface::as_raw(self))
-    }
-}
-impl ::core::convert::From<AsyncIUnknown> for ::windows::core::IUnknown {
-    fn from(value: AsyncIUnknown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a AsyncIUnknown> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a AsyncIUnknown) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AsyncIUnknown> for ::windows::core::IUnknown {
-    fn from(value: &AsyncIUnknown) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for AsyncIUnknown {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AsyncIUnknown {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncIUnknown {}
-impl ::core::fmt::Debug for AsyncIUnknown {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncIUnknown").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for AsyncIUnknown {
-    type Vtable = AsyncIUnknown_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000e0000_0000_0000_c000_000000000046);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct AsyncIUnknown_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Begin_QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub Finish_QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Begin_AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Finish_AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub Begin_Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Finish_Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-pub struct BINDINFO {
-    pub cbSize: u32,
-    pub szExtraInfo: ::windows::core::PWSTR,
-    pub stgmedData: STGMEDIUM,
-    pub grfBindInfoF: u32,
-    pub dwBindVerb: u32,
-    pub szCustomVerb: ::windows::core::PWSTR,
-    pub cbstgmedData: u32,
-    pub dwOptions: u32,
-    pub dwOptionsFlags: u32,
-    pub dwCodePage: u32,
-    pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
-    pub iid: ::windows::core::GUID,
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub dwReserved: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for BINDINFO {
-    fn clone(&self) -> Self {
-        Self {
-            cbSize: self.cbSize,
-            szExtraInfo: self.szExtraInfo,
-            stgmedData: self.stgmedData.clone(),
-            grfBindInfoF: self.grfBindInfoF,
-            dwBindVerb: self.dwBindVerb,
-            szCustomVerb: self.szCustomVerb,
-            cbstgmedData: self.cbstgmedData,
-            dwOptions: self.dwOptions,
-            dwOptionsFlags: self.dwOptionsFlags,
-            dwCodePage: self.dwCodePage,
-            securityAttributes: self.securityAttributes,
-            iid: self.iid,
-            pUnk: self.pUnk.clone(),
-            dwReserved: self.dwReserved,
-        }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-unsafe impl ::windows::core::Abi for BINDINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for BINDINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.szExtraInfo == other.szExtraInfo && self.stgmedData == other.stgmedData && self.grfBindInfoF == other.grfBindInfoF && self.dwBindVerb == other.dwBindVerb && self.szCustomVerb == other.szCustomVerb && self.cbstgmedData == other.cbstgmedData && self.dwOptions == other.dwOptions && self.dwOptionsFlags == other.dwOptionsFlags && self.dwCodePage == other.dwCodePage && self.securityAttributes == other.securityAttributes && self.iid == other.iid && self.pUnk == other.pUnk && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for BINDINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::default::Default for BINDINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BINDINFOF(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
-impl ::core::marker::Copy for BINDINFOF {}
-impl ::core::clone::Clone for BINDINFOF {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BINDINFOF {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BINDINFOF {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BINDINFOF {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BINDINFOF").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub union BINDPTR {
-    pub lpfuncdesc: *mut FUNCDESC,
-    pub lpvardesc: *mut VARDESC,
-    pub lptcomp: ::core::mem::ManuallyDrop<::core::option::Option<ITypeComp>>,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for BINDPTR {
-    fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for BINDPTR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for BINDPTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BINDPTR>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for BINDPTR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for BINDPTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct BIND_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
-impl ::core::marker::Copy for BIND_FLAGS {}
-impl ::core::clone::Clone for BIND_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for BIND_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for BIND_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for BIND_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("BIND_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct BIND_OPTS {
-    pub cbStruct: u32,
-    pub grfFlags: u32,
-    pub grfMode: u32,
-    pub dwTickCountDeadline: u32,
-}
-impl ::core::marker::Copy for BIND_OPTS {}
-impl ::core::clone::Clone for BIND_OPTS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BIND_OPTS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIND_OPTS").field("cbStruct", &self.cbStruct).field("grfFlags", &self.grfFlags).field("grfMode", &self.grfMode).field("dwTickCountDeadline", &self.dwTickCountDeadline).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BIND_OPTS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BIND_OPTS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BIND_OPTS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BIND_OPTS {}
-impl ::core::default::Default for BIND_OPTS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct BIND_OPTS2 {
-    pub Base: BIND_OPTS,
-    pub dwTrackFlags: u32,
-    pub dwClassContext: u32,
-    pub locale: u32,
-    pub pServerInfo: *mut COSERVERINFO,
-}
-impl ::core::marker::Copy for BIND_OPTS2 {}
-impl ::core::clone::Clone for BIND_OPTS2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BIND_OPTS2 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIND_OPTS2").field("Base", &self.Base).field("dwTrackFlags", &self.dwTrackFlags).field("dwClassContext", &self.dwClassContext).field("locale", &self.locale).field("pServerInfo", &self.pServerInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BIND_OPTS2 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BIND_OPTS2 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BIND_OPTS2>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BIND_OPTS2 {}
-impl ::core::default::Default for BIND_OPTS2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct BIND_OPTS3 {
-    pub Base: BIND_OPTS2,
-    pub hwnd: super::super::Foundation::HWND,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for BIND_OPTS3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for BIND_OPTS3 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BIND_OPTS3 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BIND_OPTS3").field("Base", &self.Base).field("hwnd", &self.hwnd).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BIND_OPTS3 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BIND_OPTS3 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BIND_OPTS3>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BIND_OPTS3 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for BIND_OPTS3 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct BLOB {
-    pub cbSize: u32,
-    pub pBlobData: *mut u8,
-}
-impl ::core::marker::Copy for BLOB {}
-impl ::core::clone::Clone for BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BLOB").field("cbSize", &self.cbSize).field("pBlobData", &self.pBlobData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BLOB {}
-impl ::core::default::Default for BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct BYTE_BLOB {
-    pub clSize: u32,
-    pub abData: [u8; 1],
-}
-impl ::core::marker::Copy for BYTE_BLOB {}
-impl ::core::clone::Clone for BYTE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BYTE_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BYTE_BLOB").field("clSize", &self.clSize).field("abData", &self.abData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BYTE_BLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BYTE_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BYTE_BLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BYTE_BLOB {}
-impl ::core::default::Default for BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct BYTE_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u8,
-}
-impl ::core::marker::Copy for BYTE_SIZEDARR {}
-impl ::core::clone::Clone for BYTE_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for BYTE_SIZEDARR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BYTE_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for BYTE_SIZEDARR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for BYTE_SIZEDARR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BYTE_SIZEDARR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for BYTE_SIZEDARR {}
-impl ::core::default::Default for BYTE_SIZEDARR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn BindMoniker<'a, P0>(pmk: P0, grfopt: u32, iidresult: &::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
 where
@@ -1071,225 +23,6 @@ where
         fn BindMoniker(pmk: *mut ::core::ffi::c_void, grfopt: u32, iidresult: *const ::windows::core::GUID, ppvresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
     }
     BindMoniker(pmk.into().abi(), grfopt, ::core::mem::transmute(iidresult), ::core::mem::transmute(ppvresult)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CALLCONV(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CC_MAX: CALLCONV = CALLCONV(9i32);
-impl ::core::marker::Copy for CALLCONV {}
-impl ::core::clone::Clone for CALLCONV {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLCONV {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CALLCONV {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CALLCONV {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CALLCONV").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CALLTYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
-impl ::core::marker::Copy for CALLTYPE {}
-impl ::core::clone::Clone for CALLTYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CALLTYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CALLTYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CALLTYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CALLTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct CATEGORYINFO {
-    pub catid: ::windows::core::GUID,
-    pub lcid: u32,
-    pub szDescription: [u16; 128],
-}
-impl ::core::marker::Copy for CATEGORYINFO {}
-impl ::core::clone::Clone for CATEGORYINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CATEGORYINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CATEGORYINFO").field("catid", &self.catid).field("lcid", &self.lcid).field("szDescription", &self.szDescription).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CATEGORYINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CATEGORYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATEGORYINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CATEGORYINFO {}
-impl ::core::default::Default for CATEGORYINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CLSCTX(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
-impl ::core::marker::Copy for CLSCTX {}
-impl ::core::clone::Clone for CLSCTX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CLSCTX {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CLSCTX {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CLSCTX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CLSCTX").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for CLSCTX {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for CLSCTX {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CLSCTX {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CLSCTX {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for CLSCTX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
@@ -1329,621 +62,6 @@ where
     }
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CLSIDFromString(lpsz.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct COAUTHIDENTITY {
-    pub User: *mut u16,
-    pub UserLength: u32,
-    pub Domain: *mut u16,
-    pub DomainLength: u32,
-    pub Password: *mut u16,
-    pub PasswordLength: u32,
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for COAUTHIDENTITY {}
-impl ::core::clone::Clone for COAUTHIDENTITY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COAUTHIDENTITY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COAUTHIDENTITY").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COAUTHIDENTITY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COAUTHIDENTITY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COAUTHIDENTITY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COAUTHIDENTITY {}
-impl ::core::default::Default for COAUTHIDENTITY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct COAUTHINFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pwszServerPrincName: ::windows::core::PWSTR,
-    pub dwAuthnLevel: u32,
-    pub dwImpersonationLevel: u32,
-    pub pAuthIdentityData: *mut COAUTHIDENTITY,
-    pub dwCapabilities: u32,
-}
-impl ::core::marker::Copy for COAUTHINFO {}
-impl ::core::clone::Clone for COAUTHINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COAUTHINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COAUTHINFO").field("dwAuthnSvc", &self.dwAuthnSvc).field("dwAuthzSvc", &self.dwAuthzSvc).field("pwszServerPrincName", &self.pwszServerPrincName).field("dwAuthnLevel", &self.dwAuthnLevel).field("dwImpersonationLevel", &self.dwImpersonationLevel).field("pAuthIdentityData", &self.pAuthIdentityData).field("dwCapabilities", &self.dwCapabilities).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COAUTHINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COAUTHINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COAUTHINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COAUTHINFO {}
-impl ::core::default::Default for COAUTHINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COINIT(pub u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_MULTITHREADED: COINIT = COINIT(0u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4u32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8u32);
-impl ::core::marker::Copy for COINIT {}
-impl ::core::clone::Clone for COINIT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COINIT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COINIT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COINIT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COINIT").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for COINIT {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for COINIT {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COINIT {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COINIT {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for COINIT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COINITBASE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
-impl ::core::marker::Copy for COINITBASE {}
-impl ::core::clone::Clone for COINITBASE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COINITBASE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COINITBASE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COINITBASE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COINITBASE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COMSD(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
-impl ::core::marker::Copy for COMSD {}
-impl ::core::clone::Clone for COMSD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COMSD {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COMSD {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COMSD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COMSD").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct CONNECTDATA {
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub dwCookie: u32,
-}
-impl ::core::clone::Clone for CONNECTDATA {
-    fn clone(&self) -> Self {
-        Self { pUnk: self.pUnk.clone(), dwCookie: self.dwCookie }
-    }
-}
-impl ::core::fmt::Debug for CONNECTDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CONNECTDATA").field("pUnk", &self.pUnk).field("dwCookie", &self.dwCookie).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CONNECTDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for CONNECTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pUnk == other.pUnk && self.dwCookie == other.dwCookie
-    }
-}
-impl ::core::cmp::Eq for CONNECTDATA {}
-impl ::core::default::Default for CONNECTDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct COSERVERINFO {
-    pub dwReserved1: u32,
-    pub pwszName: ::windows::core::PWSTR,
-    pub pAuthInfo: *mut COAUTHINFO,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for COSERVERINFO {}
-impl ::core::clone::Clone for COSERVERINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for COSERVERINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("COSERVERINFO").field("dwReserved1", &self.dwReserved1).field("pwszName", &self.pwszName).field("pAuthInfo", &self.pAuthInfo).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for COSERVERINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for COSERVERINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COSERVERINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for COSERVERINFO {}
-impl ::core::default::Default for COSERVERINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct COWAIT_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
-impl ::core::marker::Copy for COWAIT_FLAGS {}
-impl ::core::clone::Clone for COWAIT_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for COWAIT_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for COWAIT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for COWAIT_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("COWAIT_FLAGS").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
-impl CO_DEVICE_CATALOG_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for CO_DEVICE_CATALOG_COOKIE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for CO_DEVICE_CATALOG_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for CO_DEVICE_CATALOG_COOKIE {}
-impl ::core::fmt::Debug for CO_DEVICE_CATALOG_COOKIE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CO_DEVICE_CATALOG_COOKIE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<CO_DEVICE_CATALOG_COOKIE>> for CO_DEVICE_CATALOG_COOKIE {
-    fn from(optional: ::core::option::Option<CO_DEVICE_CATALOG_COOKIE>) -> CO_DEVICE_CATALOG_COOKIE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for CO_DEVICE_CATALOG_COOKIE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
-impl ::core::marker::Copy for CO_MARSHALING_CONTEXT_ATTRIBUTES {}
-impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CO_MARSHALING_CONTEXT_ATTRIBUTES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CO_MARSHALING_CONTEXT_ATTRIBUTES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CO_MARSHALING_CONTEXT_ATTRIBUTES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CO_MARSHALING_CONTEXT_ATTRIBUTES").field(&self.0).finish()
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CO_MTA_USAGE_COOKIE(pub isize);
-impl CO_MTA_USAGE_COOKIE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for CO_MTA_USAGE_COOKIE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for CO_MTA_USAGE_COOKIE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for CO_MTA_USAGE_COOKIE {}
-impl ::core::fmt::Debug for CO_MTA_USAGE_COOKIE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CO_MTA_USAGE_COOKIE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<CO_MTA_USAGE_COOKIE>> for CO_MTA_USAGE_COOKIE {
-    fn from(optional: ::core::option::Option<CO_MTA_USAGE_COOKIE>) -> CO_MTA_USAGE_COOKIE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for CO_MTA_USAGE_COOKIE {
-    type Abi = Self;
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct CSPLATFORM {
-    pub dwPlatformId: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-    pub dwProcessorArch: u32,
-}
-impl ::core::marker::Copy for CSPLATFORM {}
-impl ::core::clone::Clone for CSPLATFORM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CSPLATFORM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CSPLATFORM").field("dwPlatformId", &self.dwPlatformId).field("dwVersionHi", &self.dwVersionHi).field("dwVersionLo", &self.dwVersionLo).field("dwProcessorArch", &self.dwProcessorArch).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CSPLATFORM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CSPLATFORM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSPLATFORM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CSPLATFORM {}
-impl ::core::default::Default for CSPLATFORM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct CUSTDATA {
-    pub cCustData: u32,
-    pub prgCustData: *mut CUSTDATAITEM,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for CUSTDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for CUSTDATA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for CUSTDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CUSTDATA").field("cCustData", &self.cCustData).field("prgCustData", &self.prgCustData).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for CUSTDATA {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for CUSTDATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CUSTDATA>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for CUSTDATA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for CUSTDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct CUSTDATAITEM {
-    pub guid: ::windows::core::GUID,
-    pub varValue: VARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for CUSTDATAITEM {
-    fn clone(&self) -> Self {
-        Self { guid: self.guid, varValue: self.varValue.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for CUSTDATAITEM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for CUSTDATAITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.guid == other.guid && self.varValue == other.varValue
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for CUSTDATAITEM {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for CUSTDATAITEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CWMO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
-impl ::core::marker::Copy for CWMO_FLAGS {}
-impl ::core::clone::Clone for CWMO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CWMO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CWMO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CWMO_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CWMO_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const CWMO_MAX_HANDLES: u32 = 56u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub union CY {
-    pub Anonymous: CY_0,
-    pub int64: i64,
-}
-impl ::core::marker::Copy for CY {}
-impl ::core::clone::Clone for CY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for CY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CY {}
-impl ::core::default::Default for CY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct CY_0 {
-    pub Lo: u32,
-    pub Hi: i32,
-}
-impl ::core::marker::Copy for CY_0 {}
-impl ::core::clone::Clone for CY_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CY_0 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CY_0").field("Lo", &self.Lo).field("Hi", &self.Hi).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CY_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CY_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CY_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CY_0 {}
-impl ::core::default::Default for CY_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
@@ -2767,38 +885,6 @@ pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len() as _, ::core::mem::transmute(phandles.as_ptr()), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct ComCallData {
-    pub dwDispid: u32,
-    pub dwReserved: u32,
-    pub pUserDefined: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for ComCallData {}
-impl ::core::clone::Clone for ComCallData {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ComCallData {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ComCallData").field("dwDispid", &self.dwDispid).field("dwReserved", &self.dwReserved).field("pUserDefined", &self.pUserDefined).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ComCallData {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ComCallData {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComCallData>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ComCallData {}
-impl ::core::default::Default for ComCallData {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn CreateAntiMoniker() -> ::windows::core::Result<IMoniker> {
@@ -2988,249 +1074,6 @@ where
     CreateUriWithFragment(pwzuri.into(), pwzfragment.into(), dwflags, dwreserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IUri>(result__)
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DATADIR(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DATADIR_GET: DATADIR = DATADIR(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DATADIR_SET: DATADIR = DATADIR(2i32);
-impl ::core::marker::Copy for DATADIR {}
-impl ::core::clone::Clone for DATADIR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DATADIR {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DATADIR {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DATADIR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DATADIR").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DCOM_CALL_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
-impl ::core::marker::Copy for DCOM_CALL_STATE {}
-impl ::core::clone::Clone for DCOM_CALL_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DCOM_CALL_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DCOM_CALL_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DCOM_CALL_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DCOM_CALL_STATE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DESCKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
-impl ::core::marker::Copy for DESCKIND {}
-impl ::core::clone::Clone for DESCKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DESCKIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DESCKIND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DESCKIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DESCKIND").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct DISPPARAMS {
-    pub rgvarg: *mut VARIANT,
-    pub rgdispidNamedArgs: *mut i32,
-    pub cArgs: u32,
-    pub cNamedArgs: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for DISPPARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for DISPPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::fmt::Debug for DISPPARAMS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DISPPARAMS").field("rgvarg", &self.rgvarg).field("rgdispidNamedArgs", &self.rgdispidNamedArgs).field("cArgs", &self.cArgs).field("cNamedArgs", &self.cNamedArgs).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for DISPPARAMS {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for DISPPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPPARAMS>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for DISPPARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for DISPPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DMUS_ERRBASE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DVASPECT(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_ICON: DVASPECT = DVASPECT(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8i32);
-impl ::core::marker::Copy for DVASPECT {}
-impl ::core::clone::Clone for DVASPECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DVASPECT {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DVASPECT {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DVASPECT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DVASPECT").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct DVTARGETDEVICE {
-    pub tdSize: u32,
-    pub tdDriverNameOffset: u16,
-    pub tdDeviceNameOffset: u16,
-    pub tdPortNameOffset: u16,
-    pub tdExtDevmodeOffset: u16,
-    pub tdData: [u8; 1],
-}
-impl ::core::marker::Copy for DVTARGETDEVICE {}
-impl ::core::clone::Clone for DVTARGETDEVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DVTARGETDEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DVTARGETDEVICE").field("tdSize", &self.tdSize).field("tdDriverNameOffset", &self.tdDriverNameOffset).field("tdDeviceNameOffset", &self.tdDeviceNameOffset).field("tdPortNameOffset", &self.tdPortNameOffset).field("tdExtDevmodeOffset", &self.tdExtDevmodeOffset).field("tdData", &self.tdData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DVTARGETDEVICE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DVTARGETDEVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVTARGETDEVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DVTARGETDEVICE {}
-impl ::core::default::Default for DVTARGETDEVICE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct DWORD_BLOB {
-    pub clSize: u32,
-    pub alData: [u32; 1],
-}
-impl ::core::marker::Copy for DWORD_BLOB {}
-impl ::core::clone::Clone for DWORD_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DWORD_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DWORD_BLOB").field("clSize", &self.clSize).field("alData", &self.alData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DWORD_BLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DWORD_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWORD_BLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DWORD_BLOB {}
-impl ::core::default::Default for DWORD_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
 pub unsafe fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulreserved: ::core::option::Option<&u32>, appshr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -3238,654 +1081,6 @@ pub unsafe fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulr
         fn DcomChannelSetHResult(pvreserved: *const ::core::ffi::c_void, pulreserved: *const u32, appshr: ::windows::core::HRESULT) -> ::windows::core::HRESULT;
     }
     DcomChannelSetHResult(::core::mem::transmute(pvreserved), ::core::mem::transmute(pulreserved), appshr).ok()
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct ELEMDESC {
-    pub tdesc: TYPEDESC,
-    pub Anonymous: ELEMDESC_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for ELEMDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for ELEMDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for ELEMDESC {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for ELEMDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ELEMDESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for ELEMDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for ELEMDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub union ELEMDESC_0 {
-    pub idldesc: IDLDESC,
-    pub paramdesc: super::Ole::PARAMDESC,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for ELEMDESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for ELEMDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for ELEMDESC_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for ELEMDESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ELEMDESC_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for ELEMDESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for ELEMDESC_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
-impl ::core::marker::Copy for EOLE_AUTHENTICATION_CAPABILITIES {}
-impl ::core::clone::Clone for EOLE_AUTHENTICATION_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EOLE_AUTHENTICATION_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EOLE_AUTHENTICATION_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EOLE_AUTHENTICATION_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EOLE_AUTHENTICATION_CAPABILITIES").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct EXCEPINFO {
-    pub wCode: u16,
-    pub wReserved: u16,
-    pub bstrSource: super::super::Foundation::BSTR,
-    pub bstrDescription: super::super::Foundation::BSTR,
-    pub bstrHelpFile: super::super::Foundation::BSTR,
-    pub dwHelpContext: u32,
-    pub pvReserved: *mut ::core::ffi::c_void,
-    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
-    pub scode: i32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for EXCEPINFO {
-    fn clone(&self) -> Self {
-        Self {
-            wCode: self.wCode,
-            wReserved: self.wReserved,
-            bstrSource: self.bstrSource.clone(),
-            bstrDescription: self.bstrDescription.clone(),
-            bstrHelpFile: self.bstrHelpFile.clone(),
-            dwHelpContext: self.dwHelpContext,
-            pvReserved: self.pvReserved,
-            pfnDeferredFillIn: self.pfnDeferredFillIn,
-            scode: self.scode,
-        }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EXCEPINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("EXCEPINFO").field("wCode", &self.wCode).field("wReserved", &self.wReserved).field("bstrSource", &self.bstrSource).field("bstrDescription", &self.bstrDescription).field("bstrHelpFile", &self.bstrHelpFile).field("dwHelpContext", &self.dwHelpContext).field("pvReserved", &self.pvReserved).field("pfnDeferredFillIn", &self.pfnDeferredFillIn.map(|f| f as usize)).field("scode", &self.scode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EXCEPINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for EXCEPINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.wCode == other.wCode && self.wReserved == other.wReserved && self.bstrSource == other.bstrSource && self.bstrDescription == other.bstrDescription && self.bstrHelpFile == other.bstrHelpFile && self.dwHelpContext == other.dwHelpContext && self.pvReserved == other.pvReserved && self.pfnDeferredFillIn.map(|f| f as usize) == other.pfnDeferredFillIn.map(|f| f as usize) && self.scode == other.scode
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for EXCEPINFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for EXCEPINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EXTCONN(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
-impl ::core::marker::Copy for EXTCONN {}
-impl ::core::clone::Clone for EXTCONN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXTCONN {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EXTCONN {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EXTCONN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EXTCONN").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct FLAGGED_BYTE_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub abData: [u8; 1],
-}
-impl ::core::marker::Copy for FLAGGED_BYTE_BLOB {}
-impl ::core::clone::Clone for FLAGGED_BYTE_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FLAGGED_BYTE_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLAGGED_BYTE_BLOB").field("fFlags", &self.fFlags).field("clSize", &self.clSize).field("abData", &self.abData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FLAGGED_BYTE_BLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FLAGGED_BYTE_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAGGED_BYTE_BLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FLAGGED_BYTE_BLOB {}
-impl ::core::default::Default for FLAGGED_BYTE_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct FLAGGED_WORD_BLOB {
-    pub fFlags: u32,
-    pub clSize: u32,
-    pub asData: [u16; 1],
-}
-impl ::core::marker::Copy for FLAGGED_WORD_BLOB {}
-impl ::core::clone::Clone for FLAGGED_WORD_BLOB {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FLAGGED_WORD_BLOB {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLAGGED_WORD_BLOB").field("fFlags", &self.fFlags).field("clSize", &self.clSize).field("asData", &self.asData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FLAGGED_WORD_BLOB {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FLAGGED_WORD_BLOB {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAGGED_WORD_BLOB>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FLAGGED_WORD_BLOB {}
-impl ::core::default::Default for FLAGGED_WORD_BLOB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub struct FLAG_STGMEDIUM {
-    pub ContextFlags: i32,
-    pub fPassOwnership: i32,
-    pub Stgmed: STGMEDIUM,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for FLAG_STGMEDIUM {
-    fn clone(&self) -> Self {
-        Self { ContextFlags: self.ContextFlags, fPassOwnership: self.fPassOwnership, Stgmed: self.Stgmed.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-unsafe impl ::windows::core::Abi for FLAG_STGMEDIUM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for FLAG_STGMEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.ContextFlags == other.ContextFlags && self.fPassOwnership == other.fPassOwnership && self.Stgmed == other.Stgmed
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for FLAG_STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::default::Default for FLAG_STGMEDIUM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct FORMATETC {
-    pub cfFormat: u16,
-    pub ptd: *mut DVTARGETDEVICE,
-    pub dwAspect: u32,
-    pub lindex: i32,
-    pub tymed: u32,
-}
-impl ::core::marker::Copy for FORMATETC {}
-impl ::core::clone::Clone for FORMATETC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FORMATETC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FORMATETC").field("cfFormat", &self.cfFormat).field("ptd", &self.ptd).field("dwAspect", &self.dwAspect).field("lindex", &self.lindex).field("tymed", &self.tymed).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FORMATETC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FORMATETC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FORMATETC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FORMATETC {}
-impl ::core::default::Default for FORMATETC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct FUNCDESC {
-    pub memid: i32,
-    pub lprgscode: *mut i32,
-    pub lprgelemdescParam: *mut ELEMDESC,
-    pub funckind: FUNCKIND,
-    pub invkind: INVOKEKIND,
-    pub callconv: CALLCONV,
-    pub cParams: i16,
-    pub cParamsOpt: i16,
-    pub oVft: i16,
-    pub cScodes: i16,
-    pub elemdescFunc: ELEMDESC,
-    pub wFuncFlags: u16,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for FUNCDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for FUNCDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for FUNCDESC {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for FUNCDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FUNCDESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for FUNCDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for FUNCDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FUNCKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
-impl ::core::marker::Copy for FUNCKIND {}
-impl ::core::clone::Clone for FUNCKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FUNCKIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FUNCKIND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FUNCKIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FUNCKIND").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-pub struct GDI_OBJECT {
-    pub ObjectType: u32,
-    pub u: GDI_OBJECT_0,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::marker::Copy for GDI_OBJECT {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::clone::Clone for GDI_OBJECT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-unsafe impl ::windows::core::Abi for GDI_OBJECT {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::cmp::PartialEq for GDI_OBJECT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GDI_OBJECT>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::cmp::Eq for GDI_OBJECT {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::default::Default for GDI_OBJECT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-pub union GDI_OBJECT_0 {
-    pub hBitmap: *mut super::SystemServices::userHBITMAP,
-    pub hPalette: *mut super::SystemServices::userHPALETTE,
-    pub hGeneric: *mut super::SystemServices::userHGLOBAL,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::marker::Copy for GDI_OBJECT_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::clone::Clone for GDI_OBJECT_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-unsafe impl ::windows::core::Abi for GDI_OBJECT_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::cmp::PartialEq for GDI_OBJECT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GDI_OBJECT_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::cmp::Eq for GDI_OBJECT_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
-impl ::core::default::Default for GDI_OBJECT_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GLOBALOPT_EH_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
-impl ::core::marker::Copy for GLOBALOPT_EH_VALUES {}
-impl ::core::clone::Clone for GLOBALOPT_EH_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GLOBALOPT_EH_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GLOBALOPT_EH_VALUES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GLOBALOPT_EH_VALUES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GLOBALOPT_EH_VALUES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GLOBALOPT_PROPERTIES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
-impl ::core::marker::Copy for GLOBALOPT_PROPERTIES {}
-impl ::core::clone::Clone for GLOBALOPT_PROPERTIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GLOBALOPT_PROPERTIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GLOBALOPT_PROPERTIES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GLOBALOPT_PROPERTIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GLOBALOPT_PROPERTIES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GLOBALOPT_RO_FLAGS(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
-impl ::core::marker::Copy for GLOBALOPT_RO_FLAGS {}
-impl ::core::clone::Clone for GLOBALOPT_RO_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GLOBALOPT_RO_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GLOBALOPT_RO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GLOBALOPT_RO_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GLOBALOPT_RO_FLAGS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
-impl ::core::marker::Copy for GLOBALOPT_RPCTP_VALUES {}
-impl ::core::clone::Clone for GLOBALOPT_RPCTP_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GLOBALOPT_RPCTP_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GLOBALOPT_RPCTP_VALUES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GLOBALOPT_RPCTP_VALUES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GLOBALOPT_RPCTP_VALUES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
-impl ::core::marker::Copy for GLOBALOPT_UNMARSHALING_POLICY_VALUES {}
-impl ::core::clone::Clone for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GLOBALOPT_UNMARSHALING_POLICY_VALUES").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[inline]
@@ -3920,36 +1115,615 @@ pub unsafe fn GetRunningObjectTable(reserved: u32) -> ::windows::core::Result<IR
     let mut result__ = ::core::mem::MaybeUninit::zeroed();
     GetRunningObjectTable(reserved, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IRunningObjectTable>(result__)
 }
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct HYPER_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut i64,
+#[inline]
+pub unsafe fn IIDFromString<'a, P0>(lpsz: P0) -> ::windows::core::Result<::windows::core::GUID>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IIDFromString(lpsz: ::windows::core::PCWSTR, lpiid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    IIDFromString(lpsz.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
 }
-impl ::core::marker::Copy for HYPER_SIZEDARR {}
-impl ::core::clone::Clone for HYPER_SIZEDARR {
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn MkParseDisplayName<'a, P0, P1>(pbc: P0, szusername: P1, pcheaten: &mut u32, ppmk: &mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IBindCtx>>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MkParseDisplayName(pbc: *mut ::core::ffi::c_void, szusername: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    MkParseDisplayName(pbc.into().abi(), szusername.into(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn MonikerCommonPrefixWith<'a, P0, P1>(pmkthis: P0, pmkother: P1) -> ::windows::core::Result<IMoniker>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MonikerCommonPrefixWith(pmkthis: *mut ::core::ffi::c_void, pmkother: *mut ::core::ffi::c_void, ppmkcommon: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    MonikerCommonPrefixWith(pmkthis.into().abi(), pmkother.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMoniker>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn MonikerRelativePathTo<'a, P0, P1, P2>(pmksrc: P0, pmkdest: P1, ppmkrelpath: &mut ::core::option::Option<IMoniker>, dwreserved: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+    P1: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MonikerRelativePathTo(pmksrc: *mut ::core::ffi::c_void, pmkdest: *mut ::core::ffi::c_void, ppmkrelpath: *mut *mut ::core::ffi::c_void, dwreserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    MonikerRelativePathTo(pmksrc.into().abi(), pmkdest.into().abi(), ::core::mem::transmute(ppmkrelpath), dwreserved.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn ProgIDFromCLSID(clsid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ProgIDFromCLSID(clsid: *const ::windows::core::GUID, lplpszprogid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    ProgIDFromCLSID(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn SetErrorInfo<'a, P0>(dwreserved: u32, perrinfo: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::InParam<'a, IErrorInfo>>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetErrorInfo(dwreserved: u32, perrinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    SetErrorInfo(dwreserved, perrinfo.into().abi()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn StringFromCLSID(rclsid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StringFromCLSID(rclsid: *const ::windows::core::GUID, lplpsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StringFromCLSID(::core::mem::transmute(rclsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn StringFromGUID2(rguid: &::windows::core::GUID, lpsz: &mut [u16]) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StringFromGUID2(rguid: *const ::windows::core::GUID, lpsz: ::windows::core::PWSTR, cchmax: i32) -> i32;
+    }
+    StringFromGUID2(::core::mem::transmute(rguid), ::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[inline]
+pub unsafe fn StringFromIID(rclsid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn StringFromIID(rclsid: *const ::windows::core::GUID, lplpsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    StringFromIID(::core::mem::transmute(rclsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIAdviseSink(::windows::core::IUnknown);
+impl AsyncIAdviseSink {
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn Begin_OnDataChange(&self, pformatetc: &FORMATETC, pstgmed: &STGMEDIUM) {
+        (::windows::core::Interface::vtable(self).Begin_OnDataChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
+    }
+    pub unsafe fn Finish_OnDataChange(&self) {
+        (::windows::core::Interface::vtable(self).Finish_OnDataChange)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
+        (::windows::core::Interface::vtable(self).Begin_OnViewChange)(::windows::core::Interface::as_raw(self), dwaspect, lindex)
+    }
+    pub unsafe fn Finish_OnViewChange(&self) {
+        (::windows::core::Interface::vtable(self).Finish_OnViewChange)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnRename<'a, P0>(&self, pmk: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+    {
+        (::windows::core::Interface::vtable(self).Begin_OnRename)(::windows::core::Interface::as_raw(self), pmk.into().abi())
+    }
+    pub unsafe fn Finish_OnRename(&self) {
+        (::windows::core::Interface::vtable(self).Finish_OnRename)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnSave(&self) {
+        (::windows::core::Interface::vtable(self).Begin_OnSave)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Finish_OnSave(&self) {
+        (::windows::core::Interface::vtable(self).Finish_OnSave)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnClose(&self) {
+        (::windows::core::Interface::vtable(self).Begin_OnClose)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Finish_OnClose(&self) {
+        (::windows::core::Interface::vtable(self).Finish_OnClose)(::windows::core::Interface::as_raw(self))
+    }
+}
+impl ::core::convert::From<AsyncIAdviseSink> for ::windows::core::IUnknown {
+    fn from(value: AsyncIAdviseSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIAdviseSink> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIAdviseSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIAdviseSink> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIAdviseSink) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIAdviseSink {
     fn clone(&self) -> Self {
-        *self
+        Self(self.0.clone())
     }
 }
-impl ::core::fmt::Debug for HYPER_SIZEDARR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HYPER_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for HYPER_SIZEDARR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HYPER_SIZEDARR {
+impl ::core::cmp::PartialEq for AsyncIAdviseSink {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HYPER_SIZEDARR>()) == 0 }
+        self.0 == other.0
     }
 }
-impl ::core::cmp::Eq for HYPER_SIZEDARR {}
-impl ::core::default::Default for HYPER_SIZEDARR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::cmp::Eq for AsyncIAdviseSink {}
+impl ::core::fmt::Debug for AsyncIAdviseSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIAdviseSink").field(&self.0).finish()
     }
+}
+unsafe impl ::windows::core::Interface for AsyncIAdviseSink {
+    type Vtable = AsyncIAdviseSink_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000150_0000_0000_c000_000000000046);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIAdviseSink_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    pub Begin_OnDataChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM),
+    #[cfg(not(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage")))]
+    Begin_OnDataChange: usize,
+    pub Finish_OnDataChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Begin_OnViewChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwaspect: u32, lindex: i32),
+    pub Finish_OnViewChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Begin_OnRename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: *mut ::core::ffi::c_void),
+    pub Finish_OnRename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Begin_OnSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Finish_OnSave: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Begin_OnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+    pub Finish_OnClose: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIAdviseSink2(::windows::core::IUnknown);
+impl AsyncIAdviseSink2 {
+    #[doc = "*Required features: `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+    #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn Begin_OnDataChange(&self, pformatetc: &FORMATETC, pstgmed: &STGMEDIUM) {
+        (::windows::core::Interface::vtable(self).base__.Begin_OnDataChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pformatetc), ::core::mem::transmute(pstgmed))
+    }
+    pub unsafe fn Finish_OnDataChange(&self) {
+        (::windows::core::Interface::vtable(self).base__.Finish_OnDataChange)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnViewChange(&self, dwaspect: u32, lindex: i32) {
+        (::windows::core::Interface::vtable(self).base__.Begin_OnViewChange)(::windows::core::Interface::as_raw(self), dwaspect, lindex)
+    }
+    pub unsafe fn Finish_OnViewChange(&self) {
+        (::windows::core::Interface::vtable(self).base__.Finish_OnViewChange)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnRename<'a, P0>(&self, pmk: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+    {
+        (::windows::core::Interface::vtable(self).base__.Begin_OnRename)(::windows::core::Interface::as_raw(self), pmk.into().abi())
+    }
+    pub unsafe fn Finish_OnRename(&self) {
+        (::windows::core::Interface::vtable(self).base__.Finish_OnRename)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnSave(&self) {
+        (::windows::core::Interface::vtable(self).base__.Begin_OnSave)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Finish_OnSave(&self) {
+        (::windows::core::Interface::vtable(self).base__.Finish_OnSave)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnClose(&self) {
+        (::windows::core::Interface::vtable(self).base__.Begin_OnClose)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Finish_OnClose(&self) {
+        (::windows::core::Interface::vtable(self).base__.Finish_OnClose)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_OnLinkSrcChange<'a, P0>(&self, pmk: P0)
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
+    {
+        (::windows::core::Interface::vtable(self).Begin_OnLinkSrcChange)(::windows::core::Interface::as_raw(self), pmk.into().abi())
+    }
+    pub unsafe fn Finish_OnLinkSrcChange(&self) {
+        (::windows::core::Interface::vtable(self).Finish_OnLinkSrcChange)(::windows::core::Interface::as_raw(self))
+    }
+}
+impl ::core::convert::From<AsyncIAdviseSink2> for ::windows::core::IUnknown {
+    fn from(value: AsyncIAdviseSink2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIAdviseSink2> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIAdviseSink2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIAdviseSink2> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIAdviseSink2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<AsyncIAdviseSink2> for AsyncIAdviseSink {
+    fn from(value: AsyncIAdviseSink2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIAdviseSink2> for &'a AsyncIAdviseSink {
+    fn from(value: &'a AsyncIAdviseSink2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIAdviseSink2> for AsyncIAdviseSink {
+    fn from(value: &AsyncIAdviseSink2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIAdviseSink2 {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AsyncIAdviseSink2 {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AsyncIAdviseSink2 {}
+impl ::core::fmt::Debug for AsyncIAdviseSink2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIAdviseSink2").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for AsyncIAdviseSink2 {
+    type Vtable = AsyncIAdviseSink2_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000151_0000_0000_c000_000000000046);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIAdviseSink2_Vtbl {
+    pub base__: AsyncIAdviseSink_Vtbl,
+    pub Begin_OnLinkSrcChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmk: *mut ::core::ffi::c_void),
+    pub Finish_OnLinkSrcChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIMultiQI(::windows::core::IUnknown);
+impl AsyncIMultiQI {
+    pub unsafe fn Begin_QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(::windows::core::Interface::as_raw(self), pmqis.len() as _, ::core::mem::transmute(pmqis.as_ptr())).ok()
+    }
+    pub unsafe fn Finish_QueryMultipleInterfaces(&self, pmqis: &mut MULTI_QI) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmqis)).ok()
+    }
+}
+impl ::core::convert::From<AsyncIMultiQI> for ::windows::core::IUnknown {
+    fn from(value: AsyncIMultiQI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIMultiQI> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIMultiQI) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIMultiQI> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIMultiQI) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIMultiQI {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AsyncIMultiQI {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AsyncIMultiQI {}
+impl ::core::fmt::Debug for AsyncIMultiQI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIMultiQI").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for AsyncIMultiQI {
+    type Vtable = AsyncIMultiQI_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000e0020_0000_0000_c000_000000000046);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIMultiQI_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Begin_QueryMultipleInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::HRESULT,
+    pub Finish_QueryMultipleInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmqis: *mut MULTI_QI) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIPipeByte(::windows::core::IUnknown);
+impl AsyncIPipeByte {
+    pub unsafe fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Pull)(::windows::core::Interface::as_raw(self), crequest).ok()
+    }
+    pub unsafe fn Finish_Pull(&self, buf: *mut u8, pcreturned: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_Pull)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf), ::core::mem::transmute(pcreturned)).ok()
+    }
+    pub unsafe fn Begin_Push(&self, buf: &[u8]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Push)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
+    }
+    pub unsafe fn Finish_Push(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_Push)(::windows::core::Interface::as_raw(self)).ok()
+    }
+}
+impl ::core::convert::From<AsyncIPipeByte> for ::windows::core::IUnknown {
+    fn from(value: AsyncIPipeByte) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIPipeByte> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIPipeByte) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIPipeByte> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIPipeByte) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIPipeByte {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AsyncIPipeByte {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AsyncIPipeByte {}
+impl ::core::fmt::Debug for AsyncIPipeByte {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIPipeByte").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for AsyncIPipeByte {
+    type Vtable = AsyncIPipeByte_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acb_2f86_11d1_8e04_00c04fb9989a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIPipeByte_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Begin_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequest: u32) -> ::windows::core::HRESULT,
+    pub Finish_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *mut u8, pcreturned: *mut u32) -> ::windows::core::HRESULT,
+    pub Begin_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *const u8, csent: u32) -> ::windows::core::HRESULT,
+    pub Finish_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIPipeDouble(::windows::core::IUnknown);
+impl AsyncIPipeDouble {
+    pub unsafe fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Pull)(::windows::core::Interface::as_raw(self), crequest).ok()
+    }
+    pub unsafe fn Finish_Pull(&self, buf: *mut f64, pcreturned: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_Pull)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf), ::core::mem::transmute(pcreturned)).ok()
+    }
+    pub unsafe fn Begin_Push(&self, buf: &[f64]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Push)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
+    }
+    pub unsafe fn Finish_Push(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_Push)(::windows::core::Interface::as_raw(self)).ok()
+    }
+}
+impl ::core::convert::From<AsyncIPipeDouble> for ::windows::core::IUnknown {
+    fn from(value: AsyncIPipeDouble) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIPipeDouble> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIPipeDouble) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIPipeDouble> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIPipeDouble) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIPipeDouble {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AsyncIPipeDouble {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AsyncIPipeDouble {}
+impl ::core::fmt::Debug for AsyncIPipeDouble {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIPipeDouble").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for AsyncIPipeDouble {
+    type Vtable = AsyncIPipeDouble_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acf_2f86_11d1_8e04_00c04fb9989a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIPipeDouble_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Begin_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequest: u32) -> ::windows::core::HRESULT,
+    pub Finish_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *mut f64, pcreturned: *mut u32) -> ::windows::core::HRESULT,
+    pub Begin_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *const f64, csent: u32) -> ::windows::core::HRESULT,
+    pub Finish_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIPipeLong(::windows::core::IUnknown);
+impl AsyncIPipeLong {
+    pub unsafe fn Begin_Pull(&self, crequest: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Pull)(::windows::core::Interface::as_raw(self), crequest).ok()
+    }
+    pub unsafe fn Finish_Pull(&self, buf: *mut i32, pcreturned: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_Pull)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf), ::core::mem::transmute(pcreturned)).ok()
+    }
+    pub unsafe fn Begin_Push(&self, buf: &[i32]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Push)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buf.as_ptr()), buf.len() as _).ok()
+    }
+    pub unsafe fn Finish_Push(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_Push)(::windows::core::Interface::as_raw(self)).ok()
+    }
+}
+impl ::core::convert::From<AsyncIPipeLong> for ::windows::core::IUnknown {
+    fn from(value: AsyncIPipeLong) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIPipeLong> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIPipeLong) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIPipeLong> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIPipeLong) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIPipeLong {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AsyncIPipeLong {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AsyncIPipeLong {}
+impl ::core::fmt::Debug for AsyncIPipeLong {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIPipeLong").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for AsyncIPipeLong {
+    type Vtable = AsyncIPipeLong_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb2f3acd_2f86_11d1_8e04_00c04fb9989a);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIPipeLong_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Begin_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, crequest: u32) -> ::windows::core::HRESULT,
+    pub Finish_Pull: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *mut i32, pcreturned: *mut u32) -> ::windows::core::HRESULT,
+    pub Begin_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buf: *const i32, csent: u32) -> ::windows::core::HRESULT,
+    pub Finish_Push: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+pub struct AsyncIUnknown(::windows::core::IUnknown);
+impl AsyncIUnknown {
+    pub unsafe fn Begin_QueryInterface(&self, riid: &::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_QueryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid)).ok()
+    }
+    pub unsafe fn Finish_QueryInterface(&self, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Finish_QueryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppvobject)).ok()
+    }
+    pub unsafe fn Begin_AddRef(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_AddRef)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn Finish_AddRef(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).Finish_AddRef)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Begin_Release(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Begin_Release)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn Finish_Release(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).Finish_Release)(::windows::core::Interface::as_raw(self))
+    }
+}
+impl ::core::convert::From<AsyncIUnknown> for ::windows::core::IUnknown {
+    fn from(value: AsyncIUnknown) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a AsyncIUnknown> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a AsyncIUnknown) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AsyncIUnknown> for ::windows::core::IUnknown {
+    fn from(value: &AsyncIUnknown) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for AsyncIUnknown {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AsyncIUnknown {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AsyncIUnknown {}
+impl ::core::fmt::Debug for AsyncIUnknown {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIUnknown").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for AsyncIUnknown {
+    type Vtable = AsyncIUnknown_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x000e0000_0000_0000_c000_000000000046);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct AsyncIUnknown_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Begin_QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub Finish_QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Begin_AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Finish_AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub Begin_Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Finish_Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
@@ -5813,8 +3587,6 @@ pub struct IConnectionPointContainer_Vtbl {
     pub EnumConnectionPoints: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub FindConnectionPoint: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcp: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-pub struct IContext(pub u8);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 pub struct IContextCallback(::windows::core::IUnknown);
@@ -5866,37 +3638,6 @@ unsafe impl ::windows::core::Interface for IContextCallback {
 pub struct IContextCallback_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub ContextCallback: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfncallback: *mut ::core::ffi::c_void, pparam: *const ComCallData, riid: *const ::windows::core::GUID, imethod: i32, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct IDLDESC {
-    pub dwReserved: usize,
-    pub wIDLFlags: u16,
-}
-impl ::core::marker::Copy for IDLDESC {}
-impl ::core::clone::Clone for IDLDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for IDLDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("IDLDESC").field("dwReserved", &self.dwReserved).field("wIDLFlags", &self.wIDLFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for IDLDESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for IDLDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IDLDESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for IDLDESC {}
-impl ::core::default::Default for IDLDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
@@ -6328,8 +4069,6 @@ pub struct IEnumConnections_Vtbl {
     pub Reset: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Clone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
-pub struct IEnumContextProps(pub u8);
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 pub struct IEnumFORMATETC(::windows::core::IUnknown);
@@ -7114,19 +4853,6 @@ pub struct IGlobalOptions_Vtbl {
     pub Query: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: GLOBALOPT_PROPERTIES, pdwvalue: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn IIDFromString<'a, P0>(lpsz: P0) -> ::windows::core::Result<::windows::core::GUID>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IIDFromString(lpsz: ::windows::core::PCWSTR, lpiid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    IIDFromString(lpsz.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 pub struct IInitializeSpy(::windows::core::IUnknown);
 impl IInitializeSpy {
@@ -7807,68 +5533,6 @@ unsafe impl ::windows::core::Interface for IMultiQI {
 pub struct IMultiQI_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
     pub QueryMultipleInterfaces: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cmqis: u32, pmqis: *mut MULTI_QI) -> ::windows::core::HRESULT,
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct INTERFACEINFO {
-    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
-    pub iid: ::windows::core::GUID,
-    pub wMethod: u16,
-}
-impl ::core::clone::Clone for INTERFACEINFO {
-    fn clone(&self) -> Self {
-        Self { pUnk: self.pUnk.clone(), iid: self.iid, wMethod: self.wMethod }
-    }
-}
-impl ::core::fmt::Debug for INTERFACEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("INTERFACEINFO").field("pUnk", &self.pUnk).field("iid", &self.iid).field("wMethod", &self.wMethod).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for INTERFACEINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for INTERFACEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.pUnk == other.pUnk && self.iid == other.iid && self.wMethod == other.wMethod
-    }
-}
-impl ::core::cmp::Eq for INTERFACEINFO {}
-impl ::core::default::Default for INTERFACEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct INVOKEKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
-impl ::core::marker::Copy for INVOKEKIND {}
-impl ::core::clone::Clone for INVOKEKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for INVOKEKIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for INVOKEKIND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for INVOKEKIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("INVOKEKIND").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
@@ -11450,6 +9114,51 @@ pub struct ITypeLibRegistrationReader_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
+pub struct IUnknown(::windows::core::IUnknown);
+impl IUnknown {
+    pub unsafe fn QueryInterface<T>(&self) -> ::windows::core::Result<T>
+    where
+        T: ::windows::core::Interface,
+    {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).QueryInterface)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    pub unsafe fn AddRef(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).AddRef)(::windows::core::Interface::as_raw(self))
+    }
+    pub unsafe fn Release(&self) -> u32 {
+        (::windows::core::Interface::vtable(self).Release)(::windows::core::Interface::as_raw(self))
+    }
+}
+impl ::core::clone::Clone for IUnknown {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IUnknown {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IUnknown {}
+impl ::core::fmt::Debug for IUnknown {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUnknown").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IUnknown {
+    type Vtable = IUnknown_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_c000_000000000046);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUnknown_Vtbl {
+    pub QueryInterface: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub AddRef: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub Release: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
 pub struct IUri(::windows::core::IUnknown);
 impl IUri {
     #[doc = "*Required features: `\"Win32_Foundation\"`*"]
@@ -12004,48 +9713,1142 @@ pub struct IWaitMultiple_Vtbl {
     pub WaitMultiple: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timeout: u32, psync: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub AddSynchronize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psync: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct LONG_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u32,
-}
-impl ::core::marker::Copy for LONG_SIZEDARR {}
-impl ::core::clone::Clone for LONG_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for LONG_SIZEDARR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("LONG_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for LONG_SIZEDARR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for LONG_SIZEDARR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LONG_SIZEDARR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for LONG_SIZEDARR {}
-impl ::core::default::Default for LONG_SIZEDARR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPEXCEPFINO_DEFERRED_FILLIN = ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> ::windows::core::HRESULT>;
+pub const APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU: u32 = 2048u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub type LPFNCANUNLOADNOW = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+pub const APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub type LPFNGETCLASSOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+pub const APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED1: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED2: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED3: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED4: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED5: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED7: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED8: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_RESERVED9: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ASYNC_MODE_COMPATIBILITY: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ASYNC_MODE_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_ACTIVATE_LOCAL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_ACTIVATE_REMOTE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_EXECUTE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_EXECUTE_LOCAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_EXECUTE_REMOTE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_RESERVED1: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COM_RIGHTS_RESERVED2: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_MAX_HANDLES: u32 = 56u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOMSCM_PING_DISALLOW_UNSECURE_CALL: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOMSCM_PING_USE_MID_AUTHNSERVICE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DMUS_ERRBASE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MARSHALINTERFACE_MIN: u32 = 500u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 pub const MAXLSN: u64 = 9223372036854775807u64;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGTY_REPEAT: i32 = 256i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STG_TOEND: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ADVF(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_NODATA: ADVF = ADVF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_PRIMEFIRST: ADVF = ADVF(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_ONLYONCE: ADVF = ADVF(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVF_DATAONSTOP: ADVF = ADVF(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVFCACHE_NOHANDLER: ADVF = ADVF(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVFCACHE_FORCEBUILTIN: ADVF = ADVF(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ADVFCACHE_ONSAVE: ADVF = ADVF(32i32);
+impl ::core::marker::Copy for ADVF {}
+impl ::core::clone::Clone for ADVF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ADVF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ADVF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ADVF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ADVF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct APTTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_CURRENT: APTTYPE = APTTYPE(-1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_STA: APTTYPE = APTTYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_MTA: APTTYPE = APTTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_NA: APTTYPE = APTTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPE_MAINSTA: APTTYPE = APTTYPE(3i32);
+impl ::core::marker::Copy for APTTYPE {}
+impl ::core::clone::Clone for APTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for APTTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for APTTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for APTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APTTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct APTTYPEQUALIFIER(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NONE: APTTYPEQUALIFIER = APTTYPEQUALIFIER(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_IMPLICIT_MTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_NA_ON_MAINSTA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_APPLICATION_STA: APTTYPEQUALIFIER = APTTYPEQUALIFIER(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const APTTYPEQUALIFIER_RESERVED_1: APTTYPEQUALIFIER = APTTYPEQUALIFIER(7i32);
+impl ::core::marker::Copy for APTTYPEQUALIFIER {}
+impl ::core::clone::Clone for APTTYPEQUALIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for APTTYPEQUALIFIER {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for APTTYPEQUALIFIER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for APTTYPEQUALIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APTTYPEQUALIFIER").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ApplicationType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const ServerApplication: ApplicationType = ApplicationType(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const LibraryApplication: ApplicationType = ApplicationType(1i32);
+impl ::core::marker::Copy for ApplicationType {}
+impl ::core::clone::Clone for ApplicationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ApplicationType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ApplicationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ApplicationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BINDINFOF(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BINDINFOF_URLENCODESTGMEDDATA: BINDINFOF = BINDINFOF(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BINDINFOF_URLENCODEDEXTRAINFO: BINDINFOF = BINDINFOF(2i32);
+impl ::core::marker::Copy for BINDINFOF {}
+impl ::core::clone::Clone for BINDINFOF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BINDINFOF {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BINDINFOF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BINDINFOF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BINDINFOF").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct BIND_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BIND_MAYBOTHERUSER: BIND_FLAGS = BIND_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = BIND_FLAGS(2i32);
+impl ::core::marker::Copy for BIND_FLAGS {}
+impl ::core::clone::Clone for BIND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for BIND_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for BIND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BIND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BIND_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CALLCONV(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_FASTCALL: CALLCONV = CALLCONV(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_CDECL: CALLCONV = CALLCONV(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MSCPASCAL: CALLCONV = CALLCONV(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_PASCAL: CALLCONV = CALLCONV(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MACPASCAL: CALLCONV = CALLCONV(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_STDCALL: CALLCONV = CALLCONV(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_FPFASTCALL: CALLCONV = CALLCONV(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_SYSCALL: CALLCONV = CALLCONV(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MPWCDECL: CALLCONV = CALLCONV(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MPWPASCAL: CALLCONV = CALLCONV(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CC_MAX: CALLCONV = CALLCONV(9i32);
+impl ::core::marker::Copy for CALLCONV {}
+impl ::core::clone::Clone for CALLCONV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CALLCONV {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CALLCONV {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLCONV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLCONV").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CALLTYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_TOPLEVEL: CALLTYPE = CALLTYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_NESTED: CALLTYPE = CALLTYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_ASYNC: CALLTYPE = CALLTYPE(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_TOPLEVEL_CALLPENDING: CALLTYPE = CALLTYPE(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CALLTYPE_ASYNC_CALLPENDING: CALLTYPE = CALLTYPE(5i32);
+impl ::core::marker::Copy for CALLTYPE {}
+impl ::core::clone::Clone for CALLTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CALLTYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CALLTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CLSCTX(pub u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_SERVER: CLSCTX = CLSCTX(1u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_HANDLER: CLSCTX = CLSCTX(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_LOCAL_SERVER: CLSCTX = CLSCTX(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_SERVER16: CLSCTX = CLSCTX(8u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_REMOTE_SERVER: CLSCTX = CLSCTX(16u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_INPROC_HANDLER16: CLSCTX = CLSCTX(32u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED1: CLSCTX = CLSCTX(64u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED2: CLSCTX = CLSCTX(128u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED3: CLSCTX = CLSCTX(256u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED4: CLSCTX = CLSCTX(512u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_NO_CODE_DOWNLOAD: CLSCTX = CLSCTX(1024u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED5: CLSCTX = CLSCTX(2048u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_NO_CUSTOM_MARSHAL: CLSCTX = CLSCTX(4096u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ENABLE_CODE_DOWNLOAD: CLSCTX = CLSCTX(8192u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_NO_FAILURE_LOG: CLSCTX = CLSCTX(16384u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_DISABLE_AAA: CLSCTX = CLSCTX(32768u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ENABLE_AAA: CLSCTX = CLSCTX(65536u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_FROM_DEFAULT_CONTEXT: CLSCTX = CLSCTX(131072u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_X86_SERVER: CLSCTX = CLSCTX(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_32_BIT_SERVER: CLSCTX = CLSCTX(262144u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_64_BIT_SERVER: CLSCTX = CLSCTX(524288u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ENABLE_CLOAKING: CLSCTX = CLSCTX(1048576u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_APPCONTAINER: CLSCTX = CLSCTX(4194304u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_AAA_AS_IU: CLSCTX = CLSCTX(8388608u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_RESERVED6: CLSCTX = CLSCTX(16777216u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ACTIVATE_ARM32_SERVER: CLSCTX = CLSCTX(33554432u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_PS_DLL: CLSCTX = CLSCTX(2147483648u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_ALL: CLSCTX = CLSCTX(23u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CLSCTX_SERVER: CLSCTX = CLSCTX(21u32);
+impl ::core::marker::Copy for CLSCTX {}
+impl ::core::clone::Clone for CLSCTX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CLSCTX {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CLSCTX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLSCTX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLSCTX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CLSCTX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CLSCTX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CLSCTX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CLSCTX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CLSCTX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COINIT(pub u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_APARTMENTTHREADED: COINIT = COINIT(2u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_MULTITHREADED: COINIT = COINIT(0u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_DISABLE_OLE1DDE: COINIT = COINIT(4u32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINIT_SPEED_OVER_MEMORY: COINIT = COINIT(8u32);
+impl ::core::marker::Copy for COINIT {}
+impl ::core::clone::Clone for COINIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COINIT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COINIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COINIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COINIT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for COINIT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for COINIT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for COINIT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for COINIT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for COINIT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COINITBASE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COINITBASE_MULTITHREADED: COINITBASE = COINITBASE(0i32);
+impl ::core::marker::Copy for COINITBASE {}
+impl ::core::clone::Clone for COINITBASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COINITBASE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COINITBASE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COINITBASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COINITBASE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COMSD(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_LAUNCHPERMISSIONS: COMSD = COMSD(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_ACCESSPERMISSIONS: COMSD = COMSD(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_LAUNCHRESTRICTIONS: COMSD = COMSD(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const SD_ACCESSRESTRICTIONS: COMSD = COMSD(3i32);
+impl ::core::marker::Copy for COMSD {}
+impl ::core::clone::Clone for COMSD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COMSD {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COMSD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMSD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMSD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct COWAIT_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_DEFAULT: COWAIT_FLAGS = COWAIT_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_WAITALL: COWAIT_FLAGS = COWAIT_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_ALERTABLE: COWAIT_FLAGS = COWAIT_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_INPUTAVAILABLE: COWAIT_FLAGS = COWAIT_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_DISPATCH_CALLS: COWAIT_FLAGS = COWAIT_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COWAIT_DISPATCH_WINDOW_MESSAGES: COWAIT_FLAGS = COWAIT_FLAGS(16i32);
+impl ::core::marker::Copy for COWAIT_FLAGS {}
+impl ::core::clone::Clone for COWAIT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for COWAIT_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for COWAIT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COWAIT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COWAIT_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CO_MARSHALING_CONTEXT_ATTRIBUTES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_SOURCE_IS_APP_CONTAINER: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_1: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483648i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_2: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483647i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_3: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483646i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_4: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483645i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_5: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483644i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_6: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483643i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_7: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483642i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_8: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483641i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_9: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483640i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_10: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483639i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_11: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483638i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_12: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483637i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_13: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483636i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_14: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483635i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_15: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483634i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_16: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483633i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_17: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483632i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CO_MARSHALING_CONTEXT_ATTRIBUTE_RESERVED_18: CO_MARSHALING_CONTEXT_ATTRIBUTES = CO_MARSHALING_CONTEXT_ATTRIBUTES(-2147483631i32);
+impl ::core::marker::Copy for CO_MARSHALING_CONTEXT_ATTRIBUTES {}
+impl ::core::clone::Clone for CO_MARSHALING_CONTEXT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CO_MARSHALING_CONTEXT_ATTRIBUTES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CO_MARSHALING_CONTEXT_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CO_MARSHALING_CONTEXT_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CO_MARSHALING_CONTEXT_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CWMO_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_DEFAULT: CWMO_FLAGS = CWMO_FLAGS(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_DISPATCH_CALLS: CWMO_FLAGS = CWMO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const CWMO_DISPATCH_WINDOW_MESSAGES: CWMO_FLAGS = CWMO_FLAGS(2i32);
+impl ::core::marker::Copy for CWMO_FLAGS {}
+impl ::core::clone::Clone for CWMO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CWMO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CWMO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CWMO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CWMO_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DATADIR(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DATADIR_GET: DATADIR = DATADIR(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DATADIR_SET: DATADIR = DATADIR(2i32);
+impl ::core::marker::Copy for DATADIR {}
+impl ::core::clone::Clone for DATADIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DATADIR {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DATADIR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DATADIR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DATADIR").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DCOM_CALL_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOM_NONE: DCOM_CALL_STATE = DCOM_CALL_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOM_CALL_COMPLETE: DCOM_CALL_STATE = DCOM_CALL_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DCOM_CALL_CANCELED: DCOM_CALL_STATE = DCOM_CALL_STATE(2i32);
+impl ::core::marker::Copy for DCOM_CALL_STATE {}
+impl ::core::clone::Clone for DCOM_CALL_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DCOM_CALL_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DCOM_CALL_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOM_CALL_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOM_CALL_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DESCKIND(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_NONE: DESCKIND = DESCKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_FUNCDESC: DESCKIND = DESCKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_VARDESC: DESCKIND = DESCKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_TYPECOMP: DESCKIND = DESCKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_IMPLICITAPPOBJ: DESCKIND = DESCKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DESCKIND_MAX: DESCKIND = DESCKIND(5i32);
+impl ::core::marker::Copy for DESCKIND {}
+impl ::core::clone::Clone for DESCKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DESCKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DESCKIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DESCKIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DESCKIND").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DVASPECT(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_CONTENT: DVASPECT = DVASPECT(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_THUMBNAIL: DVASPECT = DVASPECT(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_ICON: DVASPECT = DVASPECT(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const DVASPECT_DOCPRINT: DVASPECT = DVASPECT(8i32);
+impl ::core::marker::Copy for DVASPECT {}
+impl ::core::clone::Clone for DVASPECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DVASPECT {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DVASPECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DVASPECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DVASPECT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EOLE_AUTHENTICATION_CAPABILITIES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_NONE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_MUTUAL_AUTH: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_STATIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DYNAMIC_CLOAKING: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_ANY_AUTHORITY: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(128i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_MAKE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(256i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DEFAULT: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2048i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_SECURE_REFS: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_ACCESS_CONTROL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_APPID: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DYNAMIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_REQUIRE_FULLSIC: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(512i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_AUTO_IMPERSONATE: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(1024i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_DISABLE_AAA: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(4096i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_NO_CUSTOM_MARSHAL: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(8192i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EOAC_RESERVED1: EOLE_AUTHENTICATION_CAPABILITIES = EOLE_AUTHENTICATION_CAPABILITIES(16384i32);
+impl ::core::marker::Copy for EOLE_AUTHENTICATION_CAPABILITIES {}
+impl ::core::clone::Clone for EOLE_AUTHENTICATION_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EOLE_AUTHENTICATION_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EOLE_AUTHENTICATION_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EOLE_AUTHENTICATION_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EOLE_AUTHENTICATION_CAPABILITIES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EXTCONN(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EXTCONN_STRONG: EXTCONN = EXTCONN(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EXTCONN_WEAK: EXTCONN = EXTCONN(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const EXTCONN_CALLABLE: EXTCONN = EXTCONN(4i32);
+impl ::core::marker::Copy for EXTCONN {}
+impl ::core::clone::Clone for EXTCONN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXTCONN {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXTCONN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXTCONN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXTCONN").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FUNCKIND(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_VIRTUAL: FUNCKIND = FUNCKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_PUREVIRTUAL: FUNCKIND = FUNCKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_NONVIRTUAL: FUNCKIND = FUNCKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_STATIC: FUNCKIND = FUNCKIND(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const FUNC_DISPATCH: FUNCKIND = FUNCKIND(4i32);
+impl ::core::marker::Copy for FUNCKIND {}
+impl ::core::clone::Clone for FUNCKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FUNCKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FUNCKIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FUNCKIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FUNCKIND").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLOBALOPT_EH_VALUES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_FATAL: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_DONOT_HANDLE: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_DONOT_HANDLE_ANY: GLOBALOPT_EH_VALUES = GLOBALOPT_EH_VALUES(2i32);
+impl ::core::marker::Copy for GLOBALOPT_EH_VALUES {}
+impl ::core::clone::Clone for GLOBALOPT_EH_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_EH_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBALOPT_EH_VALUES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBALOPT_EH_VALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBALOPT_EH_VALUES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLOBALOPT_PROPERTIES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_EXCEPTION_HANDLING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_APPID: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RPC_THREADPOOL_SETTING: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(3i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RO_SETTINGS: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(5i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_PROPERTIES_RESERVED1: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(6i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_PROPERTIES_RESERVED2: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(7i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_PROPERTIES_RESERVED3: GLOBALOPT_PROPERTIES = GLOBALOPT_PROPERTIES(8i32);
+impl ::core::marker::Copy for GLOBALOPT_PROPERTIES {}
+impl ::core::clone::Clone for GLOBALOPT_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_PROPERTIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBALOPT_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBALOPT_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBALOPT_PROPERTIES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLOBALOPT_RO_FLAGS(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_REMOVE_TOUCH_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_DONOT_REMOVE_INPUT_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_FAST_RUNDOWN: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(8i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED1: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(16i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED2: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(32i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED3: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(64i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_STA_MODALLOOP_SHARED_QUEUE_REORDER_POINTER_MESSAGES: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(128i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED4: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(256i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED5: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(512i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RESERVED6: GLOBALOPT_RO_FLAGS = GLOBALOPT_RO_FLAGS(1024i32);
+impl ::core::marker::Copy for GLOBALOPT_RO_FLAGS {}
+impl ::core::clone::Clone for GLOBALOPT_RO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_RO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBALOPT_RO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBALOPT_RO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBALOPT_RO_FLAGS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLOBALOPT_RPCTP_VALUES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RPC_THREADPOOL_SETTING_DEFAULT_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_RPC_THREADPOOL_SETTING_PRIVATE_POOL: GLOBALOPT_RPCTP_VALUES = GLOBALOPT_RPCTP_VALUES(1i32);
+impl ::core::marker::Copy for GLOBALOPT_RPCTP_VALUES {}
+impl ::core::clone::Clone for GLOBALOPT_RPCTP_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_RPCTP_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBALOPT_RPCTP_VALUES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBALOPT_RPCTP_VALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBALOPT_RPCTP_VALUES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct GLOBALOPT_UNMARSHALING_POLICY_VALUES(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY_NORMAL: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY_STRONG: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const COMGLB_UNMARSHALING_POLICY_HYBRID: GLOBALOPT_UNMARSHALING_POLICY_VALUES = GLOBALOPT_UNMARSHALING_POLICY_VALUES(2i32);
+impl ::core::marker::Copy for GLOBALOPT_UNMARSHALING_POLICY_VALUES {}
+impl ::core::clone::Clone for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GLOBALOPT_UNMARSHALING_POLICY_VALUES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GLOBALOPT_UNMARSHALING_POLICY_VALUES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct INVOKEKIND(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_FUNC: INVOKEKIND = INVOKEKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_PROPERTYGET: INVOKEKIND = INVOKEKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_PROPERTYPUT: INVOKEKIND = INVOKEKIND(4i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const INVOKE_PROPERTYPUTREF: INVOKEKIND = INVOKEKIND(8i32);
+impl ::core::marker::Copy for INVOKEKIND {}
+impl ::core::clone::Clone for INVOKEKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for INVOKEKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for INVOKEKIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INVOKEKIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INVOKEKIND").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12227,109 +11030,6 @@ impl ::core::fmt::Debug for MSHLFLAGS {
         f.debug_tuple("MSHLFLAGS").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct MULTI_QI {
-    pub pIID: *const ::windows::core::GUID,
-    pub pItf: ::core::option::Option<::windows::core::IUnknown>,
-    pub hr: ::windows::core::HRESULT,
-}
-impl ::core::clone::Clone for MULTI_QI {
-    fn clone(&self) -> Self {
-        Self { pIID: self.pIID, pItf: self.pItf.clone(), hr: self.hr }
-    }
-}
-impl ::core::fmt::Debug for MULTI_QI {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MULTI_QI").field("pIID", &self.pIID).field("pItf", &self.pItf).field("hr", &self.hr).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MULTI_QI {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for MULTI_QI {
-    fn eq(&self, other: &Self) -> bool {
-        self.pIID == other.pIID && self.pItf == other.pItf && self.hr == other.hr
-    }
-}
-impl ::core::cmp::Eq for MULTI_QI {}
-impl ::core::default::Default for MULTI_QI {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct MachineGlobalObjectTableRegistrationToken__ {
-    pub unused: i32,
-}
-impl ::core::marker::Copy for MachineGlobalObjectTableRegistrationToken__ {}
-impl ::core::clone::Clone for MachineGlobalObjectTableRegistrationToken__ {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for MachineGlobalObjectTableRegistrationToken__ {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("MachineGlobalObjectTableRegistrationToken__").field("unused", &self.unused).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for MachineGlobalObjectTableRegistrationToken__ {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for MachineGlobalObjectTableRegistrationToken__ {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MachineGlobalObjectTableRegistrationToken__>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for MachineGlobalObjectTableRegistrationToken__ {}
-impl ::core::default::Default for MachineGlobalObjectTableRegistrationToken__ {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn MkParseDisplayName<'a, P0, P1>(pbc: P0, szusername: P1, pcheaten: &mut u32, ppmk: &mut ::core::option::Option<IMoniker>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IBindCtx>>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MkParseDisplayName(pbc: *mut ::core::ffi::c_void, szusername: ::windows::core::PCWSTR, pcheaten: *mut u32, ppmk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    MkParseDisplayName(pbc.into().abi(), szusername.into(), ::core::mem::transmute(pcheaten), ::core::mem::transmute(ppmk)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn MonikerCommonPrefixWith<'a, P0, P1>(pmkthis: P0, pmkother: P1) -> ::windows::core::Result<IMoniker>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MonikerCommonPrefixWith(pmkthis: *mut ::core::ffi::c_void, pmkother: *mut ::core::ffi::c_void, ppmkcommon: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    MonikerCommonPrefixWith(pmkthis.into().abi(), pmkother.into().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMoniker>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn MonikerRelativePathTo<'a, P0, P1, P2>(pmksrc: P0, pmkdest: P1, ppmkrelpath: &mut ::core::option::Option<IMoniker>, dwreserved: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-    P1: ::std::convert::Into<::windows::core::InParam<'a, IMoniker>>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MonikerRelativePathTo(pmksrc: *mut ::core::ffi::c_void, pmkdest: *mut ::core::ffi::c_void, ppmkrelpath: *mut *mut ::core::ffi::c_void, dwreserved: super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    MonikerRelativePathTo(pmksrc.into().abi(), pmkdest.into().abi(), ::core::mem::transmute(ppmkrelpath), dwreserved.into()).ok()
-}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12387,52 +11087,6 @@ impl ::core::fmt::Debug for PENDINGTYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub type PFNCONTEXTCALL = ::core::option::Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn ProgIDFromCLSID(clsid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ProgIDFromCLSID(clsid: *const ::windows::core::GUID, lplpszprogid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    ProgIDFromCLSID(::core::mem::transmute(clsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct QUERYCONTEXT {
-    pub dwContext: u32,
-    pub Platform: CSPLATFORM,
-    pub Locale: u32,
-    pub dwVersionHi: u32,
-    pub dwVersionLo: u32,
-}
-impl ::core::marker::Copy for QUERYCONTEXT {}
-impl ::core::clone::Clone for QUERYCONTEXT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for QUERYCONTEXT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QUERYCONTEXT").field("dwContext", &self.dwContext).field("Platform", &self.Platform).field("Locale", &self.Locale).field("dwVersionHi", &self.dwVersionHi).field("dwVersionLo", &self.dwVersionLo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for QUERYCONTEXT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for QUERYCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERYCONTEXT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for QUERYCONTEXT {}
-impl ::core::default::Default for QUERYCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct REGCLS(pub i32);
@@ -12467,8 +11121,6 @@ impl ::core::fmt::Debug for REGCLS {
         f.debug_tuple("REGCLS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const ROTREGFLAGS_ALLOWANYCLIENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12522,42 +11174,6 @@ impl ::core::ops::Not for ROT_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct RPCOLEMESSAGE {
-    pub reserved1: *mut ::core::ffi::c_void,
-    pub dataRepresentation: u32,
-    pub Buffer: *mut ::core::ffi::c_void,
-    pub cbBuffer: u32,
-    pub iMethod: u32,
-    pub reserved2: [*mut ::core::ffi::c_void; 5],
-    pub rpcFlags: u32,
-}
-impl ::core::marker::Copy for RPCOLEMESSAGE {}
-impl ::core::clone::Clone for RPCOLEMESSAGE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RPCOLEMESSAGE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RPCOLEMESSAGE").field("reserved1", &self.reserved1).field("dataRepresentation", &self.dataRepresentation).field("Buffer", &self.Buffer).field("cbBuffer", &self.cbBuffer).field("iMethod", &self.iMethod).field("reserved2", &self.reserved2).field("rpcFlags", &self.rpcFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RPCOLEMESSAGE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RPCOLEMESSAGE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPCOLEMESSAGE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RPCOLEMESSAGE {}
-impl ::core::default::Default for RPCOLEMESSAGE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -12694,142 +11310,6 @@ impl ::core::fmt::Debug for RPC_C_IMP_LEVEL {
         f.debug_tuple("RPC_C_IMP_LEVEL").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct RemSTGMEDIUM {
-    pub tymed: u32,
-    pub dwHandleType: u32,
-    pub pData: u32,
-    pub pUnkForRelease: u32,
-    pub cbData: u32,
-    pub data: [u8; 1],
-}
-impl ::core::marker::Copy for RemSTGMEDIUM {}
-impl ::core::clone::Clone for RemSTGMEDIUM {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for RemSTGMEDIUM {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("RemSTGMEDIUM").field("tymed", &self.tymed).field("dwHandleType", &self.dwHandleType).field("pData", &self.pData).field("pUnkForRelease", &self.pUnkForRelease).field("cbData", &self.cbData).field("data", &self.data).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for RemSTGMEDIUM {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for RemSTGMEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemSTGMEDIUM>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for RemSTGMEDIUM {}
-impl ::core::default::Default for RemSTGMEDIUM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SAFEARRAY {
-    pub cDims: u16,
-    pub fFeatures: u16,
-    pub cbElements: u32,
-    pub cLocks: u32,
-    pub pvData: *mut ::core::ffi::c_void,
-    pub rgsabound: [SAFEARRAYBOUND; 1],
-}
-impl ::core::marker::Copy for SAFEARRAY {}
-impl ::core::clone::Clone for SAFEARRAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SAFEARRAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SAFEARRAY").field("cDims", &self.cDims).field("fFeatures", &self.fFeatures).field("cbElements", &self.cbElements).field("cLocks", &self.cLocks).field("pvData", &self.pvData).field("rgsabound", &self.rgsabound).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SAFEARRAY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SAFEARRAY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SAFEARRAY {}
-impl ::core::default::Default for SAFEARRAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SAFEARRAYBOUND {
-    pub cElements: u32,
-    pub lLbound: i32,
-}
-impl ::core::marker::Copy for SAFEARRAYBOUND {}
-impl ::core::clone::Clone for SAFEARRAYBOUND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SAFEARRAYBOUND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SAFEARRAYBOUND").field("cElements", &self.cElements).field("lLbound", &self.lLbound).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SAFEARRAYBOUND {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SAFEARRAYBOUND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAYBOUND>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SAFEARRAYBOUND {}
-impl ::core::default::Default for SAFEARRAYBOUND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SChannelHookCallInfo {
-    pub iid: ::windows::core::GUID,
-    pub cbSize: u32,
-    pub uCausality: ::windows::core::GUID,
-    pub dwServerPid: u32,
-    pub iMethod: u32,
-    pub pObject: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for SChannelHookCallInfo {}
-impl ::core::clone::Clone for SChannelHookCallInfo {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SChannelHookCallInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SChannelHookCallInfo").field("iid", &self.iid).field("cbSize", &self.cbSize).field("uCausality", &self.uCausality).field("dwServerPid", &self.dwServerPid).field("iMethod", &self.iMethod).field("pObject", &self.pObject).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SChannelHookCallInfo {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SChannelHookCallInfo {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SChannelHookCallInfo>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SChannelHookCallInfo {}
-impl ::core::default::Default for SChannelHookCallInfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -12857,213 +11337,6 @@ unsafe impl ::windows::core::Abi for SERVERCALL {
 impl ::core::fmt::Debug for SERVERCALL {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SERVERCALL").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SHORT_SIZEDARR {
-    pub clSize: u32,
-    pub pData: *mut u16,
-}
-impl ::core::marker::Copy for SHORT_SIZEDARR {}
-impl ::core::clone::Clone for SHORT_SIZEDARR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SHORT_SIZEDARR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SHORT_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SHORT_SIZEDARR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SHORT_SIZEDARR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHORT_SIZEDARR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SHORT_SIZEDARR {}
-impl ::core::default::Default for SHORT_SIZEDARR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SOLE_AUTHENTICATION_INFO {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pAuthInfo: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for SOLE_AUTHENTICATION_INFO {}
-impl ::core::clone::Clone for SOLE_AUTHENTICATION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SOLE_AUTHENTICATION_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOLE_AUTHENTICATION_INFO").field("dwAuthnSvc", &self.dwAuthnSvc).field("dwAuthzSvc", &self.dwAuthzSvc).field("pAuthInfo", &self.pAuthInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SOLE_AUTHENTICATION_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SOLE_AUTHENTICATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOLE_AUTHENTICATION_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOLE_AUTHENTICATION_INFO {}
-impl ::core::default::Default for SOLE_AUTHENTICATION_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SOLE_AUTHENTICATION_LIST {
-    pub cAuthInfo: u32,
-    pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
-}
-impl ::core::marker::Copy for SOLE_AUTHENTICATION_LIST {}
-impl ::core::clone::Clone for SOLE_AUTHENTICATION_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SOLE_AUTHENTICATION_LIST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOLE_AUTHENTICATION_LIST").field("cAuthInfo", &self.cAuthInfo).field("aAuthInfo", &self.aAuthInfo).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SOLE_AUTHENTICATION_LIST {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SOLE_AUTHENTICATION_LIST {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOLE_AUTHENTICATION_LIST>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOLE_AUTHENTICATION_LIST {}
-impl ::core::default::Default for SOLE_AUTHENTICATION_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct SOLE_AUTHENTICATION_SERVICE {
-    pub dwAuthnSvc: u32,
-    pub dwAuthzSvc: u32,
-    pub pPrincipalName: ::windows::core::PWSTR,
-    pub hr: ::windows::core::HRESULT,
-}
-impl ::core::marker::Copy for SOLE_AUTHENTICATION_SERVICE {}
-impl ::core::clone::Clone for SOLE_AUTHENTICATION_SERVICE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for SOLE_AUTHENTICATION_SERVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SOLE_AUTHENTICATION_SERVICE").field("dwAuthnSvc", &self.dwAuthnSvc).field("dwAuthzSvc", &self.dwAuthzSvc).field("pPrincipalName", &self.pPrincipalName).field("hr", &self.hr).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for SOLE_AUTHENTICATION_SERVICE {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for SOLE_AUTHENTICATION_SERVICE {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOLE_AUTHENTICATION_SERVICE>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for SOLE_AUTHENTICATION_SERVICE {}
-impl ::core::default::Default for SOLE_AUTHENTICATION_SERVICE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct STATDATA {
-    pub formatetc: FORMATETC,
-    pub advf: u32,
-    pub pAdvSink: ::core::option::Option<IAdviseSink>,
-    pub dwConnection: u32,
-}
-impl ::core::clone::Clone for STATDATA {
-    fn clone(&self) -> Self {
-        Self { formatetc: self.formatetc, advf: self.advf, pAdvSink: self.pAdvSink.clone(), dwConnection: self.dwConnection }
-    }
-}
-impl ::core::fmt::Debug for STATDATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STATDATA").field("formatetc", &self.formatetc).field("advf", &self.advf).field("pAdvSink", &self.pAdvSink).field("dwConnection", &self.dwConnection).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for STATDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-impl ::core::cmp::PartialEq for STATDATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.formatetc == other.formatetc && self.advf == other.advf && self.pAdvSink == other.pAdvSink && self.dwConnection == other.dwConnection
-    }
-}
-impl ::core::cmp::Eq for STATDATA {}
-impl ::core::default::Default for STATDATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STATSTG {
-    pub pwcsName: ::windows::core::PWSTR,
-    pub r#type: u32,
-    pub cbSize: u64,
-    pub mtime: super::super::Foundation::FILETIME,
-    pub ctime: super::super::Foundation::FILETIME,
-    pub atime: super::super::Foundation::FILETIME,
-    pub grfMode: u32,
-    pub grfLocksSupported: u32,
-    pub clsid: ::windows::core::GUID,
-    pub grfStateBits: u32,
-    pub reserved: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for STATSTG {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for STATSTG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STATSTG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("STATSTG").field("pwcsName", &self.pwcsName).field("type", &self.r#type).field("cbSize", &self.cbSize).field("mtime", &self.mtime).field("ctime", &self.ctime).field("atime", &self.atime).field("grfMode", &self.grfMode).field("grfLocksSupported", &self.grfLocksSupported).field("clsid", &self.clsid).field("grfStateBits", &self.grfStateBits).field("reserved", &self.reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STATSTG {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for STATSTG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STATSTG>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for STATSTG {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for STATSTG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -13127,74 +11400,6 @@ impl ::core::ops::Not for STGC {
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub struct STGMEDIUM {
-    pub tymed: u32,
-    pub Anonymous: STGMEDIUM_0,
-    pub pUnkForRelease: ::core::option::Option<::windows::core::IUnknown>,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for STGMEDIUM {
-    fn clone(&self) -> Self {
-        Self { tymed: self.tymed, Anonymous: self.Anonymous.clone(), pUnkForRelease: self.pUnkForRelease.clone() }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-unsafe impl ::windows::core::Abi for STGMEDIUM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for STGMEDIUM {
-    fn eq(&self, other: &Self) -> bool {
-        self.tymed == other.tymed && self.Anonymous == other.Anonymous && self.pUnkForRelease == other.pUnkForRelease
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for STGMEDIUM {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::default::Default for STGMEDIUM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-pub union STGMEDIUM_0 {
-    pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
-    pub hMetaFilePict: *mut ::core::ffi::c_void,
-    pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
-    pub hGlobal: isize,
-    pub lpszFileName: ::windows::core::PWSTR,
-    pub pstm: ::core::mem::ManuallyDrop<::core::option::Option<IStream>>,
-    pub pstg: ::core::mem::ManuallyDrop<::core::option::Option<StructuredStorage::IStorage>>,
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::clone::Clone for STGMEDIUM_0 {
-    fn clone(&self) -> Self {
-        unsafe { ::core::mem::transmute_copy(self) }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-unsafe impl ::windows::core::Abi for STGMEDIUM_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::PartialEq for STGMEDIUM_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STGMEDIUM_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::cmp::Eq for STGMEDIUM_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
-impl ::core::default::Default for STGMEDIUM_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -13226,14 +11431,6 @@ impl ::core::fmt::Debug for STGTY {
         f.debug_tuple("STGTY").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STGTY_REPEAT: i32 = 256i32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STG_LAYOUT_INTERLEAVED: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STG_LAYOUT_SEQUENTIAL: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const STG_TOEND: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -13295,18 +11492,6 @@ impl ::core::fmt::Debug for SYSKIND {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn SetErrorInfo<'a, P0>(dwreserved: u32, perrinfo: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::InParam<'a, IErrorInfo>>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetErrorInfo(dwreserved: u32, perrinfo: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    SetErrorInfo(dwreserved, perrinfo.into().abi()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ShutdownType(pub i32);
@@ -13333,68 +11518,6 @@ impl ::core::fmt::Debug for ShutdownType {
         f.debug_tuple("ShutdownType").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct StorageLayout {
-    pub LayoutType: u32,
-    pub pwcsElementName: ::windows::core::PWSTR,
-    pub cOffset: i64,
-    pub cBytes: i64,
-}
-impl ::core::marker::Copy for StorageLayout {}
-impl ::core::clone::Clone for StorageLayout {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for StorageLayout {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("StorageLayout").field("LayoutType", &self.LayoutType).field("pwcsElementName", &self.pwcsElementName).field("cOffset", &self.cOffset).field("cBytes", &self.cBytes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for StorageLayout {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for StorageLayout {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<StorageLayout>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for StorageLayout {}
-impl ::core::default::Default for StorageLayout {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn StringFromCLSID(rclsid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StringFromCLSID(rclsid: *const ::windows::core::GUID, lplpsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StringFromCLSID(::core::mem::transmute(rclsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn StringFromGUID2(rguid: &::windows::core::GUID, lpsz: &mut [u16]) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StringFromGUID2(rguid: *const ::windows::core::GUID, lpsz: ::windows::core::PWSTR, cchmax: i32) -> i32;
-    }
-    StringFromGUID2(::core::mem::transmute(rguid), ::core::mem::transmute(lpsz.as_ptr()), lpsz.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[inline]
-pub unsafe fn StringFromIID(rclsid: &::windows::core::GUID) -> ::windows::core::Result<::windows::core::PWSTR> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn StringFromIID(rclsid: *const ::windows::core::GUID, lplpsz: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    StringFromIID(::core::mem::transmute(rclsid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -13420,41 +11543,6 @@ unsafe impl ::windows::core::Abi for THDTYPE {
 impl ::core::fmt::Debug for THDTYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("THDTYPE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub struct TLIBATTR {
-    pub guid: ::windows::core::GUID,
-    pub lcid: u32,
-    pub syskind: SYSKIND,
-    pub wMajorVerNum: u16,
-    pub wMinorVerNum: u16,
-    pub wLibFlags: u16,
-}
-impl ::core::marker::Copy for TLIBATTR {}
-impl ::core::clone::Clone for TLIBATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TLIBATTR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TLIBATTR").field("guid", &self.guid).field("lcid", &self.lcid).field("syskind", &self.syskind).field("wMajorVerNum", &self.wMajorVerNum).field("wMinorVerNum", &self.wMinorVerNum).field("wLibFlags", &self.wLibFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TLIBATTR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for TLIBATTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TLIBATTR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TLIBATTR {}
-impl ::core::default::Default for TLIBATTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -13494,122 +11582,6 @@ unsafe impl ::windows::core::Abi for TYMED {
 impl ::core::fmt::Debug for TYMED {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TYMED").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(feature = "Win32_System_Ole")]
-pub struct TYPEATTR {
-    pub guid: ::windows::core::GUID,
-    pub lcid: u32,
-    pub dwReserved: u32,
-    pub memidConstructor: i32,
-    pub memidDestructor: i32,
-    pub lpstrSchema: ::windows::core::PWSTR,
-    pub cbSizeInstance: u32,
-    pub typekind: TYPEKIND,
-    pub cFuncs: u16,
-    pub cVars: u16,
-    pub cImplTypes: u16,
-    pub cbSizeVft: u16,
-    pub cbAlignment: u16,
-    pub wTypeFlags: u16,
-    pub wMajorVerNum: u16,
-    pub wMinorVerNum: u16,
-    pub tdescAlias: TYPEDESC,
-    pub idldescType: IDLDESC,
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::marker::Copy for TYPEATTR {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::clone::Clone for TYPEATTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-unsafe impl ::windows::core::Abi for TYPEATTR {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::PartialEq for TYPEATTR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPEATTR>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::Eq for TYPEATTR {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::default::Default for TYPEATTR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(feature = "Win32_System_Ole")]
-pub struct TYPEDESC {
-    pub Anonymous: TYPEDESC_0,
-    pub vt: VARENUM,
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::marker::Copy for TYPEDESC {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::clone::Clone for TYPEDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-unsafe impl ::windows::core::Abi for TYPEDESC {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::PartialEq for TYPEDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPEDESC>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::Eq for TYPEDESC {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::default::Default for TYPEDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(feature = "Win32_System_Ole")]
-pub union TYPEDESC_0 {
-    pub lptdesc: *mut TYPEDESC,
-    pub lpadesc: *mut super::Ole::ARRAYDESC,
-    pub hreftype: u32,
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::marker::Copy for TYPEDESC_0 {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::clone::Clone for TYPEDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-unsafe impl ::windows::core::Abi for TYPEDESC_0 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::PartialEq for TYPEDESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPEDESC_0>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::cmp::Eq for TYPEDESC_0 {}
-#[cfg(feature = "Win32_System_Ole")]
-impl ::core::default::Default for TYPEDESC_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
@@ -13846,76 +11818,6 @@ impl ::core::fmt::Debug for Uri_PROPERTY {
         f.debug_tuple("Uri_PROPERTY").field(&self.0).finish()
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub struct VARDESC {
-    pub memid: i32,
-    pub lpstrSchema: ::windows::core::PWSTR,
-    pub Anonymous: VARDESC_0,
-    pub elemdescVar: ELEMDESC,
-    pub wVarFlags: u16,
-    pub varkind: VARKIND,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for VARDESC {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for VARDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARDESC>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for VARDESC {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for VARDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-pub union VARDESC_0 {
-    pub oInst: u32,
-    pub lpvarValue: *mut VARIANT,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::marker::Copy for VARDESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::clone::Clone for VARDESC_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-unsafe impl ::windows::core::Abi for VARDESC_0 {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::PartialEq for VARDESC_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARDESC_0>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::cmp::Eq for VARDESC_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-impl ::core::default::Default for VARDESC_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Com\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -14041,6 +11943,2171 @@ unsafe impl ::windows::core::Abi for VARENUM {
 impl ::core::fmt::Debug for VARENUM {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VARENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VARKIND(pub i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_STATIC: VARKIND = VARKIND(1i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_CONST: VARKIND = VARKIND(2i32);
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
+impl ::core::marker::Copy for VARKIND {}
+impl ::core::clone::Clone for VARKIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VARKIND {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VARKIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VARKIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VARKIND").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct AUTHENTICATEINFO {
+    pub dwFlags: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for AUTHENTICATEINFO {}
+impl ::core::clone::Clone for AUTHENTICATEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for AUTHENTICATEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AUTHENTICATEINFO").field("dwFlags", &self.dwFlags).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHENTICATEINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUTHENTICATEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHENTICATEINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUTHENTICATEINFO {}
+impl ::core::default::Default for AUTHENTICATEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Security\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct BINDINFO {
+    pub cbSize: u32,
+    pub szExtraInfo: ::windows::core::PWSTR,
+    pub stgmedData: STGMEDIUM,
+    pub grfBindInfoF: u32,
+    pub dwBindVerb: u32,
+    pub szCustomVerb: ::windows::core::PWSTR,
+    pub cbstgmedData: u32,
+    pub dwOptions: u32,
+    pub dwOptionsFlags: u32,
+    pub dwCodePage: u32,
+    pub securityAttributes: super::super::Security::SECURITY_ATTRIBUTES,
+    pub iid: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub dwReserved: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for BINDINFO {
+    fn clone(&self) -> Self {
+        Self {
+            cbSize: self.cbSize,
+            szExtraInfo: self.szExtraInfo,
+            stgmedData: self.stgmedData.clone(),
+            grfBindInfoF: self.grfBindInfoF,
+            dwBindVerb: self.dwBindVerb,
+            szCustomVerb: self.szCustomVerb,
+            cbstgmedData: self.cbstgmedData,
+            dwOptions: self.dwOptions,
+            dwOptionsFlags: self.dwOptionsFlags,
+            dwCodePage: self.dwCodePage,
+            securityAttributes: self.securityAttributes,
+            iid: self.iid,
+            pUnk: self.pUnk.clone(),
+            dwReserved: self.dwReserved,
+        }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+unsafe impl ::windows::core::Abi for BINDINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::PartialEq for BINDINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.cbSize == other.cbSize && self.szExtraInfo == other.szExtraInfo && self.stgmedData == other.stgmedData && self.grfBindInfoF == other.grfBindInfoF && self.dwBindVerb == other.dwBindVerb && self.szCustomVerb == other.szCustomVerb && self.cbstgmedData == other.cbstgmedData && self.dwOptions == other.dwOptions && self.dwOptionsFlags == other.dwOptionsFlags && self.dwCodePage == other.dwCodePage && self.securityAttributes == other.securityAttributes && self.iid == other.iid && self.pUnk == other.pUnk && self.dwReserved == other.dwReserved
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::Eq for BINDINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::default::Default for BINDINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub union BINDPTR {
+    pub lpfuncdesc: *mut FUNCDESC,
+    pub lpvardesc: *mut VARDESC,
+    pub lptcomp: ::core::mem::ManuallyDrop<::core::option::Option<ITypeComp>>,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for BINDPTR {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for BINDPTR {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for BINDPTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BINDPTR>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for BINDPTR {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for BINDPTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct BIND_OPTS {
+    pub cbStruct: u32,
+    pub grfFlags: u32,
+    pub grfMode: u32,
+    pub dwTickCountDeadline: u32,
+}
+impl ::core::marker::Copy for BIND_OPTS {}
+impl ::core::clone::Clone for BIND_OPTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BIND_OPTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIND_OPTS").field("cbStruct", &self.cbStruct).field("grfFlags", &self.grfFlags).field("grfMode", &self.grfMode).field("dwTickCountDeadline", &self.dwTickCountDeadline).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BIND_OPTS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BIND_OPTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BIND_OPTS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BIND_OPTS {}
+impl ::core::default::Default for BIND_OPTS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct BIND_OPTS2 {
+    pub Base: BIND_OPTS,
+    pub dwTrackFlags: u32,
+    pub dwClassContext: u32,
+    pub locale: u32,
+    pub pServerInfo: *mut COSERVERINFO,
+}
+impl ::core::marker::Copy for BIND_OPTS2 {}
+impl ::core::clone::Clone for BIND_OPTS2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BIND_OPTS2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIND_OPTS2").field("Base", &self.Base).field("dwTrackFlags", &self.dwTrackFlags).field("dwClassContext", &self.dwClassContext).field("locale", &self.locale).field("pServerInfo", &self.pServerInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BIND_OPTS2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BIND_OPTS2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BIND_OPTS2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BIND_OPTS2 {}
+impl ::core::default::Default for BIND_OPTS2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct BIND_OPTS3 {
+    pub Base: BIND_OPTS2,
+    pub hwnd: super::super::Foundation::HWND,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for BIND_OPTS3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BIND_OPTS3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for BIND_OPTS3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BIND_OPTS3").field("Base", &self.Base).field("hwnd", &self.hwnd).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BIND_OPTS3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BIND_OPTS3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BIND_OPTS3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BIND_OPTS3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for BIND_OPTS3 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct BLOB {
+    pub cbSize: u32,
+    pub pBlobData: *mut u8,
+}
+impl ::core::marker::Copy for BLOB {}
+impl ::core::clone::Clone for BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BLOB").field("cbSize", &self.cbSize).field("pBlobData", &self.pBlobData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BLOB {}
+impl ::core::default::Default for BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct BYTE_BLOB {
+    pub clSize: u32,
+    pub abData: [u8; 1],
+}
+impl ::core::marker::Copy for BYTE_BLOB {}
+impl ::core::clone::Clone for BYTE_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BYTE_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BYTE_BLOB").field("clSize", &self.clSize).field("abData", &self.abData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BYTE_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BYTE_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BYTE_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BYTE_BLOB {}
+impl ::core::default::Default for BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct BYTE_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u8,
+}
+impl ::core::marker::Copy for BYTE_SIZEDARR {}
+impl ::core::clone::Clone for BYTE_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for BYTE_SIZEDARR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("BYTE_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for BYTE_SIZEDARR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BYTE_SIZEDARR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BYTE_SIZEDARR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BYTE_SIZEDARR {}
+impl ::core::default::Default for BYTE_SIZEDARR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct CATEGORYINFO {
+    pub catid: ::windows::core::GUID,
+    pub lcid: u32,
+    pub szDescription: [u16; 128],
+}
+impl ::core::marker::Copy for CATEGORYINFO {}
+impl ::core::clone::Clone for CATEGORYINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CATEGORYINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CATEGORYINFO").field("catid", &self.catid).field("lcid", &self.lcid).field("szDescription", &self.szDescription).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CATEGORYINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CATEGORYINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CATEGORYINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CATEGORYINFO {}
+impl ::core::default::Default for CATEGORYINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct COAUTHIDENTITY {
+    pub User: *mut u16,
+    pub UserLength: u32,
+    pub Domain: *mut u16,
+    pub DomainLength: u32,
+    pub Password: *mut u16,
+    pub PasswordLength: u32,
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for COAUTHIDENTITY {}
+impl ::core::clone::Clone for COAUTHIDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COAUTHIDENTITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COAUTHIDENTITY").field("User", &self.User).field("UserLength", &self.UserLength).field("Domain", &self.Domain).field("DomainLength", &self.DomainLength).field("Password", &self.Password).field("PasswordLength", &self.PasswordLength).field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COAUTHIDENTITY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COAUTHIDENTITY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COAUTHIDENTITY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COAUTHIDENTITY {}
+impl ::core::default::Default for COAUTHIDENTITY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct COAUTHINFO {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pwszServerPrincName: ::windows::core::PWSTR,
+    pub dwAuthnLevel: u32,
+    pub dwImpersonationLevel: u32,
+    pub pAuthIdentityData: *mut COAUTHIDENTITY,
+    pub dwCapabilities: u32,
+}
+impl ::core::marker::Copy for COAUTHINFO {}
+impl ::core::clone::Clone for COAUTHINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COAUTHINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COAUTHINFO").field("dwAuthnSvc", &self.dwAuthnSvc).field("dwAuthzSvc", &self.dwAuthzSvc).field("pwszServerPrincName", &self.pwszServerPrincName).field("dwAuthnLevel", &self.dwAuthnLevel).field("dwImpersonationLevel", &self.dwImpersonationLevel).field("pAuthIdentityData", &self.pAuthIdentityData).field("dwCapabilities", &self.dwCapabilities).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COAUTHINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COAUTHINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COAUTHINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COAUTHINFO {}
+impl ::core::default::Default for COAUTHINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct CONNECTDATA {
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub dwCookie: u32,
+}
+impl ::core::clone::Clone for CONNECTDATA {
+    fn clone(&self) -> Self {
+        Self { pUnk: self.pUnk.clone(), dwCookie: self.dwCookie }
+    }
+}
+impl ::core::fmt::Debug for CONNECTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CONNECTDATA").field("pUnk", &self.pUnk).field("dwCookie", &self.dwCookie).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CONNECTDATA {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for CONNECTDATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.pUnk == other.pUnk && self.dwCookie == other.dwCookie
+    }
+}
+impl ::core::cmp::Eq for CONNECTDATA {}
+impl ::core::default::Default for CONNECTDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct COSERVERINFO {
+    pub dwReserved1: u32,
+    pub pwszName: ::windows::core::PWSTR,
+    pub pAuthInfo: *mut COAUTHINFO,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for COSERVERINFO {}
+impl ::core::clone::Clone for COSERVERINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for COSERVERINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("COSERVERINFO").field("dwReserved1", &self.dwReserved1).field("pwszName", &self.pwszName).field("pAuthInfo", &self.pAuthInfo).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for COSERVERINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COSERVERINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COSERVERINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COSERVERINFO {}
+impl ::core::default::Default for COSERVERINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CO_DEVICE_CATALOG_COOKIE(pub isize);
+impl CO_DEVICE_CATALOG_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for CO_DEVICE_CATALOG_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CO_DEVICE_CATALOG_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CO_DEVICE_CATALOG_COOKIE {}
+impl ::core::fmt::Debug for CO_DEVICE_CATALOG_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CO_DEVICE_CATALOG_COOKIE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<CO_DEVICE_CATALOG_COOKIE>> for CO_DEVICE_CATALOG_COOKIE {
+    fn from(optional: ::core::option::Option<CO_DEVICE_CATALOG_COOKIE>) -> CO_DEVICE_CATALOG_COOKIE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for CO_DEVICE_CATALOG_COOKIE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CO_MTA_USAGE_COOKIE(pub isize);
+impl CO_MTA_USAGE_COOKIE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for CO_MTA_USAGE_COOKIE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for CO_MTA_USAGE_COOKIE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for CO_MTA_USAGE_COOKIE {}
+impl ::core::fmt::Debug for CO_MTA_USAGE_COOKIE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CO_MTA_USAGE_COOKIE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<CO_MTA_USAGE_COOKIE>> for CO_MTA_USAGE_COOKIE {
+    fn from(optional: ::core::option::Option<CO_MTA_USAGE_COOKIE>) -> CO_MTA_USAGE_COOKIE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for CO_MTA_USAGE_COOKIE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct CSPLATFORM {
+    pub dwPlatformId: u32,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+    pub dwProcessorArch: u32,
+}
+impl ::core::marker::Copy for CSPLATFORM {}
+impl ::core::clone::Clone for CSPLATFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CSPLATFORM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CSPLATFORM").field("dwPlatformId", &self.dwPlatformId).field("dwVersionHi", &self.dwVersionHi).field("dwVersionLo", &self.dwVersionLo).field("dwProcessorArch", &self.dwProcessorArch).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CSPLATFORM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CSPLATFORM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CSPLATFORM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CSPLATFORM {}
+impl ::core::default::Default for CSPLATFORM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub struct CUSTDATA {
+    pub cCustData: u32,
+    pub prgCustData: *mut CUSTDATAITEM,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for CUSTDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for CUSTDATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for CUSTDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CUSTDATA").field("cCustData", &self.cCustData).field("prgCustData", &self.prgCustData).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for CUSTDATA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for CUSTDATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CUSTDATA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for CUSTDATA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for CUSTDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub struct CUSTDATAITEM {
+    pub guid: ::windows::core::GUID,
+    pub varValue: VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for CUSTDATAITEM {
+    fn clone(&self) -> Self {
+        Self { guid: self.guid, varValue: self.varValue.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for CUSTDATAITEM {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for CUSTDATAITEM {
+    fn eq(&self, other: &Self) -> bool {
+        self.guid == other.guid && self.varValue == other.varValue
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for CUSTDATAITEM {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for CUSTDATAITEM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub union CY {
+    pub Anonymous: CY_0,
+    pub int64: i64,
+}
+impl ::core::marker::Copy for CY {}
+impl ::core::clone::Clone for CY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CY {}
+impl ::core::default::Default for CY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct CY_0 {
+    pub Lo: u32,
+    pub Hi: i32,
+}
+impl ::core::marker::Copy for CY_0 {}
+impl ::core::clone::Clone for CY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CY_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CY_0").field("Lo", &self.Lo).field("Hi", &self.Hi).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CY_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CY_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CY_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CY_0 {}
+impl ::core::default::Default for CY_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct ComCallData {
+    pub dwDispid: u32,
+    pub dwReserved: u32,
+    pub pUserDefined: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for ComCallData {}
+impl ::core::clone::Clone for ComCallData {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ComCallData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ComCallData").field("dwDispid", &self.dwDispid).field("dwReserved", &self.dwReserved).field("pUserDefined", &self.pUserDefined).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ComCallData {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ComCallData {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ComCallData>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ComCallData {}
+impl ::core::default::Default for ComCallData {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub struct DISPPARAMS {
+    pub rgvarg: *mut VARIANT,
+    pub rgdispidNamedArgs: *mut i32,
+    pub cArgs: u32,
+    pub cNamedArgs: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for DISPPARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for DISPPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::fmt::Debug for DISPPARAMS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DISPPARAMS").field("rgvarg", &self.rgvarg).field("rgdispidNamedArgs", &self.rgdispidNamedArgs).field("cArgs", &self.cArgs).field("cNamedArgs", &self.cNamedArgs).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for DISPPARAMS {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for DISPPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPPARAMS>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for DISPPARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for DISPPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct DVTARGETDEVICE {
+    pub tdSize: u32,
+    pub tdDriverNameOffset: u16,
+    pub tdDeviceNameOffset: u16,
+    pub tdPortNameOffset: u16,
+    pub tdExtDevmodeOffset: u16,
+    pub tdData: [u8; 1],
+}
+impl ::core::marker::Copy for DVTARGETDEVICE {}
+impl ::core::clone::Clone for DVTARGETDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DVTARGETDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DVTARGETDEVICE").field("tdSize", &self.tdSize).field("tdDriverNameOffset", &self.tdDriverNameOffset).field("tdDeviceNameOffset", &self.tdDeviceNameOffset).field("tdPortNameOffset", &self.tdPortNameOffset).field("tdExtDevmodeOffset", &self.tdExtDevmodeOffset).field("tdData", &self.tdData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DVTARGETDEVICE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DVTARGETDEVICE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DVTARGETDEVICE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DVTARGETDEVICE {}
+impl ::core::default::Default for DVTARGETDEVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct DWORD_BLOB {
+    pub clSize: u32,
+    pub alData: [u32; 1],
+}
+impl ::core::marker::Copy for DWORD_BLOB {}
+impl ::core::clone::Clone for DWORD_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DWORD_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DWORD_BLOB").field("clSize", &self.clSize).field("alData", &self.alData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DWORD_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DWORD_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DWORD_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DWORD_BLOB {}
+impl ::core::default::Default for DWORD_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub struct ELEMDESC {
+    pub tdesc: TYPEDESC,
+    pub Anonymous: ELEMDESC_0,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for ELEMDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for ELEMDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for ELEMDESC {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for ELEMDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ELEMDESC>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for ELEMDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for ELEMDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub union ELEMDESC_0 {
+    pub idldesc: IDLDESC,
+    pub paramdesc: super::Ole::PARAMDESC,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for ELEMDESC_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for ELEMDESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for ELEMDESC_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for ELEMDESC_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ELEMDESC_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for ELEMDESC_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for ELEMDESC_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct EXCEPINFO {
+    pub wCode: u16,
+    pub wReserved: u16,
+    pub bstrSource: super::super::Foundation::BSTR,
+    pub bstrDescription: super::super::Foundation::BSTR,
+    pub bstrHelpFile: super::super::Foundation::BSTR,
+    pub dwHelpContext: u32,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub pfnDeferredFillIn: LPEXCEPFINO_DEFERRED_FILLIN,
+    pub scode: i32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for EXCEPINFO {
+    fn clone(&self) -> Self {
+        Self {
+            wCode: self.wCode,
+            wReserved: self.wReserved,
+            bstrSource: self.bstrSource.clone(),
+            bstrDescription: self.bstrDescription.clone(),
+            bstrHelpFile: self.bstrHelpFile.clone(),
+            dwHelpContext: self.dwHelpContext,
+            pvReserved: self.pvReserved,
+            pfnDeferredFillIn: self.pfnDeferredFillIn,
+            scode: self.scode,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for EXCEPINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("EXCEPINFO").field("wCode", &self.wCode).field("wReserved", &self.wReserved).field("bstrSource", &self.bstrSource).field("bstrDescription", &self.bstrDescription).field("bstrHelpFile", &self.bstrHelpFile).field("dwHelpContext", &self.dwHelpContext).field("pvReserved", &self.pvReserved).field("pfnDeferredFillIn", &self.pfnDeferredFillIn.map(|f| f as usize)).field("scode", &self.scode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for EXCEPINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for EXCEPINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.wCode == other.wCode && self.wReserved == other.wReserved && self.bstrSource == other.bstrSource && self.bstrDescription == other.bstrDescription && self.bstrHelpFile == other.bstrHelpFile && self.dwHelpContext == other.dwHelpContext && self.pvReserved == other.pvReserved && self.pfnDeferredFillIn.map(|f| f as usize) == other.pfnDeferredFillIn.map(|f| f as usize) && self.scode == other.scode
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for EXCEPINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for EXCEPINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct FLAGGED_BYTE_BLOB {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub abData: [u8; 1],
+}
+impl ::core::marker::Copy for FLAGGED_BYTE_BLOB {}
+impl ::core::clone::Clone for FLAGGED_BYTE_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FLAGGED_BYTE_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLAGGED_BYTE_BLOB").field("fFlags", &self.fFlags).field("clSize", &self.clSize).field("abData", &self.abData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FLAGGED_BYTE_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FLAGGED_BYTE_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAGGED_BYTE_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FLAGGED_BYTE_BLOB {}
+impl ::core::default::Default for FLAGGED_BYTE_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct FLAGGED_WORD_BLOB {
+    pub fFlags: u32,
+    pub clSize: u32,
+    pub asData: [u16; 1],
+}
+impl ::core::marker::Copy for FLAGGED_WORD_BLOB {}
+impl ::core::clone::Clone for FLAGGED_WORD_BLOB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FLAGGED_WORD_BLOB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FLAGGED_WORD_BLOB").field("fFlags", &self.fFlags).field("clSize", &self.clSize).field("asData", &self.asData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FLAGGED_WORD_BLOB {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FLAGGED_WORD_BLOB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLAGGED_WORD_BLOB>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FLAGGED_WORD_BLOB {}
+impl ::core::default::Default for FLAGGED_WORD_BLOB {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct FLAG_STGMEDIUM {
+    pub ContextFlags: i32,
+    pub fPassOwnership: i32,
+    pub Stgmed: STGMEDIUM,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for FLAG_STGMEDIUM {
+    fn clone(&self) -> Self {
+        Self { ContextFlags: self.ContextFlags, fPassOwnership: self.fPassOwnership, Stgmed: self.Stgmed.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+unsafe impl ::windows::core::Abi for FLAG_STGMEDIUM {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::PartialEq for FLAG_STGMEDIUM {
+    fn eq(&self, other: &Self) -> bool {
+        self.ContextFlags == other.ContextFlags && self.fPassOwnership == other.fPassOwnership && self.Stgmed == other.Stgmed
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::Eq for FLAG_STGMEDIUM {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::default::Default for FLAG_STGMEDIUM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct FORMATETC {
+    pub cfFormat: u16,
+    pub ptd: *mut DVTARGETDEVICE,
+    pub dwAspect: u32,
+    pub lindex: i32,
+    pub tymed: u32,
+}
+impl ::core::marker::Copy for FORMATETC {}
+impl ::core::clone::Clone for FORMATETC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FORMATETC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FORMATETC").field("cfFormat", &self.cfFormat).field("ptd", &self.ptd).field("dwAspect", &self.dwAspect).field("lindex", &self.lindex).field("tymed", &self.tymed).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FORMATETC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FORMATETC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FORMATETC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FORMATETC {}
+impl ::core::default::Default for FORMATETC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub struct FUNCDESC {
+    pub memid: i32,
+    pub lprgscode: *mut i32,
+    pub lprgelemdescParam: *mut ELEMDESC,
+    pub funckind: FUNCKIND,
+    pub invkind: INVOKEKIND,
+    pub callconv: CALLCONV,
+    pub cParams: i16,
+    pub cParamsOpt: i16,
+    pub oVft: i16,
+    pub cScodes: i16,
+    pub elemdescFunc: ELEMDESC,
+    pub wFuncFlags: u16,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for FUNCDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for FUNCDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for FUNCDESC {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for FUNCDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FUNCDESC>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for FUNCDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for FUNCDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+pub struct GDI_OBJECT {
+    pub ObjectType: u32,
+    pub u: GDI_OBJECT_0,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::marker::Copy for GDI_OBJECT {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::clone::Clone for GDI_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+unsafe impl ::windows::core::Abi for GDI_OBJECT {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::cmp::PartialEq for GDI_OBJECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GDI_OBJECT>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::cmp::Eq for GDI_OBJECT {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::default::Default for GDI_OBJECT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_SystemServices\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+pub union GDI_OBJECT_0 {
+    pub hBitmap: *mut super::SystemServices::userHBITMAP,
+    pub hPalette: *mut super::SystemServices::userHPALETTE,
+    pub hGeneric: *mut super::SystemServices::userHGLOBAL,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::marker::Copy for GDI_OBJECT_0 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::clone::Clone for GDI_OBJECT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+unsafe impl ::windows::core::Abi for GDI_OBJECT_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::cmp::PartialEq for GDI_OBJECT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GDI_OBJECT_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::cmp::Eq for GDI_OBJECT_0 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
+impl ::core::default::Default for GDI_OBJECT_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct HYPER_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut i64,
+}
+impl ::core::marker::Copy for HYPER_SIZEDARR {}
+impl ::core::clone::Clone for HYPER_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HYPER_SIZEDARR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HYPER_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HYPER_SIZEDARR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HYPER_SIZEDARR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HYPER_SIZEDARR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HYPER_SIZEDARR {}
+impl ::core::default::Default for HYPER_SIZEDARR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct IContext(pub u8);
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct IDLDESC {
+    pub dwReserved: usize,
+    pub wIDLFlags: u16,
+}
+impl ::core::marker::Copy for IDLDESC {}
+impl ::core::clone::Clone for IDLDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for IDLDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("IDLDESC").field("dwReserved", &self.dwReserved).field("wIDLFlags", &self.wIDLFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IDLDESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IDLDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IDLDESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IDLDESC {}
+impl ::core::default::Default for IDLDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct IEnumContextProps(pub u8);
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct INTERFACEINFO {
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub iid: ::windows::core::GUID,
+    pub wMethod: u16,
+}
+impl ::core::clone::Clone for INTERFACEINFO {
+    fn clone(&self) -> Self {
+        Self { pUnk: self.pUnk.clone(), iid: self.iid, wMethod: self.wMethod }
+    }
+}
+impl ::core::fmt::Debug for INTERFACEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("INTERFACEINFO").field("pUnk", &self.pUnk).field("iid", &self.iid).field("wMethod", &self.wMethod).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for INTERFACEINFO {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for INTERFACEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        self.pUnk == other.pUnk && self.iid == other.iid && self.wMethod == other.wMethod
+    }
+}
+impl ::core::cmp::Eq for INTERFACEINFO {}
+impl ::core::default::Default for INTERFACEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct LONG_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u32,
+}
+impl ::core::marker::Copy for LONG_SIZEDARR {}
+impl ::core::clone::Clone for LONG_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for LONG_SIZEDARR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("LONG_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for LONG_SIZEDARR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LONG_SIZEDARR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LONG_SIZEDARR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LONG_SIZEDARR {}
+impl ::core::default::Default for LONG_SIZEDARR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct MULTI_QI {
+    pub pIID: *const ::windows::core::GUID,
+    pub pItf: ::core::option::Option<::windows::core::IUnknown>,
+    pub hr: ::windows::core::HRESULT,
+}
+impl ::core::clone::Clone for MULTI_QI {
+    fn clone(&self) -> Self {
+        Self { pIID: self.pIID, pItf: self.pItf.clone(), hr: self.hr }
+    }
+}
+impl ::core::fmt::Debug for MULTI_QI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MULTI_QI").field("pIID", &self.pIID).field("pItf", &self.pItf).field("hr", &self.hr).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MULTI_QI {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for MULTI_QI {
+    fn eq(&self, other: &Self) -> bool {
+        self.pIID == other.pIID && self.pItf == other.pItf && self.hr == other.hr
+    }
+}
+impl ::core::cmp::Eq for MULTI_QI {}
+impl ::core::default::Default for MULTI_QI {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct MachineGlobalObjectTableRegistrationToken__ {
+    pub unused: i32,
+}
+impl ::core::marker::Copy for MachineGlobalObjectTableRegistrationToken__ {}
+impl ::core::clone::Clone for MachineGlobalObjectTableRegistrationToken__ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for MachineGlobalObjectTableRegistrationToken__ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MachineGlobalObjectTableRegistrationToken__").field("unused", &self.unused).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MachineGlobalObjectTableRegistrationToken__ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MachineGlobalObjectTableRegistrationToken__ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MachineGlobalObjectTableRegistrationToken__>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MachineGlobalObjectTableRegistrationToken__ {}
+impl ::core::default::Default for MachineGlobalObjectTableRegistrationToken__ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct QUERYCONTEXT {
+    pub dwContext: u32,
+    pub Platform: CSPLATFORM,
+    pub Locale: u32,
+    pub dwVersionHi: u32,
+    pub dwVersionLo: u32,
+}
+impl ::core::marker::Copy for QUERYCONTEXT {}
+impl ::core::clone::Clone for QUERYCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for QUERYCONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("QUERYCONTEXT").field("dwContext", &self.dwContext).field("Platform", &self.Platform).field("Locale", &self.Locale).field("dwVersionHi", &self.dwVersionHi).field("dwVersionLo", &self.dwVersionLo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for QUERYCONTEXT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for QUERYCONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERYCONTEXT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for QUERYCONTEXT {}
+impl ::core::default::Default for QUERYCONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct RPCOLEMESSAGE {
+    pub reserved1: *mut ::core::ffi::c_void,
+    pub dataRepresentation: u32,
+    pub Buffer: *mut ::core::ffi::c_void,
+    pub cbBuffer: u32,
+    pub iMethod: u32,
+    pub reserved2: [*mut ::core::ffi::c_void; 5],
+    pub rpcFlags: u32,
+}
+impl ::core::marker::Copy for RPCOLEMESSAGE {}
+impl ::core::clone::Clone for RPCOLEMESSAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RPCOLEMESSAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RPCOLEMESSAGE").field("reserved1", &self.reserved1).field("dataRepresentation", &self.dataRepresentation).field("Buffer", &self.Buffer).field("cbBuffer", &self.cbBuffer).field("iMethod", &self.iMethod).field("reserved2", &self.reserved2).field("rpcFlags", &self.rpcFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RPCOLEMESSAGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RPCOLEMESSAGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RPCOLEMESSAGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RPCOLEMESSAGE {}
+impl ::core::default::Default for RPCOLEMESSAGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct RemSTGMEDIUM {
+    pub tymed: u32,
+    pub dwHandleType: u32,
+    pub pData: u32,
+    pub pUnkForRelease: u32,
+    pub cbData: u32,
+    pub data: [u8; 1],
+}
+impl ::core::marker::Copy for RemSTGMEDIUM {}
+impl ::core::clone::Clone for RemSTGMEDIUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for RemSTGMEDIUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("RemSTGMEDIUM").field("tymed", &self.tymed).field("dwHandleType", &self.dwHandleType).field("pData", &self.pData).field("pUnkForRelease", &self.pUnkForRelease).field("cbData", &self.cbData).field("data", &self.data).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for RemSTGMEDIUM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RemSTGMEDIUM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RemSTGMEDIUM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RemSTGMEDIUM {}
+impl ::core::default::Default for RemSTGMEDIUM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SAFEARRAY {
+    pub cDims: u16,
+    pub fFeatures: u16,
+    pub cbElements: u32,
+    pub cLocks: u32,
+    pub pvData: *mut ::core::ffi::c_void,
+    pub rgsabound: [SAFEARRAYBOUND; 1],
+}
+impl ::core::marker::Copy for SAFEARRAY {}
+impl ::core::clone::Clone for SAFEARRAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SAFEARRAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARRAY").field("cDims", &self.cDims).field("fFeatures", &self.fFeatures).field("cbElements", &self.cbElements).field("cLocks", &self.cLocks).field("pvData", &self.pvData).field("rgsabound", &self.rgsabound).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SAFEARRAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SAFEARRAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SAFEARRAY {}
+impl ::core::default::Default for SAFEARRAY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SAFEARRAYBOUND {
+    pub cElements: u32,
+    pub lLbound: i32,
+}
+impl ::core::marker::Copy for SAFEARRAYBOUND {}
+impl ::core::clone::Clone for SAFEARRAYBOUND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SAFEARRAYBOUND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SAFEARRAYBOUND").field("cElements", &self.cElements).field("lLbound", &self.lLbound).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SAFEARRAYBOUND {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SAFEARRAYBOUND {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SAFEARRAYBOUND>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SAFEARRAYBOUND {}
+impl ::core::default::Default for SAFEARRAYBOUND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SChannelHookCallInfo {
+    pub iid: ::windows::core::GUID,
+    pub cbSize: u32,
+    pub uCausality: ::windows::core::GUID,
+    pub dwServerPid: u32,
+    pub iMethod: u32,
+    pub pObject: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for SChannelHookCallInfo {}
+impl ::core::clone::Clone for SChannelHookCallInfo {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SChannelHookCallInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SChannelHookCallInfo").field("iid", &self.iid).field("cbSize", &self.cbSize).field("uCausality", &self.uCausality).field("dwServerPid", &self.dwServerPid).field("iMethod", &self.iMethod).field("pObject", &self.pObject).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SChannelHookCallInfo {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SChannelHookCallInfo {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SChannelHookCallInfo>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SChannelHookCallInfo {}
+impl ::core::default::Default for SChannelHookCallInfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SHORT_SIZEDARR {
+    pub clSize: u32,
+    pub pData: *mut u16,
+}
+impl ::core::marker::Copy for SHORT_SIZEDARR {}
+impl ::core::clone::Clone for SHORT_SIZEDARR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SHORT_SIZEDARR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SHORT_SIZEDARR").field("clSize", &self.clSize).field("pData", &self.pData).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SHORT_SIZEDARR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SHORT_SIZEDARR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHORT_SIZEDARR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SHORT_SIZEDARR {}
+impl ::core::default::Default for SHORT_SIZEDARR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SOLE_AUTHENTICATION_INFO {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pAuthInfo: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for SOLE_AUTHENTICATION_INFO {}
+impl ::core::clone::Clone for SOLE_AUTHENTICATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SOLE_AUTHENTICATION_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOLE_AUTHENTICATION_INFO").field("dwAuthnSvc", &self.dwAuthnSvc).field("dwAuthzSvc", &self.dwAuthzSvc).field("pAuthInfo", &self.pAuthInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOLE_AUTHENTICATION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOLE_AUTHENTICATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOLE_AUTHENTICATION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOLE_AUTHENTICATION_INFO {}
+impl ::core::default::Default for SOLE_AUTHENTICATION_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SOLE_AUTHENTICATION_LIST {
+    pub cAuthInfo: u32,
+    pub aAuthInfo: *mut SOLE_AUTHENTICATION_INFO,
+}
+impl ::core::marker::Copy for SOLE_AUTHENTICATION_LIST {}
+impl ::core::clone::Clone for SOLE_AUTHENTICATION_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SOLE_AUTHENTICATION_LIST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOLE_AUTHENTICATION_LIST").field("cAuthInfo", &self.cAuthInfo).field("aAuthInfo", &self.aAuthInfo).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOLE_AUTHENTICATION_LIST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOLE_AUTHENTICATION_LIST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOLE_AUTHENTICATION_LIST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOLE_AUTHENTICATION_LIST {}
+impl ::core::default::Default for SOLE_AUTHENTICATION_LIST {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct SOLE_AUTHENTICATION_SERVICE {
+    pub dwAuthnSvc: u32,
+    pub dwAuthzSvc: u32,
+    pub pPrincipalName: ::windows::core::PWSTR,
+    pub hr: ::windows::core::HRESULT,
+}
+impl ::core::marker::Copy for SOLE_AUTHENTICATION_SERVICE {}
+impl ::core::clone::Clone for SOLE_AUTHENTICATION_SERVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for SOLE_AUTHENTICATION_SERVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SOLE_AUTHENTICATION_SERVICE").field("dwAuthnSvc", &self.dwAuthnSvc).field("dwAuthzSvc", &self.dwAuthzSvc).field("pPrincipalName", &self.pPrincipalName).field("hr", &self.hr).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for SOLE_AUTHENTICATION_SERVICE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SOLE_AUTHENTICATION_SERVICE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOLE_AUTHENTICATION_SERVICE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SOLE_AUTHENTICATION_SERVICE {}
+impl ::core::default::Default for SOLE_AUTHENTICATION_SERVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct STATDATA {
+    pub formatetc: FORMATETC,
+    pub advf: u32,
+    pub pAdvSink: ::core::option::Option<IAdviseSink>,
+    pub dwConnection: u32,
+}
+impl ::core::clone::Clone for STATDATA {
+    fn clone(&self) -> Self {
+        Self { formatetc: self.formatetc, advf: self.advf, pAdvSink: self.pAdvSink.clone(), dwConnection: self.dwConnection }
+    }
+}
+impl ::core::fmt::Debug for STATDATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STATDATA").field("formatetc", &self.formatetc).field("advf", &self.advf).field("pAdvSink", &self.pAdvSink).field("dwConnection", &self.dwConnection).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for STATDATA {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+impl ::core::cmp::PartialEq for STATDATA {
+    fn eq(&self, other: &Self) -> bool {
+        self.formatetc == other.formatetc && self.advf == other.advf && self.pAdvSink == other.pAdvSink && self.dwConnection == other.dwConnection
+    }
+}
+impl ::core::cmp::Eq for STATDATA {}
+impl ::core::default::Default for STATDATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct STATSTG {
+    pub pwcsName: ::windows::core::PWSTR,
+    pub r#type: u32,
+    pub cbSize: u64,
+    pub mtime: super::super::Foundation::FILETIME,
+    pub ctime: super::super::Foundation::FILETIME,
+    pub atime: super::super::Foundation::FILETIME,
+    pub grfMode: u32,
+    pub grfLocksSupported: u32,
+    pub clsid: ::windows::core::GUID,
+    pub grfStateBits: u32,
+    pub reserved: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for STATSTG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STATSTG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for STATSTG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("STATSTG").field("pwcsName", &self.pwcsName).field("type", &self.r#type).field("cbSize", &self.cbSize).field("mtime", &self.mtime).field("ctime", &self.ctime).field("atime", &self.atime).field("grfMode", &self.grfMode).field("grfLocksSupported", &self.grfLocksSupported).field("clsid", &self.clsid).field("grfStateBits", &self.grfStateBits).field("reserved", &self.reserved).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for STATSTG {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for STATSTG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STATSTG>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for STATSTG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for STATSTG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+pub struct STGMEDIUM {
+    pub tymed: u32,
+    pub Anonymous: STGMEDIUM_0,
+    pub pUnkForRelease: ::core::option::Option<::windows::core::IUnknown>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for STGMEDIUM {
+    fn clone(&self) -> Self {
+        Self { tymed: self.tymed, Anonymous: self.Anonymous.clone(), pUnkForRelease: self.pUnkForRelease.clone() }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+unsafe impl ::windows::core::Abi for STGMEDIUM {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::PartialEq for STGMEDIUM {
+    fn eq(&self, other: &Self) -> bool {
+        self.tymed == other.tymed && self.Anonymous == other.Anonymous && self.pUnkForRelease == other.pUnkForRelease
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::Eq for STGMEDIUM {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::default::Default for STGMEDIUM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+pub union STGMEDIUM_0 {
+    pub hBitmap: super::super::Graphics::Gdi::HBITMAP,
+    pub hMetaFilePict: *mut ::core::ffi::c_void,
+    pub hEnhMetaFile: super::super::Graphics::Gdi::HENHMETAFILE,
+    pub hGlobal: isize,
+    pub lpszFileName: ::windows::core::PWSTR,
+    pub pstm: ::core::mem::ManuallyDrop<::core::option::Option<IStream>>,
+    pub pstg: ::core::mem::ManuallyDrop<::core::option::Option<StructuredStorage::IStorage>>,
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::clone::Clone for STGMEDIUM_0 {
+    fn clone(&self) -> Self {
+        unsafe { ::core::mem::transmute_copy(self) }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+unsafe impl ::windows::core::Abi for STGMEDIUM_0 {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::PartialEq for STGMEDIUM_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STGMEDIUM_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::cmp::Eq for STGMEDIUM_0 {}
+#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
+impl ::core::default::Default for STGMEDIUM_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct StorageLayout {
+    pub LayoutType: u32,
+    pub pwcsElementName: ::windows::core::PWSTR,
+    pub cOffset: i64,
+    pub cBytes: i64,
+}
+impl ::core::marker::Copy for StorageLayout {}
+impl ::core::clone::Clone for StorageLayout {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for StorageLayout {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("StorageLayout").field("LayoutType", &self.LayoutType).field("pwcsElementName", &self.pwcsElementName).field("cOffset", &self.cOffset).field("cBytes", &self.cBytes).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for StorageLayout {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for StorageLayout {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<StorageLayout>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for StorageLayout {}
+impl ::core::default::Default for StorageLayout {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub struct TLIBATTR {
+    pub guid: ::windows::core::GUID,
+    pub lcid: u32,
+    pub syskind: SYSKIND,
+    pub wMajorVerNum: u16,
+    pub wMinorVerNum: u16,
+    pub wLibFlags: u16,
+}
+impl ::core::marker::Copy for TLIBATTR {}
+impl ::core::clone::Clone for TLIBATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TLIBATTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TLIBATTR").field("guid", &self.guid).field("lcid", &self.lcid).field("syskind", &self.syskind).field("wMajorVerNum", &self.wMajorVerNum).field("wMinorVerNum", &self.wMinorVerNum).field("wLibFlags", &self.wLibFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TLIBATTR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TLIBATTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TLIBATTR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TLIBATTR {}
+impl ::core::default::Default for TLIBATTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(feature = "Win32_System_Ole")]
+pub struct TYPEATTR {
+    pub guid: ::windows::core::GUID,
+    pub lcid: u32,
+    pub dwReserved: u32,
+    pub memidConstructor: i32,
+    pub memidDestructor: i32,
+    pub lpstrSchema: ::windows::core::PWSTR,
+    pub cbSizeInstance: u32,
+    pub typekind: TYPEKIND,
+    pub cFuncs: u16,
+    pub cVars: u16,
+    pub cImplTypes: u16,
+    pub cbSizeVft: u16,
+    pub cbAlignment: u16,
+    pub wTypeFlags: u16,
+    pub wMajorVerNum: u16,
+    pub wMinorVerNum: u16,
+    pub tdescAlias: TYPEDESC,
+    pub idldescType: IDLDESC,
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::marker::Copy for TYPEATTR {}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::clone::Clone for TYPEATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+unsafe impl ::windows::core::Abi for TYPEATTR {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::cmp::PartialEq for TYPEATTR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPEATTR>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::cmp::Eq for TYPEATTR {}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::default::Default for TYPEATTR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(feature = "Win32_System_Ole")]
+pub struct TYPEDESC {
+    pub Anonymous: TYPEDESC_0,
+    pub vt: VARENUM,
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::marker::Copy for TYPEDESC {}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::clone::Clone for TYPEDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+unsafe impl ::windows::core::Abi for TYPEDESC {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::cmp::PartialEq for TYPEDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPEDESC>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::cmp::Eq for TYPEDESC {}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::default::Default for TYPEDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(feature = "Win32_System_Ole")]
+pub union TYPEDESC_0 {
+    pub lptdesc: *mut TYPEDESC,
+    pub lpadesc: *mut super::Ole::ARRAYDESC,
+    pub hreftype: u32,
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::marker::Copy for TYPEDESC_0 {}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::clone::Clone for TYPEDESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+unsafe impl ::windows::core::Abi for TYPEDESC_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::cmp::PartialEq for TYPEDESC_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TYPEDESC_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::cmp::Eq for TYPEDESC_0 {}
+#[cfg(feature = "Win32_System_Ole")]
+impl ::core::default::Default for TYPEDESC_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub struct VARDESC {
+    pub memid: i32,
+    pub lpstrSchema: ::windows::core::PWSTR,
+    pub Anonymous: VARDESC_0,
+    pub elemdescVar: ELEMDESC,
+    pub wVarFlags: u16,
+    pub varkind: VARKIND,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for VARDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for VARDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for VARDESC {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for VARDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARDESC>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for VARDESC {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for VARDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub union VARDESC_0 {
+    pub oInst: u32,
+    pub lpvarValue: *mut VARIANT,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::marker::Copy for VARDESC_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::clone::Clone for VARDESC_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+unsafe impl ::windows::core::Abi for VARDESC_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::PartialEq for VARDESC_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VARDESC_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::cmp::Eq for VARDESC_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ::core::default::Default for VARDESC_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
@@ -14248,37 +14315,6 @@ impl ::core::cmp::Eq for VARIANT_0_0_0_0 {}
 impl ::core::default::Default for VARIANT_0_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VARKIND(pub i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_PERINSTANCE: VARKIND = VARKIND(0i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_STATIC: VARKIND = VARKIND(1i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_CONST: VARKIND = VARKIND(2i32);
-#[doc = "*Required features: `\"Win32_System_Com\"`*"]
-pub const VAR_DISPATCH: VARKIND = VARKIND(3i32);
-impl ::core::marker::Copy for VARKIND {}
-impl ::core::clone::Clone for VARKIND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VARKIND {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VARKIND {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VARKIND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VARKIND").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -14562,5 +14598,14 @@ impl ::core::default::Default for userSTGMEDIUM_0_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPEXCEPFINO_DEFERRED_FILLIN = ::core::option::Option<unsafe extern "system" fn(pexcepinfo: *mut EXCEPINFO) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type LPFNCANUNLOADNOW = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type LPFNGETCLASSOBJECT = ::core::option::Option<unsafe extern "system" fn(param0: *const ::windows::core::GUID, param1: *const ::windows::core::GUID, param2: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type PFNCONTEXTCALL = ::core::option::Option<unsafe extern "system" fn(pparam: *mut ComCallData) -> ::windows::core::HRESULT>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,6 +1,4 @@
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: ::core::option::Option<&mut u32>) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -9,10 +7,6 @@ pub unsafe fn JsAddRef(r#ref: *const ::core::ffi::c_void, count: ::core::option:
     }
     JsAddRef(::core::mem::transmute(r#ref), ::core::mem::transmute(count))
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub type JsBackgroundWorkItemCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub type JsBeforeCollectCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsBoolToBoolean(value: u8, booleanvalue: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
@@ -304,89 +298,6 @@ pub unsafe fn JsEquals(object1: *const ::core::ffi::c_void, object2: *const ::co
     JsEquals(::core::mem::transmute(object1), ::core::mem::transmute(object2), ::core::mem::transmute(result))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JsErrorCode(pub u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
-impl ::core::marker::Copy for JsErrorCode {}
-impl ::core::clone::Clone for JsErrorCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsErrorCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JsErrorCode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JsErrorCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsErrorCode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub type JsFinalizeCallback = ::core::option::Option<unsafe extern "system" fn(data: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsGetAndClearException(exception: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -651,39 +562,6 @@ pub unsafe fn JsIsRuntimeExecutionDisabled(runtime: *const ::core::ffi::c_void, 
     JsIsRuntimeExecutionDisabled(::core::mem::transmute(runtime), ::core::mem::transmute(isdisabled))
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JsMemoryEventType(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
-impl ::core::marker::Copy for JsMemoryEventType {}
-impl ::core::clone::Clone for JsMemoryEventType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsMemoryEventType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JsMemoryEventType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JsMemoryEventType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsMemoryEventType").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
 pub unsafe fn JsNumberToDouble(value: *const ::core::ffi::c_void, doublevalue: &mut f64) -> JsErrorCode {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -770,70 +648,6 @@ where
         fn JsRunSerializedScript(script: ::windows::core::PCWSTR, buffer: *const u8, sourcecontext: usize, sourceurl: ::windows::core::PCWSTR, result: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
     }
     JsRunSerializedScript(script.into(), ::core::mem::transmute(buffer), sourcecontext, sourceurl.into(), ::core::mem::transmute(result))
-}
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JsRuntimeAttributes(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
-impl ::core::marker::Copy for JsRuntimeAttributes {}
-impl ::core::clone::Clone for JsRuntimeAttributes {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsRuntimeAttributes {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JsRuntimeAttributes {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JsRuntimeAttributes {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsRuntimeAttributes").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct JsRuntimeVersion(pub i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
-impl ::core::marker::Copy for JsRuntimeVersion {}
-impl ::core::clone::Clone for JsRuntimeVersion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for JsRuntimeVersion {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for JsRuntimeVersion {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for JsRuntimeVersion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("JsRuntimeVersion").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[inline]
@@ -996,8 +810,6 @@ pub unsafe fn JsStringToPointer(value: *const ::core::ffi::c_void, stringvalue: 
     }
     JsStringToPointer(::core::mem::transmute(value), ::core::mem::transmute(stringvalue), ::core::mem::transmute(stringlength))
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`*"]
-pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
 #[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
@@ -1007,6 +819,192 @@ pub unsafe fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: &mut
         fn JsValueToVariant(object: *const ::core::ffi::c_void, variant: *mut super::Com::VARIANT) -> JsErrorCode;
     }
     JsValueToVariant(::core::mem::transmute(object), ::core::mem::transmute(variant))
+}
+#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+#[inline]
+pub unsafe fn JsVariantToValue(variant: &super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
+    }
+    JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value))
+}
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JS_SOURCE_CONTEXT_NONE: u64 = 18446744073709551615u64;
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JsErrorCode(pub u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsNoError: JsErrorCode = JsErrorCode(0u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCategoryUsage: JsErrorCode = JsErrorCode(65536u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInvalidArgument: JsErrorCode = JsErrorCode(65537u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorNullArgument: JsErrorCode = JsErrorCode(65538u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorNoCurrentContext: JsErrorCode = JsErrorCode(65539u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInExceptionState: JsErrorCode = JsErrorCode(65540u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorNotImplemented: JsErrorCode = JsErrorCode(65541u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorWrongThread: JsErrorCode = JsErrorCode(65542u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorRuntimeInUse: JsErrorCode = JsErrorCode(65543u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorBadSerializedScript: JsErrorCode = JsErrorCode(65544u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInDisabledState: JsErrorCode = JsErrorCode(65545u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCannotDisableExecution: JsErrorCode = JsErrorCode(65546u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorHeapEnumInProgress: JsErrorCode = JsErrorCode(65547u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorArgumentNotObject: JsErrorCode = JsErrorCode(65548u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInProfileCallback: JsErrorCode = JsErrorCode(65549u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorInThreadServiceCallback: JsErrorCode = JsErrorCode(65550u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCannotSerializeDebugScript: JsErrorCode = JsErrorCode(65551u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorAlreadyDebuggingContext: JsErrorCode = JsErrorCode(65552u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorAlreadyProfilingContext: JsErrorCode = JsErrorCode(65553u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorIdleNotEnabled: JsErrorCode = JsErrorCode(65554u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCategoryEngine: JsErrorCode = JsErrorCode(131072u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorOutOfMemory: JsErrorCode = JsErrorCode(131073u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCategoryScript: JsErrorCode = JsErrorCode(196608u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorScriptException: JsErrorCode = JsErrorCode(196609u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorScriptCompile: JsErrorCode = JsErrorCode(196610u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorScriptTerminated: JsErrorCode = JsErrorCode(196611u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorScriptEvalDisabled: JsErrorCode = JsErrorCode(196612u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorCategoryFatal: JsErrorCode = JsErrorCode(262144u32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsErrorFatal: JsErrorCode = JsErrorCode(262145u32);
+impl ::core::marker::Copy for JsErrorCode {}
+impl ::core::clone::Clone for JsErrorCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JsErrorCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JsErrorCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JsErrorCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsErrorCode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JsMemoryEventType(pub i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsMemoryAllocate: JsMemoryEventType = JsMemoryEventType(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsMemoryFree: JsMemoryEventType = JsMemoryEventType(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsMemoryFailure: JsMemoryEventType = JsMemoryEventType(2i32);
+impl ::core::marker::Copy for JsMemoryEventType {}
+impl ::core::clone::Clone for JsMemoryEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JsMemoryEventType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JsMemoryEventType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JsMemoryEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsMemoryEventType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JsRuntimeAttributes(pub i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeNone: JsRuntimeAttributes = JsRuntimeAttributes(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeDisableBackgroundWork: JsRuntimeAttributes = JsRuntimeAttributes(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeAllowScriptInterrupt: JsRuntimeAttributes = JsRuntimeAttributes(2i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeEnableIdleProcessing: JsRuntimeAttributes = JsRuntimeAttributes(4i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeDisableNativeCodeGeneration: JsRuntimeAttributes = JsRuntimeAttributes(8i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeAttributeDisableEval: JsRuntimeAttributes = JsRuntimeAttributes(16i32);
+impl ::core::marker::Copy for JsRuntimeAttributes {}
+impl ::core::clone::Clone for JsRuntimeAttributes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JsRuntimeAttributes {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JsRuntimeAttributes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JsRuntimeAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsRuntimeAttributes").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct JsRuntimeVersion(pub i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeVersion10: JsRuntimeVersion = JsRuntimeVersion(0i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeVersion11: JsRuntimeVersion = JsRuntimeVersion(1i32);
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub const JsRuntimeVersionEdge: JsRuntimeVersion = JsRuntimeVersion(-1i32);
+impl ::core::marker::Copy for JsRuntimeVersion {}
+impl ::core::clone::Clone for JsRuntimeVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for JsRuntimeVersion {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for JsRuntimeVersion {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for JsRuntimeVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsRuntimeVersion").field(&self.0).finish()
+    }
 }
 #[doc = "*Required features: `\"Win32_System_Js\"`*"]
 #[repr(transparent)]
@@ -1049,15 +1047,17 @@ impl ::core::fmt::Debug for JsValueType {
         f.debug_tuple("JsValueType").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_System_Js\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-#[inline]
-pub unsafe fn JsVariantToValue(variant: &super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn JsVariantToValue(variant: *const super::Com::VARIANT, value: *mut *mut ::core::ffi::c_void) -> JsErrorCode;
-    }
-    JsVariantToValue(::core::mem::transmute(variant), ::core::mem::transmute(value))
-}
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub type JsBackgroundWorkItemCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub type JsBeforeCollectCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub type JsFinalizeCallback = ::core::option::Option<unsafe extern "system" fn(data: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub type JsMemoryAllocationCallback = ::core::option::Option<unsafe extern "system" fn(callbackstate: *const ::core::ffi::c_void, allocationevent: JsMemoryEventType, allocationsize: usize) -> bool>;
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub type JsNativeFunction = ::core::option::Option<unsafe extern "system" fn(callee: *const ::core::ffi::c_void, isconstructcall: bool, arguments: *const *const ::core::ffi::c_void, argumentcount: u16, callbackstate: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: `\"Win32_System_Js\"`*"]
+pub type JsThreadServiceCallback = ::core::option::Option<unsafe extern "system" fn(callback: JsBackgroundWorkItemCallback, callbackstate: *const ::core::ffi::c_void) -> bool>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,5 +1,3 @@
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
 pub type IDesktopWindowXamlSourceNative = *mut ::core::ffi::c_void;
 pub type IDesktopWindowXamlSourceNative2 = *mut ::core::ffi::c_void;
 pub type IFindReferenceTargetsCallback = *mut ::core::ffi::c_void;
@@ -17,6 +15,14 @@ pub type ISwapChainPanelNative2 = *mut ::core::ffi::c_void;
 pub type ITrackerOwner = *mut ::core::ffi::c_void;
 pub type IVirtualSurfaceImageSourceNative = *mut ::core::ffi::c_void;
 pub type IVirtualSurfaceUpdatesCallbackNative = *mut ::core::ffi::c_void;
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub type XAML_REFERENCETRACKER_DISCONNECT = i32;
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = 0i32;
+#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
+pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = 1i32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
 pub struct TrackerHandle__ {
@@ -28,9 +34,3 @@ impl ::core::clone::Clone for TrackerHandle__ {
         *self
     }
 }
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub type XAML_REFERENCETRACKER_DISCONNECT = i32;
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub const XAML_REFERENCETRACKER_DISCONNECT_DEFAULT: XAML_REFERENCETRACKER_DISCONNECT = 0i32;
-#[doc = "*Required features: `\"Win32_System_WinRT_Xaml\"`*"]
-pub const XAML_REFERENCETRACKER_DISCONNECT_SUSPEND: XAML_REFERENCETRACKER_DISCONNECT = 1i32;

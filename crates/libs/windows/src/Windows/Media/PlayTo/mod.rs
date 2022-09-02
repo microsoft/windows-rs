@@ -1,77 +1,3 @@
-#[doc = "*Required features: `\"Media_PlayTo\"`*"]
-#[repr(transparent)]
-pub struct CurrentTimeChangeRequestedEventArgs(::windows::core::IUnknown);
-impl CurrentTimeChangeRequestedEventArgs {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Time(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Time)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CurrentTimeChangeRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CurrentTimeChangeRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrentTimeChangeRequestedEventArgs {}
-impl ::core::fmt::Debug for CurrentTimeChangeRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CurrentTimeChangeRequestedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs;{99711324-edc7-4bf5-91f6-3c8627db59e5})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
-    type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICurrentTimeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
-    const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
-}
-impl ::core::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICurrentTimeChangeRequestedEventArgs(::windows::core::IUnknown);
@@ -620,6 +546,80 @@ pub struct IVolumeChangeRequestedEventArgs_Vtbl {
 }
 #[doc = "*Required features: `\"Media_PlayTo\"`*"]
 #[repr(transparent)]
+pub struct CurrentTimeChangeRequestedEventArgs(::windows::core::IUnknown);
+impl CurrentTimeChangeRequestedEventArgs {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Time(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Time)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CurrentTimeChangeRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CurrentTimeChangeRequestedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CurrentTimeChangeRequestedEventArgs {}
+impl ::core::fmt::Debug for CurrentTimeChangeRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentTimeChangeRequestedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs;{99711324-edc7-4bf5-91f6-3c8627db59e5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
+    type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICurrentTimeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
+    const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
+}
+impl ::core::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CurrentTimeChangeRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CurrentTimeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CurrentTimeChangeRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CurrentTimeChangeRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_PlayTo\"`*"]
+#[repr(transparent)]
 pub struct MuteChangeRequestedEventArgs(::windows::core::IUnknown);
 impl MuteChangeRequestedEventArgs {
     pub fn Mute(&self) -> ::windows::core::Result<bool> {
@@ -840,51 +840,6 @@ unsafe impl ::core::marker::Sync for PlayToConnection {}
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlayToConnectionError(pub i32);
-#[cfg(feature = "deprecated")]
-impl PlayToConnectionError {
-    pub const None: Self = Self(0i32);
-    pub const DeviceNotResponding: Self = Self(1i32);
-    pub const DeviceError: Self = Self(2i32);
-    pub const DeviceLocked: Self = Self(3i32);
-    pub const ProtectedPlaybackFailed: Self = Self(4i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for PlayToConnectionError {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PlayToConnectionError {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for PlayToConnectionError {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for PlayToConnectionError {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionError {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
 pub struct PlayToConnectionErrorEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionErrorEventArgs {
@@ -984,49 +939,6 @@ impl ::core::convert::From<&PlayToConnectionErrorEventArgs> for &::windows::core
 unsafe impl ::core::marker::Send for PlayToConnectionErrorEventArgs {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
-#[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PlayToConnectionState(pub i32);
-#[cfg(feature = "deprecated")]
-impl PlayToConnectionState {
-    pub const Disconnected: Self = Self(0i32);
-    pub const Connected: Self = Self(1i32);
-    pub const Rendering: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for PlayToConnectionState {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for PlayToConnectionState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for PlayToConnectionState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for PlayToConnectionState {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for PlayToConnectionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -2593,6 +2505,94 @@ impl ::core::convert::From<&VolumeChangeRequestedEventArgs> for ::windows::core:
 impl ::core::convert::From<&VolumeChangeRequestedEventArgs> for &::windows::core::IInspectable {
     fn from(value: &VolumeChangeRequestedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlayToConnectionError(pub i32);
+#[cfg(feature = "deprecated")]
+impl PlayToConnectionError {
+    pub const None: Self = Self(0i32);
+    pub const DeviceNotResponding: Self = Self(1i32);
+    pub const DeviceError: Self = Self(2i32);
+    pub const DeviceLocked: Self = Self(3i32);
+    pub const ProtectedPlaybackFailed: Self = Self(4i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for PlayToConnectionError {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for PlayToConnectionError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for PlayToConnectionError {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for PlayToConnectionError {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionError").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for PlayToConnectionError {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionError;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_PlayTo\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PlayToConnectionState(pub i32);
+#[cfg(feature = "deprecated")]
+impl PlayToConnectionState {
+    pub const Disconnected: Self = Self(0i32);
+    pub const Connected: Self = Self(1i32);
+    pub const Rendering: Self = Self(2i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for PlayToConnectionState {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for PlayToConnectionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for PlayToConnectionState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for PlayToConnectionState {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PlayToConnectionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayToConnectionState").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for PlayToConnectionState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.PlayTo.PlayToConnectionState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
 #[cfg(feature = "implement")]

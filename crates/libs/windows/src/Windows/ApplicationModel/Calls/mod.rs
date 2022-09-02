@@ -2,340 +2,6 @@
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-pub struct CallAnswerEventArgs(::windows::core::IUnknown);
-impl CallAnswerEventArgs {
-    pub fn AcceptedMedia(&self) -> ::windows::core::Result<VoipPhoneCallMedia> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AcceptedMedia)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VoipPhoneCallMedia>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CallAnswerEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CallAnswerEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallAnswerEventArgs {}
-impl ::core::fmt::Debug for CallAnswerEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallAnswerEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CallAnswerEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallAnswerEventArgs;{fd789617-2dd7-4c8c-b2bd-95d17a5bb733})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CallAnswerEventArgs {
-    type Vtable = ICallAnswerEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICallAnswerEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CallAnswerEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
-}
-impl ::core::convert::From<CallAnswerEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CallAnswerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallAnswerEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CallAnswerEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallAnswerEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CallAnswerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CallAnswerEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CallAnswerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallAnswerEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CallAnswerEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallAnswerEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CallAnswerEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
-unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-pub struct CallRejectEventArgs(::windows::core::IUnknown);
-impl CallRejectEventArgs {
-    pub fn RejectReason(&self) -> ::windows::core::Result<VoipPhoneCallRejectReason> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RejectReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VoipPhoneCallRejectReason>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CallRejectEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CallRejectEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallRejectEventArgs {}
-impl ::core::fmt::Debug for CallRejectEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallRejectEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CallRejectEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallRejectEventArgs;{da47fad7-13d4-4d92-a1c2-b77811ee37ec})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CallRejectEventArgs {
-    type Vtable = ICallRejectEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICallRejectEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CallRejectEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
-}
-impl ::core::convert::From<CallRejectEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CallRejectEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallRejectEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CallRejectEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallRejectEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CallRejectEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CallRejectEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CallRejectEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallRejectEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CallRejectEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallRejectEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CallRejectEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CallRejectEventArgs {}
-unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-pub struct CallStateChangeEventArgs(::windows::core::IUnknown);
-impl CallStateChangeEventArgs {
-    pub fn State(&self) -> ::windows::core::Result<VoipPhoneCallState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VoipPhoneCallState>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CallStateChangeEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CallStateChangeEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallStateChangeEventArgs {}
-impl ::core::fmt::Debug for CallStateChangeEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallStateChangeEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CallStateChangeEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallStateChangeEventArgs;{eab2349e-66f5-47f9-9fb5-459c5198c720})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CallStateChangeEventArgs {
-    type Vtable = ICallStateChangeEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICallStateChangeEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CallStateChangeEventArgs {
-    const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
-}
-impl ::core::convert::From<CallStateChangeEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CallStateChangeEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallStateChangeEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CallStateChangeEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallStateChangeEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CallStateChangeEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CallStateChangeEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CallStateChangeEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallStateChangeEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CallStateChangeEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallStateChangeEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CallStateChangeEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
-unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CellularDtmfMode(pub i32);
-impl CellularDtmfMode {
-    pub const Continuous: Self = Self(0i32);
-    pub const Burst: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CellularDtmfMode {}
-impl ::core::clone::Clone for CellularDtmfMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CellularDtmfMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CellularDtmfMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CellularDtmfMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CellularDtmfMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DtmfKey(pub i32);
-impl DtmfKey {
-    pub const D0: Self = Self(0i32);
-    pub const D1: Self = Self(1i32);
-    pub const D2: Self = Self(2i32);
-    pub const D3: Self = Self(3i32);
-    pub const D4: Self = Self(4i32);
-    pub const D5: Self = Self(5i32);
-    pub const D6: Self = Self(6i32);
-    pub const D7: Self = Self(7i32);
-    pub const D8: Self = Self(8i32);
-    pub const D9: Self = Self(9i32);
-    pub const Star: Self = Self(10i32);
-    pub const Pound: Self = Self(11i32);
-}
-impl ::core::marker::Copy for DtmfKey {}
-impl ::core::clone::Clone for DtmfKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DtmfKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DtmfKey {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DtmfKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtmfKey").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DtmfKey {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DtmfToneAudioPlayback(pub i32);
-impl DtmfToneAudioPlayback {
-    pub const Play: Self = Self(0i32);
-    pub const DoNotPlay: Self = Self(1i32);
-}
-impl ::core::marker::Copy for DtmfToneAudioPlayback {}
-impl ::core::clone::Clone for DtmfToneAudioPlayback {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DtmfToneAudioPlayback {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DtmfToneAudioPlayback {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DtmfToneAudioPlayback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DtmfToneAudioPlayback {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ICallAnswerEventArgs(::windows::core::IUnknown);
@@ -1467,6 +1133,228 @@ pub struct IVoipPhoneCall3_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
+pub struct CallAnswerEventArgs(::windows::core::IUnknown);
+impl CallAnswerEventArgs {
+    pub fn AcceptedMedia(&self) -> ::windows::core::Result<VoipPhoneCallMedia> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AcceptedMedia)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VoipPhoneCallMedia>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CallAnswerEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CallAnswerEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CallAnswerEventArgs {}
+impl ::core::fmt::Debug for CallAnswerEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallAnswerEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CallAnswerEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallAnswerEventArgs;{fd789617-2dd7-4c8c-b2bd-95d17a5bb733})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CallAnswerEventArgs {
+    type Vtable = ICallAnswerEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICallAnswerEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CallAnswerEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
+}
+impl ::core::convert::From<CallAnswerEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CallAnswerEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallAnswerEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CallAnswerEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallAnswerEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CallAnswerEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CallAnswerEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CallAnswerEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallAnswerEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CallAnswerEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallAnswerEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CallAnswerEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CallAnswerEventArgs {}
+unsafe impl ::core::marker::Sync for CallAnswerEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+pub struct CallRejectEventArgs(::windows::core::IUnknown);
+impl CallRejectEventArgs {
+    pub fn RejectReason(&self) -> ::windows::core::Result<VoipPhoneCallRejectReason> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RejectReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VoipPhoneCallRejectReason>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CallRejectEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CallRejectEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CallRejectEventArgs {}
+impl ::core::fmt::Debug for CallRejectEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallRejectEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CallRejectEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallRejectEventArgs;{da47fad7-13d4-4d92-a1c2-b77811ee37ec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CallRejectEventArgs {
+    type Vtable = ICallRejectEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICallRejectEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CallRejectEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
+}
+impl ::core::convert::From<CallRejectEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CallRejectEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallRejectEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CallRejectEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallRejectEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CallRejectEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CallRejectEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CallRejectEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallRejectEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CallRejectEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallRejectEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CallRejectEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CallRejectEventArgs {}
+unsafe impl ::core::marker::Sync for CallRejectEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+pub struct CallStateChangeEventArgs(::windows::core::IUnknown);
+impl CallStateChangeEventArgs {
+    pub fn State(&self) -> ::windows::core::Result<VoipPhoneCallState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<VoipPhoneCallState>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CallStateChangeEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CallStateChangeEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CallStateChangeEventArgs {}
+impl ::core::fmt::Debug for CallStateChangeEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallStateChangeEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CallStateChangeEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.CallStateChangeEventArgs;{eab2349e-66f5-47f9-9fb5-459c5198c720})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CallStateChangeEventArgs {
+    type Vtable = ICallStateChangeEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICallStateChangeEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CallStateChangeEventArgs {
+    const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
+}
+impl ::core::convert::From<CallStateChangeEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CallStateChangeEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallStateChangeEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CallStateChangeEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallStateChangeEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CallStateChangeEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CallStateChangeEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CallStateChangeEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallStateChangeEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CallStateChangeEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallStateChangeEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CallStateChangeEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
+unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
 pub struct LockScreenCallEndCallDeferral(::windows::core::IUnknown);
 impl LockScreenCallEndCallDeferral {
     pub fn Complete(&self) -> ::windows::core::Result<()> {
@@ -1813,41 +1701,6 @@ unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneAudioRoutingEndpoint(pub i32);
-impl PhoneAudioRoutingEndpoint {
-    pub const Default: Self = Self(0i32);
-    pub const Bluetooth: Self = Self(1i32);
-    pub const Speakerphone: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneAudioRoutingEndpoint {}
-impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneAudioRoutingEndpoint {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneAudioRoutingEndpoint {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneAudioRoutingEndpoint {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
 pub struct PhoneCall(::windows::core::IUnknown);
 impl PhoneCall {
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2167,41 +2020,6 @@ impl ::core::convert::From<&PhoneCall> for &::windows::core::IInspectable {
 unsafe impl ::core::marker::Send for PhoneCall {}
 unsafe impl ::core::marker::Sync for PhoneCall {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallAudioDevice(pub i32);
-impl PhoneCallAudioDevice {
-    pub const Unknown: Self = Self(0i32);
-    pub const LocalDevice: Self = Self(1i32);
-    pub const RemoteDevice: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallAudioDevice {}
-impl ::core::clone::Clone for PhoneCallAudioDevice {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallAudioDevice {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallAudioDevice {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallAudioDevice {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallAudioDevice {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 pub struct PhoneCallBlocking;
 impl PhoneCallBlocking {
     pub fn BlockUnknownNumbers() -> ::windows::core::Result<bool> {
@@ -2242,41 +2060,6 @@ impl PhoneCallBlocking {
 }
 impl ::windows::core::RuntimeName for PhoneCallBlocking {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallBlocking";
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallDirection(pub i32);
-impl PhoneCallDirection {
-    pub const Unknown: Self = Self(0i32);
-    pub const Incoming: Self = Self(1i32);
-    pub const Outgoing: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallDirection {}
-impl ::core::clone::Clone for PhoneCallDirection {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallDirection {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallDirection {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallDirection {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -2688,138 +2471,6 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallHistoryEntryMedia(pub i32);
-impl PhoneCallHistoryEntryMedia {
-    pub const Audio: Self = Self(0i32);
-    pub const Video: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryMedia {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryMedia {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryMedia {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
-impl PhoneCallHistoryEntryOtherAppReadAccess {
-    pub const Full: Self = Self(0i32);
-    pub const SystemOnly: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryOtherAppReadAccess {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
-impl PhoneCallHistoryEntryQueryDesiredMedia {
-    pub const None: Self = Self(0u32);
-    pub const Audio: Self = Self(1u32);
-    pub const Video: Self = Self(2u32);
-    pub const All: Self = Self(4294967295u32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryQueryDesiredMedia {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
 pub struct PhoneCallHistoryEntryQueryOptions(::windows::core::IUnknown);
 impl PhoneCallHistoryEntryQueryOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2912,40 +2563,6 @@ impl ::core::convert::From<&PhoneCallHistoryEntryQueryOptions> for &::windows::c
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
-impl PhoneCallHistoryEntryRawAddressKind {
-    pub const PhoneNumber: Self = Self(0i32);
-    pub const Custom: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryEntryRawAddressKind {}
-impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryEntryRawAddressKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryRawAddressKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryEntryReader(::windows::core::IUnknown);
@@ -3143,40 +2760,6 @@ impl ::core::convert::From<&PhoneCallHistoryManagerForUser> for &::windows::core
 }
 unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallHistorySourceIdKind(pub i32);
-impl PhoneCallHistorySourceIdKind {
-    pub const CellularPhoneLineId: Self = Self(0i32);
-    pub const PackageFamilyName: Self = Self(1i32);
-}
-impl ::core::marker::Copy for PhoneCallHistorySourceIdKind {}
-impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistorySourceIdKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallHistorySourceIdKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallHistorySourceIdKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct PhoneCallHistoryStore(::windows::core::IUnknown);
@@ -3378,41 +2961,6 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallHistoryStoreAccessType(pub i32);
-impl PhoneCallHistoryStoreAccessType {
-    pub const AppEntriesReadWrite: Self = Self(0i32);
-    pub const AllEntriesLimitedReadWrite: Self = Self(1i32);
-    pub const AllEntriesReadWrite: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallHistoryStoreAccessType {}
-impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallHistoryStoreAccessType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallHistoryStoreAccessType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStoreAccessType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
 pub struct PhoneCallInfo(::windows::core::IUnknown);
 impl PhoneCallInfo {
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
@@ -3580,116 +3128,6 @@ impl PhoneCallManager {
 }
 impl ::windows::core::RuntimeName for PhoneCallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallManager";
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallMedia(pub i32);
-impl PhoneCallMedia {
-    pub const Audio: Self = Self(0i32);
-    pub const AudioAndVideo: Self = Self(1i32);
-    pub const AudioAndRealTimeText: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneCallMedia {}
-impl ::core::clone::Clone for PhoneCallMedia {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallMedia {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallMedia {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallMedia {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallMedia {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallOperationStatus(pub i32);
-impl PhoneCallOperationStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const OtherFailure: Self = Self(1i32);
-    pub const TimedOut: Self = Self(2i32);
-    pub const ConnectionLost: Self = Self(3i32);
-    pub const InvalidCallState: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PhoneCallOperationStatus {}
-impl ::core::clone::Clone for PhoneCallOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneCallStatus(pub i32);
-impl PhoneCallStatus {
-    pub const Lost: Self = Self(0i32);
-    pub const Incoming: Self = Self(1i32);
-    pub const Dialing: Self = Self(2i32);
-    pub const Talking: Self = Self(3i32);
-    pub const Held: Self = Self(4i32);
-    pub const Ended: Self = Self(5i32);
-}
-impl ::core::marker::Copy for PhoneCallStatus {}
-impl ::core::clone::Clone for PhoneCallStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneCallStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneCallStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneCallStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneCallStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
@@ -4629,114 +4067,6 @@ unsafe impl ::core::marker::Send for PhoneLineDialResult {}
 unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
-impl PhoneLineNetworkOperatorDisplayTextLocation {
-    pub const Default: Self = Self(0i32);
-    pub const Tile: Self = Self(1i32);
-    pub const Dialer: Self = Self(2i32);
-    pub const InCallUI: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneLineNetworkOperatorDisplayTextLocation {}
-impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneLineOperationStatus(pub i32);
-impl PhoneLineOperationStatus {
-    pub const Succeeded: Self = Self(0i32);
-    pub const OtherFailure: Self = Self(1i32);
-    pub const TimedOut: Self = Self(2i32);
-    pub const ConnectionLost: Self = Self(3i32);
-    pub const InvalidCallState: Self = Self(4i32);
-}
-impl ::core::marker::Copy for PhoneLineOperationStatus {}
-impl ::core::clone::Clone for PhoneLineOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneLineOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneLineOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneLineTransport(pub i32);
-impl PhoneLineTransport {
-    pub const Cellular: Self = Self(0i32);
-    pub const VoipApp: Self = Self(1i32);
-    pub const Bluetooth: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneLineTransport {}
-impl ::core::clone::Clone for PhoneLineTransport {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineTransport {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneLineTransport {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineTransport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneLineTransport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
 pub struct PhoneLineTransportDevice(::windows::core::IUnknown);
 impl PhoneLineTransportDevice {
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5195,122 +4525,6 @@ unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneLineWatcherStatus(pub i32);
-impl PhoneLineWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
-}
-impl ::core::marker::Copy for PhoneLineWatcherStatus {}
-impl ::core::clone::Clone for PhoneLineWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneLineWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneLineWatcherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneLineWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneNetworkState(pub i32);
-impl PhoneNetworkState {
-    pub const Unknown: Self = Self(0i32);
-    pub const NoSignal: Self = Self(1i32);
-    pub const Deregistered: Self = Self(2i32);
-    pub const Denied: Self = Self(3i32);
-    pub const Searching: Self = Self(4i32);
-    pub const Home: Self = Self(5i32);
-    pub const RoamingInternational: Self = Self(6i32);
-    pub const RoamingDomestic: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PhoneNetworkState {}
-impl ::core::clone::Clone for PhoneNetworkState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneNetworkState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneNetworkState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneNetworkState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneNetworkState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneSimState(pub i32);
-impl PhoneSimState {
-    pub const Unknown: Self = Self(0i32);
-    pub const PinNotRequired: Self = Self(1i32);
-    pub const PinUnlocked: Self = Self(2i32);
-    pub const PinLocked: Self = Self(3i32);
-    pub const PukLocked: Self = Self(4i32);
-    pub const NotInserted: Self = Self(5i32);
-    pub const Invalid: Self = Self(6i32);
-    pub const Disabled: Self = Self(7i32);
-}
-impl ::core::marker::Copy for PhoneSimState {}
-impl ::core::clone::Clone for PhoneSimState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneSimState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneSimState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneSimState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneSimState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneSimState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
 pub struct PhoneVoicemail(::windows::core::IUnknown);
 impl PhoneVoicemail {
     pub fn Number(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5406,76 +4620,6 @@ impl ::core::convert::From<&PhoneVoicemail> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PhoneVoicemail {}
 unsafe impl ::core::marker::Sync for PhoneVoicemail {}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PhoneVoicemailType(pub i32);
-impl PhoneVoicemailType {
-    pub const None: Self = Self(0i32);
-    pub const Traditional: Self = Self(1i32);
-    pub const Visual: Self = Self(2i32);
-}
-impl ::core::marker::Copy for PhoneVoicemailType {}
-impl ::core::clone::Clone for PhoneVoicemailType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PhoneVoicemailType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PhoneVoicemailType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PhoneVoicemailType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for PhoneVoicemailType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TransportDeviceAudioRoutingStatus(pub i32);
-impl TransportDeviceAudioRoutingStatus {
-    pub const Unknown: Self = Self(0i32);
-    pub const CanRouteToLocalDevice: Self = Self(1i32);
-    pub const CannotRouteToLocalDevice: Self = Self(2i32);
-}
-impl ::core::marker::Copy for TransportDeviceAudioRoutingStatus {}
-impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TransportDeviceAudioRoutingStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TransportDeviceAudioRoutingStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TransportDeviceAudioRoutingStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 pub struct VoipCallCoordinator(::windows::core::IUnknown);
@@ -5894,6 +5038,862 @@ impl ::core::convert::From<&VoipPhoneCall> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for VoipPhoneCall {}
 unsafe impl ::core::marker::Sync for VoipPhoneCall {}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CellularDtmfMode(pub i32);
+impl CellularDtmfMode {
+    pub const Continuous: Self = Self(0i32);
+    pub const Burst: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CellularDtmfMode {}
+impl ::core::clone::Clone for CellularDtmfMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CellularDtmfMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CellularDtmfMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CellularDtmfMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CellularDtmfMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.CellularDtmfMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DtmfKey(pub i32);
+impl DtmfKey {
+    pub const D0: Self = Self(0i32);
+    pub const D1: Self = Self(1i32);
+    pub const D2: Self = Self(2i32);
+    pub const D3: Self = Self(3i32);
+    pub const D4: Self = Self(4i32);
+    pub const D5: Self = Self(5i32);
+    pub const D6: Self = Self(6i32);
+    pub const D7: Self = Self(7i32);
+    pub const D8: Self = Self(8i32);
+    pub const D9: Self = Self(9i32);
+    pub const Star: Self = Self(10i32);
+    pub const Pound: Self = Self(11i32);
+}
+impl ::core::marker::Copy for DtmfKey {}
+impl ::core::clone::Clone for DtmfKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DtmfKey {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DtmfKey {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DtmfKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtmfKey").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DtmfKey {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfKey;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DtmfToneAudioPlayback(pub i32);
+impl DtmfToneAudioPlayback {
+    pub const Play: Self = Self(0i32);
+    pub const DoNotPlay: Self = Self(1i32);
+}
+impl ::core::marker::Copy for DtmfToneAudioPlayback {}
+impl ::core::clone::Clone for DtmfToneAudioPlayback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DtmfToneAudioPlayback {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DtmfToneAudioPlayback {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DtmfToneAudioPlayback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DtmfToneAudioPlayback {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.DtmfToneAudioPlayback;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneAudioRoutingEndpoint(pub i32);
+impl PhoneAudioRoutingEndpoint {
+    pub const Default: Self = Self(0i32);
+    pub const Bluetooth: Self = Self(1i32);
+    pub const Speakerphone: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneAudioRoutingEndpoint {}
+impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneAudioRoutingEndpoint {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneAudioRoutingEndpoint {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneAudioRoutingEndpoint {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneAudioRoutingEndpoint;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallAudioDevice(pub i32);
+impl PhoneCallAudioDevice {
+    pub const Unknown: Self = Self(0i32);
+    pub const LocalDevice: Self = Self(1i32);
+    pub const RemoteDevice: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneCallAudioDevice {}
+impl ::core::clone::Clone for PhoneCallAudioDevice {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallAudioDevice {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallAudioDevice {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallAudioDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallAudioDevice {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallAudioDevice;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallDirection(pub i32);
+impl PhoneCallDirection {
+    pub const Unknown: Self = Self(0i32);
+    pub const Incoming: Self = Self(1i32);
+    pub const Outgoing: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneCallDirection {}
+impl ::core::clone::Clone for PhoneCallDirection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallDirection {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallDirection {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallDirection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallDirection {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallDirection;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallHistoryEntryMedia(pub i32);
+impl PhoneCallHistoryEntryMedia {
+    pub const Audio: Self = Self(0i32);
+    pub const Video: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PhoneCallHistoryEntryMedia {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryMedia {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryMedia {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryMedia {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryMedia;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
+impl PhoneCallHistoryEntryOtherAppReadAccess {
+    pub const Full: Self = Self(0i32);
+    pub const SystemOnly: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PhoneCallHistoryEntryOtherAppReadAccess {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryOtherAppReadAccess {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryOtherAppReadAccess {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryOtherAppReadAccess;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
+impl PhoneCallHistoryEntryQueryDesiredMedia {
+    pub const None: Self = Self(0u32);
+    pub const Audio: Self = Self(1u32);
+    pub const Video: Self = Self(2u32);
+    pub const All: Self = Self(4294967295u32);
+}
+impl ::core::marker::Copy for PhoneCallHistoryEntryQueryDesiredMedia {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PhoneCallHistoryEntryQueryDesiredMedia {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PhoneCallHistoryEntryQueryDesiredMedia {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PhoneCallHistoryEntryQueryDesiredMedia {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PhoneCallHistoryEntryQueryDesiredMedia {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryDesiredMedia {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryDesiredMedia;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
+impl PhoneCallHistoryEntryRawAddressKind {
+    pub const PhoneNumber: Self = Self(0i32);
+    pub const Custom: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PhoneCallHistoryEntryRawAddressKind {}
+impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryEntryRawAddressKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryRawAddressKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryRawAddressKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryEntryRawAddressKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallHistorySourceIdKind(pub i32);
+impl PhoneCallHistorySourceIdKind {
+    pub const CellularPhoneLineId: Self = Self(0i32);
+    pub const PackageFamilyName: Self = Self(1i32);
+}
+impl ::core::marker::Copy for PhoneCallHistorySourceIdKind {}
+impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistorySourceIdKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallHistorySourceIdKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallHistorySourceIdKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistorySourceIdKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallHistoryStoreAccessType(pub i32);
+impl PhoneCallHistoryStoreAccessType {
+    pub const AppEntriesReadWrite: Self = Self(0i32);
+    pub const AllEntriesLimitedReadWrite: Self = Self(1i32);
+    pub const AllEntriesReadWrite: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneCallHistoryStoreAccessType {}
+impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallHistoryStoreAccessType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallHistoryStoreAccessType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStoreAccessType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallHistoryStoreAccessType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallMedia(pub i32);
+impl PhoneCallMedia {
+    pub const Audio: Self = Self(0i32);
+    pub const AudioAndVideo: Self = Self(1i32);
+    pub const AudioAndRealTimeText: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneCallMedia {}
+impl ::core::clone::Clone for PhoneCallMedia {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallMedia {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallMedia {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallMedia {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallMedia;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallOperationStatus(pub i32);
+impl PhoneCallOperationStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const OtherFailure: Self = Self(1i32);
+    pub const TimedOut: Self = Self(2i32);
+    pub const ConnectionLost: Self = Self(3i32);
+    pub const InvalidCallState: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PhoneCallOperationStatus {}
+impl ::core::clone::Clone for PhoneCallOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneCallStatus(pub i32);
+impl PhoneCallStatus {
+    pub const Lost: Self = Self(0i32);
+    pub const Incoming: Self = Self(1i32);
+    pub const Dialing: Self = Self(2i32);
+    pub const Talking: Self = Self(3i32);
+    pub const Held: Self = Self(4i32);
+    pub const Ended: Self = Self(5i32);
+}
+impl ::core::marker::Copy for PhoneCallStatus {}
+impl ::core::clone::Clone for PhoneCallStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneCallStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneCallStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneCallStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneCallStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneCallStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
+impl PhoneLineNetworkOperatorDisplayTextLocation {
+    pub const Default: Self = Self(0i32);
+    pub const Tile: Self = Self(1i32);
+    pub const Dialer: Self = Self(2i32);
+    pub const InCallUI: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhoneLineNetworkOperatorDisplayTextLocation {}
+impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneLineNetworkOperatorDisplayTextLocation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneLineNetworkOperatorDisplayTextLocation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineNetworkOperatorDisplayTextLocation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneLineOperationStatus(pub i32);
+impl PhoneLineOperationStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const OtherFailure: Self = Self(1i32);
+    pub const TimedOut: Self = Self(2i32);
+    pub const ConnectionLost: Self = Self(3i32);
+    pub const InvalidCallState: Self = Self(4i32);
+}
+impl ::core::marker::Copy for PhoneLineOperationStatus {}
+impl ::core::clone::Clone for PhoneLineOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneLineOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneLineOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneLineOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneLineOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneLineTransport(pub i32);
+impl PhoneLineTransport {
+    pub const Cellular: Self = Self(0i32);
+    pub const VoipApp: Self = Self(1i32);
+    pub const Bluetooth: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneLineTransport {}
+impl ::core::clone::Clone for PhoneLineTransport {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneLineTransport {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneLineTransport {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneLineTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneLineTransport {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineTransport;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneLineWatcherStatus(pub i32);
+impl PhoneLineWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopped: Self = Self(3i32);
+}
+impl ::core::marker::Copy for PhoneLineWatcherStatus {}
+impl ::core::clone::Clone for PhoneLineWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneLineWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneLineWatcherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneLineWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneLineWatcherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneNetworkState(pub i32);
+impl PhoneNetworkState {
+    pub const Unknown: Self = Self(0i32);
+    pub const NoSignal: Self = Self(1i32);
+    pub const Deregistered: Self = Self(2i32);
+    pub const Denied: Self = Self(3i32);
+    pub const Searching: Self = Self(4i32);
+    pub const Home: Self = Self(5i32);
+    pub const RoamingInternational: Self = Self(6i32);
+    pub const RoamingDomestic: Self = Self(7i32);
+}
+impl ::core::marker::Copy for PhoneNetworkState {}
+impl ::core::clone::Clone for PhoneNetworkState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneNetworkState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneNetworkState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneNetworkState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneNetworkState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneNetworkState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneSimState(pub i32);
+impl PhoneSimState {
+    pub const Unknown: Self = Self(0i32);
+    pub const PinNotRequired: Self = Self(1i32);
+    pub const PinUnlocked: Self = Self(2i32);
+    pub const PinLocked: Self = Self(3i32);
+    pub const PukLocked: Self = Self(4i32);
+    pub const NotInserted: Self = Self(5i32);
+    pub const Invalid: Self = Self(6i32);
+    pub const Disabled: Self = Self(7i32);
+}
+impl ::core::marker::Copy for PhoneSimState {}
+impl ::core::clone::Clone for PhoneSimState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneSimState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneSimState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneSimState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneSimState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneSimState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneSimState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PhoneVoicemailType(pub i32);
+impl PhoneVoicemailType {
+    pub const None: Self = Self(0i32);
+    pub const Traditional: Self = Self(1i32);
+    pub const Visual: Self = Self(2i32);
+}
+impl ::core::marker::Copy for PhoneVoicemailType {}
+impl ::core::clone::Clone for PhoneVoicemailType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PhoneVoicemailType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PhoneVoicemailType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PhoneVoicemailType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for PhoneVoicemailType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.PhoneVoicemailType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TransportDeviceAudioRoutingStatus(pub i32);
+impl TransportDeviceAudioRoutingStatus {
+    pub const Unknown: Self = Self(0i32);
+    pub const CanRouteToLocalDevice: Self = Self(1i32);
+    pub const CannotRouteToLocalDevice: Self = Self(2i32);
+}
+impl ::core::marker::Copy for TransportDeviceAudioRoutingStatus {}
+impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TransportDeviceAudioRoutingStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TransportDeviceAudioRoutingStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TransportDeviceAudioRoutingStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.ApplicationModel.Calls.TransportDeviceAudioRoutingStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

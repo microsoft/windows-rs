@@ -1,2336 +1,3 @@
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DataClasses(pub u32);
-impl DataClasses {
-    pub const None: Self = Self(0u32);
-    pub const Gprs: Self = Self(1u32);
-    pub const Edge: Self = Self(2u32);
-    pub const Umts: Self = Self(4u32);
-    pub const Hsdpa: Self = Self(8u32);
-    pub const Hsupa: Self = Self(16u32);
-    pub const LteAdvanced: Self = Self(32u32);
-    pub const NewRadioNonStandalone: Self = Self(64u32);
-    pub const NewRadioStandalone: Self = Self(128u32);
-    pub const Cdma1xRtt: Self = Self(65536u32);
-    pub const Cdma1xEvdo: Self = Self(131072u32);
-    pub const Cdma1xEvdoRevA: Self = Self(262144u32);
-    pub const Cdma1xEvdv: Self = Self(524288u32);
-    pub const Cdma3xRtt: Self = Self(1048576u32);
-    pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
-    pub const CdmaUmb: Self = Self(4194304u32);
-    pub const Custom: Self = Self(2147483648u32);
-}
-impl ::core::marker::Copy for DataClasses {}
-impl ::core::clone::Clone for DataClasses {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DataClasses {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DataClasses {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DataClasses {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DataClasses").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for DataClasses {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for DataClasses {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DataClasses {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DataClasses {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for DataClasses {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DataClasses {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESim(::windows::core::IUnknown);
-impl ESim {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AvailableMemoryInBytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableMemoryInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
-        }
-    }
-    pub fn Eid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Eid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn FirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FirmwareVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn MobileBroadbandModemDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MobileBroadbandModemDeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Policy(&self) -> ::windows::core::Result<ESimPolicy> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimPolicy>(result__)
-        }
-    }
-    pub fn State(&self) -> ::windows::core::Result<ESimState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimState>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn GetProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimProfile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimProfile>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DeleteProfileAsync(&self, profileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteProfileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DownloadProfileMetadataAsync(&self, activationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadProfileMetadataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ResetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ProfileChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveProfileChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Discover(&self) -> ::windows::core::Result<ESimDiscoverResult> {
-        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Discover)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
-        }
-    }
-    pub fn DiscoverWithServerAddressAndMatchingId(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<ESimDiscoverResult> {
-        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DiscoverAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
-        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
-        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESim {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESim {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESim {}
-impl ::core::fmt::Debug for ESim {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESim").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESim {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESim;{6f6e6e26-f123-437d-8ced-dc1d2bc0c3a9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESim {
-    type Vtable = IESim_Vtbl;
-    const IID: ::windows::core::GUID = <IESim as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESim {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
-}
-impl ::core::convert::From<ESim> for ::windows::core::IUnknown {
-    fn from(value: ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESim> for ::windows::core::IUnknown {
-    fn from(value: &ESim) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESim> for &::windows::core::IUnknown {
-    fn from(value: &ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESim> for ::windows::core::IInspectable {
-    fn from(value: ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESim> for ::windows::core::IInspectable {
-    fn from(value: &ESim) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESim> for &::windows::core::IInspectable {
-    fn from(value: &ESim) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESim {}
-unsafe impl ::core::marker::Sync for ESim {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimAddedEventArgs(::windows::core::IUnknown);
-impl ESimAddedEventArgs {
-    pub fn ESim(&self) -> ::windows::core::Result<ESim> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimAddedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimAddedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimAddedEventArgs {}
-impl ::core::fmt::Debug for ESimAddedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimAddedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimAddedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimAddedEventArgs;{38bd0a58-4d5a-4d08-8da7-e73eff369ddd})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimAddedEventArgs {
-    type Vtable = IESimAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IESimAddedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimAddedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
-}
-impl ::core::convert::From<ESimAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimAddedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ESimAddedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
-unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimAuthenticationPreference(pub i32);
-impl ESimAuthenticationPreference {
-    pub const OnEntry: Self = Self(0i32);
-    pub const OnAction: Self = Self(1i32);
-    pub const Never: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ESimAuthenticationPreference {}
-impl ::core::clone::Clone for ESimAuthenticationPreference {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimAuthenticationPreference {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimAuthenticationPreference {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimAuthenticationPreference {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimAuthenticationPreference").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimAuthenticationPreference {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimDiscoverEvent(::windows::core::IUnknown);
-impl ESimDiscoverEvent {
-    pub fn MatchingId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MatchingId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn RspServerAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RspServerAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimDiscoverEvent {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimDiscoverEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimDiscoverEvent {}
-impl ::core::fmt::Debug for ESimDiscoverEvent {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimDiscoverEvent").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimDiscoverEvent {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverEvent;{e59ac3e3-39bc-5f6f-9321-0d4a182d261b})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimDiscoverEvent {
-    type Vtable = IESimDiscoverEvent_Vtbl;
-    const IID: ::windows::core::GUID = <IESimDiscoverEvent as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimDiscoverEvent {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
-}
-impl ::core::convert::From<ESimDiscoverEvent> for ::windows::core::IUnknown {
-    fn from(value: ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for ::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for &::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimDiscoverEvent> for ::windows::core::IInspectable {
-    fn from(value: ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for ::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverEvent> for &::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverEvent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimDiscoverEvent {}
-unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimDiscoverResult(::windows::core::IUnknown);
-impl ESimDiscoverResult {
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Events(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Events)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>(result__)
-        }
-    }
-    pub fn Kind(&self) -> ::windows::core::Result<ESimDiscoverResultKind> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResultKind>(result__)
-        }
-    }
-    pub fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
-        }
-    }
-    pub fn Result(&self) -> ::windows::core::Result<ESimOperationResult> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimDiscoverResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimDiscoverResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimDiscoverResult {}
-impl ::core::fmt::Debug for ESimDiscoverResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimDiscoverResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimDiscoverResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverResult;{56b4bb5e-ab2f-5ac6-b359-dd5a8e237926})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimDiscoverResult {
-    type Vtable = IESimDiscoverResult_Vtbl;
-    const IID: ::windows::core::GUID = <IESimDiscoverResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimDiscoverResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
-}
-impl ::core::convert::From<ESimDiscoverResult> for ::windows::core::IUnknown {
-    fn from(value: ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for ::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for &::windows::core::IUnknown {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimDiscoverResult> for ::windows::core::IInspectable {
-    fn from(value: ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for ::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDiscoverResult> for &::windows::core::IInspectable {
-    fn from(value: &ESimDiscoverResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimDiscoverResult {}
-unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimDiscoverResultKind(pub i32);
-impl ESimDiscoverResultKind {
-    pub const None: Self = Self(0i32);
-    pub const Events: Self = Self(1i32);
-    pub const ProfileMetadata: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ESimDiscoverResultKind {}
-impl ::core::clone::Clone for ESimDiscoverResultKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimDiscoverResultKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimDiscoverResultKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimDiscoverResultKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimDiscoverResultKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimDiscoverResultKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimDownloadProfileMetadataResult(::windows::core::IUnknown);
-impl ESimDownloadProfileMetadataResult {
-    pub fn Result(&self) -> ::windows::core::Result<ESimOperationResult> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
-        }
-    }
-    pub fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimDownloadProfileMetadataResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimDownloadProfileMetadataResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimDownloadProfileMetadataResult {}
-impl ::core::fmt::Debug for ESimDownloadProfileMetadataResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimDownloadProfileMetadataResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimDownloadProfileMetadataResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult;{c4234d9e-5ad6-426d-8d00-4434f449afec})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimDownloadProfileMetadataResult {
-    type Vtable = IESimDownloadProfileMetadataResult_Vtbl;
-    const IID: ::windows::core::GUID = <IESimDownloadProfileMetadataResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimDownloadProfileMetadataResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
-}
-impl ::core::convert::From<ESimDownloadProfileMetadataResult> for ::windows::core::IUnknown {
-    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::core::IUnknown {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for &::windows::core::IUnknown {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimDownloadProfileMetadataResult> for ::windows::core::IInspectable {
-    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::core::IInspectable {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for &::windows::core::IInspectable {
-    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimDownloadProfileMetadataResult {}
-unsafe impl ::core::marker::Sync for ESimDownloadProfileMetadataResult {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct ESimManager;
-impl ESimManager {
-    pub fn ServiceInfo() -> ::windows::core::Result<ESimServiceInfo> {
-        Self::IESimManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimServiceInfo>(result__)
-        })
-    }
-    pub fn TryCreateESimWatcher() -> ::windows::core::Result<ESimWatcher> {
-        Self::IESimManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateESimWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcher>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ServiceInfoChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
-    {
-        Self::IESimManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ServiceInfoChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        })
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveServiceInfoChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IESimManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveServiceInfoChanged)(::windows::core::Interface::as_raw(this), token).ok() })
-    }
-    #[doc(hidden)]
-    pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ESimManager, IESimManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for ESimManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimManager";
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimOperationResult(::windows::core::IUnknown);
-impl ESimOperationResult {
-    pub fn Status(&self) -> ::windows::core::Result<ESimOperationStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationStatus>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimOperationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimOperationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimOperationResult {}
-impl ::core::fmt::Debug for ESimOperationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimOperationResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimOperationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimOperationResult;{a67b63b1-309b-4e77-9e7e-cd93f1ddc7b9})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimOperationResult {
-    type Vtable = IESimOperationResult_Vtbl;
-    const IID: ::windows::core::GUID = <IESimOperationResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimOperationResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
-}
-impl ::core::convert::From<ESimOperationResult> for ::windows::core::IUnknown {
-    fn from(value: ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for ::windows::core::IUnknown {
-    fn from(value: &ESimOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for &::windows::core::IUnknown {
-    fn from(value: &ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimOperationResult> for ::windows::core::IInspectable {
-    fn from(value: ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for ::windows::core::IInspectable {
-    fn from(value: &ESimOperationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimOperationResult> for &::windows::core::IInspectable {
-    fn from(value: &ESimOperationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimOperationResult {}
-unsafe impl ::core::marker::Sync for ESimOperationResult {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimOperationStatus(pub i32);
-impl ESimOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const NotAuthorized: Self = Self(1i32);
-    pub const NotFound: Self = Self(2i32);
-    pub const PolicyViolation: Self = Self(3i32);
-    pub const InsufficientSpaceOnCard: Self = Self(4i32);
-    pub const ServerFailure: Self = Self(5i32);
-    pub const ServerNotReachable: Self = Self(6i32);
-    pub const TimeoutWaitingForUserConsent: Self = Self(7i32);
-    pub const IncorrectConfirmationCode: Self = Self(8i32);
-    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9i32);
-    pub const CardRemoved: Self = Self(10i32);
-    pub const CardBusy: Self = Self(11i32);
-    pub const Other: Self = Self(12i32);
-    pub const CardGeneralFailure: Self = Self(13i32);
-    pub const ConfirmationCodeMissing: Self = Self(14i32);
-    pub const InvalidMatchingId: Self = Self(15i32);
-    pub const NoEligibleProfileForThisDevice: Self = Self(16i32);
-    pub const OperationAborted: Self = Self(17i32);
-    pub const EidMismatch: Self = Self(18i32);
-    pub const ProfileNotAvailableForNewBinding: Self = Self(19i32);
-    pub const ProfileNotReleasedByOperator: Self = Self(20i32);
-    pub const OperationProhibitedByProfileClass: Self = Self(21i32);
-    pub const ProfileNotPresent: Self = Self(22i32);
-    pub const NoCorrespondingRequest: Self = Self(23i32);
-    pub const TimeoutWaitingForResponse: Self = Self(24i32);
-    pub const IccidAlreadyExists: Self = Self(25i32);
-    pub const ProfileProcessingError: Self = Self(26i32);
-    pub const ServerNotTrusted: Self = Self(27i32);
-    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
-}
-impl ::core::marker::Copy for ESimOperationStatus {}
-impl ::core::clone::Clone for ESimOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimPolicy(::windows::core::IUnknown);
-impl ESimPolicy {
-    pub fn ShouldEnableManagingUi(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldEnableManagingUi)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimPolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimPolicy {}
-impl ::core::fmt::Debug for ESimPolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimPolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimPolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimPolicy;{41e1b99d-cf7e-4315-882b-6f1e74b0d38f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimPolicy {
-    type Vtable = IESimPolicy_Vtbl;
-    const IID: ::windows::core::GUID = <IESimPolicy as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimPolicy {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
-}
-impl ::core::convert::From<ESimPolicy> for ::windows::core::IUnknown {
-    fn from(value: ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for ::windows::core::IUnknown {
-    fn from(value: &ESimPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for &::windows::core::IUnknown {
-    fn from(value: &ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimPolicy> for ::windows::core::IInspectable {
-    fn from(value: ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for ::windows::core::IInspectable {
-    fn from(value: &ESimPolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimPolicy> for &::windows::core::IInspectable {
-    fn from(value: &ESimPolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimPolicy {}
-unsafe impl ::core::marker::Sync for ESimPolicy {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimProfile(::windows::core::IUnknown);
-impl ESimProfile {
-    pub fn Class(&self) -> ::windows::core::Result<ESimProfileClass> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Class)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileClass>(result__)
-        }
-    }
-    pub fn Nickname(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Nickname)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
-        }
-    }
-    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ProviderIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
-        }
-    }
-    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn State(&self) -> ::windows::core::Result<ESimProfileState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileState>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetNicknameAsync(&self, newnickname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetNicknameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(newnickname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimProfile {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimProfile {}
-impl ::core::fmt::Debug for ESimProfile {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimProfile").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfile {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfile;{ee1e7880-06a9-4027-b4f8-ddb23d7810e0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimProfile {
-    type Vtable = IESimProfile_Vtbl;
-    const IID: ::windows::core::GUID = <IESimProfile as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimProfile {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
-}
-impl ::core::convert::From<ESimProfile> for ::windows::core::IUnknown {
-    fn from(value: ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfile> for ::windows::core::IUnknown {
-    fn from(value: &ESimProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfile> for &::windows::core::IUnknown {
-    fn from(value: &ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimProfile> for ::windows::core::IInspectable {
-    fn from(value: ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfile> for ::windows::core::IInspectable {
-    fn from(value: &ESimProfile) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfile> for &::windows::core::IInspectable {
-    fn from(value: &ESimProfile) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimProfile {}
-unsafe impl ::core::marker::Sync for ESimProfile {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimProfileClass(pub i32);
-impl ESimProfileClass {
-    pub const Operational: Self = Self(0i32);
-    pub const Test: Self = Self(1i32);
-    pub const Provisioning: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ESimProfileClass {}
-impl ::core::clone::Clone for ESimProfileClass {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimProfileClass {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimProfileClass {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimProfileClass {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimProfileClass").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfileClass {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct ESimProfileInstallProgress {
-    pub TotalSizeInBytes: i32,
-    pub InstalledSizeInBytes: i32,
-}
-impl ::core::marker::Copy for ESimProfileInstallProgress {}
-impl ::core::clone::Clone for ESimProfileInstallProgress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for ESimProfileInstallProgress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ESimProfileInstallProgress").field("TotalSizeInBytes", &self.TotalSizeInBytes).field("InstalledSizeInBytes", &self.InstalledSizeInBytes).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for ESimProfileInstallProgress {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfileInstallProgress {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for ESimProfileInstallProgress {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ESimProfileInstallProgress>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for ESimProfileInstallProgress {}
-impl ::core::default::Default for ESimProfileInstallProgress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimProfileMetadata(::windows::core::IUnknown);
-impl ESimProfileMetadata {
-    pub fn IsConfirmationCodeRequired(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsConfirmationCodeRequired)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
-        }
-    }
-    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn ProviderIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
-        }
-    }
-    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn State(&self) -> ::windows::core::Result<ESimProfileMetadataState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadataState>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DenyInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DenyInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ConfirmInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConfirmInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(confirmationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn PostponeInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PostponeInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-}
-impl ::core::clone::Clone for ESimProfileMetadata {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimProfileMetadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimProfileMetadata {}
-impl ::core::fmt::Debug for ESimProfileMetadata {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimProfileMetadata").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfileMetadata {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfileMetadata;{ed25831f-90db-498d-a7b4-ebce807d3c23})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimProfileMetadata {
-    type Vtable = IESimProfileMetadata_Vtbl;
-    const IID: ::windows::core::GUID = <IESimProfileMetadata as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimProfileMetadata {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
-}
-impl ::core::convert::From<ESimProfileMetadata> for ::windows::core::IUnknown {
-    fn from(value: ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for ::windows::core::IUnknown {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for &::windows::core::IUnknown {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimProfileMetadata> for ::windows::core::IInspectable {
-    fn from(value: ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for ::windows::core::IInspectable {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfileMetadata> for &::windows::core::IInspectable {
-    fn from(value: &ESimProfileMetadata) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimProfileMetadata {}
-unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimProfileMetadataState(pub i32);
-impl ESimProfileMetadataState {
-    pub const Unknown: Self = Self(0i32);
-    pub const WaitingForInstall: Self = Self(1i32);
-    pub const Downloading: Self = Self(2i32);
-    pub const Installing: Self = Self(3i32);
-    pub const Expired: Self = Self(4i32);
-    pub const RejectingDownload: Self = Self(5i32);
-    pub const NoLongerAvailable: Self = Self(6i32);
-    pub const DeniedByPolicy: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ESimProfileMetadataState {}
-impl ::core::clone::Clone for ESimProfileMetadataState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimProfileMetadataState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimProfileMetadataState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimProfileMetadataState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimProfileMetadataState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfileMetadataState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimProfilePolicy(::windows::core::IUnknown);
-impl ESimProfilePolicy {
-    pub fn CanDelete(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanDelete)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn CanDisable(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn IsManagedByEnterprise(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsManagedByEnterprise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimProfilePolicy {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimProfilePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimProfilePolicy {}
-impl ::core::fmt::Debug for ESimProfilePolicy {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimProfilePolicy").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfilePolicy {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfilePolicy;{e6dd0f1d-9c5c-46c5-a289-a948999bf062})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimProfilePolicy {
-    type Vtable = IESimProfilePolicy_Vtbl;
-    const IID: ::windows::core::GUID = <IESimProfilePolicy as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimProfilePolicy {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
-}
-impl ::core::convert::From<ESimProfilePolicy> for ::windows::core::IUnknown {
-    fn from(value: ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for ::windows::core::IUnknown {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for &::windows::core::IUnknown {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimProfilePolicy> for ::windows::core::IInspectable {
-    fn from(value: ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for ::windows::core::IInspectable {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimProfilePolicy> for &::windows::core::IInspectable {
-    fn from(value: &ESimProfilePolicy) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimProfilePolicy {}
-unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimProfileState(pub i32);
-impl ESimProfileState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Disabled: Self = Self(1i32);
-    pub const Enabled: Self = Self(2i32);
-    pub const Deleted: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ESimProfileState {}
-impl ::core::clone::Clone for ESimProfileState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimProfileState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimProfileState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimProfileState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimProfileState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimProfileState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimRemovedEventArgs(::windows::core::IUnknown);
-impl ESimRemovedEventArgs {
-    pub fn ESim(&self) -> ::windows::core::Result<ESim> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimRemovedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimRemovedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimRemovedEventArgs {}
-impl ::core::fmt::Debug for ESimRemovedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimRemovedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimRemovedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimRemovedEventArgs;{dec5277b-2fd9-4ed9-8376-d9b5e41278a3})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimRemovedEventArgs {
-    type Vtable = IESimRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IESimRemovedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimRemovedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
-}
-impl ::core::convert::From<ESimRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimRemovedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ESimRemovedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimRemovedEventArgs {}
-unsafe impl ::core::marker::Sync for ESimRemovedEventArgs {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimServiceInfo(::windows::core::IUnknown);
-impl ESimServiceInfo {
-    pub fn AuthenticationPreference(&self) -> ::windows::core::Result<ESimAuthenticationPreference> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationPreference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimAuthenticationPreference>(result__)
-        }
-    }
-    pub fn IsESimUiEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsESimUiEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimServiceInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimServiceInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimServiceInfo {}
-impl ::core::fmt::Debug for ESimServiceInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimServiceInfo").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimServiceInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimServiceInfo;{f16aabcf-7f59-4a51-8494-bd89d5ff50ee})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimServiceInfo {
-    type Vtable = IESimServiceInfo_Vtbl;
-    const IID: ::windows::core::GUID = <IESimServiceInfo as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimServiceInfo {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
-}
-impl ::core::convert::From<ESimServiceInfo> for ::windows::core::IUnknown {
-    fn from(value: ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for ::windows::core::IUnknown {
-    fn from(value: &ESimServiceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for &::windows::core::IUnknown {
-    fn from(value: &ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimServiceInfo> for ::windows::core::IInspectable {
-    fn from(value: ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for ::windows::core::IInspectable {
-    fn from(value: &ESimServiceInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimServiceInfo> for &::windows::core::IInspectable {
-    fn from(value: &ESimServiceInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimServiceInfo {}
-unsafe impl ::core::marker::Sync for ESimServiceInfo {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimState(pub i32);
-impl ESimState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Idle: Self = Self(1i32);
-    pub const Removed: Self = Self(2i32);
-    pub const Busy: Self = Self(3i32);
-}
-impl ::core::marker::Copy for ESimState {}
-impl ::core::clone::Clone for ESimState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimUpdatedEventArgs(::windows::core::IUnknown);
-impl ESimUpdatedEventArgs {
-    pub fn ESim(&self) -> ::windows::core::Result<ESim> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ESimUpdatedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimUpdatedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimUpdatedEventArgs {}
-impl ::core::fmt::Debug for ESimUpdatedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimUpdatedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimUpdatedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimUpdatedEventArgs;{4c125cec-508d-4b88-83cb-68bef8168d12})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimUpdatedEventArgs {
-    type Vtable = IESimUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IESimUpdatedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimUpdatedEventArgs {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
-}
-impl ::core::convert::From<ESimUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimUpdatedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &ESimUpdatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimUpdatedEventArgs {}
-unsafe impl ::core::marker::Sync for ESimUpdatedEventArgs {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct ESimWatcher(::windows::core::IUnknown);
-impl ESimWatcher {
-    pub fn Status(&self) -> ::windows::core::Result<ESimWatcherStatus> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcherStatus>(result__)
-        }
-    }
-    pub fn Start(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Stop(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-}
-impl ::core::clone::Clone for ESimWatcher {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ESimWatcher {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ESimWatcher {}
-impl ::core::fmt::Debug for ESimWatcher {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimWatcher").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimWatcher {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimWatcher;{c1f84ceb-a28d-4fbf-9771-6e31b81ccf22})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ESimWatcher {
-    type Vtable = IESimWatcher_Vtbl;
-    const IID: ::windows::core::GUID = <IESimWatcher as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ESimWatcher {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
-}
-impl ::core::convert::From<ESimWatcher> for ::windows::core::IUnknown {
-    fn from(value: ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for ::windows::core::IUnknown {
-    fn from(value: &ESimWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for &::windows::core::IUnknown {
-    fn from(value: &ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ESimWatcher> for ::windows::core::IInspectable {
-    fn from(value: ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for ::windows::core::IInspectable {
-    fn from(value: &ESimWatcher) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ESimWatcher> for &::windows::core::IInspectable {
-    fn from(value: &ESimWatcher) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ESimWatcher {}
-unsafe impl ::core::marker::Sync for ESimWatcher {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ESimWatcherStatus(pub i32);
-impl ESimWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopping: Self = Self(3i32);
-    pub const Stopped: Self = Self(4i32);
-}
-impl ::core::marker::Copy for ESimWatcherStatus {}
-impl ::core::clone::Clone for ESimWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ESimWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ESimWatcherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ESimWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ESimWatcherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ESimWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct FdnAccessManager;
-impl FdnAccessManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RequestUnlockAsync(contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
-        Self::IFdnAccessManagerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUnlockAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for FdnAccessManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.FdnAccessManager";
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct HotspotAuthenticationContext(::windows::core::IUnknown);
-impl HotspotAuthenticationContext {
-    pub fn WirelessNetworkId(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WirelessNetworkId)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
-        }
-    }
-    #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-    #[cfg(feature = "Networking_Connectivity")]
-    pub fn NetworkAdapter(&self) -> ::windows::core::Result<super::Connectivity::NetworkAdapter> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Connectivity::NetworkAdapter>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RedirectMessageUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedirectMessageUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub fn RedirectMessageXml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedirectMessageXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AuthenticationUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
-        }
-    }
-    pub fn IssueCredentials(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).IssueCredentials)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure).ok() }
-    }
-    pub fn AbortAuthentication(&self, markasmanual: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AbortAuthentication)(::windows::core::Interface::as_raw(this), markasmanual).ok() }
-    }
-    pub fn SkipAuthentication(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SkipAuthentication)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn TriggerAttentionRequired(&self, packagerelativeapplicationid: &::windows::core::HSTRING, applicationparameters: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).TriggerAttentionRequired)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagerelativeapplicationid), ::core::mem::transmute_copy(applicationparameters)).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn IssueCredentialsAsync(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>> {
-        let this = &::windows::core::Interface::cast::<IHotspotAuthenticationContext2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IssueCredentialsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>(result__)
-        }
-    }
-    pub fn TryGetAuthenticationContext(eventoken: &::windows::core::HSTRING, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool> {
-        Self::IHotspotAuthenticationContextStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAuthenticationContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventoken), context as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IHotspotAuthenticationContextStatics<R, F: FnOnce(&IHotspotAuthenticationContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for HotspotAuthenticationContext {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HotspotAuthenticationContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HotspotAuthenticationContext {}
-impl ::core::fmt::Debug for HotspotAuthenticationContext {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HotspotAuthenticationContext").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationContext {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationContext;{e756c791-1003-4de5-83c7-de61d88831d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HotspotAuthenticationContext {
-    type Vtable = IHotspotAuthenticationContext_Vtbl;
-    const IID: ::windows::core::GUID = <IHotspotAuthenticationContext as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HotspotAuthenticationContext {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
-}
-impl ::core::convert::From<HotspotAuthenticationContext> for ::windows::core::IUnknown {
-    fn from(value: HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for ::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for &::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HotspotAuthenticationContext> for ::windows::core::IInspectable {
-    fn from(value: HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for ::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationContext> for &::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct HotspotAuthenticationEventDetails(::windows::core::IUnknown);
-impl HotspotAuthenticationEventDetails {
-    pub fn EventToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).EventToken)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for HotspotAuthenticationEventDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HotspotAuthenticationEventDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HotspotAuthenticationEventDetails {}
-impl ::core::fmt::Debug for HotspotAuthenticationEventDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HotspotAuthenticationEventDetails").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationEventDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails;{e756c791-1001-4de5-83c7-de61d88831d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HotspotAuthenticationEventDetails {
-    type Vtable = IHotspotAuthenticationEventDetails_Vtbl;
-    const IID: ::windows::core::GUID = <IHotspotAuthenticationEventDetails as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HotspotAuthenticationEventDetails {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
-}
-impl ::core::convert::From<HotspotAuthenticationEventDetails> for ::windows::core::IUnknown {
-    fn from(value: HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for ::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for &::windows::core::IUnknown {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HotspotAuthenticationEventDetails> for ::windows::core::IInspectable {
-    fn from(value: HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for ::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotAuthenticationEventDetails> for &::windows::core::IInspectable {
-    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HotspotAuthenticationResponseCode(pub i32);
-impl HotspotAuthenticationResponseCode {
-    pub const NoError: Self = Self(0i32);
-    pub const LoginSucceeded: Self = Self(50i32);
-    pub const LoginFailed: Self = Self(100i32);
-    pub const RadiusServerError: Self = Self(102i32);
-    pub const NetworkAdministratorError: Self = Self(105i32);
-    pub const LoginAborted: Self = Self(151i32);
-    pub const AccessGatewayInternalError: Self = Self(255i32);
-}
-impl ::core::marker::Copy for HotspotAuthenticationResponseCode {}
-impl ::core::clone::Clone for HotspotAuthenticationResponseCode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HotspotAuthenticationResponseCode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HotspotAuthenticationResponseCode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HotspotAuthenticationResponseCode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HotspotAuthenticationResponseCode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationResponseCode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct HotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
-impl HotspotCredentialsAuthenticationResult {
-    pub fn HasNetworkErrorOccurred(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasNetworkErrorOccurred)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn ResponseCode(&self) -> ::windows::core::Result<HotspotAuthenticationResponseCode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HotspotAuthenticationResponseCode>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn LogoffUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LogoffUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
-    #[cfg(feature = "Data_Xml_Dom")]
-    pub fn AuthenticationReplyXml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AuthenticationReplyXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for HotspotCredentialsAuthenticationResult {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HotspotCredentialsAuthenticationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HotspotCredentialsAuthenticationResult {}
-impl ::core::fmt::Debug for HotspotCredentialsAuthenticationResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HotspotCredentialsAuthenticationResult").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HotspotCredentialsAuthenticationResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult;{e756c791-1005-4de5-83c7-de61d88831d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HotspotCredentialsAuthenticationResult {
-    type Vtable = IHotspotCredentialsAuthenticationResult_Vtbl;
-    const IID: ::windows::core::GUID = <IHotspotCredentialsAuthenticationResult as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HotspotCredentialsAuthenticationResult {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
-}
-impl ::core::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::core::IUnknown {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for &::windows::core::IUnknown {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::core::IInspectable {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for &::windows::core::IInspectable {
-    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IESim(::windows::core::IUnknown);
@@ -4656,6 +2323,1870 @@ pub struct IUssdSessionStatics_Vtbl {
     pub CreateFromNetworkInterfaceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESim(::windows::core::IUnknown);
+impl ESim {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AvailableMemoryInBytes(&self) -> ::windows::core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AvailableMemoryInBytes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<i32>>(result__)
+        }
+    }
+    pub fn Eid(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Eid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn FirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FirmwareVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn MobileBroadbandModemDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MobileBroadbandModemDeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Policy(&self) -> ::windows::core::Result<ESimPolicy> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimPolicy>(result__)
+        }
+    }
+    pub fn State(&self) -> ::windows::core::Result<ESimState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimState>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimProfile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetProfiles)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimProfile>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DeleteProfileAsync(&self, profileid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DeleteProfileAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(profileid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DownloadProfileMetadataAsync(&self, activationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DownloadProfileMetadataAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(activationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ResetAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ResetAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ProfileChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESim, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProfileChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveProfileChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Discover(&self) -> ::windows::core::Result<ESimDiscoverResult> {
+        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Discover)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
+        }
+    }
+    pub fn DiscoverWithServerAddressAndMatchingId(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<ESimDiscoverResult> {
+        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<ESimDiscoverResult>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DiscoverAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
+        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DiscoverAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DiscoverWithServerAddressAndMatchingIdAsync(&self, serveraddress: &::windows::core::HSTRING, matchingid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>> {
+        let this = &::windows::core::Interface::cast::<IESim2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DiscoverWithServerAddressAndMatchingIdAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(serveraddress), ::core::mem::transmute_copy(matchingid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimDiscoverResult>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESim {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESim {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESim {}
+impl ::core::fmt::Debug for ESim {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESim").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESim {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESim;{6f6e6e26-f123-437d-8ced-dc1d2bc0c3a9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESim {
+    type Vtable = IESim_Vtbl;
+    const IID: ::windows::core::GUID = <IESim as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESim {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESim";
+}
+impl ::core::convert::From<ESim> for ::windows::core::IUnknown {
+    fn from(value: ESim) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESim> for ::windows::core::IUnknown {
+    fn from(value: &ESim) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESim> for &::windows::core::IUnknown {
+    fn from(value: &ESim) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESim> for ::windows::core::IInspectable {
+    fn from(value: ESim) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESim> for ::windows::core::IInspectable {
+    fn from(value: &ESim) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESim> for &::windows::core::IInspectable {
+    fn from(value: &ESim) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESim {}
+unsafe impl ::core::marker::Sync for ESim {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimAddedEventArgs(::windows::core::IUnknown);
+impl ESimAddedEventArgs {
+    pub fn ESim(&self) -> ::windows::core::Result<ESim> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimAddedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimAddedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimAddedEventArgs {}
+impl ::core::fmt::Debug for ESimAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimAddedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimAddedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimAddedEventArgs;{38bd0a58-4d5a-4d08-8da7-e73eff369ddd})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimAddedEventArgs {
+    type Vtable = IESimAddedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IESimAddedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimAddedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimAddedEventArgs";
+}
+impl ::core::convert::From<ESimAddedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ESimAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimAddedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ESimAddedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimAddedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ESimAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimAddedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ESimAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimAddedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ESimAddedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimAddedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ESimAddedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimAddedEventArgs {}
+unsafe impl ::core::marker::Sync for ESimAddedEventArgs {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimDiscoverEvent(::windows::core::IUnknown);
+impl ESimDiscoverEvent {
+    pub fn MatchingId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MatchingId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn RspServerAddress(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RspServerAddress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimDiscoverEvent {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimDiscoverEvent {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimDiscoverEvent {}
+impl ::core::fmt::Debug for ESimDiscoverEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimDiscoverEvent").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimDiscoverEvent {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverEvent;{e59ac3e3-39bc-5f6f-9321-0d4a182d261b})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimDiscoverEvent {
+    type Vtable = IESimDiscoverEvent_Vtbl;
+    const IID: ::windows::core::GUID = <IESimDiscoverEvent as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimDiscoverEvent {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverEvent";
+}
+impl ::core::convert::From<ESimDiscoverEvent> for ::windows::core::IUnknown {
+    fn from(value: ESimDiscoverEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimDiscoverEvent> for ::windows::core::IUnknown {
+    fn from(value: &ESimDiscoverEvent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimDiscoverEvent> for &::windows::core::IUnknown {
+    fn from(value: &ESimDiscoverEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimDiscoverEvent> for ::windows::core::IInspectable {
+    fn from(value: ESimDiscoverEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimDiscoverEvent> for ::windows::core::IInspectable {
+    fn from(value: &ESimDiscoverEvent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimDiscoverEvent> for &::windows::core::IInspectable {
+    fn from(value: &ESimDiscoverEvent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimDiscoverEvent {}
+unsafe impl ::core::marker::Sync for ESimDiscoverEvent {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimDiscoverResult(::windows::core::IUnknown);
+impl ESimDiscoverResult {
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Events(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Events)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>>(result__)
+        }
+    }
+    pub fn Kind(&self) -> ::windows::core::Result<ESimDiscoverResultKind> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimDiscoverResultKind>(result__)
+        }
+    }
+    pub fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
+        }
+    }
+    pub fn Result(&self) -> ::windows::core::Result<ESimOperationResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimDiscoverResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimDiscoverResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimDiscoverResult {}
+impl ::core::fmt::Debug for ESimDiscoverResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimDiscoverResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimDiscoverResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDiscoverResult;{56b4bb5e-ab2f-5ac6-b359-dd5a8e237926})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimDiscoverResult {
+    type Vtable = IESimDiscoverResult_Vtbl;
+    const IID: ::windows::core::GUID = <IESimDiscoverResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimDiscoverResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDiscoverResult";
+}
+impl ::core::convert::From<ESimDiscoverResult> for ::windows::core::IUnknown {
+    fn from(value: ESimDiscoverResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimDiscoverResult> for ::windows::core::IUnknown {
+    fn from(value: &ESimDiscoverResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimDiscoverResult> for &::windows::core::IUnknown {
+    fn from(value: &ESimDiscoverResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimDiscoverResult> for ::windows::core::IInspectable {
+    fn from(value: ESimDiscoverResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimDiscoverResult> for ::windows::core::IInspectable {
+    fn from(value: &ESimDiscoverResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimDiscoverResult> for &::windows::core::IInspectable {
+    fn from(value: &ESimDiscoverResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimDiscoverResult {}
+unsafe impl ::core::marker::Sync for ESimDiscoverResult {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimDownloadProfileMetadataResult(::windows::core::IUnknown);
+impl ESimDownloadProfileMetadataResult {
+    pub fn Result(&self) -> ::windows::core::Result<ESimOperationResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationResult>(result__)
+        }
+    }
+    pub fn ProfileMetadata(&self) -> ::windows::core::Result<ESimProfileMetadata> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProfileMetadata)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadata>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimDownloadProfileMetadataResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimDownloadProfileMetadataResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimDownloadProfileMetadataResult {}
+impl ::core::fmt::Debug for ESimDownloadProfileMetadataResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimDownloadProfileMetadataResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimDownloadProfileMetadataResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult;{c4234d9e-5ad6-426d-8d00-4434f449afec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimDownloadProfileMetadataResult {
+    type Vtable = IESimDownloadProfileMetadataResult_Vtbl;
+    const IID: ::windows::core::GUID = <IESimDownloadProfileMetadataResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimDownloadProfileMetadataResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimDownloadProfileMetadataResult";
+}
+impl ::core::convert::From<ESimDownloadProfileMetadataResult> for ::windows::core::IUnknown {
+    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::core::IUnknown {
+    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for &::windows::core::IUnknown {
+    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimDownloadProfileMetadataResult> for ::windows::core::IInspectable {
+    fn from(value: ESimDownloadProfileMetadataResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for ::windows::core::IInspectable {
+    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimDownloadProfileMetadataResult> for &::windows::core::IInspectable {
+    fn from(value: &ESimDownloadProfileMetadataResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimDownloadProfileMetadataResult {}
+unsafe impl ::core::marker::Sync for ESimDownloadProfileMetadataResult {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+pub struct ESimManager;
+impl ESimManager {
+    pub fn ServiceInfo() -> ::windows::core::Result<ESimServiceInfo> {
+        Self::IESimManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimServiceInfo>(result__)
+        })
+    }
+    pub fn TryCreateESimWatcher() -> ::windows::core::Result<ESimWatcher> {
+        Self::IESimManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryCreateESimWatcher)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcher>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ServiceInfoChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>,
+    {
+        Self::IESimManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ServiceInfoChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        })
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveServiceInfoChanged(token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IESimManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveServiceInfoChanged)(::windows::core::Interface::as_raw(this), token).ok() })
+    }
+    #[doc(hidden)]
+    pub fn IESimManagerStatics<R, F: FnOnce(&IESimManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ESimManager, IESimManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for ESimManager {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimManager";
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimOperationResult(::windows::core::IUnknown);
+impl ESimOperationResult {
+    pub fn Status(&self) -> ::windows::core::Result<ESimOperationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimOperationStatus>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimOperationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimOperationResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimOperationResult {}
+impl ::core::fmt::Debug for ESimOperationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimOperationResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimOperationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimOperationResult;{a67b63b1-309b-4e77-9e7e-cd93f1ddc7b9})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimOperationResult {
+    type Vtable = IESimOperationResult_Vtbl;
+    const IID: ::windows::core::GUID = <IESimOperationResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimOperationResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimOperationResult";
+}
+impl ::core::convert::From<ESimOperationResult> for ::windows::core::IUnknown {
+    fn from(value: ESimOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimOperationResult> for ::windows::core::IUnknown {
+    fn from(value: &ESimOperationResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimOperationResult> for &::windows::core::IUnknown {
+    fn from(value: &ESimOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimOperationResult> for ::windows::core::IInspectable {
+    fn from(value: ESimOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimOperationResult> for ::windows::core::IInspectable {
+    fn from(value: &ESimOperationResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimOperationResult> for &::windows::core::IInspectable {
+    fn from(value: &ESimOperationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimOperationResult {}
+unsafe impl ::core::marker::Sync for ESimOperationResult {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimPolicy(::windows::core::IUnknown);
+impl ESimPolicy {
+    pub fn ShouldEnableManagingUi(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ShouldEnableManagingUi)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimPolicy {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimPolicy {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimPolicy {}
+impl ::core::fmt::Debug for ESimPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimPolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimPolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimPolicy;{41e1b99d-cf7e-4315-882b-6f1e74b0d38f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimPolicy {
+    type Vtable = IESimPolicy_Vtbl;
+    const IID: ::windows::core::GUID = <IESimPolicy as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimPolicy {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimPolicy";
+}
+impl ::core::convert::From<ESimPolicy> for ::windows::core::IUnknown {
+    fn from(value: ESimPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimPolicy> for ::windows::core::IUnknown {
+    fn from(value: &ESimPolicy) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimPolicy> for &::windows::core::IUnknown {
+    fn from(value: &ESimPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimPolicy> for ::windows::core::IInspectable {
+    fn from(value: ESimPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimPolicy> for ::windows::core::IInspectable {
+    fn from(value: &ESimPolicy) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimPolicy> for &::windows::core::IInspectable {
+    fn from(value: &ESimPolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimPolicy {}
+unsafe impl ::core::marker::Sync for ESimPolicy {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimProfile(::windows::core::IUnknown);
+impl ESimProfile {
+    pub fn Class(&self) -> ::windows::core::Result<ESimProfileClass> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Class)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileClass>(result__)
+        }
+    }
+    pub fn Nickname(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Nickname)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
+        }
+    }
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ProviderIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+        }
+    }
+    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn State(&self) -> ::windows::core::Result<ESimProfileState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileState>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DisableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).EnableAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetNicknameAsync(&self, newnickname: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetNicknameAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(newnickname), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimProfile {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimProfile {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimProfile {}
+impl ::core::fmt::Debug for ESimProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimProfile").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfile {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfile;{ee1e7880-06a9-4027-b4f8-ddb23d7810e0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimProfile {
+    type Vtable = IESimProfile_Vtbl;
+    const IID: ::windows::core::GUID = <IESimProfile as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimProfile {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfile";
+}
+impl ::core::convert::From<ESimProfile> for ::windows::core::IUnknown {
+    fn from(value: ESimProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimProfile> for ::windows::core::IUnknown {
+    fn from(value: &ESimProfile) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimProfile> for &::windows::core::IUnknown {
+    fn from(value: &ESimProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimProfile> for ::windows::core::IInspectable {
+    fn from(value: ESimProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimProfile> for ::windows::core::IInspectable {
+    fn from(value: &ESimProfile) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimProfile> for &::windows::core::IInspectable {
+    fn from(value: &ESimProfile) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimProfile {}
+unsafe impl ::core::marker::Sync for ESimProfile {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimProfileMetadata(::windows::core::IUnknown);
+impl ESimProfileMetadata {
+    pub fn IsConfirmationCodeRequired(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsConfirmationCodeRequired)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn Policy(&self) -> ::windows::core::Result<ESimProfilePolicy> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Policy)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfilePolicy>(result__)
+        }
+    }
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn ProviderIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderIcon)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+        }
+    }
+    pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn ProviderName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ProviderName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn State(&self) -> ::windows::core::Result<ESimProfileMetadataState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimProfileMetadataState>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DenyInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DenyInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ConfirmInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ConfirmInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ConfirmInstallWithConfirmationCodeAsync(&self, confirmationcode: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ConfirmInstallWithConfirmationCodeAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(confirmationcode), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn PostponeInstallAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ESimOperationResult>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PostponeInstallAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ESimOperationResult>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimProfileMetadata, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+}
+impl ::core::clone::Clone for ESimProfileMetadata {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimProfileMetadata {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimProfileMetadata {}
+impl ::core::fmt::Debug for ESimProfileMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimProfileMetadata").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfileMetadata {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfileMetadata;{ed25831f-90db-498d-a7b4-ebce807d3c23})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimProfileMetadata {
+    type Vtable = IESimProfileMetadata_Vtbl;
+    const IID: ::windows::core::GUID = <IESimProfileMetadata as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimProfileMetadata {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfileMetadata";
+}
+impl ::core::convert::From<ESimProfileMetadata> for ::windows::core::IUnknown {
+    fn from(value: ESimProfileMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimProfileMetadata> for ::windows::core::IUnknown {
+    fn from(value: &ESimProfileMetadata) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimProfileMetadata> for &::windows::core::IUnknown {
+    fn from(value: &ESimProfileMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimProfileMetadata> for ::windows::core::IInspectable {
+    fn from(value: ESimProfileMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimProfileMetadata> for ::windows::core::IInspectable {
+    fn from(value: &ESimProfileMetadata) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimProfileMetadata> for &::windows::core::IInspectable {
+    fn from(value: &ESimProfileMetadata) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimProfileMetadata {}
+unsafe impl ::core::marker::Sync for ESimProfileMetadata {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimProfilePolicy(::windows::core::IUnknown);
+impl ESimProfilePolicy {
+    pub fn CanDelete(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CanDelete)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn CanDisable(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CanDisable)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn IsManagedByEnterprise(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsManagedByEnterprise)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimProfilePolicy {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimProfilePolicy {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimProfilePolicy {}
+impl ::core::fmt::Debug for ESimProfilePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimProfilePolicy").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfilePolicy {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimProfilePolicy;{e6dd0f1d-9c5c-46c5-a289-a948999bf062})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimProfilePolicy {
+    type Vtable = IESimProfilePolicy_Vtbl;
+    const IID: ::windows::core::GUID = <IESimProfilePolicy as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimProfilePolicy {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimProfilePolicy";
+}
+impl ::core::convert::From<ESimProfilePolicy> for ::windows::core::IUnknown {
+    fn from(value: ESimProfilePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimProfilePolicy> for ::windows::core::IUnknown {
+    fn from(value: &ESimProfilePolicy) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimProfilePolicy> for &::windows::core::IUnknown {
+    fn from(value: &ESimProfilePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimProfilePolicy> for ::windows::core::IInspectable {
+    fn from(value: ESimProfilePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimProfilePolicy> for ::windows::core::IInspectable {
+    fn from(value: &ESimProfilePolicy) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimProfilePolicy> for &::windows::core::IInspectable {
+    fn from(value: &ESimProfilePolicy) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimProfilePolicy {}
+unsafe impl ::core::marker::Sync for ESimProfilePolicy {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimRemovedEventArgs(::windows::core::IUnknown);
+impl ESimRemovedEventArgs {
+    pub fn ESim(&self) -> ::windows::core::Result<ESim> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimRemovedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimRemovedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimRemovedEventArgs {}
+impl ::core::fmt::Debug for ESimRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimRemovedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimRemovedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimRemovedEventArgs;{dec5277b-2fd9-4ed9-8376-d9b5e41278a3})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimRemovedEventArgs {
+    type Vtable = IESimRemovedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IESimRemovedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimRemovedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimRemovedEventArgs";
+}
+impl ::core::convert::From<ESimRemovedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ESimRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimRemovedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ESimRemovedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimRemovedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ESimRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimRemovedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ESimRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimRemovedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ESimRemovedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimRemovedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ESimRemovedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimRemovedEventArgs {}
+unsafe impl ::core::marker::Sync for ESimRemovedEventArgs {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimServiceInfo(::windows::core::IUnknown);
+impl ESimServiceInfo {
+    pub fn AuthenticationPreference(&self) -> ::windows::core::Result<ESimAuthenticationPreference> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AuthenticationPreference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimAuthenticationPreference>(result__)
+        }
+    }
+    pub fn IsESimUiEnabled(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsESimUiEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimServiceInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimServiceInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimServiceInfo {}
+impl ::core::fmt::Debug for ESimServiceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimServiceInfo").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimServiceInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimServiceInfo;{f16aabcf-7f59-4a51-8494-bd89d5ff50ee})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimServiceInfo {
+    type Vtable = IESimServiceInfo_Vtbl;
+    const IID: ::windows::core::GUID = <IESimServiceInfo as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimServiceInfo {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimServiceInfo";
+}
+impl ::core::convert::From<ESimServiceInfo> for ::windows::core::IUnknown {
+    fn from(value: ESimServiceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimServiceInfo> for ::windows::core::IUnknown {
+    fn from(value: &ESimServiceInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimServiceInfo> for &::windows::core::IUnknown {
+    fn from(value: &ESimServiceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimServiceInfo> for ::windows::core::IInspectable {
+    fn from(value: ESimServiceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimServiceInfo> for ::windows::core::IInspectable {
+    fn from(value: &ESimServiceInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimServiceInfo> for &::windows::core::IInspectable {
+    fn from(value: &ESimServiceInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimServiceInfo {}
+unsafe impl ::core::marker::Sync for ESimServiceInfo {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimUpdatedEventArgs(::windows::core::IUnknown);
+impl ESimUpdatedEventArgs {
+    pub fn ESim(&self) -> ::windows::core::Result<ESim> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ESim)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESim>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ESimUpdatedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimUpdatedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimUpdatedEventArgs {}
+impl ::core::fmt::Debug for ESimUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimUpdatedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimUpdatedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimUpdatedEventArgs;{4c125cec-508d-4b88-83cb-68bef8168d12})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimUpdatedEventArgs {
+    type Vtable = IESimUpdatedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IESimUpdatedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimUpdatedEventArgs {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimUpdatedEventArgs";
+}
+impl ::core::convert::From<ESimUpdatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: ESimUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimUpdatedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &ESimUpdatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimUpdatedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &ESimUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimUpdatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ESimUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimUpdatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ESimUpdatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimUpdatedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &ESimUpdatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimUpdatedEventArgs {}
+unsafe impl ::core::marker::Sync for ESimUpdatedEventArgs {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct ESimWatcher(::windows::core::IUnknown);
+impl ESimWatcher {
+    pub fn Status(&self) -> ::windows::core::Result<ESimWatcherStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ESimWatcherStatus>(result__)
+        }
+    }
+    pub fn Start(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Stop(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Added<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Added)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveAdded(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAdded)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn EnumerationCompleted<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).EnumerationCompleted)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveEnumerationCompleted(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveEnumerationCompleted)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Removed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Removed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveRemoved(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRemoved)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Stopped<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ::windows::core::IInspectable>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Stopped)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveStopped(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStopped)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Updated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Updated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveUpdated(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUpdated)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+}
+impl ::core::clone::Clone for ESimWatcher {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ESimWatcher {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ESimWatcher {}
+impl ::core::fmt::Debug for ESimWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimWatcher").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimWatcher {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.ESimWatcher;{c1f84ceb-a28d-4fbf-9771-6e31b81ccf22})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ESimWatcher {
+    type Vtable = IESimWatcher_Vtbl;
+    const IID: ::windows::core::GUID = <IESimWatcher as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ESimWatcher {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.ESimWatcher";
+}
+impl ::core::convert::From<ESimWatcher> for ::windows::core::IUnknown {
+    fn from(value: ESimWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimWatcher> for ::windows::core::IUnknown {
+    fn from(value: &ESimWatcher) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimWatcher> for &::windows::core::IUnknown {
+    fn from(value: &ESimWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ESimWatcher> for ::windows::core::IInspectable {
+    fn from(value: ESimWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ESimWatcher> for ::windows::core::IInspectable {
+    fn from(value: &ESimWatcher) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ESimWatcher> for &::windows::core::IInspectable {
+    fn from(value: &ESimWatcher) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ESimWatcher {}
+unsafe impl ::core::marker::Sync for ESimWatcher {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+pub struct FdnAccessManager;
+impl FdnAccessManager {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RequestUnlockAsync(contactlistid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
+        Self::IFdnAccessManagerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RequestUnlockAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(contactlistid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for FdnAccessManager {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.FdnAccessManager";
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct HotspotAuthenticationContext(::windows::core::IUnknown);
+impl HotspotAuthenticationContext {
+    pub fn WirelessNetworkId(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).WirelessNetworkId)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+        }
+    }
+    #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
+    #[cfg(feature = "Networking_Connectivity")]
+    pub fn NetworkAdapter(&self) -> ::windows::core::Result<super::Connectivity::NetworkAdapter> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Connectivity::NetworkAdapter>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RedirectMessageUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RedirectMessageUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub fn RedirectMessageXml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RedirectMessageXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AuthenticationUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AuthenticationUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+        }
+    }
+    pub fn IssueCredentials(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).IssueCredentials)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure).ok() }
+    }
+    pub fn AbortAuthentication(&self, markasmanual: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).AbortAuthentication)(::windows::core::Interface::as_raw(this), markasmanual).ok() }
+    }
+    pub fn SkipAuthentication(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SkipAuthentication)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn TriggerAttentionRequired(&self, packagerelativeapplicationid: &::windows::core::HSTRING, applicationparameters: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).TriggerAttentionRequired)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(packagerelativeapplicationid), ::core::mem::transmute_copy(applicationparameters)).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn IssueCredentialsAsync(&self, username: &::windows::core::HSTRING, password: &::windows::core::HSTRING, extraparameters: &::windows::core::HSTRING, markasmanualconnectonfailure: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>> {
+        let this = &::windows::core::Interface::cast::<IHotspotAuthenticationContext2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IssueCredentialsAsync)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(username), ::core::mem::transmute_copy(password), ::core::mem::transmute_copy(extraparameters), markasmanualconnectonfailure, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>>(result__)
+        }
+    }
+    pub fn TryGetAuthenticationContext(eventoken: &::windows::core::HSTRING, context: &mut ::core::option::Option<HotspotAuthenticationContext>) -> ::windows::core::Result<bool> {
+        Self::IHotspotAuthenticationContextStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TryGetAuthenticationContext)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(eventoken), context as *mut _ as _, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IHotspotAuthenticationContextStatics<R, F: FnOnce(&IHotspotAuthenticationContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<HotspotAuthenticationContext, IHotspotAuthenticationContextStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for HotspotAuthenticationContext {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HotspotAuthenticationContext {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HotspotAuthenticationContext {}
+impl ::core::fmt::Debug for HotspotAuthenticationContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HotspotAuthenticationContext").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationContext {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationContext;{e756c791-1003-4de5-83c7-de61d88831d0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HotspotAuthenticationContext {
+    type Vtable = IHotspotAuthenticationContext_Vtbl;
+    const IID: ::windows::core::GUID = <IHotspotAuthenticationContext as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HotspotAuthenticationContext {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationContext";
+}
+impl ::core::convert::From<HotspotAuthenticationContext> for ::windows::core::IUnknown {
+    fn from(value: HotspotAuthenticationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationContext> for ::windows::core::IUnknown {
+    fn from(value: &HotspotAuthenticationContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationContext> for &::windows::core::IUnknown {
+    fn from(value: &HotspotAuthenticationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HotspotAuthenticationContext> for ::windows::core::IInspectable {
+    fn from(value: HotspotAuthenticationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationContext> for ::windows::core::IInspectable {
+    fn from(value: &HotspotAuthenticationContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationContext> for &::windows::core::IInspectable {
+    fn from(value: &HotspotAuthenticationContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct HotspotAuthenticationEventDetails(::windows::core::IUnknown);
+impl HotspotAuthenticationEventDetails {
+    pub fn EventToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).EventToken)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for HotspotAuthenticationEventDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HotspotAuthenticationEventDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HotspotAuthenticationEventDetails {}
+impl ::core::fmt::Debug for HotspotAuthenticationEventDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HotspotAuthenticationEventDetails").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationEventDetails {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails;{e756c791-1001-4de5-83c7-de61d88831d0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HotspotAuthenticationEventDetails {
+    type Vtable = IHotspotAuthenticationEventDetails_Vtbl;
+    const IID: ::windows::core::GUID = <IHotspotAuthenticationEventDetails as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HotspotAuthenticationEventDetails {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotAuthenticationEventDetails";
+}
+impl ::core::convert::From<HotspotAuthenticationEventDetails> for ::windows::core::IUnknown {
+    fn from(value: HotspotAuthenticationEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationEventDetails> for ::windows::core::IUnknown {
+    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationEventDetails> for &::windows::core::IUnknown {
+    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HotspotAuthenticationEventDetails> for ::windows::core::IInspectable {
+    fn from(value: HotspotAuthenticationEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationEventDetails> for ::windows::core::IInspectable {
+    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HotspotAuthenticationEventDetails> for &::windows::core::IInspectable {
+    fn from(value: &HotspotAuthenticationEventDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct HotspotCredentialsAuthenticationResult(::windows::core::IUnknown);
+impl HotspotCredentialsAuthenticationResult {
+    pub fn HasNetworkErrorOccurred(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HasNetworkErrorOccurred)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn ResponseCode(&self) -> ::windows::core::Result<HotspotAuthenticationResponseCode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ResponseCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HotspotAuthenticationResponseCode>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn LogoffUrl(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LogoffUrl)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Uri>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Data_Xml_Dom\"`*"]
+    #[cfg(feature = "Data_Xml_Dom")]
+    pub fn AuthenticationReplyXml(&self) -> ::windows::core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AuthenticationReplyXml)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Data::Xml::Dom::XmlDocument>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for HotspotCredentialsAuthenticationResult {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HotspotCredentialsAuthenticationResult {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HotspotCredentialsAuthenticationResult {}
+impl ::core::fmt::Debug for HotspotCredentialsAuthenticationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HotspotCredentialsAuthenticationResult").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HotspotCredentialsAuthenticationResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult;{e756c791-1005-4de5-83c7-de61d88831d0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HotspotCredentialsAuthenticationResult {
+    type Vtable = IHotspotCredentialsAuthenticationResult_Vtbl;
+    const IID: ::windows::core::GUID = <IHotspotCredentialsAuthenticationResult as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HotspotCredentialsAuthenticationResult {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.HotspotCredentialsAuthenticationResult";
+}
+impl ::core::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::core::IUnknown {
+    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::core::IUnknown {
+    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for &::windows::core::IUnknown {
+    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HotspotCredentialsAuthenticationResult> for ::windows::core::IInspectable {
+    fn from(value: HotspotCredentialsAuthenticationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for ::windows::core::IInspectable {
+    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HotspotCredentialsAuthenticationResult> for &::windows::core::IInspectable {
+    fn from(value: &HotspotCredentialsAuthenticationResult) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 pub struct KnownCSimFilePaths;
 impl KnownCSimFilePaths {
     #[doc = "*Required features: `\"Foundation_Collections\"`*"]
@@ -5293,43 +4824,6 @@ impl ::core::convert::From<&MobileBroadbandAccountWatcher> for ::windows::core::
 impl ::core::convert::From<&MobileBroadbandAccountWatcher> for &::windows::core::IInspectable {
     fn from(value: &MobileBroadbandAccountWatcher) -> Self {
         unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandAccountWatcherStatus(pub i32);
-impl MobileBroadbandAccountWatcherStatus {
-    pub const Created: Self = Self(0i32);
-    pub const Started: Self = Self(1i32);
-    pub const EnumerationCompleted: Self = Self(2i32);
-    pub const Stopped: Self = Self(3i32);
-    pub const Aborted: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MobileBroadbandAccountWatcherStatus {}
-impl ::core::clone::Clone for MobileBroadbandAccountWatcherStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandAccountWatcherStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandAccountWatcherStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandAccountWatcherStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandAccountWatcherStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccountWatcherStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
@@ -7348,42 +6842,6 @@ unsafe impl ::core::marker::Send for MobileBroadbandDeviceServiceTriggerDetails 
 unsafe impl ::core::marker::Sync for MobileBroadbandDeviceServiceTriggerDetails {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandDeviceType(pub i32);
-impl MobileBroadbandDeviceType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Embedded: Self = Self(1i32);
-    pub const Removable: Self = Self(2i32);
-    pub const Remote: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandDeviceType {}
-impl ::core::clone::Clone for MobileBroadbandDeviceType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandDeviceType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandDeviceType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandDeviceType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandDeviceType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 pub struct MobileBroadbandModem(::windows::core::IUnknown);
 impl MobileBroadbandModem {
     pub fn CurrentAccount(&self) -> ::windows::core::Result<MobileBroadbandAccount> {
@@ -7804,42 +7262,6 @@ impl ::core::convert::From<&MobileBroadbandModemIsolation> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for MobileBroadbandModemIsolation {}
 unsafe impl ::core::marker::Sync for MobileBroadbandModemIsolation {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandModemStatus(pub i32);
-impl MobileBroadbandModemStatus {
-    pub const Success: Self = Self(0i32);
-    pub const OtherFailure: Self = Self(1i32);
-    pub const Busy: Self = Self(2i32);
-    pub const NoDeviceSupport: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandModemStatus {}
-impl ::core::clone::Clone for MobileBroadbandModemStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandModemStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandModemStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandModemStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandModemStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandModemStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandNetwork(::windows::core::IUnknown);
@@ -8485,77 +7907,6 @@ unsafe impl ::core::marker::Send for MobileBroadbandPin {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPin {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandPinFormat(pub i32);
-impl MobileBroadbandPinFormat {
-    pub const Unknown: Self = Self(0i32);
-    pub const Numeric: Self = Self(1i32);
-    pub const Alphanumeric: Self = Self(2i32);
-}
-impl ::core::marker::Copy for MobileBroadbandPinFormat {}
-impl ::core::clone::Clone for MobileBroadbandPinFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandPinFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandPinFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandPinFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandPinFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandPinLockState(pub i32);
-impl MobileBroadbandPinLockState {
-    pub const Unknown: Self = Self(0i32);
-    pub const Unlocked: Self = Self(1i32);
-    pub const PinRequired: Self = Self(2i32);
-    pub const PinUnblockKeyRequired: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandPinLockState {}
-impl ::core::clone::Clone for MobileBroadbandPinLockState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandPinLockState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandPinLockState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandPinLockState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandPinLockState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 pub struct MobileBroadbandPinLockStateChange(::windows::core::IUnknown);
 impl MobileBroadbandPinLockStateChange {
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -8882,83 +8233,6 @@ impl ::core::convert::From<&MobileBroadbandPinOperationResult> for &::windows::c
 }
 unsafe impl ::core::marker::Send for MobileBroadbandPinOperationResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandPinOperationResult {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandPinType(pub i32);
-impl MobileBroadbandPinType {
-    pub const None: Self = Self(0i32);
-    pub const Custom: Self = Self(1i32);
-    pub const Pin1: Self = Self(2i32);
-    pub const Pin2: Self = Self(3i32);
-    pub const SimPin: Self = Self(4i32);
-    pub const FirstSimPin: Self = Self(5i32);
-    pub const NetworkPin: Self = Self(6i32);
-    pub const NetworkSubsetPin: Self = Self(7i32);
-    pub const ServiceProviderPin: Self = Self(8i32);
-    pub const CorporatePin: Self = Self(9i32);
-    pub const SubsidyLock: Self = Self(10i32);
-}
-impl ::core::marker::Copy for MobileBroadbandPinType {}
-impl ::core::clone::Clone for MobileBroadbandPinType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandPinType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandPinType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandPinType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandPinType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandRadioState(pub i32);
-impl MobileBroadbandRadioState {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MobileBroadbandRadioState {}
-impl ::core::clone::Clone for MobileBroadbandRadioState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandRadioState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandRadioState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandRadioState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandRadioState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandRadioStateChange(::windows::core::IUnknown);
@@ -9598,48 +8872,6 @@ unsafe impl ::core::marker::Send for MobileBroadbandSlotManager {}
 unsafe impl ::core::marker::Sync for MobileBroadbandSlotManager {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandSlotState(pub i32);
-impl MobileBroadbandSlotState {
-    pub const Unmanaged: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const OffEmpty: Self = Self(2i32);
-    pub const Off: Self = Self(3i32);
-    pub const Empty: Self = Self(4i32);
-    pub const NotReady: Self = Self(5i32);
-    pub const Active: Self = Self(6i32);
-    pub const Error: Self = Self(7i32);
-    pub const ActiveEsim: Self = Self(8i32);
-    pub const ActiveEsimNoProfile: Self = Self(9i32);
-}
-impl ::core::marker::Copy for MobileBroadbandSlotState {}
-impl ::core::clone::Clone for MobileBroadbandSlotState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandSlotState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandSlotState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandSlotState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandSlotState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandSlotState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 pub struct MobileBroadbandTransmissionStateChangedEventArgs(::windows::core::IUnknown);
 impl MobileBroadbandTransmissionStateChangedEventArgs {
     pub fn IsTransmitting(&self) -> ::windows::core::Result<bool> {
@@ -9904,42 +9136,6 @@ impl ::core::convert::From<&MobileBroadbandUiccApp> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for MobileBroadbandUiccApp {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccApp {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
-impl MobileBroadbandUiccAppOperationStatus {
-    pub const Success: Self = Self(0i32);
-    pub const InvalidUiccFilePath: Self = Self(1i32);
-    pub const AccessConditionNotHeld: Self = Self(2i32);
-    pub const UiccBusy: Self = Self(3i32);
-}
-impl ::core::marker::Copy for MobileBroadbandUiccAppOperationStatus {}
-impl ::core::clone::Clone for MobileBroadbandUiccAppOperationStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MobileBroadbandUiccAppOperationStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MobileBroadbandUiccAppOperationStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MobileBroadbandUiccAppOperationStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MobileBroadbandUiccAppOperationStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccAppOperationStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct MobileBroadbandUiccAppReadRecordResult(::windows::core::IUnknown);
@@ -10217,79 +9413,6 @@ unsafe impl ::core::marker::Send for MobileBroadbandUiccAppsResult {}
 unsafe impl ::core::marker::Sync for MobileBroadbandUiccAppsResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkDeviceStatus(pub i32);
-impl NetworkDeviceStatus {
-    pub const DeviceNotReady: Self = Self(0i32);
-    pub const DeviceReady: Self = Self(1i32);
-    pub const SimNotInserted: Self = Self(2i32);
-    pub const BadSim: Self = Self(3i32);
-    pub const DeviceHardwareFailure: Self = Self(4i32);
-    pub const AccountNotActivated: Self = Self(5i32);
-    pub const DeviceLocked: Self = Self(6i32);
-    pub const DeviceBlocked: Self = Self(7i32);
-}
-impl ::core::marker::Copy for NetworkDeviceStatus {}
-impl ::core::clone::Clone for NetworkDeviceStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkDeviceStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkDeviceStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkDeviceStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkDeviceStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkDeviceStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
-impl NetworkOperatorDataUsageNotificationKind {
-    pub const DataUsageProgress: Self = Self(0i32);
-}
-impl ::core::marker::Copy for NetworkOperatorDataUsageNotificationKind {}
-impl ::core::clone::Clone for NetworkOperatorDataUsageNotificationKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkOperatorDataUsageNotificationKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkOperatorDataUsageNotificationKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkOperatorDataUsageNotificationKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkOperatorDataUsageNotificationKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageNotificationKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 pub struct NetworkOperatorDataUsageTriggerDetails(::windows::core::IUnknown);
 impl NetworkOperatorDataUsageTriggerDetails {
     pub fn NotificationKind(&self) -> ::windows::core::Result<NetworkOperatorDataUsageNotificationKind> {
@@ -10362,51 +9485,6 @@ impl ::core::convert::From<&NetworkOperatorDataUsageTriggerDetails> for &::windo
 }
 unsafe impl ::core::marker::Send for NetworkOperatorDataUsageTriggerDetails {}
 unsafe impl ::core::marker::Sync for NetworkOperatorDataUsageTriggerDetails {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkOperatorEventMessageType(pub i32);
-impl NetworkOperatorEventMessageType {
-    pub const Gsm: Self = Self(0i32);
-    pub const Cdma: Self = Self(1i32);
-    pub const Ussd: Self = Self(2i32);
-    pub const DataPlanThresholdReached: Self = Self(3i32);
-    pub const DataPlanReset: Self = Self(4i32);
-    pub const DataPlanDeleted: Self = Self(5i32);
-    pub const ProfileConnected: Self = Self(6i32);
-    pub const ProfileDisconnected: Self = Self(7i32);
-    pub const RegisteredRoaming: Self = Self(8i32);
-    pub const RegisteredHome: Self = Self(9i32);
-    pub const TetheringEntitlementCheck: Self = Self(10i32);
-    pub const TetheringOperationalStateChanged: Self = Self(11i32);
-    pub const TetheringNumberOfClientsChanged: Self = Self(12i32);
-}
-impl ::core::marker::Copy for NetworkOperatorEventMessageType {}
-impl ::core::clone::Clone for NetworkOperatorEventMessageType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkOperatorEventMessageType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkOperatorEventMessageType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkOperatorEventMessageType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkOperatorEventMessageType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkOperatorEventMessageType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 pub struct NetworkOperatorNotificationEventDetails(::windows::core::IUnknown);
@@ -11035,126 +10113,6 @@ impl ::core::convert::From<&NetworkOperatorTetheringOperationResult> for &::wind
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct NetworkRegistrationState(pub i32);
-impl NetworkRegistrationState {
-    pub const None: Self = Self(0i32);
-    pub const Deregistered: Self = Self(1i32);
-    pub const Searching: Self = Self(2i32);
-    pub const Home: Self = Self(3i32);
-    pub const Roaming: Self = Self(4i32);
-    pub const Partner: Self = Self(5i32);
-    pub const Denied: Self = Self(6i32);
-}
-impl ::core::marker::Copy for NetworkRegistrationState {}
-impl ::core::clone::Clone for NetworkRegistrationState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for NetworkRegistrationState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for NetworkRegistrationState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for NetworkRegistrationState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("NetworkRegistrationState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for NetworkRegistrationState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ProfileMediaType(pub i32);
-impl ProfileMediaType {
-    pub const Wlan: Self = Self(0i32);
-    pub const Wwan: Self = Self(1i32);
-}
-impl ::core::marker::Copy for ProfileMediaType {}
-impl ::core::clone::Clone for ProfileMediaType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ProfileMediaType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ProfileMediaType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ProfileMediaType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ProfileMediaType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ProfileMediaType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
-#[cfg(feature = "Foundation")]
-pub struct ProfileUsage {
-    pub UsageInMegabytes: u32,
-    pub LastSyncTime: super::super::Foundation::DateTime,
-}
-#[cfg(feature = "Foundation")]
-impl ::core::marker::Copy for ProfileUsage {}
-#[cfg(feature = "Foundation")]
-impl ::core::clone::Clone for ProfileUsage {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::fmt::Debug for ProfileUsage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ProfileUsage").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
-    }
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::Abi for ProfileUsage {
-    type Abi = Self;
-}
-#[cfg(feature = "Foundation")]
-unsafe impl ::windows::core::RuntimeType for ProfileUsage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::PartialEq for ProfileUsage {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ProfileUsage>()) == 0 }
-    }
-}
-#[cfg(feature = "Foundation")]
-impl ::core::cmp::Eq for ProfileUsage {}
-#[cfg(feature = "Foundation")]
-impl ::core::default::Default for ProfileUsage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 pub struct ProvisionFromXmlDocumentResults(::windows::core::IUnknown);
 impl ProvisionFromXmlDocumentResults {
     pub fn AllElementsProvisioned(&self) -> ::windows::core::Result<bool> {
@@ -11410,46 +10368,6 @@ impl ::core::convert::From<&ProvisioningAgent> for &::windows::core::IInspectabl
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TetheringCapability(pub i32);
-impl TetheringCapability {
-    pub const Enabled: Self = Self(0i32);
-    pub const DisabledByGroupPolicy: Self = Self(1i32);
-    pub const DisabledByHardwareLimitation: Self = Self(2i32);
-    pub const DisabledByOperator: Self = Self(3i32);
-    pub const DisabledBySku: Self = Self(4i32);
-    pub const DisabledByRequiredAppNotInstalled: Self = Self(5i32);
-    pub const DisabledDueToUnknownCause: Self = Self(6i32);
-    pub const DisabledBySystemCapability: Self = Self(7i32);
-}
-impl ::core::marker::Copy for TetheringCapability {}
-impl ::core::clone::Clone for TetheringCapability {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TetheringCapability {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TetheringCapability {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TetheringCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TetheringCapability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TetheringCapability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 pub struct TetheringEntitlementCheckTriggerDetails(::windows::core::IUnknown);
 impl TetheringEntitlementCheckTriggerDetails {
     pub fn NetworkAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -11530,6 +10448,1291 @@ impl ::core::convert::From<&TetheringEntitlementCheckTriggerDetails> for &::wind
 }
 unsafe impl ::core::marker::Send for TetheringEntitlementCheckTriggerDetails {}
 unsafe impl ::core::marker::Sync for TetheringEntitlementCheckTriggerDetails {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct UssdMessage(::windows::core::IUnknown);
+impl UssdMessage {
+    pub fn DataCodingScheme(&self) -> ::windows::core::Result<u8> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DataCodingScheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
+        }
+    }
+    pub fn SetDataCodingScheme(&self, value: u8) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDataCodingScheme)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn GetPayload(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetPayload)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+        }
+    }
+    pub fn SetPayload(&self, value: &[u8]) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetPayload)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
+    }
+    pub fn PayloadAsText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PayloadAsText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn SetPayloadAsText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetPayloadAsText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn CreateMessage(messagetext: &::windows::core::HSTRING) -> ::windows::core::Result<UssdMessage> {
+        Self::IUssdMessageFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetext), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<UssdMessage, IUssdMessageFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for UssdMessage {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for UssdMessage {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for UssdMessage {}
+impl ::core::fmt::Debug for UssdMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UssdMessage").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UssdMessage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdMessage;{2f9acf82-2004-4d5d-bf81-2aba1b4be4a8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for UssdMessage {
+    type Vtable = IUssdMessage_Vtbl;
+    const IID: ::windows::core::GUID = <IUssdMessage as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for UssdMessage {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
+}
+impl ::core::convert::From<UssdMessage> for ::windows::core::IUnknown {
+    fn from(value: UssdMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&UssdMessage> for ::windows::core::IUnknown {
+    fn from(value: &UssdMessage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&UssdMessage> for &::windows::core::IUnknown {
+    fn from(value: &UssdMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<UssdMessage> for ::windows::core::IInspectable {
+    fn from(value: UssdMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&UssdMessage> for ::windows::core::IInspectable {
+    fn from(value: &UssdMessage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&UssdMessage> for &::windows::core::IInspectable {
+    fn from(value: &UssdMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for UssdMessage {}
+unsafe impl ::core::marker::Sync for UssdMessage {}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct UssdReply(::windows::core::IUnknown);
+impl UssdReply {
+    pub fn ResultCode(&self) -> ::windows::core::Result<UssdResultCode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ResultCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdResultCode>(result__)
+        }
+    }
+    pub fn Message(&self) -> ::windows::core::Result<UssdMessage> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for UssdReply {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for UssdReply {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for UssdReply {}
+impl ::core::fmt::Debug for UssdReply {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UssdReply").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UssdReply {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdReply;{2f9acf82-2005-4d5d-bf81-2aba1b4be4a8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for UssdReply {
+    type Vtable = IUssdReply_Vtbl;
+    const IID: ::windows::core::GUID = <IUssdReply as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for UssdReply {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
+}
+impl ::core::convert::From<UssdReply> for ::windows::core::IUnknown {
+    fn from(value: UssdReply) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&UssdReply> for ::windows::core::IUnknown {
+    fn from(value: &UssdReply) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&UssdReply> for &::windows::core::IUnknown {
+    fn from(value: &UssdReply) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<UssdReply> for ::windows::core::IInspectable {
+    fn from(value: UssdReply) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&UssdReply> for ::windows::core::IInspectable {
+    fn from(value: &UssdReply) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&UssdReply> for &::windows::core::IInspectable {
+    fn from(value: &UssdReply) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+pub struct UssdSession(::windows::core::IUnknown);
+impl UssdSession {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SendMessageAndGetReplyAsync<'a, P0>(&self, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, UssdMessage>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SendMessageAndGetReplyAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UssdReply>>(result__)
+        }
+    }
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn CreateFromNetworkAccountId(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession> {
+        Self::IUssdSessionStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
+        })
+    }
+    pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession> {
+        Self::IUssdSessionStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromNetworkInterfaceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkinterfaceid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<UssdSession, IUssdSessionStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for UssdSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for UssdSession {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for UssdSession {}
+impl ::core::fmt::Debug for UssdSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UssdSession").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UssdSession {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdSession;{2f9acf82-2002-4d5d-bf81-2aba1b4be4a8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for UssdSession {
+    type Vtable = IUssdSession_Vtbl;
+    const IID: ::windows::core::GUID = <IUssdSession as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for UssdSession {
+    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
+}
+impl ::core::convert::From<UssdSession> for ::windows::core::IUnknown {
+    fn from(value: UssdSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&UssdSession> for ::windows::core::IUnknown {
+    fn from(value: &UssdSession) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&UssdSession> for &::windows::core::IUnknown {
+    fn from(value: &UssdSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<UssdSession> for ::windows::core::IInspectable {
+    fn from(value: UssdSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&UssdSession> for ::windows::core::IInspectable {
+    fn from(value: &UssdSession) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&UssdSession> for &::windows::core::IInspectable {
+    fn from(value: &UssdSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DataClasses(pub u32);
+impl DataClasses {
+    pub const None: Self = Self(0u32);
+    pub const Gprs: Self = Self(1u32);
+    pub const Edge: Self = Self(2u32);
+    pub const Umts: Self = Self(4u32);
+    pub const Hsdpa: Self = Self(8u32);
+    pub const Hsupa: Self = Self(16u32);
+    pub const LteAdvanced: Self = Self(32u32);
+    pub const NewRadioNonStandalone: Self = Self(64u32);
+    pub const NewRadioStandalone: Self = Self(128u32);
+    pub const Cdma1xRtt: Self = Self(65536u32);
+    pub const Cdma1xEvdo: Self = Self(131072u32);
+    pub const Cdma1xEvdoRevA: Self = Self(262144u32);
+    pub const Cdma1xEvdv: Self = Self(524288u32);
+    pub const Cdma3xRtt: Self = Self(1048576u32);
+    pub const Cdma1xEvdoRevB: Self = Self(2097152u32);
+    pub const CdmaUmb: Self = Self(4194304u32);
+    pub const Custom: Self = Self(2147483648u32);
+}
+impl ::core::marker::Copy for DataClasses {}
+impl ::core::clone::Clone for DataClasses {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DataClasses {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DataClasses {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataClasses {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataClasses").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DataClasses {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DataClasses {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DataClasses {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DataClasses {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DataClasses {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DataClasses {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.DataClasses;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimAuthenticationPreference(pub i32);
+impl ESimAuthenticationPreference {
+    pub const OnEntry: Self = Self(0i32);
+    pub const OnAction: Self = Self(1i32);
+    pub const Never: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ESimAuthenticationPreference {}
+impl ::core::clone::Clone for ESimAuthenticationPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimAuthenticationPreference {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimAuthenticationPreference {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimAuthenticationPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimAuthenticationPreference").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimAuthenticationPreference {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimAuthenticationPreference;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimDiscoverResultKind(pub i32);
+impl ESimDiscoverResultKind {
+    pub const None: Self = Self(0i32);
+    pub const Events: Self = Self(1i32);
+    pub const ProfileMetadata: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ESimDiscoverResultKind {}
+impl ::core::clone::Clone for ESimDiscoverResultKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimDiscoverResultKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimDiscoverResultKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimDiscoverResultKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimDiscoverResultKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimDiscoverResultKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimDiscoverResultKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimOperationStatus(pub i32);
+impl ESimOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const NotAuthorized: Self = Self(1i32);
+    pub const NotFound: Self = Self(2i32);
+    pub const PolicyViolation: Self = Self(3i32);
+    pub const InsufficientSpaceOnCard: Self = Self(4i32);
+    pub const ServerFailure: Self = Self(5i32);
+    pub const ServerNotReachable: Self = Self(6i32);
+    pub const TimeoutWaitingForUserConsent: Self = Self(7i32);
+    pub const IncorrectConfirmationCode: Self = Self(8i32);
+    pub const ConfirmationCodeMaxRetriesExceeded: Self = Self(9i32);
+    pub const CardRemoved: Self = Self(10i32);
+    pub const CardBusy: Self = Self(11i32);
+    pub const Other: Self = Self(12i32);
+    pub const CardGeneralFailure: Self = Self(13i32);
+    pub const ConfirmationCodeMissing: Self = Self(14i32);
+    pub const InvalidMatchingId: Self = Self(15i32);
+    pub const NoEligibleProfileForThisDevice: Self = Self(16i32);
+    pub const OperationAborted: Self = Self(17i32);
+    pub const EidMismatch: Self = Self(18i32);
+    pub const ProfileNotAvailableForNewBinding: Self = Self(19i32);
+    pub const ProfileNotReleasedByOperator: Self = Self(20i32);
+    pub const OperationProhibitedByProfileClass: Self = Self(21i32);
+    pub const ProfileNotPresent: Self = Self(22i32);
+    pub const NoCorrespondingRequest: Self = Self(23i32);
+    pub const TimeoutWaitingForResponse: Self = Self(24i32);
+    pub const IccidAlreadyExists: Self = Self(25i32);
+    pub const ProfileProcessingError: Self = Self(26i32);
+    pub const ServerNotTrusted: Self = Self(27i32);
+    pub const ProfileDownloadMaxRetriesExceeded: Self = Self(28i32);
+}
+impl ::core::marker::Copy for ESimOperationStatus {}
+impl ::core::clone::Clone for ESimOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimProfileClass(pub i32);
+impl ESimProfileClass {
+    pub const Operational: Self = Self(0i32);
+    pub const Test: Self = Self(1i32);
+    pub const Provisioning: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ESimProfileClass {}
+impl ::core::clone::Clone for ESimProfileClass {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimProfileClass {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimProfileClass {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimProfileClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimProfileClass").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfileClass {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileClass;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimProfileMetadataState(pub i32);
+impl ESimProfileMetadataState {
+    pub const Unknown: Self = Self(0i32);
+    pub const WaitingForInstall: Self = Self(1i32);
+    pub const Downloading: Self = Self(2i32);
+    pub const Installing: Self = Self(3i32);
+    pub const Expired: Self = Self(4i32);
+    pub const RejectingDownload: Self = Self(5i32);
+    pub const NoLongerAvailable: Self = Self(6i32);
+    pub const DeniedByPolicy: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ESimProfileMetadataState {}
+impl ::core::clone::Clone for ESimProfileMetadataState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimProfileMetadataState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimProfileMetadataState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimProfileMetadataState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimProfileMetadataState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfileMetadataState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileMetadataState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimProfileState(pub i32);
+impl ESimProfileState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Disabled: Self = Self(1i32);
+    pub const Enabled: Self = Self(2i32);
+    pub const Deleted: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ESimProfileState {}
+impl ::core::clone::Clone for ESimProfileState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimProfileState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimProfileState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimProfileState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimProfileState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfileState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimProfileState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimState(pub i32);
+impl ESimState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Idle: Self = Self(1i32);
+    pub const Removed: Self = Self(2i32);
+    pub const Busy: Self = Self(3i32);
+}
+impl ::core::marker::Copy for ESimState {}
+impl ::core::clone::Clone for ESimState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ESimWatcherStatus(pub i32);
+impl ESimWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopping: Self = Self(3i32);
+    pub const Stopped: Self = Self(4i32);
+}
+impl ::core::marker::Copy for ESimWatcherStatus {}
+impl ::core::clone::Clone for ESimWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ESimWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ESimWatcherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ESimWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ESimWatcherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ESimWatcherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HotspotAuthenticationResponseCode(pub i32);
+impl HotspotAuthenticationResponseCode {
+    pub const NoError: Self = Self(0i32);
+    pub const LoginSucceeded: Self = Self(50i32);
+    pub const LoginFailed: Self = Self(100i32);
+    pub const RadiusServerError: Self = Self(102i32);
+    pub const NetworkAdministratorError: Self = Self(105i32);
+    pub const LoginAborted: Self = Self(151i32);
+    pub const AccessGatewayInternalError: Self = Self(255i32);
+}
+impl ::core::marker::Copy for HotspotAuthenticationResponseCode {}
+impl ::core::clone::Clone for HotspotAuthenticationResponseCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HotspotAuthenticationResponseCode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HotspotAuthenticationResponseCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HotspotAuthenticationResponseCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HotspotAuthenticationResponseCode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HotspotAuthenticationResponseCode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.HotspotAuthenticationResponseCode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandAccountWatcherStatus(pub i32);
+impl MobileBroadbandAccountWatcherStatus {
+    pub const Created: Self = Self(0i32);
+    pub const Started: Self = Self(1i32);
+    pub const EnumerationCompleted: Self = Self(2i32);
+    pub const Stopped: Self = Self(3i32);
+    pub const Aborted: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MobileBroadbandAccountWatcherStatus {}
+impl ::core::clone::Clone for MobileBroadbandAccountWatcherStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandAccountWatcherStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandAccountWatcherStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandAccountWatcherStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandAccountWatcherStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandAccountWatcherStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandAccountWatcherStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandDeviceType(pub i32);
+impl MobileBroadbandDeviceType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Embedded: Self = Self(1i32);
+    pub const Removable: Self = Self(2i32);
+    pub const Remote: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandDeviceType {}
+impl ::core::clone::Clone for MobileBroadbandDeviceType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandDeviceType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandDeviceType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandDeviceType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandDeviceType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandDeviceType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandModemStatus(pub i32);
+impl MobileBroadbandModemStatus {
+    pub const Success: Self = Self(0i32);
+    pub const OtherFailure: Self = Self(1i32);
+    pub const Busy: Self = Self(2i32);
+    pub const NoDeviceSupport: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandModemStatus {}
+impl ::core::clone::Clone for MobileBroadbandModemStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandModemStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandModemStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandModemStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandModemStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandModemStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandModemStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandPinFormat(pub i32);
+impl MobileBroadbandPinFormat {
+    pub const Unknown: Self = Self(0i32);
+    pub const Numeric: Self = Self(1i32);
+    pub const Alphanumeric: Self = Self(2i32);
+}
+impl ::core::marker::Copy for MobileBroadbandPinFormat {}
+impl ::core::clone::Clone for MobileBroadbandPinFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandPinFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandPinFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandPinFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandPinFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandPinLockState(pub i32);
+impl MobileBroadbandPinLockState {
+    pub const Unknown: Self = Self(0i32);
+    pub const Unlocked: Self = Self(1i32);
+    pub const PinRequired: Self = Self(2i32);
+    pub const PinUnblockKeyRequired: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandPinLockState {}
+impl ::core::clone::Clone for MobileBroadbandPinLockState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandPinLockState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandPinLockState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandPinLockState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandPinLockState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinLockState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandPinType(pub i32);
+impl MobileBroadbandPinType {
+    pub const None: Self = Self(0i32);
+    pub const Custom: Self = Self(1i32);
+    pub const Pin1: Self = Self(2i32);
+    pub const Pin2: Self = Self(3i32);
+    pub const SimPin: Self = Self(4i32);
+    pub const FirstSimPin: Self = Self(5i32);
+    pub const NetworkPin: Self = Self(6i32);
+    pub const NetworkSubsetPin: Self = Self(7i32);
+    pub const ServiceProviderPin: Self = Self(8i32);
+    pub const CorporatePin: Self = Self(9i32);
+    pub const SubsidyLock: Self = Self(10i32);
+}
+impl ::core::marker::Copy for MobileBroadbandPinType {}
+impl ::core::clone::Clone for MobileBroadbandPinType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandPinType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandPinType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandPinType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandPinType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandPinType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandRadioState(pub i32);
+impl MobileBroadbandRadioState {
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MobileBroadbandRadioState {}
+impl ::core::clone::Clone for MobileBroadbandRadioState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandRadioState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandRadioState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandRadioState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandRadioState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandRadioState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandSlotState(pub i32);
+impl MobileBroadbandSlotState {
+    pub const Unmanaged: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const OffEmpty: Self = Self(2i32);
+    pub const Off: Self = Self(3i32);
+    pub const Empty: Self = Self(4i32);
+    pub const NotReady: Self = Self(5i32);
+    pub const Active: Self = Self(6i32);
+    pub const Error: Self = Self(7i32);
+    pub const ActiveEsim: Self = Self(8i32);
+    pub const ActiveEsimNoProfile: Self = Self(9i32);
+}
+impl ::core::marker::Copy for MobileBroadbandSlotState {}
+impl ::core::clone::Clone for MobileBroadbandSlotState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandSlotState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandSlotState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandSlotState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandSlotState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandSlotState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandSlotState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MobileBroadbandUiccAppOperationStatus(pub i32);
+impl MobileBroadbandUiccAppOperationStatus {
+    pub const Success: Self = Self(0i32);
+    pub const InvalidUiccFilePath: Self = Self(1i32);
+    pub const AccessConditionNotHeld: Self = Self(2i32);
+    pub const UiccBusy: Self = Self(3i32);
+}
+impl ::core::marker::Copy for MobileBroadbandUiccAppOperationStatus {}
+impl ::core::clone::Clone for MobileBroadbandUiccAppOperationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MobileBroadbandUiccAppOperationStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MobileBroadbandUiccAppOperationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MobileBroadbandUiccAppOperationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandUiccAppOperationStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MobileBroadbandUiccAppOperationStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.MobileBroadbandUiccAppOperationStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkDeviceStatus(pub i32);
+impl NetworkDeviceStatus {
+    pub const DeviceNotReady: Self = Self(0i32);
+    pub const DeviceReady: Self = Self(1i32);
+    pub const SimNotInserted: Self = Self(2i32);
+    pub const BadSim: Self = Self(3i32);
+    pub const DeviceHardwareFailure: Self = Self(4i32);
+    pub const AccountNotActivated: Self = Self(5i32);
+    pub const DeviceLocked: Self = Self(6i32);
+    pub const DeviceBlocked: Self = Self(7i32);
+}
+impl ::core::marker::Copy for NetworkDeviceStatus {}
+impl ::core::clone::Clone for NetworkDeviceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkDeviceStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkDeviceStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkDeviceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkDeviceStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkDeviceStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkDeviceStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkOperatorDataUsageNotificationKind(pub i32);
+impl NetworkOperatorDataUsageNotificationKind {
+    pub const DataUsageProgress: Self = Self(0i32);
+}
+impl ::core::marker::Copy for NetworkOperatorDataUsageNotificationKind {}
+impl ::core::clone::Clone for NetworkOperatorDataUsageNotificationKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkOperatorDataUsageNotificationKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkOperatorDataUsageNotificationKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkOperatorDataUsageNotificationKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkOperatorDataUsageNotificationKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageNotificationKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorDataUsageNotificationKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkOperatorEventMessageType(pub i32);
+impl NetworkOperatorEventMessageType {
+    pub const Gsm: Self = Self(0i32);
+    pub const Cdma: Self = Self(1i32);
+    pub const Ussd: Self = Self(2i32);
+    pub const DataPlanThresholdReached: Self = Self(3i32);
+    pub const DataPlanReset: Self = Self(4i32);
+    pub const DataPlanDeleted: Self = Self(5i32);
+    pub const ProfileConnected: Self = Self(6i32);
+    pub const ProfileDisconnected: Self = Self(7i32);
+    pub const RegisteredRoaming: Self = Self(8i32);
+    pub const RegisteredHome: Self = Self(9i32);
+    pub const TetheringEntitlementCheck: Self = Self(10i32);
+    pub const TetheringOperationalStateChanged: Self = Self(11i32);
+    pub const TetheringNumberOfClientsChanged: Self = Self(12i32);
+}
+impl ::core::marker::Copy for NetworkOperatorEventMessageType {}
+impl ::core::clone::Clone for NetworkOperatorEventMessageType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkOperatorEventMessageType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkOperatorEventMessageType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkOperatorEventMessageType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkOperatorEventMessageType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkOperatorEventMessageType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkOperatorEventMessageType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct NetworkRegistrationState(pub i32);
+impl NetworkRegistrationState {
+    pub const None: Self = Self(0i32);
+    pub const Deregistered: Self = Self(1i32);
+    pub const Searching: Self = Self(2i32);
+    pub const Home: Self = Self(3i32);
+    pub const Roaming: Self = Self(4i32);
+    pub const Partner: Self = Self(5i32);
+    pub const Denied: Self = Self(6i32);
+}
+impl ::core::marker::Copy for NetworkRegistrationState {}
+impl ::core::clone::Clone for NetworkRegistrationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for NetworkRegistrationState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for NetworkRegistrationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NetworkRegistrationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkRegistrationState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for NetworkRegistrationState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.NetworkRegistrationState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ProfileMediaType(pub i32);
+impl ProfileMediaType {
+    pub const Wlan: Self = Self(0i32);
+    pub const Wwan: Self = Self(1i32);
+}
+impl ::core::marker::Copy for ProfileMediaType {}
+impl ::core::clone::Clone for ProfileMediaType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ProfileMediaType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ProfileMediaType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ProfileMediaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProfileMediaType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ProfileMediaType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ProfileMediaType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TetheringCapability(pub i32);
+impl TetheringCapability {
+    pub const Enabled: Self = Self(0i32);
+    pub const DisabledByGroupPolicy: Self = Self(1i32);
+    pub const DisabledByHardwareLimitation: Self = Self(2i32);
+    pub const DisabledByOperator: Self = Self(3i32);
+    pub const DisabledBySku: Self = Self(4i32);
+    pub const DisabledByRequiredAppNotInstalled: Self = Self(5i32);
+    pub const DisabledDueToUnknownCause: Self = Self(6i32);
+    pub const DisabledBySystemCapability: Self = Self(7i32);
+}
+impl ::core::marker::Copy for TetheringCapability {}
+impl ::core::clone::Clone for TetheringCapability {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TetheringCapability {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TetheringCapability {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TetheringCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TetheringCapability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TetheringCapability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.TetheringCapability;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -11758,196 +11961,6 @@ unsafe impl ::windows::core::RuntimeType for UiccAppRecordKind {
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
 #[repr(transparent)]
-pub struct UssdMessage(::windows::core::IUnknown);
-impl UssdMessage {
-    pub fn DataCodingScheme(&self) -> ::windows::core::Result<u8> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DataCodingScheme)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
-        }
-    }
-    pub fn SetDataCodingScheme(&self, value: u8) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDataCodingScheme)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn GetPayload(&self) -> ::windows::core::Result<::windows::core::Array<u8>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetPayload)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<u8>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
-        }
-    }
-    pub fn SetPayload(&self, value: &[u8]) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayload)(::windows::core::Interface::as_raw(this), value.len() as u32, value.as_ptr()).ok() }
-    }
-    pub fn PayloadAsText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PayloadAsText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn SetPayloadAsText(&self, value: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPayloadAsText)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn CreateMessage(messagetext: &::windows::core::HSTRING) -> ::windows::core::Result<UssdMessage> {
-        Self::IUssdMessageFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMessage)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(messagetext), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IUssdMessageFactory<R, F: FnOnce(&IUssdMessageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UssdMessage, IUssdMessageFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for UssdMessage {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UssdMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UssdMessage {}
-impl ::core::fmt::Debug for UssdMessage {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UssdMessage").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UssdMessage {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdMessage;{2f9acf82-2004-4d5d-bf81-2aba1b4be4a8})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for UssdMessage {
-    type Vtable = IUssdMessage_Vtbl;
-    const IID: ::windows::core::GUID = <IUssdMessage as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for UssdMessage {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdMessage";
-}
-impl ::core::convert::From<UssdMessage> for ::windows::core::IUnknown {
-    fn from(value: UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdMessage> for ::windows::core::IUnknown {
-    fn from(value: &UssdMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdMessage> for &::windows::core::IUnknown {
-    fn from(value: &UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UssdMessage> for ::windows::core::IInspectable {
-    fn from(value: UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdMessage> for ::windows::core::IInspectable {
-    fn from(value: &UssdMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdMessage> for &::windows::core::IInspectable {
-    fn from(value: &UssdMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for UssdMessage {}
-unsafe impl ::core::marker::Sync for UssdMessage {}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct UssdReply(::windows::core::IUnknown);
-impl UssdReply {
-    pub fn ResultCode(&self) -> ::windows::core::Result<UssdResultCode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ResultCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdResultCode>(result__)
-        }
-    }
-    pub fn Message(&self) -> ::windows::core::Result<UssdMessage> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UssdMessage>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for UssdReply {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for UssdReply {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UssdReply {}
-impl ::core::fmt::Debug for UssdReply {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UssdReply").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UssdReply {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdReply;{2f9acf82-2005-4d5d-bf81-2aba1b4be4a8})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for UssdReply {
-    type Vtable = IUssdReply_Vtbl;
-    const IID: ::windows::core::GUID = <IUssdReply as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for UssdReply {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdReply";
-}
-impl ::core::convert::From<UssdReply> for ::windows::core::IUnknown {
-    fn from(value: UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdReply> for ::windows::core::IUnknown {
-    fn from(value: &UssdReply) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdReply> for &::windows::core::IUnknown {
-    fn from(value: &UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<UssdReply> for ::windows::core::IInspectable {
-    fn from(value: UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&UssdReply> for ::windows::core::IInspectable {
-    fn from(value: &UssdReply) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&UssdReply> for &::windows::core::IInspectable {
-    fn from(value: &UssdReply) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UssdResultCode(pub i32);
 impl UssdResultCode {
@@ -11984,102 +11997,89 @@ unsafe impl ::windows::core::RuntimeType for UssdResultCode {
         Ok(*from)
     }
 }
+#[repr(C)]
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-#[repr(transparent)]
-pub struct UssdSession(::windows::core::IUnknown);
-impl UssdSession {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SendMessageAndGetReplyAsync<'a, P0>(&self, message: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UssdReply>>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, UssdMessage>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendMessageAndGetReplyAsync)(::windows::core::Interface::as_raw(this), message.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<UssdReply>>(result__)
-        }
-    }
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn CreateFromNetworkAccountId(networkaccountid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession> {
-        Self::IUssdSessionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkAccountId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkaccountid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
-        })
-    }
-    pub fn CreateFromNetworkInterfaceId(networkinterfaceid: &::windows::core::HSTRING) -> ::windows::core::Result<UssdSession> {
-        Self::IUssdSessionStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromNetworkInterfaceId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(networkinterfaceid), result__.as_mut_ptr()).from_abi::<UssdSession>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IUssdSessionStatics<R, F: FnOnce(&IUssdSessionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<UssdSession, IUssdSessionStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
+pub struct ESimProfileInstallProgress {
+    pub TotalSizeInBytes: i32,
+    pub InstalledSizeInBytes: i32,
 }
-impl ::core::clone::Clone for UssdSession {
+impl ::core::marker::Copy for ESimProfileInstallProgress {}
+impl ::core::clone::Clone for ESimProfileInstallProgress {
     fn clone(&self) -> Self {
-        Self(self.0.clone())
+        *self
     }
 }
-impl ::core::cmp::PartialEq for UssdSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UssdSession {}
-impl ::core::fmt::Debug for UssdSession {
+impl ::core::fmt::Debug for ESimProfileInstallProgress {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UssdSession").field(&self.0).finish()
+        f.debug_struct("ESimProfileInstallProgress").field("TotalSizeInBytes", &self.TotalSizeInBytes).field("InstalledSizeInBytes", &self.InstalledSizeInBytes).finish()
     }
 }
-unsafe impl ::windows::core::RuntimeType for UssdSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.NetworkOperators.UssdSession;{2f9acf82-2002-4d5d-bf81-2aba1b4be4a8})");
-    type DefaultType = ::core::option::Option<Self>;
+unsafe impl ::windows::core::Abi for ESimProfileInstallProgress {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for ESimProfileInstallProgress {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ESimProfileInstallProgress;i4;i4)");
+    type DefaultType = Self;
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+        Ok(*from)
     }
 }
-unsafe impl ::windows::core::Interface for UssdSession {
-    type Vtable = IUssdSession_Vtbl;
-    const IID: ::windows::core::GUID = <IUssdSession as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for UssdSession {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.UssdSession";
-}
-impl ::core::convert::From<UssdSession> for ::windows::core::IUnknown {
-    fn from(value: UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+impl ::core::cmp::PartialEq for ESimProfileInstallProgress {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ESimProfileInstallProgress>()) == 0 }
     }
 }
-impl ::core::convert::From<&UssdSession> for ::windows::core::IUnknown {
-    fn from(value: &UssdSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+impl ::core::cmp::Eq for ESimProfileInstallProgress {}
+impl ::core::default::Default for ESimProfileInstallProgress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::convert::From<&UssdSession> for &::windows::core::IUnknown {
-    fn from(value: &UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+#[repr(C)]
+#[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
+#[cfg(feature = "Foundation")]
+pub struct ProfileUsage {
+    pub UsageInMegabytes: u32,
+    pub LastSyncTime: super::super::Foundation::DateTime,
+}
+#[cfg(feature = "Foundation")]
+impl ::core::marker::Copy for ProfileUsage {}
+#[cfg(feature = "Foundation")]
+impl ::core::clone::Clone for ProfileUsage {
+    fn clone(&self) -> Self {
+        *self
     }
 }
-impl ::core::convert::From<UssdSession> for ::windows::core::IInspectable {
-    fn from(value: UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+#[cfg(feature = "Foundation")]
+impl ::core::fmt::Debug for ProfileUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ProfileUsage").field("UsageInMegabytes", &self.UsageInMegabytes).field("LastSyncTime", &self.LastSyncTime).finish()
     }
 }
-impl ::core::convert::From<&UssdSession> for ::windows::core::IInspectable {
-    fn from(value: &UssdSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::Abi for ProfileUsage {
+    type Abi = Self;
+}
+#[cfg(feature = "Foundation")]
+unsafe impl ::windows::core::RuntimeType for ProfileUsage {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Networking.NetworkOperators.ProfileUsage;u4;struct(Windows.Foundation.DateTime;i8))");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
     }
 }
-impl ::core::convert::From<&UssdSession> for &::windows::core::IInspectable {
-    fn from(value: &UssdSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::PartialEq for ProfileUsage {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ProfileUsage>()) == 0 }
+    }
+}
+#[cfg(feature = "Foundation")]
+impl ::core::cmp::Eq for ProfileUsage {}
+#[cfg(feature = "Foundation")]
+impl ::core::default::Default for ProfileUsage {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

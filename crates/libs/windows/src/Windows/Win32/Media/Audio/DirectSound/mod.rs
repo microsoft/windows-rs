@@ -1,1523 +1,3 @@
-pub const CLSID_DirectSound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47d4d946_62e8_11cf_93bc_444553540000);
-pub const CLSID_DirectSound8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3901cc3f_84b5_4fa4_ba35_aa8172b8a09b);
-pub const CLSID_DirectSoundCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210780_89cd_11d0_af08_00a0c925cd16);
-pub const CLSID_DirectSoundCapture8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4bcac13_7f99_4908_9a8e_74e3bf24b6e1);
-pub const CLSID_DirectSoundFullDuplex: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea4300c_7959_4147_b26a_2377b9e7a91d);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DIRECTSOUND_VERSION: u32 = 1792u32;
-pub const DS3DALG_HRTF_FULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2413340_1c1b_11d2_94f5_00c04fc28aca);
-pub const DS3DALG_HRTF_LIGHT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2413342_1c1b_11d2_94f5_00c04fc28aca);
-pub const DS3DALG_NO_VIRTUALIZATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-pub struct DS3DBUFFER {
-    pub dwSize: u32,
-    pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub vVelocity: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub dwInsideConeAngle: u32,
-    pub dwOutsideConeAngle: u32,
-    pub vConeOrientation: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub lConeOutsideVolume: i32,
-    pub flMinDistance: f32,
-    pub flMaxDistance: f32,
-    pub dwMode: u32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::marker::Copy for DS3DBUFFER {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::clone::Clone for DS3DBUFFER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::fmt::Debug for DS3DBUFFER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS3DBUFFER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("dwInsideConeAngle", &self.dwInsideConeAngle).field("dwOutsideConeAngle", &self.dwOutsideConeAngle).field("vConeOrientation", &self.vConeOrientation).field("lConeOutsideVolume", &self.lConeOutsideVolume).field("flMinDistance", &self.flMinDistance).field("flMaxDistance", &self.flMaxDistance).field("dwMode", &self.dwMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for DS3DBUFFER {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::cmp::PartialEq for DS3DBUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DBUFFER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::cmp::Eq for DS3DBUFFER {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::default::Default for DS3DBUFFER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`*"]
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-pub struct DS3DLISTENER {
-    pub dwSize: u32,
-    pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub vVelocity: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub vOrientFront: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub vOrientTop: super::super::super::Graphics::Direct3D::D3DVECTOR,
-    pub flDistanceFactor: f32,
-    pub flRolloffFactor: f32,
-    pub flDopplerFactor: f32,
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::marker::Copy for DS3DLISTENER {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::clone::Clone for DS3DLISTENER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::fmt::Debug for DS3DLISTENER {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DS3DLISTENER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("vOrientFront", &self.vOrientFront).field("vOrientTop", &self.vOrientTop).field("flDistanceFactor", &self.flDistanceFactor).field("flRolloffFactor", &self.flRolloffFactor).field("flDopplerFactor", &self.flDopplerFactor).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-unsafe impl ::windows::core::Abi for DS3DLISTENER {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::cmp::PartialEq for DS3DLISTENER {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DLISTENER>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::cmp::Eq for DS3DLISTENER {}
-#[cfg(feature = "Win32_Graphics_Direct3D")]
-impl ::core::default::Default for DS3DLISTENER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3DMODE_DISABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3DMODE_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTCONEANGLE: u32 = 360u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTCONEOUTSIDEVOLUME: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTDISTANCEFACTOR: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTDOPPLERFACTOR: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTMAXDISTANCE: f32 = 1000000000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTMINDISTANCE: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFAULTROLLOFFFACTOR: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_DEFERRED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_IMMEDIATE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_MAXCONEANGLE: u32 = 360u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_MAXDOPPLERFACTOR: f32 = 10f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_MAXROLLOFFFACTOR: f32 = 10f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_MINCONEANGLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSBCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwUnlockTransferRate: u32,
-    pub dwPlayCpuOverhead: u32,
-}
-impl ::core::marker::Copy for DSBCAPS {}
-impl ::core::clone::Clone for DSBCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSBCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwUnlockTransferRate", &self.dwUnlockTransferRate).field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSBCAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSBCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSBCAPS {}
-impl ::core::default::Default for DSBCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_CTRL3D: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_CTRLFX: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_CTRLPAN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_CTRLPOSITIONNOTIFY: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_CTRLVOLUME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_GETCURRENTPOSITION2: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_GLOBALFOCUS: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_LOCDEFER: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_LOCHARDWARE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_LOCSOFTWARE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_MUTE3DATMAXDISTANCE: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_PRIMARYBUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_STATIC: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_STICKYFOCUS: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBCAPS_TRUEPLAYPOSITION: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBFREQUENCY_MAX: u32 = 200000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBFREQUENCY_MIN: u32 = 100u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBFREQUENCY_ORIGINAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBLOCK_ENTIREBUFFER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBLOCK_FROMWRITECURSOR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBNOTIFICATIONS_MAX: u32 = 100000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPAN_CENTER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPAN_LEFT: i32 = -10000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPAN_RIGHT: u32 = 10000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPLAY_LOCHARDWARE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPLAY_LOCSOFTWARE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPLAY_LOOPING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPLAY_TERMINATEBY_DISTANCE: u64 = 16u64;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSBPOSITIONNOTIFY {
-    pub dwOffset: u32,
-    pub hEventNotify: super::super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSBPOSITIONNOTIFY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSBPOSITIONNOTIFY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSBPOSITIONNOTIFY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBPOSITIONNOTIFY").field("dwOffset", &self.dwOffset).field("hEventNotify", &self.hEventNotify).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSBPOSITIONNOTIFY {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSBPOSITIONNOTIFY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBPOSITIONNOTIFY>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSBPOSITIONNOTIFY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSBPOSITIONNOTIFY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSIZE_FX_MIN: u32 = 150u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSIZE_MAX: u32 = 268435455u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSIZE_MIN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSTATUS_BUFFERLOST: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSTATUS_LOCHARDWARE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSTATUS_LOCSOFTWARE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSTATUS_LOOPING: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSTATUS_PLAYING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBSTATUS_TERMINATED: u32 = 32u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSBUFFERDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
-    pub lpwfxFormat: *mut super::WAVEFORMATEX,
-    pub guid3DAlgorithm: ::windows::core::GUID,
-}
-impl ::core::marker::Copy for DSBUFFERDESC {}
-impl ::core::clone::Clone for DSBUFFERDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSBUFFERDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("guid3DAlgorithm", &self.guid3DAlgorithm).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSBUFFERDESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSBUFFERDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBUFFERDESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSBUFFERDESC {}
-impl ::core::default::Default for DSBUFFERDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSBUFFERDESC1 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
-    pub lpwfxFormat: *mut super::WAVEFORMATEX,
-}
-impl ::core::marker::Copy for DSBUFFERDESC1 {}
-impl ::core::clone::Clone for DSBUFFERDESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSBUFFERDESC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSBUFFERDESC1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSBUFFERDESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBUFFERDESC1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSBUFFERDESC1 {}
-impl ::core::default::Default for DSBUFFERDESC1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBVOLUME_MAX: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSBVOLUME_MIN: i32 = -10000i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwMinSecondarySampleRate: u32,
-    pub dwMaxSecondarySampleRate: u32,
-    pub dwPrimaryBuffers: u32,
-    pub dwMaxHwMixingAllBuffers: u32,
-    pub dwMaxHwMixingStaticBuffers: u32,
-    pub dwMaxHwMixingStreamingBuffers: u32,
-    pub dwFreeHwMixingAllBuffers: u32,
-    pub dwFreeHwMixingStaticBuffers: u32,
-    pub dwFreeHwMixingStreamingBuffers: u32,
-    pub dwMaxHw3DAllBuffers: u32,
-    pub dwMaxHw3DStaticBuffers: u32,
-    pub dwMaxHw3DStreamingBuffers: u32,
-    pub dwFreeHw3DAllBuffers: u32,
-    pub dwFreeHw3DStaticBuffers: u32,
-    pub dwFreeHw3DStreamingBuffers: u32,
-    pub dwTotalHwMemBytes: u32,
-    pub dwFreeHwMemBytes: u32,
-    pub dwMaxContigFreeHwMemBytes: u32,
-    pub dwUnlockTransferRateHwBuffers: u32,
-    pub dwPlayCpuOverheadSwBuffers: u32,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for DSCAPS {}
-impl ::core::clone::Clone for DSCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwMinSecondarySampleRate", &self.dwMinSecondarySampleRate)
-            .field("dwMaxSecondarySampleRate", &self.dwMaxSecondarySampleRate)
-            .field("dwPrimaryBuffers", &self.dwPrimaryBuffers)
-            .field("dwMaxHwMixingAllBuffers", &self.dwMaxHwMixingAllBuffers)
-            .field("dwMaxHwMixingStaticBuffers", &self.dwMaxHwMixingStaticBuffers)
-            .field("dwMaxHwMixingStreamingBuffers", &self.dwMaxHwMixingStreamingBuffers)
-            .field("dwFreeHwMixingAllBuffers", &self.dwFreeHwMixingAllBuffers)
-            .field("dwFreeHwMixingStaticBuffers", &self.dwFreeHwMixingStaticBuffers)
-            .field("dwFreeHwMixingStreamingBuffers", &self.dwFreeHwMixingStreamingBuffers)
-            .field("dwMaxHw3DAllBuffers", &self.dwMaxHw3DAllBuffers)
-            .field("dwMaxHw3DStaticBuffers", &self.dwMaxHw3DStaticBuffers)
-            .field("dwMaxHw3DStreamingBuffers", &self.dwMaxHw3DStreamingBuffers)
-            .field("dwFreeHw3DAllBuffers", &self.dwFreeHw3DAllBuffers)
-            .field("dwFreeHw3DStaticBuffers", &self.dwFreeHw3DStaticBuffers)
-            .field("dwFreeHw3DStreamingBuffers", &self.dwFreeHw3DStreamingBuffers)
-            .field("dwTotalHwMemBytes", &self.dwTotalHwMemBytes)
-            .field("dwFreeHwMemBytes", &self.dwFreeHwMemBytes)
-            .field("dwMaxContigFreeHwMemBytes", &self.dwMaxContigFreeHwMemBytes)
-            .field("dwUnlockTransferRateHwBuffers", &self.dwUnlockTransferRateHwBuffers)
-            .field("dwPlayCpuOverheadSwBuffers", &self.dwPlayCpuOverheadSwBuffers)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCAPS {}
-impl ::core::default::Default for DSCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_CERTIFIED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_EMULDRIVER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_PRIMARY16BIT: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_PRIMARY8BIT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_PRIMARYMONO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_PRIMARYSTEREO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_SECONDARY16BIT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSCBCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
-}
-impl ::core::marker::Copy for DSCBCAPS {}
-impl ::core::clone::Clone for DSCBCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCBCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCBCAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCBCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCBCAPS {}
-impl ::core::default::Default for DSCBCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCBCAPS_CTRLFX: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCBLOCK_ENTIREBUFFER: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCBSTART_LOOPING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCBSTATUS_CAPTURING: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCBSTATUS_LOOPING: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSCBUFFERDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
-    pub lpwfxFormat: *mut super::WAVEFORMATEX,
-    pub dwFXCount: u32,
-    pub lpDSCFXDesc: *mut DSCEFFECTDESC,
-}
-impl ::core::marker::Copy for DSCBUFFERDESC {}
-impl ::core::clone::Clone for DSCBUFFERDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCBUFFERDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("dwFXCount", &self.dwFXCount).field("lpDSCFXDesc", &self.lpDSCFXDesc).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCBUFFERDESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCBUFFERDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBUFFERDESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCBUFFERDESC {}
-impl ::core::default::Default for DSCBUFFERDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSCBUFFERDESC1 {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwBufferBytes: u32,
-    pub dwReserved: u32,
-    pub lpwfxFormat: *mut super::WAVEFORMATEX,
-}
-impl ::core::marker::Copy for DSCBUFFERDESC1 {}
-impl ::core::clone::Clone for DSCBUFFERDESC1 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCBUFFERDESC1 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCBUFFERDESC1 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCBUFFERDESC1 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBUFFERDESC1>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCBUFFERDESC1 {}
-impl ::core::default::Default for DSCBUFFERDESC1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSCCAPS {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub dwFormats: u32,
-    pub dwChannels: u32,
-}
-impl ::core::marker::Copy for DSCCAPS {}
-impl ::core::clone::Clone for DSCCAPS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCCAPS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFormats", &self.dwFormats).field("dwChannels", &self.dwChannels).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCCAPS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCCAPS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCCAPS {}
-impl ::core::default::Default for DSCCAPS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCCAPS_CERTIFIED: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSCEFFECTDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub guidDSCFXClass: ::windows::core::GUID,
-    pub guidDSCFXInstance: ::windows::core::GUID,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-}
-impl ::core::marker::Copy for DSCEFFECTDESC {}
-impl ::core::clone::Clone for DSCEFFECTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSCEFFECTDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSCFXClass", &self.guidDSCFXClass).field("guidDSCFXInstance", &self.guidDSCFXInstance).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSCEFFECTDESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSCEFFECTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCEFFECTDESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSCEFFECTDESC {}
-impl ::core::default::Default for DSCEFFECTDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSCFXAec {
-    pub fEnable: super::super::super::Foundation::BOOL,
-    pub fNoiseFill: super::super::super::Foundation::BOOL,
-    pub dwMode: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSCFXAec {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSCFXAec {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSCFXAec {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCFXAec").field("fEnable", &self.fEnable).field("fNoiseFill", &self.fNoiseFill).field("dwMode", &self.dwMode).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSCFXAec {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSCFXAec {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCFXAec>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSCFXAec {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSCFXAec {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DSCFXNoiseSuppress {
-    pub fEnable: super::super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DSCFXNoiseSuppress {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DSCFXNoiseSuppress {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DSCFXNoiseSuppress {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSCFXNoiseSuppress").field("fEnable", &self.fEnable).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DSCFXNoiseSuppress {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DSCFXNoiseSuppress {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCFXNoiseSuppress>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DSCFXNoiseSuppress {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DSCFXNoiseSuppress {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_MODE_HALF_DUPLEX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_MODE_PASS_THROUGH: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_LOCHARDWARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSCFX_LOCSOFTWARE: u32 = 2u32;
-pub const DSDEVID_DefaultCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00001_9c6d_47ed_aaf1_4dda8f2b5c03);
-pub const DSDEVID_DefaultPlayback: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00000_9c6d_47ed_aaf1_4dda8f2b5c03);
-pub const DSDEVID_DefaultVoiceCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
-pub const DSDEVID_DefaultVoicePlayback: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSEFFECTDESC {
-    pub dwSize: u32,
-    pub dwFlags: u32,
-    pub guidDSFXClass: ::windows::core::GUID,
-    pub dwReserved1: usize,
-    pub dwReserved2: usize,
-}
-impl ::core::marker::Copy for DSEFFECTDESC {}
-impl ::core::clone::Clone for DSEFFECTDESC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSEFFECTDESC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSFXClass", &self.guidDSFXClass).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSEFFECTDESC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSEFFECTDESC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSEFFECTDESC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSEFFECTDESC {}
-impl ::core::default::Default for DSEFFECTDESC {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_DEPTH_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_DEPTH_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_FEEDBACK_MAX: f32 = 99f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_FEEDBACK_MIN: f32 = -99f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_FREQUENCY_MAX: f32 = 10f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_FREQUENCY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_180: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_90: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_MAX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_MIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_NEG_180: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_NEG_90: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_PHASE_ZERO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_WAVE_SIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_WAVE_TRIANGLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_WETDRYMIX_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCHORUS_WETDRYMIX_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_ATTACK_MAX: f32 = 500f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_ATTACK_MIN: f32 = 0.01f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_GAIN_MAX: f32 = 60f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_GAIN_MIN: f32 = -60f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_PREDELAY_MAX: f32 = 4f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_PREDELAY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_RATIO_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_RATIO_MIN: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_RELEASE_MAX: f32 = 3000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXChorus {
-    pub fWetDryMix: f32,
-    pub fDepth: f32,
-    pub fFeedback: f32,
-    pub fFrequency: f32,
-    pub lWaveform: i32,
-    pub fDelay: f32,
-    pub lPhase: i32,
-}
-impl ::core::marker::Copy for DSFXChorus {}
-impl ::core::clone::Clone for DSFXChorus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXChorus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXChorus").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXChorus {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXChorus {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXChorus>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXChorus {}
-impl ::core::default::Default for DSFXChorus {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXCompressor {
-    pub fGain: f32,
-    pub fAttack: f32,
-    pub fRelease: f32,
-    pub fThreshold: f32,
-    pub fRatio: f32,
-    pub fPredelay: f32,
-}
-impl ::core::marker::Copy for DSFXCompressor {}
-impl ::core::clone::Clone for DSFXCompressor {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXCompressor {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXCompressor").field("fGain", &self.fGain).field("fAttack", &self.fAttack).field("fRelease", &self.fRelease).field("fThreshold", &self.fThreshold).field("fRatio", &self.fRatio).field("fPredelay", &self.fPredelay).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXCompressor {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXCompressor {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXCompressor>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXCompressor {}
-impl ::core::default::Default for DSFXCompressor {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_GAIN_MAX: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_GAIN_MIN: f32 = -60f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_POSTEQBANDWIDTH_MAX: f32 = 8000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_POSTEQBANDWIDTH_MIN: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MAX: f32 = 8000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXDistortion {
-    pub fGain: f32,
-    pub fEdge: f32,
-    pub fPostEQCenterFrequency: f32,
-    pub fPostEQBandwidth: f32,
-    pub fPreLowpassCutoff: f32,
-}
-impl ::core::marker::Copy for DSFXDistortion {}
-impl ::core::clone::Clone for DSFXDistortion {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXDistortion {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXDistortion").field("fGain", &self.fGain).field("fEdge", &self.fEdge).field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency).field("fPostEQBandwidth", &self.fPostEQBandwidth).field("fPreLowpassCutoff", &self.fPreLowpassCutoff).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXDistortion {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXDistortion {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXDistortion>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXDistortion {}
-impl ::core::default::Default for DSFXDistortion {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_LEFTDELAY_MAX: f32 = 2000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_LEFTDELAY_MIN: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_PANDELAY_MAX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_PANDELAY_MIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_RIGHTDELAY_MAX: f32 = 2000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXEcho {
-    pub fWetDryMix: f32,
-    pub fFeedback: f32,
-    pub fLeftDelay: f32,
-    pub fRightDelay: f32,
-    pub lPanDelay: i32,
-}
-impl ::core::marker::Copy for DSFXEcho {}
-impl ::core::clone::Clone for DSFXEcho {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXEcho {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXEcho").field("fWetDryMix", &self.fWetDryMix).field("fFeedback", &self.fFeedback).field("fLeftDelay", &self.fLeftDelay).field("fRightDelay", &self.fRightDelay).field("lPanDelay", &self.lPanDelay).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXEcho {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXEcho {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXEcho>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXEcho {}
-impl ::core::default::Default for DSFXEcho {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_DEPTH_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_DEPTH_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_FEEDBACK_MAX: f32 = 99f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_FEEDBACK_MIN: f32 = -99f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_FREQUENCY_MAX: f32 = 10f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_FREQUENCY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_180: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_90: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_MAX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_MIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_NEG_180: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_NEG_90: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_PHASE_ZERO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_WAVE_SIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXFlanger {
-    pub fWetDryMix: f32,
-    pub fDepth: f32,
-    pub fFeedback: f32,
-    pub fFrequency: f32,
-    pub lWaveform: i32,
-    pub fDelay: f32,
-    pub lPhase: i32,
-}
-impl ::core::marker::Copy for DSFXFlanger {}
-impl ::core::clone::Clone for DSFXFlanger {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXFlanger {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXFlanger").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXFlanger {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXFlanger {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXFlanger>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXFlanger {}
-impl ::core::default::Default for DSFXFlanger {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXGargle {
-    pub dwRateHz: u32,
-    pub dwWaveShape: u32,
-}
-impl ::core::marker::Copy for DSFXGargle {}
-impl ::core::clone::Clone for DSFXGargle {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXGargle {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXGargle").field("dwRateHz", &self.dwRateHz).field("dwWaveShape", &self.dwWaveShape).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXGargle {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXGargle {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXGargle>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXGargle {}
-impl ::core::default::Default for DSFXGargle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXI3DL2Reverb {
-    pub lRoom: i32,
-    pub lRoomHF: i32,
-    pub flRoomRolloffFactor: f32,
-    pub flDecayTime: f32,
-    pub flDecayHFRatio: f32,
-    pub lReflections: i32,
-    pub flReflectionsDelay: f32,
-    pub lReverb: i32,
-    pub flReverbDelay: f32,
-    pub flDiffusion: f32,
-    pub flDensity: f32,
-    pub flHFReference: f32,
-}
-impl ::core::marker::Copy for DSFXI3DL2Reverb {}
-impl ::core::clone::Clone for DSFXI3DL2Reverb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXI3DL2Reverb {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXI3DL2Reverb")
-            .field("lRoom", &self.lRoom)
-            .field("lRoomHF", &self.lRoomHF)
-            .field("flRoomRolloffFactor", &self.flRoomRolloffFactor)
-            .field("flDecayTime", &self.flDecayTime)
-            .field("flDecayHFRatio", &self.flDecayHFRatio)
-            .field("lReflections", &self.lReflections)
-            .field("flReflectionsDelay", &self.flReflectionsDelay)
-            .field("lReverb", &self.lReverb)
-            .field("flReverbDelay", &self.flReverbDelay)
-            .field("flDiffusion", &self.flDiffusion)
-            .field("flDensity", &self.flDensity)
-            .field("flHFReference", &self.flHFReference)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXI3DL2Reverb {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXI3DL2Reverb {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXI3DL2Reverb>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXI3DL2Reverb {}
-impl ::core::default::Default for DSFXI3DL2Reverb {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXParamEq {
-    pub fCenter: f32,
-    pub fBandwidth: f32,
-    pub fGain: f32,
-}
-impl ::core::marker::Copy for DSFXParamEq {}
-impl ::core::clone::Clone for DSFXParamEq {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXParamEq {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXParamEq").field("fCenter", &self.fCenter).field("fBandwidth", &self.fBandwidth).field("fGain", &self.fGain).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXParamEq {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXParamEq {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXParamEq>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXParamEq {}
-impl ::core::default::Default for DSFXParamEq {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_FAILED: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_LOCHARDWARE: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_LOCSOFTWARE: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_PRESENT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_SENDLOOP: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_UNALLOCATED: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFXR_UNKNOWN: i32 = 5i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub struct DSFXWavesReverb {
-    pub fInGain: f32,
-    pub fReverbMix: f32,
-    pub fReverbTime: f32,
-    pub fHighFreqRTRatio: f32,
-}
-impl ::core::marker::Copy for DSFXWavesReverb {}
-impl ::core::clone::Clone for DSFXWavesReverb {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DSFXWavesReverb {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DSFXWavesReverb").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DSFXWavesReverb {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DSFXWavesReverb {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXWavesReverb>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DSFXWavesReverb {}
-impl ::core::default::Default for DSFXWavesReverb {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MIN: f32 = 0.1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DECAYTIME_DEFAULT: f32 = 1.49f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DECAYTIME_MAX: f32 = 20f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DECAYTIME_MIN: f32 = 0.1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DENSITY_DEFAULT: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DENSITY_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DENSITY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DIFFUSION_DEFAULT: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DIFFUSION_MAX: f32 = 100f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_DIFFUSION_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_HFREFERENCE_DEFAULT: f32 = 5000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_HFREFERENCE_MAX: f32 = 20000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_HFREFERENCE_MIN: f32 = 20f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_QUALITY_DEFAULT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_QUALITY_MAX: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_QUALITY_MIN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_DEFAULT: f32 = 0.007f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MAX: f32 = 0.3f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REFLECTIONS_DEFAULT: i32 = -2602i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REFLECTIONS_MAX: u32 = 1000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REFLECTIONS_MIN: i32 = -10000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REVERBDELAY_DEFAULT: f32 = 0.011f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REVERBDELAY_MAX: f32 = 0.1f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REVERBDELAY_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REVERB_DEFAULT: u32 = 200u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REVERB_MAX: u32 = 2000u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_REVERB_MIN: i32 = -10000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOMHF_DEFAULT: i32 = -100i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOMHF_MAX: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOMHF_MIN: i32 = -10000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_DEFAULT: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MAX: f32 = 10f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MIN: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOM_DEFAULT: i32 = -1000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOM_MAX: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2REVERB_ROOM_MIN: i32 = -10000i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ALLEY: i32 = 15i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ARENA: i32 = 10i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_AUDITORIUM: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_BATHROOM: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CARPETEDHALLWAY: i32 = 12i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CAVE: i32 = 9i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CITY: i32 = 17i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CONCERTHALL: i32 = 8i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_DEFAULT: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_FOREST: i32 = 16i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_GENERIC: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_HALLWAY: i32 = 13i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_HANGAR: i32 = 11i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEHALL: i32 = 28i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEROOM: i32 = 26i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LIVINGROOM: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMHALL: i32 = 27i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMROOM: i32 = 25i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MOUNTAINS: i32 = 18i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PADDEDCELL: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PARKINGLOT: i32 = 21i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PLAIN: i32 = 20i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PLATE: i32 = 29i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_QUARRY: i32 = 19i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ROOM: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_SEWERPIPE: i32 = 22i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_SMALLROOM: i32 = 24i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_STONECORRIDOR: i32 = 14i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_STONEROOM: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_ENVIRONMENT_PRESET_UNDERWATER: i32 = 23i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_BRICKWALL: i32 = 5i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_CURTAIN: i32 = 7i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_DOUBLEWINDOW: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_SINGLEWINDOW: i32 = 0i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_STONEWALL: i32 = 6i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_THICKDOOR: i32 = 3i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_THINDOOR: i32 = 2i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_I3DL2_MATERIAL_PRESET_WOODWALL: i32 = 4i32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_LOCHARDWARE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_LOCSOFTWARE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_DEFAULT: f32 = 0.001f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MAX: f32 = 0.999f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MIN: f32 = 0.001f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_INGAIN_DEFAULT: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_INGAIN_MAX: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_INGAIN_MIN: f32 = -96f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_REVERBMIX_DEFAULT: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_REVERBMIX_MAX: f32 = 0f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_REVERBMIX_MIN: f32 = -96f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_REVERBTIME_DEFAULT: f32 = 1000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_REVERBTIME_MAX: f32 = 3000f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSFX_WAVESREVERB_REVERBTIME_MIN: f32 = 0.001f32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSCL_EXCLUSIVE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSCL_NORMAL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSCL_PRIORITY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSCL_WRITEPRIMARY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_5POINT1: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_5POINT1_BACK: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_5POINT1_SURROUND: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_7POINT1: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_7POINT1_SURROUND: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_7POINT1_WIDE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_DIRECTOUT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_GEOMETRY_MAX: u32 = 180u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_GEOMETRY_MIN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_GEOMETRY_NARROW: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_GEOMETRY_WIDE: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_HEADPHONE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_MONO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_QUAD: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_STEREO: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DSSPEAKER_SURROUND: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS_CERTIFIED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const DS_UNCERTIFIED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[inline]
 pub unsafe fn DirectSoundCaptureCreate<'a, P0>(pcguiddevice: ::core::option::Option<&::windows::core::GUID>, ppdsc: &mut ::core::option::Option<IDirectSoundCapture>, punkouter: P0) -> ::windows::core::Result<()>
@@ -1620,22 +100,6 @@ where
     }
     DirectSoundFullDuplexCreate(::core::mem::transmute(pcguidcapturedevice), ::core::mem::transmute(pcguidrenderdevice), ::core::mem::transmute(pcdscbufferdesc), ::core::mem::transmute(pcdsbufferdesc), hwnd.into(), dwlevel, ::core::mem::transmute(ppdsfd), ::core::mem::transmute(ppdscbuffer8), ::core::mem::transmute(ppdsbuffer8), punkouter.into().abi()).ok()
 }
-pub const GUID_All_Objects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa114de5_c262_4169_a1c8_23d698cc73b5);
-pub const GUID_DSCFX_CLASS_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
-pub const GUID_DSCFX_CLASS_NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
-pub const GUID_DSCFX_MS_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdebb919_379a_488a_8765_f53cfd36de40);
-pub const GUID_DSCFX_MS_NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c5c73b_66e9_4ba1_a0ba_e814c6eed92d);
-pub const GUID_DSCFX_SYSTEM_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
-pub const GUID_DSCFX_SYSTEM_NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
-pub const GUID_DSFX_STANDARD_CHORUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefe6629c_81f7_4281_bd91_c9d604a95af6);
-pub const GUID_DSFX_STANDARD_COMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef011f79_4000_406d_87af_bffb3fc39d57);
-pub const GUID_DSFX_STANDARD_DISTORTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef114c90_cd1d_484e_96e5_09cfaf912a21);
-pub const GUID_DSFX_STANDARD_ECHO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3e932c_d40b_4f51_8ccf_3f98f1b29d5d);
-pub const GUID_DSFX_STANDARD_FLANGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefca3d92_dfd8_4672_a603_7420894bad98);
-pub const GUID_DSFX_STANDARD_GARGLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdafd8210_5711_4b91_9fe3_f75b7ae279bf);
-pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef985e71_d5c7_42d4_ba4d_2d073e2e96f4);
-pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ced89_3bf4_4173_a132_3cb406cf3231);
-pub const GUID_DSFX_WAVES_REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87fc0268_9a55_4360_95aa_004a1d9de26c);
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 #[inline]
 pub unsafe fn GetDeviceID(pguidsrc: ::core::option::Option<&::windows::core::GUID>) -> ::windows::core::Result<::windows::core::GUID> {
@@ -3391,17 +1855,1553 @@ pub struct IDirectSoundNotify_Vtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetNotificationPositions: usize,
 }
+pub const CLSID_DirectSound: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47d4d946_62e8_11cf_93bc_444553540000);
+pub const CLSID_DirectSound8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3901cc3f_84b5_4fa4_ba35_aa8172b8a09b);
+pub const CLSID_DirectSoundCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0210780_89cd_11d0_af08_00a0c925cd16);
+pub const CLSID_DirectSoundCapture8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4bcac13_7f99_4908_9a8e_74e3bf24b6e1);
+pub const CLSID_DirectSoundFullDuplex: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea4300c_7959_4147_b26a_2377b9e7a91d);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DIRECTSOUND_VERSION: u32 = 1792u32;
+pub const DS3DALG_HRTF_FULL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2413340_1c1b_11d2_94f5_00c04fc28aca);
+pub const DS3DALG_HRTF_LIGHT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2413342_1c1b_11d2_94f5_00c04fc28aca);
+pub const DS3DALG_NO_VIRTUALIZATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc241333f_1c1b_11d2_94f5_00c04fc28aca);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3DMODE_DISABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3DMODE_HEADRELATIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3DMODE_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTCONEANGLE: u32 = 360u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTCONEOUTSIDEVOLUME: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTDISTANCEFACTOR: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTDOPPLERFACTOR: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTMAXDISTANCE: f32 = 1000000000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTMINDISTANCE: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFAULTROLLOFFFACTOR: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_DEFERRED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_IMMEDIATE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_MAXCONEANGLE: u32 = 360u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_MAXDOPPLERFACTOR: f32 = 10f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_MAXROLLOFFFACTOR: f32 = 10f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_MINCONEANGLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_MINDOPPLERFACTOR: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS3D_MINROLLOFFFACTOR: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_CTRL3D: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_CTRLFREQUENCY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_CTRLFX: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_CTRLPAN: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_CTRLPOSITIONNOTIFY: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_CTRLVOLUME: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_GETCURRENTPOSITION2: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_GLOBALFOCUS: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_LOCDEFER: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_LOCHARDWARE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_LOCSOFTWARE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_MUTE3DATMAXDISTANCE: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_PRIMARYBUFFER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_STATIC: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_STICKYFOCUS: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBCAPS_TRUEPLAYPOSITION: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBFREQUENCY_MAX: u32 = 200000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBFREQUENCY_MIN: u32 = 100u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBFREQUENCY_ORIGINAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBLOCK_ENTIREBUFFER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBLOCK_FROMWRITECURSOR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBNOTIFICATIONS_MAX: u32 = 100000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPAN_CENTER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPAN_LEFT: i32 = -10000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPAN_RIGHT: u32 = 10000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPLAY_LOCHARDWARE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPLAY_LOCSOFTWARE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPLAY_LOOPING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPLAY_TERMINATEBY_DISTANCE: u64 = 16u64;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPLAY_TERMINATEBY_PRIORITY: u64 = 32u64;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBPN_OFFSETSTOP: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSIZE_FX_MIN: u32 = 150u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSIZE_MAX: u32 = 268435455u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSIZE_MIN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSTATUS_BUFFERLOST: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSTATUS_LOCHARDWARE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSTATUS_LOCSOFTWARE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSTATUS_LOOPING: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSTATUS_PLAYING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBSTATUS_TERMINATED: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBVOLUME_MAX: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSBVOLUME_MIN: i32 = -10000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_CERTIFIED: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_CONTINUOUSRATE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_EMULDRIVER: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_PRIMARY16BIT: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_PRIMARY8BIT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_PRIMARYMONO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_PRIMARYSTEREO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_SECONDARY16BIT: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_SECONDARY8BIT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_SECONDARYMONO: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCAPS_SECONDARYSTEREO: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCBCAPS_CTRLFX: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCBCAPS_WAVEMAPPED: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCBLOCK_ENTIREBUFFER: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCBSTART_LOOPING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCBSTATUS_CAPTURING: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCBSTATUS_LOOPING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCCAPS_CERTIFIED: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCCAPS_EMULDRIVER: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFXR_LOCHARDWARE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFXR_LOCSOFTWARE: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_MODE_FULL_DUPLEX: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_MODE_HALF_DUPLEX: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_MODE_PASS_THROUGH: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_STATUS_CURRENTLY_CONVERGED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_STATUS_HISTORY_CONTINUOUSLY_CONVERGED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_LOCHARDWARE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSCFX_LOCSOFTWARE: u32 = 2u32;
+pub const DSDEVID_DefaultCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00001_9c6d_47ed_aaf1_4dda8f2b5c03);
+pub const DSDEVID_DefaultPlayback: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00000_9c6d_47ed_aaf1_4dda8f2b5c03);
+pub const DSDEVID_DefaultVoiceCapture: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
+pub const DSDEVID_DefaultVoicePlayback: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_DELAY_MAX: f32 = 20f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_DELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_DEPTH_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_DEPTH_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_FEEDBACK_MAX: f32 = 99f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_FEEDBACK_MIN: f32 = -99f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_FREQUENCY_MAX: f32 = 10f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_FREQUENCY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_180: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_90: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_MAX: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_MIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_NEG_180: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_NEG_90: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_PHASE_ZERO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_WAVE_SIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_WAVE_TRIANGLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_WETDRYMIX_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCHORUS_WETDRYMIX_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_ATTACK_MAX: f32 = 500f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_ATTACK_MIN: f32 = 0.01f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_GAIN_MAX: f32 = 60f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_GAIN_MIN: f32 = -60f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_PREDELAY_MAX: f32 = 4f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_PREDELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_RATIO_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_RATIO_MIN: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_RELEASE_MAX: f32 = 3000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_RELEASE_MIN: f32 = 50f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_THRESHOLD_MAX: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXCOMPRESSOR_THRESHOLD_MIN: f32 = -60f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_EDGE_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_EDGE_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_GAIN_MAX: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_GAIN_MIN: f32 = -60f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_POSTEQBANDWIDTH_MAX: f32 = 8000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_POSTEQBANDWIDTH_MIN: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MAX: f32 = 8000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_POSTEQCENTERFREQUENCY_MIN: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MAX: f32 = 8000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXDISTORTION_PRELOWPASSCUTOFF_MIN: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_FEEDBACK_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_FEEDBACK_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_LEFTDELAY_MAX: f32 = 2000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_LEFTDELAY_MIN: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_PANDELAY_MAX: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_PANDELAY_MIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_RIGHTDELAY_MAX: f32 = 2000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_RIGHTDELAY_MIN: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_WETDRYMIX_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXECHO_WETDRYMIX_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_DELAY_MAX: f32 = 4f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_DELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_DEPTH_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_DEPTH_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_FEEDBACK_MAX: f32 = 99f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_FEEDBACK_MIN: f32 = -99f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_FREQUENCY_MAX: f32 = 10f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_FREQUENCY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_180: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_90: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_MAX: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_MIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_NEG_180: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_NEG_90: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_PHASE_ZERO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_WAVE_SIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_WAVE_TRIANGLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_WETDRYMIX_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXFLANGER_WETDRYMIX_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXGARGLE_RATEHZ_MAX: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXPARAMEQ_BANDWIDTH_MAX: f32 = 36f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXPARAMEQ_BANDWIDTH_MIN: f32 = 1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXPARAMEQ_CENTER_MAX: f32 = 16000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXPARAMEQ_CENTER_MIN: f32 = 80f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXPARAMEQ_GAIN_MAX: f32 = 15f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXPARAMEQ_GAIN_MIN: f32 = -15f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_FAILED: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_LOCHARDWARE: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_LOCSOFTWARE: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_PRESENT: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_SENDLOOP: i32 = 6i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_UNALLOCATED: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFXR_UNKNOWN: i32 = 5i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DECAYHFRATIO_DEFAULT: f32 = 0.83f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MAX: f32 = 2f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DECAYHFRATIO_MIN: f32 = 0.1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DECAYTIME_DEFAULT: f32 = 1.49f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DECAYTIME_MAX: f32 = 20f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DECAYTIME_MIN: f32 = 0.1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DENSITY_DEFAULT: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DENSITY_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DENSITY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DIFFUSION_DEFAULT: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DIFFUSION_MAX: f32 = 100f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_DIFFUSION_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_HFREFERENCE_DEFAULT: f32 = 5000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_HFREFERENCE_MAX: f32 = 20000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_HFREFERENCE_MIN: f32 = 20f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_QUALITY_DEFAULT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_QUALITY_MAX: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_QUALITY_MIN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_DEFAULT: f32 = 0.007f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MAX: f32 = 0.3f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REFLECTIONSDELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REFLECTIONS_DEFAULT: i32 = -2602i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REFLECTIONS_MAX: u32 = 1000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REFLECTIONS_MIN: i32 = -10000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REVERBDELAY_DEFAULT: f32 = 0.011f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REVERBDELAY_MAX: f32 = 0.1f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REVERBDELAY_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REVERB_DEFAULT: u32 = 200u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REVERB_MAX: u32 = 2000u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_REVERB_MIN: i32 = -10000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOMHF_DEFAULT: i32 = -100i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOMHF_MAX: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOMHF_MIN: i32 = -10000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_DEFAULT: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MAX: f32 = 10f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOMROLLOFFFACTOR_MIN: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOM_DEFAULT: i32 = -1000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOM_MAX: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2REVERB_ROOM_MIN: i32 = -10000i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ALLEY: i32 = 15i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ARENA: i32 = 10i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_AUDITORIUM: i32 = 7i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_BATHROOM: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CARPETEDHALLWAY: i32 = 12i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CAVE: i32 = 9i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CITY: i32 = 17i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_CONCERTHALL: i32 = 8i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_DEFAULT: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_FOREST: i32 = 16i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_GENERIC: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_HALLWAY: i32 = 13i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_HANGAR: i32 = 11i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEHALL: i32 = 28i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LARGEROOM: i32 = 26i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_LIVINGROOM: i32 = 5i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMHALL: i32 = 27i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MEDIUMROOM: i32 = 25i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_MOUNTAINS: i32 = 18i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PADDEDCELL: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PARKINGLOT: i32 = 21i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PLAIN: i32 = 20i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_PLATE: i32 = 29i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_QUARRY: i32 = 19i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_ROOM: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_SEWERPIPE: i32 = 22i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_SMALLROOM: i32 = 24i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_STONECORRIDOR: i32 = 14i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_STONEROOM: i32 = 6i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_ENVIRONMENT_PRESET_UNDERWATER: i32 = 23i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_BRICKWALL: i32 = 5i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_CURTAIN: i32 = 7i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_DOUBLEWINDOW: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_SINGLEWINDOW: i32 = 0i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_STONEWALL: i32 = 6i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_THICKDOOR: i32 = 3i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_THINDOOR: i32 = 2i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_I3DL2_MATERIAL_PRESET_WOODWALL: i32 = 4i32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_LOCHARDWARE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_LOCSOFTWARE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_DEFAULT: f32 = 0.001f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MAX: f32 = 0.999f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_HIGHFREQRTRATIO_MIN: f32 = 0.001f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_INGAIN_DEFAULT: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_INGAIN_MAX: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_INGAIN_MIN: f32 = -96f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_REVERBMIX_DEFAULT: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_REVERBMIX_MAX: f32 = 0f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_REVERBMIX_MIN: f32 = -96f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_REVERBTIME_DEFAULT: f32 = 1000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_REVERBTIME_MAX: f32 = 3000f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSFX_WAVESREVERB_REVERBTIME_MIN: f32 = 0.001f32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSCL_EXCLUSIVE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSCL_NORMAL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSCL_PRIORITY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSCL_WRITEPRIMARY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_5POINT1: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_5POINT1_BACK: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_5POINT1_SURROUND: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_7POINT1: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_7POINT1_SURROUND: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_7POINT1_WIDE: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_DIRECTOUT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_GEOMETRY_MAX: u32 = 180u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_GEOMETRY_MIN: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_GEOMETRY_NARROW: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_GEOMETRY_WIDE: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_HEADPHONE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_MONO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_QUAD: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_STEREO: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DSSPEAKER_SURROUND: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS_CERTIFIED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS_NO_VIRTUALIZATION: ::windows::core::HRESULT = ::windows::core::HRESULT(142082058i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const DS_UNCERTIFIED: u32 = 1u32;
+pub const GUID_All_Objects: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa114de5_c262_4169_a1c8_23d698cc73b5);
+pub const GUID_DSCFX_CLASS_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf963d80_c559_11d0_8a2b_00a0c9255ac1);
+pub const GUID_DSCFX_CLASS_NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07f903f_62fd_4e60_8cdd_dea7236665b5);
+pub const GUID_DSCFX_MS_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdebb919_379a_488a_8765_f53cfd36de40);
+pub const GUID_DSCFX_MS_NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c5c73b_66e9_4ba1_a0ba_e814c6eed92d);
+pub const GUID_DSCFX_SYSTEM_AEC: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c22c56d_9879_4f5b_a389_27996ddc2810);
+pub const GUID_DSCFX_SYSTEM_NS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab0882e_7274_4516_877d_4eee99ba4fd0);
+pub const GUID_DSFX_STANDARD_CHORUS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefe6629c_81f7_4281_bd91_c9d604a95af6);
+pub const GUID_DSFX_STANDARD_COMPRESSOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef011f79_4000_406d_87af_bffb3fc39d57);
+pub const GUID_DSFX_STANDARD_DISTORTION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef114c90_cd1d_484e_96e5_09cfaf912a21);
+pub const GUID_DSFX_STANDARD_ECHO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3e932c_d40b_4f51_8ccf_3f98f1b29d5d);
+pub const GUID_DSFX_STANDARD_FLANGER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefca3d92_dfd8_4672_a603_7420894bad98);
+pub const GUID_DSFX_STANDARD_GARGLE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdafd8210_5711_4b91_9fe3_f75b7ae279bf);
+pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef985e71_d5c7_42d4_ba4d_2d073e2e96f4);
+pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ced89_3bf4_4173_a132_3cb406cf3231);
+pub const GUID_DSFX_WAVES_REVERB: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87fc0268_9a55_4360_95aa_004a1d9de26c);
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub const _FACDS: u32 = 2168u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct DS3DBUFFER {
+    pub dwSize: u32,
+    pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vVelocity: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub dwInsideConeAngle: u32,
+    pub dwOutsideConeAngle: u32,
+    pub vConeOrientation: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub lConeOutsideVolume: i32,
+    pub flMinDistance: f32,
+    pub flMaxDistance: f32,
+    pub dwMode: u32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for DS3DBUFFER {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for DS3DBUFFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for DS3DBUFFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS3DBUFFER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("dwInsideConeAngle", &self.dwInsideConeAngle).field("dwOutsideConeAngle", &self.dwOutsideConeAngle).field("vConeOrientation", &self.vConeOrientation).field("lConeOutsideVolume", &self.lConeOutsideVolume).field("flMinDistance", &self.flMinDistance).field("flMaxDistance", &self.flMaxDistance).field("dwMode", &self.dwMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl ::windows::core::Abi for DS3DBUFFER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::cmp::PartialEq for DS3DBUFFER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DBUFFER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::cmp::Eq for DS3DBUFFER {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::default::Default for DS3DBUFFER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Graphics_Direct3D\"`*"]
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+pub struct DS3DLISTENER {
+    pub dwSize: u32,
+    pub vPosition: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vVelocity: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vOrientFront: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub vOrientTop: super::super::super::Graphics::Direct3D::D3DVECTOR,
+    pub flDistanceFactor: f32,
+    pub flRolloffFactor: f32,
+    pub flDopplerFactor: f32,
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::marker::Copy for DS3DLISTENER {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::clone::Clone for DS3DLISTENER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::fmt::Debug for DS3DLISTENER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DS3DLISTENER").field("dwSize", &self.dwSize).field("vPosition", &self.vPosition).field("vVelocity", &self.vVelocity).field("vOrientFront", &self.vOrientFront).field("vOrientTop", &self.vOrientTop).field("flDistanceFactor", &self.flDistanceFactor).field("flRolloffFactor", &self.flRolloffFactor).field("flDopplerFactor", &self.flDopplerFactor).finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+unsafe impl ::windows::core::Abi for DS3DLISTENER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::cmp::PartialEq for DS3DLISTENER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DS3DLISTENER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::cmp::Eq for DS3DLISTENER {}
+#[cfg(feature = "Win32_Graphics_Direct3D")]
+impl ::core::default::Default for DS3DLISTENER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSBCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwUnlockTransferRate: u32,
+    pub dwPlayCpuOverhead: u32,
+}
+impl ::core::marker::Copy for DSBCAPS {}
+impl ::core::clone::Clone for DSBCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSBCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwUnlockTransferRate", &self.dwUnlockTransferRate).field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSBCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSBCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSBCAPS {}
+impl ::core::default::Default for DSBCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSBPOSITIONNOTIFY {
+    pub dwOffset: u32,
+    pub hEventNotify: super::super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSBPOSITIONNOTIFY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSBPOSITIONNOTIFY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSBPOSITIONNOTIFY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBPOSITIONNOTIFY").field("dwOffset", &self.dwOffset).field("hEventNotify", &self.hEventNotify).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSBPOSITIONNOTIFY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSBPOSITIONNOTIFY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBPOSITIONNOTIFY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSBPOSITIONNOTIFY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSBPOSITIONNOTIFY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSBUFFERDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+    pub guid3DAlgorithm: ::windows::core::GUID,
+}
+impl ::core::marker::Copy for DSBUFFERDESC {}
+impl ::core::clone::Clone for DSBUFFERDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSBUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("guid3DAlgorithm", &self.guid3DAlgorithm).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSBUFFERDESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSBUFFERDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBUFFERDESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSBUFFERDESC {}
+impl ::core::default::Default for DSBUFFERDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSBUFFERDESC1 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for DSBUFFERDESC1 {}
+impl ::core::clone::Clone for DSBUFFERDESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSBUFFERDESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSBUFFERDESC1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSBUFFERDESC1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSBUFFERDESC1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSBUFFERDESC1 {}
+impl ::core::default::Default for DSBUFFERDESC1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwMinSecondarySampleRate: u32,
+    pub dwMaxSecondarySampleRate: u32,
+    pub dwPrimaryBuffers: u32,
+    pub dwMaxHwMixingAllBuffers: u32,
+    pub dwMaxHwMixingStaticBuffers: u32,
+    pub dwMaxHwMixingStreamingBuffers: u32,
+    pub dwFreeHwMixingAllBuffers: u32,
+    pub dwFreeHwMixingStaticBuffers: u32,
+    pub dwFreeHwMixingStreamingBuffers: u32,
+    pub dwMaxHw3DAllBuffers: u32,
+    pub dwMaxHw3DStaticBuffers: u32,
+    pub dwMaxHw3DStreamingBuffers: u32,
+    pub dwFreeHw3DAllBuffers: u32,
+    pub dwFreeHw3DStaticBuffers: u32,
+    pub dwFreeHw3DStreamingBuffers: u32,
+    pub dwTotalHwMemBytes: u32,
+    pub dwFreeHwMemBytes: u32,
+    pub dwMaxContigFreeHwMemBytes: u32,
+    pub dwUnlockTransferRateHwBuffers: u32,
+    pub dwPlayCpuOverheadSwBuffers: u32,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for DSCAPS {}
+impl ::core::clone::Clone for DSCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCAPS")
+            .field("dwSize", &self.dwSize)
+            .field("dwFlags", &self.dwFlags)
+            .field("dwMinSecondarySampleRate", &self.dwMinSecondarySampleRate)
+            .field("dwMaxSecondarySampleRate", &self.dwMaxSecondarySampleRate)
+            .field("dwPrimaryBuffers", &self.dwPrimaryBuffers)
+            .field("dwMaxHwMixingAllBuffers", &self.dwMaxHwMixingAllBuffers)
+            .field("dwMaxHwMixingStaticBuffers", &self.dwMaxHwMixingStaticBuffers)
+            .field("dwMaxHwMixingStreamingBuffers", &self.dwMaxHwMixingStreamingBuffers)
+            .field("dwFreeHwMixingAllBuffers", &self.dwFreeHwMixingAllBuffers)
+            .field("dwFreeHwMixingStaticBuffers", &self.dwFreeHwMixingStaticBuffers)
+            .field("dwFreeHwMixingStreamingBuffers", &self.dwFreeHwMixingStreamingBuffers)
+            .field("dwMaxHw3DAllBuffers", &self.dwMaxHw3DAllBuffers)
+            .field("dwMaxHw3DStaticBuffers", &self.dwMaxHw3DStaticBuffers)
+            .field("dwMaxHw3DStreamingBuffers", &self.dwMaxHw3DStreamingBuffers)
+            .field("dwFreeHw3DAllBuffers", &self.dwFreeHw3DAllBuffers)
+            .field("dwFreeHw3DStaticBuffers", &self.dwFreeHw3DStaticBuffers)
+            .field("dwFreeHw3DStreamingBuffers", &self.dwFreeHw3DStreamingBuffers)
+            .field("dwTotalHwMemBytes", &self.dwTotalHwMemBytes)
+            .field("dwFreeHwMemBytes", &self.dwFreeHwMemBytes)
+            .field("dwMaxContigFreeHwMemBytes", &self.dwMaxContigFreeHwMemBytes)
+            .field("dwUnlockTransferRateHwBuffers", &self.dwUnlockTransferRateHwBuffers)
+            .field("dwPlayCpuOverheadSwBuffers", &self.dwPlayCpuOverheadSwBuffers)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCAPS {}
+impl ::core::default::Default for DSCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSCBCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DSCBCAPS {}
+impl ::core::clone::Clone for DSCBCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCBCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCBCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCBCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCBCAPS {}
+impl ::core::default::Default for DSCBCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSCBUFFERDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+    pub dwFXCount: u32,
+    pub lpDSCFXDesc: *mut DSCEFFECTDESC,
+}
+impl ::core::marker::Copy for DSCBUFFERDESC {}
+impl ::core::clone::Clone for DSCBUFFERDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCBUFFERDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("dwFXCount", &self.dwFXCount).field("lpDSCFXDesc", &self.lpDSCFXDesc).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCBUFFERDESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCBUFFERDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBUFFERDESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCBUFFERDESC {}
+impl ::core::default::Default for DSCBUFFERDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSCBUFFERDESC1 {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwBufferBytes: u32,
+    pub dwReserved: u32,
+    pub lpwfxFormat: *mut super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for DSCBUFFERDESC1 {}
+impl ::core::clone::Clone for DSCBUFFERDESC1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCBUFFERDESC1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCBUFFERDESC1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCBUFFERDESC1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCBUFFERDESC1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCBUFFERDESC1 {}
+impl ::core::default::Default for DSCBUFFERDESC1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSCCAPS {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub dwFormats: u32,
+    pub dwChannels: u32,
+}
+impl ::core::marker::Copy for DSCCAPS {}
+impl ::core::clone::Clone for DSCCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCCAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFormats", &self.dwFormats).field("dwChannels", &self.dwChannels).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCCAPS {}
+impl ::core::default::Default for DSCCAPS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSCEFFECTDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub guidDSCFXClass: ::windows::core::GUID,
+    pub guidDSCFXInstance: ::windows::core::GUID,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+}
+impl ::core::marker::Copy for DSCEFFECTDESC {}
+impl ::core::clone::Clone for DSCEFFECTDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSCEFFECTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSCFXClass", &self.guidDSCFXClass).field("guidDSCFXInstance", &self.guidDSCFXInstance).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSCEFFECTDESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSCEFFECTDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCEFFECTDESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSCEFFECTDESC {}
+impl ::core::default::Default for DSCEFFECTDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSCFXAec {
+    pub fEnable: super::super::super::Foundation::BOOL,
+    pub fNoiseFill: super::super::super::Foundation::BOOL,
+    pub dwMode: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSCFXAec {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSCFXAec {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSCFXAec {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCFXAec").field("fEnable", &self.fEnable).field("fNoiseFill", &self.fNoiseFill).field("dwMode", &self.dwMode).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSCFXAec {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSCFXAec {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCFXAec>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSCFXAec {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSCFXAec {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DSCFXNoiseSuppress {
+    pub fEnable: super::super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DSCFXNoiseSuppress {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DSCFXNoiseSuppress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DSCFXNoiseSuppress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSCFXNoiseSuppress").field("fEnable", &self.fEnable).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DSCFXNoiseSuppress {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DSCFXNoiseSuppress {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSCFXNoiseSuppress>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DSCFXNoiseSuppress {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DSCFXNoiseSuppress {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSEFFECTDESC {
+    pub dwSize: u32,
+    pub dwFlags: u32,
+    pub guidDSFXClass: ::windows::core::GUID,
+    pub dwReserved1: usize,
+    pub dwReserved2: usize,
+}
+impl ::core::marker::Copy for DSEFFECTDESC {}
+impl ::core::clone::Clone for DSEFFECTDESC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSEFFECTDESC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSFXClass", &self.guidDSFXClass).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSEFFECTDESC {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSEFFECTDESC {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSEFFECTDESC>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSEFFECTDESC {}
+impl ::core::default::Default for DSEFFECTDESC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXChorus {
+    pub fWetDryMix: f32,
+    pub fDepth: f32,
+    pub fFeedback: f32,
+    pub fFrequency: f32,
+    pub lWaveform: i32,
+    pub fDelay: f32,
+    pub lPhase: i32,
+}
+impl ::core::marker::Copy for DSFXChorus {}
+impl ::core::clone::Clone for DSFXChorus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXChorus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXChorus").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXChorus {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXChorus {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXChorus>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXChorus {}
+impl ::core::default::Default for DSFXChorus {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXCompressor {
+    pub fGain: f32,
+    pub fAttack: f32,
+    pub fRelease: f32,
+    pub fThreshold: f32,
+    pub fRatio: f32,
+    pub fPredelay: f32,
+}
+impl ::core::marker::Copy for DSFXCompressor {}
+impl ::core::clone::Clone for DSFXCompressor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXCompressor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXCompressor").field("fGain", &self.fGain).field("fAttack", &self.fAttack).field("fRelease", &self.fRelease).field("fThreshold", &self.fThreshold).field("fRatio", &self.fRatio).field("fPredelay", &self.fPredelay).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXCompressor {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXCompressor {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXCompressor>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXCompressor {}
+impl ::core::default::Default for DSFXCompressor {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXDistortion {
+    pub fGain: f32,
+    pub fEdge: f32,
+    pub fPostEQCenterFrequency: f32,
+    pub fPostEQBandwidth: f32,
+    pub fPreLowpassCutoff: f32,
+}
+impl ::core::marker::Copy for DSFXDistortion {}
+impl ::core::clone::Clone for DSFXDistortion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXDistortion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXDistortion").field("fGain", &self.fGain).field("fEdge", &self.fEdge).field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency).field("fPostEQBandwidth", &self.fPostEQBandwidth).field("fPreLowpassCutoff", &self.fPreLowpassCutoff).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXDistortion {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXDistortion {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXDistortion>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXDistortion {}
+impl ::core::default::Default for DSFXDistortion {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXEcho {
+    pub fWetDryMix: f32,
+    pub fFeedback: f32,
+    pub fLeftDelay: f32,
+    pub fRightDelay: f32,
+    pub lPanDelay: i32,
+}
+impl ::core::marker::Copy for DSFXEcho {}
+impl ::core::clone::Clone for DSFXEcho {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXEcho {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXEcho").field("fWetDryMix", &self.fWetDryMix).field("fFeedback", &self.fFeedback).field("fLeftDelay", &self.fLeftDelay).field("fRightDelay", &self.fRightDelay).field("lPanDelay", &self.lPanDelay).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXEcho {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXEcho {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXEcho>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXEcho {}
+impl ::core::default::Default for DSFXEcho {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXFlanger {
+    pub fWetDryMix: f32,
+    pub fDepth: f32,
+    pub fFeedback: f32,
+    pub fFrequency: f32,
+    pub lWaveform: i32,
+    pub fDelay: f32,
+    pub lPhase: i32,
+}
+impl ::core::marker::Copy for DSFXFlanger {}
+impl ::core::clone::Clone for DSFXFlanger {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXFlanger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXFlanger").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXFlanger {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXFlanger {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXFlanger>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXFlanger {}
+impl ::core::default::Default for DSFXFlanger {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXGargle {
+    pub dwRateHz: u32,
+    pub dwWaveShape: u32,
+}
+impl ::core::marker::Copy for DSFXGargle {}
+impl ::core::clone::Clone for DSFXGargle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXGargle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXGargle").field("dwRateHz", &self.dwRateHz).field("dwWaveShape", &self.dwWaveShape).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXGargle {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXGargle {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXGargle>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXGargle {}
+impl ::core::default::Default for DSFXGargle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXI3DL2Reverb {
+    pub lRoom: i32,
+    pub lRoomHF: i32,
+    pub flRoomRolloffFactor: f32,
+    pub flDecayTime: f32,
+    pub flDecayHFRatio: f32,
+    pub lReflections: i32,
+    pub flReflectionsDelay: f32,
+    pub lReverb: i32,
+    pub flReverbDelay: f32,
+    pub flDiffusion: f32,
+    pub flDensity: f32,
+    pub flHFReference: f32,
+}
+impl ::core::marker::Copy for DSFXI3DL2Reverb {}
+impl ::core::clone::Clone for DSFXI3DL2Reverb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXI3DL2Reverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXI3DL2Reverb")
+            .field("lRoom", &self.lRoom)
+            .field("lRoomHF", &self.lRoomHF)
+            .field("flRoomRolloffFactor", &self.flRoomRolloffFactor)
+            .field("flDecayTime", &self.flDecayTime)
+            .field("flDecayHFRatio", &self.flDecayHFRatio)
+            .field("lReflections", &self.lReflections)
+            .field("flReflectionsDelay", &self.flReflectionsDelay)
+            .field("lReverb", &self.lReverb)
+            .field("flReverbDelay", &self.flReverbDelay)
+            .field("flDiffusion", &self.flDiffusion)
+            .field("flDensity", &self.flDensity)
+            .field("flHFReference", &self.flHFReference)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXI3DL2Reverb {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXI3DL2Reverb {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXI3DL2Reverb>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXI3DL2Reverb {}
+impl ::core::default::Default for DSFXI3DL2Reverb {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXParamEq {
+    pub fCenter: f32,
+    pub fBandwidth: f32,
+    pub fGain: f32,
+}
+impl ::core::marker::Copy for DSFXParamEq {}
+impl ::core::clone::Clone for DSFXParamEq {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXParamEq {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXParamEq").field("fCenter", &self.fCenter).field("fBandwidth", &self.fBandwidth).field("fGain", &self.fGain).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXParamEq {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXParamEq {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXParamEq>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXParamEq {}
+impl ::core::default::Default for DSFXParamEq {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
+pub struct DSFXWavesReverb {
+    pub fInGain: f32,
+    pub fReverbMix: f32,
+    pub fReverbTime: f32,
+    pub fHighFreqRTRatio: f32,
+}
+impl ::core::marker::Copy for DSFXWavesReverb {}
+impl ::core::clone::Clone for DSFXWavesReverb {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DSFXWavesReverb {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DSFXWavesReverb").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DSFXWavesReverb {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DSFXWavesReverb {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DSFXWavesReverb>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DSFXWavesReverb {}
+impl ::core::default::Default for DSFXWavesReverb {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKA = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCSTR, param2: ::windows::core::PCSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPDSENUMCALLBACKW = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::windows::core::GUID, param1: ::windows::core::PCWSTR, param2: ::windows::core::PCWSTR, param3: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_Media_Audio_DirectSound\"`*"]
-pub const _FACDS: u32 = 2168u32;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

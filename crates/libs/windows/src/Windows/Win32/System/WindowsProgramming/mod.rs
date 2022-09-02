@@ -1,238 +1,114 @@
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AADBE_ADD_ENTRY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AADBE_DEL_ENTRY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_APPLICATION_NAME_VALID: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_HMODULE_VALID: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_LANGID_VALID: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_PROCESSOR_ARCHITECTURE_VALID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_RESOURCE_NAME_VALID: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: u32 = 64u32;
-#[repr(C)]
+#[inline]
+pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
+    }
+    GetFeatureEnabledState(featureid, changetime)
+}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
-    pub cbSize: u32,
-    pub ulDataFormatVersion: u32,
-    pub lpData: *mut ::core::ffi::c_void,
-    pub ulLength: u32,
-    pub lpSectionGlobalData: *mut ::core::ffi::c_void,
-    pub ulSectionGlobalDataLength: u32,
-    pub lpSectionBase: *mut ::core::ffi::c_void,
-    pub ulSectionTotalLength: u32,
-    pub hActCtx: super::super::Foundation::HANDLE,
-    pub ulAssemblyRosterIndex: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ACTCTX_SECTION_KEYED_DATA_2600 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: &mut u32, hasnotification: &mut super::super::Foundation::BOOL) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
     }
+    GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification))
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTCTX_SECTION_KEYED_DATA_2600")
-            .field("cbSize", &self.cbSize)
-            .field("ulDataFormatVersion", &self.ulDataFormatVersion)
-            .field("lpData", &self.lpData)
-            .field("ulLength", &self.ulLength)
-            .field("lpSectionGlobalData", &self.lpSectionGlobalData)
-            .field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength)
-            .field("lpSectionBase", &self.lpSectionBase)
-            .field("ulSectionTotalLength", &self.ulSectionTotalLength)
-            .field("hActCtx", &self.hActCtx)
-            .field("ulAssemblyRosterIndex", &self.ulAssemblyRosterIndex)
-            .finish()
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RecordFeatureError(featureid: u32, error: &FEATURE_ERROR) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
     }
+    RecordFeatureError(featureid, ::core::mem::transmute(error))
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA_2600 {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTX_SECTION_KEYED_DATA_2600>()) == 0 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RecordFeatureUsage<'a, P0>(featureid: u32, kind: u32, addend: u32, originname: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows::core::PCSTR);
     }
+    RecordFeatureUsage(featureid, kind, addend, originname.into())
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACTCTX_SECTION_KEYED_DATA_2600 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACTCTX_SECTION_KEYED_DATA_2600 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: &mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void);
     }
+    SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context))
 }
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    pub lpInformation: *mut ::core::ffi::c_void,
-    pub lpSectionBase: *mut ::core::ffi::c_void,
-    pub ulSectionLength: u32,
-    pub lpSectionGlobalDataBase: *mut ::core::ffi::c_void,
-    pub ulSectionGlobalDataLength: u32,
-}
-impl ::core::marker::Copy for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {}
-impl ::core::clone::Clone for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn UnsubscribeFeatureStateChangeNotification<'a, P0>(subscription: P0)
+where
+    P0: ::std::convert::Into<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
     }
+    UnsubscribeFeatureStateChangeNotification(subscription.into())
 }
-impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA").field("lpInformation", &self.lpInformation).field("lpSectionBase", &self.lpSectionBase).field("ulSectionLength", &self.ulSectionLength).field("lpSectionGlobalDataBase", &self.lpSectionGlobalDataBase).field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength).finish()
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcschr(string: &u16, character: u16) -> *mut u16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
     }
+    uaw_wcschr(::core::mem::transmute(string), character)
 }
-unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA>()) == 0 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcscpy(destination: &mut u16, source: &u16) -> *mut u16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
     }
+    uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source))
 }
-impl ::core::cmp::Eq for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {}
-impl ::core::default::Default for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcsicmp(string1: &u16, string2: &u16) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
     }
+    uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2))
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    pub hActCtx: super::super::Foundation::HANDLE,
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for ACTIVATION_CONTEXT_BASIC_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcslen(string: &u16) -> usize {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn uaw_wcslen(string: *const u16) -> usize;
     }
+    uaw_wcslen(::core::mem::transmute(string))
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("ACTIVATION_CONTEXT_BASIC_INFORMATION").field("hActCtx", &self.hActCtx).field("dwFlags", &self.dwFlags).finish()
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_wcsrchr(string: &u16, character: u16) -> *mut u16 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "cdecl" {
+        fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
     }
+    uaw_wcsrchr(::core::mem::transmute(string), character)
 }
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_BASIC_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ACTIVATION_CONTEXT_BASIC_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AC_LINE_BACKUP_POWER: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AC_LINE_OFFLINE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AC_LINE_ONLINE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AC_LINE_UNKNOWN: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ADN_DEL_IF_EMPTY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ADN_DEL_UNC_PATHS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ADN_DONT_DEL_DIR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ADN_DONT_DEL_SUBDIRS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_BACKNEW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_EXTRAINCREFCNT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_NODELETENEW: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_NOMESSAGES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_NOPROGRESS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_RESTORE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_UPDREFCNT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AFSR_USEREFCNT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_FORCE_FILE_IN_USE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_NOLANGUAGECHECK: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_NOOVERWRITE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_NOSKIP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_NOVERSIONCHECK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_NO_VERSION_DIALOG: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_QUIET: u32 = 536870912u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_REPLACEONLY: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AIF_WARNIFSKIP: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_BKINSTALL: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_CHECKBKDATA: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_DELAYREGISTEROCX: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_NGCONV: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_QUIET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_ROLLBACK: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_ROLLBKDOALL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ALINF_UPDHLPDLLS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ARSR_NOMESSAGES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ARSR_REGSECTION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ARSR_REMOVREGBKDATA: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ARSR_RESTORE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ATOM_FLAG_GLOBAL: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AT_ARP: u32 = 640u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AT_NULL: u32 = 642u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn AddDelBackupEntryA<'a, P0, P1, P2>(lpcszfilelist: P0, lpcszbackupdir: P1, lpcszbasename: P2, dwflags: u32) -> ::windows::core::Result<()>
@@ -307,490 +183,6 @@ where
         fn ApphelpCheckShellObject(objectclsid: *const ::windows::core::GUID, bshimifnecessary: super::super::Foundation::BOOL, pullflags: *mut u64) -> super::super::Foundation::BOOL;
     }
     ApphelpCheckShellObject(::core::mem::transmute(objectclsid), bshimifnecessary.into(), ::core::mem::transmute(pullflags))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BACKUP_GHOSTED_FILE_EXTENTS: u32 = 11u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BACKUP_INVALID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BASE_SEARCH_PATH_DISABLE_SAFE_SEARCHMODE: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BASE_SEARCH_PATH_PERMANENT: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_FLAG_CHARGING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_FLAG_CRITICAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_FLAG_HIGH: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_FLAG_LOW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_FLAG_NO_BATTERY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_FLAG_UNKNOWN: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_LIFE_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const BATTERY_PERCENTAGE_UNKNOWN: u32 = 255u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CABINFOA {
-    pub pszCab: ::windows::core::PSTR,
-    pub pszInf: ::windows::core::PSTR,
-    pub pszSection: ::windows::core::PSTR,
-    pub szSrcPath: [super::super::Foundation::CHAR; 260],
-    pub dwFlags: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CABINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CABINFOA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CABINFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABINFOA").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABINFOA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CABINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINFOA>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CABINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABINFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct CABINFOW {
-    pub pszCab: ::windows::core::PWSTR,
-    pub pszInf: ::windows::core::PWSTR,
-    pub pszSection: ::windows::core::PWSTR,
-    pub szSrcPath: [u16; 260],
-    pub dwFlags: u32,
-}
-impl ::core::marker::Copy for CABINFOW {}
-impl ::core::clone::Clone for CABINFOW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CABINFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CABINFOW").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CABINFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CABINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINFOW>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CABINFOW {}
-impl ::core::default::Default for CABINFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const CATID_DeleteBrowsingHistory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_110: u32 = 110u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_115200: u32 = 115200u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_1200: u32 = 1200u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_128000: u32 = 128000u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_14400: u32 = 14400u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_19200: u32 = 19200u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_2400: u32 = 2400u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_256000: u32 = 256000u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_300: u32 = 300u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_38400: u32 = 38400u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_4800: u32 = 4800u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_56000: u32 = 56000u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_57600: u32 = 57600u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_600: u32 = 600u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CBR_9600: u32 = 9600u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CE_DNS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CE_IOE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CE_MODE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CE_OOP: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CE_PTO: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CE_TXFULL: u32 = 256u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CLIENT_ID {
-    pub UniqueProcess: super::super::Foundation::HANDLE,
-    pub UniqueThread: super::super::Foundation::HANDLE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CLIENT_ID {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CLIENT_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLIENT_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CLIENT_ID").field("UniqueProcess", &self.UniqueProcess).field("UniqueThread", &self.UniqueThread).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CLIENT_ID {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CLIENT_ID {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENT_ID>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CLIENT_ID {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CLIENT_ID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_NL_IP: u32 = 771u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_NL_IPX: u32 = 769u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_TL_NBF: u32 = 1025u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_TL_UDP: u32 = 1027u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_DEBUGMODE_ENABLED: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_ENABLED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_FLIGHTING_ENABLED: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_FLIGHT_BUILD: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_HVCI_IUM_ENABLED: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_HVCI_KMCI_AUDITMODE_ENABLED: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_HVCI_KMCI_ENABLED: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_HVCI_KMCI_STRICTMODE_ENABLED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_PREPRODUCTION_BUILD: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_TESTSIGN: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_TEST_BUILD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_UMCI_AUDITMODE_ENABLED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_UMCI_ENABLED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CODEINTEGRITY_OPTION_UMCI_EXCLUSIONPATHS_ENABLED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CONTEXT_SIZE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_COPY_SYMLINK: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_DIRECTORY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_DISABLE_PRE_ALLOCATION: u32 = 67108864u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: u32 = 33554432u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: u32 = 134217728u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_FAIL_IF_EXISTS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_IGNORE_EDP_BLOCK: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_NO_BUFFERING: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_NO_OFFLOAD: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: u32 = 268435456u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_RESTARTABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_RESUME_FROM_PAUSE: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_TL_NBF: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_TL_SPP: u32 = 1030u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_TL_SPX: u32 = 1026u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_TL_TCP: u32 = 1028u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CP_DIRECT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CP_HWND: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CP_LEVEL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CP_OPEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CREATE_FOR_DIR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CREATE_FOR_IMPORT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    pub Size: u32,
-    pub TriggerId: ::windows::core::PCWSTR,
-}
-impl ::core::marker::Copy for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
-impl ::core::clone::Clone for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG").field("Size", &self.Size).field("TriggerId", &self.TriggerId).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
-impl ::core::default::Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const CameraUIControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraUIControlCaptureMode(pub i32);
-impl CameraUIControlCaptureMode {
-    pub const PhotoOrVideo: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CameraUIControlCaptureMode {}
-impl ::core::clone::Clone for CameraUIControlCaptureMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlCaptureMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraUIControlCaptureMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlCaptureMode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraUIControlLinearSelectionMode(pub i32);
-impl CameraUIControlLinearSelectionMode {
-    pub const Single: Self = Self(0i32);
-    pub const Multiple: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlLinearSelectionMode {}
-impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlLinearSelectionMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlLinearSelectionMode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraUIControlMode(pub i32);
-impl CameraUIControlMode {
-    pub const Browse: Self = Self(0i32);
-    pub const Linear: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlMode {}
-impl ::core::clone::Clone for CameraUIControlMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraUIControlMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraUIControlMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlMode").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraUIControlPhotoFormat(pub i32);
-impl CameraUIControlPhotoFormat {
-    pub const Jpeg: Self = Self(0i32);
-    pub const Png: Self = Self(1i32);
-    pub const JpegXR: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CameraUIControlPhotoFormat {}
-impl ::core::clone::Clone for CameraUIControlPhotoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlPhotoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlPhotoFormat").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraUIControlVideoFormat(pub i32);
-impl CameraUIControlVideoFormat {
-    pub const Mp4: Self = Self(0i32);
-    pub const Wmv: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlVideoFormat {}
-impl ::core::clone::Clone for CameraUIControlVideoFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlVideoFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraUIControlVideoFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlVideoFormat").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraUIControlViewType(pub i32);
-impl CameraUIControlViewType {
-    pub const SingleItem: Self = Self(0i32);
-    pub const ItemList: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraUIControlViewType {}
-impl ::core::clone::Clone for CameraUIControlViewType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraUIControlViewType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraUIControlViewType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraUIControlViewType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraUIControlViewType").field(&self.0).finish()
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -873,41 +265,6 @@ where
     }
     CreateWaitableTimerExA(::core::mem::transmute(lptimerattributes), lptimername.into(), dwflags, dwdesiredaccess)
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DATETIME {
-    pub year: u16,
-    pub month: u16,
-    pub day: u16,
-    pub hour: u16,
-    pub min: u16,
-    pub sec: u16,
-}
-impl ::core::marker::Copy for DATETIME {}
-impl ::core::clone::Clone for DATETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DATETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DATETIME").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DATETIME {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DATETIME {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATETIME>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DATETIME {}
-impl ::core::default::Default for DATETIME {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn DCIBeginAccess(pdci: &mut DCISURFACEINFO, x: i32, y: i32, dx: i32, dy: i32) -> i32 {
@@ -917,83 +274,6 @@ pub unsafe fn DCIBeginAccess(pdci: &mut DCISURFACEINFO, x: i32, y: i32, dx: i32,
     }
     DCIBeginAccess(::core::mem::transmute(pdci), x, y, dx, dy)
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DCICMD {
-    pub dwCommand: u32,
-    pub dwParam1: u32,
-    pub dwParam2: u32,
-    pub dwVersion: u32,
-    pub dwReserved: u32,
-}
-impl ::core::marker::Copy for DCICMD {}
-impl ::core::clone::Clone for DCICMD {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DCICMD {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCICMD").field("dwCommand", &self.dwCommand).field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DCICMD {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DCICMD {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCICMD>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DCICMD {}
-impl ::core::default::Default for DCICMD {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DCICREATEINPUT {
-    pub cmd: DCICMD,
-    pub dwCompression: u32,
-    pub dwMask: [u32; 3],
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub dwDCICaps: u32,
-    pub dwBitCount: u32,
-    pub lpSurface: *mut ::core::ffi::c_void,
-}
-impl ::core::marker::Copy for DCICREATEINPUT {}
-impl ::core::clone::Clone for DCICREATEINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DCICREATEINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCICREATEINPUT").field("cmd", &self.cmd).field("dwCompression", &self.dwCompression).field("dwMask", &self.dwMask).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwDCICaps", &self.dwDCICaps).field("dwBitCount", &self.dwBitCount).field("lpSurface", &self.lpSurface).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DCICREATEINPUT {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DCICREATEINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCICREATEINPUT>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DCICREATEINPUT {}
-impl ::core::default::Default for DCICREATEINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCICREATEOFFSCREENSURFACE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCICREATEOVERLAYSURFACE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCICREATEPRIMARYSURFACE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1064,52 +344,6 @@ pub unsafe fn DCIDraw(pdci: &mut DCIOFFSCREEN) -> i32 {
     }
     DCIDraw(::core::mem::transmute(pdci))
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DCIENUMINPUT {
-    pub cmd: DCICMD,
-    pub rSrc: super::super::Foundation::RECT,
-    pub rDst: super::super::Foundation::RECT,
-    pub EnumCallback: isize,
-    pub lpContext: *mut ::core::ffi::c_void,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DCIENUMINPUT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DCIENUMINPUT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DCIENUMINPUT {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCIENUMINPUT").field("cmd", &self.cmd).field("rSrc", &self.rSrc).field("rDst", &self.rDst).field("EnumCallback", &self.EnumCallback).field("lpContext", &self.lpContext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DCIENUMINPUT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DCIENUMINPUT {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCIENUMINPUT>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DCIENUMINPUT {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DCIENUMINPUT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCIENUMSURFACE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCIESCAPE: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn DCIEndAccess(pdci: &mut DCISURFACEINFO) {
@@ -1132,71 +366,6 @@ where
     }
     DCIEnum(hdc.into(), ::core::mem::transmute(lprdst), ::core::mem::transmute(lprsrc), ::core::mem::transmute(lpfncallback), ::core::mem::transmute(lpcontext))
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DCIOFFSCREEN {
-    pub dciInfo: DCISURFACEINFO,
-    pub Draw: isize,
-    pub SetClipList: isize,
-    pub SetDestination: isize,
-}
-impl ::core::marker::Copy for DCIOFFSCREEN {}
-impl ::core::clone::Clone for DCIOFFSCREEN {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DCIOFFSCREEN {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCIOFFSCREEN").field("dciInfo", &self.dciInfo).field("Draw", &self.Draw).field("SetClipList", &self.SetClipList).field("SetDestination", &self.SetDestination).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DCIOFFSCREEN {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DCIOFFSCREEN {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCIOFFSCREEN>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DCIOFFSCREEN {}
-impl ::core::default::Default for DCIOFFSCREEN {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DCIOVERLAY {
-    pub dciInfo: DCISURFACEINFO,
-    pub dwChromakeyValue: u32,
-    pub dwChromakeyMask: u32,
-}
-impl ::core::marker::Copy for DCIOVERLAY {}
-impl ::core::clone::Clone for DCIOVERLAY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DCIOVERLAY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCIOVERLAY").field("dciInfo", &self.dciInfo).field("dwChromakeyValue", &self.dwChromakeyValue).field("dwChromakeyMask", &self.dwChromakeyMask).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DCIOVERLAY {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DCIOVERLAY {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCIOVERLAY>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DCIOVERLAY {}
-impl ::core::default::Default for DCIOVERLAY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
@@ -1206,70 +375,6 @@ pub unsafe fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC {
         fn DCIOpenProvider() -> super::super::Graphics::Gdi::HDC;
     }
     DCIOpenProvider()
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DCISURFACEINFO {
-    pub dwSize: u32,
-    pub dwDCICaps: u32,
-    pub dwCompression: u32,
-    pub dwMask: [u32; 3],
-    pub dwWidth: u32,
-    pub dwHeight: u32,
-    pub lStride: i32,
-    pub dwBitCount: u32,
-    pub dwOffSurface: usize,
-    pub wSelSurface: u16,
-    pub wReserved: u16,
-    pub dwReserved1: u32,
-    pub dwReserved2: u32,
-    pub dwReserved3: u32,
-    pub BeginAccess: isize,
-    pub EndAccess: isize,
-    pub DestroySurface: isize,
-}
-impl ::core::marker::Copy for DCISURFACEINFO {}
-impl ::core::clone::Clone for DCISURFACEINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for DCISURFACEINFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DCISURFACEINFO")
-            .field("dwSize", &self.dwSize)
-            .field("dwDCICaps", &self.dwDCICaps)
-            .field("dwCompression", &self.dwCompression)
-            .field("dwMask", &self.dwMask)
-            .field("dwWidth", &self.dwWidth)
-            .field("dwHeight", &self.dwHeight)
-            .field("lStride", &self.lStride)
-            .field("dwBitCount", &self.dwBitCount)
-            .field("dwOffSurface", &self.dwOffSurface)
-            .field("wSelSurface", &self.wSelSurface)
-            .field("wReserved", &self.wReserved)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .field("dwReserved3", &self.dwReserved3)
-            .field("BeginAccess", &self.BeginAccess)
-            .field("EndAccess", &self.EndAccess)
-            .field("DestroySurface", &self.DestroySurface)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for DCISURFACEINFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DCISURFACEINFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCISURFACEINFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DCISURFACEINFO {}
-impl ::core::default::Default for DCISURFACEINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1301,314 +406,6 @@ pub unsafe fn DCISetSrcDestClip(pdci: &mut DCIOFFSCREEN, srcrc: &mut super::supe
     }
     DCISetSrcDestClip(::core::mem::transmute(pdci), ::core::mem::transmute(srcrc), ::core::mem::transmute(destrc), ::core::mem::transmute(prd))
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_1632_ACCESS: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ASYNC: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_CANOVERLAY: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_CAN_STRETCHX: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_CAN_STRETCHXN: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_CAN_STRETCHY: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_CAN_STRETCHYN: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_CHROMAKEY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_DWORDALIGN: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_DWORDSIZE: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_CURRENTLYNOTAVAIL: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_HEIGHTALIGN: i32 = -21i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_INVALIDCLIPLIST: i32 = -15i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_INVALIDPOSITION: i32 = -13i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_INVALIDRECT: i32 = -6i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_INVALIDSTRETCH: i32 = -14i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_OUTOFMEMORY: i32 = -12i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_SURFACEISOBSCURED: i32 = -16i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_TOOBIGHEIGHT: i32 = -9i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_TOOBIGSIZE: i32 = -11i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_TOOBIGWIDTH: i32 = -10i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_UNSUPPORTEDFORMAT: i32 = -7i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_UNSUPPORTEDMASK: i32 = -8i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_WIDTHALIGN: i32 = -20i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_XALIGN: i32 = -17i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_XYALIGN: i32 = -19i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_ERR_YALIGN: i32 = -18i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_FAIL_GENERIC: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_FAIL_INVALIDSURFACE: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_FAIL_UNSUPPORTED: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_FAIL_UNSUPPORTEDVERSION: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_OFFSCREEN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_OK: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_OVERLAY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_PRIMARY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_STATUS_CHROMAKEYCHANGED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_STATUS_FORMATCHANGED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_STATUS_POINTERCHANGED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_STATUS_STRIDECHANGED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_STATUS_SURFACEINFOCHANGED: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_STATUS_WASSTILLDRAWING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_SURFACE_TYPE: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_VERSION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_VISIBLE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DCI_WRITEONLY: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DECISION_LOCATION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = DECISION_LOCATION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = DECISION_LOCATION(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = DECISION_LOCATION(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = DECISION_LOCATION(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(6i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = DECISION_LOCATION(7i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = DECISION_LOCATION(8i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = DECISION_LOCATION(9i32);
-impl ::core::marker::Copy for DECISION_LOCATION {}
-impl ::core::clone::Clone for DECISION_LOCATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DECISION_LOCATION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DECISION_LOCATION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DECISION_LOCATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DECISION_LOCATION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
-    pub TargetDllName: ::windows::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut ::core::ffi::c_void,
-    pub Unused: *mut ::core::ffi::c_void,
-    pub LastError: u32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DELAYLOAD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DELAYLOAD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_INFO>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for DELAYLOAD_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct DELAYLOAD_INFO {
-    pub Size: u32,
-    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
-    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
-    pub TargetDllName: ::windows::core::PCSTR,
-    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
-    pub TargetModuleBase: *mut ::core::ffi::c_void,
-    pub Unused: *mut ::core::ffi::c_void,
-    pub LastError: u32,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DELAYLOAD_INFO {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DELAYLOAD_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DELAYLOAD_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_INFO>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DELAYLOAD_INFO {}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for DELAYLOAD_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct DELAYLOAD_PROC_DESCRIPTOR {
-    pub ImportDescribedByName: u32,
-    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
-}
-impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR {}
-impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DELAYLOAD_PROC_DESCRIPTOR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DELAYLOAD_PROC_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_PROC_DESCRIPTOR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DELAYLOAD_PROC_DESCRIPTOR {}
-impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
-    pub Name: ::windows::core::PCSTR,
-    pub Ordinal: u32,
-}
-impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR_0 {}
-impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_PROC_DESCRIPTOR_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for DELAYLOAD_PROC_DESCRIPTOR_0 {}
-impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_COOKIES: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_DOWNLOADHISTORY: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_FORMDATA: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_HISTORY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_PASSWORDS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_PRESERVEFAVORITES: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DELETE_BROWSING_HISTORY_TIF: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DOCKINFO_DOCKED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DOCKINFO_UNDOCKED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DOCKINFO_USER_SUPPLIED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_CDROM: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_FIXED: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_NO_ROOT_DIR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_RAMDISK: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_REMOTE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_REMOVABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DRIVE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DTR_CONTROL_DISABLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DTR_CONTROL_ENABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
-pub const DefaultBrowserSyncSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn DelNodeA<'a, P0>(pszfileordirname: P0, dwflags: u32) -> ::windows::core::Result<()>
@@ -1683,24 +480,6 @@ pub unsafe fn DosDateTimeToFileTime(wfatdate: u16, wfattime: u16, lpfiletime: &m
     }
     DosDateTimeToFileTime(wfatdate, wfattime, ::core::mem::transmute(lpfiletime))
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EFS_DROP_ALTERNATE_STREAMS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ENTITY_LIST_ID: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ENTITY_TYPE_ID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ER_ICMP: u32 = 896u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EVENTLOG_FULL_INFO: u32 = 0u32;
-pub const EditionUpgradeBroker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
-pub const EditionUpgradeHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
@@ -1766,419 +545,6 @@ where
     }
     ExtractFilesW(pszcabname.into(), pszexpanddir.into(), dwflags, pszfilelist.into(), ::core::mem::transmute(lpreserved), dwreserved).ok()
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEATURE_CHANGE_TIME(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(3i32);
-impl ::core::marker::Copy for FEATURE_CHANGE_TIME {}
-impl ::core::clone::Clone for FEATURE_CHANGE_TIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEATURE_CHANGE_TIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEATURE_CHANGE_TIME {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEATURE_CHANGE_TIME").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEATURE_ENABLED_STATE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
-impl ::core::marker::Copy for FEATURE_ENABLED_STATE {}
-impl ::core::clone::Clone for FEATURE_ENABLED_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FEATURE_ENABLED_STATE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FEATURE_ENABLED_STATE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEATURE_ENABLED_STATE").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct FEATURE_ERROR {
-    pub hr: ::windows::core::HRESULT,
-    pub lineNumber: u16,
-    pub file: ::windows::core::PCSTR,
-    pub process: ::windows::core::PCSTR,
-    pub module: ::windows::core::PCSTR,
-    pub callerReturnAddressOffset: u32,
-    pub callerModule: ::windows::core::PCSTR,
-    pub message: ::windows::core::PCSTR,
-    pub originLineNumber: u16,
-    pub originFile: ::windows::core::PCSTR,
-    pub originModule: ::windows::core::PCSTR,
-    pub originCallerReturnAddressOffset: u32,
-    pub originCallerModule: ::windows::core::PCSTR,
-    pub originName: ::windows::core::PCSTR,
-}
-impl ::core::marker::Copy for FEATURE_ERROR {}
-impl ::core::clone::Clone for FEATURE_ERROR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FEATURE_ERROR {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FEATURE_ERROR")
-            .field("hr", &self.hr)
-            .field("lineNumber", &self.lineNumber)
-            .field("file", &self.file)
-            .field("process", &self.process)
-            .field("module", &self.module)
-            .field("callerReturnAddressOffset", &self.callerReturnAddressOffset)
-            .field("callerModule", &self.callerModule)
-            .field("message", &self.message)
-            .field("originLineNumber", &self.originLineNumber)
-            .field("originFile", &self.originFile)
-            .field("originModule", &self.originModule)
-            .field("originCallerReturnAddressOffset", &self.originCallerReturnAddressOffset)
-            .field("originCallerModule", &self.originCallerModule)
-            .field("originName", &self.originName)
-            .finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FEATURE_ERROR {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FEATURE_ERROR {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FEATURE_ERROR>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FEATURE_ERROR {}
-impl ::core::default::Default for FEATURE_ERROR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
-impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FEATURE_STATE_CHANGE_SUBSCRIPTION {}
-impl ::core::fmt::Debug for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FEATURE_STATE_CHANGE_SUBSCRIPTION").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<FEATURE_STATE_CHANGE_SUBSCRIPTION>> for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    fn from(optional: ::core::option::Option<FEATURE_STATE_CHANGE_SUBSCRIPTION>) -> FEATURE_STATE_CHANGE_SUBSCRIPTION {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for FEATURE_STATE_CHANGE_SUBSCRIPTION {
-    type Abi = Self;
-}
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
-impl FH_SERVICE_PIPE_HANDLE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for FH_SERVICE_PIPE_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for FH_SERVICE_PIPE_HANDLE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for FH_SERVICE_PIPE_HANDLE {}
-impl ::core::fmt::Debug for FH_SERVICE_PIPE_HANDLE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FH_SERVICE_PIPE_HANDLE").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<FH_SERVICE_PIPE_HANDLE>> for FH_SERVICE_PIPE_HANDLE {
-    fn from(optional: ::core::option::Option<FH_SERVICE_PIPE_HANDLE>) -> FH_SERVICE_PIPE_HANDLE {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for FH_SERVICE_PIPE_HANDLE {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct FILE_CASE_SENSITIVE_INFO {
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for FILE_CASE_SENSITIVE_INFO {}
-impl ::core::clone::Clone for FILE_CASE_SENSITIVE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FILE_CASE_SENSITIVE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILE_CASE_SENSITIVE_INFO").field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_CASE_SENSITIVE_INFO {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FILE_CASE_SENSITIVE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_CASE_SENSITIVE_INFO>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILE_CASE_SENSITIVE_INFO {}
-impl ::core::default::Default for FILE_CASE_SENSITIVE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_COMPLETE_IF_OPLOCKED: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_CREATED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_CREATE_TREE_CONNECTION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DELETE_ON_CLOSE: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DIRECTORY_FILE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DIR_DISALLOWED: u32 = 9u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_DELETE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_ON_CLOSE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: u32 = 2u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct FILE_DISPOSITION_INFO_EX {
-    pub Flags: u32,
-}
-impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX {}
-impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FILE_DISPOSITION_INFO_EX {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FILE_DISPOSITION_INFO_EX").field("Flags", &self.Flags).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO_EX {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_DISPOSITION_INFO_EX>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FILE_DISPOSITION_INFO_EX {}
-impl ::core::default::Default for FILE_DISPOSITION_INFO_EX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_DOES_NOT_EXIST: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_ENCRYPTABLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_EXISTS: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FILE_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
-impl ::core::marker::Copy for FILE_INFORMATION_CLASS {}
-impl ::core::clone::Clone for FILE_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FILE_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FILE_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FILE_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_IS_ENCRYPTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_MAXIMUM_DISPOSITION: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NON_DIRECTORY_FILE: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NO_COMPRESSION: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NO_EA_KNOWLEDGE: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_NO_INTERMEDIATE_BUFFERING: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPENED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_BY_FILE_ID: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_FOR_BACKUP_INTENT: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_FOR_FREE_SPACE_QUERY: u32 = 8388608u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_NO_RECALL: u32 = 4194304u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_REMOTE_INSTANCE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_REPARSE_POINT: u32 = 2097152u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OPEN_REQUIRING_OPLOCK: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_OVERWRITTEN: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RANDOM_ACCESS: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_READ_ONLY: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RENAME_FLAG_POSIX_SEMANTICS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RENAME_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RENAME_FLAG_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_RESERVE_OPFILTER: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_ROOT_DIR: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SEQUENTIAL_ONLY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SKIP_COMPLETION_PORT_ON_SUCCESS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SKIP_SET_EVENT_ON_HANDLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SUPERSEDED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYNCHRONOUS_IO_ALERT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYNCHRONOUS_IO_NONALERT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYSTEM_ATTR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYSTEM_DIR: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_SYSTEM_NOT_SUPPORT: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_CHAR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_DISK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_PIPE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_REMOTE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_TYPE_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_UNKNOWN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_USER_DISALLOWED: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_VALID_MAILSLOT_OPTION_FLAGS: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_VALID_OPTION_FLAGS: u32 = 16777215u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_VALID_PIPE_OPTION_FLAGS: u32 = 50u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_VALID_SET_FLAGS: u32 = 54u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FILE_WRITE_THROUGH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FIND_ACTCTX_SECTION_KEY_RETURN_ASSEMBLY_METADATA: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FIND_ACTCTX_SECTION_KEY_RETURN_FLAGS: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FIND_ACTCTX_SECTION_KEY_RETURN_HACTCTX: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FORMAT_MESSAGE_MAX_WIDTH_MASK: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_CASE_IS_PRESERVED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_CASE_SENSITIVE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_FILE_COMPRESSION: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_FILE_ENCRYPTION: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_PERSISTENT_ACLS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_UNICODE_STORED_ON_DISK: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const FS_VOL_IS_COMPRESSED: u32 = 32768u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn FileSaveMarkNotExistA<'a, P0, P1, P2>(lpfilelist: P0, lpdir: P1, lpbasename: P2) -> ::windows::core::Result<()>
@@ -2270,50 +636,6 @@ pub unsafe fn FileTimeToDosDateTime(lpfiletime: &super::super::Foundation::FILET
     FileTimeToDosDateTime(::core::mem::transmute(lpfiletime), ::core::mem::transmute(lpfatdate), ::core::mem::transmute(lpfattime))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: &str = "GetSystemWow64DirectoryA";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: &str = "GetSystemWow64DirectoryA";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: &str = "GetSystemWow64DirectoryA";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: &str = "GetSystemWow64DirectoryW";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: &str = "GetSystemWow64DirectoryW";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: &str = "GetSystemWow64DirectoryW";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: &str = "GetSystemWow64DirectoryW";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: &str = "GetSystemWow64DirectoryW";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: &str = "GetSystemWow64DirectoryW";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_DDESHARE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_DISCARDABLE: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_DISCARDED: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_INVALID_HANDLE: u32 = 32768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_LOCKCOUNT: u32 = 255u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_LOWER: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_MODIFY: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_NOCOMPACT: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_NODISCARD: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_NOTIFY: u32 = 16384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_NOT_BANKED: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_SHARE: u32 = 8192u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GMEM_VALID_FLAGS: u32 = 32626u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
 pub unsafe fn GdiEntry13() -> u32 {
     #[cfg_attr(windows, link(name = "windows"))]
@@ -2374,25 +696,6 @@ where
         fn GetDCRegionData(hdc: super::super::Graphics::Gdi::HDC, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
     }
     GetDCRegionData(hdc.into(), size, ::core::mem::transmute(prd))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetFeatureEnabledState(featureid: u32, changetime: FEATURE_CHANGE_TIME) -> FEATURE_ENABLED_STATE;
-    }
-    GetFeatureEnabledState(featureid, changetime)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: &mut u32, hasnotification: &mut super::super::Foundation::BOOL) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn GetFeatureVariant(featureid: u32, changetime: FEATURE_CHANGE_TIME, payloadid: *mut u32, hasnotification: *mut super::super::Foundation::BOOL) -> u32;
-    }
-    GetFeatureVariant(featureid, changetime, ::core::mem::transmute(payloadid), ::core::mem::transmute(hasnotification))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[inline]
@@ -2817,115 +1120,1672 @@ pub unsafe fn GlobalWire(hmem: isize) -> *mut ::core::ffi::c_void {
     }
     GlobalWire(hmem)
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const HANJA_WINDOW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const HINSTANCE_ERROR: u32 = 32u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HWINWATCH(pub isize);
-impl HWINWATCH {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
-    }
-}
-impl ::core::default::Default for HWINWATCH {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-impl ::core::clone::Clone for HWINWATCH {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for HWINWATCH {}
-impl ::core::fmt::Debug for HWINWATCH {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HWINWATCH").field(&self.0).finish()
-    }
-}
-impl ::core::convert::From<::core::option::Option<HWINWATCH>> for HWINWATCH {
-    fn from(optional: ::core::option::Option<HWINWATCH>) -> HWINWATCH {
-        optional.unwrap_or_default()
-    }
-}
-unsafe impl ::windows::core::Abi for HWINWATCH {
-    type Abi = Self;
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-pub struct HW_PROFILE_INFOA {
-    pub dwDockInfo: u32,
-    pub szHwProfileGuid: [super::super::Foundation::CHAR; 39],
-    pub szHwProfileName: [super::super::Foundation::CHAR; 80],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for HW_PROFILE_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for HW_PROFILE_INFOA {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn IMPGetIMEA<'a, P0>(param0: P0, param1: &mut IMEPROA) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IMPGetIMEA(param0: super::super::Foundation::HWND, param1: *mut IMEPROA) -> super::super::Foundation::BOOL;
     }
+    IMPGetIMEA(param0.into(), ::core::mem::transmute(param1))
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HW_PROFILE_INFOA {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HW_PROFILE_INFOA").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
+#[inline]
+pub unsafe fn IMPGetIMEW<'a, P0>(param0: P0, param1: &mut IMEPROW) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IMPGetIMEW(param0: super::super::Foundation::HWND, param1: *mut IMEPROW) -> super::super::Foundation::BOOL;
     }
+    IMPGetIMEW(param0.into(), ::core::mem::transmute(param1))
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HW_PROFILE_INFOA {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HW_PROFILE_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HW_PROFILE_INFOA>()) == 0 }
+#[inline]
+pub unsafe fn IMPQueryIMEA(param0: &mut IMEPROA) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BOOL;
     }
+    IMPQueryIMEA(::core::mem::transmute(param0))
 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HW_PROFILE_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for HW_PROFILE_INFOA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[inline]
+pub unsafe fn IMPQueryIMEW(param0: &mut IMEPROW) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BOOL;
     }
+    IMPQueryIMEW(::core::mem::transmute(param0))
 }
-#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IMPSetIMEA<'a, P0>(param0: P0, param1: &mut IMEPROA) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IMPSetIMEA(param0: super::super::Foundation::HWND, param1: *mut IMEPROA) -> super::super::Foundation::BOOL;
+    }
+    IMPSetIMEA(param0.into(), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IMPSetIMEW<'a, P0>(param0: P0, param1: &mut IMEPROW) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IMPSetIMEW(param0: super::super::Foundation::HWND, param1: *mut IMEPROW) -> super::super::Foundation::BOOL;
+    }
+    IMPSetIMEW(param0.into(), ::core::mem::transmute(param1))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsApiSetImplemented<'a, P0>(contract: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsApiSetImplemented(contract: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    IsApiSetImplemented(contract.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsBadHugeReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsBadHugeReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
+    }
+    IsBadHugeReadPtr(::core::mem::transmute(lp), ucb)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsBadHugeWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsBadHugeWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
+    }
+    IsBadHugeWritePtr(::core::mem::transmute(lp), ucb)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsNTAdmin(dwreserved: u32, lpdwreserved: &mut u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsNTAdmin(dwreserved: u32, lpdwreserved: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    IsNTAdmin(dwreserved, ::core::mem::transmute(lpdwreserved))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsNativeVhdBoot(nativevhdboot: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsNativeVhdBoot(nativevhdboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    IsNativeVhdBoot(::core::mem::transmute(nativevhdboot))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn IsTokenUntrusted<'a, P0>(tokenhandle: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn IsTokenUntrusted(tokenhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    IsTokenUntrusted(tokenhandle.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LaunchINFSectionExW<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LaunchINFSectionExW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCWSTR, nshow: i32) -> ::windows::core::HRESULT;
+    }
+    LaunchINFSectionExW(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn LaunchINFSectionW<'a, P0, P1>(hwndowner: P0, hinstance: P1, pszparams: ::windows::core::PWSTR, nshow: i32) -> i32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LaunchINFSectionW(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparams: ::windows::core::PWSTR, nshow: i32) -> i32;
+    }
+    LaunchINFSectionW(hwndowner.into(), hinstance.into(), ::core::mem::transmute(pszparams), nshow)
+}
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub struct HW_PROFILE_INFOW {
-    pub dwDockInfo: u32,
-    pub szHwProfileGuid: [u16; 39],
-    pub szHwProfileName: [u16; 80],
-}
-impl ::core::marker::Copy for HW_PROFILE_INFOW {}
-impl ::core::clone::Clone for HW_PROFILE_INFOW {
-    fn clone(&self) -> Self {
-        *self
+#[inline]
+pub unsafe fn LocalCompact(uminfree: u32) -> usize {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LocalCompact(uminfree: u32) -> usize;
     }
+    LocalCompact(uminfree)
 }
-impl ::core::fmt::Debug for HW_PROFILE_INFOW {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("HW_PROFILE_INFOW").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize;
     }
+    LocalShrink(hmem, cbnewsize)
 }
-unsafe impl ::windows::core::Abi for HW_PROFILE_INFOW {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for HW_PROFILE_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HW_PROFILE_INFOW>()) == 0 }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32;
     }
+    MulDiv(nnumber, nnumerator, ndenominator)
 }
-impl ::core::cmp::Eq for HW_PROFILE_INFOW {}
-impl ::core::default::Default for HW_PROFILE_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL;
     }
+    NeedReboot(dwrebootcheck)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn NeedRebootInit() -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NeedRebootInit() -> u32;
+    }
+    NeedRebootInit()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtClose<'a, P0>(handle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtClose(handle: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
+    }
+    NtClose(handle.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtDeviceIoControlFile<'a, P0, P1>(filehandle: P0, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: &mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtDeviceIoControlFile(filehandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtDeviceIoControlFile(filehandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(iostatusblock), iocontrolcode, ::core::mem::transmute(inputbuffer), inputbufferlength, ::core::mem::transmute(outputbuffer), outputbufferlength).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtNotifyChangeMultipleKeys<'a, P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: ::core::option::Option<&[OBJECT_ATTRIBUTES]>, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, iostatusblock: &mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: ::core::option::Option<&mut [u8]>, asynchronous: P3) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+    P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::super::Foundation::HANDLE, count: u32, subordinateobjects: *const OBJECT_ATTRIBUTES, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: super::super::Foundation::BOOLEAN, buffer: *mut ::core::ffi::c_void, buffersize: u32, asynchronous: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
+    }
+    NtNotifyChangeMultipleKeys(
+        masterkeyhandle.into(),
+        subordinateobjects.as_deref().map_or(0, |slice| slice.len() as _),
+        ::core::mem::transmute(subordinateobjects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        event.into(),
+        ::core::mem::transmute(apcroutine),
+        ::core::mem::transmute(apccontext),
+        ::core::mem::transmute(iostatusblock),
+        completionfilter,
+        watchtree.into(),
+        ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
+        buffer.as_deref().map_or(0, |slice| slice.len() as _),
+        asynchronous.into(),
+    )
+    .ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtOpenFile(filehandle: &mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: &mut OBJECT_ATTRIBUTES, iostatusblock: &mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtOpenFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtOpenFile(::core::mem::transmute(filehandle), desiredaccess, ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), shareaccess, openoptions).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtQueryMultipleValueKey<'a, P0>(keyhandle: P0, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut ::core::ffi::c_void, bufferlength: &mut u32, requiredbufferlength: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQueryMultipleValueKey(keyhandle: super::super::Foundation::HANDLE, valueentries: *mut KEY_VALUE_ENTRY, entrycount: u32, valuebuffer: *mut ::core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtQueryMultipleValueKey(keyhandle.into(), ::core::mem::transmute(valueentries.as_ptr()), valueentries.len() as _, ::core::mem::transmute(valuebuffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(requiredbufferlength)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtQueryObject<'a, P0>(handle: P0, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQueryObject(handle: super::super::Foundation::HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: *mut ::core::ffi::c_void, objectinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtQueryObject(handle.into(), objectinformationclass, ::core::mem::transmute(objectinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objectinformation.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtQuerySystemInformation(systeminformationclass, ::core::mem::transmute(systeminformation), systeminformationlength, ::core::mem::transmute(returnlength)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtQuerySystemTime(systemtime: &mut i64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQuerySystemTime(systemtime: *mut i64) -> super::super::Foundation::NTSTATUS;
+    }
+    NtQuerySystemTime(::core::mem::transmute(systemtime)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtQueryTimerResolution(maximumtime: &mut u32, minimumtime: &mut u32, currenttime: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtQueryTimerResolution(::core::mem::transmute(maximumtime), ::core::mem::transmute(minimumtime), ::core::mem::transmute(currenttime)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtRenameKey<'a, P0>(keyhandle: P0, newname: &super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtRenameKey(keyhandle: super::super::Foundation::HANDLE, newname: *const super::super::Foundation::UNICODE_STRING) -> super::super::Foundation::NTSTATUS;
+    }
+    NtRenameKey(keyhandle.into(), ::core::mem::transmute(newname)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtSetInformationKey<'a, P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: &[u8]) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtSetInformationKey(keyhandle: super::super::Foundation::HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> super::super::Foundation::NTSTATUS;
+    }
+    NtSetInformationKey(keyhandle.into(), keysetinformationclass, ::core::mem::transmute(keysetinformation.as_ptr()), keysetinformation.len() as _).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn NtWaitForSingleObject<'a, P0, P1>(handle: P0, alertable: P1, timeout: &mut i64) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn NtWaitForSingleObject(handle: super::super::Foundation::HANDLE, alertable: super::super::Foundation::BOOLEAN, timeout: *mut i64) -> super::super::Foundation::NTSTATUS;
+    }
+    NtWaitForSingleObject(handle.into(), alertable.into(), ::core::mem::transmute(timeout)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn OpenINFEngineA<'a, P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenINFEngineA(pszinffilename: ::windows::core::PCSTR, pszinstallsection: ::windows::core::PCSTR, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    OpenINFEngineA(pszinffilename.into(), pszinstallsection.into(), dwflags, ::core::mem::transmute(phinf), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn OpenINFEngineW<'a, P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenINFEngineW(pszinffilename: ::windows::core::PCWSTR, pszinstallsection: ::windows::core::PCWSTR, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    OpenINFEngineW(pszinffilename.into(), pszinstallsection.into(), dwflags, ::core::mem::transmute(phinf), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenMutexA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenMutexA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    OpenMutexA(dwdesiredaccess, binherithandle.into(), lpname.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenSemaphoreA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenSemaphoreA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    OpenSemaphoreA(dwdesiredaccess, binherithandle.into(), lpname.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn OpenWaitableTimerA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lptimername: P1) -> super::super::Foundation::HANDLE
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn OpenWaitableTimerA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
+    }
+    OpenWaitableTimerA(dwdesiredaccess, binherithandle.into(), lptimername.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows::core::Result<u64> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: *mut u64) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    QueryAuxiliaryCounterFrequency(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryIdleProcessorCycleTime(bufferlength: &mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryIdleProcessorCycleTime(bufferlength: *mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL;
+    }
+    QueryIdleProcessorCycleTime(::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: &mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL;
+    }
+    QueryIdleProcessorCycleTimeEx(group, ::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn QueryInterruptTime(lpinterrupttime: &mut u64) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryInterruptTime(lpinterrupttime: *mut u64);
+    }
+    QueryInterruptTime(::core::mem::transmute(lpinterrupttime))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn QueryInterruptTimePrecise(lpinterrupttimeprecise: &mut u64) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64);
+    }
+    QueryInterruptTimePrecise(::core::mem::transmute(lpinterrupttimeprecise))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryProcessCycleTime<'a, P0>(processhandle: P0, cycletime: &mut u64) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryProcessCycleTime(processhandle: super::super::Foundation::HANDLE, cycletime: *mut u64) -> super::super::Foundation::BOOL;
+    }
+    QueryProcessCycleTime(processhandle.into(), ::core::mem::transmute(cycletime))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryThreadCycleTime<'a, P0>(threadhandle: P0, cycletime: &mut u64) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryThreadCycleTime(threadhandle: super::super::Foundation::HANDLE, cycletime: *mut u64) -> super::super::Foundation::BOOL;
+    }
+    QueryThreadCycleTime(threadhandle.into(), ::core::mem::transmute(cycletime))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: &mut u64) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super::Foundation::BOOL;
+    }
+    QueryUnbiasedInterruptTime(::core::mem::transmute(unbiasedtime))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: &mut u64) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64);
+    }
+    QueryUnbiasedInterruptTimePrecise(::core::mem::transmute(lpunbiasedinterrupttimeprecise))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: &CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
+    }
+    RaiseCustomSystemEventTrigger(::core::mem::transmute(customsystemeventtriggerconfig))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RebootCheckOnInstallA<'a, P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RebootCheckOnInstallA(hwnd: super::super::Foundation::HWND, pszinf: ::windows::core::PCSTR, pszsec: ::windows::core::PCSTR, dwreserved: u32) -> ::windows::core::HRESULT;
+    }
+    RebootCheckOnInstallA(hwnd.into(), pszinf.into(), pszsec.into(), dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RebootCheckOnInstallW<'a, P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RebootCheckOnInstallW(hwnd: super::super::Foundation::HWND, pszinf: ::windows::core::PCWSTR, pszsec: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
+    }
+    RebootCheckOnInstallW(hwnd.into(), pszinf.into(), pszsec.into(), dwreserved).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RegInstallA<'a, P0, P1>(hmod: P0, pszsection: P1, psttable: &STRTABLEA) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegInstallA(hmod: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCSTR, psttable: *const STRTABLEA) -> ::windows::core::HRESULT;
+    }
+    RegInstallA(hmod.into(), pszsection.into(), ::core::mem::transmute(psttable)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RegInstallW<'a, P0, P1>(hmod: P0, pszsection: P1, psttable: &STRTABLEW) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegInstallW(hmod: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCWSTR, psttable: *const STRTABLEW) -> ::windows::core::HRESULT;
+    }
+    RegInstallW(hmod.into(), pszsection.into(), ::core::mem::transmute(psttable)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn RegRestoreAllA<'a, P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<super::Registry::HKEY>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegRestoreAllA(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCSTR, hkbckupkey: super::Registry::HKEY) -> ::windows::core::HRESULT;
+    }
+    RegRestoreAllA(hwnd.into(), psztitlestring.into(), hkbckupkey.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn RegRestoreAllW<'a, P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::Registry::HKEY>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegRestoreAllW(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCWSTR, hkbckupkey: super::Registry::HKEY) -> ::windows::core::HRESULT;
+    }
+    RegRestoreAllW(hwnd.into(), psztitlestring.into(), hkbckupkey.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn RegSaveRestoreA<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<super::Registry::HKEY>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P4: ::std::convert::Into<::windows::core::PCSTR>,
+    P5: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegSaveRestoreA(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCSTR, hkbckupkey: super::Registry::HKEY, pcszrootkey: ::windows::core::PCSTR, pcszsubkey: ::windows::core::PCSTR, pcszvaluename: ::windows::core::PCSTR, dwflags: u32) -> ::windows::core::HRESULT;
+    }
+    RegSaveRestoreA(hwnd.into(), psztitlestring.into(), hkbckupkey.into(), pcszrootkey.into(), pcszsubkey.into(), pcszvaluename.into(), dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn RegSaveRestoreOnINFA<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P4: ::std::convert::Into<super::Registry::HKEY>,
+    P5: ::std::convert::Into<super::Registry::HKEY>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegSaveRestoreOnINFA(hwnd: super::super::Foundation::HWND, psztitle: ::windows::core::PCSTR, pszinf: ::windows::core::PCSTR, pszsection: ::windows::core::PCSTR, hhklmbackkey: super::Registry::HKEY, hhkcubackkey: super::Registry::HKEY, dwflags: u32) -> ::windows::core::HRESULT;
+    }
+    RegSaveRestoreOnINFA(hwnd.into(), psztitle.into(), pszinf.into(), pszsection.into(), hhklmbackkey.into(), hhkcubackkey.into(), dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn RegSaveRestoreOnINFW<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<super::Registry::HKEY>,
+    P5: ::std::convert::Into<super::Registry::HKEY>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegSaveRestoreOnINFW(hwnd: super::super::Foundation::HWND, psztitle: ::windows::core::PCWSTR, pszinf: ::windows::core::PCWSTR, pszsection: ::windows::core::PCWSTR, hhklmbackkey: super::Registry::HKEY, hhkcubackkey: super::Registry::HKEY, dwflags: u32) -> ::windows::core::HRESULT;
+    }
+    RegSaveRestoreOnINFW(hwnd.into(), psztitle.into(), pszinf.into(), pszsection.into(), hhklmbackkey.into(), hhkcubackkey.into(), dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[inline]
+pub unsafe fn RegSaveRestoreW<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::Registry::HKEY>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+    P5: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RegSaveRestoreW(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCWSTR, hkbckupkey: super::Registry::HKEY, pcszrootkey: ::windows::core::PCWSTR, pcszsubkey: ::windows::core::PCWSTR, pcszvaluename: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
+    }
+    RegSaveRestoreW(hwnd.into(), psztitlestring.into(), hkbckupkey.into(), pcszrootkey.into(), pcszsubkey.into(), pcszvaluename.into(), dwflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ReplacePartitionUnit<'a, P0, P1>(targetpartition: P0, sparepartition: P1, flags: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReplacePartitionUnit(targetpartition: ::windows::core::PCWSTR, sparepartition: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
+    }
+    ReplacePartitionUnit(targetpartition.into(), sparepartition.into(), flags)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RequestDeviceWakeup<'a, P0>(hdevice: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RequestDeviceWakeup(hdevice: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
+    }
+    RequestDeviceWakeup(hdevice.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
+pub unsafe fn RtlAnsiStringToUnicodeString<'a, P0>(destinationstring: &mut super::super::Foundation::UNICODE_STRING, sourcestring: &mut super::Kernel::STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlAnsiStringToUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlAnsiStringToUnicodeString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring), allocatedestinationstring.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlCharToInteger(string: &mut i8, base: u32, value: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlCharToInteger(::core::mem::transmute(string), base, ::core::mem::transmute(value)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlFreeAnsiString(ansistring: &mut super::Kernel::STRING) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING);
+    }
+    RtlFreeAnsiString(::core::mem::transmute(ansistring))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlFreeOemString(oemstring: &mut super::Kernel::STRING) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING);
+    }
+    RtlFreeOemString(::core::mem::transmute(oemstring))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlFreeUnicodeString(unicodestring: &mut super::super::Foundation::UNICODE_STRING) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlFreeUnicodeString(unicodestring: *mut super::super::Foundation::UNICODE_STRING);
+    }
+    RtlFreeUnicodeString(::core::mem::transmute(unicodestring))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlGetReturnAddressHijackTarget() -> usize;
+    }
+    RtlGetReturnAddressHijackTarget()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlInitAnsiString(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
+    }
+    RtlInitAnsiString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
+pub unsafe fn RtlInitAnsiStringEx(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInitAnsiStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlInitAnsiStringEx(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(feature = "Win32_System_Kernel")]
+#[inline]
+pub unsafe fn RtlInitString(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
+    }
+    RtlInitString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
+pub unsafe fn RtlInitStringEx(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInitStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlInitStringEx(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlInitUnicodeString<'a, P0>(destinationstring: &mut super::super::Foundation::UNICODE_STRING, sourcestring: P0)
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlInitUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: ::windows::core::PCWSTR);
+    }
+    RtlInitUnicodeString(::core::mem::transmute(destinationstring), sourcestring.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
+pub unsafe fn RtlIsNameLegalDOS8Dot3(name: &mut super::super::Foundation::UNICODE_STRING, oemname: &mut super::Kernel::STRING, namecontainsspaces: &mut super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICODE_STRING, oemname: *mut super::Kernel::STRING, namecontainsspaces: *mut super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
+    }
+    RtlIsNameLegalDOS8Dot3(::core::mem::transmute(name), ::core::mem::transmute(oemname), ::core::mem::transmute(namecontainsspaces))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlLocalTimeToSystemTime(localtime: &mut i64, systemtime: &mut i64) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlLocalTimeToSystemTime(localtime: *mut i64, systemtime: *mut i64) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlLocalTimeToSystemTime(::core::mem::transmute(localtime), ::core::mem::transmute(systemtime)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: &CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
+    }
+    RtlRaiseCustomSystemEventTrigger(::core::mem::transmute(triggerconfig))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlTimeToSecondsSince1970(time: &mut i64, elapsedseconds: &mut u32) -> super::super::Foundation::BOOLEAN {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32) -> super::super::Foundation::BOOLEAN;
+    }
+    RtlTimeToSecondsSince1970(::core::mem::transmute(time), ::core::mem::transmute(elapsedseconds))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
+pub unsafe fn RtlUnicodeStringToAnsiString<'a, P0>(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlUnicodeStringToAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlUnicodeStringToAnsiString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring), allocatedestinationstring.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[inline]
+pub unsafe fn RtlUnicodeStringToOemString<'a, P0>(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlUnicodeStringToOemString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlUnicodeStringToOemString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring), allocatedestinationstring.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: &mut u32, unicodestring: &[u8]) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: *mut u32, unicodestring: ::windows::core::PCWSTR, bytesinunicodestring: u32) -> super::super::Foundation::NTSTATUS;
+    }
+    RtlUnicodeToMultiByteSize(::core::mem::transmute(bytesinmultibytestring), ::core::mem::transmute(unicodestring.as_ptr()), unicodestring.len() as _).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn RtlUniform(seed: &mut u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RtlUniform(seed: *mut u32) -> u32;
+    }
+    RtlUniform(::core::mem::transmute(seed))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RunSetupCommandA<'a, P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: &mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+    P4: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RunSetupCommandA(hwnd: super::super::Foundation::HWND, szcmdname: ::windows::core::PCSTR, szinfsection: ::windows::core::PCSTR, szdir: ::windows::core::PCSTR, lpsztitle: ::windows::core::PCSTR, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    RunSetupCommandA(hwnd.into(), szcmdname.into(), szinfsection.into(), szdir.into(), lpsztitle.into(), ::core::mem::transmute(phexe), dwflags, ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn RunSetupCommandW<'a, P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: &mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+    P4: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn RunSetupCommandW(hwnd: super::super::Foundation::HWND, szcmdname: ::windows::core::PCWSTR, szinfsection: ::windows::core::PCWSTR, szdir: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    RunSetupCommandW(hwnd.into(), szcmdname.into(), szinfsection.into(), szdir.into(), lpsztitle.into(), ::core::mem::transmute(phexe), dwflags, ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SendIMEMessageExA<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SendIMEMessageExA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    }
+    SendIMEMessageExA(param0.into(), param1.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SendIMEMessageExW<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::LRESULT
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SendIMEMessageExW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
+    }
+    SendIMEMessageExW(param0.into(), param1.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetEnvironmentStringsA<'a, P0>(newenvironment: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetEnvironmentStringsA(newenvironment: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    SetEnvironmentStringsA(newenvironment.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetFirmwareEnvironmentVariableA<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetFirmwareEnvironmentVariableA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pvalue: *const ::core::ffi::c_void, nsize: u32) -> super::super::Foundation::BOOL;
+    }
+    SetFirmwareEnvironmentVariableA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetFirmwareEnvironmentVariableExA<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>, dwattributes: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetFirmwareEnvironmentVariableExA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pvalue: *const ::core::ffi::c_void, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL;
+    }
+    SetFirmwareEnvironmentVariableExA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _), dwattributes)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetFirmwareEnvironmentVariableExW<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>, dwattributes: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetFirmwareEnvironmentVariableExW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pvalue: *const ::core::ffi::c_void, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL;
+    }
+    SetFirmwareEnvironmentVariableExW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _), dwattributes)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetFirmwareEnvironmentVariableW<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetFirmwareEnvironmentVariableW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pvalue: *const ::core::ffi::c_void, nsize: u32) -> super::super::Foundation::BOOL;
+    }
+    SetFirmwareEnvironmentVariableW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn SetHandleCount(unumber: u32) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetHandleCount(unumber: u32) -> u32;
+    }
+    SetHandleCount(unumber)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetMessageWaitingIndicator<'a, P0>(hmsgindicator: P0, ulmsgcount: u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetMessageWaitingIndicator(hmsgindicator: super::super::Foundation::HANDLE, ulmsgcount: u32) -> super::super::Foundation::BOOL;
+    }
+    SetMessageWaitingIndicator(hmsgindicator.into(), ulmsgcount)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetPerUserSecValuesA(pperuser: &mut PERUSERSECTIONA) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetPerUserSecValuesA(pperuser: *mut PERUSERSECTIONA) -> ::windows::core::HRESULT;
+    }
+    SetPerUserSecValuesA(::core::mem::transmute(pperuser)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SetPerUserSecValuesW(pperuser: &mut PERUSERSECTIONW) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows::core::HRESULT;
+    }
+    SetPerUserSecValuesW(::core::mem::transmute(pperuser)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SignalObjectAndWait<'a, P0, P1, P2>(hobjecttosignal: P0, hobjecttowaiton: P1, dwmilliseconds: u32, balertable: P2) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
+    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
+    }
+    SignalObjectAndWait(hobjecttosignal.into(), hobjecttowaiton.into(), dwmilliseconds, balertable.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn TranslateInfStringA<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateInfStringA(pszinffilename: ::windows::core::PCSTR, pszinstallsection: ::windows::core::PCSTR, psztranslatesection: ::windows::core::PCSTR, psztranslatekey: ::windows::core::PCSTR, pszbuffer: ::windows::core::PSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    TranslateInfStringA(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn TranslateInfStringExA<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u8], pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateInfStringExA(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows::core::PCSTR, psztranslatesection: ::windows::core::PCSTR, psztranslatekey: ::windows::core::PCSTR, pszbuffer: ::windows::core::PSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    TranslateInfStringExA(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn TranslateInfStringExW<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u16], pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateInfStringExW(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    TranslateInfStringExW(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn TranslateInfStringW<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u16]>, pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TranslateInfStringW(pszinffilename: ::windows::core::PCWSTR, pszinstallsection: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+    }
+    TranslateInfStringW(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UserInstStubWrapperA<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UserInstStubWrapperA(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCSTR, nshow: i32) -> ::windows::core::HRESULT;
+    }
+    UserInstStubWrapperA(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UserInstStubWrapperW<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UserInstStubWrapperW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCWSTR, nshow: i32) -> ::windows::core::HRESULT;
+    }
+    UserInstStubWrapperW(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UserUnInstStubWrapperA<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UserUnInstStubWrapperA(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCSTR, nshow: i32) -> ::windows::core::HRESULT;
+    }
+    UserUnInstStubWrapperA(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn UserUnInstStubWrapperW<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn UserUnInstStubWrapperW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCWSTR, nshow: i32) -> ::windows::core::HRESULT;
+    }
+    UserUnInstStubWrapperW(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WINNLSEnableIME<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WINNLSEnableIME(param0: super::super::Foundation::HWND, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    }
+    WINNLSEnableIME(param0.into(), param1.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WINNLSGetEnableStatus<'a, P0>(param0: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WINNLSGetEnableStatus(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    WINNLSGetEnableStatus(param0.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WINNLSGetIMEHotkey<'a, P0>(param0: P0) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WINNLSGetIMEHotkey(param0: super::super::Foundation::HWND) -> u32;
+    }
+    WINNLSGetIMEHotkey(param0.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn WinWatchClose<'a, P0>(hww: P0)
+where
+    P0: ::std::convert::Into<HWINWATCH>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinWatchClose(hww: HWINWATCH);
+    }
+    WinWatchClose(hww.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WinWatchDidStatusChange<'a, P0>(hww: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HWINWATCH>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinWatchDidStatusChange(hww: HWINWATCH) -> super::super::Foundation::BOOL;
+    }
+    WinWatchDidStatusChange(hww.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn WinWatchGetClipList<'a, P0>(hww: P0, prc: &mut super::super::Foundation::RECT, size: u32, prd: &mut super::super::Graphics::Gdi::RGNDATA) -> u32
+where
+    P0: ::std::convert::Into<HWINWATCH>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinWatchGetClipList(hww: HWINWATCH, prc: *mut super::super::Foundation::RECT, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
+    }
+    WinWatchGetClipList(hww.into(), ::core::mem::transmute(prc), size, ::core::mem::transmute(prd))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WinWatchNotify<'a, P0, P1>(hww: P0, notifycallback: WINWATCHNOTIFYPROC, notifyparam: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<HWINWATCH>,
+    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinWatchNotify(hww: HWINWATCH, notifycallback: *mut ::core::ffi::c_void, notifyparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
+    }
+    WinWatchNotify(hww.into(), ::core::mem::transmute(notifycallback), notifyparam.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WinWatchOpen<'a, P0>(hwnd: P0) -> HWINWATCH
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WinWatchOpen(hwnd: super::super::Foundation::HWND) -> HWINWATCH;
+    }
+    WinWatchOpen(hwnd.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WldpGetLockdownPolicy(hostinformation: ::core::option::Option<&WLDP_HOST_INFORMATION>, lockdownstate: &mut u32, lockdownflags: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WldpGetLockdownPolicy(hostinformation: *const WLDP_HOST_INFORMATION, lockdownstate: *mut u32, lockdownflags: u32) -> ::windows::core::HRESULT;
+    }
+    WldpGetLockdownPolicy(::core::mem::transmute(hostinformation), ::core::mem::transmute(lockdownstate), lockdownflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WldpIsClassInApprovedList(classid: &::windows::core::GUID, hostinformation: &WLDP_HOST_INFORMATION, isapproved: &mut super::super::Foundation::BOOL, optionalflags: u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WldpIsClassInApprovedList(classid: *const ::windows::core::GUID, hostinformation: *const WLDP_HOST_INFORMATION, isapproved: *mut super::super::Foundation::BOOL, optionalflags: u32) -> ::windows::core::HRESULT;
+    }
+    WldpIsClassInApprovedList(::core::mem::transmute(classid), ::core::mem::transmute(hostinformation), ::core::mem::transmute(isapproved), optionalflags).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WldpIsDynamicCodePolicyEnabled(isenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    WldpIsDynamicCodePolicyEnabled(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn WldpQueryDeviceSecurityInformation(information: ::core::option::Option<&mut [WLDP_DEVICE_SECURITY_INFORMATION]>, returnlength: &mut u32) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WldpQueryDeviceSecurityInformation(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows::core::HRESULT;
+    }
+    WldpQueryDeviceSecurityInformation(::core::mem::transmute(information.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), information.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WldpQueryDynamicCodeTrust<'a, P0>(filehandle: P0, baseimage: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WldpQueryDynamicCodeTrust(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows::core::HRESULT;
+    }
+    WldpQueryDynamicCodeTrust(filehandle.into(), ::core::mem::transmute(baseimage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), baseimage.as_deref().map_or(0, |slice| slice.len() as _)).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WldpSetDynamicCodeTrust<'a, P0>(filehandle: P0) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WldpSetDynamicCodeTrust(filehandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
+    }
+    WldpSetDynamicCodeTrust(filehandle.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WritePrivateProfileSectionA<'a, P0, P1, P2>(lpappname: P0, lpstring: P1, lpfilename: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePrivateProfileSectionA(lpappname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    WritePrivateProfileSectionA(lpappname.into(), lpstring.into(), lpfilename.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WritePrivateProfileSectionW<'a, P0, P1, P2>(lpappname: P0, lpstring: P1, lpfilename: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePrivateProfileSectionW(lpappname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    WritePrivateProfileSectionW(lpappname.into(), lpstring.into(), lpfilename.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WritePrivateProfileStringA<'a, P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpstring: P2, lpfilename: P3) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+    P3: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePrivateProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    WritePrivateProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WritePrivateProfileStringW<'a, P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpstring: P2, lpfilename: P3) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+    P3: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePrivateProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    WritePrivateProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WritePrivateProfileStructA<'a, P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<&[u8]>, szfile: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePrivateProfileStructA(lpszsection: ::windows::core::PCSTR, lpszkey: ::windows::core::PCSTR, lpstruct: *const ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    WritePrivateProfileStructA(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstruct.as_deref().map_or(0, |slice| slice.len() as _), szfile.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WritePrivateProfileStructW<'a, P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<&[u8]>, szfile: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WritePrivateProfileStructW(lpszsection: ::windows::core::PCWSTR, lpszkey: ::windows::core::PCWSTR, lpstruct: *const ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    WritePrivateProfileStructW(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstruct.as_deref().map_or(0, |slice| slice.len() as _), szfile.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WriteProfileSectionA<'a, P0, P1>(lpappname: P0, lpstring: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteProfileSectionA(lpappname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    WriteProfileSectionA(lpappname.into(), lpstring.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WriteProfileSectionW<'a, P0, P1>(lpappname: P0, lpstring: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteProfileSectionW(lpappname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    WriteProfileSectionW(lpappname.into(), lpstring.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WriteProfileStringA<'a, P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpstring: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+    P1: ::std::convert::Into<::windows::core::PCSTR>,
+    P2: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
+    }
+    WriteProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WriteProfileStringW<'a, P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpstring: P2) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WriteProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    WriteProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into())
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _hread(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _hread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, lbytes: i32) -> i32;
+    }
+    _hread(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _hwrite(hfile: i32, lpbuffer: &[u8]) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _hwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, lbytes: i32) -> i32;
+    }
+    _hwrite(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _lclose(hfile: i32) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _lclose(hfile: i32) -> i32;
+    }
+    _lclose(hfile)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _lcreat<'a, P0>(lppathname: P0, iattribute: i32) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _lcreat(lppathname: ::windows::core::PCSTR, iattribute: i32) -> i32;
+    }
+    _lcreat(lppathname.into(), iattribute)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
+    }
+    _llseek(hfile, loffset, iorigin)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _lopen<'a, P0>(lppathname: P0, ireadwrite: i32) -> i32
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _lopen(lppathname: ::windows::core::PCSTR, ireadwrite: i32) -> i32;
+    }
+    _lopen(lppathname.into(), ireadwrite)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _lread(hfile: i32, lpbuffer: &mut [u8]) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _lread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, ubytes: u32) -> u32;
+    }
+    _lread(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[inline]
+pub unsafe fn _lwrite(hfile: i32, lpbuffer: &[u8]) -> u32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn _lwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, ubytes: u32) -> u32;
+    }
+    _lwrite(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_lstrcmpW(string1: &u16, string2: &u16) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32;
+    }
+    uaw_lstrcmpW(::core::mem::transmute(string1), ::core::mem::transmute(string2))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_lstrcmpiW(string1: &u16, string2: &u16) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32;
+    }
+    uaw_lstrcmpiW(::core::mem::transmute(string1), ::core::mem::transmute(string2))
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[inline]
+pub unsafe fn uaw_lstrlenW(string: &u16) -> i32 {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn uaw_lstrlenW(string: *const u16) -> i32;
+    }
+    uaw_lstrlenW(::core::mem::transmute(string))
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
@@ -3322,48 +3182,6 @@ pub struct IDeleteBrowsingHistory_Vtbl {
     pub DeleteBrowsingHistory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_BACKNEW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_EXTRAINCREFCNT: u32 = 2048u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_FRDOALL: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_NODELETENEW: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_NOENUMKEY: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_NOMESSAGES: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_NOPROGRESS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_NO_CRC_MAPPING: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_REGSECTION: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_REMOVREGBKDATA: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_RESTORE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_UPDREFCNT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE4_USEREFCNT: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_BADID: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_BAUDRATE: i32 = -12i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_BYTESIZE: i32 = -11i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_DEFAULT: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_HARDWARE: i32 = -10i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_MEMORY: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_NOPEN: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IE_OPEN: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[repr(transparent)]
 pub struct IEditionUpgradeBroker(::windows::core::IUnknown);
 impl IEditionUpgradeBroker {
@@ -3514,11 +3332,2904 @@ pub struct IEditionUpgradeHelper_Vtbl {
     GetGenuineLocalStatus: usize,
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+pub struct IWindowsLockModeHelper(::windows::core::IUnknown);
+impl IWindowsLockModeHelper {
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__ = ::core::mem::MaybeUninit::zeroed();
+        (::windows::core::Interface::vtable(self).GetSMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+}
+impl ::core::convert::From<IWindowsLockModeHelper> for ::windows::core::IUnknown {
+    fn from(value: IWindowsLockModeHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IWindowsLockModeHelper> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IWindowsLockModeHelper) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWindowsLockModeHelper> for ::windows::core::IUnknown {
+    fn from(value: &IWindowsLockModeHelper) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for IWindowsLockModeHelper {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IWindowsLockModeHelper {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IWindowsLockModeHelper {}
+impl ::core::fmt::Debug for IWindowsLockModeHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsLockModeHelper").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
+    type Vtable = IWindowsLockModeHelper_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsLockModeHelper_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Win32_Foundation")]
+    pub GetSMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issmode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    GetSMode: usize,
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AADBE_ADD_ENTRY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AADBE_DEL_ENTRY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_APPLICATION_NAME_VALID: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_HMODULE_VALID: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_LANGID_VALID: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_PROCESSOR_ARCHITECTURE_VALID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_RESOURCE_NAME_VALID: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_SET_PROCESS_DEFAULT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AC_LINE_BACKUP_POWER: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AC_LINE_OFFLINE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AC_LINE_ONLINE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AC_LINE_UNKNOWN: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ADN_DEL_IF_EMPTY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ADN_DEL_UNC_PATHS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ADN_DONT_DEL_DIR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ADN_DONT_DEL_SUBDIRS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_BACKNEW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_EXTRAINCREFCNT: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_NODELETENEW: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_NOMESSAGES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_NOPROGRESS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_RESTORE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_UPDREFCNT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AFSR_USEREFCNT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_FORCE_FILE_IN_USE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_NOLANGUAGECHECK: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_NOOVERWRITE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_NOSKIP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_NOVERSIONCHECK: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_NO_VERSION_DIALOG: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_QUIET: u32 = 536870912u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_REPLACEONLY: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AIF_WARNIFSKIP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_BKINSTALL: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_CHECKBKDATA: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_DELAYREGISTEROCX: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_NGCONV: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_QUIET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_ROLLBACK: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_ROLLBKDOALL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ALINF_UPDHLPDLLS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ARSR_NOMESSAGES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ARSR_REGSECTION: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ARSR_REMOVREGBKDATA: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ARSR_RESTORE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ATOM_FLAG_GLOBAL: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AT_ARP: u32 = 640u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AT_NULL: u32 = 642u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BACKUP_GHOSTED_FILE_EXTENTS: u32 = 11u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BACKUP_INVALID: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BASE_SEARCH_PATH_DISABLE_SAFE_SEARCHMODE: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BASE_SEARCH_PATH_PERMANENT: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_FLAG_CHARGING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_FLAG_CRITICAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_FLAG_HIGH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_FLAG_LOW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_FLAG_NO_BATTERY: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_FLAG_UNKNOWN: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_LIFE_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const BATTERY_PERCENTAGE_UNKNOWN: u32 = 255u32;
+pub const CATID_DeleteBrowsingHistory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31caf6e4_d6aa_4090_a050_a5ac8972e9ef);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_110: u32 = 110u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_115200: u32 = 115200u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_1200: u32 = 1200u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_128000: u32 = 128000u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_14400: u32 = 14400u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_19200: u32 = 19200u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_2400: u32 = 2400u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_256000: u32 = 256000u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_300: u32 = 300u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_38400: u32 = 38400u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_4800: u32 = 4800u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_56000: u32 = 56000u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_57600: u32 = 57600u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_600: u32 = 600u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CBR_9600: u32 = 9600u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CE_DNS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CE_IOE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CE_MODE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CE_OOP: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CE_PTO: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CE_TXFULL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_NL_IP: u32 = 771u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_NL_IPX: u32 = 769u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_TL_NBF: u32 = 1025u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_TL_UDP: u32 = 1027u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_DEBUGMODE_ENABLED: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_ENABLED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_FLIGHTING_ENABLED: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_FLIGHT_BUILD: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_HVCI_IUM_ENABLED: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_HVCI_KMCI_AUDITMODE_ENABLED: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_HVCI_KMCI_ENABLED: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_HVCI_KMCI_STRICTMODE_ENABLED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_PREPRODUCTION_BUILD: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_TESTSIGN: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_TEST_BUILD: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_UMCI_AUDITMODE_ENABLED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_UMCI_ENABLED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CODEINTEGRITY_OPTION_UMCI_EXCLUSIONPATHS_ENABLED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CONTEXT_SIZE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPYFILE2_IO_CYCLE_SIZE_MAX: u32 = 1073741824u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPYFILE2_IO_CYCLE_SIZE_MIN: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPYFILE2_IO_RATE_MIN: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPYFILE2_MESSAGE_COPY_OFFLOAD: i32 = 1i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_ALLOW_DECRYPTED_DESTINATION: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_COPY_SYMLINK: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_DIRECTORY: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_DISABLE_PRE_ALLOCATION: u32 = 67108864u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC: u32 = 33554432u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE: u32 = 134217728u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_FAIL_IF_EXISTS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_IGNORE_EDP_BLOCK: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_IGNORE_SOURCE_ENCRYPTION: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_NO_BUFFERING: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_NO_OFFLOAD: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_OPEN_AND_COPY_REPARSE_POINT: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_OPEN_SOURCE_FOR_WRITE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_REQUEST_COMPRESSED_TRAFFIC: u32 = 268435456u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_REQUEST_SECURITY_PRIVILEGES: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_RESTARTABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_RESUME_FROM_PAUSE: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const COPY_FILE_SKIP_ALTERNATE_STREAMS: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_TL_NBF: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_TL_SPP: u32 = 1030u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_TL_SPX: u32 = 1026u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_TL_TCP: u32 = 1028u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CP_DIRECT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CP_HWND: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CP_LEVEL: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CP_OPEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CREATE_FOR_DIR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CREATE_FOR_IMPORT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CRITICAL_SECTION_NO_DEBUG_INFO: u32 = 16777216u32;
+pub const CameraUIControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCICREATEOFFSCREENSURFACE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCICREATEOVERLAYSURFACE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCICREATEPRIMARYSURFACE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCIENUMSURFACE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCIESCAPE: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_1632_ACCESS: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ASYNC: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_CANOVERLAY: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_CAN_STRETCHX: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_CAN_STRETCHXN: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_CAN_STRETCHY: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_CAN_STRETCHYN: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_CHROMAKEY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_DWORDALIGN: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_DWORDSIZE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_CURRENTLYNOTAVAIL: i32 = -5i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_HEIGHTALIGN: i32 = -21i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_INVALIDCLIPLIST: i32 = -15i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_INVALIDPOSITION: i32 = -13i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_INVALIDRECT: i32 = -6i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_INVALIDSTRETCH: i32 = -14i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_OUTOFMEMORY: i32 = -12i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_SURFACEISOBSCURED: i32 = -16i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_TOOBIGHEIGHT: i32 = -9i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_TOOBIGSIZE: i32 = -11i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_TOOBIGWIDTH: i32 = -10i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_UNSUPPORTEDFORMAT: i32 = -7i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_UNSUPPORTEDMASK: i32 = -8i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_WIDTHALIGN: i32 = -20i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_XALIGN: i32 = -17i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_XYALIGN: i32 = -19i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_ERR_YALIGN: i32 = -18i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_FAIL_GENERIC: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_FAIL_INVALIDSURFACE: i32 = -3i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_FAIL_UNSUPPORTED: i32 = -4i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_FAIL_UNSUPPORTEDVERSION: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_OFFSCREEN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_OK: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_OVERLAY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_PRIMARY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_STATUS_CHROMAKEYCHANGED: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_STATUS_FORMATCHANGED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_STATUS_POINTERCHANGED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_STATUS_STRIDECHANGED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_STATUS_SURFACEINFOCHANGED: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_STATUS_WASSTILLDRAWING: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_SURFACE_TYPE: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_VERSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_VISIBLE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DCI_WRITEONLY: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_COOKIES: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_DOWNLOADHISTORY: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_FORMDATA: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_HISTORY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_PASSWORDS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_PRESERVEFAVORITES: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DELETE_BROWSING_HISTORY_TIF: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DOCKINFO_DOCKED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DOCKINFO_UNDOCKED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DOCKINFO_USER_SUPPLIED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_CDROM: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_FIXED: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_NO_ROOT_DIR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_RAMDISK: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_REMOTE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_REMOVABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DRIVE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DTR_CONTROL_DISABLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DTR_CONTROL_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DTR_CONTROL_HANDSHAKE: u32 = 2u32;
+pub const DefaultBrowserSyncSettings: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ac83423_3112_4aa6_9b5b_1feb23d0c5f9);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const EFSRPC_SECURE_ONLY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const EFS_DROP_ALTERNATE_STREAMS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const EFS_USE_RECOVERY_KEYS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ENTITY_LIST_ID: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ENTITY_TYPE_ID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ER_ICMP: u32 = 896u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const EVENTLOG_FULL_INFO: u32 = 0u32;
+pub const EditionUpgradeBroker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
+pub const EditionUpgradeHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FAIL_FAST_GENERATE_EXCEPTION_ADDRESS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FAIL_FAST_NO_HARD_ERROR_DLG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_COMPLETE_IF_OPLOCKED: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_CREATED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_CREATE_TREE_CONNECTION: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DELETE_ON_CLOSE: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DIRECTORY_FILE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DIR_DISALLOWED: u32 = 9u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DISPOSITION_FLAG_DELETE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DISPOSITION_FLAG_DO_NOT_DELETE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DISPOSITION_FLAG_ON_CLOSE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DISPOSITION_FLAG_POSIX_SEMANTICS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_DOES_NOT_EXIST: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_ENCRYPTABLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_EXISTS: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_FLAG_OPEN_REQUIRING_OPLOCK: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_IS_ENCRYPTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_MAXIMUM_DISPOSITION: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_NON_DIRECTORY_FILE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_NO_COMPRESSION: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_NO_EA_KNOWLEDGE: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_NO_INTERMEDIATE_BUFFERING: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPENED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_BY_FILE_ID: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_FOR_BACKUP_INTENT: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_FOR_FREE_SPACE_QUERY: u32 = 8388608u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_NO_RECALL: u32 = 4194304u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_REMOTE_INSTANCE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_REPARSE_POINT: u32 = 2097152u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OPEN_REQUIRING_OPLOCK: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_OVERWRITTEN: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_RANDOM_ACCESS: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_READ_ONLY: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_RENAME_FLAG_POSIX_SEMANTICS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_RENAME_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_RENAME_FLAG_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_RESERVE_OPFILTER: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_ROOT_DIR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SEQUENTIAL_ONLY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SKIP_COMPLETION_PORT_ON_SUCCESS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SKIP_SET_EVENT_ON_HANDLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SUPERSEDED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SYNCHRONOUS_IO_ALERT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SYNCHRONOUS_IO_NONALERT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SYSTEM_ATTR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SYSTEM_DIR: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_SYSTEM_NOT_SUPPORT: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_TYPE_CHAR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_TYPE_DISK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_TYPE_PIPE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_TYPE_REMOTE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_TYPE_UNKNOWN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_UNKNOWN: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_USER_DISALLOWED: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_VALID_MAILSLOT_OPTION_FLAGS: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_VALID_OPTION_FLAGS: u32 = 16777215u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_VALID_PIPE_OPTION_FLAGS: u32 = 50u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_VALID_SET_FLAGS: u32 = 54u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FILE_WRITE_THROUGH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FIND_ACTCTX_SECTION_KEY_RETURN_ASSEMBLY_METADATA: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FIND_ACTCTX_SECTION_KEY_RETURN_FLAGS: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FIND_ACTCTX_SECTION_KEY_RETURN_HACTCTX: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FORMAT_MESSAGE_MAX_WIDTH_MASK: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_CASE_IS_PRESERVED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_CASE_SENSITIVE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_FILE_COMPRESSION: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_FILE_ENCRYPTION: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_PERSISTENT_ACLS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_UNICODE_STORED_ON_DISK: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FS_VOL_IS_COMPRESSED: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_A: &str = "GetSystemWow64DirectoryA";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_T: &str = "GetSystemWow64DirectoryA";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_A_W: &str = "GetSystemWow64DirectoryA";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_A: &str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_T: &str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_T_W: &str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_A: &str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_T: &str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GET_SYSTEM_WOW64_DIRECTORY_NAME_W_W: &str = "GetSystemWow64DirectoryW";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_DDESHARE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_DISCARDABLE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_DISCARDED: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_INVALID_HANDLE: u32 = 32768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_LOCKCOUNT: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_LOWER: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_MODIFY: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_NOCOMPACT: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_NODISCARD: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_NOTIFY: u32 = 16384u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_NOT_BANKED: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_SHARE: u32 = 8192u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GMEM_VALID_FLAGS: u32 = 32626u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const HANJA_WINDOW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const HINSTANCE_ERROR: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_BACKNEW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_EXTRAINCREFCNT: u32 = 2048u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_FRDOALL: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_NODELETENEW: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_NOENUMKEY: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_NOMESSAGES: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_NOPROGRESS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_NO_CRC_MAPPING: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_REGSECTION: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_REMOVREGBKDATA: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_RESTORE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_UPDREFCNT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE4_USEREFCNT: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_BADID: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_BAUDRATE: i32 = -12i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_BYTESIZE: i32 = -11i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_DEFAULT: i32 = -5i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_HARDWARE: i32 = -10i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_MEMORY: i32 = -4i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_NOPEN: i32 = -3i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IE_OPEN: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const IF_GENERIC: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const IF_MIB: u32 = 514u32;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub const IGNORE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IMEA_INIT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IMEA_NEXT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IMEA_PREV: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_BANJAtoJUNJA: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_ENABLE_CONVERT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_ENTERWORDREGISTERMODE: u32 = 24u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_GETCONVERSIONMODE: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_GETIMECAPS: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_GETOPEN: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_GETVERSION: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_JOHABtoKS: u32 = 21u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_JUNJAtoBANJA: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_KStoJOHAB: u32 = 22u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MAXPROCESS: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_ALPHANUMERIC: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_CODEINPUT: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_DBCSCHAR: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_HANJACONVERT: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_HIRAGANA: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_KATAKANA: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_NOCODEINPUT: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_NOROMAN: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_ROMAN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MODE_SBCSCHAR: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_MOVEIMEWINDOW: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_REQUEST_CONVERT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_DISKERROR: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_ERROR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_ILLEGAL: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_INVALID: u32 = 17u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_NEST: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_NOIME: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_NOROOM: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_NOTFOUND: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_SYSTEMMODAL: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_RS_TOOLONG: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_SENDVKEY: u32 = 19u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_SETCONVERSIONFONTEX: u32 = 25u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_SETCONVERSIONMODE: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_SETCONVERSIONWINDOW: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_SETOPEN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IME_SET_MODE: u32 = 18u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFINITE: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFO_CLASS_GENERIC: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFO_CLASS_IMPLEMENTATION: u32 = 768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFO_CLASS_PROTOCOL: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFO_TYPE_ADDRESS_OBJECT: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFO_TYPE_CONNECTION: u32 = 768u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INFO_TYPE_PROVIDER: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INTERIM_WINDOW: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const INVALID_ENTITY_INSTANCE: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IOCTL_TDI_TL_IO_CONTROL_ENDPOINT: u32 = 2162744u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_CHANGECONVERT: u32 = 289u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_CLOSECONVERT: u32 = 290u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_DBCSCHAR: u32 = 352u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_FULLCONVERT: u32 = 291u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_IMESELECT: u32 = 304u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_MODEINFO: u32 = 400u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_OPENCONVERT: u32 = 288u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_STRING: u32 = 320u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_STRINGEND: u32 = 257u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_STRINGEX: u32 = 384u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_STRINGSTART: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IR_UNDETERMINE: u32 = 368u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const LIS_NOGRPCONV: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const LIS_QUIET: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const LOGON32_PROVIDER_VIRTUAL: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const LOGON32_PROVIDER_WINNT35: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const LOGON_ZERO_PASSWORD_BUFFER: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const LPTx: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MAXINTATOM: u32 = 49152u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MAX_TDI_ENTITIES: u32 = 4096u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MCW_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MCW_HIDDEN: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MCW_RECT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MCW_SCREEN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MCW_VERTICAL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MCW_WINDOW: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MICROSOFT_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MODE_WINDOW: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const OFS_MAXPATHNAME: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const OPERATION_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const OVERWRITE_HIDDEN: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_CHILD_PROCESS_OVERRIDE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED_UNLESS_SECURE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_DISABLE_PROCESS_TREE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_ENABLE_PROCESS_TREE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_OVERRIDE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROC_THREAD_ATTRIBUTE_THREAD: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROGRESS_CANCEL: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROGRESS_CONTINUE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROGRESS_QUIET: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROGRESS_STOP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const PROTECTION_LEVEL_SAME: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const REG_RESTORE_LOG_KEY: &str = "RegRestoreLogFile";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const REG_SAVE_LOG_KEY: &str = "RegSaveLogFile";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const REMOTE_PROTOCOL_INFO_FLAG_OFFLINE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const REMOTE_PROTOCOL_INFO_FLAG_PERSISTENT_HANDLE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RESETDEV: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RESTART_MAX_CMD_LINE: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_FLAG_SMB2_SHARECAP_CLUSTER: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_FLAG_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_FLAG_SMB2_SHARECAP_DFS: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_FLAG_SMB2_SHARECAP_SCALEOUT: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_FLAG_SMB2_SHARECAP_TIMEWARP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_FLAG_SERVERCAP_DFS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_FLAG_SERVERCAP_DIRECTORY_LEASING: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_FLAG_SERVERCAP_LARGEMTU: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_FLAG_SERVERCAP_LEASING: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_FLAG_SERVERCAP_MULTICHANNEL: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RPI_SMB2_FLAG_SERVERCAP_PERSISTENT_HANDLES: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_DELAYREGISTEROCX: u32 = 512u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_INF: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_NGCONV: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_QUIET: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_SETUPAPI: u32 = 1024u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_SKIPDISKSPACECHECK: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RSC_FLAG_UPDHLPDLLS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RTS_CONTROL_DISABLE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RTS_CONTROL_ENABLE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RTS_CONTROL_HANDSHAKE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RTS_CONTROL_TOGGLE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RUNCMDS_DELAYPOSTCMD: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RUNCMDS_NOWAIT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const RUNCMDS_QUIET: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_32BIT_BINARY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_64BIT_BINARY: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_DOS_BINARY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_OS216_BINARY: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_PIF_BINARY: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_POSIX_BINARY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_THIS_PLATFORM_BINARY: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SCS_WOW_BINARY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SHUTDOWN_NORETRY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STARTF_HOLOGRAPHIC: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STORAGE_INFO_FLAGS_ALIGNED_DEVICE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STORAGE_INFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STORAGE_INFO_OFFSET_UNKNOWN: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STREAM_CONTAINS_GHOSTED_FILE_EXTENTS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STREAM_CONTAINS_PROPERTIES: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STREAM_CONTAINS_SECURITY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STREAM_MODIFIED_WHEN_READ: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STREAM_NORMAL_ATTRIBUTE: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const STREAM_SPARSE_ATTRIBUTE: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SYSTEM_STATUS_FLAG_POWER_SAVING_ON: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_ALLTHRESHOLD: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_LEGATO: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_PERIOD1024: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_PERIOD2048: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_PERIOD512: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_PERIODVOICE: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_QUEUEEMPTY: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERBDNT: i32 = -5i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDCC: i32 = -7i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDDR: i32 = -14i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDFQ: i32 = -13i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDLN: i32 = -6i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDMD: i32 = -10i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDPT: i32 = -12i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDSH: i32 = -11i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDSR: i32 = -15i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDST: i32 = -16i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDTP: i32 = -8i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDVL: i32 = -9i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERDVNA: i32 = -1i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERMACT: i32 = -3i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SEROFM: i32 = -2i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_SERQFUL: i32 = -4i32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_STACCATO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_THRESHOLD: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_WHITE1024: u32 = 5u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_WHITE2048: u32 = 6u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_WHITE512: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const S_WHITEVOICE: u32 = 7u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const TC_GP_TRAP: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const TC_HARDERR: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const TC_NORMAL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const TC_SIGNAL: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const UMS_VERSION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VOLUME_NAME_DOS: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VOLUME_NAME_GUID: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VOLUME_NAME_NONE: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VOLUME_NAME_NT: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WINWATCHNOTIFY_CHANGING: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WINWATCHNOTIFY_DESTROY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WINWATCHNOTIFY_START: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_DLL: &str = "WLDP.DLL";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_GETLOCKDOWNPOLICY_FN: &str = "WldpGetLockdownPolicy";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: &str = "WldpIsAppApprovedByPolicy";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_ISCLASSINAPPROVEDLIST_FN: &str = "WldpIsClassInApprovedList";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: &str = "WldpIsDynamicCodePolicyEnabled";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: &str = "WldpIsProductionConfiguration";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpIsWcosProductionConfiguration";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_CONFIG_CI_FLAG: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_DEFINED_FLAG: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_EXCLUSION_FLAG: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_OFF: u32 = 2147483648u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYDANAMICCODETRUST_FN: &str = "WldpQueryDynamicCodeTrust";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: &str = "WldpQueryDeviceSecurityInformation";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYDYNAMICCODETRUST_FN: &str = "WldpQueryDynamicCodeTrust";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: &str = "WldpQueryPolicySettingEnabled2";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: &str = "WldpQueryPolicySettingEnabled";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: &str = "WldpQueryWindowsLockdownMode";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpQueryWindowsLockdownRestriction";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: &str = "WldpResetProductionConfiguration";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpResetWcosProductionConfiguration";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_SETDYNAMICCODETRUST_FN: &str = "WldpSetDynamicCodeTrust";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpSetWindowsLockdownRestriction";
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_CONVERTREQUEST: u32 = 266u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_CONVERTRESULT: u32 = 267u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_IMEKEYDOWN: u32 = 656u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_IMEKEYUP: u32 = 657u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_IME_REPORT: u32 = 640u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_INTERIM: u32 = 268u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraUIControlCaptureMode(pub i32);
+impl CameraUIControlCaptureMode {
+    pub const PhotoOrVideo: Self = Self(0i32);
+    pub const Photo: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CameraUIControlCaptureMode {}
+impl ::core::clone::Clone for CameraUIControlCaptureMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraUIControlCaptureMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraUIControlCaptureMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlCaptureMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraUIControlLinearSelectionMode(pub i32);
+impl CameraUIControlLinearSelectionMode {
+    pub const Single: Self = Self(0i32);
+    pub const Multiple: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraUIControlLinearSelectionMode {}
+impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraUIControlLinearSelectionMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlLinearSelectionMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraUIControlMode(pub i32);
+impl CameraUIControlMode {
+    pub const Browse: Self = Self(0i32);
+    pub const Linear: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraUIControlMode {}
+impl ::core::clone::Clone for CameraUIControlMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraUIControlMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraUIControlMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraUIControlMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraUIControlPhotoFormat(pub i32);
+impl CameraUIControlPhotoFormat {
+    pub const Jpeg: Self = Self(0i32);
+    pub const Png: Self = Self(1i32);
+    pub const JpegXR: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CameraUIControlPhotoFormat {}
+impl ::core::clone::Clone for CameraUIControlPhotoFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraUIControlPhotoFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlPhotoFormat").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraUIControlVideoFormat(pub i32);
+impl CameraUIControlVideoFormat {
+    pub const Mp4: Self = Self(0i32);
+    pub const Wmv: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraUIControlVideoFormat {}
+impl ::core::clone::Clone for CameraUIControlVideoFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraUIControlVideoFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraUIControlVideoFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlVideoFormat").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraUIControlViewType(pub i32);
+impl CameraUIControlViewType {
+    pub const SingleItem: Self = Self(0i32);
+    pub const ItemList: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraUIControlViewType {}
+impl ::core::clone::Clone for CameraUIControlViewType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraUIControlViewType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraUIControlViewType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraUIControlViewType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraUIControlViewType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DECISION_LOCATION(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_REFRESH_GLOBAL_DATA: DECISION_LOCATION = DECISION_LOCATION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_PARAMETER_VALIDATION: DECISION_LOCATION = DECISION_LOCATION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_AUDIT: DECISION_LOCATION = DECISION_LOCATION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_FAILED_CONVERT_GUID: DECISION_LOCATION = DECISION_LOCATION(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_ENTERPRISE_DEFINED_CLASS_ID: DECISION_LOCATION = DECISION_LOCATION(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_GLOBAL_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_PROVIDER_BUILT_IN_LIST: DECISION_LOCATION = DECISION_LOCATION(6i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_ENFORCE_STATE_LIST: DECISION_LOCATION = DECISION_LOCATION(7i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = DECISION_LOCATION(8i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = DECISION_LOCATION(9i32);
+impl ::core::marker::Copy for DECISION_LOCATION {}
+impl ::core::clone::Clone for DECISION_LOCATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DECISION_LOCATION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DECISION_LOCATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DECISION_LOCATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DECISION_LOCATION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEATURE_CHANGE_TIME(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_READ: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_MODULE_RELOAD: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_SESSION: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_CHANGE_TIME_REBOOT: FEATURE_CHANGE_TIME = FEATURE_CHANGE_TIME(3i32);
+impl ::core::marker::Copy for FEATURE_CHANGE_TIME {}
+impl ::core::clone::Clone for FEATURE_CHANGE_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEATURE_CHANGE_TIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEATURE_CHANGE_TIME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEATURE_CHANGE_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEATURE_CHANGE_TIME").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEATURE_ENABLED_STATE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_ENABLED_STATE_DEFAULT: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_ENABLED_STATE_DISABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FEATURE_ENABLED_STATE_ENABLED: FEATURE_ENABLED_STATE = FEATURE_ENABLED_STATE(2i32);
+impl ::core::marker::Copy for FEATURE_ENABLED_STATE {}
+impl ::core::clone::Clone for FEATURE_ENABLED_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FEATURE_ENABLED_STATE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FEATURE_ENABLED_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEATURE_ENABLED_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEATURE_ENABLED_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FILE_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const FileDirectoryInformation: FILE_INFORMATION_CLASS = FILE_INFORMATION_CLASS(1i32);
+impl ::core::marker::Copy for FILE_INFORMATION_CLASS {}
+impl ::core::clone::Clone for FILE_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FILE_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILE_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILE_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct KEY_SET_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(6i32);
+impl ::core::marker::Copy for KEY_SET_INFORMATION_CLASS {}
+impl ::core::clone::Clone for KEY_SET_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for KEY_SET_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for KEY_SET_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KEY_SET_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KEY_SET_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OBJECT_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for OBJECT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OBJECT_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OBJECT_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SYSTEM_INFORMATION_CLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(8i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
+impl ::core::marker::Copy for SYSTEM_INFORMATION_CLASS {}
+impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TDIENTITY_ENTITY_TYPE(pub u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(640u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(768u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1025u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1024u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
+impl ::core::marker::Copy for TDIENTITY_ENTITY_TYPE {}
+impl ::core::clone::Clone for TDIENTITY_ENTITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TDIENTITY_ENTITY_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TDIENTITY_ENTITY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TDIENTITY_ENTITY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TDIENTITY_ENTITY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(3i32);
+impl ::core::marker::Copy for TDI_TL_IO_CONTROL_TYPE {}
+impl ::core::clone::Clone for TDI_TL_IO_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TDI_TL_IO_CONTROL_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TDI_TL_IO_CONTROL_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VALUENAME(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = VALUENAME(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const VALUENAME_BUILT_IN_LIST: VALUENAME = VALUENAME(2i32);
+impl ::core::marker::Copy for VALUENAME {}
+impl ::core::clone::Clone for VALUENAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VALUENAME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VALUENAME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VALUENAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VALUENAME").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WINSTATIONINFOCLASS(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
+impl ::core::marker::Copy for WINSTATIONINFOCLASS {}
+impl ::core::clone::Clone for WINSTATIONINFOCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WINSTATIONINFOCLASS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WINSTATIONINFOCLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINSTATIONINFOCLASS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_HOST(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_SVCHOST: WLDP_HOST = WLDP_HOST(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_MAX: WLDP_HOST = WLDP_HOST(2i32);
+impl ::core::marker::Copy for WLDP_HOST {}
+impl ::core::clone::Clone for WLDP_HOST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_HOST {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLDP_HOST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLDP_HOST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_HOST").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_HOST_ID(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = WLDP_HOST_ID(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = WLDP_HOST_ID(4i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = WLDP_HOST_ID(5i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = WLDP_HOST_ID(6i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = WLDP_HOST_ID(7i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = WLDP_HOST_ID(8i32);
+impl ::core::marker::Copy for WLDP_HOST_ID {}
+impl ::core::clone::Clone for WLDP_HOST_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_HOST_ID {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLDP_HOST_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLDP_HOST_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_HOST_ID").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_KEY(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
+impl ::core::marker::Copy for WLDP_KEY {}
+impl ::core::clone::Clone for WLDP_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_KEY {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLDP_KEY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLDP_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_KEY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_POLICY_SETTING(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
+impl ::core::marker::Copy for WLDP_POLICY_SETTING {}
+impl ::core::clone::Clone for WLDP_POLICY_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_POLICY_SETTING {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLDP_POLICY_SETTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_POLICY_SETTING").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(3i32);
+impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_MODE {}
+impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_MODE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_WINDOWS_LOCKDOWN_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(1i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(2i32);
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(3i32);
+impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {}
+impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WLDP_WINDOWS_LOCKDOWN_RESTRICTION").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ACTCTX_SECTION_KEYED_DATA_2600 {
+    pub cbSize: u32,
+    pub ulDataFormatVersion: u32,
+    pub lpData: *mut ::core::ffi::c_void,
+    pub ulLength: u32,
+    pub lpSectionGlobalData: *mut ::core::ffi::c_void,
+    pub ulSectionGlobalDataLength: u32,
+    pub lpSectionBase: *mut ::core::ffi::c_void,
+    pub ulSectionTotalLength: u32,
+    pub hActCtx: super::super::Foundation::HANDLE,
+    pub ulAssemblyRosterIndex: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACTCTX_SECTION_KEYED_DATA_2600 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACTCTX_SECTION_KEYED_DATA_2600 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_2600 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTX_SECTION_KEYED_DATA_2600")
+            .field("cbSize", &self.cbSize)
+            .field("ulDataFormatVersion", &self.ulDataFormatVersion)
+            .field("lpData", &self.lpData)
+            .field("ulLength", &self.ulLength)
+            .field("lpSectionGlobalData", &self.lpSectionGlobalData)
+            .field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength)
+            .field("lpSectionBase", &self.lpSectionBase)
+            .field("ulSectionTotalLength", &self.ulSectionTotalLength)
+            .field("hActCtx", &self.hActCtx)
+            .field("ulAssemblyRosterIndex", &self.ulAssemblyRosterIndex)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA_2600 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_2600 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTX_SECTION_KEYED_DATA_2600>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ACTCTX_SECTION_KEYED_DATA_2600 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ACTCTX_SECTION_KEYED_DATA_2600 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    pub lpInformation: *mut ::core::ffi::c_void,
+    pub lpSectionBase: *mut ::core::ffi::c_void,
+    pub ulSectionLength: u32,
+    pub lpSectionGlobalDataBase: *mut ::core::ffi::c_void,
+    pub ulSectionGlobalDataLength: u32,
+}
+impl ::core::marker::Copy for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {}
+impl ::core::clone::Clone for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA").field("lpInformation", &self.lpInformation).field("lpSectionBase", &self.lpSectionBase).field("ulSectionLength", &self.ulSectionLength).field("lpSectionGlobalDataBase", &self.lpSectionGlobalDataBase).field("ulSectionGlobalDataLength", &self.ulSectionGlobalDataLength).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {}
+impl ::core::default::Default for ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    pub hActCtx: super::super::Foundation::HANDLE,
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for ACTIVATION_CONTEXT_BASIC_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ACTIVATION_CONTEXT_BASIC_INFORMATION").field("hActCtx", &self.hActCtx).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTIVATION_CONTEXT_BASIC_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ACTIVATION_CONTEXT_BASIC_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for ACTIVATION_CONTEXT_BASIC_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CABINFOA {
+    pub pszCab: ::windows::core::PSTR,
+    pub pszInf: ::windows::core::PSTR,
+    pub pszSection: ::windows::core::PSTR,
+    pub szSrcPath: [super::super::Foundation::CHAR; 260],
+    pub dwFlags: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CABINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CABINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CABINFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABINFOA").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CABINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CABINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CABINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CABINFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct CABINFOW {
+    pub pszCab: ::windows::core::PWSTR,
+    pub pszInf: ::windows::core::PWSTR,
+    pub pszSection: ::windows::core::PWSTR,
+    pub szSrcPath: [u16; 260],
+    pub dwFlags: u32,
+}
+impl ::core::marker::Copy for CABINFOW {}
+impl ::core::clone::Clone for CABINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CABINFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CABINFOW").field("pszCab", &self.pszCab).field("pszInf", &self.pszInf).field("pszSection", &self.pszSection).field("szSrcPath", &self.szSrcPath).field("dwFlags", &self.dwFlags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CABINFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CABINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CABINFOW {}
+impl ::core::default::Default for CABINFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CLIENT_ID {
+    pub UniqueProcess: super::super::Foundation::HANDLE,
+    pub UniqueThread: super::super::Foundation::HANDLE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CLIENT_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CLIENT_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for CLIENT_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CLIENT_ID").field("UniqueProcess", &self.UniqueProcess).field("UniqueThread", &self.UniqueThread).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CLIENT_ID {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CLIENT_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENT_ID>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CLIENT_ID {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CLIENT_ID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    pub Size: u32,
+    pub TriggerId: ::windows::core::PCWSTR,
+}
+impl ::core::marker::Copy for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
+impl ::core::clone::Clone for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG").field("Size", &self.Size).field("TriggerId", &self.TriggerId).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {}
+impl ::core::default::Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DATETIME {
+    pub year: u16,
+    pub month: u16,
+    pub day: u16,
+    pub hour: u16,
+    pub min: u16,
+    pub sec: u16,
+}
+impl ::core::marker::Copy for DATETIME {}
+impl ::core::clone::Clone for DATETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DATETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DATETIME").field("year", &self.year).field("month", &self.month).field("day", &self.day).field("hour", &self.hour).field("min", &self.min).field("sec", &self.sec).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DATETIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DATETIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DATETIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DATETIME {}
+impl ::core::default::Default for DATETIME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DCICMD {
+    pub dwCommand: u32,
+    pub dwParam1: u32,
+    pub dwParam2: u32,
+    pub dwVersion: u32,
+    pub dwReserved: u32,
+}
+impl ::core::marker::Copy for DCICMD {}
+impl ::core::clone::Clone for DCICMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DCICMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCICMD").field("dwCommand", &self.dwCommand).field("dwParam1", &self.dwParam1).field("dwParam2", &self.dwParam2).field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DCICMD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DCICMD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCICMD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DCICMD {}
+impl ::core::default::Default for DCICMD {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DCICREATEINPUT {
+    pub cmd: DCICMD,
+    pub dwCompression: u32,
+    pub dwMask: [u32; 3],
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub dwDCICaps: u32,
+    pub dwBitCount: u32,
+    pub lpSurface: *mut ::core::ffi::c_void,
+}
+impl ::core::marker::Copy for DCICREATEINPUT {}
+impl ::core::clone::Clone for DCICREATEINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DCICREATEINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCICREATEINPUT").field("cmd", &self.cmd).field("dwCompression", &self.dwCompression).field("dwMask", &self.dwMask).field("dwWidth", &self.dwWidth).field("dwHeight", &self.dwHeight).field("dwDCICaps", &self.dwDCICaps).field("dwBitCount", &self.dwBitCount).field("lpSurface", &self.lpSurface).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DCICREATEINPUT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DCICREATEINPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCICREATEINPUT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DCICREATEINPUT {}
+impl ::core::default::Default for DCICREATEINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DCIENUMINPUT {
+    pub cmd: DCICMD,
+    pub rSrc: super::super::Foundation::RECT,
+    pub rDst: super::super::Foundation::RECT,
+    pub EnumCallback: isize,
+    pub lpContext: *mut ::core::ffi::c_void,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DCIENUMINPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DCIENUMINPUT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DCIENUMINPUT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCIENUMINPUT").field("cmd", &self.cmd).field("rSrc", &self.rSrc).field("rDst", &self.rDst).field("EnumCallback", &self.EnumCallback).field("lpContext", &self.lpContext).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DCIENUMINPUT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DCIENUMINPUT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCIENUMINPUT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DCIENUMINPUT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DCIENUMINPUT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DCIOFFSCREEN {
+    pub dciInfo: DCISURFACEINFO,
+    pub Draw: isize,
+    pub SetClipList: isize,
+    pub SetDestination: isize,
+}
+impl ::core::marker::Copy for DCIOFFSCREEN {}
+impl ::core::clone::Clone for DCIOFFSCREEN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DCIOFFSCREEN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCIOFFSCREEN").field("dciInfo", &self.dciInfo).field("Draw", &self.Draw).field("SetClipList", &self.SetClipList).field("SetDestination", &self.SetDestination).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DCIOFFSCREEN {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DCIOFFSCREEN {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCIOFFSCREEN>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DCIOFFSCREEN {}
+impl ::core::default::Default for DCIOFFSCREEN {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DCIOVERLAY {
+    pub dciInfo: DCISURFACEINFO,
+    pub dwChromakeyValue: u32,
+    pub dwChromakeyMask: u32,
+}
+impl ::core::marker::Copy for DCIOVERLAY {}
+impl ::core::clone::Clone for DCIOVERLAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DCIOVERLAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCIOVERLAY").field("dciInfo", &self.dciInfo).field("dwChromakeyValue", &self.dwChromakeyValue).field("dwChromakeyMask", &self.dwChromakeyMask).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DCIOVERLAY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DCIOVERLAY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCIOVERLAY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DCIOVERLAY {}
+impl ::core::default::Default for DCIOVERLAY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DCISURFACEINFO {
+    pub dwSize: u32,
+    pub dwDCICaps: u32,
+    pub dwCompression: u32,
+    pub dwMask: [u32; 3],
+    pub dwWidth: u32,
+    pub dwHeight: u32,
+    pub lStride: i32,
+    pub dwBitCount: u32,
+    pub dwOffSurface: usize,
+    pub wSelSurface: u16,
+    pub wReserved: u16,
+    pub dwReserved1: u32,
+    pub dwReserved2: u32,
+    pub dwReserved3: u32,
+    pub BeginAccess: isize,
+    pub EndAccess: isize,
+    pub DestroySurface: isize,
+}
+impl ::core::marker::Copy for DCISURFACEINFO {}
+impl ::core::clone::Clone for DCISURFACEINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for DCISURFACEINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DCISURFACEINFO")
+            .field("dwSize", &self.dwSize)
+            .field("dwDCICaps", &self.dwDCICaps)
+            .field("dwCompression", &self.dwCompression)
+            .field("dwMask", &self.dwMask)
+            .field("dwWidth", &self.dwWidth)
+            .field("dwHeight", &self.dwHeight)
+            .field("lStride", &self.lStride)
+            .field("dwBitCount", &self.dwBitCount)
+            .field("dwOffSurface", &self.dwOffSurface)
+            .field("wSelSurface", &self.wSelSurface)
+            .field("wReserved", &self.wReserved)
+            .field("dwReserved1", &self.dwReserved1)
+            .field("dwReserved2", &self.dwReserved2)
+            .field("dwReserved3", &self.dwReserved3)
+            .field("BeginAccess", &self.BeginAccess)
+            .field("EndAccess", &self.EndAccess)
+            .field("DestroySurface", &self.DestroySurface)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DCISURFACEINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DCISURFACEINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCISURFACEINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DCISURFACEINFO {}
+impl ::core::default::Default for DCISURFACEINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
+    pub TargetDllName: ::windows::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut ::core::ffi::c_void,
+    pub Unused: *mut ::core::ffi::c_void,
+    pub LastError: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for DELAYLOAD_INFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for DELAYLOAD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for DELAYLOAD_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_INFO>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for DELAYLOAD_INFO {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for DELAYLOAD_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
+    pub TargetDllName: ::windows::core::PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut ::core::ffi::c_void,
+    pub Unused: *mut ::core::ffi::c_void,
+    pub LastError: u32,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for DELAYLOAD_INFO {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for DELAYLOAD_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::PartialEq for DELAYLOAD_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_INFO>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::Eq for DELAYLOAD_INFO {}
+#[cfg(target_arch = "x86")]
+impl ::core::default::Default for DELAYLOAD_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct DELAYLOAD_PROC_DESCRIPTOR {
+    pub ImportDescribedByName: u32,
+    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
+}
+impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR {}
+impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DELAYLOAD_PROC_DESCRIPTOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DELAYLOAD_PROC_DESCRIPTOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_PROC_DESCRIPTOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DELAYLOAD_PROC_DESCRIPTOR {}
+impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
+    pub Name: ::windows::core::PCSTR,
+    pub Ordinal: u32,
+}
+impl ::core::marker::Copy for DELAYLOAD_PROC_DESCRIPTOR_0 {}
+impl ::core::clone::Clone for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_PROC_DESCRIPTOR_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DELAYLOAD_PROC_DESCRIPTOR_0 {}
+impl ::core::default::Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct FEATURE_ERROR {
+    pub hr: ::windows::core::HRESULT,
+    pub lineNumber: u16,
+    pub file: ::windows::core::PCSTR,
+    pub process: ::windows::core::PCSTR,
+    pub module: ::windows::core::PCSTR,
+    pub callerReturnAddressOffset: u32,
+    pub callerModule: ::windows::core::PCSTR,
+    pub message: ::windows::core::PCSTR,
+    pub originLineNumber: u16,
+    pub originFile: ::windows::core::PCSTR,
+    pub originModule: ::windows::core::PCSTR,
+    pub originCallerReturnAddressOffset: u32,
+    pub originCallerModule: ::windows::core::PCSTR,
+    pub originName: ::windows::core::PCSTR,
+}
+impl ::core::marker::Copy for FEATURE_ERROR {}
+impl ::core::clone::Clone for FEATURE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FEATURE_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FEATURE_ERROR")
+            .field("hr", &self.hr)
+            .field("lineNumber", &self.lineNumber)
+            .field("file", &self.file)
+            .field("process", &self.process)
+            .field("module", &self.module)
+            .field("callerReturnAddressOffset", &self.callerReturnAddressOffset)
+            .field("callerModule", &self.callerModule)
+            .field("message", &self.message)
+            .field("originLineNumber", &self.originLineNumber)
+            .field("originFile", &self.originFile)
+            .field("originModule", &self.originModule)
+            .field("originCallerReturnAddressOffset", &self.originCallerReturnAddressOffset)
+            .field("originCallerModule", &self.originCallerModule)
+            .field("originName", &self.originName)
+            .finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FEATURE_ERROR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FEATURE_ERROR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FEATURE_ERROR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FEATURE_ERROR {}
+impl ::core::default::Default for FEATURE_ERROR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
+impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FEATURE_STATE_CHANGE_SUBSCRIPTION {}
+impl ::core::fmt::Debug for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEATURE_STATE_CHANGE_SUBSCRIPTION").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<FEATURE_STATE_CHANGE_SUBSCRIPTION>> for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn from(optional: ::core::option::Option<FEATURE_STATE_CHANGE_SUBSCRIPTION>) -> FEATURE_STATE_CHANGE_SUBSCRIPTION {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
+impl FH_SERVICE_PIPE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for FH_SERVICE_PIPE_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FH_SERVICE_PIPE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FH_SERVICE_PIPE_HANDLE {}
+impl ::core::fmt::Debug for FH_SERVICE_PIPE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FH_SERVICE_PIPE_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<FH_SERVICE_PIPE_HANDLE>> for FH_SERVICE_PIPE_HANDLE {
+    fn from(optional: ::core::option::Option<FH_SERVICE_PIPE_HANDLE>) -> FH_SERVICE_PIPE_HANDLE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for FH_SERVICE_PIPE_HANDLE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct FILE_CASE_SENSITIVE_INFO {
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for FILE_CASE_SENSITIVE_INFO {}
+impl ::core::clone::Clone for FILE_CASE_SENSITIVE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FILE_CASE_SENSITIVE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_CASE_SENSITIVE_INFO").field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_CASE_SENSITIVE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_CASE_SENSITIVE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_CASE_SENSITIVE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_CASE_SENSITIVE_INFO {}
+impl ::core::default::Default for FILE_CASE_SENSITIVE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct FILE_DISPOSITION_INFO_EX {
+    pub Flags: u32,
+}
+impl ::core::marker::Copy for FILE_DISPOSITION_INFO_EX {}
+impl ::core::clone::Clone for FILE_DISPOSITION_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for FILE_DISPOSITION_INFO_EX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("FILE_DISPOSITION_INFO_EX").field("Flags", &self.Flags).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FILE_DISPOSITION_INFO_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILE_DISPOSITION_INFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_DISPOSITION_INFO_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILE_DISPOSITION_INFO_EX {}
+impl ::core::default::Default for FILE_DISPOSITION_INFO_EX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HWINWATCH(pub isize);
+impl HWINWATCH {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HWINWATCH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWINWATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWINWATCH {}
+impl ::core::fmt::Debug for HWINWATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWINWATCH").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HWINWATCH>> for HWINWATCH {
+    fn from(optional: ::core::option::Option<HWINWATCH>) -> HWINWATCH {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HWINWATCH {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct HW_PROFILE_INFOA {
+    pub dwDockInfo: u32,
+    pub szHwProfileGuid: [super::super::Foundation::CHAR; 39],
+    pub szHwProfileName: [super::super::Foundation::CHAR; 80],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for HW_PROFILE_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HW_PROFILE_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for HW_PROFILE_INFOA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HW_PROFILE_INFOA").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HW_PROFILE_INFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HW_PROFILE_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HW_PROFILE_INFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HW_PROFILE_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for HW_PROFILE_INFOA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub struct HW_PROFILE_INFOW {
+    pub dwDockInfo: u32,
+    pub szHwProfileGuid: [u16; 39],
+    pub szHwProfileName: [u16; 80],
+}
+impl ::core::marker::Copy for HW_PROFILE_INFOW {}
+impl ::core::clone::Clone for HW_PROFILE_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for HW_PROFILE_INFOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("HW_PROFILE_INFOW").field("dwDockInfo", &self.dwDockInfo).field("szHwProfileGuid", &self.szHwProfileGuid).field("szHwProfileName", &self.szHwProfileName).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HW_PROFILE_INFOW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HW_PROFILE_INFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HW_PROFILE_INFOW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HW_PROFILE_INFOW {}
+impl ::core::default::Default for HW_PROFILE_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
@@ -3713,12 +6424,6 @@ impl ::core::default::Default for IMAGE_THUNK_DATA64_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IMEA_INIT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IMEA_NEXT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IMEA_PREV: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3850,176 +6555,6 @@ impl ::core::default::Default for IMESTRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_BANJAtoJUNJA: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_ENABLE_CONVERT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_ENTERWORDREGISTERMODE: u32 = 24u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_GETCONVERSIONMODE: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_GETIMECAPS: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_GETOPEN: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_GETVERSION: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_JOHABtoKS: u32 = 21u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_JUNJAtoBANJA: u32 = 20u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_KStoJOHAB: u32 = 22u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MAXPROCESS: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_ALPHANUMERIC: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_CODEINPUT: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_DBCSCHAR: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_HANJACONVERT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_HIRAGANA: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_KATAKANA: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_NOCODEINPUT: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_NOROMAN: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_ROMAN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MODE_SBCSCHAR: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_MOVEIMEWINDOW: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_REQUEST_CONVERT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_DISKERROR: u32 = 14u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_ERROR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_ILLEGAL: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_INVALID: u32 = 17u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_NEST: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_NOIME: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_NOROOM: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_NOTFOUND: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_SYSTEMMODAL: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_RS_TOOLONG: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_SENDVKEY: u32 = 19u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_SETCONVERSIONFONTEX: u32 = 25u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_SETCONVERSIONMODE: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_SETCONVERSIONWINDOW: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_SETOPEN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IME_SET_MODE: u32 = 18u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IMPGetIMEA<'a, P0>(param0: P0, param1: &mut IMEPROA) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IMPGetIMEA(param0: super::super::Foundation::HWND, param1: *mut IMEPROA) -> super::super::Foundation::BOOL;
-    }
-    IMPGetIMEA(param0.into(), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IMPGetIMEW<'a, P0>(param0: P0, param1: &mut IMEPROW) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IMPGetIMEW(param0: super::super::Foundation::HWND, param1: *mut IMEPROW) -> super::super::Foundation::BOOL;
-    }
-    IMPGetIMEW(param0.into(), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IMPQueryIMEA(param0: &mut IMEPROA) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IMPQueryIMEA(param0: *mut IMEPROA) -> super::super::Foundation::BOOL;
-    }
-    IMPQueryIMEA(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IMPQueryIMEW(param0: &mut IMEPROW) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IMPQueryIMEW(param0: *mut IMEPROW) -> super::super::Foundation::BOOL;
-    }
-    IMPQueryIMEW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IMPSetIMEA<'a, P0>(param0: P0, param1: &mut IMEPROA) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IMPSetIMEA(param0: super::super::Foundation::HWND, param1: *mut IMEPROA) -> super::super::Foundation::BOOL;
-    }
-    IMPSetIMEA(param0.into(), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IMPSetIMEW<'a, P0>(param0: P0, param1: &mut IMEPROW) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IMPSetIMEW(param0: super::super::Foundation::HWND, param1: *mut IMEPROW) -> super::super::Foundation::BOOL;
-    }
-    IMPSetIMEW(param0.into(), ::core::mem::transmute(param1))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFINITE: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFO_CLASS_GENERIC: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFO_CLASS_IMPLEMENTATION: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFO_CLASS_PROTOCOL: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFO_TYPE_ADDRESS_OBJECT: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFO_TYPE_CONNECTION: u32 = 768u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INFO_TYPE_PROVIDER: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INTERIM_WINDOW: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const INVALID_ENTITY_INSTANCE: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IOCTL_TDI_TL_IO_CONTROL_ENDPOINT: u32 = 2162744u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4085,151 +6620,6 @@ impl ::core::default::Default for IO_STATUS_BLOCK_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_CHANGECONVERT: u32 = 289u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_CLOSECONVERT: u32 = 290u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_DBCSCHAR: u32 = 352u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_FULLCONVERT: u32 = 291u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_IMESELECT: u32 = 304u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_MODEINFO: u32 = 400u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_OPENCONVERT: u32 = 288u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_STRING: u32 = 320u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_STRINGEND: u32 = 257u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_STRINGEX: u32 = 384u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_STRINGSTART: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IR_UNDETERMINE: u32 = 368u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-pub struct IWindowsLockModeHelper(::windows::core::IUnknown);
-impl IWindowsLockModeHelper {
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSMode(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__ = ::core::mem::MaybeUninit::zeroed();
-        (::windows::core::Interface::vtable(self).GetSMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-}
-impl ::core::convert::From<IWindowsLockModeHelper> for ::windows::core::IUnknown {
-    fn from(value: IWindowsLockModeHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IWindowsLockModeHelper> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IWindowsLockModeHelper) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWindowsLockModeHelper> for ::windows::core::IUnknown {
-    fn from(value: &IWindowsLockModeHelper) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IWindowsLockModeHelper {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IWindowsLockModeHelper {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IWindowsLockModeHelper {}
-impl ::core::fmt::Debug for IWindowsLockModeHelper {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IWindowsLockModeHelper").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
-    type Vtable = IWindowsLockModeHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IWindowsLockModeHelper_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Win32_Foundation")]
-    pub GetSMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, issmode: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    GetSMode: usize,
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsApiSetImplemented<'a, P0>(contract: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsApiSetImplemented(contract: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    IsApiSetImplemented(contract.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsBadHugeReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsBadHugeReadPtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
-    }
-    IsBadHugeReadPtr(::core::mem::transmute(lp), ucb)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsBadHugeWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsBadHugeWritePtr(lp: *const ::core::ffi::c_void, ucb: usize) -> super::super::Foundation::BOOL;
-    }
-    IsBadHugeWritePtr(::core::mem::transmute(lp), ucb)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsNTAdmin(dwreserved: u32, lpdwreserved: &mut u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsNTAdmin(dwreserved: u32, lpdwreserved: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    IsNTAdmin(dwreserved, ::core::mem::transmute(lpdwreserved))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsNativeVhdBoot(nativevhdboot: &mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsNativeVhdBoot(nativevhdboot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    IsNativeVhdBoot(::core::mem::transmute(nativevhdboot))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn IsTokenUntrusted<'a, P0>(tokenhandle: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn IsTokenUntrusted(tokenhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    IsTokenUntrusted(tokenhandle.into())
 }
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
@@ -4327,43 +6717,6 @@ impl ::core::cmp::Eq for JIT_DEBUG_INFO {}
 impl ::core::default::Default for JIT_DEBUG_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct KEY_SET_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyWriteTimeInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyWow64FlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeyControlFlagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetVirtualizationInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetDebugInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KeySetHandleTagsInformation: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MaxKeySetInfoClass: KEY_SET_INFORMATION_CLASS = KEY_SET_INFORMATION_CLASS(6i32);
-impl ::core::marker::Copy for KEY_SET_INFORMATION_CLASS {}
-impl ::core::clone::Clone for KEY_SET_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for KEY_SET_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for KEY_SET_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for KEY_SET_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KEY_SET_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -4481,280 +6834,6 @@ impl ::core::default::Default for LDR_DATA_TABLE_ENTRY_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const LIS_NOGRPCONV: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const LIS_QUIET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const LOGON32_PROVIDER_VIRTUAL: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const LOGON32_PROVIDER_WINNT35: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const LOGON_ZERO_PASSWORD_BUFFER: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const LPTx: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LaunchINFSectionExW<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LaunchINFSectionExW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCWSTR, nshow: i32) -> ::windows::core::HRESULT;
-    }
-    LaunchINFSectionExW(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn LaunchINFSectionW<'a, P0, P1>(hwndowner: P0, hinstance: P1, pszparams: ::windows::core::PWSTR, nshow: i32) -> i32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LaunchINFSectionW(hwndowner: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparams: ::windows::core::PWSTR, nshow: i32) -> i32;
-    }
-    LaunchINFSectionW(hwndowner.into(), hinstance.into(), ::core::mem::transmute(pszparams), nshow)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn LocalCompact(uminfree: u32) -> usize {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LocalCompact(uminfree: u32) -> usize;
-    }
-    LocalCompact(uminfree)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn LocalShrink(hmem: isize, cbnewsize: u32) -> usize;
-    }
-    LocalShrink(hmem, cbnewsize)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MAXINTATOM: u32 = 49152u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MAX_COMPUTERNAME_LENGTH: u32 = 15u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MAX_TDI_ENTITIES: u32 = 4096u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MCW_DEFAULT: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MCW_HIDDEN: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MCW_RECT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MCW_SCREEN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MCW_VERTICAL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MCW_WINDOW: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MICROSOFT_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const MODE_WINDOW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn MulDiv(nnumber: i32, nnumerator: i32, ndenominator: i32) -> i32;
-    }
-    MulDiv(nnumber, nnumerator, ndenominator)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NeedReboot(dwrebootcheck: u32) -> super::super::Foundation::BOOL;
-    }
-    NeedReboot(dwrebootcheck)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn NeedRebootInit() -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NeedRebootInit() -> u32;
-    }
-    NeedRebootInit()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtClose<'a, P0>(handle: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtClose(handle: super::super::Foundation::HANDLE) -> super::super::Foundation::NTSTATUS;
-    }
-    NtClose(handle.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtDeviceIoControlFile<'a, P0, P1>(filehandle: P0, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *mut ::core::ffi::c_void, iostatusblock: &mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtDeviceIoControlFile(filehandle: super::super::Foundation::HANDLE, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, iocontrolcode: u32, inputbuffer: *mut ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtDeviceIoControlFile(filehandle.into(), event.into(), ::core::mem::transmute(apcroutine), ::core::mem::transmute(apccontext), ::core::mem::transmute(iostatusblock), iocontrolcode, ::core::mem::transmute(inputbuffer), inputbufferlength, ::core::mem::transmute(outputbuffer), outputbufferlength).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtNotifyChangeMultipleKeys<'a, P0, P1, P2, P3>(masterkeyhandle: P0, subordinateobjects: ::core::option::Option<&[OBJECT_ATTRIBUTES]>, event: P1, apcroutine: PIO_APC_ROUTINE, apccontext: *const ::core::ffi::c_void, iostatusblock: &mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: P2, buffer: ::core::option::Option<&mut [u8]>, asynchronous: P3) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-    P3: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::super::Foundation::HANDLE, count: u32, subordinateobjects: *const OBJECT_ATTRIBUTES, event: super::super::Foundation::HANDLE, apcroutine: *mut ::core::ffi::c_void, apccontext: *const ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: super::super::Foundation::BOOLEAN, buffer: *mut ::core::ffi::c_void, buffersize: u32, asynchronous: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
-    }
-    NtNotifyChangeMultipleKeys(
-        masterkeyhandle.into(),
-        subordinateobjects.as_deref().map_or(0, |slice| slice.len() as _),
-        ::core::mem::transmute(subordinateobjects.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        event.into(),
-        ::core::mem::transmute(apcroutine),
-        ::core::mem::transmute(apccontext),
-        ::core::mem::transmute(iostatusblock),
-        completionfilter,
-        watchtree.into(),
-        ::core::mem::transmute(buffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())),
-        buffer.as_deref().map_or(0, |slice| slice.len() as _),
-        asynchronous.into(),
-    )
-    .ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtOpenFile(filehandle: &mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: &mut OBJECT_ATTRIBUTES, iostatusblock: &mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtOpenFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut OBJECT_ATTRIBUTES, iostatusblock: *mut IO_STATUS_BLOCK, shareaccess: u32, openoptions: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtOpenFile(::core::mem::transmute(filehandle), desiredaccess, ::core::mem::transmute(objectattributes), ::core::mem::transmute(iostatusblock), shareaccess, openoptions).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryMultipleValueKey<'a, P0>(keyhandle: P0, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut ::core::ffi::c_void, bufferlength: &mut u32, requiredbufferlength: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtQueryMultipleValueKey(keyhandle: super::super::Foundation::HANDLE, valueentries: *mut KEY_VALUE_ENTRY, entrycount: u32, valuebuffer: *mut ::core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtQueryMultipleValueKey(keyhandle.into(), ::core::mem::transmute(valueentries.as_ptr()), valueentries.len() as _, ::core::mem::transmute(valuebuffer), ::core::mem::transmute(bufferlength), ::core::mem::transmute(requiredbufferlength)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryObject<'a, P0>(handle: P0, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: ::core::option::Option<&mut [u8]>, returnlength: ::core::option::Option<&mut u32>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtQueryObject(handle: super::super::Foundation::HANDLE, objectinformationclass: OBJECT_INFORMATION_CLASS, objectinformation: *mut ::core::ffi::c_void, objectinformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtQueryObject(handle.into(), objectinformationclass, ::core::mem::transmute(objectinformation.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), objectinformation.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtQuerySystemInformation(systeminformationclass: SYSTEM_INFORMATION_CLASS, systeminformation: *mut ::core::ffi::c_void, systeminformationlength: u32, returnlength: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtQuerySystemInformation(systeminformationclass, ::core::mem::transmute(systeminformation), systeminformationlength, ::core::mem::transmute(returnlength)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQuerySystemTime(systemtime: &mut i64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtQuerySystemTime(systemtime: *mut i64) -> super::super::Foundation::NTSTATUS;
-    }
-    NtQuerySystemTime(::core::mem::transmute(systemtime)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtQueryTimerResolution(maximumtime: &mut u32, minimumtime: &mut u32, currenttime: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtQueryTimerResolution(maximumtime: *mut u32, minimumtime: *mut u32, currenttime: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtQueryTimerResolution(::core::mem::transmute(maximumtime), ::core::mem::transmute(minimumtime), ::core::mem::transmute(currenttime)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtRenameKey<'a, P0>(keyhandle: P0, newname: &super::super::Foundation::UNICODE_STRING) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtRenameKey(keyhandle: super::super::Foundation::HANDLE, newname: *const super::super::Foundation::UNICODE_STRING) -> super::super::Foundation::NTSTATUS;
-    }
-    NtRenameKey(keyhandle.into(), ::core::mem::transmute(newname)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtSetInformationKey<'a, P0>(keyhandle: P0, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: &[u8]) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtSetInformationKey(keyhandle: super::super::Foundation::HANDLE, keysetinformationclass: KEY_SET_INFORMATION_CLASS, keysetinformation: *const ::core::ffi::c_void, keysetinformationlength: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    NtSetInformationKey(keyhandle.into(), keysetinformationclass, ::core::mem::transmute(keysetinformation.as_ptr()), keysetinformation.len() as _).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn NtWaitForSingleObject<'a, P0, P1>(handle: P0, alertable: P1, timeout: &mut i64) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn NtWaitForSingleObject(handle: super::super::Foundation::HANDLE, alertable: super::super::Foundation::BOOLEAN, timeout: *mut i64) -> super::super::Foundation::NTSTATUS;
-    }
-    NtWaitForSingleObject(handle.into(), alertable.into(), ::core::mem::transmute(timeout)).ok()
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4798,109 +6877,6 @@ impl ::core::default::Default for OBJECT_ATTRIBUTES {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OBJECT_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ObjectBasicInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ObjectTypeInformation: OBJECT_INFORMATION_CLASS = OBJECT_INFORMATION_CLASS(2i32);
-impl ::core::marker::Copy for OBJECT_INFORMATION_CLASS {}
-impl ::core::clone::Clone for OBJECT_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OBJECT_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OBJECT_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OBJECT_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OBJECT_INFORMATION_CLASS").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const OFS_MAXPATHNAME: u32 = 128u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const OPERATION_API_VERSION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const OVERWRITE_HIDDEN: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn OpenINFEngineA<'a, P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenINFEngineA(pszinffilename: ::windows::core::PCSTR, pszinstallsection: ::windows::core::PCSTR, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    OpenINFEngineA(pszinffilename.into(), pszinstallsection.into(), dwflags, ::core::mem::transmute(phinf), ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn OpenINFEngineW<'a, P0, P1>(pszinffilename: P0, pszinstallsection: P1, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenINFEngineW(pszinffilename: ::windows::core::PCWSTR, pszinstallsection: ::windows::core::PCWSTR, dwflags: u32, phinf: *mut *mut ::core::ffi::c_void, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    OpenINFEngineW(pszinffilename.into(), pszinstallsection.into(), dwflags, ::core::mem::transmute(phinf), ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenMutexA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenMutexA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    OpenMutexA(dwdesiredaccess, binherithandle.into(), lpname.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenSemaphoreA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lpname: P1) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenSemaphoreA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lpname: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    OpenSemaphoreA(dwdesiredaccess, binherithandle.into(), lpname.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn OpenWaitableTimerA<'a, P0, P1>(dwdesiredaccess: u32, binherithandle: P0, lptimername: P1) -> super::super::Foundation::HANDLE
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOL>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn OpenWaitableTimerA(dwdesiredaccess: u32, binherithandle: super::super::Foundation::BOOL, lptimername: ::windows::core::PCSTR) -> super::super::Foundation::HANDLE;
-    }
-    OpenWaitableTimerA(dwdesiredaccess, binherithandle.into(), lptimername.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::core::ffi::c_void>;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4991,54 +6967,6 @@ impl ::core::default::Default for PERUSERSECTIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PFIBER_CALLOUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PIO_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_CHILD_PROCESS_OVERRIDE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_CHILD_PROCESS_RESTRICTED_UNLESS_SECURE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_DISABLE_PROCESS_TREE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_ENABLE_PROCESS_TREE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_OVERRIDE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROC_THREAD_ATTRIBUTE_ADDITIVE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROC_THREAD_ATTRIBUTE_INPUT: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROC_THREAD_ATTRIBUTE_NUMBER: u32 = 65535u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROC_THREAD_ATTRIBUTE_THREAD: u32 = 65536u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROGRESS_CANCEL: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROGRESS_CONTINUE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROGRESS_QUIET: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROGRESS_STOP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const PROTECTION_LEVEL_SAME: u32 = 4294967295u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct PUBLIC_OBJECT_BASIC_INFORMATION {
@@ -5112,702 +7040,6 @@ impl ::core::default::Default for PUBLIC_OBJECT_TYPE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWINSTATIONQUERYINFORMATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows::core::PCWSTR, packageversion: u64) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = ::core::option::Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = ::core::option::Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_QUERYDYNAMICODETRUST_API = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = ::core::option::Option<unsafe extern "system" fn(setting: ::windows::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = ::core::option::Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = ::core::option::Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type PWLDP_SETDYNAMICCODETRUST_API = ::core::option::Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const QUERY_ACTCTX_FLAG_NO_ADDREF: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn QueryAuxiliaryCounterFrequency() -> ::windows::core::Result<u64> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryAuxiliaryCounterFrequency(lpauxiliarycounterfrequency: *mut u64) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    QueryAuxiliaryCounterFrequency(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryIdleProcessorCycleTime(bufferlength: &mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryIdleProcessorCycleTime(bufferlength: *mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL;
-    }
-    QueryIdleProcessorCycleTime(::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: &mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryIdleProcessorCycleTimeEx(group: u16, bufferlength: *mut u32, processoridlecycletime: *mut u64) -> super::super::Foundation::BOOL;
-    }
-    QueryIdleProcessorCycleTimeEx(group, ::core::mem::transmute(bufferlength), ::core::mem::transmute(processoridlecycletime))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn QueryInterruptTime(lpinterrupttime: &mut u64) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryInterruptTime(lpinterrupttime: *mut u64);
-    }
-    QueryInterruptTime(::core::mem::transmute(lpinterrupttime))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn QueryInterruptTimePrecise(lpinterrupttimeprecise: &mut u64) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryInterruptTimePrecise(lpinterrupttimeprecise: *mut u64);
-    }
-    QueryInterruptTimePrecise(::core::mem::transmute(lpinterrupttimeprecise))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryProcessCycleTime<'a, P0>(processhandle: P0, cycletime: &mut u64) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryProcessCycleTime(processhandle: super::super::Foundation::HANDLE, cycletime: *mut u64) -> super::super::Foundation::BOOL;
-    }
-    QueryProcessCycleTime(processhandle.into(), ::core::mem::transmute(cycletime))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryThreadCycleTime<'a, P0>(threadhandle: P0, cycletime: &mut u64) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryThreadCycleTime(threadhandle: super::super::Foundation::HANDLE, cycletime: *mut u64) -> super::super::Foundation::BOOL;
-    }
-    QueryThreadCycleTime(threadhandle.into(), ::core::mem::transmute(cycletime))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn QueryUnbiasedInterruptTime(unbiasedtime: &mut u64) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryUnbiasedInterruptTime(unbiasedtime: *mut u64) -> super::super::Foundation::BOOL;
-    }
-    QueryUnbiasedInterruptTime(::core::mem::transmute(unbiasedtime))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: &mut u64) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn QueryUnbiasedInterruptTimePrecise(lpunbiasedinterrupttimeprecise: *mut u64);
-    }
-    QueryUnbiasedInterruptTimePrecise(::core::mem::transmute(lpunbiasedinterrupttimeprecise))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RECOVERY_DEFAULT_PING_INTERVAL: u32 = 5000u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCSTR, psttable: *mut STRTABLEA) -> ::windows::core::HRESULT>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REG_RESTORE_LOG_KEY: &str = "RegRestoreLogFile";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REG_SAVE_LOG_KEY: &str = "RegSaveLogFile";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REMOTE_PROTOCOL_INFO_FLAG_OFFLINE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const REMOTE_PROTOCOL_INFO_FLAG_PERSISTENT_HANDLE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RESETDEV: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RESTART_MAX_CMD_LINE: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_FLAG_SMB2_SHARECAP_CLUSTER: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_FLAG_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_FLAG_SMB2_SHARECAP_DFS: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_FLAG_SMB2_SHARECAP_SCALEOUT: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_FLAG_SMB2_SHARECAP_TIMEWARP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_SMB2_FLAG_SERVERCAP_DFS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_SMB2_FLAG_SERVERCAP_DIRECTORY_LEASING: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_SMB2_FLAG_SERVERCAP_LARGEMTU: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_SMB2_FLAG_SERVERCAP_LEASING: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_SMB2_FLAG_SERVERCAP_MULTICHANNEL: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RPI_SMB2_FLAG_SERVERCAP_PERSISTENT_HANDLES: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_DELAYREGISTEROCX: u32 = 512u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_INF: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_NGCONV: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_QUIET: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_SETUPAPI: u32 = 1024u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_SKIPDISKSPACECHECK: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RSC_FLAG_UPDHLPDLLS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RTS_CONTROL_DISABLE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RTS_CONTROL_ENABLE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RTS_CONTROL_HANDSHAKE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RTS_CONTROL_TOGGLE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RUNCMDS_DELAYPOSTCMD: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RUNCMDS_NOWAIT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const RUNCMDS_QUIET: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: &CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RaiseCustomSystemEventTrigger(customsystemeventtriggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
-    }
-    RaiseCustomSystemEventTrigger(::core::mem::transmute(customsystemeventtriggerconfig))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RebootCheckOnInstallA<'a, P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RebootCheckOnInstallA(hwnd: super::super::Foundation::HWND, pszinf: ::windows::core::PCSTR, pszsec: ::windows::core::PCSTR, dwreserved: u32) -> ::windows::core::HRESULT;
-    }
-    RebootCheckOnInstallA(hwnd.into(), pszinf.into(), pszsec.into(), dwreserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RebootCheckOnInstallW<'a, P0, P1, P2>(hwnd: P0, pszinf: P1, pszsec: P2, dwreserved: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RebootCheckOnInstallW(hwnd: super::super::Foundation::HWND, pszinf: ::windows::core::PCWSTR, pszsec: ::windows::core::PCWSTR, dwreserved: u32) -> ::windows::core::HRESULT;
-    }
-    RebootCheckOnInstallW(hwnd.into(), pszinf.into(), pszsec.into(), dwreserved).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RecordFeatureError(featureid: u32, error: &FEATURE_ERROR) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RecordFeatureError(featureid: u32, error: *const FEATURE_ERROR);
-    }
-    RecordFeatureError(featureid, ::core::mem::transmute(error))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RecordFeatureUsage<'a, P0>(featureid: u32, kind: u32, addend: u32, originname: P0)
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn RecordFeatureUsage(featureid: u32, kind: u32, addend: u32, originname: ::windows::core::PCSTR);
-    }
-    RecordFeatureUsage(featureid, kind, addend, originname.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RegInstallA<'a, P0, P1>(hmod: P0, pszsection: P1, psttable: &STRTABLEA) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegInstallA(hmod: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCSTR, psttable: *const STRTABLEA) -> ::windows::core::HRESULT;
-    }
-    RegInstallA(hmod.into(), pszsection.into(), ::core::mem::transmute(psttable)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RegInstallW<'a, P0, P1>(hmod: P0, pszsection: P1, psttable: &STRTABLEW) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegInstallW(hmod: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCWSTR, psttable: *const STRTABLEW) -> ::windows::core::HRESULT;
-    }
-    RegInstallW(hmod.into(), pszsection.into(), ::core::mem::transmute(psttable)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn RegRestoreAllA<'a, P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<super::Registry::HKEY>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegRestoreAllA(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCSTR, hkbckupkey: super::Registry::HKEY) -> ::windows::core::HRESULT;
-    }
-    RegRestoreAllA(hwnd.into(), psztitlestring.into(), hkbckupkey.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn RegRestoreAllW<'a, P0, P1, P2>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::Registry::HKEY>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegRestoreAllW(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCWSTR, hkbckupkey: super::Registry::HKEY) -> ::windows::core::HRESULT;
-    }
-    RegRestoreAllW(hwnd.into(), psztitlestring.into(), hkbckupkey.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn RegSaveRestoreA<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<super::Registry::HKEY>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
-    P4: ::std::convert::Into<::windows::core::PCSTR>,
-    P5: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegSaveRestoreA(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCSTR, hkbckupkey: super::Registry::HKEY, pcszrootkey: ::windows::core::PCSTR, pcszsubkey: ::windows::core::PCSTR, pcszvaluename: ::windows::core::PCSTR, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    RegSaveRestoreA(hwnd.into(), psztitlestring.into(), hkbckupkey.into(), pcszrootkey.into(), pcszsubkey.into(), pcszvaluename.into(), dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn RegSaveRestoreOnINFA<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
-    P4: ::std::convert::Into<super::Registry::HKEY>,
-    P5: ::std::convert::Into<super::Registry::HKEY>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegSaveRestoreOnINFA(hwnd: super::super::Foundation::HWND, psztitle: ::windows::core::PCSTR, pszinf: ::windows::core::PCSTR, pszsection: ::windows::core::PCSTR, hhklmbackkey: super::Registry::HKEY, hhkcubackkey: super::Registry::HKEY, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    RegSaveRestoreOnINFA(hwnd.into(), psztitle.into(), pszinf.into(), pszsection.into(), hhklmbackkey.into(), hhkcubackkey.into(), dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn RegSaveRestoreOnINFW<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitle: P1, pszinf: P2, pszsection: P3, hhklmbackkey: P4, hhkcubackkey: P5, dwflags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<super::Registry::HKEY>,
-    P5: ::std::convert::Into<super::Registry::HKEY>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegSaveRestoreOnINFW(hwnd: super::super::Foundation::HWND, psztitle: ::windows::core::PCWSTR, pszinf: ::windows::core::PCWSTR, pszsection: ::windows::core::PCWSTR, hhklmbackkey: super::Registry::HKEY, hhkcubackkey: super::Registry::HKEY, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    RegSaveRestoreOnINFW(hwnd.into(), psztitle.into(), pszinf.into(), pszsection.into(), hhklmbackkey.into(), hhkcubackkey.into(), dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Registry\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-#[inline]
-pub unsafe fn RegSaveRestoreW<'a, P0, P1, P2, P3, P4, P5>(hwnd: P0, psztitlestring: P1, hkbckupkey: P2, pcszrootkey: P3, pcszsubkey: P4, pcszvaluename: P5, dwflags: u32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::Registry::HKEY>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-    P5: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RegSaveRestoreW(hwnd: super::super::Foundation::HWND, psztitlestring: ::windows::core::PCWSTR, hkbckupkey: super::Registry::HKEY, pcszrootkey: ::windows::core::PCWSTR, pcszsubkey: ::windows::core::PCWSTR, pcszvaluename: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT;
-    }
-    RegSaveRestoreW(hwnd.into(), psztitlestring.into(), hkbckupkey.into(), pcszrootkey.into(), pcszsubkey.into(), pcszvaluename.into(), dwflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReplacePartitionUnit<'a, P0, P1>(targetpartition: P0, sparepartition: P1, flags: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReplacePartitionUnit(targetpartition: ::windows::core::PCWSTR, sparepartition: ::windows::core::PCWSTR, flags: u32) -> super::super::Foundation::BOOL;
-    }
-    ReplacePartitionUnit(targetpartition.into(), sparepartition.into(), flags)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RequestDeviceWakeup<'a, P0>(hdevice: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RequestDeviceWakeup(hdevice: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-    }
-    RequestDeviceWakeup(hdevice.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn RtlAnsiStringToUnicodeString<'a, P0>(destinationstring: &mut super::super::Foundation::UNICODE_STRING, sourcestring: &mut super::Kernel::STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlAnsiStringToUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: *mut super::Kernel::STRING, allocatedestinationstring: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlAnsiStringToUnicodeString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring), allocatedestinationstring.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlCharToInteger(string: &mut i8, base: u32, value: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlCharToInteger(string: *mut i8, base: u32, value: *mut u32) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlCharToInteger(::core::mem::transmute(string), base, ::core::mem::transmute(value)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(feature = "Win32_System_Kernel")]
-#[inline]
-pub unsafe fn RtlFreeAnsiString(ansistring: &mut super::Kernel::STRING) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlFreeAnsiString(ansistring: *mut super::Kernel::STRING);
-    }
-    RtlFreeAnsiString(::core::mem::transmute(ansistring))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(feature = "Win32_System_Kernel")]
-#[inline]
-pub unsafe fn RtlFreeOemString(oemstring: &mut super::Kernel::STRING) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlFreeOemString(oemstring: *mut super::Kernel::STRING);
-    }
-    RtlFreeOemString(::core::mem::transmute(oemstring))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlFreeUnicodeString(unicodestring: &mut super::super::Foundation::UNICODE_STRING) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlFreeUnicodeString(unicodestring: *mut super::super::Foundation::UNICODE_STRING);
-    }
-    RtlFreeUnicodeString(::core::mem::transmute(unicodestring))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RtlGetReturnAddressHijackTarget() -> usize {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlGetReturnAddressHijackTarget() -> usize;
-    }
-    RtlGetReturnAddressHijackTarget()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(feature = "Win32_System_Kernel")]
-#[inline]
-pub unsafe fn RtlInitAnsiString(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlInitAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
-    }
-    RtlInitAnsiString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn RtlInitAnsiStringEx(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlInitAnsiStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlInitAnsiStringEx(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(feature = "Win32_System_Kernel")]
-#[inline]
-pub unsafe fn RtlInitString(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlInitString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8);
-    }
-    RtlInitString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn RtlInitStringEx(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut i8) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlInitStringEx(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut i8) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlInitStringEx(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlInitUnicodeString<'a, P0>(destinationstring: &mut super::super::Foundation::UNICODE_STRING, sourcestring: P0)
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlInitUnicodeString(destinationstring: *mut super::super::Foundation::UNICODE_STRING, sourcestring: ::windows::core::PCWSTR);
-    }
-    RtlInitUnicodeString(::core::mem::transmute(destinationstring), sourcestring.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn RtlIsNameLegalDOS8Dot3(name: &mut super::super::Foundation::UNICODE_STRING, oemname: &mut super::Kernel::STRING, namecontainsspaces: &mut super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlIsNameLegalDOS8Dot3(name: *mut super::super::Foundation::UNICODE_STRING, oemname: *mut super::Kernel::STRING, namecontainsspaces: *mut super::super::Foundation::BOOLEAN) -> super::super::Foundation::BOOLEAN;
-    }
-    RtlIsNameLegalDOS8Dot3(::core::mem::transmute(name), ::core::mem::transmute(oemname), ::core::mem::transmute(namecontainsspaces))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlLocalTimeToSystemTime(localtime: &mut i64, systemtime: &mut i64) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlLocalTimeToSystemTime(localtime: *mut i64, systemtime: *mut i64) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlLocalTimeToSystemTime(::core::mem::transmute(localtime), ::core::mem::transmute(systemtime)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RtlRaiseCustomSystemEventTrigger(triggerconfig: &CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlRaiseCustomSystemEventTrigger(triggerconfig: *const CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG) -> u32;
-    }
-    RtlRaiseCustomSystemEventTrigger(::core::mem::transmute(triggerconfig))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlTimeToSecondsSince1970(time: &mut i64, elapsedseconds: &mut u32) -> super::super::Foundation::BOOLEAN {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlTimeToSecondsSince1970(time: *mut i64, elapsedseconds: *mut u32) -> super::super::Foundation::BOOLEAN;
-    }
-    RtlTimeToSecondsSince1970(::core::mem::transmute(time), ::core::mem::transmute(elapsedseconds))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn RtlUnicodeStringToAnsiString<'a, P0>(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlUnicodeStringToAnsiString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlUnicodeStringToAnsiString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring), allocatedestinationstring.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_System_Kernel\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-#[inline]
-pub unsafe fn RtlUnicodeStringToOemString<'a, P0>(destinationstring: &mut super::Kernel::STRING, sourcestring: &mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::BOOLEAN>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlUnicodeStringToOemString(destinationstring: *mut super::Kernel::STRING, sourcestring: *mut super::super::Foundation::UNICODE_STRING, allocatedestinationstring: super::super::Foundation::BOOLEAN) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlUnicodeStringToOemString(::core::mem::transmute(destinationstring), ::core::mem::transmute(sourcestring), allocatedestinationstring.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: &mut u32, unicodestring: &[u8]) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlUnicodeToMultiByteSize(bytesinmultibytestring: *mut u32, unicodestring: ::windows::core::PCWSTR, bytesinunicodestring: u32) -> super::super::Foundation::NTSTATUS;
-    }
-    RtlUnicodeToMultiByteSize(::core::mem::transmute(bytesinmultibytestring), ::core::mem::transmute(unicodestring.as_ptr()), unicodestring.len() as _).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn RtlUniform(seed: &mut u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RtlUniform(seed: *mut u32) -> u32;
-    }
-    RtlUniform(::core::mem::transmute(seed))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RunSetupCommandA<'a, P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: &mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
-    P4: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RunSetupCommandA(hwnd: super::super::Foundation::HWND, szcmdname: ::windows::core::PCSTR, szinfsection: ::windows::core::PCSTR, szdir: ::windows::core::PCSTR, lpsztitle: ::windows::core::PCSTR, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    RunSetupCommandA(hwnd.into(), szcmdname.into(), szinfsection.into(), szdir.into(), lpsztitle.into(), ::core::mem::transmute(phexe), dwflags, ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn RunSetupCommandW<'a, P0, P1, P2, P3, P4>(hwnd: P0, szcmdname: P1, szinfsection: P2, szdir: P3, lpsztitle: P4, phexe: &mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-    P4: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn RunSetupCommandW(hwnd: super::super::Foundation::HWND, szcmdname: ::windows::core::PCWSTR, szinfsection: ::windows::core::PCWSTR, szdir: ::windows::core::PCWSTR, lpsztitle: ::windows::core::PCWSTR, phexe: *mut super::super::Foundation::HANDLE, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    RunSetupCommandW(hwnd.into(), szcmdname.into(), szinfsection.into(), szdir.into(), lpsztitle.into(), ::core::mem::transmute(phexe), dwflags, ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_32BIT_BINARY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_64BIT_BINARY: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_DOS_BINARY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_OS216_BINARY: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_PIF_BINARY: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_POSIX_BINARY: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_THIS_PLATFORM_BINARY: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SCS_WOW_BINARY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SHUTDOWN_NORETRY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STARTF_HOLOGRAPHIC: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STORAGE_INFO_FLAGS_ALIGNED_DEVICE: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STORAGE_INFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STORAGE_INFO_OFFSET_UNKNOWN: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STREAM_CONTAINS_GHOSTED_FILE_EXTENTS: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STREAM_CONTAINS_PROPERTIES: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STREAM_CONTAINS_SECURITY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STREAM_MODIFIED_WHEN_READ: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STREAM_NORMAL_ATTRIBUTE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const STREAM_SPARSE_ATTRIBUTE: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct STRENTRYA {
@@ -6057,51 +7289,6 @@ impl ::core::cmp::Eq for SYSTEM_EXCEPTION_INFORMATION {}
 impl ::core::default::Default for SYSTEM_EXCEPTION_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SYSTEM_INFORMATION_CLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemBasicInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemTimeOfDayInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemProcessInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemProcessorPerformanceInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(8i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemInterruptInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(23i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemExceptionInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(33i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemRegistryQuotaInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(37i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemLookasideInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(45i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemCodeIntegrityInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(103i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SystemPolicyInformation: SYSTEM_INFORMATION_CLASS = SYSTEM_INFORMATION_CLASS(134i32);
-impl ::core::marker::Copy for SYSTEM_INFORMATION_CLASS {}
-impl ::core::clone::Clone for SYSTEM_INFORMATION_CLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SYSTEM_INFORMATION_CLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_INFORMATION_CLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SYSTEM_INFORMATION_CLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SYSTEM_INFORMATION_CLASS").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -6375,8 +7562,6 @@ impl ::core::default::Default for SYSTEM_REGISTRY_QUOTA_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SYSTEM_STATUS_FLAG_POWER_SAVING_ON: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6451,276 +7636,6 @@ impl ::core::cmp::Eq for SYSTEM_TIMEOFDAY_INFORMATION {}
 impl ::core::default::Default for SYSTEM_TIMEOFDAY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_ALLTHRESHOLD: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_LEGATO: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_PERIOD1024: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_PERIOD2048: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_PERIOD512: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_PERIODVOICE: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_QUEUEEMPTY: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERBDNT: i32 = -5i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDCC: i32 = -7i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDDR: i32 = -14i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDFQ: i32 = -13i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDLN: i32 = -6i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDMD: i32 = -10i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDPT: i32 = -12i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDSH: i32 = -11i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDSR: i32 = -15i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDST: i32 = -16i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDTP: i32 = -8i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDVL: i32 = -9i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERDVNA: i32 = -1i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERMACT: i32 = -3i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SEROFM: i32 = -2i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_SERQFUL: i32 = -4i32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_STACCATO: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_THRESHOLD: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_WHITE1024: u32 = 5u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_WHITE2048: u32 = 6u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_WHITE512: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const S_WHITEVOICE: u32 = 7u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SendIMEMessageExA<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SendIMEMessageExA(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-    }
-    SendIMEMessageExA(param0.into(), param1.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SendIMEMessageExW<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::LRESULT
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SendIMEMessageExW(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;
-    }
-    SendIMEMessageExW(param0.into(), param1.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetEnvironmentStringsA<'a, P0>(newenvironment: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetEnvironmentStringsA(newenvironment: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    SetEnvironmentStringsA(newenvironment.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetFirmwareEnvironmentVariableA<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetFirmwareEnvironmentVariableA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pvalue: *const ::core::ffi::c_void, nsize: u32) -> super::super::Foundation::BOOL;
-    }
-    SetFirmwareEnvironmentVariableA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetFirmwareEnvironmentVariableExA<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>, dwattributes: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetFirmwareEnvironmentVariableExA(lpname: ::windows::core::PCSTR, lpguid: ::windows::core::PCSTR, pvalue: *const ::core::ffi::c_void, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL;
-    }
-    SetFirmwareEnvironmentVariableExA(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _), dwattributes)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetFirmwareEnvironmentVariableExW<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>, dwattributes: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetFirmwareEnvironmentVariableExW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pvalue: *const ::core::ffi::c_void, nsize: u32, dwattributes: u32) -> super::super::Foundation::BOOL;
-    }
-    SetFirmwareEnvironmentVariableExW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _), dwattributes)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetFirmwareEnvironmentVariableW<'a, P0, P1>(lpname: P0, lpguid: P1, pvalue: ::core::option::Option<&[u8]>) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetFirmwareEnvironmentVariableW(lpname: ::windows::core::PCWSTR, lpguid: ::windows::core::PCWSTR, pvalue: *const ::core::ffi::c_void, nsize: u32) -> super::super::Foundation::BOOL;
-    }
-    SetFirmwareEnvironmentVariableW(lpname.into(), lpguid.into(), ::core::mem::transmute(pvalue.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len() as _))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn SetHandleCount(unumber: u32) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetHandleCount(unumber: u32) -> u32;
-    }
-    SetHandleCount(unumber)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetMessageWaitingIndicator<'a, P0>(hmsgindicator: P0, ulmsgcount: u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetMessageWaitingIndicator(hmsgindicator: super::super::Foundation::HANDLE, ulmsgcount: u32) -> super::super::Foundation::BOOL;
-    }
-    SetMessageWaitingIndicator(hmsgindicator.into(), ulmsgcount)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetPerUserSecValuesA(pperuser: &mut PERUSERSECTIONA) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetPerUserSecValuesA(pperuser: *mut PERUSERSECTIONA) -> ::windows::core::HRESULT;
-    }
-    SetPerUserSecValuesA(::core::mem::transmute(pperuser)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SetPerUserSecValuesW(pperuser: &mut PERUSERSECTIONW) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SetPerUserSecValuesW(pperuser: *mut PERUSERSECTIONW) -> ::windows::core::HRESULT;
-    }
-    SetPerUserSecValuesW(::core::mem::transmute(pperuser)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SignalObjectAndWait<'a, P0, P1, P2>(hobjecttosignal: P0, hobjecttowaiton: P1, dwmilliseconds: u32, balertable: P2) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P1: ::std::convert::Into<super::super::Foundation::HANDLE>,
-    P2: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SignalObjectAndWait(hobjecttosignal: super::super::Foundation::HANDLE, hobjecttowaiton: super::super::Foundation::HANDLE, dwmilliseconds: u32, balertable: super::super::Foundation::BOOL) -> u32;
-    }
-    SignalObjectAndWait(hobjecttosignal.into(), hobjecttowaiton.into(), dwmilliseconds, balertable.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn SubscribeFeatureStateChangeNotification(subscription: &mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: PFEATURE_STATE_CHANGE_CALLBACK, context: *const ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn SubscribeFeatureStateChangeNotification(subscription: *mut FEATURE_STATE_CHANGE_SUBSCRIPTION, callback: *mut ::core::ffi::c_void, context: *const ::core::ffi::c_void);
-    }
-    SubscribeFeatureStateChangeNotification(::core::mem::transmute(subscription), ::core::mem::transmute(callback), ::core::mem::transmute(context))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const TC_GP_TRAP: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const TC_HARDERR: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const TC_NORMAL: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const TC_SIGNAL: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TDIENTITY_ENTITY_TYPE(pub u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GENERIC_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(0u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const AT_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(640u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(769u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_NL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(768u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CL_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1025u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const CO_TL_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(1024u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const ER_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(896u32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const IF_ENTITY: TDIENTITY_ENTITY_TYPE = TDIENTITY_ENTITY_TYPE(512u32);
-impl ::core::marker::Copy for TDIENTITY_ENTITY_TYPE {}
-impl ::core::clone::Clone for TDIENTITY_ENTITY_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TDIENTITY_ENTITY_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TDIENTITY_ENTITY_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TDIENTITY_ENTITY_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TDIENTITY_ENTITY_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -6844,37 +7759,6 @@ impl ::core::default::Default for TDI_TL_IO_CONTROL_ENDPOINT_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TDI_TL_IO_CONTROL_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const EndpointIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const GetSockOptIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const SocketIoControlType: TDI_TL_IO_CONTROL_TYPE = TDI_TL_IO_CONTROL_TYPE(3i32);
-impl ::core::marker::Copy for TDI_TL_IO_CONTROL_TYPE {}
-impl ::core::clone::Clone for TDI_TL_IO_CONTROL_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TDI_TL_IO_CONTROL_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TDI_TL_IO_CONTROL_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TDI_TL_IO_CONTROL_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TDI_TL_IO_CONTROL_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6913,68 +7797,6 @@ impl ::core::default::Default for THREAD_NAME_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const THREAD_PRIORITY_ERROR_RETURN: u32 = 2147483647u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn TranslateInfStringA<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u8]>, pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TranslateInfStringA(pszinffilename: ::windows::core::PCSTR, pszinstallsection: ::windows::core::PCSTR, psztranslatesection: ::windows::core::PCSTR, psztranslatekey: ::windows::core::PCSTR, pszbuffer: ::windows::core::PSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    TranslateInfStringA(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn TranslateInfStringExA<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u8], pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TranslateInfStringExA(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows::core::PCSTR, psztranslatesection: ::windows::core::PCSTR, psztranslatekey: ::windows::core::PCSTR, pszbuffer: ::windows::core::PSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    TranslateInfStringExA(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn TranslateInfStringExW<'a, P0, P1, P2>(hinf: *mut ::core::ffi::c_void, pszinffilename: P0, psztranslatesection: P1, psztranslatekey: P2, pszbuffer: &mut [u16], pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TranslateInfStringExW(hinf: *mut ::core::ffi::c_void, pszinffilename: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, dwbuffersize: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    TranslateInfStringExW(::core::mem::transmute(hinf), pszinffilename.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len() as _, ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn TranslateInfStringW<'a, P0, P1, P2, P3>(pszinffilename: P0, pszinstallsection: P1, psztranslatesection: P2, psztranslatekey: P3, pszbuffer: ::core::option::Option<&mut [u16]>, pdwrequiredsize: &mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TranslateInfStringW(pszinffilename: ::windows::core::PCWSTR, pszinstallsection: ::windows::core::PCWSTR, psztranslatesection: ::windows::core::PCWSTR, psztranslatekey: ::windows::core::PCWSTR, pszbuffer: ::windows::core::PWSTR, cchbuffer: u32, pdwrequiredsize: *mut u32, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
-    }
-    TranslateInfStringW(pszinffilename.into(), pszinstallsection.into(), psztranslatesection.into(), psztranslatekey.into(), ::core::mem::transmute(pszbuffer.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), pszbuffer.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pdwrequiredsize), ::core::mem::transmute(pvreserved)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const UMS_VERSION: u32 = 256u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct UNDETERMINESTRUCT {
@@ -7033,180 +7855,6 @@ impl ::core::default::Default for UNDETERMINESTRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn UnsubscribeFeatureStateChangeNotification<'a, P0>(subscription: P0)
-where
-    P0: ::std::convert::Into<FEATURE_STATE_CHANGE_SUBSCRIPTION>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn UnsubscribeFeatureStateChangeNotification(subscription: FEATURE_STATE_CHANGE_SUBSCRIPTION);
-    }
-    UnsubscribeFeatureStateChangeNotification(subscription.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UserInstStubWrapperA<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UserInstStubWrapperA(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCSTR, nshow: i32) -> ::windows::core::HRESULT;
-    }
-    UserInstStubWrapperA(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UserInstStubWrapperW<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UserInstStubWrapperW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCWSTR, nshow: i32) -> ::windows::core::HRESULT;
-    }
-    UserInstStubWrapperW(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UserUnInstStubWrapperA<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UserUnInstStubWrapperA(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCSTR, nshow: i32) -> ::windows::core::HRESULT;
-    }
-    UserUnInstStubWrapperA(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn UserUnInstStubWrapperW<'a, P0, P1, P2>(hwnd: P0, hinstance: P1, pszparms: P2, nshow: i32) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::HINSTANCE>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn UserUnInstStubWrapperW(hwnd: super::super::Foundation::HWND, hinstance: super::super::Foundation::HINSTANCE, pszparms: ::windows::core::PCWSTR, nshow: i32) -> ::windows::core::HRESULT;
-    }
-    UserUnInstStubWrapperW(hwnd.into(), hinstance.into(), pszparms.into(), nshow).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VALUENAME(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VALUENAME_UNKNOWN: VALUENAME = VALUENAME(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VALUENAME_ENTERPRISE_DEFINED_CLASS_ID: VALUENAME = VALUENAME(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VALUENAME_BUILT_IN_LIST: VALUENAME = VALUENAME(2i32);
-impl ::core::marker::Copy for VALUENAME {}
-impl ::core::clone::Clone for VALUENAME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VALUENAME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VALUENAME {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VALUENAME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VALUENAME").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_DOS: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_GUID: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_NONE: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const VOLUME_NAME_NT: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WINNLSEnableIME<'a, P0, P1>(param0: P0, param1: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WINNLSEnableIME(param0: super::super::Foundation::HWND, param1: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    }
-    WINNLSEnableIME(param0.into(), param1.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WINNLSGetEnableStatus<'a, P0>(param0: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WINNLSGetEnableStatus(param0: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    WINNLSGetEnableStatus(param0.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WINNLSGetIMEHotkey<'a, P0>(param0: P0) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WINNLSGetIMEHotkey(param0: super::super::Foundation::HWND) -> u32;
-    }
-    WINNLSGetIMEHotkey(param0.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WINSTATIONINFOCLASS(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WinStationInformation: WINSTATIONINFOCLASS = WINSTATIONINFOCLASS(8i32);
-impl ::core::marker::Copy for WINSTATIONINFOCLASS {}
-impl ::core::clone::Clone for WINSTATIONINFOCLASS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WINSTATIONINFOCLASS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WINSTATIONINFOCLASS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WINSTATIONINFOCLASS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WINSTATIONINFOCLASS").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct WINSTATIONINFORMATIONW {
@@ -7239,19 +7887,6 @@ impl ::core::default::Default for WINSTATIONINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WINWATCHNOTIFY_CHANGED: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WINWATCHNOTIFY_CHANGING: u32 = 3u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WINWATCHNOTIFY_DESTROY: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WINWATCHNOTIFY_START: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WINWATCHNOTIFY_STOP: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 pub struct WLDP_DEVICE_SECURITY_INFORMATION {
@@ -7283,82 +7918,6 @@ impl ::core::cmp::Eq for WLDP_DEVICE_SECURITY_INFORMATION {}
 impl ::core::default::Default for WLDP_DEVICE_SECURITY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_DLL: &str = "WLDP.DLL";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_FLAGS_SKIPSIGNATUREVALIDATION: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_GETLOCKDOWNPOLICY_FN: &str = "WldpGetLockdownPolicy";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WLDP_HOST(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_RUNDLL32: WLDP_HOST = WLDP_HOST(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_SVCHOST: WLDP_HOST = WLDP_HOST(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_MAX: WLDP_HOST = WLDP_HOST(2i32);
-impl ::core::marker::Copy for WLDP_HOST {}
-impl ::core::clone::Clone for WLDP_HOST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_HOST {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WLDP_HOST {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WLDP_HOST {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WLDP_HOST").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WLDP_HOST_ID(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_UNKNOWN: WLDP_HOST_ID = WLDP_HOST_ID(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_GLOBAL: WLDP_HOST_ID = WLDP_HOST_ID(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_VBA: WLDP_HOST_ID = WLDP_HOST_ID(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_WSH: WLDP_HOST_ID = WLDP_HOST_ID(3i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_POWERSHELL: WLDP_HOST_ID = WLDP_HOST_ID(4i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_IE: WLDP_HOST_ID = WLDP_HOST_ID(5i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_MSI: WLDP_HOST_ID = WLDP_HOST_ID(6i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_ALL: WLDP_HOST_ID = WLDP_HOST_ID(7i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_ID_MAX: WLDP_HOST_ID = WLDP_HOST_ID(8i32);
-impl ::core::marker::Copy for WLDP_HOST_ID {}
-impl ::core::clone::Clone for WLDP_HOST_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_HOST_ID {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WLDP_HOST_ID {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WLDP_HOST_ID {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WLDP_HOST_ID").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -7402,549 +7961,10 @@ impl ::core::default::Default for WLDP_HOST_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_HOST_INFORMATION_REVISION: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISAPPAPPROVEDBYPOLICY_FN: &str = "WldpIsAppApprovedByPolicy";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISCLASSINAPPROVEDLIST_FN: &str = "WldpIsClassInApprovedList";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISDYNAMICCODEPOLICYENABLED_FN: &str = "WldpIsDynamicCodePolicyEnabled";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISPRODUCTIONCONFIGURATION_FN: &str = "WldpIsProductionConfiguration";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_ISWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpIsWcosProductionConfiguration";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WLDP_KEY(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KEY_UNKNOWN: WLDP_KEY = WLDP_KEY(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KEY_OVERRIDE: WLDP_KEY = WLDP_KEY(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const KEY_ALL_KEYS: WLDP_KEY = WLDP_KEY(2i32);
-impl ::core::marker::Copy for WLDP_KEY {}
-impl ::core::clone::Clone for WLDP_KEY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_KEY {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WLDP_KEY {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WLDP_KEY {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WLDP_KEY").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_AUDIT_FLAG: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_CONFIG_CI_FLAG: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_DEFINED_FLAG: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_EXCLUSION_FLAG: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_OFF: u32 = 2147483648u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_UMCIENFORCE_FLAG: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_LOCKDOWN_UNDEFINED: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WLDP_POLICY_SETTING(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_POLICY_SETTING_AV_PERF_MODE: WLDP_POLICY_SETTING = WLDP_POLICY_SETTING(1000i32);
-impl ::core::marker::Copy for WLDP_POLICY_SETTING {}
-impl ::core::clone::Clone for WLDP_POLICY_SETTING {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_POLICY_SETTING {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WLDP_POLICY_SETTING {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WLDP_POLICY_SETTING {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WLDP_POLICY_SETTING").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDANAMICCODETRUST_FN: &str = "WldpQueryDynamicCodeTrust";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDEVICESECURITYINFORMATION_FN: &str = "WldpQueryDeviceSecurityInformation";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYDYNAMICCODETRUST_FN: &str = "WldpQueryDynamicCodeTrust";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYPOLICYSETTINGENABLED2_FN: &str = "WldpQueryPolicySettingEnabled2";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYPOLICYSETTINGENABLED_FN: &str = "WldpQueryPolicySettingEnabled";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYWINDOWSLOCKDOWNMODE_FN: &str = "WldpQueryWindowsLockdownMode";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpQueryWindowsLockdownRestriction";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_RESETPRODUCTIONCONFIGURATION_FN: &str = "WldpResetProductionConfiguration";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_RESETWCOSPRODUCTIONCONFIGURATION_FN: &str = "WldpResetWcosProductionConfiguration";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_SETDYNAMICCODETRUST_FN: &str = "WldpSetDynamicCodeTrust";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_SETWINDOWSLOCKDOWNRESTRICTION_FN: &str = "WldpSetWindowsLockdownRestriction";
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WLDP_WINDOWS_LOCKDOWN_MODE(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_UNLOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_TRIAL: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_LOCKED: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_MODE_MAX: WLDP_WINDOWS_LOCKDOWN_MODE = WLDP_WINDOWS_LOCKDOWN_MODE(3i32);
-impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_MODE {}
-impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_MODE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_MODE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_MODE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_MODE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WLDP_WINDOWS_LOCKDOWN_MODE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WLDP_WINDOWS_LOCKDOWN_RESTRICTION(pub i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NONE: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(0i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(1i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_NOUNLOCK_PERMANENT: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(2i32);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WLDP_WINDOWS_LOCKDOWN_RESTRICTION_MAX: WLDP_WINDOWS_LOCKDOWN_RESTRICTION = WLDP_WINDOWS_LOCKDOWN_RESTRICTION(3i32);
-impl ::core::marker::Copy for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {}
-impl ::core::clone::Clone for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WLDP_WINDOWS_LOCKDOWN_RESTRICTION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WLDP_WINDOWS_LOCKDOWN_RESTRICTION").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_CONVERTREQUEST: u32 = 266u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_CONVERTRESULT: u32 = 267u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_IMEKEYDOWN: u32 = 656u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_IMEKEYUP: u32 = 657u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_IME_REPORT: u32 = 640u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_INTERIM: u32 = 268u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-pub const WM_WNT_CONVERTREQUESTEX: u32 = 265u32;
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn WinWatchClose<'a, P0>(hww: P0)
-where
-    P0: ::std::convert::Into<HWINWATCH>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WinWatchClose(hww: HWINWATCH);
-    }
-    WinWatchClose(hww.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WinWatchDidStatusChange<'a, P0>(hww: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<HWINWATCH>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WinWatchDidStatusChange(hww: HWINWATCH) -> super::super::Foundation::BOOL;
-    }
-    WinWatchDidStatusChange(hww.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn WinWatchGetClipList<'a, P0>(hww: P0, prc: &mut super::super::Foundation::RECT, size: u32, prd: &mut super::super::Graphics::Gdi::RGNDATA) -> u32
-where
-    P0: ::std::convert::Into<HWINWATCH>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WinWatchGetClipList(hww: HWINWATCH, prc: *mut super::super::Foundation::RECT, size: u32, prd: *mut super::super::Graphics::Gdi::RGNDATA) -> u32;
-    }
-    WinWatchGetClipList(hww.into(), ::core::mem::transmute(prc), size, ::core::mem::transmute(prd))
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WinWatchNotify<'a, P0, P1>(hww: P0, notifycallback: WINWATCHNOTIFYPROC, notifyparam: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<HWINWATCH>,
-    P1: ::std::convert::Into<super::super::Foundation::LPARAM>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WinWatchNotify(hww: HWINWATCH, notifycallback: *mut ::core::ffi::c_void, notifyparam: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL;
-    }
-    WinWatchNotify(hww.into(), ::core::mem::transmute(notifycallback), notifyparam.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WinWatchOpen<'a, P0>(hwnd: P0) -> HWINWATCH
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WinWatchOpen(hwnd: super::super::Foundation::HWND) -> HWINWATCH;
-    }
-    WinWatchOpen(hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WldpGetLockdownPolicy(hostinformation: ::core::option::Option<&WLDP_HOST_INFORMATION>, lockdownstate: &mut u32, lockdownflags: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WldpGetLockdownPolicy(hostinformation: *const WLDP_HOST_INFORMATION, lockdownstate: *mut u32, lockdownflags: u32) -> ::windows::core::HRESULT;
-    }
-    WldpGetLockdownPolicy(::core::mem::transmute(hostinformation), ::core::mem::transmute(lockdownstate), lockdownflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WldpIsClassInApprovedList(classid: &::windows::core::GUID, hostinformation: &WLDP_HOST_INFORMATION, isapproved: &mut super::super::Foundation::BOOL, optionalflags: u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WldpIsClassInApprovedList(classid: *const ::windows::core::GUID, hostinformation: *const WLDP_HOST_INFORMATION, isapproved: *mut super::super::Foundation::BOOL, optionalflags: u32) -> ::windows::core::HRESULT;
-    }
-    WldpIsClassInApprovedList(::core::mem::transmute(classid), ::core::mem::transmute(hostinformation), ::core::mem::transmute(isapproved), optionalflags).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WldpIsDynamicCodePolicyEnabled() -> ::windows::core::Result<super::super::Foundation::BOOL> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WldpIsDynamicCodePolicyEnabled(isenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    WldpIsDynamicCodePolicyEnabled(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn WldpQueryDeviceSecurityInformation(information: ::core::option::Option<&mut [WLDP_DEVICE_SECURITY_INFORMATION]>, returnlength: &mut u32) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WldpQueryDeviceSecurityInformation(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows::core::HRESULT;
-    }
-    WldpQueryDeviceSecurityInformation(::core::mem::transmute(information.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), information.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(returnlength)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WldpQueryDynamicCodeTrust<'a, P0>(filehandle: P0, baseimage: ::core::option::Option<&[u8]>) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WldpQueryDynamicCodeTrust(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows::core::HRESULT;
-    }
-    WldpQueryDynamicCodeTrust(filehandle.into(), ::core::mem::transmute(baseimage.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), baseimage.as_deref().map_or(0, |slice| slice.len() as _)).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WldpSetDynamicCodeTrust<'a, P0>(filehandle: P0) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WldpSetDynamicCodeTrust(filehandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
-    }
-    WldpSetDynamicCodeTrust(filehandle.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WritePrivateProfileSectionA<'a, P0, P1, P2>(lpappname: P0, lpstring: P1, lpfilename: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WritePrivateProfileSectionA(lpappname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    WritePrivateProfileSectionA(lpappname.into(), lpstring.into(), lpfilename.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WritePrivateProfileSectionW<'a, P0, P1, P2>(lpappname: P0, lpstring: P1, lpfilename: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WritePrivateProfileSectionW(lpappname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    WritePrivateProfileSectionW(lpappname.into(), lpstring.into(), lpfilename.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WritePrivateProfileStringA<'a, P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpstring: P2, lpfilename: P3) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-    P3: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WritePrivateProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR, lpfilename: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    WritePrivateProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WritePrivateProfileStringW<'a, P0, P1, P2, P3>(lpappname: P0, lpkeyname: P1, lpstring: P2, lpfilename: P3) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-    P3: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WritePrivateProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR, lpfilename: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    WritePrivateProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into(), lpfilename.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WritePrivateProfileStructA<'a, P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<&[u8]>, szfile: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WritePrivateProfileStructA(lpszsection: ::windows::core::PCSTR, lpszkey: ::windows::core::PCSTR, lpstruct: *const ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    WritePrivateProfileStructA(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstruct.as_deref().map_or(0, |slice| slice.len() as _), szfile.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WritePrivateProfileStructW<'a, P0, P1, P2>(lpszsection: P0, lpszkey: P1, lpstruct: ::core::option::Option<&[u8]>, szfile: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WritePrivateProfileStructW(lpszsection: ::windows::core::PCWSTR, lpszkey: ::windows::core::PCWSTR, lpstruct: *const ::core::ffi::c_void, usizestruct: u32, szfile: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    WritePrivateProfileStructW(lpszsection.into(), lpszkey.into(), ::core::mem::transmute(lpstruct.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), lpstruct.as_deref().map_or(0, |slice| slice.len() as _), szfile.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WriteProfileSectionA<'a, P0, P1>(lpappname: P0, lpstring: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteProfileSectionA(lpappname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    WriteProfileSectionA(lpappname.into(), lpstring.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WriteProfileSectionW<'a, P0, P1>(lpappname: P0, lpstring: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteProfileSectionW(lpappname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    WriteProfileSectionW(lpappname.into(), lpstring.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WriteProfileStringA<'a, P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpstring: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-    P1: ::std::convert::Into<::windows::core::PCSTR>,
-    P2: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteProfileStringA(lpappname: ::windows::core::PCSTR, lpkeyname: ::windows::core::PCSTR, lpstring: ::windows::core::PCSTR) -> super::super::Foundation::BOOL;
-    }
-    WriteProfileStringA(lpappname.into(), lpkeyname.into(), lpstring.into())
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WriteProfileStringW<'a, P0, P1, P2>(lpappname: P0, lpkeyname: P1, lpstring: P2) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WriteProfileStringW(lpappname: ::windows::core::PCWSTR, lpkeyname: ::windows::core::PCWSTR, lpstring: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    WriteProfileStringW(lpappname.into(), lpkeyname.into(), lpstring.into())
-}
 #[repr(C)]
 pub struct _D3DHAL_CALLBACKS(pub u8);
 #[repr(C)]
 pub struct _D3DHAL_GLOBALDRIVERDATA(pub u8);
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _hread(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _hread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, lbytes: i32) -> i32;
-    }
-    _hread(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _hwrite(hfile: i32, lpbuffer: &[u8]) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _hwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, lbytes: i32) -> i32;
-    }
-    _hwrite(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _lclose(hfile: i32) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _lclose(hfile: i32) -> i32;
-    }
-    _lclose(hfile)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _lcreat<'a, P0>(lppathname: P0, iattribute: i32) -> i32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _lcreat(lppathname: ::windows::core::PCSTR, iattribute: i32) -> i32;
-    }
-    _lcreat(lppathname.into(), iattribute)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _llseek(hfile: i32, loffset: i32, iorigin: i32) -> i32;
-    }
-    _llseek(hfile, loffset, iorigin)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _lopen<'a, P0>(lppathname: P0, ireadwrite: i32) -> i32
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _lopen(lppathname: ::windows::core::PCSTR, ireadwrite: i32) -> i32;
-    }
-    _lopen(lppathname.into(), ireadwrite)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _lread(hfile: i32, lpbuffer: &mut [u8]) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _lread(hfile: i32, lpbuffer: *mut ::core::ffi::c_void, ubytes: u32) -> u32;
-    }
-    _lread(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
-}
-#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[inline]
-pub unsafe fn _lwrite(hfile: i32, lpbuffer: &[u8]) -> u32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn _lwrite(hfile: i32, lpbuffer: ::windows::core::PCSTR, ubytes: u32) -> u32;
-    }
-    _lwrite(hfile, ::core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len() as _)
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -8079,84 +8099,64 @@ impl ::core::default::Default for tcp_request_set_information_ex {
     }
 }
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_lstrcmpW(string1: &u16, string2: &u16) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32;
-    }
-    uaw_lstrcmpW(::core::mem::transmute(string1), ::core::mem::transmute(string2))
-}
+pub type APPLICATION_RECOVERY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pvparameter: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_lstrcmpiW(string1: &u16, string2: &u16) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32;
-    }
-    uaw_lstrcmpiW(::core::mem::transmute(string1), ::core::mem::transmute(string2))
-}
+pub type ENUM_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpsurfaceinfo: *mut DCISURFACEINFO, lpcontext: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_lstrlenW(string: &u16) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn uaw_lstrlenW(string: *const u16) -> i32;
-    }
-    uaw_lstrlenW(::core::mem::transmute(string))
-}
+pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationreason: u32, delayloadinfo: *const DELAYLOAD_INFO) -> *mut ::core::ffi::c_void>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcschr(string: &u16, character: u16) -> *mut u16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16;
-    }
-    uaw_wcschr(::core::mem::transmute(string), character)
-}
+pub type PFEATURE_STATE_CHANGE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcscpy(destination: &mut u16, source: &u16) -> *mut u16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16;
-    }
-    uaw_wcscpy(::core::mem::transmute(destination), ::core::mem::transmute(source))
-}
+pub type PFIBER_CALLOUT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpparameter: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PIO_APC_ROUTINE = ::core::option::Option<unsafe extern "system" fn(apccontext: *mut ::core::ffi::c_void, iostatusblock: *mut IO_STATUS_BLOCK, reserved: u32)>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PQUERYACTCTXW_FUNC = ::core::option::Option<unsafe extern "system" fn(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: *const ::core::ffi::c_void, ulinfoclass: u32, pvbuffer: *mut ::core::ffi::c_void, cbbuffer: usize, pcbwrittenorrequired: *mut usize) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWINSTATIONQUERYINFORMATIONW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: u32, param2: WINSTATIONINFOCLASS, param3: *mut ::core::ffi::c_void, param4: u32, param5: *mut u32) -> super::super::Foundation::BOOLEAN>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcsicmp(string1: &u16, string2: &u16) -> i32 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32;
-    }
-    uaw_wcsicmp(::core::mem::transmute(string1), ::core::mem::transmute(string2))
-}
+pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = ::core::option::Option<unsafe extern "system" fn(packagefamilyname: ::windows::core::PCWSTR, packageversion: u64) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = ::core::option::Option<unsafe extern "system" fn(pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_ISWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn(isproductionconfiguration: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcslen(string: &u16) -> usize {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcslen(string: *const u16) -> usize;
-    }
-    uaw_wcslen(::core::mem::transmute(string))
-}
+pub type PWLDP_QUERYDEVICESECURITYINFORMATION_API = ::core::option::Option<unsafe extern "system" fn(information: *mut WLDP_DEVICE_SECURITY_INFORMATION, informationlength: u32, returnlength: *mut u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYDYNAMICODETRUST_API = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::Foundation::HANDLE, baseimage: *const ::core::ffi::c_void, imagesize: u32) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYPOLICYSETTINGENABLED2_API = ::core::option::Option<unsafe extern "system" fn(setting: ::windows::core::PCWSTR, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_QUERYPOLICYSETTINGENABLED_API = ::core::option::Option<unsafe extern "system" fn(setting: WLDP_POLICY_SETTING, enabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[inline]
-pub unsafe fn uaw_wcsrchr(string: &u16, character: u16) -> *mut u16 {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "cdecl" {
-        fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16;
-    }
-    uaw_wcsrchr(::core::mem::transmute(string), character)
-}
+pub type PWLDP_QUERYWINDOWSLOCKDOWNMODE_API = ::core::option::Option<unsafe extern "system" fn(lockdownmode: *mut WLDP_WINDOWS_LOCKDOWN_MODE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub type PWLDP_QUERYWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: *mut WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub type PWLDP_RESETPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub type PWLDP_RESETWCOSPRODUCTIONCONFIGURATION_API = ::core::option::Option<unsafe extern "system" fn() -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type PWLDP_SETDYNAMICCODETRUST_API = ::core::option::Option<unsafe extern "system" fn(hfilehandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`*"]
+pub type PWLDP_SETWINDOWSLOCKDOWNRESTRICTION_API = ::core::option::Option<unsafe extern "system" fn(lockdownrestriction: WLDP_WINDOWS_LOCKDOWN_RESTRICTION) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type REGINSTALLA = ::core::option::Option<unsafe extern "system" fn(hm: super::super::Foundation::HINSTANCE, pszsection: ::windows::core::PCSTR, psttable: *mut STRTABLEA) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: `\"Win32_System_WindowsProgramming\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type WINWATCHNOTIFYPROC = ::core::option::Option<unsafe extern "system" fn(hww: HWINWATCH, hwnd: super::super::Foundation::HWND, code: u32, lparam: super::super::Foundation::LPARAM)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,50 +1,121 @@
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const ADDRESS_FAMILY_VALUE_NAME: &str = "AddressFamily";
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501u32;
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_INVALID_ACTION: u32 = 401u32;
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_INVALID_ARG: u32 = 402u32;
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HSWDEVICE(pub isize);
-impl HSWDEVICE {
-    pub fn is_invalid(&self) -> bool {
-        self.0 == -1 || self.0 == 0
+#[inline]
+pub unsafe fn SwDeviceClose<'a, P0>(hswdevice: P0)
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceClose(hswdevice: HSWDEVICE);
     }
+    SwDeviceClose(hswdevice.into())
 }
-impl ::core::default::Default for HSWDEVICE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
+pub unsafe fn SwDeviceCreate<'a, P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: &SW_DEVICE_CREATE_INFO, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<isize>
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceCreate(pszenumeratorname: ::windows::core::PCWSTR, pszparentdeviceinstance: ::windows::core::PCWSTR, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phswdevice: *mut isize) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    SwDeviceCreate(pszenumeratorname.into(), pszparentdeviceinstance.into(), ::core::mem::transmute(pcreateinfo), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
 }
-impl ::core::clone::Clone for HSWDEVICE {
-    fn clone(&self) -> Self {
-        *self
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+#[inline]
+pub unsafe fn SwDeviceGetLifetime<'a, P0>(hswdevice: P0) -> ::windows::core::Result<SW_DEVICE_LIFETIME>
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceGetLifetime(hswdevice: HSWDEVICE, plifetime: *mut SW_DEVICE_LIFETIME) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    SwDeviceGetLifetime(hswdevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SW_DEVICE_LIFETIME>(result__)
 }
-impl ::core::marker::Copy for HSWDEVICE {}
-impl ::core::fmt::Debug for HSWDEVICE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HSWDEVICE").field(&self.0).finish()
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+#[inline]
+pub unsafe fn SwDeviceInterfacePropertySet<'a, P0, P1>(hswdevice: P0, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceInterfacePropertySet(hswdevice: HSWDEVICE, pszdeviceinterfaceid: ::windows::core::PCWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows::core::HRESULT;
     }
+    SwDeviceInterfacePropertySet(hswdevice.into(), pszdeviceinterfaceid.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
 }
-impl ::core::convert::From<::core::option::Option<HSWDEVICE>> for HSWDEVICE {
-    fn from(optional: ::core::option::Option<HSWDEVICE>) -> HSWDEVICE {
-        optional.unwrap_or_default()
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
+#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
+#[inline]
+pub unsafe fn SwDeviceInterfaceRegister<'a, P0, P1, P2>(hswdevice: P0, pinterfaceclassguid: &::windows::core::GUID, pszreferencestring: P1, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P2) -> ::windows::core::Result<::windows::core::PWSTR>
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceInterfaceRegister(hswdevice: HSWDEVICE, pinterfaceclassguid: *const ::windows::core::GUID, pszreferencestring: ::windows::core::PCWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, fenabled: super::super::super::Foundation::BOOL, ppszdeviceinterfaceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
     }
+    let mut result__ = ::core::mem::MaybeUninit::zeroed();
+    SwDeviceInterfaceRegister(hswdevice.into(), ::core::mem::transmute(pinterfaceclassguid), pszreferencestring.into(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
 }
-unsafe impl ::windows::core::Abi for HSWDEVICE {
-    type Abi = Self;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn SwDeviceInterfaceSetState<'a, P0, P1, P2>(hswdevice: P0, pszdeviceinterfaceid: P1, fenabled: P2) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+    P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceInterfaceSetState(hswdevice: HSWDEVICE, pszdeviceinterfaceid: ::windows::core::PCWSTR, fenabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
+    }
+    SwDeviceInterfaceSetState(hswdevice.into(), pszdeviceinterfaceid.into(), fenabled.into()).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
+#[cfg(feature = "Win32_Devices_Properties")]
+#[inline]
+pub unsafe fn SwDevicePropertySet<'a, P0>(hswdevice: P0, pproperties: &[super::super::Properties::DEVPROPERTY]) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows::core::HRESULT;
+    }
+    SwDevicePropertySet(hswdevice.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+#[inline]
+pub unsafe fn SwDeviceSetLifetime<'a, P0>(hswdevice: P0, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::Result<()>
+where
+    P0: ::std::convert::Into<HSWDEVICE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::HRESULT;
+    }
+    SwDeviceSetLifetime(hswdevice.into(), lifetime).ok()
+}
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+#[inline]
+pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn SwMemFree(pmem: *const ::core::ffi::c_void);
+    }
+    SwMemFree(::core::mem::transmute(pmem))
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 #[repr(transparent)]
@@ -2252,236 +2323,23 @@ pub struct IUPnPServices_Vtbl {
     get_Item: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const ADDRESS_FAMILY_VALUE_NAME: &str = "AddressFamily";
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_ACTION_SPECIFIC_BASE: u32 = 600u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_ACTION_SPECIFIC_MAX: u32 = 899u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_DEVICE_INTERNAL_ERROR: u32 = 501u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_INVALID_ACTION: u32 = 401u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_INVALID_ARG: u32 = 402u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const REMOTE_ADDRESS_VALUE_NAME: &str = "RemoteAddress";
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SW_DEVICE_CAPABILITIES(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
-impl ::core::marker::Copy for SW_DEVICE_CAPABILITIES {}
-impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SW_DEVICE_CAPABILITIES {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SW_DEVICE_CAPABILITIES {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SW_DEVICE_CAPABILITIES {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SW_DEVICE_CAPABILITIES").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows::core::PCWSTR)>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-pub struct SW_DEVICE_CREATE_INFO {
-    pub cbSize: u32,
-    pub pszInstanceId: ::windows::core::PCWSTR,
-    pub pszzHardwareIds: ::windows::core::PCWSTR,
-    pub pszzCompatibleIds: ::windows::core::PCWSTR,
-    pub pContainerId: *const ::windows::core::GUID,
-    pub CapabilityFlags: u32,
-    pub pszDeviceDescription: ::windows::core::PCWSTR,
-    pub pszDeviceLocation: ::windows::core::PCWSTR,
-    pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::marker::Copy for SW_DEVICE_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::clone::Clone for SW_DEVICE_CREATE_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for SW_DEVICE_CREATE_INFO {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SW_DEVICE_CREATE_INFO").field("cbSize", &self.cbSize).field("pszInstanceId", &self.pszInstanceId).field("pszzHardwareIds", &self.pszzHardwareIds).field("pszzCompatibleIds", &self.pszzCompatibleIds).field("pContainerId", &self.pContainerId).field("CapabilityFlags", &self.CapabilityFlags).field("pszDeviceDescription", &self.pszDeviceDescription).field("pszDeviceLocation", &self.pszDeviceLocation).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for SW_DEVICE_CREATE_INFO {
-    type Abi = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for SW_DEVICE_CREATE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SW_DEVICE_CREATE_INFO>()) == 0 }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for SW_DEVICE_CREATE_INFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::default::Default for SW_DEVICE_CREATE_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SW_DEVICE_LIFETIME(pub i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
-impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
-impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SW_DEVICE_LIFETIME {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SW_DEVICE_LIFETIME {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SW_DEVICE_LIFETIME {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SW_DEVICE_LIFETIME").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-#[inline]
-pub unsafe fn SwDeviceClose<'a, P0>(hswdevice: P0)
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceClose(hswdevice: HSWDEVICE);
-    }
-    SwDeviceClose(hswdevice.into())
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation", feature = "Win32_Security"))]
-#[inline]
-pub unsafe fn SwDeviceCreate<'a, P0, P1>(pszenumeratorname: P0, pszparentdeviceinstance: P1, pcreateinfo: &SW_DEVICE_CREATE_INFO, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, pcallback: SW_DEVICE_CREATE_CALLBACK, pcontext: *const ::core::ffi::c_void) -> ::windows::core::Result<isize>
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceCreate(pszenumeratorname: ::windows::core::PCWSTR, pszparentdeviceinstance: ::windows::core::PCWSTR, pcreateinfo: *const SW_DEVICE_CREATE_INFO, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, pcallback: *mut ::core::ffi::c_void, pcontext: *const ::core::ffi::c_void, phswdevice: *mut isize) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SwDeviceCreate(pszenumeratorname.into(), pszparentdeviceinstance.into(), ::core::mem::transmute(pcreateinfo), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), ::core::mem::transmute(pcallback), ::core::mem::transmute(pcontext), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-#[inline]
-pub unsafe fn SwDeviceGetLifetime<'a, P0>(hswdevice: P0) -> ::windows::core::Result<SW_DEVICE_LIFETIME>
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceGetLifetime(hswdevice: HSWDEVICE, plifetime: *mut SW_DEVICE_LIFETIME) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SwDeviceGetLifetime(hswdevice.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<SW_DEVICE_LIFETIME>(result__)
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
-#[cfg(feature = "Win32_Devices_Properties")]
-#[inline]
-pub unsafe fn SwDeviceInterfacePropertySet<'a, P0, P1>(hswdevice: P0, pszdeviceinterfaceid: P1, pproperties: &[super::super::Properties::DEVPROPERTY]) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceInterfacePropertySet(hswdevice: HSWDEVICE, pszdeviceinterfaceid: ::windows::core::PCWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows::core::HRESULT;
-    }
-    SwDeviceInterfacePropertySet(hswdevice.into(), pszdeviceinterfaceid.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`, `\"Win32_Foundation\"`*"]
-#[cfg(all(feature = "Win32_Devices_Properties", feature = "Win32_Foundation"))]
-#[inline]
-pub unsafe fn SwDeviceInterfaceRegister<'a, P0, P1, P2>(hswdevice: P0, pinterfaceclassguid: &::windows::core::GUID, pszreferencestring: P1, pproperties: ::core::option::Option<&[super::super::Properties::DEVPROPERTY]>, fenabled: P2) -> ::windows::core::Result<::windows::core::PWSTR>
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceInterfaceRegister(hswdevice: HSWDEVICE, pinterfaceclassguid: *const ::windows::core::GUID, pszreferencestring: ::windows::core::PCWSTR, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY, fenabled: super::super::super::Foundation::BOOL, ppszdeviceinterfaceid: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
-    }
-    let mut result__ = ::core::mem::MaybeUninit::zeroed();
-    SwDeviceInterfaceRegister(hswdevice.into(), ::core::mem::transmute(pinterfaceclassguid), pszreferencestring.into(), pproperties.as_deref().map_or(0, |slice| slice.len() as _), ::core::mem::transmute(pproperties.as_deref().map_or(::core::ptr::null(), |slice| slice.as_ptr())), fenabled.into(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn SwDeviceInterfaceSetState<'a, P0, P1, P2>(hswdevice: P0, pszdeviceinterfaceid: P1, fenabled: P2) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-    P2: ::std::convert::Into<super::super::super::Foundation::BOOL>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceInterfaceSetState(hswdevice: HSWDEVICE, pszdeviceinterfaceid: ::windows::core::PCWSTR, fenabled: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
-    }
-    SwDeviceInterfaceSetState(hswdevice.into(), pszdeviceinterfaceid.into(), fenabled.into()).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Devices_Properties\"`*"]
-#[cfg(feature = "Win32_Devices_Properties")]
-#[inline]
-pub unsafe fn SwDevicePropertySet<'a, P0>(hswdevice: P0, pproperties: &[super::super::Properties::DEVPROPERTY]) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDevicePropertySet(hswdevice: HSWDEVICE, cpropertycount: u32, pproperties: *const super::super::Properties::DEVPROPERTY) -> ::windows::core::HRESULT;
-    }
-    SwDevicePropertySet(hswdevice.into(), pproperties.len() as _, ::core::mem::transmute(pproperties.as_ptr())).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-#[inline]
-pub unsafe fn SwDeviceSetLifetime<'a, P0>(hswdevice: P0, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::Result<()>
-where
-    P0: ::std::convert::Into<HSWDEVICE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwDeviceSetLifetime(hswdevice: HSWDEVICE, lifetime: SW_DEVICE_LIFETIME) -> ::windows::core::HRESULT;
-    }
-    SwDeviceSetLifetime(hswdevice.into(), lifetime).ok()
-}
-#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
-#[inline]
-pub unsafe fn SwMemFree(pmem: *const ::core::ffi::c_void) {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn SwMemFree(pmem: *const ::core::ffi::c_void);
-    }
-    SwMemFree(::core::mem::transmute(pmem))
-}
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
 pub const UPNP_ADDRESSFAMILY_BOTH: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
@@ -2568,5 +2426,147 @@ pub const UPnPRegistrar: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const UPnPRemoteEndpointInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e5e84e9_4049_4244_b728_2d24227157c7);
 pub const UPnPService: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc624ba95_fbcb_4409_8c03_8cceec533ef1);
 pub const UPnPServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0bc4b4a_a406_4efc_932f_b8546b8100cc);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SW_DEVICE_CAPABILITIES(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
+impl ::core::marker::Copy for SW_DEVICE_CAPABILITIES {}
+impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SW_DEVICE_CAPABILITIES {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SW_DEVICE_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SW_DEVICE_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SW_DEVICE_CAPABILITIES").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SW_DEVICE_LIFETIME(pub i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
+impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
+impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SW_DEVICE_LIFETIME {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SW_DEVICE_LIFETIME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SW_DEVICE_LIFETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SW_DEVICE_LIFETIME").field(&self.0).finish()
+    }
+}
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HSWDEVICE(pub isize);
+impl HSWDEVICE {
+    pub fn is_invalid(&self) -> bool {
+        self.0 == -1 || self.0 == 0
+    }
+}
+impl ::core::default::Default for HSWDEVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSWDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSWDEVICE {}
+impl ::core::fmt::Debug for HSWDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSWDEVICE").field(&self.0).finish()
+    }
+}
+impl ::core::convert::From<::core::option::Option<HSWDEVICE>> for HSWDEVICE {
+    fn from(optional: ::core::option::Option<HSWDEVICE>) -> HSWDEVICE {
+        optional.unwrap_or_default()
+    }
+}
+unsafe impl ::windows::core::Abi for HSWDEVICE {
+    type Abi = Self;
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`, `\"Win32_Foundation\"`, `\"Win32_Security\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+pub struct SW_DEVICE_CREATE_INFO {
+    pub cbSize: u32,
+    pub pszInstanceId: ::windows::core::PCWSTR,
+    pub pszzHardwareIds: ::windows::core::PCWSTR,
+    pub pszzCompatibleIds: ::windows::core::PCWSTR,
+    pub pContainerId: *const ::windows::core::GUID,
+    pub CapabilityFlags: u32,
+    pub pszDeviceDescription: ::windows::core::PCWSTR,
+    pub pszDeviceLocation: ::windows::core::PCWSTR,
+    pub pSecurityDescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::marker::Copy for SW_DEVICE_CREATE_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for SW_DEVICE_CREATE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::fmt::Debug for SW_DEVICE_CREATE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("SW_DEVICE_CREATE_INFO").field("cbSize", &self.cbSize).field("pszInstanceId", &self.pszInstanceId).field("pszzHardwareIds", &self.pszzHardwareIds).field("pszzCompatibleIds", &self.pszzCompatibleIds).field("pContainerId", &self.pContainerId).field("CapabilityFlags", &self.CapabilityFlags).field("pszDeviceDescription", &self.pszDeviceDescription).field("pszDeviceLocation", &self.pszDeviceLocation).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for SW_DEVICE_CREATE_INFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for SW_DEVICE_CREATE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SW_DEVICE_CREATE_INFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for SW_DEVICE_CREATE_INFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::default::Default for SW_DEVICE_CREATE_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Devices_Enumeration_Pnp\"`*"]
+pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: ::windows::core::PCWSTR)>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

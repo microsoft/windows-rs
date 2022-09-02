@@ -1,3298 +1,5 @@
 #[cfg(feature = "Media_Devices_Core")]
 pub mod Core;
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct AdvancedPhotoCaptureSettings(::windows::core::IUnknown);
-impl AdvancedPhotoCaptureSettings {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AdvancedPhotoCaptureSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Mode(&self) -> ::windows::core::Result<AdvancedPhotoMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdvancedPhotoMode>(result__)
-        }
-    }
-    pub fn SetMode(&self, value: AdvancedPhotoMode) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for AdvancedPhotoCaptureSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AdvancedPhotoCaptureSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdvancedPhotoCaptureSettings {}
-impl ::core::fmt::Debug for AdvancedPhotoCaptureSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvancedPhotoCaptureSettings").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCaptureSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoCaptureSettings;{08f3863a-0018-445b-93d2-646d1c5ed05c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AdvancedPhotoCaptureSettings {
-    type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
-    const IID: ::windows::core::GUID = <IAdvancedPhotoCaptureSettings as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AdvancedPhotoCaptureSettings {
-    const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoCaptureSettings";
-}
-impl ::core::convert::From<AdvancedPhotoCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: AdvancedPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for ::windows::core::IUnknown {
-    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for &::windows::core::IUnknown {
-    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdvancedPhotoCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: AdvancedPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for ::windows::core::IInspectable {
-    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for &::windows::core::IInspectable {
-    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
-unsafe impl ::core::marker::Sync for AdvancedPhotoCaptureSettings {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct AdvancedPhotoControl(::windows::core::IUnknown);
-impl AdvancedPhotoControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedModes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>>(result__)
-        }
-    }
-    pub fn Mode(&self) -> ::windows::core::Result<AdvancedPhotoMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdvancedPhotoMode>(result__)
-        }
-    }
-    pub fn Configure<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, AdvancedPhotoCaptureSettings>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
-    }
-}
-impl ::core::clone::Clone for AdvancedPhotoControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AdvancedPhotoControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdvancedPhotoControl {}
-impl ::core::fmt::Debug for AdvancedPhotoControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvancedPhotoControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdvancedPhotoControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoControl;{c5b15486-9001-4682-9309-68eae0080eec})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AdvancedPhotoControl {
-    type Vtable = IAdvancedPhotoControl_Vtbl;
-    const IID: ::windows::core::GUID = <IAdvancedPhotoControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AdvancedPhotoControl {
-    const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoControl";
-}
-impl ::core::convert::From<AdvancedPhotoControl> for ::windows::core::IUnknown {
-    fn from(value: AdvancedPhotoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoControl> for ::windows::core::IUnknown {
-    fn from(value: &AdvancedPhotoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoControl> for &::windows::core::IUnknown {
-    fn from(value: &AdvancedPhotoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AdvancedPhotoControl> for ::windows::core::IInspectable {
-    fn from(value: AdvancedPhotoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoControl> for ::windows::core::IInspectable {
-    fn from(value: &AdvancedPhotoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AdvancedPhotoControl> for &::windows::core::IInspectable {
-    fn from(value: &AdvancedPhotoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
-unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AdvancedPhotoMode(pub i32);
-impl AdvancedPhotoMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Standard: Self = Self(1i32);
-    pub const Hdr: Self = Self(2i32);
-    pub const LowLight: Self = Self(3i32);
-}
-impl ::core::marker::Copy for AdvancedPhotoMode {}
-impl ::core::clone::Clone for AdvancedPhotoMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AdvancedPhotoMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AdvancedPhotoMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AdvancedPhotoMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AdvancedPhotoMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AdvancedPhotoMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct AudioDeviceController(::windows::core::IUnknown);
-impl AudioDeviceController {
-    pub fn SetMuted(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMuted)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Muted(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Muted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetVolumePercent(&self, value: f32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVolumePercent)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn VolumePercent(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).VolumePercent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
-        let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
-    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
-        let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
-    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioDeviceController {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioDeviceController {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceController {}
-impl ::core::fmt::Debug for AudioDeviceController {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceController").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioDeviceController {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceController;{edd4a388-79c7-4f7c-90e8-ef934b21580a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioDeviceController {
-    type Vtable = IAudioDeviceController_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioDeviceController as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioDeviceController {
-    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceController";
-}
-impl ::core::convert::From<AudioDeviceController> for ::windows::core::IUnknown {
-    fn from(value: AudioDeviceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceController> for ::windows::core::IUnknown {
-    fn from(value: &AudioDeviceController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceController> for &::windows::core::IUnknown {
-    fn from(value: &AudioDeviceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioDeviceController> for ::windows::core::IInspectable {
-    fn from(value: AudioDeviceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceController> for ::windows::core::IInspectable {
-    fn from(value: &AudioDeviceController) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceController> for &::windows::core::IInspectable {
-    fn from(value: &AudioDeviceController) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<AudioDeviceController> for IMediaDeviceController {
-    type Error = ::windows::core::Error;
-    fn try_from(value: AudioDeviceController) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&AudioDeviceController> for IMediaDeviceController {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioDeviceController) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&AudioDeviceController> for ::windows::core::InParam<'a, IMediaDeviceController> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &AudioDeviceController) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct AudioDeviceModule(::windows::core::IUnknown);
-impl AudioDeviceModule {
-    pub fn ClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ClassId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn InstanceId(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).InstanceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MajorVersion(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MajorVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn MinorVersion(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinorVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
-    pub fn SendCommandAsync<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SendCommandAsync)(::windows::core::Interface::as_raw(this), command.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioDeviceModule {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioDeviceModule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceModule {}
-impl ::core::fmt::Debug for AudioDeviceModule {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceModule").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioDeviceModule {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModule;{86cfac36-47c1-4b33-9852-8773ec4be123})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioDeviceModule {
-    type Vtable = IAudioDeviceModule_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioDeviceModule as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioDeviceModule {
-    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
-}
-impl ::core::convert::From<AudioDeviceModule> for ::windows::core::IUnknown {
-    fn from(value: AudioDeviceModule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceModule> for ::windows::core::IUnknown {
-    fn from(value: &AudioDeviceModule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceModule> for &::windows::core::IUnknown {
-    fn from(value: &AudioDeviceModule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioDeviceModule> for ::windows::core::IInspectable {
-    fn from(value: AudioDeviceModule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceModule> for ::windows::core::IInspectable {
-    fn from(value: &AudioDeviceModule) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceModule> for &::windows::core::IInspectable {
-    fn from(value: &AudioDeviceModule) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct AudioDeviceModuleNotificationEventArgs(::windows::core::IUnknown);
-impl AudioDeviceModuleNotificationEventArgs {
-    pub fn Module(&self) -> ::windows::core::Result<AudioDeviceModule> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Module)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioDeviceModule>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Storage_Streams\"`*"]
-    #[cfg(feature = "Storage_Streams")]
-    pub fn NotificationData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AudioDeviceModuleNotificationEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioDeviceModuleNotificationEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceModuleNotificationEventArgs {}
-impl ::core::fmt::Debug for AudioDeviceModuleNotificationEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceModuleNotificationEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioDeviceModuleNotificationEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs;{e3e3ccaf-224c-48be-956b-9a13134e96e8})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioDeviceModuleNotificationEventArgs {
-    type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioDeviceModuleNotificationEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
-    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
-}
-impl ::core::convert::From<AudioDeviceModuleNotificationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: AudioDeviceModuleNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioDeviceModuleNotificationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: AudioDeviceModuleNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
-unsafe impl ::core::marker::Sync for AudioDeviceModuleNotificationEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct AudioDeviceModulesManager(::windows::core::IUnknown);
-impl AudioDeviceModulesManager {
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn ModuleNotificationReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).ModuleNotificationReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveModuleNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveModuleNotificationReceived)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAllById(&self, moduleid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllById)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(moduleid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn FindAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FindAll)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>(result__)
-        }
-    }
-    pub fn Create(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioDeviceModulesManager> {
-        Self::IAudioDeviceModulesManagerFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<AudioDeviceModulesManager>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IAudioDeviceModulesManagerFactory<R, F: FnOnce(&IAudioDeviceModulesManagerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AudioDeviceModulesManager, IAudioDeviceModulesManagerFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for AudioDeviceModulesManager {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AudioDeviceModulesManager {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceModulesManager {}
-impl ::core::fmt::Debug for AudioDeviceModulesManager {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceModulesManager").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioDeviceModulesManager {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModulesManager;{6aa40c4d-960a-4d1c-b318-0022604547ed})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AudioDeviceModulesManager {
-    type Vtable = IAudioDeviceModulesManager_Vtbl;
-    const IID: ::windows::core::GUID = <IAudioDeviceModulesManager as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AudioDeviceModulesManager {
-    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModulesManager";
-}
-impl ::core::convert::From<AudioDeviceModulesManager> for ::windows::core::IUnknown {
-    fn from(value: AudioDeviceModulesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceModulesManager> for ::windows::core::IUnknown {
-    fn from(value: &AudioDeviceModulesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceModulesManager> for &::windows::core::IUnknown {
-    fn from(value: &AudioDeviceModulesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AudioDeviceModulesManager> for ::windows::core::IInspectable {
-    fn from(value: AudioDeviceModulesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AudioDeviceModulesManager> for ::windows::core::IInspectable {
-    fn from(value: &AudioDeviceModulesManager) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AudioDeviceModulesManager> for &::windows::core::IInspectable {
-    fn from(value: &AudioDeviceModulesManager) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
-unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AudioDeviceRole(pub i32);
-impl AudioDeviceRole {
-    pub const Default: Self = Self(0i32);
-    pub const Communications: Self = Self(1i32);
-}
-impl ::core::marker::Copy for AudioDeviceRole {}
-impl ::core::clone::Clone for AudioDeviceRole {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AudioDeviceRole {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AudioDeviceRole {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AudioDeviceRole {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AudioDeviceRole").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AudioDeviceRole {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AutoFocusRange(pub i32);
-impl AutoFocusRange {
-    pub const FullRange: Self = Self(0i32);
-    pub const Macro: Self = Self(1i32);
-    pub const Normal: Self = Self(2i32);
-}
-impl ::core::marker::Copy for AutoFocusRange {}
-impl ::core::clone::Clone for AutoFocusRange {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AutoFocusRange {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AutoFocusRange {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AutoFocusRange {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AutoFocusRange").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AutoFocusRange {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct CallControl(::windows::core::IUnknown);
-impl CallControl {
-    pub fn IndicateNewIncomingCall(&self, enableringer: bool, callerid: &::windows::core::HSTRING) -> ::windows::core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IndicateNewIncomingCall)(::windows::core::Interface::as_raw(this), enableringer, ::core::mem::transmute_copy(callerid), result__.as_mut_ptr()).from_abi::<u64>(result__)
-        }
-    }
-    pub fn IndicateNewOutgoingCall(&self) -> ::windows::core::Result<u64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IndicateNewOutgoingCall)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
-        }
-    }
-    pub fn IndicateActiveCall(&self, calltoken: u64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).IndicateActiveCall)(::windows::core::Interface::as_raw(this), calltoken).ok() }
-    }
-    pub fn EndCall(&self, calltoken: u64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).EndCall)(::windows::core::Interface::as_raw(this), calltoken).ok() }
-    }
-    pub fn HasRinger(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HasRinger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AnswerRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AnswerRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAnswerRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn HangUpRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HangUpRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveHangUpRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHangUpRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn DialRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DialRequestedEventHandler>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DialRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveDialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDialRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RedialRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, RedialRequestedEventHandler>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedialRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveRedialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRedialRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn KeypadPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, KeypadPressedEventHandler>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).KeypadPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveKeypadPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveKeypadPressed)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn AudioTransferRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AudioTransferRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveAudioTransferRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioTransferRequested)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn GetDefault() -> ::windows::core::Result<CallControl> {
-        Self::ICallControlStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CallControl>(result__)
-        })
-    }
-    pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<CallControl> {
-        Self::ICallControlStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<CallControl>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn ICallControlStatics<R, F: FnOnce(&ICallControlStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<CallControl, ICallControlStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for CallControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CallControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallControl {}
-impl ::core::fmt::Debug for CallControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CallControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CallControl;{a520d0d6-ae8d-45db-8011-ca49d3b3e578})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CallControl {
-    type Vtable = ICallControl_Vtbl;
-    const IID: ::windows::core::GUID = <ICallControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CallControl {
-    const NAME: &'static str = "Windows.Media.Devices.CallControl";
-}
-impl ::core::convert::From<CallControl> for ::windows::core::IUnknown {
-    fn from(value: CallControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallControl> for ::windows::core::IUnknown {
-    fn from(value: &CallControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallControl> for &::windows::core::IUnknown {
-    fn from(value: &CallControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CallControl> for ::windows::core::IInspectable {
-    fn from(value: CallControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CallControl> for ::windows::core::IInspectable {
-    fn from(value: &CallControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CallControl> for &::windows::core::IInspectable {
-    fn from(value: &CallControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CallControl {}
-unsafe impl ::core::marker::Sync for CallControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct CallControlEventHandler(pub ::windows::core::IUnknown);
-impl CallControlEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = CallControlEventHandlerBox::<F> { vtable: &CallControlEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct CallControlEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const CallControlEventHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> CallControlEventHandlerBox<F> {
-    const VTABLE: CallControlEventHandler_Vtbl = CallControlEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<CallControlEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender)).into()
-    }
-}
-impl ::core::clone::Clone for CallControlEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CallControlEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CallControlEventHandler {}
-impl ::core::fmt::Debug for CallControlEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CallControlEventHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for CallControlEventHandler {
-    type Vtable = CallControlEventHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596f759f_50df_4454_bc63_4d3d01b61958);
-}
-unsafe impl ::windows::core::RuntimeType for CallControlEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{596f759f-50df-4454-bc63-4d3d01b61958}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct CallControlEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct CameraOcclusionInfo(::windows::core::IUnknown);
-impl CameraOcclusionInfo {
-    pub fn GetState(&self) -> ::windows::core::Result<CameraOcclusionState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CameraOcclusionState>(result__)
-        }
-    }
-    pub fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsOcclusionKindSupported)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-}
-impl ::core::clone::Clone for CameraOcclusionInfo {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CameraOcclusionInfo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraOcclusionInfo {}
-impl ::core::fmt::Debug for CameraOcclusionInfo {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraOcclusionInfo").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CameraOcclusionInfo {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionInfo;{af6c4ad0-a84d-5db6-be58-a5da21cfe011})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CameraOcclusionInfo {
-    type Vtable = ICameraOcclusionInfo_Vtbl;
-    const IID: ::windows::core::GUID = <ICameraOcclusionInfo as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CameraOcclusionInfo {
-    const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionInfo";
-}
-impl ::core::convert::From<CameraOcclusionInfo> for ::windows::core::IUnknown {
-    fn from(value: CameraOcclusionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraOcclusionInfo> for ::windows::core::IUnknown {
-    fn from(value: &CameraOcclusionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraOcclusionInfo> for &::windows::core::IUnknown {
-    fn from(value: &CameraOcclusionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraOcclusionInfo> for ::windows::core::IInspectable {
-    fn from(value: CameraOcclusionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraOcclusionInfo> for ::windows::core::IInspectable {
-    fn from(value: &CameraOcclusionInfo) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraOcclusionInfo> for &::windows::core::IInspectable {
-    fn from(value: &CameraOcclusionInfo) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
-unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraOcclusionKind(pub i32);
-impl CameraOcclusionKind {
-    pub const Lid: Self = Self(0i32);
-    pub const CameraHardware: Self = Self(1i32);
-}
-impl ::core::marker::Copy for CameraOcclusionKind {}
-impl ::core::clone::Clone for CameraOcclusionKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraOcclusionKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraOcclusionKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraOcclusionKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraOcclusionKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CameraOcclusionKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct CameraOcclusionState(::windows::core::IUnknown);
-impl CameraOcclusionState {
-    pub fn IsOccluded(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsOccluded)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsOcclusionKind)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CameraOcclusionState {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CameraOcclusionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraOcclusionState {}
-impl ::core::fmt::Debug for CameraOcclusionState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraOcclusionState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CameraOcclusionState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionState;{430adeb8-6842-5e55-9bde-04b4ef3a8a57})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CameraOcclusionState {
-    type Vtable = ICameraOcclusionState_Vtbl;
-    const IID: ::windows::core::GUID = <ICameraOcclusionState as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CameraOcclusionState {
-    const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionState";
-}
-impl ::core::convert::From<CameraOcclusionState> for ::windows::core::IUnknown {
-    fn from(value: CameraOcclusionState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraOcclusionState> for ::windows::core::IUnknown {
-    fn from(value: &CameraOcclusionState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraOcclusionState> for &::windows::core::IUnknown {
-    fn from(value: &CameraOcclusionState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraOcclusionState> for ::windows::core::IInspectable {
-    fn from(value: CameraOcclusionState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraOcclusionState> for ::windows::core::IInspectable {
-    fn from(value: &CameraOcclusionState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraOcclusionState> for &::windows::core::IInspectable {
-    fn from(value: &CameraOcclusionState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CameraOcclusionState {}
-unsafe impl ::core::marker::Sync for CameraOcclusionState {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct CameraOcclusionStateChangedEventArgs(::windows::core::IUnknown);
-impl CameraOcclusionStateChangedEventArgs {
-    pub fn State(&self) -> ::windows::core::Result<CameraOcclusionState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CameraOcclusionState>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for CameraOcclusionStateChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for CameraOcclusionStateChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraOcclusionStateChangedEventArgs {}
-impl ::core::fmt::Debug for CameraOcclusionStateChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraOcclusionStateChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CameraOcclusionStateChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionStateChangedEventArgs;{8512d848-c0de-57ca-a1ca-fb2c3d23df55})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for CameraOcclusionStateChangedEventArgs {
-    type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <ICameraOcclusionStateChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for CameraOcclusionStateChangedEventArgs {
-    const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs";
-}
-impl ::core::convert::From<CameraOcclusionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: CameraOcclusionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<CameraOcclusionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: CameraOcclusionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
-unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CameraStreamState(pub i32);
-impl CameraStreamState {
-    pub const NotStreaming: Self = Self(0i32);
-    pub const Streaming: Self = Self(1i32);
-    pub const BlockedForPrivacy: Self = Self(2i32);
-    pub const Shutdown: Self = Self(3i32);
-}
-impl ::core::marker::Copy for CameraStreamState {}
-impl ::core::clone::Clone for CameraStreamState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CameraStreamState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CameraStreamState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CameraStreamState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CameraStreamState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CameraStreamState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CaptureSceneMode(pub i32);
-impl CaptureSceneMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-    pub const Macro: Self = Self(2i32);
-    pub const Portrait: Self = Self(3i32);
-    pub const Sport: Self = Self(4i32);
-    pub const Snow: Self = Self(5i32);
-    pub const Night: Self = Self(6i32);
-    pub const Beach: Self = Self(7i32);
-    pub const Sunset: Self = Self(8i32);
-    pub const Candlelight: Self = Self(9i32);
-    pub const Landscape: Self = Self(10i32);
-    pub const NightPortrait: Self = Self(11i32);
-    pub const Backlit: Self = Self(12i32);
-}
-impl ::core::marker::Copy for CaptureSceneMode {}
-impl ::core::clone::Clone for CaptureSceneMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CaptureSceneMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CaptureSceneMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CaptureSceneMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaptureSceneMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CaptureSceneMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CaptureUse(pub i32);
-impl CaptureUse {
-    pub const None: Self = Self(0i32);
-    pub const Photo: Self = Self(1i32);
-    pub const Video: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CaptureUse {}
-impl ::core::clone::Clone for CaptureUse {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CaptureUse {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CaptureUse {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CaptureUse {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CaptureUse").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CaptureUse {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ColorTemperaturePreset(pub i32);
-impl ColorTemperaturePreset {
-    pub const Auto: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-    pub const Cloudy: Self = Self(2i32);
-    pub const Daylight: Self = Self(3i32);
-    pub const Flash: Self = Self(4i32);
-    pub const Fluorescent: Self = Self(5i32);
-    pub const Tungsten: Self = Self(6i32);
-    pub const Candlelight: Self = Self(7i32);
-}
-impl ::core::marker::Copy for ColorTemperaturePreset {}
-impl ::core::clone::Clone for ColorTemperaturePreset {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ColorTemperaturePreset {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ColorTemperaturePreset {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ColorTemperaturePreset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ColorTemperaturePreset").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ColorTemperaturePreset {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DefaultAudioCaptureDeviceChangedEventArgs(::windows::core::IUnknown);
-impl DefaultAudioCaptureDeviceChangedEventArgs {
-    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Role(&self) -> ::windows::core::Result<AudioDeviceRole> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Role)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioDeviceRole>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DefaultAudioCaptureDeviceChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DefaultAudioCaptureDeviceChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DefaultAudioCaptureDeviceChangedEventArgs {}
-impl ::core::fmt::Debug for DefaultAudioCaptureDeviceChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DefaultAudioCaptureDeviceChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DefaultAudioCaptureDeviceChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
-    type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
-    const NAME: &'static str = "Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
-}
-impl ::core::convert::From<DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<DefaultAudioCaptureDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
-unsafe impl ::core::marker::Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DefaultAudioRenderDeviceChangedEventArgs(::windows::core::IUnknown);
-impl DefaultAudioRenderDeviceChangedEventArgs {
-    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn Role(&self) -> ::windows::core::Result<AudioDeviceRole> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Role)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioDeviceRole>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DefaultAudioRenderDeviceChangedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DefaultAudioRenderDeviceChangedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DefaultAudioRenderDeviceChangedEventArgs {}
-impl ::core::fmt::Debug for DefaultAudioRenderDeviceChangedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DefaultAudioRenderDeviceChangedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DefaultAudioRenderDeviceChangedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DefaultAudioRenderDeviceChangedEventArgs {
-    type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
-    const NAME: &'static str = "Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
-}
-impl ::core::convert::From<DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DefaultAudioRenderDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DefaultAudioRenderDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<DefaultAudioRenderDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
-unsafe impl ::core::marker::Sync for DefaultAudioRenderDeviceChangedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DialRequestedEventArgs(::windows::core::IUnknown);
-impl DialRequestedEventArgs {
-    pub fn Handled(&self) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Contact(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DialRequestedEventArgs {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DialRequestedEventArgs {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialRequestedEventArgs {}
-impl ::core::fmt::Debug for DialRequestedEventArgs {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialRequestedEventArgs").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DialRequestedEventArgs {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DialRequestedEventArgs;{037b929e-953c-4286-8866-4f0f376c855a})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DialRequestedEventArgs {
-    type Vtable = IDialRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = <IDialRequestedEventArgs as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DialRequestedEventArgs {
-    const NAME: &'static str = "Windows.Media.Devices.DialRequestedEventArgs";
-}
-impl ::core::convert::From<DialRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: DialRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialRequestedEventArgs> for ::windows::core::IUnknown {
-    fn from(value: &DialRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialRequestedEventArgs> for &::windows::core::IUnknown {
-    fn from(value: &DialRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DialRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: DialRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DialRequestedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &DialRequestedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DialRequestedEventArgs> for &::windows::core::IInspectable {
-    fn from(value: &DialRequestedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
-unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DialRequestedEventHandler(pub ::windows::core::IUnknown);
-impl DialRequestedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = DialRequestedEventHandlerBox::<F> { vtable: &DialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, DialRequestedEventArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct DialRequestedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const DialRequestedEventHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DialRequestedEventHandlerBox<F> {
-    const VTABLE: DialRequestedEventHandler_Vtbl = DialRequestedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<DialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
-    }
-}
-impl ::core::clone::Clone for DialRequestedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DialRequestedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialRequestedEventHandler {}
-impl ::core::fmt::Debug for DialRequestedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DialRequestedEventHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for DialRequestedEventHandler {
-    type Vtable = DialRequestedEventHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4);
-}
-unsafe impl ::windows::core::RuntimeType for DialRequestedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5abbffdb-c21f-4bc4-891b-257e28c1b1a4}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct DialRequestedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DigitalWindowBounds(::windows::core::IUnknown);
-impl DigitalWindowBounds {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<DigitalWindowBounds, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn NormalizedOriginTop(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedOriginTop)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetNormalizedOriginTop(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedOriginTop)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn NormalizedOriginLeft(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedOriginLeft)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetNormalizedOriginLeft(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedOriginLeft)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Scale(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn SetScale(&self, value: f64) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for DigitalWindowBounds {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DigitalWindowBounds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DigitalWindowBounds {}
-impl ::core::fmt::Debug for DigitalWindowBounds {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DigitalWindowBounds").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DigitalWindowBounds {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowBounds;{dd4f21dd-d173-5c6b-8c25-bdd26d5122b1})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DigitalWindowBounds {
-    type Vtable = IDigitalWindowBounds_Vtbl;
-    const IID: ::windows::core::GUID = <IDigitalWindowBounds as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DigitalWindowBounds {
-    const NAME: &'static str = "Windows.Media.Devices.DigitalWindowBounds";
-}
-impl ::core::convert::From<DigitalWindowBounds> for ::windows::core::IUnknown {
-    fn from(value: DigitalWindowBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DigitalWindowBounds> for ::windows::core::IUnknown {
-    fn from(value: &DigitalWindowBounds) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DigitalWindowBounds> for &::windows::core::IUnknown {
-    fn from(value: &DigitalWindowBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DigitalWindowBounds> for ::windows::core::IInspectable {
-    fn from(value: DigitalWindowBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DigitalWindowBounds> for ::windows::core::IInspectable {
-    fn from(value: &DigitalWindowBounds) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DigitalWindowBounds> for &::windows::core::IInspectable {
-    fn from(value: &DigitalWindowBounds) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DigitalWindowBounds {}
-unsafe impl ::core::marker::Sync for DigitalWindowBounds {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DigitalWindowCapability(::windows::core::IUnknown);
-impl DigitalWindowCapability {
-    pub fn Width(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn Height(&self) -> ::windows::core::Result<i32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
-        }
-    }
-    pub fn MinScaleValue(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinScaleValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn MaxScaleValue(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MaxScaleValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    pub fn MinScaleValueWithoutUpsampling(&self) -> ::windows::core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).MinScaleValueWithoutUpsampling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn NormalizedFieldOfViewLimit(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedFieldOfViewLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DigitalWindowCapability {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DigitalWindowCapability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DigitalWindowCapability {}
-impl ::core::fmt::Debug for DigitalWindowCapability {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DigitalWindowCapability").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DigitalWindowCapability {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowCapability;{d78bad2c-f721-5244-a196-b56ccbec606c})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DigitalWindowCapability {
-    type Vtable = IDigitalWindowCapability_Vtbl;
-    const IID: ::windows::core::GUID = <IDigitalWindowCapability as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DigitalWindowCapability {
-    const NAME: &'static str = "Windows.Media.Devices.DigitalWindowCapability";
-}
-impl ::core::convert::From<DigitalWindowCapability> for ::windows::core::IUnknown {
-    fn from(value: DigitalWindowCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DigitalWindowCapability> for ::windows::core::IUnknown {
-    fn from(value: &DigitalWindowCapability) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DigitalWindowCapability> for &::windows::core::IUnknown {
-    fn from(value: &DigitalWindowCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DigitalWindowCapability> for ::windows::core::IInspectable {
-    fn from(value: DigitalWindowCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DigitalWindowCapability> for ::windows::core::IInspectable {
-    fn from(value: &DigitalWindowCapability) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DigitalWindowCapability> for &::windows::core::IInspectable {
-    fn from(value: &DigitalWindowCapability) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DigitalWindowCapability {}
-unsafe impl ::core::marker::Sync for DigitalWindowCapability {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct DigitalWindowControl(::windows::core::IUnknown);
-impl DigitalWindowControl {
-    pub fn IsSupported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SupportedModes(&self) -> ::windows::core::Result<::windows::core::Array<DigitalWindowMode>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedModes)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<DigitalWindowMode>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
-        }
-    }
-    pub fn CurrentMode(&self) -> ::windows::core::Result<DigitalWindowMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DigitalWindowMode>(result__)
-        }
-    }
-    pub fn GetBounds(&self) -> ::windows::core::Result<DigitalWindowBounds> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetBounds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DigitalWindowBounds>(result__)
-        }
-    }
-    pub fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), digitalwindowmode).ok() }
-    }
-    pub fn ConfigureWithBounds<'a, P0>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, DigitalWindowBounds>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ConfigureWithBounds)(::windows::core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into().abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedCapabilities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedCapabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>>(result__)
-        }
-    }
-    pub fn GetCapabilityForSize(&self, width: i32, height: i32) -> ::windows::core::Result<DigitalWindowCapability> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).GetCapabilityForSize)(::windows::core::Interface::as_raw(this), width, height, result__.as_mut_ptr()).from_abi::<DigitalWindowCapability>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for DigitalWindowControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for DigitalWindowControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DigitalWindowControl {}
-impl ::core::fmt::Debug for DigitalWindowControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DigitalWindowControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DigitalWindowControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowControl;{23b69eff-65d2-53ea-8780-de582b48b544})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for DigitalWindowControl {
-    type Vtable = IDigitalWindowControl_Vtbl;
-    const IID: ::windows::core::GUID = <IDigitalWindowControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for DigitalWindowControl {
-    const NAME: &'static str = "Windows.Media.Devices.DigitalWindowControl";
-}
-impl ::core::convert::From<DigitalWindowControl> for ::windows::core::IUnknown {
-    fn from(value: DigitalWindowControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DigitalWindowControl> for ::windows::core::IUnknown {
-    fn from(value: &DigitalWindowControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DigitalWindowControl> for &::windows::core::IUnknown {
-    fn from(value: &DigitalWindowControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<DigitalWindowControl> for ::windows::core::IInspectable {
-    fn from(value: DigitalWindowControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&DigitalWindowControl> for ::windows::core::IInspectable {
-    fn from(value: &DigitalWindowControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&DigitalWindowControl> for &::windows::core::IInspectable {
-    fn from(value: &DigitalWindowControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for DigitalWindowControl {}
-unsafe impl ::core::marker::Sync for DigitalWindowControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct DigitalWindowMode(pub i32);
-impl DigitalWindowMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
-}
-impl ::core::marker::Copy for DigitalWindowMode {}
-impl ::core::clone::Clone for DigitalWindowMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for DigitalWindowMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for DigitalWindowMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for DigitalWindowMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("DigitalWindowMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for DigitalWindowMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct ExposureCompensationControl(::windows::core::IUnknown);
-impl ExposureCompensationControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Min(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Min)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    pub fn Max(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Max)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    pub fn Step(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Step)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    pub fn Value(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetValueAsync(&self, value: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ExposureCompensationControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ExposureCompensationControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExposureCompensationControl {}
-impl ::core::fmt::Debug for ExposureCompensationControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExposureCompensationControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ExposureCompensationControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureCompensationControl;{81c8e834-dcec-4011-a610-1f3847e64aca})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ExposureCompensationControl {
-    type Vtable = IExposureCompensationControl_Vtbl;
-    const IID: ::windows::core::GUID = <IExposureCompensationControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ExposureCompensationControl {
-    const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
-}
-impl ::core::convert::From<ExposureCompensationControl> for ::windows::core::IUnknown {
-    fn from(value: ExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExposureCompensationControl> for ::windows::core::IUnknown {
-    fn from(value: &ExposureCompensationControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExposureCompensationControl> for &::windows::core::IUnknown {
-    fn from(value: &ExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExposureCompensationControl> for ::windows::core::IInspectable {
-    fn from(value: ExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExposureCompensationControl> for ::windows::core::IInspectable {
-    fn from(value: &ExposureCompensationControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExposureCompensationControl> for &::windows::core::IInspectable {
-    fn from(value: &ExposureCompensationControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct ExposureControl(::windows::core::IUnknown);
-impl ExposureControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Auto(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Auto)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetAutoAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetAutoAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Min(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Min)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Max(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Max)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Step(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Step)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Value(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), shutterduration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for ExposureControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ExposureControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExposureControl {}
-impl ::core::fmt::Debug for ExposureControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExposureControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ExposureControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureControl;{09e8cbe2-ad96-4f28-a0e0-96ed7e1b5fd2})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ExposureControl {
-    type Vtable = IExposureControl_Vtbl;
-    const IID: ::windows::core::GUID = <IExposureControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ExposureControl {
-    const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
-}
-impl ::core::convert::From<ExposureControl> for ::windows::core::IUnknown {
-    fn from(value: ExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExposureControl> for ::windows::core::IUnknown {
-    fn from(value: &ExposureControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExposureControl> for &::windows::core::IUnknown {
-    fn from(value: &ExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExposureControl> for ::windows::core::IInspectable {
-    fn from(value: ExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExposureControl> for ::windows::core::IInspectable {
-    fn from(value: &ExposureControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExposureControl> for &::windows::core::IInspectable {
-    fn from(value: &ExposureControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct ExposurePriorityVideoControl(::windows::core::IUnknown);
-impl ExposurePriorityVideoControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Enabled(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for ExposurePriorityVideoControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ExposurePriorityVideoControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExposurePriorityVideoControl {}
-impl ::core::fmt::Debug for ExposurePriorityVideoControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ExposurePriorityVideoControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ExposurePriorityVideoControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposurePriorityVideoControl;{2cb240a3-5168-4271-9ea5-47621a98a352})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ExposurePriorityVideoControl {
-    type Vtable = IExposurePriorityVideoControl_Vtbl;
-    const IID: ::windows::core::GUID = <IExposurePriorityVideoControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ExposurePriorityVideoControl {
-    const NAME: &'static str = "Windows.Media.Devices.ExposurePriorityVideoControl";
-}
-impl ::core::convert::From<ExposurePriorityVideoControl> for ::windows::core::IUnknown {
-    fn from(value: ExposurePriorityVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExposurePriorityVideoControl> for ::windows::core::IUnknown {
-    fn from(value: &ExposurePriorityVideoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExposurePriorityVideoControl> for &::windows::core::IUnknown {
-    fn from(value: &ExposurePriorityVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ExposurePriorityVideoControl> for ::windows::core::IInspectable {
-    fn from(value: ExposurePriorityVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ExposurePriorityVideoControl> for ::windows::core::IInspectable {
-    fn from(value: &ExposurePriorityVideoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ExposurePriorityVideoControl> for &::windows::core::IInspectable {
-    fn from(value: &ExposurePriorityVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
-unsafe impl ::core::marker::Sync for ExposurePriorityVideoControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct FlashControl(::windows::core::IUnknown);
-impl FlashControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn PowerSupported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PowerSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn RedEyeReductionSupported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedEyeReductionSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn Enabled(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn Auto(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Auto)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAuto(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAuto)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn RedEyeReduction(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RedEyeReduction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetRedEyeReduction(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRedEyeReduction)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn PowerPercent(&self) -> ::windows::core::Result<f32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).PowerPercent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
-        }
-    }
-    pub fn SetPowerPercent(&self, value: f32) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPowerPercent)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AssistantLightSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IFlashControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AssistantLightSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn AssistantLightEnabled(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IFlashControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AssistantLightEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetAssistantLightEnabled(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<IFlashControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAssistantLightEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for FlashControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FlashControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FlashControl {}
-impl ::core::fmt::Debug for FlashControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FlashControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FlashControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FlashControl;{def41dbe-7d68-45e3-8c0f-be7bb32837d0})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FlashControl {
-    type Vtable = IFlashControl_Vtbl;
-    const IID: ::windows::core::GUID = <IFlashControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FlashControl {
-    const NAME: &'static str = "Windows.Media.Devices.FlashControl";
-}
-impl ::core::convert::From<FlashControl> for ::windows::core::IUnknown {
-    fn from(value: FlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FlashControl> for ::windows::core::IUnknown {
-    fn from(value: &FlashControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FlashControl> for &::windows::core::IUnknown {
-    fn from(value: &FlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FlashControl> for ::windows::core::IInspectable {
-    fn from(value: FlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FlashControl> for ::windows::core::IInspectable {
-    fn from(value: &FlashControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FlashControl> for &::windows::core::IInspectable {
-    fn from(value: &FlashControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct FocusControl(::windows::core::IUnknown);
-impl FocusControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedPresets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusPreset>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedPresets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<FocusPreset>>(result__)
-        }
-    }
-    pub fn Preset(&self) -> ::windows::core::Result<FocusPreset> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Preset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusPreset>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetPresetAsync(&self, preset: FocusPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(::windows::core::Interface::as_raw(this), preset, completebeforefocus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    pub fn Min(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Min)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn Max(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Max)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn Step(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Step)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    pub fn Value(&self) -> ::windows::core::Result<u32> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetValueAsync(&self, focus: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), focus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn FocusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FocusAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    pub fn FocusChangedSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FocusChangedSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn WaitForFocusSupported(&self) -> ::windows::core::Result<bool> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WaitForFocusSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFocusModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedFocusModes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<FocusMode>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFocusDistances(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedFocusDistances)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedFocusRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedFocusRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AutoFocusRange>>(result__)
-        }
-    }
-    pub fn Mode(&self) -> ::windows::core::Result<FocusMode> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusMode>(result__)
-        }
-    }
-    pub fn FocusState(&self) -> ::windows::core::Result<MediaCaptureFocusState> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaCaptureFocusState>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn UnlockAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).UnlockAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn LockAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LockAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
-        }
-    }
-    pub fn Configure<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, FocusSettings>>,
-    {
-        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
-    }
-}
-impl ::core::clone::Clone for FocusControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FocusControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusControl {}
-impl ::core::fmt::Debug for FocusControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FocusControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusControl;{c0d889f6-5228-4453-b153-85606592b238})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FocusControl {
-    type Vtable = IFocusControl_Vtbl;
-    const IID: ::windows::core::GUID = <IFocusControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FocusControl {
-    const NAME: &'static str = "Windows.Media.Devices.FocusControl";
-}
-impl ::core::convert::From<FocusControl> for ::windows::core::IUnknown {
-    fn from(value: FocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FocusControl> for ::windows::core::IUnknown {
-    fn from(value: &FocusControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FocusControl> for &::windows::core::IUnknown {
-    fn from(value: &FocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FocusControl> for ::windows::core::IInspectable {
-    fn from(value: FocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FocusControl> for ::windows::core::IInspectable {
-    fn from(value: &FocusControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FocusControl> for &::windows::core::IInspectable {
-    fn from(value: &FocusControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FocusMode(pub i32);
-impl FocusMode {
-    pub const Auto: Self = Self(0i32);
-    pub const Single: Self = Self(1i32);
-    pub const Continuous: Self = Self(2i32);
-    pub const Manual: Self = Self(3i32);
-}
-impl ::core::marker::Copy for FocusMode {}
-impl ::core::clone::Clone for FocusMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FocusMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FocusMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FocusMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FocusMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct FocusPreset(pub i32);
-impl FocusPreset {
-    pub const Auto: Self = Self(0i32);
-    pub const Manual: Self = Self(1i32);
-    pub const AutoMacro: Self = Self(2i32);
-    pub const AutoNormal: Self = Self(3i32);
-    pub const AutoInfinity: Self = Self(4i32);
-    pub const AutoHyperfocal: Self = Self(5i32);
-}
-impl ::core::marker::Copy for FocusPreset {}
-impl ::core::clone::Clone for FocusPreset {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for FocusPreset {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for FocusPreset {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for FocusPreset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusPreset").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FocusPreset {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct FocusSettings(::windows::core::IUnknown);
-impl FocusSettings {
-    pub fn new() -> ::windows::core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FocusSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn Mode(&self) -> ::windows::core::Result<FocusMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusMode>(result__)
-        }
-    }
-    pub fn SetMode(&self, value: FocusMode) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn AutoFocusRange(&self) -> ::windows::core::Result<AutoFocusRange> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AutoFocusRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AutoFocusRange>(result__)
-        }
-    }
-    pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoFocusRange)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Value(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn Distance(&self) -> ::windows::core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Distance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<ManualFocusDistance>>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation\"`*"]
-    #[cfg(feature = "Foundation")]
-    pub fn SetDistance<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<ManualFocusDistance>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDistance)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn WaitForFocus(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).WaitForFocus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetWaitForFocus(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWaitForFocus)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn DisableDriverFallback(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).DisableDriverFallback)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    pub fn SetDisableDriverFallback(&self, value: bool) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDisableDriverFallback)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for FocusSettings {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FocusSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusSettings {}
-impl ::core::fmt::Debug for FocusSettings {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FocusSettings").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FocusSettings {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusSettings;{79958f6b-3263-4275-85d6-aeae891c96ee})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FocusSettings {
-    type Vtable = IFocusSettings_Vtbl;
-    const IID: ::windows::core::GUID = <IFocusSettings as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FocusSettings {
-    const NAME: &'static str = "Windows.Media.Devices.FocusSettings";
-}
-impl ::core::convert::From<FocusSettings> for ::windows::core::IUnknown {
-    fn from(value: FocusSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FocusSettings> for ::windows::core::IUnknown {
-    fn from(value: &FocusSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FocusSettings> for &::windows::core::IUnknown {
-    fn from(value: &FocusSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FocusSettings> for ::windows::core::IInspectable {
-    fn from(value: FocusSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FocusSettings> for ::windows::core::IInspectable {
-    fn from(value: &FocusSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FocusSettings> for &::windows::core::IInspectable {
-    fn from(value: &FocusSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for FocusSettings {}
-unsafe impl ::core::marker::Sync for FocusSettings {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct HdrVideoControl(::windows::core::IUnknown);
-impl HdrVideoControl {
-    pub fn Supported(&self) -> ::windows::core::Result<bool> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
-        }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HdrVideoMode>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedModes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HdrVideoMode>>(result__)
-        }
-    }
-    pub fn Mode(&self) -> ::windows::core::Result<HdrVideoMode> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HdrVideoMode>(result__)
-        }
-    }
-    pub fn SetMode(&self, value: HdrVideoMode) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
-    }
-}
-impl ::core::clone::Clone for HdrVideoControl {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for HdrVideoControl {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdrVideoControl {}
-impl ::core::fmt::Debug for HdrVideoControl {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdrVideoControl").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HdrVideoControl {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.HdrVideoControl;{55d8e2d0-30c0-43bf-9b9a-9799d70ced94})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for HdrVideoControl {
-    type Vtable = IHdrVideoControl_Vtbl;
-    const IID: ::windows::core::GUID = <IHdrVideoControl as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for HdrVideoControl {
-    const NAME: &'static str = "Windows.Media.Devices.HdrVideoControl";
-}
-impl ::core::convert::From<HdrVideoControl> for ::windows::core::IUnknown {
-    fn from(value: HdrVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdrVideoControl> for ::windows::core::IUnknown {
-    fn from(value: &HdrVideoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdrVideoControl> for &::windows::core::IUnknown {
-    fn from(value: &HdrVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<HdrVideoControl> for ::windows::core::IInspectable {
-    fn from(value: HdrVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&HdrVideoControl> for ::windows::core::IInspectable {
-    fn from(value: &HdrVideoControl) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&HdrVideoControl> for &::windows::core::IInspectable {
-    fn from(value: &HdrVideoControl) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for HdrVideoControl {}
-unsafe impl ::core::marker::Sync for HdrVideoControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct HdrVideoMode(pub i32);
-impl HdrVideoMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
-}
-impl ::core::marker::Copy for HdrVideoMode {}
-impl ::core::clone::Clone for HdrVideoMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for HdrVideoMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for HdrVideoMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for HdrVideoMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("HdrVideoMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for HdrVideoMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAdvancedPhotoCaptureSettings(::windows::core::IUnknown);
@@ -4799,6 +1506,2685 @@ pub struct IZoomSettings_Vtbl {
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
+pub struct AdvancedPhotoCaptureSettings(::windows::core::IUnknown);
+impl AdvancedPhotoCaptureSettings {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AdvancedPhotoCaptureSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Mode(&self) -> ::windows::core::Result<AdvancedPhotoMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdvancedPhotoMode>(result__)
+        }
+    }
+    pub fn SetMode(&self, value: AdvancedPhotoMode) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for AdvancedPhotoCaptureSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AdvancedPhotoCaptureSettings {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AdvancedPhotoCaptureSettings {}
+impl ::core::fmt::Debug for AdvancedPhotoCaptureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoCaptureSettings").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCaptureSettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoCaptureSettings;{08f3863a-0018-445b-93d2-646d1c5ed05c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AdvancedPhotoCaptureSettings {
+    type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
+    const IID: ::windows::core::GUID = <IAdvancedPhotoCaptureSettings as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AdvancedPhotoCaptureSettings {
+    const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoCaptureSettings";
+}
+impl ::core::convert::From<AdvancedPhotoCaptureSettings> for ::windows::core::IUnknown {
+    fn from(value: AdvancedPhotoCaptureSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for ::windows::core::IUnknown {
+    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for &::windows::core::IUnknown {
+    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AdvancedPhotoCaptureSettings> for ::windows::core::IInspectable {
+    fn from(value: AdvancedPhotoCaptureSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for ::windows::core::IInspectable {
+    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoCaptureSettings> for &::windows::core::IInspectable {
+    fn from(value: &AdvancedPhotoCaptureSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AdvancedPhotoCaptureSettings {}
+unsafe impl ::core::marker::Sync for AdvancedPhotoCaptureSettings {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct AdvancedPhotoControl(::windows::core::IUnknown);
+impl AdvancedPhotoControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedModes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AdvancedPhotoMode>>(result__)
+        }
+    }
+    pub fn Mode(&self) -> ::windows::core::Result<AdvancedPhotoMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AdvancedPhotoMode>(result__)
+        }
+    }
+    pub fn Configure<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, AdvancedPhotoCaptureSettings>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
+    }
+}
+impl ::core::clone::Clone for AdvancedPhotoControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AdvancedPhotoControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AdvancedPhotoControl {}
+impl ::core::fmt::Debug for AdvancedPhotoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AdvancedPhotoControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoControl;{c5b15486-9001-4682-9309-68eae0080eec})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AdvancedPhotoControl {
+    type Vtable = IAdvancedPhotoControl_Vtbl;
+    const IID: ::windows::core::GUID = <IAdvancedPhotoControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AdvancedPhotoControl {
+    const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoControl";
+}
+impl ::core::convert::From<AdvancedPhotoControl> for ::windows::core::IUnknown {
+    fn from(value: AdvancedPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoControl> for ::windows::core::IUnknown {
+    fn from(value: &AdvancedPhotoControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoControl> for &::windows::core::IUnknown {
+    fn from(value: &AdvancedPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AdvancedPhotoControl> for ::windows::core::IInspectable {
+    fn from(value: AdvancedPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoControl> for ::windows::core::IInspectable {
+    fn from(value: &AdvancedPhotoControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AdvancedPhotoControl> for &::windows::core::IInspectable {
+    fn from(value: &AdvancedPhotoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AdvancedPhotoControl {}
+unsafe impl ::core::marker::Sync for AdvancedPhotoControl {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct AudioDeviceController(::windows::core::IUnknown);
+impl AudioDeviceController {
+    pub fn SetMuted(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetMuted)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Muted(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Muted)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetVolumePercent(&self, value: f32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetVolumePercent)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn VolumePercent(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).VolumePercent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn GetAvailableMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>> {
+        let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetAvailableMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<super::MediaProperties::IMediaEncodingProperties>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[cfg(all(feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn GetMediaStreamProperties(&self, mediastreamtype: super::Capture::MediaStreamType) -> ::windows::core::Result<super::MediaProperties::IMediaEncodingProperties> {
+        let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetMediaStreamProperties)(::windows::core::Interface::as_raw(this), mediastreamtype, result__.as_mut_ptr()).from_abi::<super::MediaProperties::IMediaEncodingProperties>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Media_Capture\"`, `\"Media_MediaProperties\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))]
+    pub fn SetMediaStreamPropertiesAsync<'a, P0, E0>(&self, mediastreamtype: super::Capture::MediaStreamType, mediaencodingproperties: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::MediaProperties::IMediaEncodingProperties>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = &::windows::core::Interface::cast::<IMediaDeviceController>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetMediaStreamPropertiesAsync)(::windows::core::Interface::as_raw(this), mediastreamtype, mediaencodingproperties.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AudioDeviceController {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioDeviceController {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioDeviceController {}
+impl ::core::fmt::Debug for AudioDeviceController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceController").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioDeviceController {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceController;{edd4a388-79c7-4f7c-90e8-ef934b21580a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioDeviceController {
+    type Vtable = IAudioDeviceController_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioDeviceController as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioDeviceController {
+    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceController";
+}
+impl ::core::convert::From<AudioDeviceController> for ::windows::core::IUnknown {
+    fn from(value: AudioDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceController> for ::windows::core::IUnknown {
+    fn from(value: &AudioDeviceController) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceController> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioDeviceController> for ::windows::core::IInspectable {
+    fn from(value: AudioDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceController> for ::windows::core::IInspectable {
+    fn from(value: &AudioDeviceController) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceController> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceController) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<AudioDeviceController> for IMediaDeviceController {
+    type Error = ::windows::core::Error;
+    fn try_from(value: AudioDeviceController) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&AudioDeviceController> for IMediaDeviceController {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioDeviceController) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&AudioDeviceController> for ::windows::core::InParam<'a, IMediaDeviceController> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &AudioDeviceController) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct AudioDeviceModule(::windows::core::IUnknown);
+impl AudioDeviceModule {
+    pub fn ClassId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ClassId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn InstanceId(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).InstanceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MajorVersion(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MajorVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn MinorVersion(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinorVersion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`, `\"Storage_Streams\"`*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+    pub fn SendCommandAsync<'a, P0, E0>(&self, command: P0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Storage::Streams::IBuffer>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SendCommandAsync)(::windows::core::Interface::as_raw(this), command.try_into().map_err(|e| e.into())?.abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncOperation<ModuleCommandResult>>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AudioDeviceModule {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioDeviceModule {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioDeviceModule {}
+impl ::core::fmt::Debug for AudioDeviceModule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceModule").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioDeviceModule {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModule;{86cfac36-47c1-4b33-9852-8773ec4be123})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioDeviceModule {
+    type Vtable = IAudioDeviceModule_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioDeviceModule as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioDeviceModule {
+    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
+}
+impl ::core::convert::From<AudioDeviceModule> for ::windows::core::IUnknown {
+    fn from(value: AudioDeviceModule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceModule> for ::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModule) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceModule> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioDeviceModule> for ::windows::core::IInspectable {
+    fn from(value: AudioDeviceModule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceModule> for ::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModule) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceModule> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModule) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct AudioDeviceModuleNotificationEventArgs(::windows::core::IUnknown);
+impl AudioDeviceModuleNotificationEventArgs {
+    pub fn Module(&self) -> ::windows::core::Result<AudioDeviceModule> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Module)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioDeviceModule>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Storage_Streams\"`*"]
+    #[cfg(feature = "Storage_Streams")]
+    pub fn NotificationData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NotificationData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AudioDeviceModuleNotificationEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioDeviceModuleNotificationEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioDeviceModuleNotificationEventArgs {}
+impl ::core::fmt::Debug for AudioDeviceModuleNotificationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceModuleNotificationEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioDeviceModuleNotificationEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs;{e3e3ccaf-224c-48be-956b-9a13134e96e8})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioDeviceModuleNotificationEventArgs {
+    type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioDeviceModuleNotificationEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
+    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
+}
+impl ::core::convert::From<AudioDeviceModuleNotificationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: AudioDeviceModuleNotificationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioDeviceModuleNotificationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: AudioDeviceModuleNotificationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceModuleNotificationEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModuleNotificationEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AudioDeviceModuleNotificationEventArgs {}
+unsafe impl ::core::marker::Sync for AudioDeviceModuleNotificationEventArgs {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct AudioDeviceModulesManager(::windows::core::IUnknown);
+impl AudioDeviceModulesManager {
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn ModuleNotificationReceived<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<AudioDeviceModulesManager, AudioDeviceModuleNotificationEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).ModuleNotificationReceived)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveModuleNotificationReceived(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveModuleNotificationReceived)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAllById(&self, moduleid: &::windows::core::HSTRING) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FindAllById)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(moduleid), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn FindAll(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FindAll)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AudioDeviceModule>>(result__)
+        }
+    }
+    pub fn Create(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<AudioDeviceModulesManager> {
+        Self::IAudioDeviceModulesManagerFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<AudioDeviceModulesManager>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IAudioDeviceModulesManagerFactory<R, F: FnOnce(&IAudioDeviceModulesManagerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AudioDeviceModulesManager, IAudioDeviceModulesManagerFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for AudioDeviceModulesManager {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AudioDeviceModulesManager {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioDeviceModulesManager {}
+impl ::core::fmt::Debug for AudioDeviceModulesManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceModulesManager").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioDeviceModulesManager {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModulesManager;{6aa40c4d-960a-4d1c-b318-0022604547ed})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AudioDeviceModulesManager {
+    type Vtable = IAudioDeviceModulesManager_Vtbl;
+    const IID: ::windows::core::GUID = <IAudioDeviceModulesManager as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AudioDeviceModulesManager {
+    const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModulesManager";
+}
+impl ::core::convert::From<AudioDeviceModulesManager> for ::windows::core::IUnknown {
+    fn from(value: AudioDeviceModulesManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceModulesManager> for ::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModulesManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceModulesManager> for &::windows::core::IUnknown {
+    fn from(value: &AudioDeviceModulesManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AudioDeviceModulesManager> for ::windows::core::IInspectable {
+    fn from(value: AudioDeviceModulesManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AudioDeviceModulesManager> for ::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModulesManager) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AudioDeviceModulesManager> for &::windows::core::IInspectable {
+    fn from(value: &AudioDeviceModulesManager) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AudioDeviceModulesManager {}
+unsafe impl ::core::marker::Sync for AudioDeviceModulesManager {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct CallControl(::windows::core::IUnknown);
+impl CallControl {
+    pub fn IndicateNewIncomingCall(&self, enableringer: bool, callerid: &::windows::core::HSTRING) -> ::windows::core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IndicateNewIncomingCall)(::windows::core::Interface::as_raw(this), enableringer, ::core::mem::transmute_copy(callerid), result__.as_mut_ptr()).from_abi::<u64>(result__)
+        }
+    }
+    pub fn IndicateNewOutgoingCall(&self) -> ::windows::core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IndicateNewOutgoingCall)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
+        }
+    }
+    pub fn IndicateActiveCall(&self, calltoken: u64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).IndicateActiveCall)(::windows::core::Interface::as_raw(this), calltoken).ok() }
+    }
+    pub fn EndCall(&self, calltoken: u64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).EndCall)(::windows::core::Interface::as_raw(this), calltoken).ok() }
+    }
+    pub fn HasRinger(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HasRinger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AnswerRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AnswerRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveAnswerRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAnswerRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn HangUpRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HangUpRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveHangUpRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHangUpRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn DialRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DialRequestedEventHandler>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DialRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveDialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDialRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RedialRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, RedialRequestedEventHandler>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RedialRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveRedialRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRedialRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn KeypadPressed<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, KeypadPressedEventHandler>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).KeypadPressed)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveKeypadPressed(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveKeypadPressed)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn AudioTransferRequested<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControlEventHandler>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AudioTransferRequested)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveAudioTransferRequested(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAudioTransferRequested)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn GetDefault() -> ::windows::core::Result<CallControl> {
+        Self::ICallControlStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CallControl>(result__)
+        })
+    }
+    pub fn FromId(deviceid: &::windows::core::HSTRING) -> ::windows::core::Result<CallControl> {
+        Self::ICallControlStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FromId)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(deviceid), result__.as_mut_ptr()).from_abi::<CallControl>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn ICallControlStatics<R, F: FnOnce(&ICallControlStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<CallControl, ICallControlStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for CallControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CallControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CallControl {}
+impl ::core::fmt::Debug for CallControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CallControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CallControl;{a520d0d6-ae8d-45db-8011-ca49d3b3e578})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CallControl {
+    type Vtable = ICallControl_Vtbl;
+    const IID: ::windows::core::GUID = <ICallControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CallControl {
+    const NAME: &'static str = "Windows.Media.Devices.CallControl";
+}
+impl ::core::convert::From<CallControl> for ::windows::core::IUnknown {
+    fn from(value: CallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallControl> for ::windows::core::IUnknown {
+    fn from(value: &CallControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallControl> for &::windows::core::IUnknown {
+    fn from(value: &CallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CallControl> for ::windows::core::IInspectable {
+    fn from(value: CallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CallControl> for ::windows::core::IInspectable {
+    fn from(value: &CallControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CallControl> for &::windows::core::IInspectable {
+    fn from(value: &CallControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CallControl {}
+unsafe impl ::core::marker::Sync for CallControl {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct CameraOcclusionInfo(::windows::core::IUnknown);
+impl CameraOcclusionInfo {
+    pub fn GetState(&self) -> ::windows::core::Result<CameraOcclusionState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CameraOcclusionState>(result__)
+        }
+    }
+    pub fn IsOcclusionKindSupported(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsOcclusionKindSupported)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn StateChanged<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::super::Foundation::TypedEventHandler<CameraOcclusionInfo, CameraOcclusionStateChangedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn RemoveStateChanged(&self, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+}
+impl ::core::clone::Clone for CameraOcclusionInfo {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CameraOcclusionInfo {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CameraOcclusionInfo {}
+impl ::core::fmt::Debug for CameraOcclusionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionInfo").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CameraOcclusionInfo {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionInfo;{af6c4ad0-a84d-5db6-be58-a5da21cfe011})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CameraOcclusionInfo {
+    type Vtable = ICameraOcclusionInfo_Vtbl;
+    const IID: ::windows::core::GUID = <ICameraOcclusionInfo as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CameraOcclusionInfo {
+    const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionInfo";
+}
+impl ::core::convert::From<CameraOcclusionInfo> for ::windows::core::IUnknown {
+    fn from(value: CameraOcclusionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraOcclusionInfo> for ::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraOcclusionInfo> for &::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CameraOcclusionInfo> for ::windows::core::IInspectable {
+    fn from(value: CameraOcclusionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraOcclusionInfo> for ::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionInfo) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraOcclusionInfo> for &::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionInfo) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CameraOcclusionInfo {}
+unsafe impl ::core::marker::Sync for CameraOcclusionInfo {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct CameraOcclusionState(::windows::core::IUnknown);
+impl CameraOcclusionState {
+    pub fn IsOccluded(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsOccluded)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn IsOcclusionKind(&self, occlusionkind: CameraOcclusionKind) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsOcclusionKind)(::windows::core::Interface::as_raw(this), occlusionkind, result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CameraOcclusionState {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CameraOcclusionState {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CameraOcclusionState {}
+impl ::core::fmt::Debug for CameraOcclusionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CameraOcclusionState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionState;{430adeb8-6842-5e55-9bde-04b4ef3a8a57})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CameraOcclusionState {
+    type Vtable = ICameraOcclusionState_Vtbl;
+    const IID: ::windows::core::GUID = <ICameraOcclusionState as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CameraOcclusionState {
+    const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionState";
+}
+impl ::core::convert::From<CameraOcclusionState> for ::windows::core::IUnknown {
+    fn from(value: CameraOcclusionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraOcclusionState> for ::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraOcclusionState> for &::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CameraOcclusionState> for ::windows::core::IInspectable {
+    fn from(value: CameraOcclusionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraOcclusionState> for ::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraOcclusionState> for &::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CameraOcclusionState {}
+unsafe impl ::core::marker::Sync for CameraOcclusionState {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct CameraOcclusionStateChangedEventArgs(::windows::core::IUnknown);
+impl CameraOcclusionStateChangedEventArgs {
+    pub fn State(&self) -> ::windows::core::Result<CameraOcclusionState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<CameraOcclusionState>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for CameraOcclusionStateChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CameraOcclusionStateChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CameraOcclusionStateChangedEventArgs {}
+impl ::core::fmt::Debug for CameraOcclusionStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionStateChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CameraOcclusionStateChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionStateChangedEventArgs;{8512d848-c0de-57ca-a1ca-fb2c3d23df55})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for CameraOcclusionStateChangedEventArgs {
+    type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <ICameraOcclusionStateChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for CameraOcclusionStateChangedEventArgs {
+    const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs";
+}
+impl ::core::convert::From<CameraOcclusionStateChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: CameraOcclusionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<CameraOcclusionStateChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: CameraOcclusionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&CameraOcclusionStateChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &CameraOcclusionStateChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for CameraOcclusionStateChangedEventArgs {}
+unsafe impl ::core::marker::Sync for CameraOcclusionStateChangedEventArgs {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DefaultAudioCaptureDeviceChangedEventArgs(::windows::core::IUnknown);
+impl DefaultAudioCaptureDeviceChangedEventArgs {
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Role(&self) -> ::windows::core::Result<AudioDeviceRole> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Role)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioDeviceRole>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DefaultAudioCaptureDeviceChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DefaultAudioCaptureDeviceChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DefaultAudioCaptureDeviceChangedEventArgs {}
+impl ::core::fmt::Debug for DefaultAudioCaptureDeviceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DefaultAudioCaptureDeviceChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DefaultAudioCaptureDeviceChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
+    type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
+    const NAME: &'static str = "Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
+}
+impl ::core::convert::From<DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DefaultAudioCaptureDeviceChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<DefaultAudioCaptureDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DefaultAudioCaptureDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DefaultAudioCaptureDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for DefaultAudioCaptureDeviceChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DefaultAudioCaptureDeviceChangedEventArgs {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DefaultAudioRenderDeviceChangedEventArgs(::windows::core::IUnknown);
+impl DefaultAudioRenderDeviceChangedEventArgs {
+    pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn Role(&self) -> ::windows::core::Result<AudioDeviceRole> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Role)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioDeviceRole>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DefaultAudioRenderDeviceChangedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DefaultAudioRenderDeviceChangedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DefaultAudioRenderDeviceChangedEventArgs {}
+impl ::core::fmt::Debug for DefaultAudioRenderDeviceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DefaultAudioRenderDeviceChangedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DefaultAudioRenderDeviceChangedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DefaultAudioRenderDeviceChangedEventArgs {
+    type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
+    const NAME: &'static str = "Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
+}
+impl ::core::convert::From<DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DefaultAudioRenderDeviceChangedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<DefaultAudioRenderDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for IDefaultAudioDeviceChangedEventArgs {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&DefaultAudioRenderDeviceChangedEventArgs> for ::windows::core::InParam<'a, IDefaultAudioDeviceChangedEventArgs> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &DefaultAudioRenderDeviceChangedEventArgs) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for DefaultAudioRenderDeviceChangedEventArgs {}
+unsafe impl ::core::marker::Sync for DefaultAudioRenderDeviceChangedEventArgs {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DialRequestedEventArgs(::windows::core::IUnknown);
+impl DialRequestedEventArgs {
+    pub fn Handled(&self) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Contact(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DialRequestedEventArgs {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DialRequestedEventArgs {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DialRequestedEventArgs {}
+impl ::core::fmt::Debug for DialRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialRequestedEventArgs").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DialRequestedEventArgs {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DialRequestedEventArgs;{037b929e-953c-4286-8866-4f0f376c855a})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DialRequestedEventArgs {
+    type Vtable = IDialRequestedEventArgs_Vtbl;
+    const IID: ::windows::core::GUID = <IDialRequestedEventArgs as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DialRequestedEventArgs {
+    const NAME: &'static str = "Windows.Media.Devices.DialRequestedEventArgs";
+}
+impl ::core::convert::From<DialRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: DialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DialRequestedEventArgs> for ::windows::core::IUnknown {
+    fn from(value: &DialRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DialRequestedEventArgs> for &::windows::core::IUnknown {
+    fn from(value: &DialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DialRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: DialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DialRequestedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &DialRequestedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DialRequestedEventArgs> for &::windows::core::IInspectable {
+    fn from(value: &DialRequestedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DialRequestedEventArgs {}
+unsafe impl ::core::marker::Sync for DialRequestedEventArgs {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DigitalWindowBounds(::windows::core::IUnknown);
+impl DigitalWindowBounds {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<DigitalWindowBounds, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn NormalizedOriginTop(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NormalizedOriginTop)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetNormalizedOriginTop(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedOriginTop)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn NormalizedOriginLeft(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NormalizedOriginLeft)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetNormalizedOriginLeft(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedOriginLeft)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Scale(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn SetScale(&self, value: f64) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for DigitalWindowBounds {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DigitalWindowBounds {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DigitalWindowBounds {}
+impl ::core::fmt::Debug for DigitalWindowBounds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowBounds").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DigitalWindowBounds {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowBounds;{dd4f21dd-d173-5c6b-8c25-bdd26d5122b1})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DigitalWindowBounds {
+    type Vtable = IDigitalWindowBounds_Vtbl;
+    const IID: ::windows::core::GUID = <IDigitalWindowBounds as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DigitalWindowBounds {
+    const NAME: &'static str = "Windows.Media.Devices.DigitalWindowBounds";
+}
+impl ::core::convert::From<DigitalWindowBounds> for ::windows::core::IUnknown {
+    fn from(value: DigitalWindowBounds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DigitalWindowBounds> for ::windows::core::IUnknown {
+    fn from(value: &DigitalWindowBounds) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DigitalWindowBounds> for &::windows::core::IUnknown {
+    fn from(value: &DigitalWindowBounds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DigitalWindowBounds> for ::windows::core::IInspectable {
+    fn from(value: DigitalWindowBounds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DigitalWindowBounds> for ::windows::core::IInspectable {
+    fn from(value: &DigitalWindowBounds) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DigitalWindowBounds> for &::windows::core::IInspectable {
+    fn from(value: &DigitalWindowBounds) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DigitalWindowBounds {}
+unsafe impl ::core::marker::Sync for DigitalWindowBounds {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DigitalWindowCapability(::windows::core::IUnknown);
+impl DigitalWindowCapability {
+    pub fn Width(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn Height(&self) -> ::windows::core::Result<i32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
+        }
+    }
+    pub fn MinScaleValue(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinScaleValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn MaxScaleValue(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MaxScaleValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    pub fn MinScaleValueWithoutUpsampling(&self) -> ::windows::core::Result<f64> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).MinScaleValueWithoutUpsampling)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn NormalizedFieldOfViewLimit(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NormalizedFieldOfViewLimit)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Rect>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DigitalWindowCapability {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DigitalWindowCapability {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DigitalWindowCapability {}
+impl ::core::fmt::Debug for DigitalWindowCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowCapability").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DigitalWindowCapability {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowCapability;{d78bad2c-f721-5244-a196-b56ccbec606c})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DigitalWindowCapability {
+    type Vtable = IDigitalWindowCapability_Vtbl;
+    const IID: ::windows::core::GUID = <IDigitalWindowCapability as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DigitalWindowCapability {
+    const NAME: &'static str = "Windows.Media.Devices.DigitalWindowCapability";
+}
+impl ::core::convert::From<DigitalWindowCapability> for ::windows::core::IUnknown {
+    fn from(value: DigitalWindowCapability) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DigitalWindowCapability> for ::windows::core::IUnknown {
+    fn from(value: &DigitalWindowCapability) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DigitalWindowCapability> for &::windows::core::IUnknown {
+    fn from(value: &DigitalWindowCapability) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DigitalWindowCapability> for ::windows::core::IInspectable {
+    fn from(value: DigitalWindowCapability) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DigitalWindowCapability> for ::windows::core::IInspectable {
+    fn from(value: &DigitalWindowCapability) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DigitalWindowCapability> for &::windows::core::IInspectable {
+    fn from(value: &DigitalWindowCapability) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DigitalWindowCapability {}
+unsafe impl ::core::marker::Sync for DigitalWindowCapability {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DigitalWindowControl(::windows::core::IUnknown);
+impl DigitalWindowControl {
+    pub fn IsSupported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SupportedModes(&self) -> ::windows::core::Result<::windows::core::Array<DigitalWindowMode>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedModes)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<DigitalWindowMode>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
+        }
+    }
+    pub fn CurrentMode(&self) -> ::windows::core::Result<DigitalWindowMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CurrentMode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DigitalWindowMode>(result__)
+        }
+    }
+    pub fn GetBounds(&self) -> ::windows::core::Result<DigitalWindowBounds> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetBounds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DigitalWindowBounds>(result__)
+        }
+    }
+    pub fn Configure(&self, digitalwindowmode: DigitalWindowMode) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), digitalwindowmode).ok() }
+    }
+    pub fn ConfigureWithBounds<'a, P0>(&self, digitalwindowmode: DigitalWindowMode, digitalwindowbounds: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, DigitalWindowBounds>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).ConfigureWithBounds)(::windows::core::Interface::as_raw(this), digitalwindowmode, digitalwindowbounds.into().abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedCapabilities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedCapabilities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<DigitalWindowCapability>>(result__)
+        }
+    }
+    pub fn GetCapabilityForSize(&self, width: i32, height: i32) -> ::windows::core::Result<DigitalWindowCapability> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).GetCapabilityForSize)(::windows::core::Interface::as_raw(this), width, height, result__.as_mut_ptr()).from_abi::<DigitalWindowCapability>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for DigitalWindowControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DigitalWindowControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DigitalWindowControl {}
+impl ::core::fmt::Debug for DigitalWindowControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DigitalWindowControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowControl;{23b69eff-65d2-53ea-8780-de582b48b544})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for DigitalWindowControl {
+    type Vtable = IDigitalWindowControl_Vtbl;
+    const IID: ::windows::core::GUID = <IDigitalWindowControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for DigitalWindowControl {
+    const NAME: &'static str = "Windows.Media.Devices.DigitalWindowControl";
+}
+impl ::core::convert::From<DigitalWindowControl> for ::windows::core::IUnknown {
+    fn from(value: DigitalWindowControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DigitalWindowControl> for ::windows::core::IUnknown {
+    fn from(value: &DigitalWindowControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DigitalWindowControl> for &::windows::core::IUnknown {
+    fn from(value: &DigitalWindowControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<DigitalWindowControl> for ::windows::core::IInspectable {
+    fn from(value: DigitalWindowControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&DigitalWindowControl> for ::windows::core::IInspectable {
+    fn from(value: &DigitalWindowControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&DigitalWindowControl> for &::windows::core::IInspectable {
+    fn from(value: &DigitalWindowControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for DigitalWindowControl {}
+unsafe impl ::core::marker::Sync for DigitalWindowControl {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct ExposureCompensationControl(::windows::core::IUnknown);
+impl ExposureCompensationControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn Min(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Min)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    pub fn Max(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Max)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    pub fn Step(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Step)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    pub fn Value(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetValueAsync(&self, value: f32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ExposureCompensationControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ExposureCompensationControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ExposureCompensationControl {}
+impl ::core::fmt::Debug for ExposureCompensationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExposureCompensationControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ExposureCompensationControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureCompensationControl;{81c8e834-dcec-4011-a610-1f3847e64aca})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ExposureCompensationControl {
+    type Vtable = IExposureCompensationControl_Vtbl;
+    const IID: ::windows::core::GUID = <IExposureCompensationControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ExposureCompensationControl {
+    const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
+}
+impl ::core::convert::From<ExposureCompensationControl> for ::windows::core::IUnknown {
+    fn from(value: ExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ExposureCompensationControl> for ::windows::core::IUnknown {
+    fn from(value: &ExposureCompensationControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ExposureCompensationControl> for &::windows::core::IUnknown {
+    fn from(value: &ExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ExposureCompensationControl> for ::windows::core::IInspectable {
+    fn from(value: ExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ExposureCompensationControl> for ::windows::core::IInspectable {
+    fn from(value: &ExposureCompensationControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ExposureCompensationControl> for &::windows::core::IInspectable {
+    fn from(value: &ExposureCompensationControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct ExposureControl(::windows::core::IUnknown);
+impl ExposureControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn Auto(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Auto)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetAutoAsync(&self, value: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetAutoAsync)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Min(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Min)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Max(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Max)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Step(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Step)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Value(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::TimeSpan>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetValueAsync(&self, shutterduration: super::super::Foundation::TimeSpan) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), shutterduration, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for ExposureControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ExposureControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ExposureControl {}
+impl ::core::fmt::Debug for ExposureControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExposureControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ExposureControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureControl;{09e8cbe2-ad96-4f28-a0e0-96ed7e1b5fd2})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ExposureControl {
+    type Vtable = IExposureControl_Vtbl;
+    const IID: ::windows::core::GUID = <IExposureControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ExposureControl {
+    const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
+}
+impl ::core::convert::From<ExposureControl> for ::windows::core::IUnknown {
+    fn from(value: ExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ExposureControl> for ::windows::core::IUnknown {
+    fn from(value: &ExposureControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ExposureControl> for &::windows::core::IUnknown {
+    fn from(value: &ExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ExposureControl> for ::windows::core::IInspectable {
+    fn from(value: ExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ExposureControl> for ::windows::core::IInspectable {
+    fn from(value: &ExposureControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ExposureControl> for &::windows::core::IInspectable {
+    fn from(value: &ExposureControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct ExposurePriorityVideoControl(::windows::core::IUnknown);
+impl ExposurePriorityVideoControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn Enabled(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for ExposurePriorityVideoControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ExposurePriorityVideoControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ExposurePriorityVideoControl {}
+impl ::core::fmt::Debug for ExposurePriorityVideoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExposurePriorityVideoControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ExposurePriorityVideoControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposurePriorityVideoControl;{2cb240a3-5168-4271-9ea5-47621a98a352})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ExposurePriorityVideoControl {
+    type Vtable = IExposurePriorityVideoControl_Vtbl;
+    const IID: ::windows::core::GUID = <IExposurePriorityVideoControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ExposurePriorityVideoControl {
+    const NAME: &'static str = "Windows.Media.Devices.ExposurePriorityVideoControl";
+}
+impl ::core::convert::From<ExposurePriorityVideoControl> for ::windows::core::IUnknown {
+    fn from(value: ExposurePriorityVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ExposurePriorityVideoControl> for ::windows::core::IUnknown {
+    fn from(value: &ExposurePriorityVideoControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ExposurePriorityVideoControl> for &::windows::core::IUnknown {
+    fn from(value: &ExposurePriorityVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ExposurePriorityVideoControl> for ::windows::core::IInspectable {
+    fn from(value: ExposurePriorityVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ExposurePriorityVideoControl> for ::windows::core::IInspectable {
+    fn from(value: &ExposurePriorityVideoControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ExposurePriorityVideoControl> for &::windows::core::IInspectable {
+    fn from(value: &ExposurePriorityVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ExposurePriorityVideoControl {}
+unsafe impl ::core::marker::Sync for ExposurePriorityVideoControl {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct FlashControl(::windows::core::IUnknown);
+impl FlashControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn PowerSupported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PowerSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn RedEyeReductionSupported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RedEyeReductionSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn Enabled(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Enabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Auto(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Auto)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetAuto(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAuto)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn RedEyeReduction(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RedEyeReduction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetRedEyeReduction(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetRedEyeReduction)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PowerPercent(&self) -> ::windows::core::Result<f32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).PowerPercent)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
+        }
+    }
+    pub fn SetPowerPercent(&self, value: f32) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetPowerPercent)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AssistantLightSupported(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IFlashControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AssistantLightSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn AssistantLightEnabled(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IFlashControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AssistantLightEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetAssistantLightEnabled(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<IFlashControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).SetAssistantLightEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for FlashControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FlashControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FlashControl {}
+impl ::core::fmt::Debug for FlashControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlashControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FlashControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FlashControl;{def41dbe-7d68-45e3-8c0f-be7bb32837d0})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FlashControl {
+    type Vtable = IFlashControl_Vtbl;
+    const IID: ::windows::core::GUID = <IFlashControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FlashControl {
+    const NAME: &'static str = "Windows.Media.Devices.FlashControl";
+}
+impl ::core::convert::From<FlashControl> for ::windows::core::IUnknown {
+    fn from(value: FlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FlashControl> for ::windows::core::IUnknown {
+    fn from(value: &FlashControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FlashControl> for &::windows::core::IUnknown {
+    fn from(value: &FlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FlashControl> for ::windows::core::IInspectable {
+    fn from(value: FlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FlashControl> for ::windows::core::IInspectable {
+    fn from(value: &FlashControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FlashControl> for &::windows::core::IInspectable {
+    fn from(value: &FlashControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct FocusControl(::windows::core::IUnknown);
+impl FocusControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedPresets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusPreset>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedPresets)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<FocusPreset>>(result__)
+        }
+    }
+    pub fn Preset(&self) -> ::windows::core::Result<FocusPreset> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Preset)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusPreset>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetPresetAsync(&self, preset: FocusPreset) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetPresetAsync)(::windows::core::Interface::as_raw(this), preset, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetPresetWithCompletionOptionAsync(&self, preset: FocusPreset, completebeforefocus: bool) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetPresetWithCompletionOptionAsync)(::windows::core::Interface::as_raw(this), preset, completebeforefocus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    pub fn Min(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Min)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn Max(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Max)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn Step(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Step)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    pub fn Value(&self) -> ::windows::core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetValueAsync(&self, focus: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SetValueAsync)(::windows::core::Interface::as_raw(this), focus, result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn FocusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FocusAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    pub fn FocusChangedSupported(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FocusChangedSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn WaitForFocusSupported(&self) -> ::windows::core::Result<bool> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).WaitForFocusSupported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedFocusModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<FocusMode>> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedFocusModes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<FocusMode>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedFocusDistances(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedFocusDistances)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<ManualFocusDistance>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedFocusRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AutoFocusRange>> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedFocusRanges)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<AutoFocusRange>>(result__)
+        }
+    }
+    pub fn Mode(&self) -> ::windows::core::Result<FocusMode> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusMode>(result__)
+        }
+    }
+    pub fn FocusState(&self) -> ::windows::core::Result<MediaCaptureFocusState> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<MediaCaptureFocusState>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn UnlockAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).UnlockAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn LockAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LockAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+        }
+    }
+    pub fn Configure<'a, P0>(&self, settings: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, FocusSettings>>,
+    {
+        let this = &::windows::core::Interface::cast::<IFocusControl2>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Configure)(::windows::core::Interface::as_raw(this), settings.into().abi()).ok() }
+    }
+}
+impl ::core::clone::Clone for FocusControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FocusControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FocusControl {}
+impl ::core::fmt::Debug for FocusControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FocusControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusControl;{c0d889f6-5228-4453-b153-85606592b238})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FocusControl {
+    type Vtable = IFocusControl_Vtbl;
+    const IID: ::windows::core::GUID = <IFocusControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FocusControl {
+    const NAME: &'static str = "Windows.Media.Devices.FocusControl";
+}
+impl ::core::convert::From<FocusControl> for ::windows::core::IUnknown {
+    fn from(value: FocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FocusControl> for ::windows::core::IUnknown {
+    fn from(value: &FocusControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FocusControl> for &::windows::core::IUnknown {
+    fn from(value: &FocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FocusControl> for ::windows::core::IInspectable {
+    fn from(value: FocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FocusControl> for ::windows::core::IInspectable {
+    fn from(value: &FocusControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FocusControl> for &::windows::core::IInspectable {
+    fn from(value: &FocusControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct FocusSettings(::windows::core::IUnknown);
+impl FocusSettings {
+    pub fn new() -> ::windows::core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&::windows::core::IGenericFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<FocusSettings, ::windows::core::IGenericFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn Mode(&self) -> ::windows::core::Result<FocusMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusMode>(result__)
+        }
+    }
+    pub fn SetMode(&self, value: FocusMode) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AutoFocusRange(&self) -> ::windows::core::Result<AutoFocusRange> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AutoFocusRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AutoFocusRange>(result__)
+        }
+    }
+    pub fn SetAutoFocusRange(&self, value: AutoFocusRange) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoFocusRange)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Value(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<u32>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetValue<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<u32>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn Distance(&self) -> ::windows::core::Result<super::super::Foundation::IReference<ManualFocusDistance>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Distance)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::IReference<ManualFocusDistance>>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation\"`*"]
+    #[cfg(feature = "Foundation")]
+    pub fn SetDistance<'a, P0, E0>(&self, value: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::IReference<ManualFocusDistance>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDistance)(::windows::core::Interface::as_raw(this), value.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn WaitForFocus(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).WaitForFocus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetWaitForFocus(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetWaitForFocus)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn DisableDriverFallback(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).DisableDriverFallback)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    pub fn SetDisableDriverFallback(&self, value: bool) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetDisableDriverFallback)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for FocusSettings {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FocusSettings {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FocusSettings {}
+impl ::core::fmt::Debug for FocusSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusSettings").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FocusSettings {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusSettings;{79958f6b-3263-4275-85d6-aeae891c96ee})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FocusSettings {
+    type Vtable = IFocusSettings_Vtbl;
+    const IID: ::windows::core::GUID = <IFocusSettings as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FocusSettings {
+    const NAME: &'static str = "Windows.Media.Devices.FocusSettings";
+}
+impl ::core::convert::From<FocusSettings> for ::windows::core::IUnknown {
+    fn from(value: FocusSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FocusSettings> for ::windows::core::IUnknown {
+    fn from(value: &FocusSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FocusSettings> for &::windows::core::IUnknown {
+    fn from(value: &FocusSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FocusSettings> for ::windows::core::IInspectable {
+    fn from(value: FocusSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FocusSettings> for ::windows::core::IInspectable {
+    fn from(value: &FocusSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FocusSettings> for &::windows::core::IInspectable {
+    fn from(value: &FocusSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for FocusSettings {}
+unsafe impl ::core::marker::Sync for FocusSettings {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct HdrVideoControl(::windows::core::IUnknown);
+impl HdrVideoControl {
+    pub fn Supported(&self) -> ::windows::core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Supported)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
+        }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn SupportedModes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HdrVideoMode>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SupportedModes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Foundation::Collections::IVectorView<HdrVideoMode>>(result__)
+        }
+    }
+    pub fn Mode(&self) -> ::windows::core::Result<HdrVideoMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HdrVideoMode>(result__)
+        }
+    }
+    pub fn SetMode(&self, value: HdrVideoMode) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).SetMode)(::windows::core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl ::core::clone::Clone for HdrVideoControl {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for HdrVideoControl {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for HdrVideoControl {}
+impl ::core::fmt::Debug for HdrVideoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrVideoControl").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HdrVideoControl {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.HdrVideoControl;{55d8e2d0-30c0-43bf-9b9a-9799d70ced94})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for HdrVideoControl {
+    type Vtable = IHdrVideoControl_Vtbl;
+    const IID: ::windows::core::GUID = <IHdrVideoControl as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for HdrVideoControl {
+    const NAME: &'static str = "Windows.Media.Devices.HdrVideoControl";
+}
+impl ::core::convert::From<HdrVideoControl> for ::windows::core::IUnknown {
+    fn from(value: HdrVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HdrVideoControl> for ::windows::core::IUnknown {
+    fn from(value: &HdrVideoControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HdrVideoControl> for &::windows::core::IUnknown {
+    fn from(value: &HdrVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<HdrVideoControl> for ::windows::core::IInspectable {
+    fn from(value: HdrVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&HdrVideoControl> for ::windows::core::IInspectable {
+    fn from(value: &HdrVideoControl) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&HdrVideoControl> for &::windows::core::IInspectable {
+    fn from(value: &HdrVideoControl) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for HdrVideoControl {}
+unsafe impl ::core::marker::Sync for HdrVideoControl {}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
 pub struct InfraredTorchControl(::windows::core::IUnknown);
 impl InfraredTorchControl {
     pub fn IsSupported(&self) -> ::windows::core::Result<bool> {
@@ -4923,41 +4309,6 @@ impl ::core::convert::From<&InfraredTorchControl> for &::windows::core::IInspect
 }
 unsafe impl ::core::marker::Send for InfraredTorchControl {}
 unsafe impl ::core::marker::Sync for InfraredTorchControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct InfraredTorchMode(pub i32);
-impl InfraredTorchMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const AlternatingFrameIllumination: Self = Self(2i32);
-}
-impl ::core::marker::Copy for InfraredTorchMode {}
-impl ::core::clone::Clone for InfraredTorchMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for InfraredTorchMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for InfraredTorchMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for InfraredTorchMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("InfraredTorchMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for InfraredTorchMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct IsoSpeedControl(::windows::core::IUnknown);
@@ -5110,58 +4461,6 @@ impl ::core::convert::From<&IsoSpeedControl> for &::windows::core::IInspectable 
         unsafe { ::core::mem::transmute(value) }
     }
 }
-#[doc = "*Required features: `\"Media_Devices\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IsoSpeedPreset(pub i32);
-#[cfg(feature = "deprecated")]
-impl IsoSpeedPreset {
-    pub const Auto: Self = Self(0i32);
-    pub const Iso50: Self = Self(1i32);
-    pub const Iso80: Self = Self(2i32);
-    pub const Iso100: Self = Self(3i32);
-    pub const Iso200: Self = Self(4i32);
-    pub const Iso400: Self = Self(5i32);
-    pub const Iso800: Self = Self(6i32);
-    pub const Iso1600: Self = Self(7i32);
-    pub const Iso3200: Self = Self(8i32);
-    pub const Iso6400: Self = Self(9i32);
-    pub const Iso12800: Self = Self(10i32);
-    pub const Iso25600: Self = Self(11i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for IsoSpeedPreset {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for IsoSpeedPreset {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for IsoSpeedPreset {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for IsoSpeedPreset {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for IsoSpeedPreset {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IsoSpeedPreset").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for IsoSpeedPreset {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct KeypadPressedEventArgs(::windows::core::IUnknown);
@@ -5236,94 +4535,6 @@ impl ::core::convert::From<&KeypadPressedEventArgs> for &::windows::core::IInspe
 }
 unsafe impl ::core::marker::Send for KeypadPressedEventArgs {}
 unsafe impl ::core::marker::Sync for KeypadPressedEventArgs {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-pub struct KeypadPressedEventHandler(pub ::windows::core::IUnknown);
-impl KeypadPressedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = KeypadPressedEventHandlerBox::<F> { vtable: &KeypadPressedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, KeypadPressedEventArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct KeypadPressedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const KeypadPressedEventHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> KeypadPressedEventHandlerBox<F> {
-    const VTABLE: KeypadPressedEventHandler_Vtbl = KeypadPressedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<KeypadPressedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
-    }
-}
-impl ::core::clone::Clone for KeypadPressedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for KeypadPressedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeypadPressedEventHandler {}
-impl ::core::fmt::Debug for KeypadPressedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("KeypadPressedEventHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for KeypadPressedEventHandler {
-    type Vtable = KeypadPressedEventHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe637a454_c527_422c_8926_c9af83b559a0);
-}
-unsafe impl ::windows::core::RuntimeType for KeypadPressedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e637a454-c527-422c-8926-c9af83b559a0}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct KeypadPressedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct LowLagPhotoControl(::windows::core::IUnknown);
@@ -5627,151 +4838,6 @@ impl ::core::convert::From<&LowLagPhotoSequenceControl> for ::windows::core::IIn
 impl ::core::convert::From<&LowLagPhotoSequenceControl> for &::windows::core::IInspectable {
     fn from(value: &LowLagPhotoSequenceControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ManualFocusDistance(pub i32);
-impl ManualFocusDistance {
-    pub const Infinity: Self = Self(0i32);
-    pub const Hyperfocal: Self = Self(1i32);
-    pub const Nearest: Self = Self(2i32);
-}
-impl ::core::marker::Copy for ManualFocusDistance {}
-impl ::core::clone::Clone for ManualFocusDistance {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ManualFocusDistance {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ManualFocusDistance {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ManualFocusDistance {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ManualFocusDistance").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ManualFocusDistance {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaCaptureFocusState(pub i32);
-impl MediaCaptureFocusState {
-    pub const Uninitialized: Self = Self(0i32);
-    pub const Lost: Self = Self(1i32);
-    pub const Searching: Self = Self(2i32);
-    pub const Focused: Self = Self(3i32);
-    pub const Failed: Self = Self(4i32);
-}
-impl ::core::marker::Copy for MediaCaptureFocusState {}
-impl ::core::clone::Clone for MediaCaptureFocusState {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureFocusState {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaCaptureFocusState {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaCaptureFocusState {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCaptureFocusState").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusState {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaCaptureOptimization(pub i32);
-impl MediaCaptureOptimization {
-    pub const Default: Self = Self(0i32);
-    pub const Quality: Self = Self(1i32);
-    pub const Latency: Self = Self(2i32);
-    pub const Power: Self = Self(3i32);
-    pub const LatencyThenQuality: Self = Self(4i32);
-    pub const LatencyThenPower: Self = Self(5i32);
-    pub const PowerAndQuality: Self = Self(6i32);
-}
-impl ::core::marker::Copy for MediaCaptureOptimization {}
-impl ::core::clone::Clone for MediaCaptureOptimization {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCaptureOptimization {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaCaptureOptimization {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaCaptureOptimization {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCaptureOptimization").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaCaptureOptimization {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct MediaCapturePauseBehavior(pub i32);
-impl MediaCapturePauseBehavior {
-    pub const RetainHardwareResources: Self = Self(0i32);
-    pub const ReleaseHardwareResources: Self = Self(1i32);
-}
-impl ::core::marker::Copy for MediaCapturePauseBehavior {}
-impl ::core::clone::Clone for MediaCapturePauseBehavior {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for MediaCapturePauseBehavior {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for MediaCapturePauseBehavior {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for MediaCapturePauseBehavior {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MediaCapturePauseBehavior").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for MediaCapturePauseBehavior {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -6232,41 +5298,6 @@ unsafe impl ::core::marker::Send for OpticalImageStabilizationControl {}
 unsafe impl ::core::marker::Sync for OpticalImageStabilizationControl {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct OpticalImageStabilizationMode(pub i32);
-impl OpticalImageStabilizationMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
-}
-impl ::core::marker::Copy for OpticalImageStabilizationMode {}
-impl ::core::clone::Clone for OpticalImageStabilizationMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for OpticalImageStabilizationMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for OpticalImageStabilizationMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for OpticalImageStabilizationMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("OpticalImageStabilizationMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
 pub struct PanelBasedOptimizationControl(::windows::core::IUnknown);
 impl PanelBasedOptimizationControl {
     pub fn IsSupported(&self) -> ::windows::core::Result<bool> {
@@ -6525,94 +5556,6 @@ unsafe impl ::core::marker::Send for RedialRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for RedialRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-pub struct RedialRequestedEventHandler(pub ::windows::core::IUnknown);
-impl RedialRequestedEventHandler {
-    pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = RedialRequestedEventHandlerBox::<F> { vtable: &RedialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
-        P1: ::std::convert::Into<::windows::core::InParam<'a, RedialRequestedEventArgs>>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
-    }
-}
-#[repr(C)]
-struct RedialRequestedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const RedialRequestedEventHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RedialRequestedEventHandlerBox<F> {
-    const VTABLE: RedialRequestedEventHandler_Vtbl = RedialRequestedEventHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<RedialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
-    }
-}
-impl ::core::clone::Clone for RedialRequestedEventHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for RedialRequestedEventHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RedialRequestedEventHandler {}
-impl ::core::fmt::Debug for RedialRequestedEventHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RedialRequestedEventHandler").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for RedialRequestedEventHandler {
-    type Vtable = RedialRequestedEventHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1);
-}
-unsafe impl ::windows::core::RuntimeType for RedialRequestedEventHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{baf257d1-4ebd-4b84-9f47-6ec43d75d8b1}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct RedialRequestedEventHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
 pub struct RegionOfInterest(::windows::core::IUnknown);
 impl RegionOfInterest {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -6766,40 +5709,6 @@ impl ::core::convert::From<&RegionOfInterest> for &::windows::core::IInspectable
 }
 unsafe impl ::core::marker::Send for RegionOfInterest {}
 unsafe impl ::core::marker::Sync for RegionOfInterest {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct RegionOfInterestType(pub i32);
-impl RegionOfInterestType {
-    pub const Unknown: Self = Self(0i32);
-    pub const Face: Self = Self(1i32);
-}
-impl ::core::marker::Copy for RegionOfInterestType {}
-impl ::core::clone::Clone for RegionOfInterestType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for RegionOfInterestType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for RegionOfInterestType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for RegionOfInterestType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("RegionOfInterestType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for RegionOfInterestType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct RegionsOfInterestControl(::windows::core::IUnknown);
@@ -7016,88 +5925,6 @@ impl ::core::convert::From<&SceneModeControl> for ::windows::core::IInspectable 
 impl ::core::convert::From<&SceneModeControl> for &::windows::core::IInspectable {
     fn from(value: &SceneModeControl) -> Self {
         unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct SendCommandStatus(pub i32);
-impl SendCommandStatus {
-    pub const Success: Self = Self(0i32);
-    pub const DeviceNotAvailable: Self = Self(1i32);
-}
-impl ::core::marker::Copy for SendCommandStatus {}
-impl ::core::clone::Clone for SendCommandStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for SendCommandStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for SendCommandStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for SendCommandStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SendCommandStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for SendCommandStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TelephonyKey(pub i32);
-impl TelephonyKey {
-    pub const D0: Self = Self(0i32);
-    pub const D1: Self = Self(1i32);
-    pub const D2: Self = Self(2i32);
-    pub const D3: Self = Self(3i32);
-    pub const D4: Self = Self(4i32);
-    pub const D5: Self = Self(5i32);
-    pub const D6: Self = Self(6i32);
-    pub const D7: Self = Self(7i32);
-    pub const D8: Self = Self(8i32);
-    pub const D9: Self = Self(9i32);
-    pub const Star: Self = Self(10i32);
-    pub const Pound: Self = Self(11i32);
-    pub const A: Self = Self(12i32);
-    pub const B: Self = Self(13i32);
-    pub const C: Self = Self(14i32);
-    pub const D: Self = Self(15i32);
-}
-impl ::core::marker::Copy for TelephonyKey {}
-impl ::core::clone::Clone for TelephonyKey {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TelephonyKey {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TelephonyKey {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TelephonyKey {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TelephonyKey").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TelephonyKey {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
@@ -7743,83 +6570,6 @@ unsafe impl ::core::marker::Send for VideoDeviceControllerGetDevicePropertyResul
 unsafe impl ::core::marker::Sync for VideoDeviceControllerGetDevicePropertyResult {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
-impl VideoDeviceControllerGetDevicePropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const BufferTooSmall: Self = Self(2i32);
-    pub const NotSupported: Self = Self(3i32);
-    pub const DeviceNotAvailable: Self = Self(4i32);
-    pub const MaxPropertyValueSizeTooSmall: Self = Self(5i32);
-    pub const MaxPropertyValueSizeRequired: Self = Self(6i32);
-}
-impl ::core::marker::Copy for VideoDeviceControllerGetDevicePropertyStatus {}
-impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoDeviceControllerGetDevicePropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VideoDeviceControllerGetDevicePropertyStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoDeviceControllerGetDevicePropertyStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
-impl VideoDeviceControllerSetDevicePropertyStatus {
-    pub const Success: Self = Self(0i32);
-    pub const UnknownFailure: Self = Self(1i32);
-    pub const NotSupported: Self = Self(2i32);
-    pub const InvalidValue: Self = Self(3i32);
-    pub const DeviceNotAvailable: Self = Self(4i32);
-    pub const NotInControl: Self = Self(5i32);
-}
-impl ::core::marker::Copy for VideoDeviceControllerSetDevicePropertyStatus {}
-impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoDeviceControllerSetDevicePropertyStatus {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VideoDeviceControllerSetDevicePropertyStatus {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoDeviceControllerSetDevicePropertyStatus").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
 pub struct VideoTemporalDenoisingControl(::windows::core::IUnknown);
 impl VideoTemporalDenoisingControl {
     pub fn Supported(&self) -> ::windows::core::Result<bool> {
@@ -7912,41 +6662,6 @@ impl ::core::convert::From<&VideoTemporalDenoisingControl> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for VideoTemporalDenoisingControl {}
 unsafe impl ::core::marker::Sync for VideoTemporalDenoisingControl {}
-#[doc = "*Required features: `\"Media_Devices\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct VideoTemporalDenoisingMode(pub i32);
-impl VideoTemporalDenoisingMode {
-    pub const Off: Self = Self(0i32);
-    pub const On: Self = Self(1i32);
-    pub const Auto: Self = Self(2i32);
-}
-impl ::core::marker::Copy for VideoTemporalDenoisingMode {}
-impl ::core::clone::Clone for VideoTemporalDenoisingMode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for VideoTemporalDenoisingMode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for VideoTemporalDenoisingMode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VideoTemporalDenoisingMode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingMode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 pub struct WhiteBalanceControl(::windows::core::IUnknown);
@@ -8298,6 +7013,940 @@ unsafe impl ::core::marker::Sync for ZoomSettings {}
 #[doc = "*Required features: `\"Media_Devices\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AdvancedPhotoMode(pub i32);
+impl AdvancedPhotoMode {
+    pub const Auto: Self = Self(0i32);
+    pub const Standard: Self = Self(1i32);
+    pub const Hdr: Self = Self(2i32);
+    pub const LowLight: Self = Self(3i32);
+}
+impl ::core::marker::Copy for AdvancedPhotoMode {}
+impl ::core::clone::Clone for AdvancedPhotoMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AdvancedPhotoMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AdvancedPhotoMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AdvancedPhotoMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AdvancedPhotoMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AdvancedPhotoMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AudioDeviceRole(pub i32);
+impl AudioDeviceRole {
+    pub const Default: Self = Self(0i32);
+    pub const Communications: Self = Self(1i32);
+}
+impl ::core::marker::Copy for AudioDeviceRole {}
+impl ::core::clone::Clone for AudioDeviceRole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AudioDeviceRole {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AudioDeviceRole {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioDeviceRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceRole").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AudioDeviceRole {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AudioDeviceRole;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AutoFocusRange(pub i32);
+impl AutoFocusRange {
+    pub const FullRange: Self = Self(0i32);
+    pub const Macro: Self = Self(1i32);
+    pub const Normal: Self = Self(2i32);
+}
+impl ::core::marker::Copy for AutoFocusRange {}
+impl ::core::clone::Clone for AutoFocusRange {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AutoFocusRange {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AutoFocusRange {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutoFocusRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoFocusRange").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AutoFocusRange {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.AutoFocusRange;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraOcclusionKind(pub i32);
+impl CameraOcclusionKind {
+    pub const Lid: Self = Self(0i32);
+    pub const CameraHardware: Self = Self(1i32);
+}
+impl ::core::marker::Copy for CameraOcclusionKind {}
+impl ::core::clone::Clone for CameraOcclusionKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraOcclusionKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraOcclusionKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraOcclusionKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CameraOcclusionKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraOcclusionKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CameraStreamState(pub i32);
+impl CameraStreamState {
+    pub const NotStreaming: Self = Self(0i32);
+    pub const Streaming: Self = Self(1i32);
+    pub const BlockedForPrivacy: Self = Self(2i32);
+    pub const Shutdown: Self = Self(3i32);
+}
+impl ::core::marker::Copy for CameraStreamState {}
+impl ::core::clone::Clone for CameraStreamState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CameraStreamState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CameraStreamState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CameraStreamState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraStreamState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CameraStreamState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CameraStreamState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CaptureSceneMode(pub i32);
+impl CaptureSceneMode {
+    pub const Auto: Self = Self(0i32);
+    pub const Manual: Self = Self(1i32);
+    pub const Macro: Self = Self(2i32);
+    pub const Portrait: Self = Self(3i32);
+    pub const Sport: Self = Self(4i32);
+    pub const Snow: Self = Self(5i32);
+    pub const Night: Self = Self(6i32);
+    pub const Beach: Self = Self(7i32);
+    pub const Sunset: Self = Self(8i32);
+    pub const Candlelight: Self = Self(9i32);
+    pub const Landscape: Self = Self(10i32);
+    pub const NightPortrait: Self = Self(11i32);
+    pub const Backlit: Self = Self(12i32);
+}
+impl ::core::marker::Copy for CaptureSceneMode {}
+impl ::core::clone::Clone for CaptureSceneMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CaptureSceneMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CaptureSceneMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CaptureSceneMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureSceneMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CaptureSceneMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureSceneMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CaptureUse(pub i32);
+impl CaptureUse {
+    pub const None: Self = Self(0i32);
+    pub const Photo: Self = Self(1i32);
+    pub const Video: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CaptureUse {}
+impl ::core::clone::Clone for CaptureUse {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CaptureUse {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CaptureUse {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CaptureUse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CaptureUse").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CaptureUse {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.CaptureUse;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ColorTemperaturePreset(pub i32);
+impl ColorTemperaturePreset {
+    pub const Auto: Self = Self(0i32);
+    pub const Manual: Self = Self(1i32);
+    pub const Cloudy: Self = Self(2i32);
+    pub const Daylight: Self = Self(3i32);
+    pub const Flash: Self = Self(4i32);
+    pub const Fluorescent: Self = Self(5i32);
+    pub const Tungsten: Self = Self(6i32);
+    pub const Candlelight: Self = Self(7i32);
+}
+impl ::core::marker::Copy for ColorTemperaturePreset {}
+impl ::core::clone::Clone for ColorTemperaturePreset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ColorTemperaturePreset {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ColorTemperaturePreset {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ColorTemperaturePreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorTemperaturePreset").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ColorTemperaturePreset {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ColorTemperaturePreset;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct DigitalWindowMode(pub i32);
+impl DigitalWindowMode {
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for DigitalWindowMode {}
+impl ::core::clone::Clone for DigitalWindowMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for DigitalWindowMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for DigitalWindowMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DigitalWindowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for DigitalWindowMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.DigitalWindowMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FocusMode(pub i32);
+impl FocusMode {
+    pub const Auto: Self = Self(0i32);
+    pub const Single: Self = Self(1i32);
+    pub const Continuous: Self = Self(2i32);
+    pub const Manual: Self = Self(3i32);
+}
+impl ::core::marker::Copy for FocusMode {}
+impl ::core::clone::Clone for FocusMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FocusMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FocusMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FocusMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FocusMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct FocusPreset(pub i32);
+impl FocusPreset {
+    pub const Auto: Self = Self(0i32);
+    pub const Manual: Self = Self(1i32);
+    pub const AutoMacro: Self = Self(2i32);
+    pub const AutoNormal: Self = Self(3i32);
+    pub const AutoInfinity: Self = Self(4i32);
+    pub const AutoHyperfocal: Self = Self(5i32);
+}
+impl ::core::marker::Copy for FocusPreset {}
+impl ::core::clone::Clone for FocusPreset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for FocusPreset {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for FocusPreset {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FocusPreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusPreset").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FocusPreset {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.FocusPreset;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct HdrVideoMode(pub i32);
+impl HdrVideoMode {
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for HdrVideoMode {}
+impl ::core::clone::Clone for HdrVideoMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for HdrVideoMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for HdrVideoMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HdrVideoMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrVideoMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for HdrVideoMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.HdrVideoMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct InfraredTorchMode(pub i32);
+impl InfraredTorchMode {
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const AlternatingFrameIllumination: Self = Self(2i32);
+}
+impl ::core::marker::Copy for InfraredTorchMode {}
+impl ::core::clone::Clone for InfraredTorchMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for InfraredTorchMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for InfraredTorchMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InfraredTorchMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InfraredTorchMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for InfraredTorchMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.InfraredTorchMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`, `\"deprecated\"`*"]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IsoSpeedPreset(pub i32);
+#[cfg(feature = "deprecated")]
+impl IsoSpeedPreset {
+    pub const Auto: Self = Self(0i32);
+    pub const Iso50: Self = Self(1i32);
+    pub const Iso80: Self = Self(2i32);
+    pub const Iso100: Self = Self(3i32);
+    pub const Iso200: Self = Self(4i32);
+    pub const Iso400: Self = Self(5i32);
+    pub const Iso800: Self = Self(6i32);
+    pub const Iso1600: Self = Self(7i32);
+    pub const Iso3200: Self = Self(8i32);
+    pub const Iso6400: Self = Self(9i32);
+    pub const Iso12800: Self = Self(10i32);
+    pub const Iso25600: Self = Self(11i32);
+}
+#[cfg(feature = "deprecated")]
+impl ::core::marker::Copy for IsoSpeedPreset {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for IsoSpeedPreset {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for IsoSpeedPreset {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for IsoSpeedPreset {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IsoSpeedPreset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsoSpeedPreset").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for IsoSpeedPreset {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.IsoSpeedPreset;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ManualFocusDistance(pub i32);
+impl ManualFocusDistance {
+    pub const Infinity: Self = Self(0i32);
+    pub const Hyperfocal: Self = Self(1i32);
+    pub const Nearest: Self = Self(2i32);
+}
+impl ::core::marker::Copy for ManualFocusDistance {}
+impl ::core::clone::Clone for ManualFocusDistance {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ManualFocusDistance {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ManualFocusDistance {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ManualFocusDistance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManualFocusDistance").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ManualFocusDistance {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.ManualFocusDistance;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaCaptureFocusState(pub i32);
+impl MediaCaptureFocusState {
+    pub const Uninitialized: Self = Self(0i32);
+    pub const Lost: Self = Self(1i32);
+    pub const Searching: Self = Self(2i32);
+    pub const Focused: Self = Self(3i32);
+    pub const Failed: Self = Self(4i32);
+}
+impl ::core::marker::Copy for MediaCaptureFocusState {}
+impl ::core::clone::Clone for MediaCaptureFocusState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaCaptureFocusState {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaCaptureFocusState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaCaptureFocusState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureFocusState").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusState {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureFocusState;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaCaptureOptimization(pub i32);
+impl MediaCaptureOptimization {
+    pub const Default: Self = Self(0i32);
+    pub const Quality: Self = Self(1i32);
+    pub const Latency: Self = Self(2i32);
+    pub const Power: Self = Self(3i32);
+    pub const LatencyThenQuality: Self = Self(4i32);
+    pub const LatencyThenPower: Self = Self(5i32);
+    pub const PowerAndQuality: Self = Self(6i32);
+}
+impl ::core::marker::Copy for MediaCaptureOptimization {}
+impl ::core::clone::Clone for MediaCaptureOptimization {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaCaptureOptimization {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaCaptureOptimization {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaCaptureOptimization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCaptureOptimization").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaCaptureOptimization {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCaptureOptimization;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct MediaCapturePauseBehavior(pub i32);
+impl MediaCapturePauseBehavior {
+    pub const RetainHardwareResources: Self = Self(0i32);
+    pub const ReleaseHardwareResources: Self = Self(1i32);
+}
+impl ::core::marker::Copy for MediaCapturePauseBehavior {}
+impl ::core::clone::Clone for MediaCapturePauseBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MediaCapturePauseBehavior {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MediaCapturePauseBehavior {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MediaCapturePauseBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaCapturePauseBehavior").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for MediaCapturePauseBehavior {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.MediaCapturePauseBehavior;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct OpticalImageStabilizationMode(pub i32);
+impl OpticalImageStabilizationMode {
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for OpticalImageStabilizationMode {}
+impl ::core::clone::Clone for OpticalImageStabilizationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OpticalImageStabilizationMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OpticalImageStabilizationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OpticalImageStabilizationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OpticalImageStabilizationMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.OpticalImageStabilizationMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct RegionOfInterestType(pub i32);
+impl RegionOfInterestType {
+    pub const Unknown: Self = Self(0i32);
+    pub const Face: Self = Self(1i32);
+}
+impl ::core::marker::Copy for RegionOfInterestType {}
+impl ::core::clone::Clone for RegionOfInterestType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for RegionOfInterestType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for RegionOfInterestType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RegionOfInterestType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RegionOfInterestType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for RegionOfInterestType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.RegionOfInterestType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct SendCommandStatus(pub i32);
+impl SendCommandStatus {
+    pub const Success: Self = Self(0i32);
+    pub const DeviceNotAvailable: Self = Self(1i32);
+}
+impl ::core::marker::Copy for SendCommandStatus {}
+impl ::core::clone::Clone for SendCommandStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for SendCommandStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for SendCommandStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SendCommandStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SendCommandStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for SendCommandStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.SendCommandStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TelephonyKey(pub i32);
+impl TelephonyKey {
+    pub const D0: Self = Self(0i32);
+    pub const D1: Self = Self(1i32);
+    pub const D2: Self = Self(2i32);
+    pub const D3: Self = Self(3i32);
+    pub const D4: Self = Self(4i32);
+    pub const D5: Self = Self(5i32);
+    pub const D6: Self = Self(6i32);
+    pub const D7: Self = Self(7i32);
+    pub const D8: Self = Self(8i32);
+    pub const D9: Self = Self(9i32);
+    pub const Star: Self = Self(10i32);
+    pub const Pound: Self = Self(11i32);
+    pub const A: Self = Self(12i32);
+    pub const B: Self = Self(13i32);
+    pub const C: Self = Self(14i32);
+    pub const D: Self = Self(15i32);
+}
+impl ::core::marker::Copy for TelephonyKey {}
+impl ::core::clone::Clone for TelephonyKey {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TelephonyKey {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TelephonyKey {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TelephonyKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TelephonyKey").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TelephonyKey {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.TelephonyKey;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VideoDeviceControllerGetDevicePropertyStatus(pub i32);
+impl VideoDeviceControllerGetDevicePropertyStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const BufferTooSmall: Self = Self(2i32);
+    pub const NotSupported: Self = Self(3i32);
+    pub const DeviceNotAvailable: Self = Self(4i32);
+    pub const MaxPropertyValueSizeTooSmall: Self = Self(5i32);
+    pub const MaxPropertyValueSizeRequired: Self = Self(6i32);
+}
+impl ::core::marker::Copy for VideoDeviceControllerGetDevicePropertyStatus {}
+impl ::core::clone::Clone for VideoDeviceControllerGetDevicePropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VideoDeviceControllerGetDevicePropertyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VideoDeviceControllerGetDevicePropertyStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerGetDevicePropertyStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePropertyStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VideoDeviceControllerSetDevicePropertyStatus(pub i32);
+impl VideoDeviceControllerSetDevicePropertyStatus {
+    pub const Success: Self = Self(0i32);
+    pub const UnknownFailure: Self = Self(1i32);
+    pub const NotSupported: Self = Self(2i32);
+    pub const InvalidValue: Self = Self(3i32);
+    pub const DeviceNotAvailable: Self = Self(4i32);
+    pub const NotInControl: Self = Self(5i32);
+}
+impl ::core::marker::Copy for VideoDeviceControllerSetDevicePropertyStatus {}
+impl ::core::clone::Clone for VideoDeviceControllerSetDevicePropertyStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VideoDeviceControllerSetDevicePropertyStatus {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VideoDeviceControllerSetDevicePropertyStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VideoDeviceControllerSetDevicePropertyStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerSetDevicePropertyStatus").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerSetDevicePropertyStatus {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoDeviceControllerSetDevicePropertyStatus;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct VideoTemporalDenoisingMode(pub i32);
+impl VideoTemporalDenoisingMode {
+    pub const Off: Self = Self(0i32);
+    pub const On: Self = Self(1i32);
+    pub const Auto: Self = Self(2i32);
+}
+impl ::core::marker::Copy for VideoTemporalDenoisingMode {}
+impl ::core::clone::Clone for VideoTemporalDenoisingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for VideoTemporalDenoisingMode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for VideoTemporalDenoisingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VideoTemporalDenoisingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTemporalDenoisingMode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingMode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Devices.VideoTemporalDenoisingMode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct ZoomTransitionMode(pub i32);
 impl ZoomTransitionMode {
     pub const Auto: Self = Self(0i32);
@@ -8329,6 +7978,357 @@ unsafe impl ::windows::core::RuntimeType for ZoomTransitionMode {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct CallControlEventHandler(pub ::windows::core::IUnknown);
+impl CallControlEventHandler {
+    pub fn new<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = CallControlEventHandlerBox::<F> { vtable: &CallControlEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0>(&self, sender: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct CallControlEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const CallControlEventHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<CallControl>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> CallControlEventHandlerBox<F> {
+    const VTABLE: CallControlEventHandler_Vtbl = CallControlEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<CallControlEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender)).into()
+    }
+}
+impl ::core::clone::Clone for CallControlEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for CallControlEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for CallControlEventHandler {}
+impl ::core::fmt::Debug for CallControlEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallControlEventHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for CallControlEventHandler {
+    type Vtable = CallControlEventHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596f759f_50df_4454_bc63_4d3d01b61958);
+}
+unsafe impl ::windows::core::RuntimeType for CallControlEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{596f759f-50df-4454-bc63-4d3d01b61958}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct CallControlEventHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct DialRequestedEventHandler(pub ::windows::core::IUnknown);
+impl DialRequestedEventHandler {
+    pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = DialRequestedEventHandlerBox::<F> { vtable: &DialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, DialRequestedEventArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct DialRequestedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const DialRequestedEventHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<DialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> DialRequestedEventHandlerBox<F> {
+    const VTABLE: DialRequestedEventHandler_Vtbl = DialRequestedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<DialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
+    }
+}
+impl ::core::clone::Clone for DialRequestedEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for DialRequestedEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for DialRequestedEventHandler {}
+impl ::core::fmt::Debug for DialRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialRequestedEventHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for DialRequestedEventHandler {
+    type Vtable = DialRequestedEventHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4);
+}
+unsafe impl ::windows::core::RuntimeType for DialRequestedEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5abbffdb-c21f-4bc4-891b-257e28c1b1a4}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct DialRequestedEventHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct KeypadPressedEventHandler(pub ::windows::core::IUnknown);
+impl KeypadPressedEventHandler {
+    pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = KeypadPressedEventHandlerBox::<F> { vtable: &KeypadPressedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, KeypadPressedEventArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct KeypadPressedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const KeypadPressedEventHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<KeypadPressedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> KeypadPressedEventHandlerBox<F> {
+    const VTABLE: KeypadPressedEventHandler_Vtbl = KeypadPressedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<KeypadPressedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
+    }
+}
+impl ::core::clone::Clone for KeypadPressedEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for KeypadPressedEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for KeypadPressedEventHandler {}
+impl ::core::fmt::Debug for KeypadPressedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeypadPressedEventHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for KeypadPressedEventHandler {
+    type Vtable = KeypadPressedEventHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe637a454_c527_422c_8926_c9af83b559a0);
+}
+unsafe impl ::windows::core::RuntimeType for KeypadPressedEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e637a454-c527-422c-8926-c9af83b559a0}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct KeypadPressedEventHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Media_Devices\"`*"]
+#[repr(transparent)]
+pub struct RedialRequestedEventHandler(pub ::windows::core::IUnknown);
+impl RedialRequestedEventHandler {
+    pub fn new<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = RedialRequestedEventHandlerBox::<F> { vtable: &RedialRequestedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    pub fn Invoke<'a, P0, P1>(&self, sender: P0, e: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, CallControl>>,
+        P1: ::std::convert::Into<::windows::core::InParam<'a, RedialRequestedEventArgs>>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), sender.into().abi(), e.into().abi()).ok() }
+    }
+}
+#[repr(C)]
+struct RedialRequestedEventHandlerBox<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const RedialRequestedEventHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+impl<F: FnMut(&::core::option::Option<CallControl>, &::core::option::Option<RedialRequestedEventArgs>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> RedialRequestedEventHandlerBox<F> {
+    const VTABLE: RedialRequestedEventHandler_Vtbl = RedialRequestedEventHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<RedialRequestedEventHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&sender), ::core::mem::transmute(&e)).into()
+    }
+}
+impl ::core::clone::Clone for RedialRequestedEventHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for RedialRequestedEventHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for RedialRequestedEventHandler {}
+impl ::core::fmt::Debug for RedialRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RedialRequestedEventHandler").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for RedialRequestedEventHandler {
+    type Vtable = RedialRequestedEventHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1);
+}
+unsafe impl ::windows::core::RuntimeType for RedialRequestedEventHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{baf257d1-4ebd-4b84-9f47-6ec43d75d8b1}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct RedialRequestedEventHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

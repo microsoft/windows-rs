@@ -1,49 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DYNAMIC_TIME_ZONE_INFORMATION {
-    pub Bias: i32,
-    pub StandardName: [u16; 32],
-    pub StandardDate: super::super::Foundation::SYSTEMTIME,
-    pub StandardBias: i32,
-    pub DaylightName: [u16; 32],
-    pub DaylightDate: super::super::Foundation::SYSTEMTIME,
-    pub DaylightBias: i32,
-    pub TimeZoneKeyName: [u16; 128],
-    pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DYNAMIC_TIME_ZONE_INFORMATION>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -174,6 +128,92 @@ pub unsafe fn SystemTimeToTzSpecificLocalTimeEx(lptimezoneinformation: ::core::o
     }
     SystemTimeToTzSpecificLocalTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lpuniversaltime), ::core::mem::transmute(lplocaltime))
 }
+#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: ::core::option::Option<&TIME_ZONE_INFORMATION>, lplocaltime: &super::super::Foundation::SYSTEMTIME, lpuniversaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    }
+    TzSpecificLocalTimeToSystemTime(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime))
+}
+#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: ::core::option::Option<&DYNAMIC_TIME_ZONE_INFORMATION>, lplocaltime: &super::super::Foundation::SYSTEMTIME, lpuniversaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
+    }
+    TzSpecificLocalTimeToSystemTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime))
+}
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const TSF_Authenticated: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const TSF_Hardware: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const TSF_IPv6: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const TSF_SignatureAuthenticated: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const wszW32TimeRegKeyPolicyTimeProviders: &str = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const wszW32TimeRegKeyTimeProviders: &str = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const wszW32TimeRegValueDllName: &str = "DllName";
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const wszW32TimeRegValueEnabled: &str = "Enabled";
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const wszW32TimeRegValueInputProvider: &str = "InputProvider";
+#[doc = "*Required features: `\"Win32_System_Time\"`*"]
+pub const wszW32TimeRegValueMetaDataProvider: &str = "MetaDataProvider";
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DYNAMIC_TIME_ZONE_INFORMATION {
+    pub Bias: i32,
+    pub StandardName: [u16; 32],
+    pub StandardDate: super::super::Foundation::SYSTEMTIME,
+    pub StandardBias: i32,
+    pub DaylightName: [u16; 32],
+    pub DaylightDate: super::super::Foundation::SYSTEMTIME,
+    pub DaylightBias: i32,
+    pub TimeZoneKeyName: [u16; 128],
+    pub DynamicDaylightTimeDisabled: super::super::Foundation::BOOLEAN,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DYNAMIC_TIME_ZONE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("DYNAMIC_TIME_ZONE_INFORMATION").field("Bias", &self.Bias).field("StandardName", &self.StandardName).field("StandardDate", &self.StandardDate).field("StandardBias", &self.StandardBias).field("DaylightName", &self.DaylightName).field("DaylightDate", &self.DaylightDate).field("DaylightBias", &self.DaylightBias).field("TimeZoneKeyName", &self.TimeZoneKeyName).field("DynamicDaylightTimeDisabled", &self.DynamicDaylightTimeDisabled).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DYNAMIC_TIME_ZONE_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DYNAMIC_TIME_ZONE_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DYNAMIC_TIME_ZONE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for DYNAMIC_TIME_ZONE_INFORMATION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -218,45 +258,5 @@ impl ::core::default::Default for TIME_ZONE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const TSF_Authenticated: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const TSF_Hardware: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const TSF_IPv6: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const TSF_SignatureAuthenticated: u32 = 8u32;
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: ::core::option::Option<&TIME_ZONE_INFORMATION>, lplocaltime: &super::super::Foundation::SYSTEMTIME, lpuniversaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TzSpecificLocalTimeToSystemTime(lptimezoneinformation: *const TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
-    }
-    TzSpecificLocalTimeToSystemTime(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime))
-}
-#[doc = "*Required features: `\"Win32_System_Time\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: ::core::option::Option<&DYNAMIC_TIME_ZONE_INFORMATION>, lplocaltime: &super::super::Foundation::SYSTEMTIME, lpuniversaltime: &mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn TzSpecificLocalTimeToSystemTimeEx(lptimezoneinformation: *const DYNAMIC_TIME_ZONE_INFORMATION, lplocaltime: *const super::super::Foundation::SYSTEMTIME, lpuniversaltime: *mut super::super::Foundation::SYSTEMTIME) -> super::super::Foundation::BOOL;
-    }
-    TzSpecificLocalTimeToSystemTimeEx(::core::mem::transmute(lptimezoneinformation), ::core::mem::transmute(lplocaltime), ::core::mem::transmute(lpuniversaltime))
-}
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegKeyPolicyTimeProviders: &str = "Software\\Policies\\Microsoft\\W32Time\\TimeProviders";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegKeyTimeProviders: &str = "System\\CurrentControlSet\\Services\\W32Time\\TimeProviders";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueDllName: &str = "DllName";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueEnabled: &str = "Enabled";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueInputProvider: &str = "InputProvider";
-#[doc = "*Required features: `\"Win32_System_Time\"`*"]
-pub const wszW32TimeRegValueMetaDataProvider: &str = "MetaDataProvider";
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

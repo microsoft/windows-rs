@@ -498,43 +498,6 @@ unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IppAttributeErrorReason(pub i32);
-impl IppAttributeErrorReason {
-    pub const RequestEntityTooLarge: Self = Self(0i32);
-    pub const AttributeNotSupported: Self = Self(1i32);
-    pub const AttributeValuesNotSupported: Self = Self(2i32);
-    pub const AttributeNotSettable: Self = Self(3i32);
-    pub const ConflictingAttributes: Self = Self(4i32);
-}
-impl ::core::marker::Copy for IppAttributeErrorReason {}
-impl ::core::clone::Clone for IppAttributeErrorReason {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IppAttributeErrorReason {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IppAttributeErrorReason {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Printers\"`*"]
-#[repr(transparent)]
 pub struct IppAttributeValue(::windows::core::IUnknown);
 impl IppAttributeValue {
     pub fn Kind(&self) -> ::windows::core::Result<IppAttributeValueKind> {
@@ -1149,59 +1112,6 @@ unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IppAttributeValueKind(pub i32);
-impl IppAttributeValueKind {
-    pub const Unsupported: Self = Self(0i32);
-    pub const Unknown: Self = Self(1i32);
-    pub const NoValue: Self = Self(2i32);
-    pub const Integer: Self = Self(3i32);
-    pub const Boolean: Self = Self(4i32);
-    pub const Enum: Self = Self(5i32);
-    pub const OctetString: Self = Self(6i32);
-    pub const DateTime: Self = Self(7i32);
-    pub const Resolution: Self = Self(8i32);
-    pub const RangeOfInteger: Self = Self(9i32);
-    pub const Collection: Self = Self(10i32);
-    pub const TextWithLanguage: Self = Self(11i32);
-    pub const NameWithLanguage: Self = Self(12i32);
-    pub const TextWithoutLanguage: Self = Self(13i32);
-    pub const NameWithoutLanguage: Self = Self(14i32);
-    pub const Keyword: Self = Self(15i32);
-    pub const Uri: Self = Self(16i32);
-    pub const UriSchema: Self = Self(17i32);
-    pub const Charset: Self = Self(18i32);
-    pub const NaturalLanguage: Self = Self(19i32);
-    pub const MimeMediaType: Self = Self(20i32);
-}
-impl ::core::marker::Copy for IppAttributeValueKind {}
-impl ::core::clone::Clone for IppAttributeValueKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IppAttributeValueKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IppAttributeValueKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IppAttributeValueKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Printers\"`*"]
-#[repr(transparent)]
 pub struct IppIntegerRange(::windows::core::IUnknown);
 impl IppIntegerRange {
     pub fn Start(&self) -> ::windows::core::Result<i32> {
@@ -1526,40 +1436,6 @@ impl ::core::convert::From<&IppResolution> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
-#[doc = "*Required features: `\"Devices_Printers\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct IppResolutionUnit(pub i32);
-impl IppResolutionUnit {
-    pub const DotsPerInch: Self = Self(0i32);
-    pub const DotsPerCentimeter: Self = Self(1i32);
-}
-impl ::core::marker::Copy for IppResolutionUnit {}
-impl ::core::clone::Clone for IppResolutionUnit {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for IppResolutionUnit {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for IppResolutionUnit {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for IppResolutionUnit {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
 #[doc = "*Required features: `\"Devices_Printers\"`*"]
 #[repr(transparent)]
 pub struct IppSetAttributesResult(::windows::core::IUnknown);
@@ -1930,5 +1806,129 @@ impl ::core::convert::From<&PrintSchema> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for PrintSchema {}
 unsafe impl ::core::marker::Sync for PrintSchema {}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IppAttributeErrorReason(pub i32);
+impl IppAttributeErrorReason {
+    pub const RequestEntityTooLarge: Self = Self(0i32);
+    pub const AttributeNotSupported: Self = Self(1i32);
+    pub const AttributeValuesNotSupported: Self = Self(2i32);
+    pub const AttributeNotSettable: Self = Self(3i32);
+    pub const ConflictingAttributes: Self = Self(4i32);
+}
+impl ::core::marker::Copy for IppAttributeErrorReason {}
+impl ::core::clone::Clone for IppAttributeErrorReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IppAttributeErrorReason {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IppAttributeErrorReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IppAttributeErrorReason {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeErrorReason;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IppAttributeValueKind(pub i32);
+impl IppAttributeValueKind {
+    pub const Unsupported: Self = Self(0i32);
+    pub const Unknown: Self = Self(1i32);
+    pub const NoValue: Self = Self(2i32);
+    pub const Integer: Self = Self(3i32);
+    pub const Boolean: Self = Self(4i32);
+    pub const Enum: Self = Self(5i32);
+    pub const OctetString: Self = Self(6i32);
+    pub const DateTime: Self = Self(7i32);
+    pub const Resolution: Self = Self(8i32);
+    pub const RangeOfInteger: Self = Self(9i32);
+    pub const Collection: Self = Self(10i32);
+    pub const TextWithLanguage: Self = Self(11i32);
+    pub const NameWithLanguage: Self = Self(12i32);
+    pub const TextWithoutLanguage: Self = Self(13i32);
+    pub const NameWithoutLanguage: Self = Self(14i32);
+    pub const Keyword: Self = Self(15i32);
+    pub const Uri: Self = Self(16i32);
+    pub const UriSchema: Self = Self(17i32);
+    pub const Charset: Self = Self(18i32);
+    pub const NaturalLanguage: Self = Self(19i32);
+    pub const MimeMediaType: Self = Self(20i32);
+}
+impl ::core::marker::Copy for IppAttributeValueKind {}
+impl ::core::clone::Clone for IppAttributeValueKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IppAttributeValueKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IppAttributeValueKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IppAttributeValueKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IppAttributeValueKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppAttributeValueKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Devices_Printers\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct IppResolutionUnit(pub i32);
+impl IppResolutionUnit {
+    pub const DotsPerInch: Self = Self(0i32);
+    pub const DotsPerCentimeter: Self = Self(1i32);
+}
+impl ::core::marker::Copy for IppResolutionUnit {}
+impl ::core::clone::Clone for IppResolutionUnit {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for IppResolutionUnit {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for IppResolutionUnit {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IppResolutionUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IppResolutionUnit").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for IppResolutionUnit {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppResolutionUnit;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,3 +1,204 @@
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaActionableInsights(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaActionableInsights {
+    type Vtable = ICortanaActionableInsights_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaActionableInsights_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "System", feature = "deprecated"))]
+    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "System", feature = "deprecated")))]
+    User: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub IsAvailableAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    IsAvailableAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
+    pub ShowInsightsForImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagestream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
+    ShowInsightsForImageAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
+    pub ShowInsightsForImageWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagestream: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
+    ShowInsightsForImageWithOptionsAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub ShowInsightsForTextAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    ShowInsightsForTextAsync: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub ShowInsightsForTextWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    ShowInsightsForTextWithOptionsAsync: usize,
+    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
+    pub ShowInsightsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datapackage: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated")))]
+    ShowInsightsAsync: usize,
+    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
+    pub ShowInsightsWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datapackage: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated")))]
+    ShowInsightsWithOptionsAsync: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaActionableInsightsOptions(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaActionableInsightsOptions {
+    type Vtable = ICortanaActionableInsightsOptions_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaActionableInsightsOptions_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub ContentSourceWebLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    ContentSourceWebLink: usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+    pub SetContentSourceWebLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
+    SetContentSourceWebLink: usize,
+    #[cfg(feature = "deprecated")]
+    pub SurroundingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SurroundingText: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetSurroundingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetSurroundingText: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaActionableInsightsStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaActionableInsightsStatics {
+    type Vtable = ICortanaActionableInsightsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ded412_9d2f_5cb5_9b05_356a0b836c10);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaActionableInsightsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetDefault: usize,
+    #[cfg(all(feature = "System", feature = "deprecated"))]
+    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "System", feature = "deprecated")))]
+    GetForUser: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaPermissionsManager(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaPermissionsManager {
+    type Vtable = ICortanaPermissionsManager_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaPermissionsManager_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsSupported: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub ArePermissionsGrantedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    ArePermissionsGrantedAsync: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub GrantPermissionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    GrantPermissionsAsync: usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
+    pub RevokePermissionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
+    RevokePermissionsAsync: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaPermissionsManagerStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaPermissionsManagerStatics {
+    type Vtable = ICortanaPermissionsManagerStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b1e67a_b045_4414_9d6d_2ad3a5fe3a7e);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaPermissionsManagerStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetDefault: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaSettings(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaSettings {
+    type Vtable = ICortanaSettings_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaSettings_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub HasUserConsentToVoiceActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    HasUserConsentToVoiceActivation: usize,
+    #[cfg(feature = "deprecated")]
+    pub IsVoiceActivationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsVoiceActivationEnabled: usize,
+    #[cfg(feature = "deprecated")]
+    pub SetIsVoiceActivationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    SetIsVoiceActivationEnabled: usize,
+}
+#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+#[repr(transparent)]
+pub struct ICortanaSettingsStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Interface for ICortanaSettingsStatics {
+    type Vtable = ICortanaSettingsStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04);
+}
+#[cfg(feature = "deprecated")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICortanaSettingsStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "deprecated")]
+    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    IsSupported: usize,
+    #[cfg(feature = "deprecated")]
+    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))]
+    GetDefault: usize,
+}
 #[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
@@ -325,100 +526,6 @@ unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
 #[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CortanaPermission(pub i32);
-#[cfg(feature = "deprecated")]
-impl CortanaPermission {
-    pub const BrowsingHistory: Self = Self(0i32);
-    pub const Calendar: Self = Self(1i32);
-    pub const CallHistory: Self = Self(2i32);
-    pub const Contacts: Self = Self(3i32);
-    pub const Email: Self = Self(4i32);
-    pub const InputPersonalization: Self = Self(5i32);
-    pub const Location: Self = Self(6i32);
-    pub const Messaging: Self = Self(7i32);
-    pub const Microphone: Self = Self(8i32);
-    pub const Personalization: Self = Self(9i32);
-    pub const PhoneCall: Self = Self(10i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for CortanaPermission {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for CortanaPermission {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for CortanaPermission {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for CortanaPermission {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for CortanaPermission {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CortanaPermission").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for CortanaPermission {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CortanaPermissionsChangeResult(pub i32);
-#[cfg(feature = "deprecated")]
-impl CortanaPermissionsChangeResult {
-    pub const Success: Self = Self(0i32);
-    pub const Unavailable: Self = Self(1i32);
-    pub const DisabledByPolicy: Self = Self(2i32);
-}
-#[cfg(feature = "deprecated")]
-impl ::core::marker::Copy for CortanaPermissionsChangeResult {}
-#[cfg(feature = "deprecated")]
-impl ::core::clone::Clone for CortanaPermissionsChangeResult {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::default::Default for CortanaPermissionsChangeResult {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Abi for CortanaPermissionsChangeResult {
-    type Abi = Self;
-}
-#[cfg(feature = "deprecated")]
-impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CortanaPermissionsChangeResult").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
 pub struct CortanaPermissionsManager(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
 impl CortanaPermissionsManager {
@@ -692,206 +799,99 @@ impl ::core::convert::From<&CortanaSettings> for &::windows::core::IInspectable 
 unsafe impl ::core::marker::Send for CortanaSettings {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for CortanaSettings {}
-#[doc(hidden)]
+#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-pub struct ICortanaActionableInsights(::windows::core::IUnknown);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CortanaPermission(pub i32);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaActionableInsights {
-    type Vtable = ICortanaActionableInsights_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
+impl CortanaPermission {
+    pub const BrowsingHistory: Self = Self(0i32);
+    pub const Calendar: Self = Self(1i32);
+    pub const CallHistory: Self = Self(2i32);
+    pub const Contacts: Self = Self(3i32);
+    pub const Email: Self = Self(4i32);
+    pub const InputPersonalization: Self = Self(5i32);
+    pub const Location: Self = Self(6i32);
+    pub const Messaging: Self = Self(7i32);
+    pub const Microphone: Self = Self(8i32);
+    pub const Personalization: Self = Self(9i32);
+    pub const PhoneCall: Self = Self(10i32);
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaActionableInsights_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "System", feature = "deprecated"))]
-    pub User: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "System", feature = "deprecated")))]
-    User: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub IsAvailableAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    IsAvailableAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub ShowInsightsForImageAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagestream: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
-    ShowInsightsForImageAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))]
-    pub ShowInsightsForImageWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagestream: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))]
-    ShowInsightsForImageWithOptionsAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub ShowInsightsForTextAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    ShowInsightsForTextAsync: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub ShowInsightsForTextWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    ShowInsightsForTextWithOptionsAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
-    pub ShowInsightsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datapackage: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated")))]
-    ShowInsightsAsync: usize,
-    #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated"))]
-    pub ShowInsightsWithOptionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datapackage: *mut ::core::ffi::c_void, options: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "deprecated")))]
-    ShowInsightsWithOptionsAsync: usize,
+impl ::core::marker::Copy for CortanaPermission {}
+#[cfg(feature = "deprecated")]
+impl ::core::clone::Clone for CortanaPermission {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
-#[doc(hidden)]
+#[cfg(feature = "deprecated")]
+impl ::core::default::Default for CortanaPermission {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::Abi for CortanaPermission {
+    type Abi = Self;
+}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for CortanaPermission {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermission").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
+unsafe impl ::windows::core::RuntimeType for CortanaPermission {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermission;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Services_Cortana\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
-pub struct ICortanaActionableInsightsOptions(::windows::core::IUnknown);
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CortanaPermissionsChangeResult(pub i32);
 #[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaActionableInsightsOptions {
-    type Vtable = ICortanaActionableInsightsOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
+impl CortanaPermissionsChangeResult {
+    pub const Success: Self = Self(0i32);
+    pub const Unavailable: Self = Self(1i32);
+    pub const DisabledByPolicy: Self = Self(2i32);
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaActionableInsightsOptions_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub ContentSourceWebLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    ContentSourceWebLink: usize,
-    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
-    pub SetContentSourceWebLink: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))]
-    SetContentSourceWebLink: usize,
-    #[cfg(feature = "deprecated")]
-    pub SurroundingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SurroundingText: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetSurroundingText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetSurroundingText: usize,
-}
-#[doc(hidden)]
+impl ::core::marker::Copy for CortanaPermissionsChangeResult {}
 #[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ICortanaActionableInsightsStatics(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaActionableInsightsStatics {
-    type Vtable = ICortanaActionableInsightsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ded412_9d2f_5cb5_9b05_356a0b836c10);
+impl ::core::clone::Clone for CortanaPermissionsChangeResult {
+    fn clone(&self) -> Self {
+        *self
+    }
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaActionableInsightsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDefault: usize,
-    #[cfg(all(feature = "System", feature = "deprecated"))]
-    pub GetForUser: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "System", feature = "deprecated")))]
-    GetForUser: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ICortanaPermissionsManager(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaPermissionsManager {
-    type Vtable = ICortanaPermissionsManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
+impl ::core::default::Default for CortanaPermissionsChangeResult {
+    fn default() -> Self {
+        Self(0)
+    }
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaPermissionsManager_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    IsSupported: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub ArePermissionsGrantedAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    ArePermissionsGrantedAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub GrantPermissionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    GrantPermissionsAsync: usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
-    pub RevokePermissionsAsync: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, permissions: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))]
-    RevokePermissionsAsync: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ICortanaPermissionsManagerStatics(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaPermissionsManagerStatics {
-    type Vtable = ICortanaPermissionsManagerStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76b1e67a_b045_4414_9d6d_2ad3a5fe3a7e);
+unsafe impl ::windows::core::Abi for CortanaPermissionsChangeResult {
+    type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaPermissionsManagerStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDefault: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ICortanaSettings(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaSettings {
-    type Vtable = ICortanaSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
+impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CortanaPermissionsChangeResult").field(&self.0).finish()
+    }
 }
 #[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaSettings_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub HasUserConsentToVoiceActivation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    HasUserConsentToVoiceActivation: usize,
-    #[cfg(feature = "deprecated")]
-    pub IsVoiceActivationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    IsVoiceActivationEnabled: usize,
-    #[cfg(feature = "deprecated")]
-    pub SetIsVoiceActivationEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    SetIsVoiceActivationEnabled: usize,
-}
-#[doc(hidden)]
-#[cfg(feature = "deprecated")]
-#[repr(transparent)]
-pub struct ICortanaSettingsStatics(::windows::core::IUnknown);
-#[cfg(feature = "deprecated")]
-unsafe impl ::windows::core::Interface for ICortanaSettingsStatics {
-    type Vtable = ICortanaSettingsStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2ccd7e_2ec0_446d_9285_33f07ce8ac04);
-}
-#[cfg(feature = "deprecated")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICortanaSettingsStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "deprecated")]
-    pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    IsSupported: usize,
-    #[cfg(feature = "deprecated")]
-    pub GetDefault: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "deprecated"))]
-    GetDefault: usize,
+unsafe impl ::windows::core::RuntimeType for CortanaPermissionsChangeResult {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Services.Cortana.CortanaPermissionsChangeResult;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

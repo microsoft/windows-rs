@@ -1,3 +1,120 @@
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGeofence(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGeofence {
+    type Vtable = IGeofence_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGeofence_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    #[cfg(feature = "Foundation")]
+    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    StartTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    Duration: usize,
+    #[cfg(feature = "Foundation")]
+    pub DwellTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    DwellTime: usize,
+    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    pub MonitoredStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MonitoredGeofenceStates) -> ::windows::core::HRESULT,
+    pub Geoshape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SingleUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGeofenceFactory(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGeofenceFactory {
+    type Vtable = IGeofenceFactory_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGeofenceFactory_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub CreateWithMonitorStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, monitoredstates: MonitoredGeofenceStates, singleuse: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub CreateWithMonitorStatesAndDwellTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateWithMonitorStatesAndDwellTime: usize,
+    #[cfg(feature = "Foundation")]
+    pub CreateWithMonitorStatesDwellTimeStartTimeAndDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    CreateWithMonitorStatesDwellTimeStartTimeAndDuration: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGeofenceMonitor(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGeofenceMonitor {
+    type Vtable = IGeofenceMonitor_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGeofenceMonitor_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceMonitorStatus) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Geofences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Geofences: usize,
+    pub LastKnownGeoposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Foundation")]
+    pub GeofenceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    GeofenceStateChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveGeofenceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveGeofenceStateChanged: usize,
+    #[cfg(feature = "Foundation_Collections")]
+    pub ReadReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    ReadReports: usize,
+    #[cfg(feature = "Foundation")]
+    pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    StatusChanged: usize,
+    #[cfg(feature = "Foundation")]
+    pub RemoveStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation"))]
+    RemoveStatusChanged: usize,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGeofenceMonitorStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGeofenceMonitorStatics {
+    type Vtable = IGeofenceMonitorStatics_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGeofenceMonitorStatics_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+}
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IGeofenceStateChangeReport(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IGeofenceStateChangeReport {
+    type Vtable = IGeofenceStateChangeReport_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGeofenceStateChangeReport_Vtbl {
+    pub base__: ::windows::core::IInspectableVtbl,
+    pub NewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceState) -> ::windows::core::HRESULT,
+    pub Geofence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub Geoposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub RemovalReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceRemovalReason) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
 pub struct Geofence(::windows::core::IUnknown);
@@ -317,6 +434,101 @@ unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]
+pub struct GeofenceStateChangeReport(::windows::core::IUnknown);
+impl GeofenceStateChangeReport {
+    pub fn NewState(&self) -> ::windows::core::Result<GeofenceState> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NewState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeofenceState>(result__)
+        }
+    }
+    pub fn Geofence(&self) -> ::windows::core::Result<Geofence> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Geofence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
+        }
+    }
+    pub fn Geoposition(&self) -> ::windows::core::Result<super::Geoposition> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Geoposition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Geoposition>(result__)
+        }
+    }
+    pub fn RemovalReason(&self) -> ::windows::core::Result<GeofenceRemovalReason> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).RemovalReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeofenceRemovalReason>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for GeofenceStateChangeReport {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for GeofenceStateChangeReport {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for GeofenceStateChangeReport {}
+impl ::core::fmt::Debug for GeofenceStateChangeReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceStateChangeReport").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
+    type Vtable = IGeofenceStateChangeReport_Vtbl;
+    const IID: ::windows::core::GUID = <IGeofenceStateChangeReport as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for GeofenceStateChangeReport {
+    const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
+}
+impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IUnknown {
+    fn from(value: GeofenceStateChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IUnknown {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IUnknown {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IInspectable {
+    fn from(value: GeofenceStateChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IInspectable {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IInspectable {
+    fn from(value: &GeofenceStateChangeReport) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for GeofenceStateChangeReport {}
+unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
+#[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
+#[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
@@ -450,218 +662,6 @@ unsafe impl ::windows::core::RuntimeType for GeofenceState {
     fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
         Ok(*from)
     }
-}
-#[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
-#[repr(transparent)]
-pub struct GeofenceStateChangeReport(::windows::core::IUnknown);
-impl GeofenceStateChangeReport {
-    pub fn NewState(&self) -> ::windows::core::Result<GeofenceState> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NewState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeofenceState>(result__)
-        }
-    }
-    pub fn Geofence(&self) -> ::windows::core::Result<Geofence> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Geofence)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Geofence>(result__)
-        }
-    }
-    pub fn Geoposition(&self) -> ::windows::core::Result<super::Geoposition> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Geoposition)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Geoposition>(result__)
-        }
-    }
-    pub fn RemovalReason(&self) -> ::windows::core::Result<GeofenceRemovalReason> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).RemovalReason)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<GeofenceRemovalReason>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for GeofenceStateChangeReport {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for GeofenceStateChangeReport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceStateChangeReport {}
-impl ::core::fmt::Debug for GeofenceStateChangeReport {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("GeofenceStateChangeReport").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for GeofenceStateChangeReport {
-    type Vtable = IGeofenceStateChangeReport_Vtbl;
-    const IID: ::windows::core::GUID = <IGeofenceStateChangeReport as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for GeofenceStateChangeReport {
-    const NAME: &'static str = "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport";
-}
-impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IUnknown {
-    fn from(value: GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IUnknown {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IUnknown {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<GeofenceStateChangeReport> for ::windows::core::IInspectable {
-    fn from(value: GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for ::windows::core::IInspectable {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&GeofenceStateChangeReport> for &::windows::core::IInspectable {
-    fn from(value: &GeofenceStateChangeReport) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for GeofenceStateChangeReport {}
-unsafe impl ::core::marker::Sync for GeofenceStateChangeReport {}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGeofence(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeofence {
-    type Vtable = IGeofence_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c090823_edb8_47e0_8245_5bf61d321f2d);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGeofence_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    #[cfg(feature = "Foundation")]
-    pub StartTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StartTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub Duration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    Duration: usize,
-    #[cfg(feature = "Foundation")]
-    pub DwellTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    DwellTime: usize,
-    pub Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub MonitoredStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut MonitoredGeofenceStates) -> ::windows::core::HRESULT,
-    pub Geoshape: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SingleUse: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGeofenceFactory(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeofenceFactory {
-    type Vtable = IGeofenceFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841f624b_325f_4b90_bca7_2b8022a93796);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGeofenceFactory_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Create: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub CreateWithMonitorStates: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, monitoredstates: MonitoredGeofenceStates, singleuse: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub CreateWithMonitorStatesAndDwellTime: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWithMonitorStatesAndDwellTime: usize,
-    #[cfg(feature = "Foundation")]
-    pub CreateWithMonitorStatesDwellTimeStartTimeAndDuration: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, geoshape: *mut ::core::ffi::c_void, monitoredstates: MonitoredGeofenceStates, singleuse: bool, dwelltime: super::super::super::Foundation::TimeSpan, starttime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    CreateWithMonitorStatesDwellTimeStartTimeAndDuration: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGeofenceMonitor(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeofenceMonitor {
-    type Vtable = IGeofenceMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c0f5f78_1c1f_4621_bbbd_833b92247226);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGeofenceMonitor_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Status: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceMonitorStatus) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Geofences: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Geofences: usize,
-    pub LastKnownGeoposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub GeofenceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    GeofenceStateChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveGeofenceStateChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveGeofenceStateChanged: usize,
-    #[cfg(feature = "Foundation_Collections")]
-    pub ReadReports: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    ReadReports: usize,
-    #[cfg(feature = "Foundation")]
-    pub StatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, eventhandler: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    StatusChanged: usize,
-    #[cfg(feature = "Foundation")]
-    pub RemoveStatusChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))]
-    RemoveStatusChanged: usize,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGeofenceMonitorStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeofenceMonitorStatics {
-    type Vtable = IGeofenceMonitorStatics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGeofenceMonitorStatics_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub Current: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-}
-#[doc(hidden)]
-#[repr(transparent)]
-pub struct IGeofenceStateChangeReport(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IGeofenceStateChangeReport {
-    type Vtable = IGeofenceStateChangeReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a243c18_2464_4c89_be05_b3ffff5babc5);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IGeofenceStateChangeReport_Vtbl {
-    pub base__: ::windows::core::IInspectableVtbl,
-    pub NewState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceState) -> ::windows::core::HRESULT,
-    pub Geofence: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub Geoposition: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub RemovalReason: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut GeofenceRemovalReason) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Geolocation_Geofencing\"`*"]
 #[repr(transparent)]

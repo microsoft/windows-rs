@@ -779,6 +779,8 @@ pub const UIRibbonImageFromBitmapFactory: ::windows::core::GUID = ::windows::cor
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 pub const UI_ALL_COMMANDS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
+pub const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct UI_COLLECTIONCHANGE(pub i32);
@@ -809,8 +811,6 @@ impl ::core::fmt::Debug for UI_COLLECTIONCHANGE {
         f.debug_tuple("UI_COLLECTIONCHANGE").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-pub const UI_COLLECTION_INVALIDINDEX: u32 = 4294967295u32;
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -945,93 +945,6 @@ unsafe impl ::windows::core::Abi for UI_EVENTLOCATION {
 impl ::core::fmt::Debug for UI_EVENTLOCATION {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UI_EVENTLOCATION").field(&self.0).finish()
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-pub struct UI_EVENTPARAMS {
-    pub EventType: UI_EVENTTYPE,
-    pub Anonymous: UI_EVENTPARAMS_0,
-}
-impl ::core::marker::Copy for UI_EVENTPARAMS {}
-impl ::core::clone::Clone for UI_EVENTPARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for UI_EVENTPARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UI_EVENTPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UI_EVENTPARAMS {}
-impl ::core::default::Default for UI_EVENTPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-pub union UI_EVENTPARAMS_0 {
-    pub Modes: i32,
-    pub Params: UI_EVENTPARAMS_COMMAND,
-}
-impl ::core::marker::Copy for UI_EVENTPARAMS_0 {}
-impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_0 {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UI_EVENTPARAMS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_0>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UI_EVENTPARAMS_0 {}
-impl ::core::default::Default for UI_EVENTPARAMS_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
-pub struct UI_EVENTPARAMS_COMMAND {
-    pub CommandID: u32,
-    pub CommandName: ::windows::core::PCWSTR,
-    pub ParentCommandID: u32,
-    pub ParentCommandName: ::windows::core::PCWSTR,
-    pub SelectionIndex: u32,
-    pub Location: UI_EVENTLOCATION,
-}
-impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
-impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_COMMAND {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for UI_EVENTPARAMS_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_COMMAND>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for UI_EVENTPARAMS_COMMAND {}
-impl ::core::default::Default for UI_EVENTPARAMS_COMMAND {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
@@ -1386,6 +1299,93 @@ unsafe impl ::windows::core::Abi for UI_VIEWVERB {
 impl ::core::fmt::Debug for UI_VIEWVERB {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UI_VIEWVERB").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
+pub struct UI_EVENTPARAMS {
+    pub EventType: UI_EVENTTYPE,
+    pub Anonymous: UI_EVENTPARAMS_0,
+}
+impl ::core::marker::Copy for UI_EVENTPARAMS {}
+impl ::core::clone::Clone for UI_EVENTPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_EVENTPARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UI_EVENTPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UI_EVENTPARAMS {}
+impl ::core::default::Default for UI_EVENTPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
+pub union UI_EVENTPARAMS_0 {
+    pub Modes: i32,
+    pub Params: UI_EVENTPARAMS_COMMAND,
+}
+impl ::core::marker::Copy for UI_EVENTPARAMS_0 {}
+impl ::core::clone::Clone for UI_EVENTPARAMS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UI_EVENTPARAMS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UI_EVENTPARAMS_0 {}
+impl ::core::default::Default for UI_EVENTPARAMS_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Ribbon\"`*"]
+pub struct UI_EVENTPARAMS_COMMAND {
+    pub CommandID: u32,
+    pub CommandName: ::windows::core::PCWSTR,
+    pub ParentCommandID: u32,
+    pub ParentCommandName: ::windows::core::PCWSTR,
+    pub SelectionIndex: u32,
+    pub Location: UI_EVENTLOCATION,
+}
+impl ::core::marker::Copy for UI_EVENTPARAMS_COMMAND {}
+impl ::core::clone::Clone for UI_EVENTPARAMS_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for UI_EVENTPARAMS_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("UI_EVENTPARAMS_COMMAND").field("CommandID", &self.CommandID).field("CommandName", &self.CommandName).field("ParentCommandID", &self.ParentCommandID).field("ParentCommandName", &self.ParentCommandName).field("SelectionIndex", &self.SelectionIndex).field("Location", &self.Location).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for UI_EVENTPARAMS_COMMAND {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UI_EVENTPARAMS_COMMAND {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UI_EVENTPARAMS_COMMAND>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UI_EVENTPARAMS_COMMAND {}
+impl ::core::default::Default for UI_EVENTPARAMS_COMMAND {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 #[cfg(feature = "implement")]

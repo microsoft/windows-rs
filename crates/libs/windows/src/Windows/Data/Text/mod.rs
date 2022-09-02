@@ -1,128 +1,3 @@
-#[doc = "*Required features: `\"Data_Text\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct AlternateNormalizationFormat(pub i32);
-impl AlternateNormalizationFormat {
-    pub const NotNormalized: Self = Self(0i32);
-    pub const Number: Self = Self(1i32);
-    pub const Currency: Self = Self(3i32);
-    pub const Date: Self = Self(4i32);
-    pub const Time: Self = Self(5i32);
-}
-impl ::core::marker::Copy for AlternateNormalizationFormat {}
-impl ::core::clone::Clone for AlternateNormalizationFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for AlternateNormalizationFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for AlternateNormalizationFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for AlternateNormalizationFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AlternateNormalizationFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Data_Text\"`*"]
-#[repr(transparent)]
-pub struct AlternateWordForm(::windows::core::IUnknown);
-impl AlternateWordForm {
-    pub fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
-        }
-    }
-    pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn NormalizationFormat(&self) -> ::windows::core::Result<AlternateNormalizationFormat> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizationFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AlternateNormalizationFormat>(result__)
-        }
-    }
-}
-impl ::core::clone::Clone for AlternateWordForm {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for AlternateWordForm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlternateWordForm {}
-impl ::core::fmt::Debug for AlternateWordForm {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AlternateWordForm").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for AlternateWordForm {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.AlternateWordForm;{47396c1e-51b9-4207-9146-248e636a1d1d})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for AlternateWordForm {
-    type Vtable = IAlternateWordForm_Vtbl;
-    const IID: ::windows::core::GUID = <IAlternateWordForm as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for AlternateWordForm {
-    const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
-}
-impl ::core::convert::From<AlternateWordForm> for ::windows::core::IUnknown {
-    fn from(value: AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IUnknown {
-    fn from(value: &AlternateWordForm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IUnknown {
-    fn from(value: &AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<AlternateWordForm> for ::windows::core::IInspectable {
-    fn from(value: AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IInspectable {
-    fn from(value: &AlternateWordForm) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IInspectable {
-    fn from(value: &AlternateWordForm) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for AlternateWordForm {}
-unsafe impl ::core::marker::Sync for AlternateWordForm {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAlternateWordForm(::windows::core::IUnknown);
@@ -464,6 +339,94 @@ pub struct IWordsSegmenterFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
+pub struct AlternateWordForm(::windows::core::IUnknown);
+impl AlternateWordForm {
+    pub fn SourceTextSegment(&self) -> ::windows::core::Result<TextSegment> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).SourceTextSegment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TextSegment>(result__)
+        }
+    }
+    pub fn AlternateText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).AlternateText)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn NormalizationFormat(&self) -> ::windows::core::Result<AlternateNormalizationFormat> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).NormalizationFormat)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AlternateNormalizationFormat>(result__)
+        }
+    }
+}
+impl ::core::clone::Clone for AlternateWordForm {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for AlternateWordForm {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AlternateWordForm {}
+impl ::core::fmt::Debug for AlternateWordForm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlternateWordForm").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AlternateWordForm {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Text.AlternateWordForm;{47396c1e-51b9-4207-9146-248e636a1d1d})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for AlternateWordForm {
+    type Vtable = IAlternateWordForm_Vtbl;
+    const IID: ::windows::core::GUID = <IAlternateWordForm as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for AlternateWordForm {
+    const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
+}
+impl ::core::convert::From<AlternateWordForm> for ::windows::core::IUnknown {
+    fn from(value: AlternateWordForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IUnknown {
+    fn from(value: &AlternateWordForm) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IUnknown {
+    fn from(value: &AlternateWordForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<AlternateWordForm> for ::windows::core::IInspectable {
+    fn from(value: AlternateWordForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&AlternateWordForm> for ::windows::core::IInspectable {
+    fn from(value: &AlternateWordForm) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&AlternateWordForm> for &::windows::core::IInspectable {
+    fn from(value: &AlternateWordForm) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for AlternateWordForm {}
+unsafe impl ::core::marker::Sync for AlternateWordForm {}
+#[doc = "*Required features: `\"Data_Text\"`*"]
+#[repr(transparent)]
 pub struct SelectableWordSegment(::windows::core::IUnknown);
 impl SelectableWordSegment {
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -543,112 +506,6 @@ impl ::core::convert::From<&SelectableWordSegment> for &::windows::core::IInspec
 }
 unsafe impl ::core::marker::Send for SelectableWordSegment {}
 unsafe impl ::core::marker::Sync for SelectableWordSegment {}
-#[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-pub struct SelectableWordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl SelectableWordSegmentsTokenizingHandler {
-    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = SelectableWordSegmentsTokenizingHandlerBox::<F> { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, P0, E0, P1, E1>(&self, precedingwords: P0, words: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-struct SelectableWordSegmentsTokenizingHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const SelectableWordSegmentsTokenizingHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
-    const VTABLE: SelectableWordSegmentsTokenizingHandler_Vtbl = SelectableWordSegmentsTokenizingHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<SelectableWordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&precedingwords), ::core::mem::transmute(&words)).into()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for SelectableWordSegmentsTokenizingHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for SelectableWordSegmentsTokenizingHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for SelectableWordSegmentsTokenizingHandler {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for SelectableWordSegmentsTokenizingHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("SelectableWordSegmentsTokenizingHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for SelectableWordSegmentsTokenizingHandler {
-    type Vtable = SelectableWordSegmentsTokenizingHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3a3dfc9c-aede-4dc7-9e6c-41c044bd3592}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Invoke: usize,
-}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 pub struct SelectableWordsSegmenter(::windows::core::IUnknown);
@@ -1205,69 +1062,6 @@ unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct TextPredictionOptions(pub u32);
-impl TextPredictionOptions {
-    pub const None: Self = Self(0u32);
-    pub const Predictions: Self = Self(1u32);
-    pub const Corrections: Self = Self(2u32);
-}
-impl ::core::marker::Copy for TextPredictionOptions {}
-impl ::core::clone::Clone for TextPredictionOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for TextPredictionOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for TextPredictionOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for TextPredictionOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for TextPredictionOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for TextPredictionOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TextPredictionOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TextPredictionOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for TextPredictionOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for TextPredictionOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Data_Text\"`*"]
-#[repr(transparent)]
 pub struct TextReverseConversionGenerator(::windows::core::IUnknown);
 impl TextReverseConversionGenerator {
     pub fn ResolvedLanguage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1376,44 +1170,6 @@ impl ::core::convert::From<&TextReverseConversionGenerator> for &::windows::core
 }
 unsafe impl ::core::marker::Send for TextReverseConversionGenerator {}
 unsafe impl ::core::marker::Sync for TextReverseConversionGenerator {}
-#[repr(C)]
-#[doc = "*Required features: `\"Data_Text\"`*"]
-pub struct TextSegment {
-    pub StartPosition: u32,
-    pub Length: u32,
-}
-impl ::core::marker::Copy for TextSegment {}
-impl ::core::clone::Clone for TextSegment {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for TextSegment {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("TextSegment").field("StartPosition", &self.StartPosition).field("Length", &self.Length).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for TextSegment {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for TextSegment {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Data.Text.TextSegment;u4;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-impl ::core::cmp::PartialEq for TextSegment {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TextSegment>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for TextSegment {}
-impl ::core::default::Default for TextSegment {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 pub struct UnicodeCharacters;
 impl UnicodeCharacters {
@@ -1527,104 +1283,6 @@ impl ::windows::core::RuntimeName for UnicodeCharacters {
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UnicodeGeneralCategory(pub i32);
-impl UnicodeGeneralCategory {
-    pub const UppercaseLetter: Self = Self(0i32);
-    pub const LowercaseLetter: Self = Self(1i32);
-    pub const TitlecaseLetter: Self = Self(2i32);
-    pub const ModifierLetter: Self = Self(3i32);
-    pub const OtherLetter: Self = Self(4i32);
-    pub const NonspacingMark: Self = Self(5i32);
-    pub const SpacingCombiningMark: Self = Self(6i32);
-    pub const EnclosingMark: Self = Self(7i32);
-    pub const DecimalDigitNumber: Self = Self(8i32);
-    pub const LetterNumber: Self = Self(9i32);
-    pub const OtherNumber: Self = Self(10i32);
-    pub const SpaceSeparator: Self = Self(11i32);
-    pub const LineSeparator: Self = Self(12i32);
-    pub const ParagraphSeparator: Self = Self(13i32);
-    pub const Control: Self = Self(14i32);
-    pub const Format: Self = Self(15i32);
-    pub const Surrogate: Self = Self(16i32);
-    pub const PrivateUse: Self = Self(17i32);
-    pub const ConnectorPunctuation: Self = Self(18i32);
-    pub const DashPunctuation: Self = Self(19i32);
-    pub const OpenPunctuation: Self = Self(20i32);
-    pub const ClosePunctuation: Self = Self(21i32);
-    pub const InitialQuotePunctuation: Self = Self(22i32);
-    pub const FinalQuotePunctuation: Self = Self(23i32);
-    pub const OtherPunctuation: Self = Self(24i32);
-    pub const MathSymbol: Self = Self(25i32);
-    pub const CurrencySymbol: Self = Self(26i32);
-    pub const ModifierSymbol: Self = Self(27i32);
-    pub const OtherSymbol: Self = Self(28i32);
-    pub const NotAssigned: Self = Self(29i32);
-}
-impl ::core::marker::Copy for UnicodeGeneralCategory {}
-impl ::core::clone::Clone for UnicodeGeneralCategory {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnicodeGeneralCategory {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UnicodeGeneralCategory {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UnicodeGeneralCategory {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Data_Text\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct UnicodeNumericType(pub i32);
-impl UnicodeNumericType {
-    pub const None: Self = Self(0i32);
-    pub const Decimal: Self = Self(1i32);
-    pub const Digit: Self = Self(2i32);
-    pub const Numeric: Self = Self(3i32);
-}
-impl ::core::marker::Copy for UnicodeNumericType {}
-impl ::core::clone::Clone for UnicodeNumericType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for UnicodeNumericType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for UnicodeNumericType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for UnicodeNumericType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("UnicodeNumericType").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for UnicodeNumericType {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Data_Text\"`*"]
-#[repr(transparent)]
 pub struct WordSegment(::windows::core::IUnknown);
 impl WordSegment {
     pub fn Text(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1713,112 +1371,6 @@ impl ::core::convert::From<&WordSegment> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for WordSegment {}
 unsafe impl ::core::marker::Sync for WordSegment {}
-#[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
-#[cfg(feature = "Foundation_Collections")]
-#[repr(transparent)]
-pub struct WordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
-#[cfg(feature = "Foundation_Collections")]
-impl WordSegmentsTokenizingHandler {
-    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
-        let com = WordSegmentsTokenizingHandlerBox::<F> { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
-        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
-    }
-    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Invoke<'a, P0, E0, P1, E1>(&self, precedingwords: P0, words: P1) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Error = E1>,
-        E1: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-struct WordSegmentsTokenizingHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
-    vtable: *const WordSegmentsTokenizingHandler_Vtbl,
-    invoke: F,
-    count: ::windows::core::RefCount,
-}
-#[cfg(feature = "Foundation_Collections")]
-impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
-    const VTABLE: WordSegmentsTokenizingHandler_Vtbl = WordSegmentsTokenizingHandler_Vtbl {
-        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
-        Invoke: Self::Invoke,
-    };
-    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        *interface = if iid == &<WordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
-        if (*interface).is_null() {
-            ::windows::core::HRESULT(-2147467262)
-        } else {
-            (*this).count.add_ref();
-            ::windows::core::HRESULT(0)
-        }
-    }
-    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        (*this).count.add_ref()
-    }
-    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        let remaining = (*this).count.release();
-        if remaining == 0 {
-            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
-        }
-        remaining
-    }
-    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
-        ((*this).invoke)(::core::mem::transmute(&precedingwords), ::core::mem::transmute(&words)).into()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::clone::Clone for WordSegmentsTokenizingHandler {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::PartialEq for WordSegmentsTokenizingHandler {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::cmp::Eq for WordSegmentsTokenizingHandler {}
-#[cfg(feature = "Foundation_Collections")]
-impl ::core::fmt::Debug for WordSegmentsTokenizingHandler {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WordSegmentsTokenizingHandler").field(&self.0).finish()
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::Interface for WordSegmentsTokenizingHandler {
-    type Vtable = WordSegmentsTokenizingHandler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
-}
-#[cfg(feature = "Foundation_Collections")]
-unsafe impl ::windows::core::RuntimeType for WordSegmentsTokenizingHandler {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5dd6357-bf2a-4c4f-a31f-29e71c6f8b35}");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-#[cfg(feature = "Foundation_Collections")]
-#[repr(C)]
-#[doc(hidden)]
-pub struct WordSegmentsTokenizingHandler_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(feature = "Foundation_Collections")]
-    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))]
-    Invoke: usize,
-}
 #[doc = "*Required features: `\"Data_Text\"`*"]
 #[repr(transparent)]
 pub struct WordsSegmenter(::windows::core::IUnknown);
@@ -1929,5 +1481,453 @@ impl ::core::convert::From<&WordsSegmenter> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for WordsSegmenter {}
 unsafe impl ::core::marker::Sync for WordsSegmenter {}
+#[doc = "*Required features: `\"Data_Text\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct AlternateNormalizationFormat(pub i32);
+impl AlternateNormalizationFormat {
+    pub const NotNormalized: Self = Self(0i32);
+    pub const Number: Self = Self(1i32);
+    pub const Currency: Self = Self(3i32);
+    pub const Date: Self = Self(4i32);
+    pub const Time: Self = Self(5i32);
+}
+impl ::core::marker::Copy for AlternateNormalizationFormat {}
+impl ::core::clone::Clone for AlternateNormalizationFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for AlternateNormalizationFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for AlternateNormalizationFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AlternateNormalizationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for AlternateNormalizationFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.AlternateNormalizationFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Data_Text\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct TextPredictionOptions(pub u32);
+impl TextPredictionOptions {
+    pub const None: Self = Self(0u32);
+    pub const Predictions: Self = Self(1u32);
+    pub const Corrections: Self = Self(2u32);
+}
+impl ::core::marker::Copy for TextPredictionOptions {}
+impl ::core::clone::Clone for TextPredictionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for TextPredictionOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for TextPredictionOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TextPredictionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TextPredictionOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TextPredictionOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TextPredictionOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TextPredictionOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TextPredictionOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for TextPredictionOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.TextPredictionOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Data_Text\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UnicodeGeneralCategory(pub i32);
+impl UnicodeGeneralCategory {
+    pub const UppercaseLetter: Self = Self(0i32);
+    pub const LowercaseLetter: Self = Self(1i32);
+    pub const TitlecaseLetter: Self = Self(2i32);
+    pub const ModifierLetter: Self = Self(3i32);
+    pub const OtherLetter: Self = Self(4i32);
+    pub const NonspacingMark: Self = Self(5i32);
+    pub const SpacingCombiningMark: Self = Self(6i32);
+    pub const EnclosingMark: Self = Self(7i32);
+    pub const DecimalDigitNumber: Self = Self(8i32);
+    pub const LetterNumber: Self = Self(9i32);
+    pub const OtherNumber: Self = Self(10i32);
+    pub const SpaceSeparator: Self = Self(11i32);
+    pub const LineSeparator: Self = Self(12i32);
+    pub const ParagraphSeparator: Self = Self(13i32);
+    pub const Control: Self = Self(14i32);
+    pub const Format: Self = Self(15i32);
+    pub const Surrogate: Self = Self(16i32);
+    pub const PrivateUse: Self = Self(17i32);
+    pub const ConnectorPunctuation: Self = Self(18i32);
+    pub const DashPunctuation: Self = Self(19i32);
+    pub const OpenPunctuation: Self = Self(20i32);
+    pub const ClosePunctuation: Self = Self(21i32);
+    pub const InitialQuotePunctuation: Self = Self(22i32);
+    pub const FinalQuotePunctuation: Self = Self(23i32);
+    pub const OtherPunctuation: Self = Self(24i32);
+    pub const MathSymbol: Self = Self(25i32);
+    pub const CurrencySymbol: Self = Self(26i32);
+    pub const ModifierSymbol: Self = Self(27i32);
+    pub const OtherSymbol: Self = Self(28i32);
+    pub const NotAssigned: Self = Self(29i32);
+}
+impl ::core::marker::Copy for UnicodeGeneralCategory {}
+impl ::core::clone::Clone for UnicodeGeneralCategory {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UnicodeGeneralCategory {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UnicodeGeneralCategory {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UnicodeGeneralCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UnicodeGeneralCategory {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeGeneralCategory;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Data_Text\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct UnicodeNumericType(pub i32);
+impl UnicodeNumericType {
+    pub const None: Self = Self(0i32);
+    pub const Decimal: Self = Self(1i32);
+    pub const Digit: Self = Self(2i32);
+    pub const Numeric: Self = Self(3i32);
+}
+impl ::core::marker::Copy for UnicodeNumericType {}
+impl ::core::clone::Clone for UnicodeNumericType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for UnicodeNumericType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for UnicodeNumericType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UnicodeNumericType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnicodeNumericType").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for UnicodeNumericType {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Data.Text.UnicodeNumericType;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Data_Text\"`*"]
+pub struct TextSegment {
+    pub StartPosition: u32,
+    pub Length: u32,
+}
+impl ::core::marker::Copy for TextSegment {}
+impl ::core::clone::Clone for TextSegment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::fmt::Debug for TextSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("TextSegment").field("StartPosition", &self.StartPosition).field("Length", &self.Length).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TextSegment {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for TextSegment {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Data.Text.TextSegment;u4;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+impl ::core::cmp::PartialEq for TextSegment {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TextSegment>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TextSegment {}
+impl ::core::default::Default for TextSegment {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+pub struct SelectableWordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+impl SelectableWordSegmentsTokenizingHandler {
+    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = SelectableWordSegmentsTokenizingHandlerBox::<F> { vtable: &SelectableWordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Invoke<'a, P0, E0, P1, E1>(&self, precedingwords: P0, words: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+struct SelectableWordSegmentsTokenizingHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const SelectableWordSegmentsTokenizingHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<SelectableWordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> SelectableWordSegmentsTokenizingHandlerBox<F> {
+    const VTABLE: SelectableWordSegmentsTokenizingHandler_Vtbl = SelectableWordSegmentsTokenizingHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<SelectableWordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&precedingwords), ::core::mem::transmute(&words)).into()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::clone::Clone for SelectableWordSegmentsTokenizingHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::PartialEq for SelectableWordSegmentsTokenizingHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::Eq for SelectableWordSegmentsTokenizingHandler {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for SelectableWordSegmentsTokenizingHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SelectableWordSegmentsTokenizingHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::Interface for SelectableWordSegmentsTokenizingHandler {
+    type Vtable = SelectableWordSegmentsTokenizingHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592);
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::RuntimeType for SelectableWordSegmentsTokenizingHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3a3dfc9c-aede-4dc7-9e6c-41c044bd3592}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct SelectableWordSegmentsTokenizingHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Invoke: usize,
+}
+#[doc = "*Required features: `\"Data_Text\"`, `\"Foundation_Collections\"`*"]
+#[cfg(feature = "Foundation_Collections")]
+#[repr(transparent)]
+pub struct WordSegmentsTokenizingHandler(pub ::windows::core::IUnknown);
+#[cfg(feature = "Foundation_Collections")]
+impl WordSegmentsTokenizingHandler {
+    pub fn new<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static>(invoke: F) -> Self {
+        let com = WordSegmentsTokenizingHandlerBox::<F> { vtable: &WordSegmentsTokenizingHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
+        unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
+    }
+    #[doc = "*Required features: `\"Foundation_Collections\"`*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Invoke<'a, P0, E0, P1, E1>(&self, precedingwords: P0, words: P1) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+        P1: ::std::convert::TryInto<::windows::core::InParam<'a, super::super::Foundation::Collections::IIterable<WordSegment>>, Error = E1>,
+        E1: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), precedingwords.try_into().map_err(|e| e.into())?.abi(), words.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+struct WordSegmentsTokenizingHandlerBox<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> {
+    vtable: *const WordSegmentsTokenizingHandler_Vtbl,
+    invoke: F,
+    count: ::windows::core::RefCount,
+}
+#[cfg(feature = "Foundation_Collections")]
+impl<F: FnMut(&::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>, &::core::option::Option<super::super::Foundation::Collections::IIterable<WordSegment>>) -> ::windows::core::Result<()> + ::core::marker::Send + 'static> WordSegmentsTokenizingHandlerBox<F> {
+    const VTABLE: WordSegmentsTokenizingHandler_Vtbl = WordSegmentsTokenizingHandler_Vtbl {
+        base__: ::windows::core::IUnknownVtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
+        Invoke: Self::Invoke,
+    };
+    unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        *interface = if iid == &<WordSegmentsTokenizingHandler as ::windows::core::Interface>::IID || iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID || iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID { &mut (*this).vtable as *mut _ as _ } else { ::core::ptr::null_mut() };
+        if (*interface).is_null() {
+            ::windows::core::HRESULT(-2147467262)
+        } else {
+            (*this).count.add_ref();
+            ::windows::core::HRESULT(0)
+        }
+    }
+    unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        (*this).count.add_ref()
+    }
+    unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        let remaining = (*this).count.release();
+        if remaining == 0 {
+            let _ = ::windows::core::alloc::boxed::Box::from_raw(this);
+        }
+        remaining
+    }
+    unsafe extern "system" fn Invoke(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
+        ((*this).invoke)(::core::mem::transmute(&precedingwords), ::core::mem::transmute(&words)).into()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::clone::Clone for WordSegmentsTokenizingHandler {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::PartialEq for WordSegmentsTokenizingHandler {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::cmp::Eq for WordSegmentsTokenizingHandler {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for WordSegmentsTokenizingHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WordSegmentsTokenizingHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::Interface for WordSegmentsTokenizingHandler {
+    type Vtable = WordSegmentsTokenizingHandler_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35);
+}
+#[cfg(feature = "Foundation_Collections")]
+unsafe impl ::windows::core::RuntimeType for WordSegmentsTokenizingHandler {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a5dd6357-bf2a-4c4f-a31f-29e71c6f8b35}");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
+#[repr(C)]
+#[doc(hidden)]
+pub struct WordSegmentsTokenizingHandler_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, precedingwords: *mut ::core::ffi::c_void, words: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Invoke: usize,
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

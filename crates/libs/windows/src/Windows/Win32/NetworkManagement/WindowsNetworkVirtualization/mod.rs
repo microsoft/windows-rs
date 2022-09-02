@@ -1,3 +1,26 @@
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WnvOpen() -> super::super::Foundation::HANDLE;
+    }
+    WnvOpen()
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
+pub unsafe fn WnvRequestNotification<'a, P0>(wnvhandle: P0, notificationparam: &mut WNV_NOTIFICATION_PARAM, overlapped: &mut super::super::System::IO::OVERLAPPED, bytestransferred: &mut u32) -> u32
+where
+    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn WnvRequestNotification(wnvhandle: super::super::Foundation::HANDLE, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32;
+    }
+    WnvRequestNotification(wnvhandle.into(), ::core::mem::transmute(notificationparam), ::core::mem::transmute(overlapped), ::core::mem::transmute(bytestransferred))
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
@@ -31,6 +54,66 @@ unsafe impl ::windows::core::Abi for WNV_CA_NOTIFICATION_TYPE {
 impl ::core::fmt::Debug for WNV_CA_NOTIFICATION_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WNV_CA_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WNV_NOTIFICATION_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(3i32);
+impl ::core::marker::Copy for WNV_NOTIFICATION_TYPE {}
+impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WNV_NOTIFICATION_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WNV_NOTIFICATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WNV_NOTIFICATION_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct WNV_OBJECT_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
+pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(2i32);
+impl ::core::marker::Copy for WNV_OBJECT_TYPE {}
+impl ::core::clone::Clone for WNV_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for WNV_OBJECT_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for WNV_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WNV_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WNV_OBJECT_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -170,37 +253,6 @@ impl ::core::default::Default for WNV_NOTIFICATION_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WNV_NOTIFICATION_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvPolicyMismatchType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvRedirectType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvObjectChangeType: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvNotificationTypeMax: WNV_NOTIFICATION_TYPE = WNV_NOTIFICATION_TYPE(3i32);
-impl ::core::marker::Copy for WNV_NOTIFICATION_TYPE {}
-impl ::core::clone::Clone for WNV_NOTIFICATION_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNV_NOTIFICATION_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WNV_NOTIFICATION_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WNV_NOTIFICATION_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNV_NOTIFICATION_TYPE").field(&self.0).finish()
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(feature = "Win32_Networking_WinSock")]
@@ -297,35 +349,6 @@ impl ::core::cmp::Eq for WNV_OBJECT_HEADER {}
 impl ::core::default::Default for WNV_OBJECT_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct WNV_OBJECT_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvProviderAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvCustomerAddressType: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`*"]
-pub const WnvObjectTypeMax: WNV_OBJECT_TYPE = WNV_OBJECT_TYPE(2i32);
-impl ::core::marker::Copy for WNV_OBJECT_TYPE {}
-impl ::core::clone::Clone for WNV_OBJECT_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for WNV_OBJECT_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for WNV_OBJECT_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for WNV_OBJECT_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("WNV_OBJECT_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C)]
@@ -435,29 +458,6 @@ impl ::core::default::Default for WNV_REDIRECT_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WnvOpen() -> super::super::Foundation::HANDLE;
-    }
-    WnvOpen()
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-#[inline]
-pub unsafe fn WnvRequestNotification<'a, P0>(wnvhandle: P0, notificationparam: &mut WNV_NOTIFICATION_PARAM, overlapped: &mut super::super::System::IO::OVERLAPPED, bytestransferred: &mut u32) -> u32
-where
-    P0: ::std::convert::Into<super::super::Foundation::HANDLE>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn WnvRequestNotification(wnvhandle: super::super::Foundation::HANDLE, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32;
-    }
-    WnvRequestNotification(wnvhandle.into(), ::core::mem::transmute(notificationparam), ::core::mem::transmute(overlapped), ::core::mem::transmute(bytestransferred))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,522 +1,3 @@
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-pub struct AsyncCausalityTracer;
-impl AsyncCausalityTracer {
-    pub fn TraceOperationCreation(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, operationname: &::windows::core::HSTRING, relatedcontext: u64) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCreation)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, ::core::mem::transmute_copy(operationname), relatedcontext).ok() })
-    }
-    pub fn TraceOperationCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, status: super::AsyncStatus) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCompletion)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, status).ok() })
-    }
-    pub fn TraceOperationRelation(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, relation: CausalityRelation) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationRelation)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, relation).ok() })
-    }
-    pub fn TraceSynchronousWorkStart(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, work: CausalitySynchronousWork) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkStart)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, work).ok() })
-    }
-    pub fn TraceSynchronousWorkCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkCompletion)(::windows::core::Interface::as_raw(this), tracelevel, source, work).ok() })
-    }
-    pub fn TracingStatusChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EventHandler<TracingStatusChangedEventArgs>>>,
-    {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).TracingStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
-        })
-    }
-    pub fn RemoveTracingStatusChanged(cookie: super::EventRegistrationToken) -> ::windows::core::Result<()> {
-        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTracingStatusChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
-    }
-    #[doc(hidden)]
-    pub fn IAsyncCausalityTracerStatics<R, F: FnOnce(&IAsyncCausalityTracerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<AsyncCausalityTracer, IAsyncCausalityTracerStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::windows::core::RuntimeName for AsyncCausalityTracer {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.AsyncCausalityTracer";
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CausalityRelation(pub i32);
-impl CausalityRelation {
-    pub const AssignDelegate: Self = Self(0i32);
-    pub const Join: Self = Self(1i32);
-    pub const Choice: Self = Self(2i32);
-    pub const Cancel: Self = Self(3i32);
-    pub const Error: Self = Self(4i32);
-}
-impl ::core::marker::Copy for CausalityRelation {}
-impl ::core::clone::Clone for CausalityRelation {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CausalityRelation {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CausalityRelation {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CausalityRelation {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalityRelation").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CausalityRelation {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CausalitySource(pub i32);
-impl CausalitySource {
-    pub const Application: Self = Self(0i32);
-    pub const Library: Self = Self(1i32);
-    pub const System: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CausalitySource {}
-impl ::core::clone::Clone for CausalitySource {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CausalitySource {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CausalitySource {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CausalitySource {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalitySource").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CausalitySource {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CausalitySynchronousWork(pub i32);
-impl CausalitySynchronousWork {
-    pub const CompletionNotification: Self = Self(0i32);
-    pub const ProgressNotification: Self = Self(1i32);
-    pub const Execution: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CausalitySynchronousWork {}
-impl ::core::clone::Clone for CausalitySynchronousWork {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CausalitySynchronousWork {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CausalitySynchronousWork {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CausalitySynchronousWork {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct CausalityTraceLevel(pub i32);
-impl CausalityTraceLevel {
-    pub const Required: Self = Self(0i32);
-    pub const Important: Self = Self(1i32);
-    pub const Verbose: Self = Self(2i32);
-}
-impl ::core::marker::Copy for CausalityTraceLevel {}
-impl ::core::clone::Clone for CausalityTraceLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for CausalityTraceLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for CausalityTraceLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for CausalityTraceLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for CausalityTraceLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-pub struct ErrorDetails(::windows::core::IUnknown);
-impl ErrorDetails {
-    pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn LongDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LongDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn HelpUri(&self) -> ::windows::core::Result<super::Uri> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).HelpUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Uri>(result__)
-        }
-    }
-    pub fn CreateFromHResultAsync(errorcode: i32) -> ::windows::core::Result<super::IAsyncOperation<ErrorDetails>> {
-        Self::IErrorDetailsStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromHResultAsync)(::windows::core::Interface::as_raw(this), errorcode, result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<ErrorDetails>>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IErrorDetailsStatics<R, F: FnOnce(&IErrorDetailsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<ErrorDetails, IErrorDetailsStatics> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for ErrorDetails {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for ErrorDetails {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ErrorDetails {}
-impl ::core::fmt::Debug for ErrorDetails {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ErrorDetails").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ErrorDetails {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for ErrorDetails {
-    type Vtable = IErrorDetails_Vtbl;
-    const IID: ::windows::core::GUID = <IErrorDetails as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for ErrorDetails {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
-}
-impl ::core::convert::From<ErrorDetails> for ::windows::core::IUnknown {
-    fn from(value: ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for ::windows::core::IUnknown {
-    fn from(value: &ErrorDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for &::windows::core::IUnknown {
-    fn from(value: &ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<ErrorDetails> for ::windows::core::IInspectable {
-    fn from(value: ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for ::windows::core::IInspectable {
-    fn from(value: &ErrorDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&ErrorDetails> for &::windows::core::IInspectable {
-    fn from(value: &ErrorDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-unsafe impl ::core::marker::Send for ErrorDetails {}
-unsafe impl ::core::marker::Sync for ErrorDetails {}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct ErrorOptions(pub u32);
-impl ErrorOptions {
-    pub const None: Self = Self(0u32);
-    pub const SuppressExceptions: Self = Self(1u32);
-    pub const ForceExceptions: Self = Self(2u32);
-    pub const UseSetErrorInfo: Self = Self(4u32);
-    pub const SuppressSetErrorInfo: Self = Self(8u32);
-}
-impl ::core::marker::Copy for ErrorOptions {}
-impl ::core::clone::Clone for ErrorOptions {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for ErrorOptions {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for ErrorOptions {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for ErrorOptions {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("ErrorOptions").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for ErrorOptions {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for ErrorOptions {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ErrorOptions {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ErrorOptions {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for ErrorOptions {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-unsafe impl ::windows::core::RuntimeType for ErrorOptions {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-pub struct FileLoggingSession(::windows::core::IUnknown);
-impl FileLoggingSession {
-    pub fn Close(&self) -> ::windows::core::Result<()> {
-        let this = &::windows::core::Interface::cast::<super::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
-    }
-    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
-    pub fn AddLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    pub fn AddLoggingChannelWithLevel<'a, P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel).ok() }
-    }
-    pub fn RemoveLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
-        E0: ::std::convert::Into<::windows::core::Error>,
-    {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
-    }
-    #[doc = "*Required features: `\"Storage\"`*"]
-    #[cfg(feature = "Storage")]
-    pub fn CloseAndSaveToFileAsync(&self) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).CloseAndSaveToFileAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
-        }
-    }
-    pub fn LogFileGenerated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::EventRegistrationToken>
-    where
-        P0: ::std::convert::Into<::windows::core::InParam<'a, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).LogFileGenerated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
-        }
-    }
-    pub fn RemoveLogFileGenerated(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
-        let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLogFileGenerated)(::windows::core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Create(name: &::windows::core::HSTRING) -> ::windows::core::Result<FileLoggingSession> {
-        Self::IFileLoggingSessionFactory(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<FileLoggingSession>(result__)
-        })
-    }
-    #[doc(hidden)]
-    pub fn IFileLoggingSessionFactory<R, F: FnOnce(&IFileLoggingSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static SHARED: ::windows::core::FactoryCache<FileLoggingSession, IFileLoggingSessionFactory> = ::windows::core::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl ::core::clone::Clone for FileLoggingSession {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for FileLoggingSession {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileLoggingSession {}
-impl ::core::fmt::Debug for FileLoggingSession {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("FileLoggingSession").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for FileLoggingSession {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
-    type DefaultType = ::core::option::Option<Self>;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
-    }
-}
-unsafe impl ::windows::core::Interface for FileLoggingSession {
-    type Vtable = IFileLoggingSession_Vtbl;
-    const IID: ::windows::core::GUID = <IFileLoggingSession as ::windows::core::Interface>::IID;
-}
-impl ::windows::core::RuntimeName for FileLoggingSession {
-    const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
-}
-impl ::core::convert::From<FileLoggingSession> for ::windows::core::IUnknown {
-    fn from(value: FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IUnknown {
-    fn from(value: &FileLoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IUnknown {
-    fn from(value: &FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<FileLoggingSession> for ::windows::core::IInspectable {
-    fn from(value: FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IInspectable {
-    fn from(value: &FileLoggingSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IInspectable {
-    fn from(value: &FileLoggingSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::TryFrom<FileLoggingSession> for super::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileLoggingSession) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileLoggingSession> for super::IClosable {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-impl ::core::convert::TryFrom<FileLoggingSession> for IFileLoggingSession {
-    type Error = ::windows::core::Error;
-    fn try_from(value: FileLoggingSession) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl ::core::convert::TryFrom<&FileLoggingSession> for IFileLoggingSession {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, IFileLoggingSession> {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
-        let item = ::std::convert::TryInto::try_into(value)?;
-        Ok(::windows::core::InParam::owned(item))
-    }
-}
-unsafe impl ::core::marker::Send for FileLoggingSession {}
-unsafe impl ::core::marker::Sync for FileLoggingSession {}
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IAsyncCausalityTracerStatics(::windows::core::IUnknown);
@@ -1588,6 +1069,318 @@ pub struct ITracingStatusChangedEventArgs_Vtbl {
     pub TraceLevel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut CausalityTraceLevel) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+pub struct AsyncCausalityTracer;
+impl AsyncCausalityTracer {
+    pub fn TraceOperationCreation(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, operationname: &::windows::core::HSTRING, relatedcontext: u64) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCreation)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, ::core::mem::transmute_copy(operationname), relatedcontext).ok() })
+    }
+    pub fn TraceOperationCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, status: super::AsyncStatus) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationCompletion)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, status).ok() })
+    }
+    pub fn TraceOperationRelation(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, relation: CausalityRelation) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceOperationRelation)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, relation).ok() })
+    }
+    pub fn TraceSynchronousWorkStart(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: ::windows::core::GUID, operationid: u64, work: CausalitySynchronousWork) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkStart)(::windows::core::Interface::as_raw(this), tracelevel, source, platformid, operationid, work).ok() })
+    }
+    pub fn TraceSynchronousWorkCompletion(tracelevel: CausalityTraceLevel, source: CausalitySource, work: CausalitySynchronousWork) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).TraceSynchronousWorkCompletion)(::windows::core::Interface::as_raw(this), tracelevel, source, work).ok() })
+    }
+    pub fn TracingStatusChanged<'a, P0>(handler: P0) -> ::windows::core::Result<super::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::EventHandler<TracingStatusChangedEventArgs>>>,
+    {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).TracingStatusChanged)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+        })
+    }
+    pub fn RemoveTracingStatusChanged(cookie: super::EventRegistrationToken) -> ::windows::core::Result<()> {
+        Self::IAsyncCausalityTracerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveTracingStatusChanged)(::windows::core::Interface::as_raw(this), cookie).ok() })
+    }
+    #[doc(hidden)]
+    pub fn IAsyncCausalityTracerStatics<R, F: FnOnce(&IAsyncCausalityTracerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<AsyncCausalityTracer, IAsyncCausalityTracerStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::windows::core::RuntimeName for AsyncCausalityTracer {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.AsyncCausalityTracer";
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+pub struct ErrorDetails(::windows::core::IUnknown);
+impl ErrorDetails {
+    pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn LongDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LongDescription)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn HelpUri(&self) -> ::windows::core::Result<super::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).HelpUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Uri>(result__)
+        }
+    }
+    pub fn CreateFromHResultAsync(errorcode: i32) -> ::windows::core::Result<super::IAsyncOperation<ErrorDetails>> {
+        Self::IErrorDetailsStatics(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CreateFromHResultAsync)(::windows::core::Interface::as_raw(this), errorcode, result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<ErrorDetails>>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IErrorDetailsStatics<R, F: FnOnce(&IErrorDetailsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<ErrorDetails, IErrorDetailsStatics> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for ErrorDetails {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for ErrorDetails {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for ErrorDetails {}
+impl ::core::fmt::Debug for ErrorDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorDetails").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ErrorDetails {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.ErrorDetails;{378cbb01-2cc9-428f-8c55-2c990d463e8f})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for ErrorDetails {
+    type Vtable = IErrorDetails_Vtbl;
+    const IID: ::windows::core::GUID = <IErrorDetails as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for ErrorDetails {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
+}
+impl ::core::convert::From<ErrorDetails> for ::windows::core::IUnknown {
+    fn from(value: ErrorDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ErrorDetails> for ::windows::core::IUnknown {
+    fn from(value: &ErrorDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ErrorDetails> for &::windows::core::IUnknown {
+    fn from(value: &ErrorDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<ErrorDetails> for ::windows::core::IInspectable {
+    fn from(value: ErrorDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ErrorDetails> for ::windows::core::IInspectable {
+    fn from(value: &ErrorDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&ErrorDetails> for &::windows::core::IInspectable {
+    fn from(value: &ErrorDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+unsafe impl ::core::marker::Send for ErrorDetails {}
+unsafe impl ::core::marker::Sync for ErrorDetails {}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+pub struct FileLoggingSession(::windows::core::IUnknown);
+impl FileLoggingSession {
+    pub fn Close(&self) -> ::windows::core::Result<()> {
+        let this = &::windows::core::Interface::cast::<super::IClosable>(self)?;
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
+    }
+    pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+    pub fn AddLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    pub fn AddLoggingChannelWithLevel<'a, P0, E0>(&self, loggingchannel: P0, maxlevel: LoggingLevel) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).AddLoggingChannelWithLevel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi(), maxlevel).ok() }
+    }
+    pub fn RemoveLoggingChannel<'a, P0, E0>(&self, loggingchannel: P0) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::TryInto<::windows::core::InParam<'a, ILoggingChannel>, Error = E0>,
+        E0: ::std::convert::Into<::windows::core::Error>,
+    {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoggingChannel)(::windows::core::Interface::as_raw(this), loggingchannel.try_into().map_err(|e| e.into())?.abi()).ok() }
+    }
+    #[doc = "*Required features: `\"Storage\"`*"]
+    #[cfg(feature = "Storage")]
+    pub fn CloseAndSaveToFileAsync(&self) -> ::windows::core::Result<super::IAsyncOperation<super::super::Storage::StorageFile>> {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).CloseAndSaveToFileAsync)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::IAsyncOperation<super::super::Storage::StorageFile>>(result__)
+        }
+    }
+    pub fn LogFileGenerated<'a, P0>(&self, handler: P0) -> ::windows::core::Result<super::EventRegistrationToken>
+    where
+        P0: ::std::convert::Into<::windows::core::InParam<'a, super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).LogFileGenerated)(::windows::core::Interface::as_raw(this), handler.into().abi(), result__.as_mut_ptr()).from_abi::<super::EventRegistrationToken>(result__)
+        }
+    }
+    pub fn RemoveLogFileGenerated(&self, token: super::EventRegistrationToken) -> ::windows::core::Result<()> {
+        let this = self;
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLogFileGenerated)(::windows::core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn Create(name: &::windows::core::HSTRING) -> ::windows::core::Result<FileLoggingSession> {
+        Self::IFileLoggingSessionFactory(|this| unsafe {
+            let mut result__ = ::core::mem::MaybeUninit::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(name), result__.as_mut_ptr()).from_abi::<FileLoggingSession>(result__)
+        })
+    }
+    #[doc(hidden)]
+    pub fn IFileLoggingSessionFactory<R, F: FnOnce(&IFileLoggingSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static SHARED: ::windows::core::FactoryCache<FileLoggingSession, IFileLoggingSessionFactory> = ::windows::core::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl ::core::clone::Clone for FileLoggingSession {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for FileLoggingSession {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for FileLoggingSession {}
+impl ::core::fmt::Debug for FileLoggingSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileLoggingSession").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for FileLoggingSession {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Diagnostics.FileLoggingSession;{24c74216-fed2-404c-895f-1f9699cb02f7})");
+    type DefaultType = ::core::option::Option<Self>;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        from.as_ref().cloned().ok_or(::windows::core::Error::OK)
+    }
+}
+unsafe impl ::windows::core::Interface for FileLoggingSession {
+    type Vtable = IFileLoggingSession_Vtbl;
+    const IID: ::windows::core::GUID = <IFileLoggingSession as ::windows::core::Interface>::IID;
+}
+impl ::windows::core::RuntimeName for FileLoggingSession {
+    const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
+}
+impl ::core::convert::From<FileLoggingSession> for ::windows::core::IUnknown {
+    fn from(value: FileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IUnknown {
+    fn from(value: &FileLoggingSession) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IUnknown {
+    fn from(value: &FileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<FileLoggingSession> for ::windows::core::IInspectable {
+    fn from(value: FileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&FileLoggingSession> for ::windows::core::IInspectable {
+    fn from(value: &FileLoggingSession) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::convert::From<&FileLoggingSession> for &::windows::core::IInspectable {
+    fn from(value: &FileLoggingSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::TryFrom<FileLoggingSession> for super::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileLoggingSession) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileLoggingSession> for super::IClosable {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, super::IClosable> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+impl ::core::convert::TryFrom<FileLoggingSession> for IFileLoggingSession {
+    type Error = ::windows::core::Error;
+    fn try_from(value: FileLoggingSession) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl ::core::convert::TryFrom<&FileLoggingSession> for IFileLoggingSession {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a> ::core::convert::TryFrom<&FileLoggingSession> for ::windows::core::InParam<'a, IFileLoggingSession> {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &FileLoggingSession) -> ::windows::core::Result<Self> {
+        let item = ::std::convert::TryInto::try_into(value)?;
+        Ok(::windows::core::InParam::owned(item))
+    }
+}
+unsafe impl ::core::marker::Send for FileLoggingSession {}
+unsafe impl ::core::marker::Sync for FileLoggingSession {}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
 pub struct LogFileGeneratedEventArgs(::windows::core::IUnknown);
 impl LogFileGeneratedEventArgs {
@@ -2327,57 +2120,6 @@ unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LoggingFieldFormat(pub i32);
-impl LoggingFieldFormat {
-    pub const Default: Self = Self(0i32);
-    pub const Hidden: Self = Self(1i32);
-    pub const String: Self = Self(2i32);
-    pub const Boolean: Self = Self(3i32);
-    pub const Hexadecimal: Self = Self(4i32);
-    pub const ProcessId: Self = Self(5i32);
-    pub const ThreadId: Self = Self(6i32);
-    pub const Port: Self = Self(7i32);
-    pub const Ipv4Address: Self = Self(8i32);
-    pub const Ipv6Address: Self = Self(9i32);
-    pub const SocketAddress: Self = Self(10i32);
-    pub const Xml: Self = Self(11i32);
-    pub const Json: Self = Self(12i32);
-    pub const Win32Error: Self = Self(13i32);
-    pub const NTStatus: Self = Self(14i32);
-    pub const HResult: Self = Self(15i32);
-    pub const FileTime: Self = Self(16i32);
-    pub const Signed: Self = Self(17i32);
-    pub const Unsigned: Self = Self(18i32);
-}
-impl ::core::marker::Copy for LoggingFieldFormat {}
-impl ::core::clone::Clone for LoggingFieldFormat {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LoggingFieldFormat {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LoggingFieldFormat {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LoggingFieldFormat {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
 pub struct LoggingFields(::windows::core::IUnknown);
 impl LoggingFields {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -2912,82 +2654,6 @@ unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LoggingLevel(pub i32);
-impl LoggingLevel {
-    pub const Verbose: Self = Self(0i32);
-    pub const Information: Self = Self(1i32);
-    pub const Warning: Self = Self(2i32);
-    pub const Error: Self = Self(3i32);
-    pub const Critical: Self = Self(4i32);
-}
-impl ::core::marker::Copy for LoggingLevel {}
-impl ::core::clone::Clone for LoggingLevel {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LoggingLevel {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LoggingLevel {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LoggingLevel {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingLevel").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LoggingLevel {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LoggingOpcode(pub i32);
-impl LoggingOpcode {
-    pub const Info: Self = Self(0i32);
-    pub const Start: Self = Self(1i32);
-    pub const Stop: Self = Self(2i32);
-    pub const Reply: Self = Self(6i32);
-    pub const Resume: Self = Self(7i32);
-    pub const Suspend: Self = Self(8i32);
-    pub const Send: Self = Self(9i32);
-}
-impl ::core::marker::Copy for LoggingOpcode {}
-impl ::core::clone::Clone for LoggingOpcode {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LoggingOpcode {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LoggingOpcode {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LoggingOpcode {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LoggingOpcode").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-#[repr(transparent)]
 pub struct LoggingOptions(::windows::core::IUnknown);
 impl LoggingOptions {
     pub fn new() -> ::windows::core::Result<Self> {
@@ -3486,5 +3152,339 @@ impl ::core::convert::From<&TracingStatusChangedEventArgs> for &::windows::core:
 }
 unsafe impl ::core::marker::Send for TracingStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for TracingStatusChangedEventArgs {}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CausalityRelation(pub i32);
+impl CausalityRelation {
+    pub const AssignDelegate: Self = Self(0i32);
+    pub const Join: Self = Self(1i32);
+    pub const Choice: Self = Self(2i32);
+    pub const Cancel: Self = Self(3i32);
+    pub const Error: Self = Self(4i32);
+}
+impl ::core::marker::Copy for CausalityRelation {}
+impl ::core::clone::Clone for CausalityRelation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CausalityRelation {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CausalityRelation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CausalityRelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityRelation").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CausalityRelation {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityRelation;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CausalitySource(pub i32);
+impl CausalitySource {
+    pub const Application: Self = Self(0i32);
+    pub const Library: Self = Self(1i32);
+    pub const System: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CausalitySource {}
+impl ::core::clone::Clone for CausalitySource {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CausalitySource {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CausalitySource {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CausalitySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySource").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CausalitySource {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySource;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CausalitySynchronousWork(pub i32);
+impl CausalitySynchronousWork {
+    pub const CompletionNotification: Self = Self(0i32);
+    pub const ProgressNotification: Self = Self(1i32);
+    pub const Execution: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CausalitySynchronousWork {}
+impl ::core::clone::Clone for CausalitySynchronousWork {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CausalitySynchronousWork {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CausalitySynchronousWork {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CausalitySynchronousWork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CausalitySynchronousWork {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalitySynchronousWork;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct CausalityTraceLevel(pub i32);
+impl CausalityTraceLevel {
+    pub const Required: Self = Self(0i32);
+    pub const Important: Self = Self(1i32);
+    pub const Verbose: Self = Self(2i32);
+}
+impl ::core::marker::Copy for CausalityTraceLevel {}
+impl ::core::clone::Clone for CausalityTraceLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for CausalityTraceLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for CausalityTraceLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CausalityTraceLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for CausalityTraceLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.CausalityTraceLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct ErrorOptions(pub u32);
+impl ErrorOptions {
+    pub const None: Self = Self(0u32);
+    pub const SuppressExceptions: Self = Self(1u32);
+    pub const ForceExceptions: Self = Self(2u32);
+    pub const UseSetErrorInfo: Self = Self(4u32);
+    pub const SuppressSetErrorInfo: Self = Self(8u32);
+}
+impl ::core::marker::Copy for ErrorOptions {}
+impl ::core::clone::Clone for ErrorOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for ErrorOptions {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for ErrorOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ErrorOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ErrorOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ErrorOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ErrorOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ErrorOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ErrorOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+unsafe impl ::windows::core::RuntimeType for ErrorOptions {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.ErrorOptions;u4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LoggingFieldFormat(pub i32);
+impl LoggingFieldFormat {
+    pub const Default: Self = Self(0i32);
+    pub const Hidden: Self = Self(1i32);
+    pub const String: Self = Self(2i32);
+    pub const Boolean: Self = Self(3i32);
+    pub const Hexadecimal: Self = Self(4i32);
+    pub const ProcessId: Self = Self(5i32);
+    pub const ThreadId: Self = Self(6i32);
+    pub const Port: Self = Self(7i32);
+    pub const Ipv4Address: Self = Self(8i32);
+    pub const Ipv6Address: Self = Self(9i32);
+    pub const SocketAddress: Self = Self(10i32);
+    pub const Xml: Self = Self(11i32);
+    pub const Json: Self = Self(12i32);
+    pub const Win32Error: Self = Self(13i32);
+    pub const NTStatus: Self = Self(14i32);
+    pub const HResult: Self = Self(15i32);
+    pub const FileTime: Self = Self(16i32);
+    pub const Signed: Self = Self(17i32);
+    pub const Unsigned: Self = Self(18i32);
+}
+impl ::core::marker::Copy for LoggingFieldFormat {}
+impl ::core::clone::Clone for LoggingFieldFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LoggingFieldFormat {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LoggingFieldFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LoggingFieldFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LoggingFieldFormat {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingFieldFormat;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LoggingLevel(pub i32);
+impl LoggingLevel {
+    pub const Verbose: Self = Self(0i32);
+    pub const Information: Self = Self(1i32);
+    pub const Warning: Self = Self(2i32);
+    pub const Error: Self = Self(3i32);
+    pub const Critical: Self = Self(4i32);
+}
+impl ::core::marker::Copy for LoggingLevel {}
+impl ::core::clone::Clone for LoggingLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LoggingLevel {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LoggingLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LoggingLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingLevel").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LoggingLevel {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingLevel;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
+#[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LoggingOpcode(pub i32);
+impl LoggingOpcode {
+    pub const Info: Self = Self(0i32);
+    pub const Start: Self = Self(1i32);
+    pub const Stop: Self = Self(2i32);
+    pub const Reply: Self = Self(6i32);
+    pub const Resume: Self = Self(7i32);
+    pub const Suspend: Self = Self(8i32);
+    pub const Send: Self = Self(9i32);
+}
+impl ::core::marker::Copy for LoggingOpcode {}
+impl ::core::clone::Clone for LoggingOpcode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LoggingOpcode {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LoggingOpcode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LoggingOpcode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoggingOpcode").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LoggingOpcode {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Foundation.Diagnostics.LoggingOpcode;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

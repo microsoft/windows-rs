@@ -37,41 +37,6 @@ where
     }
     CheckForHiberboot(::core::mem::transmute(phiberboot), bclearflag.into())
 }
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EXIT_WINDOWS_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const EWX_HYBRID_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const EWX_LOGOFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const EWX_POWEROFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const EWX_REBOOT: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const EWX_RESTARTAPPS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const EWX_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(1u32);
-impl ::core::marker::Copy for EXIT_WINDOWS_FLAGS {}
-impl ::core::clone::Clone for EXIT_WINDOWS_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EXIT_WINDOWS_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EXIT_WINDOWS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EXIT_WINDOWS_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EXIT_WINDOWS_FLAGS").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -182,6 +147,46 @@ pub unsafe fn LockWorkStation() -> super::super::Foundation::BOOL {
     }
     LockWorkStation()
 }
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ShutdownBlockReasonCreate<'a, P0, P1>(hwnd: P0, pwszreason: P1) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+    P1: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ShutdownBlockReasonCreate(hwnd: super::super::Foundation::HWND, pwszreason: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
+    }
+    ShutdownBlockReasonCreate(hwnd.into(), pwszreason.into())
+}
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ShutdownBlockReasonDestroy<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
+    }
+    ShutdownBlockReasonDestroy(hwnd.into())
+}
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ShutdownBlockReasonQuery<'a, P0>(hwnd: P0, pwszbuff: ::windows::core::PWSTR, pcchbuff: &mut u32) -> super::super::Foundation::BOOL
+where
+    P0: ::std::convert::Into<super::super::Foundation::HWND>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL;
+    }
+    ShutdownBlockReasonQuery(hwnd.into(), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(pcchbuff))
+}
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 pub const MAX_NUM_REASONS: u32 = 256u32;
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
@@ -200,6 +205,49 @@ pub const POLICY_SHOWREASONUI_NEVER: u32 = 0u32;
 pub const POLICY_SHOWREASONUI_SERVERONLY: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 pub const POLICY_SHOWREASONUI_WORKSTATIONONLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const SHUTDOWN_TYPE_LEN: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EXIT_WINDOWS_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const EWX_HYBRID_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const EWX_LOGOFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(0u32);
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const EWX_POWEROFF: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const EWX_REBOOT: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const EWX_RESTARTAPPS: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
+pub const EWX_SHUTDOWN: EXIT_WINDOWS_FLAGS = EXIT_WINDOWS_FLAGS(1u32);
+impl ::core::marker::Copy for EXIT_WINDOWS_FLAGS {}
+impl ::core::clone::Clone for EXIT_WINDOWS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EXIT_WINDOWS_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EXIT_WINDOWS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXIT_WINDOWS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXIT_WINDOWS_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -437,54 +485,6 @@ impl ::core::ops::Not for SHUTDOWN_REASON {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const SHUTDOWN_TYPE_LEN: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const SNAPSHOT_POLICY_ALWAYS: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const SNAPSHOT_POLICY_NEVER: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`*"]
-pub const SNAPSHOT_POLICY_UNPLANNED: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ShutdownBlockReasonCreate<'a, P0, P1>(hwnd: P0, pwszreason: P1) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-    P1: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ShutdownBlockReasonCreate(hwnd: super::super::Foundation::HWND, pwszreason: ::windows::core::PCWSTR) -> super::super::Foundation::BOOL;
-    }
-    ShutdownBlockReasonCreate(hwnd.into(), pwszreason.into())
-}
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ShutdownBlockReasonDestroy<'a, P0>(hwnd: P0) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ShutdownBlockReasonDestroy(hwnd: super::super::Foundation::HWND) -> super::super::Foundation::BOOL;
-    }
-    ShutdownBlockReasonDestroy(hwnd.into())
-}
-#[doc = "*Required features: `\"Win32_System_Shutdown\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ShutdownBlockReasonQuery<'a, P0>(hwnd: P0, pwszbuff: ::windows::core::PWSTR, pcchbuff: &mut u32) -> super::super::Foundation::BOOL
-where
-    P0: ::std::convert::Into<super::super::Foundation::HWND>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ShutdownBlockReasonQuery(hwnd: super::super::Foundation::HWND, pwszbuff: ::windows::core::PWSTR, pcchbuff: *mut u32) -> super::super::Foundation::BOOL;
-    }
-    ShutdownBlockReasonQuery(hwnd.into(), ::core::mem::transmute(pwszbuff), ::core::mem::transmute(pcchbuff))
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

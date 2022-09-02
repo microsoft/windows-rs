@@ -1,3 +1,345 @@
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ChooseColorA(param0: &mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL;
+    }
+    ChooseColorA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ChooseColorW(param0: &mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL;
+    }
+    ChooseColorW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ChooseFontA(param0: &mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL;
+    }
+    ChooseFontA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn ChooseFontW(param0: &mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL;
+    }
+    ChooseFontW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[inline]
+pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn CommDlgExtendedError() -> COMMON_DLG_ERRORS;
+    }
+    CommDlgExtendedError()
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn FindTextA(param0: &mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
+    }
+    FindTextA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn FindTextW(param0: &mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
+    }
+    FindTextW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[inline]
+pub unsafe fn GetFileTitleA<'a, P0>(param0: P0, buf: &mut [u8]) -> i16
+where
+    P0: ::std::convert::Into<::windows::core::PCSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
+    }
+    GetFileTitleA(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[inline]
+pub unsafe fn GetFileTitleW<'a, P0>(param0: P0, buf: &mut [u16]) -> i16
+where
+    P0: ::std::convert::Into<::windows::core::PCWSTR>,
+{
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
+    }
+    GetFileTitleW(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn GetOpenFileNameA(param0: &mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
+    }
+    GetOpenFileNameA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn GetOpenFileNameW(param0: &mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
+    }
+    GetOpenFileNameW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn GetSaveFileNameA(param0: &mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
+    }
+    GetSaveFileNameA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn GetSaveFileNameW(param0: &mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
+    }
+    GetSaveFileNameW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PageSetupDlgA(param0: &mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL;
+    }
+    PageSetupDlgA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn PageSetupDlgW(param0: &mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL;
+    }
+    PageSetupDlgW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn PrintDlgA(ppd: &mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL;
+    }
+    PrintDlgA(::core::mem::transmute(ppd))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn PrintDlgExA(ppd: &mut PRINTDLGEXA) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::HRESULT;
+    }
+    PrintDlgExA(::core::mem::transmute(ppd)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn PrintDlgExW(ppd: &mut PRINTDLGEXW) -> ::windows::core::Result<()> {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::HRESULT;
+    }
+    PrintDlgExW(::core::mem::transmute(ppd)).ok()
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[inline]
+pub unsafe fn PrintDlgW(ppd: &mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL;
+    }
+    PrintDlgW(::core::mem::transmute(ppd))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ReplaceTextA(param0: &mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
+    }
+    ReplaceTextA(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
+pub unsafe fn ReplaceTextW(param0: &mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
+    #[cfg_attr(windows, link(name = "windows"))]
+    extern "system" {
+        fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
+    }
+    ReplaceTextW(::core::mem::transmute(param0))
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[repr(transparent)]
+pub struct IPrintDialogCallback(::windows::core::IUnknown);
+impl IPrintDialogCallback {
+    pub unsafe fn InitDone(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitDone)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    pub unsafe fn SelectionChange(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SelectionChange)(::windows::core::Interface::as_raw(self)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn HandleMessage<'a, P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: &mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
+    where
+        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
+        P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
+        P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
+    {
+        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into(), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(presult)).ok()
+    }
+}
+impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
+    fn from(value: IPrintDialogCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPrintDialogCallback> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintDialogCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintDialogCallback> for ::windows::core::IUnknown {
+    fn from(value: &IPrintDialogCallback) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for IPrintDialogCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IPrintDialogCallback {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IPrintDialogCallback {}
+impl ::core::fmt::Debug for IPrintDialogCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IPrintDialogCallback {
+    type Vtable = IPrintDialogCallback_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintDialogCallback_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub InitDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub SelectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")]
+    pub HandleMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "Win32_Foundation"))]
+    HandleMessage: usize,
+}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[repr(transparent)]
+pub struct IPrintDialogServices(::windows::core::IUnknown);
+impl IPrintDialogServices {
+    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetCurrentDevMode(&self, pdevmode: &mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCurrentDevMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
+    }
+    pub unsafe fn GetCurrentPrinterName(&self, pprintername: ::windows::core::PWSTR, pcchsize: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCurrentPrinterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
+    }
+    pub unsafe fn GetCurrentPortName(&self, pportname: ::windows::core::PWSTR, pcchsize: &mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCurrentPortName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
+    }
+}
+impl ::core::convert::From<IPrintDialogServices> for ::windows::core::IUnknown {
+    fn from(value: IPrintDialogServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<'a> ::core::convert::From<&'a IPrintDialogServices> for &'a ::windows::core::IUnknown {
+    fn from(value: &'a IPrintDialogServices) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintDialogServices> for ::windows::core::IUnknown {
+    fn from(value: &IPrintDialogServices) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl ::core::clone::Clone for IPrintDialogServices {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IPrintDialogServices {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IPrintDialogServices {}
+impl ::core::fmt::Debug for IPrintDialogServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IPrintDialogServices {
+    type Vtable = IPrintDialogServices_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintDialogServices_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub GetCurrentDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
+    GetCurrentDevMode: usize,
+    pub GetCurrentPrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
+    pub GetCurrentPortName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
+}
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CDM_FIRST: u32 = 1124u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -24,194 +366,172 @@ pub const CD_LBSELCHANGE: u32 = 0u32;
 pub const CD_LBSELNOITEMS: i32 = -1i32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 pub const CD_LBSELSUB: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CHOOSECOLORA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: super::super::super::Foundation::COLORREF,
-    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
-    pub Flags: CHOOSECOLOR_FLAGS,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHOOSECOLORA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHOOSECOLORA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHOOSECOLORA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CHOOSECOLORA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: super::super::super::Foundation::COLORREF,
-    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
-    pub Flags: CHOOSECOLOR_FLAGS,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHOOSECOLORA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHOOSECOLORA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHOOSECOLORA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CHOOSECOLORW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: super::super::super::Foundation::COLORREF,
-    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
-    pub Flags: CHOOSECOLOR_FLAGS,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHOOSECOLORW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHOOSECOLORW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHOOSECOLORW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CHOOSECOLORW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HWND,
-    pub rgbResult: super::super::super::Foundation::COLORREF,
-    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
-    pub Flags: CHOOSECOLOR_FLAGS,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCCHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for CHOOSECOLORW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for CHOOSECOLORW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CHOOSECOLORW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CHOOSECOLORW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CHOOSECOLORW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CHOOSECOLORW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOROKSTRING: &str = "commdlg_ColorOK";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOROKSTRINGA: &str = "commdlg_ColorOK";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOROKSTRINGW: &str = "commdlg_ColorOK";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_ADD: u32 = 712u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_BLUE: u32 = 708u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_BLUEACCEL: u32 = 728u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_BOX1: u32 = 720u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_CURRENT: u32 = 709u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_CUSTOM1: u32 = 721u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_ELEMENT: u32 = 716u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_GREEN: u32 = 707u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_GREENACCEL: u32 = 727u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_HUE: u32 = 703u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_HUEACCEL: u32 = 723u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_HUESCROLL: u32 = 700u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_LUM: u32 = 705u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_LUMACCEL: u32 = 725u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_LUMSCROLL: u32 = 702u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_MIX: u32 = 719u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_PALETTE: u32 = 718u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_RAINBOW: u32 = 710u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_RED: u32 = 706u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_REDACCEL: u32 = 726u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SAMPLES: u32 = 717u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SAT: u32 = 704u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SATACCEL: u32 = 724u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SATSCROLL: u32 = 701u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SAVE: u32 = 711u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SCHEMES: u32 = 715u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SOLID: u32 = 713u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SOLID_LEFT: u32 = 730u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_SOLID_RIGHT: u32 = 731u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const COLOR_TUNE: u32 = 714u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const DLG_COLOR: u32 = 10u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const DN_DEFAULTPRN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FILEOKSTRING: &str = "commdlg_FileNameOK";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FILEOKSTRINGA: &str = "commdlg_FileNameOK";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FILEOKSTRINGW: &str = "commdlg_FileNameOK";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FINDMSGSTRING: &str = "commdlg_FindReplace";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FINDMSGSTRINGA: &str = "commdlg_FindReplace";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FINDMSGSTRINGW: &str = "commdlg_FindReplace";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FRM_FIRST: u32 = 1124u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FRM_LAST: u32 = 1224u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FRM_SETOPERATIONRESULT: u32 = 1124u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FRM_SETOPERATIONRESULTTEXT: u32 = 1125u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FR_NOWRAPAROUND: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FR_RAW: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const FR_WRAPAROUND: u32 = 1048576u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const HELPMSGSTRING: &str = "commdlg_help";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const HELPMSGSTRINGA: &str = "commdlg_help";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const HELPMSGSTRINGW: &str = "commdlg_help";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const LBSELCHSTRING: &str = "commdlg_LBSelChangedNotify";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const LBSELCHSTRINGA: &str = "commdlg_LBSelChangedNotify";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const LBSELCHSTRINGW: &str = "commdlg_LBSelChangedNotify";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const NUM_BASIC_COLORS: u32 = 48u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const NUM_CUSTOM_COLORS: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const OFN_SHARENOWARN: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const OFN_SHAREWARN: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_RESULT_APPLY: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_RESULT_CANCEL: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_RESULT_PRINT: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SETRGBSTRING: &str = "commdlg_SetRGBColor";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SETRGBSTRINGA: &str = "commdlg_SetRGBColor";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SETRGBSTRINGW: &str = "commdlg_SetRGBColor";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SHAREVISTRING: &str = "commdlg_ShareViolation";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SHAREVISTRINGA: &str = "commdlg_ShareViolation";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SHAREVISTRINGW: &str = "commdlg_ShareViolation";
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const START_PAGE_GENERAL: u32 = 4294967295u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const SYMBOL_FONTTYPE: u32 = 524288u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const TT_OPENTYPE_FONTTYPE: u32 = 131072u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const TYPE1_FONTTYPE: u32 = 262144u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_CHOOSEFONT_GETLOGFONT: u32 = 1025u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_CHOOSEFONT_SETFLAGS: u32 = 1126u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_CHOOSEFONT_SETLOGFONT: u32 = 1125u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_PSD_ENVSTAMPRECT: u32 = 1029u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_PSD_FULLPAGERECT: u32 = 1025u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_PSD_GREEKTEXTRECT: u32 = 1028u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_PSD_MARGINRECT: u32 = 1027u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_PSD_MINMARGINRECT: u32 = 1026u32;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const WM_PSD_YAFULLPAGERECT: u32 = 1030u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -279,222 +599,6 @@ impl ::core::ops::Not for CHOOSECOLOR_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct CHOOSEFONTA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDC: super::super::super::Graphics::Gdi::HDC,
-    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
-    pub iPointSize: i32,
-    pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: super::super::super::Foundation::COLORREF,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows::core::PSTR,
-    pub nFontType: CHOOSEFONT_FONT_TYPE,
-    pub ___MISSING_ALIGNMENT__: u16,
-    pub nSizeMin: i32,
-    pub nSizeMax: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for CHOOSEFONTA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CHOOSEFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CHOOSEFONTA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct CHOOSEFONTA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDC: super::super::super::Graphics::Gdi::HDC,
-    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
-    pub iPointSize: i32,
-    pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: super::super::super::Foundation::COLORREF,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows::core::PSTR,
-    pub nFontType: CHOOSEFONT_FONT_TYPE,
-    pub ___MISSING_ALIGNMENT__: u16,
-    pub nSizeMin: i32,
-    pub nSizeMax: i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for CHOOSEFONTA {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CHOOSEFONTA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CHOOSEFONTA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTA {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct CHOOSEFONTW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDC: super::super::super::Graphics::Gdi::HDC,
-    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
-    pub iPointSize: i32,
-    pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: super::super::super::Foundation::COLORREF,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows::core::PWSTR,
-    pub nFontType: CHOOSEFONT_FONT_TYPE,
-    pub ___MISSING_ALIGNMENT__: u16,
-    pub nSizeMin: i32,
-    pub nSizeMax: i32,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for CHOOSEFONTW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CHOOSEFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CHOOSEFONTW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct CHOOSEFONTW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDC: super::super::super::Graphics::Gdi::HDC,
-    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
-    pub iPointSize: i32,
-    pub Flags: CHOOSEFONT_FLAGS,
-    pub rgbColors: super::super::super::Foundation::COLORREF,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPCFHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpszStyle: ::windows::core::PWSTR,
-    pub nFontType: CHOOSEFONT_FONT_TYPE,
-    pub ___MISSING_ALIGNMENT__: u16,
-    pub nSizeMin: i32,
-    pub nSizeMax: i32,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for CHOOSEFONTW {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for CHOOSEFONTW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for CHOOSEFONTW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for CHOOSEFONTW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for CHOOSEFONTW {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::default::Default for CHOOSEFONTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -670,72 +774,6 @@ impl ::core::ops::Not for CHOOSEFONT_FONT_TYPE {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOROKSTRING: &str = "commdlg_ColorOK";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOROKSTRINGA: &str = "commdlg_ColorOK";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOROKSTRINGW: &str = "commdlg_ColorOK";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_ADD: u32 = 712u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_BLUE: u32 = 708u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_BLUEACCEL: u32 = 728u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_BOX1: u32 = 720u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_CURRENT: u32 = 709u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_CUSTOM1: u32 = 721u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_ELEMENT: u32 = 716u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_GREEN: u32 = 707u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_GREENACCEL: u32 = 727u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_HUE: u32 = 703u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_HUEACCEL: u32 = 723u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_HUESCROLL: u32 = 700u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_LUM: u32 = 705u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_LUMACCEL: u32 = 725u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_LUMSCROLL: u32 = 702u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_MIX: u32 = 719u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_PALETTE: u32 = 718u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_RAINBOW: u32 = 710u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_RED: u32 = 706u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_REDACCEL: u32 = 726u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SAMPLES: u32 = 717u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SAT: u32 = 704u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SATACCEL: u32 = 724u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SATSCROLL: u32 = 701u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SAVE: u32 = 711u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SCHEMES: u32 = 715u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SOLID: u32 = 713u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SOLID_LEFT: u32 = 730u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_SOLID_RIGHT: u32 = 731u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const COLOR_TUNE: u32 = 714u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
 pub struct COMMON_DLG_ERRORS(pub u32);
@@ -832,337 +870,6 @@ impl ::core::fmt::Debug for COMMON_DLG_ERRORS {
         f.debug_tuple("COMMON_DLG_ERRORS").field(&self.0).finish()
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ChooseColorA(param0: &mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Foundation::BOOL;
-    }
-    ChooseColorA(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ChooseColorW(param0: &mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Foundation::BOOL;
-    }
-    ChooseColorW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ChooseFontA(param0: &mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foundation::BOOL;
-    }
-    ChooseFontA(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn ChooseFontW(param0: &mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foundation::BOOL;
-    }
-    ChooseFontW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[inline]
-pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn CommDlgExtendedError() -> COMMON_DLG_ERRORS;
-    }
-    CommDlgExtendedError()
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-pub struct DEVNAMES {
-    pub wDriverOffset: u16,
-    pub wDeviceOffset: u16,
-    pub wOutputOffset: u16,
-    pub wDefault: u16,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::marker::Copy for DEVNAMES {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::clone::Clone for DEVNAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-unsafe impl ::windows::core::Abi for DEVNAMES {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::PartialEq for DEVNAMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::cmp::Eq for DEVNAMES {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-impl ::core::default::Default for DEVNAMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[cfg(target_arch = "x86")]
-pub struct DEVNAMES {
-    pub wDriverOffset: u16,
-    pub wDeviceOffset: u16,
-    pub wOutputOffset: u16,
-    pub wDefault: u16,
-}
-#[cfg(target_arch = "x86")]
-impl ::core::marker::Copy for DEVNAMES {}
-#[cfg(target_arch = "x86")]
-impl ::core::clone::Clone for DEVNAMES {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-unsafe impl ::windows::core::Abi for DEVNAMES {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::PartialEq for DEVNAMES {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-impl ::core::cmp::Eq for DEVNAMES {}
-#[cfg(target_arch = "x86")]
-impl ::core::default::Default for DEVNAMES {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const DLG_COLOR: u32 = 10u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const DN_DEFAULTPRN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FILEOKSTRING: &str = "commdlg_FileNameOK";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FILEOKSTRINGA: &str = "commdlg_FileNameOK";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FILEOKSTRINGW: &str = "commdlg_FileNameOK";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FINDMSGSTRING: &str = "commdlg_FindReplace";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FINDMSGSTRINGA: &str = "commdlg_FindReplace";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FINDMSGSTRINGW: &str = "commdlg_FindReplace";
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FINDREPLACEA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows::core::PSTR,
-    pub lpstrReplaceWith: ::windows::core::PSTR,
-    pub wFindWhatLen: u16,
-    pub wReplaceWithLen: u16,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for FINDREPLACEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FINDREPLACEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FINDREPLACEA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FINDREPLACEA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows::core::PSTR,
-    pub lpstrReplaceWith: ::windows::core::PSTR,
-    pub wFindWhatLen: u16,
-    pub wReplaceWithLen: u16,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for FINDREPLACEA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FINDREPLACEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FINDREPLACEA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FINDREPLACEW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows::core::PWSTR,
-    pub lpstrReplaceWith: ::windows::core::PWSTR,
-    pub wFindWhatLen: u16,
-    pub wReplaceWithLen: u16,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for FINDREPLACEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FINDREPLACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FINDREPLACEW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FINDREPLACEW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub Flags: FINDREPLACE_FLAGS,
-    pub lpstrFindWhat: ::windows::core::PWSTR,
-    pub lpstrReplaceWith: ::windows::core::PWSTR,
-    pub wFindWhatLen: u16,
-    pub wReplaceWithLen: u16,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPFRHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for FINDREPLACEW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for FINDREPLACEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FINDREPLACEW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FINDREPLACEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FINDREPLACEW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FINDREPLACEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -1246,1089 +953,6 @@ impl ::core::ops::Not for FINDREPLACE_FLAGS {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FRM_FIRST: u32 = 1124u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FRM_LAST: u32 = 1224u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FRM_SETOPERATIONRESULT: u32 = 1124u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FRM_SETOPERATIONRESULTTEXT: u32 = 1125u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FR_NOWRAPAROUND: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FR_RAW: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FR_SHOWWRAPAROUND: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const FR_WRAPAROUND: u32 = 1048576u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn FindTextA(param0: &mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
-    }
-    FindTextA(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn FindTextW(param0: &mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
-    }
-    FindTextW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[inline]
-pub unsafe fn GetFileTitleA<'a, P0>(param0: P0, buf: &mut [u8]) -> i16
-where
-    P0: ::std::convert::Into<::windows::core::PCSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetFileTitleA(param0: ::windows::core::PCSTR, buf: ::windows::core::PSTR, cchsize: u16) -> i16;
-    }
-    GetFileTitleA(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[inline]
-pub unsafe fn GetFileTitleW<'a, P0>(param0: P0, buf: &mut [u16]) -> i16
-where
-    P0: ::std::convert::Into<::windows::core::PCWSTR>,
-{
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetFileTitleW(param0: ::windows::core::PCWSTR, buf: ::windows::core::PWSTR, cchsize: u16) -> i16;
-    }
-    GetFileTitleW(param0.into(), ::core::mem::transmute(buf.as_ptr()), buf.len() as _)
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetOpenFileNameA(param0: &mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
-    }
-    GetOpenFileNameA(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetOpenFileNameW(param0: &mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
-    }
-    GetOpenFileNameW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetSaveFileNameA(param0: &mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL;
-    }
-    GetSaveFileNameA(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn GetSaveFileNameW(param0: &mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL;
-    }
-    GetSaveFileNameW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const HELPMSGSTRING: &str = "commdlg_help";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const HELPMSGSTRINGA: &str = "commdlg_help";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const HELPMSGSTRINGW: &str = "commdlg_help";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[repr(transparent)]
-pub struct IPrintDialogCallback(::windows::core::IUnknown);
-impl IPrintDialogCallback {
-    pub unsafe fn InitDone(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitDone)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    pub unsafe fn SelectionChange(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SelectionChange)(::windows::core::Interface::as_raw(self)).ok()
-    }
-    #[doc = "*Required features: `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HandleMessage<'a, P0, P1, P2>(&self, hdlg: P0, umsg: u32, wparam: P1, lparam: P2, presult: &mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()>
-    where
-        P0: ::std::convert::Into<super::super::super::Foundation::HWND>,
-        P1: ::std::convert::Into<super::super::super::Foundation::WPARAM>,
-        P2: ::std::convert::Into<super::super::super::Foundation::LPARAM>,
-    {
-        (::windows::core::Interface::vtable(self).HandleMessage)(::windows::core::Interface::as_raw(self), hdlg.into(), umsg, wparam.into(), lparam.into(), ::core::mem::transmute(presult)).ok()
-    }
-}
-impl ::core::convert::From<IPrintDialogCallback> for ::windows::core::IUnknown {
-    fn from(value: IPrintDialogCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDialogCallback> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDialogCallback) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDialogCallback> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDialogCallback) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IPrintDialogCallback {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPrintDialogCallback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintDialogCallback {}
-impl ::core::fmt::Debug for IPrintDialogCallback {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IPrintDialogCallback {
-    type Vtable = IPrintDialogCallback_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPrintDialogCallback_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    pub InitDone: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub SelectionChange: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub HandleMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Foundation"))]
-    HandleMessage: usize,
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[repr(transparent)]
-pub struct IPrintDialogServices(::windows::core::IUnknown);
-impl IPrintDialogServices {
-    #[doc = "*Required features: `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetCurrentDevMode(&self, pdevmode: &mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCurrentDevMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevmode), ::core::mem::transmute(pcbsize)).ok()
-    }
-    pub unsafe fn GetCurrentPrinterName(&self, pprintername: ::windows::core::PWSTR, pcchsize: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCurrentPrinterName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pprintername), ::core::mem::transmute(pcchsize)).ok()
-    }
-    pub unsafe fn GetCurrentPortName(&self, pportname: ::windows::core::PWSTR, pcchsize: &mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCurrentPortName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pportname), ::core::mem::transmute(pcchsize)).ok()
-    }
-}
-impl ::core::convert::From<IPrintDialogServices> for ::windows::core::IUnknown {
-    fn from(value: IPrintDialogServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<'a> ::core::convert::From<&'a IPrintDialogServices> for &'a ::windows::core::IUnknown {
-    fn from(value: &'a IPrintDialogServices) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintDialogServices> for ::windows::core::IUnknown {
-    fn from(value: &IPrintDialogServices) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl ::core::clone::Clone for IPrintDialogServices {
-    fn clone(&self) -> Self {
-        Self(self.0.clone())
-    }
-}
-impl ::core::cmp::PartialEq for IPrintDialogServices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IPrintDialogServices {}
-impl ::core::fmt::Debug for IPrintDialogServices {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::Interface for IPrintDialogServices {
-    type Vtable = IPrintDialogServices_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPrintDialogServices_Vtbl {
-    pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub GetCurrentDevMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))]
-    GetCurrentDevMode: usize,
-    pub GetCurrentPrinterName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
-    pub GetCurrentPortName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: ::windows::core::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const LBSELCHSTRING: &str = "commdlg_LBSelChangedNotify";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const LBSELCHSTRINGA: &str = "commdlg_LBSelChangedNotify";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const LBSELCHSTRINGW: &str = "commdlg_LBSelChangedNotify";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPCFHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPFRHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPOFNHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPPAGEPAINTHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPPAGESETUPHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const NUM_BASIC_COLORS: u32 = 48u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const NUM_CUSTOM_COLORS: u32 = 16u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYA {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEA,
-    pub pszFile: ::windows::core::PSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYA {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEA,
-    pub pszFile: ::windows::core::PSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYEXA {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEA,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYEXA {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEA,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYEXA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYEXA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYEXW {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEW,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYEXW {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEW,
-    pub psf: *mut ::core::ffi::c_void,
-    pub pidl: *mut ::core::ffi::c_void,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYEXW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYEXW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYEXW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYEXW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYEXW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYW {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEW,
-    pub pszFile: ::windows::core::PWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OFNOTIFYW {
-    pub hdr: super::NMHDR,
-    pub lpOFN: *mut OPENFILENAMEW,
-    pub pszFile: ::windows::core::PWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OFNOTIFYW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OFNOTIFYW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OFNOTIFYW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OFNOTIFYW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OFNOTIFYW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OFNOTIFYW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const OFN_SHARENOWARN: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const OFN_SHAREWARN: u32 = 0u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAMEA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCSTR,
-    pub lpstrCustomFilter: ::windows::core::PSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCSTR,
-    pub lpstrTitle: ::windows::core::PCSTR,
-    pub Flags: OPEN_FILENAME_FLAGS,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
-    pub dwReserved: u32,
-    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAMEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAMEA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAMEA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCSTR,
-    pub lpstrCustomFilter: ::windows::core::PSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCSTR,
-    pub lpstrTitle: ::windows::core::PCSTR,
-    pub Flags: OPEN_FILENAME_FLAGS,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
-    pub dwReserved: u32,
-    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAMEA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAMEA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAMEA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAMEW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows::core::PWSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PWSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PWSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCWSTR,
-    pub lpstrTitle: ::windows::core::PCWSTR,
-    pub Flags: OPEN_FILENAME_FLAGS,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCWSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
-    pub dwReserved: u32,
-    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAMEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAMEW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAMEW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows::core::PWSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PWSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PWSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCWSTR,
-    pub lpstrTitle: ::windows::core::PCWSTR,
-    pub Flags: OPEN_FILENAME_FLAGS,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCWSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-    pub pvReserved: *mut ::core::ffi::c_void,
-    pub dwReserved: u32,
-    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAMEW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAMEW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAMEW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAMEW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAMEW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAMEW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAME_NT4A {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCSTR,
-    pub lpstrCustomFilter: ::windows::core::PSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCSTR,
-    pub lpstrTitle: ::windows::core::PCSTR,
-    pub Flags: u32,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAME_NT4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAME_NT4A {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCSTR,
-    pub lpstrCustomFilter: ::windows::core::PSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCSTR,
-    pub lpstrTitle: ::windows::core::PCSTR,
-    pub Flags: u32,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAME_NT4A {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAME_NT4A {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAME_NT4W {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows::core::PWSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PWSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PWSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCWSTR,
-    pub lpstrTitle: ::windows::core::PCWSTR,
-    pub Flags: u32,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCWSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAME_NT4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct OPENFILENAME_NT4W {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lpstrFilter: ::windows::core::PCWSTR,
-    pub lpstrCustomFilter: ::windows::core::PWSTR,
-    pub nMaxCustFilter: u32,
-    pub nFilterIndex: u32,
-    pub lpstrFile: ::windows::core::PWSTR,
-    pub nMaxFile: u32,
-    pub lpstrFileTitle: ::windows::core::PWSTR,
-    pub nMaxFileTitle: u32,
-    pub lpstrInitialDir: ::windows::core::PCWSTR,
-    pub lpstrTitle: ::windows::core::PCWSTR,
-    pub Flags: u32,
-    pub nFileOffset: u16,
-    pub nFileExtension: u16,
-    pub lpstrDefExt: ::windows::core::PCWSTR,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnHook: LPOFNHOOKPROC,
-    pub lpTemplateName: ::windows::core::PCWSTR,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for OPENFILENAME_NT4W {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for OPENFILENAME_NT4W {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for OPENFILENAME_NT4W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
@@ -2489,214 +1113,6 @@ impl ::core::ops::Not for OPEN_FILENAME_FLAGS_EX {
         Self(self.0.not())
     }
 }
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PAGESETUPDLGA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
-    pub Flags: PAGESETUPDLG_FLAGS,
-    pub ptPaperSize: super::super::super::Foundation::POINT,
-    pub rtMinMargin: super::super::super::Foundation::RECT,
-    pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
-    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows::core::PCSTR,
-    pub hPageSetupTemplate: isize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PAGESETUPDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PAGESETUPDLGA {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
-    pub Flags: PAGESETUPDLG_FLAGS,
-    pub ptPaperSize: super::super::super::Foundation::POINT,
-    pub rtMinMargin: super::super::super::Foundation::RECT,
-    pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
-    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows::core::PCSTR,
-    pub hPageSetupTemplate: isize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PAGESETUPDLGA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PAGESETUPDLGA {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGA {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGA {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PAGESETUPDLGW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
-    pub Flags: PAGESETUPDLG_FLAGS,
-    pub ptPaperSize: super::super::super::Foundation::POINT,
-    pub rtMinMargin: super::super::super::Foundation::RECT,
-    pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
-    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows::core::PCWSTR,
-    pub hPageSetupTemplate: isize,
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PAGESETUPDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
-    type Abi = Self;
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
-    }
-}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PAGESETUPDLGW {
-    pub lStructSize: u32,
-    pub hwndOwner: super::super::super::Foundation::HWND,
-    pub hDevMode: isize,
-    pub hDevNames: isize,
-    pub Flags: PAGESETUPDLG_FLAGS,
-    pub ptPaperSize: super::super::super::Foundation::POINT,
-    pub rtMinMargin: super::super::super::Foundation::RECT,
-    pub rtMargin: super::super::super::Foundation::RECT,
-    pub hInstance: super::super::super::Foundation::HINSTANCE,
-    pub lCustData: super::super::super::Foundation::LPARAM,
-    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
-    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
-    pub lpPageSetupTemplateName: ::windows::core::PCWSTR,
-    pub hPageSetupTemplate: isize,
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for PAGESETUPDLGW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for PAGESETUPDLGW {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
-    type Abi = Self;
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PAGESETUPDLGW {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
-    }
-}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PAGESETUPDLGW {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for PAGESETUPDLGW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
@@ -2787,11 +1203,1798 @@ impl ::core::ops::Not for PAGESETUPDLG_FLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_RESULT_APPLY: u32 = 2u32;
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct PRINTDLGEX_FLAGS(pub u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_RESULT_CANCEL: u32 = 0u32;
+pub const PD_ALLPAGES: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(0u32);
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_RESULT_PRINT: u32 = 1u32;
+pub const PD_COLLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_CURRENTPAGE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(4194304u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_DISABLEPRINTTOFILE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(524288u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_ENABLEPRINTTEMPLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(16384u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_ENABLEPRINTTEMPLATEHANDLE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(65536u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_EXCLUSIONFLAGS: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(16777216u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_HIDEPRINTTOFILE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1048576u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_NOCURRENTPAGE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(8388608u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_NOPAGENUMS: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_NOSELECTION: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_NOWARNING: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_PAGENUMS: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_PRINTTOFILE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_RETURNDC: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_RETURNDEFAULT: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1024u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_RETURNIC: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(512u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_SELECTION: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_USEDEVMODECOPIES: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_USEDEVMODECOPIESANDCOLLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(262144u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_USELARGETEMPLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(268435456u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_ENABLEPRINTHOOK: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(4096u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_ENABLESETUPHOOK: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(8192u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_ENABLESETUPTEMPLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(32768u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_ENABLESETUPTEMPLATEHANDLE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(131072u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_NONETWORKBUTTON: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2097152u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_PRINTSETUP: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+pub const PD_SHOWHELP: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2048u32);
+impl ::core::marker::Copy for PRINTDLGEX_FLAGS {}
+impl ::core::clone::Clone for PRINTDLGEX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for PRINTDLGEX_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for PRINTDLGEX_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRINTDLGEX_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRINTDLGEX_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRINTDLGEX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRINTDLGEX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRINTDLGEX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRINTDLGEX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRINTDLGEX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHOOSECOLORA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HWND,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCCHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHOOSECOLORA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHOOSECOLORA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CHOOSECOLORA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CHOOSECOLORA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CHOOSECOLORA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CHOOSECOLORA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHOOSECOLORA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HWND,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCCHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHOOSECOLORA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHOOSECOLORA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CHOOSECOLORA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CHOOSECOLORA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CHOOSECOLORA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CHOOSECOLORA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHOOSECOLORW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HWND,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCCHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHOOSECOLORW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHOOSECOLORW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CHOOSECOLORW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CHOOSECOLORW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CHOOSECOLORW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CHOOSECOLORW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct CHOOSECOLORW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HWND,
+    pub rgbResult: super::super::super::Foundation::COLORREF,
+    pub lpCustColors: *mut super::super::super::Foundation::COLORREF,
+    pub Flags: CHOOSECOLOR_FLAGS,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCCHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for CHOOSECOLORW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CHOOSECOLORW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CHOOSECOLORW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CHOOSECOLORW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CHOOSECOLORW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for CHOOSECOLORW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CHOOSEFONTA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDC: super::super::super::Graphics::Gdi::HDC,
+    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
+    pub iPointSize: i32,
+    pub Flags: CHOOSEFONT_FLAGS,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCFHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpszStyle: ::windows::core::PSTR,
+    pub nFontType: CHOOSEFONT_FONT_TYPE,
+    pub ___MISSING_ALIGNMENT__: u16,
+    pub nSizeMin: i32,
+    pub nSizeMax: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CHOOSEFONTA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CHOOSEFONTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for CHOOSEFONTA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for CHOOSEFONTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for CHOOSEFONTA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for CHOOSEFONTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CHOOSEFONTA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDC: super::super::super::Graphics::Gdi::HDC,
+    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTA,
+    pub iPointSize: i32,
+    pub Flags: CHOOSEFONT_FLAGS,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCFHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpszStyle: ::windows::core::PSTR,
+    pub nFontType: CHOOSEFONT_FONT_TYPE,
+    pub ___MISSING_ALIGNMENT__: u16,
+    pub nSizeMin: i32,
+    pub nSizeMax: i32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CHOOSEFONTA {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CHOOSEFONTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for CHOOSEFONTA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for CHOOSEFONTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for CHOOSEFONTA {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for CHOOSEFONTA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CHOOSEFONTW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDC: super::super::super::Graphics::Gdi::HDC,
+    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
+    pub iPointSize: i32,
+    pub Flags: CHOOSEFONT_FLAGS,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCFHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpszStyle: ::windows::core::PWSTR,
+    pub nFontType: CHOOSEFONT_FONT_TYPE,
+    pub ___MISSING_ALIGNMENT__: u16,
+    pub nSizeMin: i32,
+    pub nSizeMax: i32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CHOOSEFONTW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CHOOSEFONTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for CHOOSEFONTW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for CHOOSEFONTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for CHOOSEFONTW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for CHOOSEFONTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct CHOOSEFONTW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDC: super::super::super::Graphics::Gdi::HDC,
+    pub lpLogFont: *mut super::super::super::Graphics::Gdi::LOGFONTW,
+    pub iPointSize: i32,
+    pub Flags: CHOOSEFONT_FLAGS,
+    pub rgbColors: super::super::super::Foundation::COLORREF,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPCFHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpszStyle: ::windows::core::PWSTR,
+    pub nFontType: CHOOSEFONT_FONT_TYPE,
+    pub ___MISSING_ALIGNMENT__: u16,
+    pub nSizeMin: i32,
+    pub nSizeMax: i32,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for CHOOSEFONTW {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for CHOOSEFONTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for CHOOSEFONTW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for CHOOSEFONTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for CHOOSEFONTW {}
+#[cfg(target_arch = "x86")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for CHOOSEFONTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+pub struct DEVNAMES {
+    pub wDriverOffset: u16,
+    pub wDeviceOffset: u16,
+    pub wOutputOffset: u16,
+    pub wDefault: u16,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::marker::Copy for DEVNAMES {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::clone::Clone for DEVNAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+unsafe impl ::windows::core::Abi for DEVNAMES {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::PartialEq for DEVNAMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::cmp::Eq for DEVNAMES {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+impl ::core::default::Default for DEVNAMES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
+#[cfg(target_arch = "x86")]
+pub struct DEVNAMES {
+    pub wDriverOffset: u16,
+    pub wDeviceOffset: u16,
+    pub wOutputOffset: u16,
+    pub wDefault: u16,
+}
+#[cfg(target_arch = "x86")]
+impl ::core::marker::Copy for DEVNAMES {}
+#[cfg(target_arch = "x86")]
+impl ::core::clone::Clone for DEVNAMES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+unsafe impl ::windows::core::Abi for DEVNAMES {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::PartialEq for DEVNAMES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+impl ::core::cmp::Eq for DEVNAMES {}
+#[cfg(target_arch = "x86")]
+impl ::core::default::Default for DEVNAMES {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FINDREPLACEA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub Flags: FINDREPLACE_FLAGS,
+    pub lpstrFindWhat: ::windows::core::PSTR,
+    pub lpstrReplaceWith: ::windows::core::PSTR,
+    pub wFindWhatLen: u16,
+    pub wReplaceWithLen: u16,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPFRHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDREPLACEA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDREPLACEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FINDREPLACEA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FINDREPLACEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FINDREPLACEA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for FINDREPLACEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FINDREPLACEA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub Flags: FINDREPLACE_FLAGS,
+    pub lpstrFindWhat: ::windows::core::PSTR,
+    pub lpstrReplaceWith: ::windows::core::PSTR,
+    pub wFindWhatLen: u16,
+    pub wReplaceWithLen: u16,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPFRHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDREPLACEA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDREPLACEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FINDREPLACEA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FINDREPLACEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FINDREPLACEA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for FINDREPLACEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FINDREPLACEW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub Flags: FINDREPLACE_FLAGS,
+    pub lpstrFindWhat: ::windows::core::PWSTR,
+    pub lpstrReplaceWith: ::windows::core::PWSTR,
+    pub wFindWhatLen: u16,
+    pub wReplaceWithLen: u16,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPFRHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDREPLACEW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDREPLACEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FINDREPLACEW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FINDREPLACEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FINDREPLACEW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for FINDREPLACEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct FINDREPLACEW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub Flags: FINDREPLACE_FLAGS,
+    pub lpstrFindWhat: ::windows::core::PWSTR,
+    pub lpstrReplaceWith: ::windows::core::PWSTR,
+    pub wFindWhatLen: u16,
+    pub wReplaceWithLen: u16,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPFRHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for FINDREPLACEW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FINDREPLACEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FINDREPLACEW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FINDREPLACEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FINDREPLACEW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for FINDREPLACEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYA {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEA,
+    pub pszFile: ::windows::core::PSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYA {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEA,
+    pub pszFile: ::windows::core::PSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYEXA {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEA,
+    pub psf: *mut ::core::ffi::c_void,
+    pub pidl: *mut ::core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYEXA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYEXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYEXA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYEXA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYEXA {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEA,
+    pub psf: *mut ::core::ffi::c_void,
+    pub pidl: *mut ::core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYEXA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYEXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYEXA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYEXA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYEXW {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEW,
+    pub psf: *mut ::core::ffi::c_void,
+    pub pidl: *mut ::core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYEXW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYEXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYEXW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYEXW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYEXW {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEW,
+    pub psf: *mut ::core::ffi::c_void,
+    pub pidl: *mut ::core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYEXW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYEXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYEXW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYEXW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYW {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEW,
+    pub pszFile: ::windows::core::PWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OFNOTIFYW {
+    pub hdr: super::NMHDR,
+    pub lpOFN: *mut OPENFILENAMEW,
+    pub pszFile: ::windows::core::PWSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OFNOTIFYW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OFNOTIFYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OFNOTIFYW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OFNOTIFYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OFNOTIFYW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OFNOTIFYW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAMEA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCSTR,
+    pub lpstrCustomFilter: ::windows::core::PSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCSTR,
+    pub lpstrTitle: ::windows::core::PCSTR,
+    pub Flags: OPEN_FILENAME_FLAGS,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub dwReserved: u32,
+    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAMEA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAMEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAMEA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAMEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAMEA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAMEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAMEA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCSTR,
+    pub lpstrCustomFilter: ::windows::core::PSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCSTR,
+    pub lpstrTitle: ::windows::core::PCSTR,
+    pub Flags: OPEN_FILENAME_FLAGS,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub dwReserved: u32,
+    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAMEA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAMEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAMEA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAMEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAMEA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAMEA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAMEW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCWSTR,
+    pub lpstrCustomFilter: ::windows::core::PWSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PWSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PWSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCWSTR,
+    pub lpstrTitle: ::windows::core::PCWSTR,
+    pub Flags: OPEN_FILENAME_FLAGS,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCWSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub dwReserved: u32,
+    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAMEW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAMEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAMEW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAMEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAMEW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAMEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAMEW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCWSTR,
+    pub lpstrCustomFilter: ::windows::core::PWSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PWSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PWSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCWSTR,
+    pub lpstrTitle: ::windows::core::PCWSTR,
+    pub Flags: OPEN_FILENAME_FLAGS,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCWSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+    pub pvReserved: *mut ::core::ffi::c_void,
+    pub dwReserved: u32,
+    pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAMEW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAMEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAMEW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAMEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAMEW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAMEW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAME_NT4A {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCSTR,
+    pub lpstrCustomFilter: ::windows::core::PSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCSTR,
+    pub lpstrTitle: ::windows::core::PCSTR,
+    pub Flags: u32,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAME_NT4A {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAME_NT4A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAME_NT4A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAME_NT4A {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCSTR,
+    pub lpstrCustomFilter: ::windows::core::PSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCSTR,
+    pub lpstrTitle: ::windows::core::PCSTR,
+    pub Flags: u32,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAME_NT4A {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAME_NT4A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAME_NT4A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAME_NT4W {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCWSTR,
+    pub lpstrCustomFilter: ::windows::core::PWSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PWSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PWSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCWSTR,
+    pub lpstrTitle: ::windows::core::PCWSTR,
+    pub Flags: u32,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCWSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAME_NT4W {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAME_NT4W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAME_NT4W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct OPENFILENAME_NT4W {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lpstrFilter: ::windows::core::PCWSTR,
+    pub lpstrCustomFilter: ::windows::core::PWSTR,
+    pub nMaxCustFilter: u32,
+    pub nFilterIndex: u32,
+    pub lpstrFile: ::windows::core::PWSTR,
+    pub nMaxFile: u32,
+    pub lpstrFileTitle: ::windows::core::PWSTR,
+    pub nMaxFileTitle: u32,
+    pub lpstrInitialDir: ::windows::core::PCWSTR,
+    pub lpstrTitle: ::windows::core::PCWSTR,
+    pub Flags: u32,
+    pub nFileOffset: u16,
+    pub nFileExtension: u16,
+    pub lpstrDefExt: ::windows::core::PCWSTR,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnHook: LPOFNHOOKPROC,
+    pub lpTemplateName: ::windows::core::PCWSTR,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for OPENFILENAME_NT4W {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for OPENFILENAME_NT4W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for OPENFILENAME_NT4W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PAGESETUPDLGA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDevMode: isize,
+    pub hDevNames: isize,
+    pub Flags: PAGESETUPDLG_FLAGS,
+    pub ptPaperSize: super::super::super::Foundation::POINT,
+    pub rtMinMargin: super::super::super::Foundation::RECT,
+    pub rtMargin: super::super::super::Foundation::RECT,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
+    pub lpPageSetupTemplateName: ::windows::core::PCSTR,
+    pub hPageSetupTemplate: isize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PAGESETUPDLGA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PAGESETUPDLGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PAGESETUPDLGA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PAGESETUPDLGA {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PAGESETUPDLGA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PAGESETUPDLGA {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDevMode: isize,
+    pub hDevNames: isize,
+    pub Flags: PAGESETUPDLG_FLAGS,
+    pub ptPaperSize: super::super::super::Foundation::POINT,
+    pub rtMinMargin: super::super::super::Foundation::RECT,
+    pub rtMargin: super::super::super::Foundation::RECT,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
+    pub lpPageSetupTemplateName: ::windows::core::PCSTR,
+    pub hPageSetupTemplate: isize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PAGESETUPDLGA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PAGESETUPDLGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PAGESETUPDLGA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PAGESETUPDLGA {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PAGESETUPDLGA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PAGESETUPDLGW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDevMode: isize,
+    pub hDevNames: isize,
+    pub Flags: PAGESETUPDLG_FLAGS,
+    pub ptPaperSize: super::super::super::Foundation::POINT,
+    pub rtMinMargin: super::super::super::Foundation::RECT,
+    pub rtMargin: super::super::super::Foundation::RECT,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
+    pub lpPageSetupTemplateName: ::windows::core::PCWSTR,
+    pub hPageSetupTemplate: isize,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PAGESETUPDLGW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PAGESETUPDLGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PAGESETUPDLGW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PAGESETUPDLGW {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PAGESETUPDLGW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+pub struct PAGESETUPDLGW {
+    pub lStructSize: u32,
+    pub hwndOwner: super::super::super::Foundation::HWND,
+    pub hDevMode: isize,
+    pub hDevNames: isize,
+    pub Flags: PAGESETUPDLG_FLAGS,
+    pub ptPaperSize: super::super::super::Foundation::POINT,
+    pub rtMinMargin: super::super::super::Foundation::RECT,
+    pub rtMargin: super::super::super::Foundation::RECT,
+    pub hInstance: super::super::super::Foundation::HINSTANCE,
+    pub lCustData: super::super::super::Foundation::LPARAM,
+    pub lpfnPageSetupHook: LPPAGESETUPHOOK,
+    pub lpfnPagePaintHook: LPPAGEPAINTHOOK,
+    pub lpPageSetupTemplateName: ::windows::core::PCWSTR,
+    pub hPageSetupTemplate: isize,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for PAGESETUPDLGW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PAGESETUPDLGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
+    type Abi = Self;
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PAGESETUPDLGW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
+    }
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PAGESETUPDLGW {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for PAGESETUPDLGW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3200,113 +3403,6 @@ impl ::core::default::Default for PRINTDLGEXW {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct PRINTDLGEX_FLAGS(pub u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ALLPAGES: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(0u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_COLLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(16u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_CURRENTPAGE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(4194304u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_DISABLEPRINTTOFILE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(524288u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ENABLEPRINTTEMPLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(16384u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ENABLEPRINTTEMPLATEHANDLE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(65536u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_EXCLUSIONFLAGS: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(16777216u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_HIDEPRINTTOFILE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1048576u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_NOCURRENTPAGE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(8388608u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_NOPAGENUMS: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(8u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_NOSELECTION: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(4u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_NOWARNING: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(128u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_PAGENUMS: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_PRINTTOFILE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(32u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_RETURNDC: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(256u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_RETURNDEFAULT: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1024u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_RETURNIC: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(512u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_SELECTION: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(1u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_USEDEVMODECOPIES: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_USEDEVMODECOPIESANDCOLLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(262144u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_USELARGETEMPLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(268435456u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ENABLEPRINTHOOK: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(4096u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ENABLESETUPHOOK: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(8192u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ENABLESETUPTEMPLATE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(32768u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_ENABLESETUPTEMPLATEHANDLE: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(131072u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_NONETWORKBUTTON: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2097152u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_PRINTSETUP: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(64u32);
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PD_SHOWHELP: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(2048u32);
-impl ::core::marker::Copy for PRINTDLGEX_FLAGS {}
-impl ::core::clone::Clone for PRINTDLGEX_FLAGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PRINTDLGEX_FLAGS {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PRINTDLGEX_FLAGS {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PRINTDLGEX_FLAGS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PRINTDLGEX_FLAGS").field(&self.0).finish()
-    }
-}
-impl ::core::ops::BitOr for PRINTDLGEX_FLAGS {
-    type Output = Self;
-    fn bitor(self, other: Self) -> Self {
-        Self(self.0 | other.0)
-    }
-}
-impl ::core::ops::BitAnd for PRINTDLGEX_FLAGS {
-    type Output = Self;
-    fn bitand(self, other: Self) -> Self {
-        Self(self.0 & other.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PRINTDLGEX_FLAGS {
-    fn bitor_assign(&mut self, other: Self) {
-        self.0.bitor_assign(other.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PRINTDLGEX_FLAGS {
-    fn bitand_assign(&mut self, other: Self) {
-        self.0.bitand_assign(other.0)
-    }
-}
-impl ::core::ops::Not for PRINTDLGEX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3487,125 +3583,29 @@ impl ::core::default::Default for PRINTPAGERANGE {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const PS_OPENTYPE_FONTTYPE: u32 = 65536u32;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PageSetupDlgA(param0: &mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::Foundation::BOOL;
-    }
-    PageSetupDlgA(::core::mem::transmute(param0))
-}
+pub type LPCCHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn PageSetupDlgW(param0: &mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::Foundation::BOOL;
-    }
-    PageSetupDlgW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn PrintDlgA(ppd: &mut PRINTDLGA) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation::BOOL;
-    }
-    PrintDlgA(::core::mem::transmute(ppd))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn PrintDlgExA(ppd: &mut PRINTDLGEXA) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::core::HRESULT;
-    }
-    PrintDlgExA(::core::mem::transmute(ppd)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn PrintDlgExW(ppd: &mut PRINTDLGEXW) -> ::windows::core::Result<()> {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::core::HRESULT;
-    }
-    PrintDlgExW(::core::mem::transmute(ppd)).ok()
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-#[inline]
-pub unsafe fn PrintDlgW(ppd: &mut PRINTDLGW) -> super::super::super::Foundation::BOOL {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation::BOOL;
-    }
-    PrintDlgW(::core::mem::transmute(ppd))
-}
+pub type LPCFHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReplaceTextA(param0: &mut FINDREPLACEA) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Foundation::HWND;
-    }
-    ReplaceTextA(::core::mem::transmute(param0))
-}
+pub type LPFRHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn ReplaceTextW(param0: &mut FINDREPLACEW) -> super::super::super::Foundation::HWND {
-    #[cfg_attr(windows, link(name = "windows"))]
-    extern "system" {
-        fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Foundation::HWND;
-    }
-    ReplaceTextW(::core::mem::transmute(param0))
-}
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SETRGBSTRING: &str = "commdlg_SetRGBColor";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SETRGBSTRINGA: &str = "commdlg_SetRGBColor";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SETRGBSTRINGW: &str = "commdlg_SetRGBColor";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SHAREVISTRING: &str = "commdlg_ShareViolation";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SHAREVISTRINGA: &str = "commdlg_ShareViolation";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SHAREVISTRINGW: &str = "commdlg_ShareViolation";
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const START_PAGE_GENERAL: u32 = 4294967295u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const SYMBOL_FONTTYPE: u32 = 524288u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const TT_OPENTYPE_FONTTYPE: u32 = 131072u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const TYPE1_FONTTYPE: u32 = 262144u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_CHOOSEFONT_GETLOGFONT: u32 = 1025u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_CHOOSEFONT_SETFLAGS: u32 = 1126u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_CHOOSEFONT_SETLOGFONT: u32 = 1125u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_PSD_ENVSTAMPRECT: u32 = 1029u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_PSD_FULLPAGERECT: u32 = 1025u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_PSD_GREEKTEXTRECT: u32 = 1028u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_PSD_MARGINRECT: u32 = 1027u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_PSD_MINMARGINRECT: u32 = 1026u32;
-#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`*"]
-pub const WM_PSD_YAFULLPAGERECT: u32 = 1030u32;
+pub type LPOFNHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPAGEPAINTHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPAGESETUPHOOK = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPPRINTHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
+#[doc = "*Required features: `\"Win32_UI_Controls_Dialogs\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize>;
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -1,77 +1,3 @@
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    pub u32Size: u32,
-    pub u32TSSessionId: u32,
-    pub targetEndpointConnectorType: EndpointConnectorType,
-    pub wfxDeviceFormat: super::WAVEFORMATEX,
-}
-impl ::core::marker::Copy for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
-impl ::core::clone::Clone for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIO_ENDPOINT_SHARED_CREATE_PARAMS>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
-impl ::core::default::Default for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4u32 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2u32 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1u32 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
-#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
-pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3u32 };
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-#[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct EndpointConnectorType(pub i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
-#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
-pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
-impl ::core::marker::Copy for EndpointConnectorType {}
-impl ::core::clone::Clone for EndpointConnectorType {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for EndpointConnectorType {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for EndpointConnectorType {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for EndpointConnectorType {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EndpointConnectorType").field(&self.0).finish()
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
 #[repr(transparent)]
 pub struct IAudioEndpointFormatControl(::windows::core::IUnknown);
@@ -921,6 +847,80 @@ pub struct IHardwareAudioEngineBase_Vtbl {
     pub GetGfxState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevice: *mut ::core::ffi::c_void, _pbenable: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     GetGfxState: usize,
+}
+pub const DEVINTERFACE_AUDIOENDPOINTPLUGIN: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f2f7b66_65ac_4fa6_8ae4_123c78b89313);
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const DEVPKEY_AudioEndpointPlugin2_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 4u32 };
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const DEVPKEY_AudioEndpointPlugin_DataFlow: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 2u32 };
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 1u32 };
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3u32 };
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct EndpointConnectorType(pub i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
+impl ::core::marker::Copy for EndpointConnectorType {}
+impl ::core::clone::Clone for EndpointConnectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for EndpointConnectorType {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for EndpointConnectorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EndpointConnectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EndpointConnectorType").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_Audio_Endpoints\"`*"]
+pub struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    pub u32Size: u32,
+    pub u32TSSessionId: u32,
+    pub targetEndpointConnectorType: EndpointConnectorType,
+    pub wfxDeviceFormat: super::WAVEFORMATEX,
+}
+impl ::core::marker::Copy for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
+impl ::core::clone::Clone for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIO_ENDPOINT_SHARED_CREATE_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {}
+impl ::core::default::Default for AUDIO_ENDPOINT_SHARED_CREATE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

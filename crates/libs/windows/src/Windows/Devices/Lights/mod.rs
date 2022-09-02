@@ -655,49 +655,6 @@ unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
-#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
-pub struct LampArrayKind(pub i32);
-impl LampArrayKind {
-    pub const Undefined: Self = Self(0i32);
-    pub const Keyboard: Self = Self(1i32);
-    pub const Mouse: Self = Self(2i32);
-    pub const GameController: Self = Self(3i32);
-    pub const Peripheral: Self = Self(4i32);
-    pub const Scene: Self = Self(5i32);
-    pub const Notification: Self = Self(6i32);
-    pub const Chassis: Self = Self(7i32);
-    pub const Wearable: Self = Self(8i32);
-    pub const Furniture: Self = Self(9i32);
-    pub const Art: Self = Self(10i32);
-}
-impl ::core::marker::Copy for LampArrayKind {}
-impl ::core::clone::Clone for LampArrayKind {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for LampArrayKind {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for LampArrayKind {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for LampArrayKind {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("LampArrayKind").field(&self.0).finish()
-    }
-}
-unsafe impl ::windows::core::RuntimeType for LampArrayKind {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
-    type DefaultType = Self;
-    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
-        Ok(*from)
-    }
-}
-#[doc = "*Required features: `\"Devices_Lights\"`*"]
-#[repr(transparent)]
 pub struct LampAvailabilityChangedEventArgs(::windows::core::IUnknown);
 impl LampAvailabilityChangedEventArgs {
     pub fn IsAvailable(&self) -> ::windows::core::Result<bool> {
@@ -915,6 +872,49 @@ impl ::core::convert::From<&LampInfo> for &::windows::core::IInspectable {
 }
 unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
+#[doc = "*Required features: `\"Devices_Lights\"`*"]
+#[repr(transparent)]
+#[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+pub struct LampArrayKind(pub i32);
+impl LampArrayKind {
+    pub const Undefined: Self = Self(0i32);
+    pub const Keyboard: Self = Self(1i32);
+    pub const Mouse: Self = Self(2i32);
+    pub const GameController: Self = Self(3i32);
+    pub const Peripheral: Self = Self(4i32);
+    pub const Scene: Self = Self(5i32);
+    pub const Notification: Self = Self(6i32);
+    pub const Chassis: Self = Self(7i32);
+    pub const Wearable: Self = Self(8i32);
+    pub const Furniture: Self = Self(9i32);
+    pub const Art: Self = Self(10i32);
+}
+impl ::core::marker::Copy for LampArrayKind {}
+impl ::core::clone::Clone for LampArrayKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for LampArrayKind {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for LampArrayKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LampArrayKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LampArrayKind").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::RuntimeType for LampArrayKind {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Devices.Lights.LampArrayKind;i4)");
+    type DefaultType = Self;
+    fn from_default(from: &Self::DefaultType) -> ::windows::core::Result<Self> {
+        Ok(*from)
+    }
+}
 #[doc = "*Required features: `\"Devices_Lights\"`*"]
 #[repr(transparent)]
 #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]

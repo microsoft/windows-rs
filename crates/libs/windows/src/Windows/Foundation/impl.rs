@@ -180,60 +180,6 @@ impl IAsyncInfo_Vtbl {
         iid == &<IAsyncInfo as ::windows::core::Interface>::IID
     }
 }
-pub trait IAsyncOperation_Impl<TResult>: Sized + IAsyncInfo_Impl
-where
-    TResult: ::windows::core::RuntimeType + 'static,
-{
-    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
-    fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
-    fn GetResults(&self) -> ::windows::core::Result<TResult>;
-}
-impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncOperation<TResult> {
-    const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
-}
-impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>() -> IAsyncOperation_Vtbl<TResult> {
-        unsafe extern "system" fn SetCompleted<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetCompleted(::core::mem::transmute(&handler)).into()
-        }
-        unsafe extern "system" fn Completed<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.Completed() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetResults<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.GetResults() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperation<TResult>, OFFSET>(),
-            SetCompleted: SetCompleted::<TResult, Identity, Impl, OFFSET>,
-            Completed: Completed::<TResult, Identity, Impl, OFFSET>,
-            GetResults: GetResults::<TResult, Identity, Impl, OFFSET>,
-            TResult: ::core::marker::PhantomData::<TResult>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAsyncOperation<TResult> as ::windows::core::Interface>::IID
-    }
-}
 pub trait IAsyncOperationWithProgress_Impl<TResult, TProgress>: Sized + IAsyncInfo_Impl
 where
     TResult: ::windows::core::RuntimeType + 'static,
@@ -309,6 +255,60 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAsyncOperation_Impl<TResult>: Sized + IAsyncInfo_Impl
+where
+    TResult: ::windows::core::RuntimeType + 'static,
+{
+    fn SetCompleted(&self, handler: &::core::option::Option<AsyncOperationCompletedHandler<TResult>>) -> ::windows::core::Result<()>;
+    fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>>;
+    fn GetResults(&self) -> ::windows::core::Result<TResult>;
+}
+impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IAsyncOperation<TResult> {
+    const NAME: &'static str = "Windows.Foundation.IAsyncOperation";
+}
+impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>() -> IAsyncOperation_Vtbl<TResult> {
+        unsafe extern "system" fn SetCompleted<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            this.SetCompleted(::core::mem::transmute(&handler)).into()
+        }
+        unsafe extern "system" fn Completed<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Completed() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        unsafe extern "system" fn GetResults<TResult: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAsyncOperation_Impl<TResult>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <TResult as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.GetResults() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperation<TResult>, OFFSET>(),
+            SetCompleted: SetCompleted::<TResult, Identity, Impl, OFFSET>,
+            Completed: Completed::<TResult, Identity, Impl, OFFSET>,
+            GetResults: GetResults::<TResult, Identity, Impl, OFFSET>,
+            TResult: ::core::marker::PhantomData::<TResult>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAsyncOperation<TResult> as ::windows::core::Interface>::IID
     }
 }
 pub trait IClosable_Impl: Sized {
@@ -863,39 +863,6 @@ impl IPropertyValue_Vtbl {
         iid == &<IPropertyValue as ::windows::core::Interface>::IID
     }
 }
-pub trait IReference_Impl<T>: Sized + IPropertyValue_Impl
-where
-    T: ::windows::core::RuntimeType + 'static,
-{
-    fn Value(&self) -> ::windows::core::Result<T>;
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IReference<T> {
-    const NAME: &'static str = "Windows.Foundation.IReference";
-}
-impl<T: ::windows::core::RuntimeType + 'static> IReference_Vtbl<T> {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>() -> IReference_Vtbl<T> {
-        unsafe extern "system" fn Value<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            match this.Value() {
-                ::core::result::Result::Ok(ok__) => {
-                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self {
-            base__: ::windows::core::IInspectableVtbl::new::<Identity, IReference<T>, OFFSET>(),
-            Value: Value::<T, Identity, Impl, OFFSET>,
-            T: ::core::marker::PhantomData::<T>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IReference<T> as ::windows::core::Interface>::IID
-    }
-}
 pub trait IReferenceArray_Impl<T>: Sized + IPropertyValue_Impl
 where
     T: ::windows::core::RuntimeType + 'static,
@@ -928,6 +895,39 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray_Vtbl<T> {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReferenceArray<T> as ::windows::core::Interface>::IID
+    }
+}
+pub trait IReference_Impl<T>: Sized + IPropertyValue_Impl
+where
+    T: ::windows::core::RuntimeType + 'static,
+{
+    fn Value(&self) -> ::windows::core::Result<T>;
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeName for IReference<T> {
+    const NAME: &'static str = "Windows.Foundation.IReference";
+}
+impl<T: ::windows::core::RuntimeType + 'static> IReference_Vtbl<T> {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>() -> IReference_Vtbl<T> {
+        unsafe extern "system" fn Value<T: ::windows::core::RuntimeType + 'static, Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReference_Impl<T>, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT {
+            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
+            let this = (*this).get_impl();
+            match this.Value() {
+                ::core::result::Result::Ok(ok__) => {
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base__: ::windows::core::IInspectableVtbl::new::<Identity, IReference<T>, OFFSET>(),
+            Value: Value::<T, Identity, Impl, OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReference<T> as ::windows::core::Interface>::IID
     }
 }
 pub trait IStringable_Impl: Sized {
